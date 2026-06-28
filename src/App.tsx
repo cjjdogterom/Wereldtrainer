@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type SetStateAction } from 'react'
-import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, RotateCcw, Target, X } from 'lucide-react'
+import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, Menu, RotateCcw, Target, X } from 'lucide-react'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
 import mediumGeoUrl from 'world-atlas/countries-50m.json?url'
 import worldGeoUrl from 'world-atlas/countries-110m.json?url'
@@ -235,6 +235,7 @@ function App() {
   const [previousQuestion, setPreviousQuestion] = useState<Question | null>(null)
   const [showPreviousQuestion, setShowPreviousQuestion] = useState(false)
   const [session, setSession] = useState<SessionStats | null>(null)
+  const [settingsOpen, setSettingsOpen] = useState(false)
   const progressRef = useRef(progress)
 
   const pool = useMemo(
@@ -428,110 +429,130 @@ function App() {
   return (
     <main className="app-shell">
       <aside className="sidebar" aria-label="Instellingen">
-        <div className="brand">
-          <Globe2 size={28} aria-hidden="true" />
-          <div>
-            <h1>Wereldtrainer</h1>
-            <p>{countries.length} landen om te leren</p>
-          </div>
-        </div>
-
-        <section className="control-group" aria-labelledby="continent-title">
-          <h2 id="continent-title">Gebied</h2>
-          <div className="button-grid">
-            {continents.map((item) => (
-              <button className={item === continent ? 'is-active' : ''} type="button" key={item} onClick={() => setContinent(item)}>
-                {item}
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <section className="control-group" aria-labelledby="mode-title">
-          <h2 id="mode-title">Training</h2>
-          <div className="button-grid compact">
-            {(['landen', 'vlaggen', 'hoofdsteden', 'gemengd', 'combo'] as TrainerMode[]).map((item) => (
-              <button className={item === mode ? 'is-active' : ''} type="button" key={item} onClick={() => setMode(item)}>
-                {modeLabels[item]}
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <section className="control-group session-ctrl-group" aria-labelledby="session-ctrl-title">
-          <h2 id="session-ctrl-title">Trainingsessie</h2>
-          {session === null ? (
-            <button type="button" className="session-start-btn" onClick={startSession}>
-              <GraduationCap size={15} aria-hidden="true" />
-              Sessie starten
-            </button>
-          ) : (
-            <div className="session-sidebar-status">
-              {sessionComplete ? (
-                <span className="session-done-pill">
-                  <Check size={13} aria-hidden="true" /> Sessie klaar!
-                </span>
-              ) : (
-                <>
-                  <div className="session-bar-wrap">
-                    <div
-                      className="session-bar-fill"
-                      style={{ width: `${Math.round(((pool.length - (sessionActivePool?.length ?? pool.length)) / pool.length) * 100)}%` }}
-                    />
-                  </div>
-                  <span className="session-count">
-                    {pool.length - (sessionActivePool?.length ?? pool.length)} / {pool.length} klaar
-                  </span>
-                </>
-              )}
-              <button type="button" className="session-stop-btn" onClick={stopSession}>
-                Stoppen
-              </button>
+        {/* sidebar-head: always visible; on mobile = compact top bar */}
+        <div className="sidebar-head">
+          <div className="brand">
+            <Globe2 size={28} aria-hidden="true" />
+            <div>
+              <h1>Wereldtrainer</h1>
+              <p>{countries.length} landen om te leren</p>
             </div>
-          )}
-        </section>
-
-        {mode !== 'combo' && (
-          <section className="control-group" aria-labelledby="clues-title">
-            <h2 id="clues-title">Toon bij vraag</h2>
-            <ClueControls mode={mode} clues={clues} toggleClue={toggleClue} />
-          </section>
-        )}
-
-        <nav className="nav-tabs" aria-label="Schermen">
-          <button className={screen === 'oefenen' ? 'is-active' : ''} type="button" onClick={() => setScreen('oefenen')} title="Oefenen">
-            <Target size={18} aria-hidden="true" />
-            Oefenen
-          </button>
-          <button className={screen === 'leren' ? 'is-active' : ''} type="button" onClick={() => setScreen('leren')} title="Leren">
-            <BookOpen size={18} aria-hidden="true" />
-            Leren
-          </button>
-          <button className={screen === 'kaart' ? 'is-active' : ''} type="button" onClick={() => setScreen('kaart')} title="Kaart">
-            <MapIcon size={18} aria-hidden="true" />
-            Kaart
-          </button>
-        </nav>
-
-        <div className="summary">
-          <div>
-            <strong>{summary.average}%</strong>
-            <span>gemiddeld</span>
           </div>
-          <div>
-            <strong>{summary.mastered}</strong>
-            <span>sterk</span>
-          </div>
-          <div>
-            <strong>{summary.trained}</strong>
-            <span>geoefend</span>
-          </div>
+          <button
+            className="sidebar-toggle"
+            type="button"
+            onClick={() => setSettingsOpen((s) => !s)}
+            aria-label="Instellingen openen"
+            aria-expanded={settingsOpen}
+          >
+            <Menu size={20} aria-hidden="true" />
+            Instellingen
+          </button>
         </div>
 
-        <button className="reset-button" type="button" onClick={clearProgress}>
-          <RotateCcw size={16} aria-hidden="true" />
-          Voortgang wissen
-        </button>
+        {/* sidebar-body: always visible on desktop; drawer overlay on mobile */}
+        <div className={`sidebar-body${settingsOpen ? ' is-open' : ''}`}>
+          <button className="drawer-close" type="button" onClick={() => setSettingsOpen(false)}>
+            <X size={18} aria-hidden="true" /> Sluiten
+          </button>
+
+          <section className="control-group" aria-labelledby="continent-title">
+            <h2 id="continent-title">Gebied</h2>
+            <div className="button-grid">
+              {continents.map((item) => (
+                <button className={item === continent ? 'is-active' : ''} type="button" key={item} onClick={() => { setContinent(item); setSettingsOpen(false) }}>
+                  {item}
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section className="control-group" aria-labelledby="mode-title">
+            <h2 id="mode-title">Training</h2>
+            <div className="button-grid compact">
+              {(['landen', 'vlaggen', 'hoofdsteden', 'gemengd', 'combo'] as TrainerMode[]).map((item) => (
+                <button className={item === mode ? 'is-active' : ''} type="button" key={item} onClick={() => { setMode(item); setSettingsOpen(false) }}>
+                  {modeLabels[item]}
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section className="control-group session-ctrl-group" aria-labelledby="session-ctrl-title">
+            <h2 id="session-ctrl-title">Trainingsessie</h2>
+            {session === null ? (
+              <button type="button" className="session-start-btn" onClick={() => { startSession(); setSettingsOpen(false) }}>
+                <GraduationCap size={15} aria-hidden="true" />
+                Sessie starten
+              </button>
+            ) : (
+              <div className="session-sidebar-status">
+                {sessionComplete ? (
+                  <span className="session-done-pill">
+                    <Check size={13} aria-hidden="true" /> Sessie klaar!
+                  </span>
+                ) : (
+                  <>
+                    <div className="session-bar-wrap">
+                      <div
+                        className="session-bar-fill"
+                        style={{ width: `${Math.round(((pool.length - (sessionActivePool?.length ?? pool.length)) / pool.length) * 100)}%` }}
+                      />
+                    </div>
+                    <span className="session-count">
+                      {pool.length - (sessionActivePool?.length ?? pool.length)} / {pool.length} klaar
+                    </span>
+                  </>
+                )}
+                <button type="button" className="session-stop-btn" onClick={stopSession}>
+                  Stoppen
+                </button>
+              </div>
+            )}
+          </section>
+
+          {mode !== 'combo' && (
+            <section className="control-group" aria-labelledby="clues-title">
+              <h2 id="clues-title">Toon bij vraag</h2>
+              <ClueControls mode={mode} clues={clues} toggleClue={toggleClue} />
+            </section>
+          )}
+
+          <nav className="nav-tabs" aria-label="Schermen">
+            <button className={screen === 'oefenen' ? 'is-active' : ''} type="button" onClick={() => { setScreen('oefenen'); setSettingsOpen(false) }} title="Oefenen">
+              <Target size={18} aria-hidden="true" />
+              Oefenen
+            </button>
+            <button className={screen === 'leren' ? 'is-active' : ''} type="button" onClick={() => { setScreen('leren'); setSettingsOpen(false) }} title="Leren">
+              <BookOpen size={18} aria-hidden="true" />
+              Leren
+            </button>
+            <button className={screen === 'kaart' ? 'is-active' : ''} type="button" onClick={() => { setScreen('kaart'); setSettingsOpen(false) }} title="Kaart">
+              <MapIcon size={18} aria-hidden="true" />
+              Kaart
+            </button>
+          </nav>
+
+          <div className="summary">
+            <div>
+              <strong>{summary.average}%</strong>
+              <span>gemiddeld</span>
+            </div>
+            <div>
+              <strong>{summary.mastered}</strong>
+              <span>sterk</span>
+            </div>
+            <div>
+              <strong>{summary.trained}</strong>
+              <span>geoefend</span>
+            </div>
+          </div>
+
+          <button className="reset-button" type="button" onClick={clearProgress}>
+            <RotateCcw size={16} aria-hidden="true" />
+            Voortgang wissen
+          </button>
+        </div>
       </aside>
 
       <section className="workspace">
@@ -560,6 +581,22 @@ function App() {
 
         {screen === 'kaart' && <MapPanel continent={continent} countries={pool} progress={progress} weakestCountries={weakestCountries} />}
       </section>
+
+      {/* Mobile-only bottom navigation */}
+      <nav className="mobile-bottom-nav" aria-label="Schermen">
+        <button className={screen === 'oefenen' ? 'is-active' : ''} type="button" onClick={() => setScreen('oefenen')}>
+          <Target size={22} aria-hidden="true" />
+          <span>Oefenen</span>
+        </button>
+        <button className={screen === 'leren' ? 'is-active' : ''} type="button" onClick={() => setScreen('leren')}>
+          <BookOpen size={22} aria-hidden="true" />
+          <span>Leren</span>
+        </button>
+        <button className={screen === 'kaart' ? 'is-active' : ''} type="button" onClick={() => setScreen('kaart')}>
+          <MapIcon size={22} aria-hidden="true" />
+          <span>Kaart</span>
+        </button>
+      </nav>
     </main>
   )
 }

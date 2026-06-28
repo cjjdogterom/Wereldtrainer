@@ -2055,3 +2055,348 @@ input.answered-wrong {
   font-weight: 500;
   color: #c84b4b;
 }
+
+/* ─── Sidebar head/body wrappers: invisible on desktop ─── */
+.sidebar-head,
+.sidebar-body {
+  display: contents;
+}
+
+.sidebar-toggle,
+.drawer-close,
+.mobile-bottom-nav {
+  display: none;
+}
+
+/* ─── Mobile layout (≤ 640px) ─── */
+@media (max-width: 640px) {
+  /* Full-screen flex column — no overflow, no scroll */
+  .app-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+    overflow: hidden;
+    grid-template-columns: unset;
+  }
+
+  /* Sidebar becomes compact top bar */
+  .sidebar {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    min-height: 0;
+    padding: 10px 14px;
+    gap: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* sidebar-head: brand + toggle button side by side */
+  .sidebar-head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
+  }
+
+  /* brand compact */
+  .brand { padding-bottom: 0; gap: 8px; }
+  .brand p { display: none; }
+  .brand h1 { font-size: 15px; }
+  .brand svg { width: 22px; height: 22px; }
+
+  /* settings toggle button */
+  .sidebar-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--panel);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-strong);
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* sidebar-body: hidden by default */
+  .sidebar-body {
+    display: none;
+  }
+
+  /* sidebar-body.is-open: full-screen drawer overlay */
+  .sidebar-body.is-open {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: var(--page);
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  /* close button inside drawer */
+  .drawer-close {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--panel);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-strong);
+    cursor: pointer;
+    align-self: flex-start;
+  }
+
+  /* nav-tabs inside drawer (summary nav) */
+  .sidebar-body.is-open .nav-tabs {
+    order: -1;
+    margin-top: 4px;
+  }
+
+  /* workspace fills remaining height */
+  .workspace {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    padding: 10px 12px 0;
+  }
+
+  /* mobile bottom navigation */
+  .mobile-bottom-nav {
+    display: flex;
+    flex-shrink: 0;
+    border-top: 1px solid var(--border);
+    background: var(--panel);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .mobile-bottom-nav button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 8px 4px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .mobile-bottom-nav button.is-active {
+    color: var(--accent);
+  }
+
+  /* ─── Practice layout: flex column filling workspace ─── */
+  .practice-layout {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  .panel-header {
+    flex-shrink: 0;
+    padding-bottom: 0;
+    gap: 8px;
+  }
+
+  .panel-header h2 {
+    font-size: 17px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+  }
+
+  .session-hud {
+    flex-shrink: 0;
+  }
+
+  .previous-question-tools {
+    flex-shrink: 0;
+  }
+
+  /* question-stage expands to fill space */
+  .question-stage {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* remove fixed heights from map stages */
+  .map-question-stage,
+  .combo-question-stage {
+    min-height: 0;
+    padding: 0;
+  }
+
+  /* map-question-content: flex column so map fills */
+  .map-question-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 6px;
+    grid-template-areas: unset;
+  }
+
+  .map-question-content .cue-panel {
+    flex-shrink: 0;
+  }
+
+  /* map fills available height */
+  .map-question-content .practice-map-frame {
+    flex: 1;
+    height: auto;
+    min-height: 180px;
+  }
+
+  .map-layout-side .map-question-content {
+    grid-template-columns: unset;
+    grid-template-areas: unset;
+  }
+
+  /* standalone map frame */
+  .practice-map-frame {
+    height: auto;
+    min-height: 220px;
+  }
+
+  .map-layout-side .practice-map-frame {
+    height: auto;
+    min-height: 180px;
+  }
+
+  /* combo stage */
+  .combo-question-stage {
+    min-height: 0;
+  }
+
+  .combo-question-stage .practice-map-frame {
+    flex: 1;
+    height: auto;
+    min-height: 180px;
+  }
+
+  .combo-flag-bar {
+    flex-shrink: 0;
+    padding: 8px 12px;
+  }
+
+  .combo-flag-emoji {
+    font-size: 28px;
+  }
+
+  .combo-instruction {
+    font-size: 13px;
+  }
+
+  /* options and form stay at bottom */
+  .options-grid {
+    flex-shrink: 0;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+  }
+
+  .answer-form {
+    flex-shrink: 0;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  /* option buttons smaller on mobile */
+  .option-button {
+    min-height: 52px;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* flag options: always 2 columns */
+  .flag-options-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* smaller inputs */
+  input {
+    min-height: 44px;
+  }
+
+  .answer-form button {
+    min-height: 44px;
+    min-width: unset;
+    padding: 0 14px;
+  }
+
+  /* cue panel compact */
+  .cue-panel {
+    padding: 10px 12px;
+  }
+
+  .cue-grid {
+    gap: 8px;
+    grid-template-columns: 1fr !important;
+  }
+
+  .cue-card {
+    min-height: 60px !important;
+    padding: 10px;
+  }
+
+  .flag-display span {
+    font-size: 64px !important;
+  }
+
+  .flag-display.only-flag span {
+    font-size: 84px !important;
+  }
+
+  /* cue map compact */
+  .cue-map {
+    height: 160px !important;
+  }
+
+  /* summary hidden on mobile (available in drawer) */
+  .summary {
+    display: none;
+  }
+
+  /* learn/map frames: fill remaining height */
+  .map-frame {
+    height: calc(100svh - 116px) !important;
+    min-height: 0 !important;
+  }
+
+  .learn-layout {
+    gap: 8px;
+  }
+
+  /* session complete panel compact */
+  .session-complete {
+    padding: 20px 16px;
+  }
+
+  /* wrong/correct reveal: fit on mobile */
+  .wrong-answer-reveal,
+  .correct-answer-reveal {
+    border-radius: 10px;
+  }
+}
