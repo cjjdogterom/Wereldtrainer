@@ -62,7 +62,24 @@ function capitalNames(country: RawCountry) {
   return Array.from(new Set(names.filter(Boolean)))
 }
 
-export const countries: Country[] = rawCountries
+const manualCountries: Country[] = [
+  {
+    id: 'XKX',
+    mapId: 'Kosovo',
+    name: 'Kosovo',
+    englishName: 'Kosovo',
+    capital: 'Pristina',
+    capitals: ['Pristina', 'Prishtina'],
+    continent: 'Europa',
+    subregion: 'Zuidoost-Europa',
+    flag: '🇽🇰',
+    latlng: [42.6, 20.9],
+    area: 10908,
+    aliases: ['Kosovo', 'Republic of Kosovo', 'Republiek Kosovo'],
+  },
+]
+
+const datasetCountries: Country[] = rawCountries
   .filter((country) => country.independent && country.capital?.length && country.ccn3 && continentFor(country))
   .map((country) => ({
     id: country.cca3,
@@ -78,6 +95,8 @@ export const countries: Country[] = rawCountries
     area: country.area,
     aliases: buildAliases(country),
   }))
+
+export const countries: Country[] = [...datasetCountries, ...manualCountries]
   .sort((a, b) => a.name.localeCompare(b.name, 'nl'))
 
 export const continents: Continent[] = ['Wereld', 'Afrika', 'Azie', 'Europa', 'Noord-Amerika', 'Zuid-Amerika', 'Oceanie']

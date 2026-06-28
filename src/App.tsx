@@ -420,7 +420,7 @@ function PracticePanel({ continent, countries: visibleCountries, clues, question
       {question.answered && (
         <div className={question.correct ? 'feedback correct' : 'feedback wrong'} role="status">
           {question.correct ? <Check size={20} aria-hidden="true" /> : <X size={20} aria-hidden="true" />}
-          <span>{feedbackText(question)}</span>
+          <span>{feedbackText(question, visibleCountries)}</span>
           <button type="button" onClick={nextQuestion}>
             Volgende vraag
           </button>
@@ -497,7 +497,7 @@ function CountryClueMap({ continent, countries: visibleCountries, country }: { c
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geography) => {
-                const mapCountry = countryByMapId.get(String(geography.id))
+                const mapCountry = countryByMapId.get(geographyKey(geography))
                 const isTarget = mapCountry?.id === country.id
 
                 return (
@@ -552,7 +552,7 @@ function CountryClickMap({
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geography) => {
-                const country = countryByMapId.get(String(geography.id))
+                const country = countryByMapId.get(geographyKey(geography))
                 const isTarget = country?.id === question.country.id
                 const isWrongPick = Boolean(question.answered && country && question.selectedId === country.id && !isTarget)
                 const fill = question.answered && isTarget ? '#228b5b' : isWrongPick ? '#c84b4b' : country ? '#d8e5ed' : 'transparent'
@@ -638,12 +638,28 @@ function markerRadius(country: Country, view: MapView) {
   return screenRadius / view.zoom
 }
 
-function feedbackText(question: Question) {
+function geographyKey(geography: { id?: string | number; properties?: { name?: string } }) {
+  return String(geography.id ?? geography.properties?.name ?? '')
+}
+
+function feedbackText(question: Question, visibleCountries: Country[]) {
   if (question.mode === 'landen') {
-    return question.correct ? `Goed, dat is ${question.country.name}.` : `Bijna. Je zocht ${question.country.name}.`
+    const selectedCountry = visibleCountries.find((country) => country.id === question.selectedId)
+    return question.correct
+      ? `Goed, dat is ${question.country.name}.`
+      : `Bijna. Je klikte ${selectedCountry?.name ?? 'een ander land'} aan. Het goede antwoord is ${question.country.name}.`
   }
 
-  return `${question.correct ? 'Goed!' : 'Bijna.'} ${question.country.name} heeft als hoofdstad ${question.country.capital}.`
+  if (question.mode === 'vlaggen') {
+    const selectedCountry = visibleCountries.find((country) => country.id === question.selectedId)
+    return question.correct
+      ? `Goed, dat is de vlag van ${question.country.name}.`
+      : `Bijna. Je koos ${selectedCountry?.name ?? 'een andere vlag'}. Het goede antwoord is ${question.country.name}.`
+  }
+
+  return question.correct
+    ? `Goed! ${question.country.capital} is de hoofdstad van ${question.country.name}.`
+    : `Bijna. Je typte ${question.typedAnswer || 'geen antwoord'}. De hoofdstad van ${question.country.name} is ${question.country.capital}.`
 }
 
 function practiceTitle(mode: Exclude<TrainerMode, 'gemengd'>) {
@@ -727,7 +743,7 @@ function MapPanel({
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map((geography) => {
-                  const country = countryByMapId.get(String(geography.id))
+                  const country = countryByMapId.get(geographyKey(geography))
                   const score = country ? masteryForCountry(progress, country.id) : 0
                   return (
                     <Geography
