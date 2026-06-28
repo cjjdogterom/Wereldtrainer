@@ -39,6 +39,16 @@ const WORLD_DETAIL_ZOOM = 1.65
 const ADVANCE_CORRECT_MS = 1750
 const ADVANCE_WRONG_MS = 4000
 
+type SessionStats = Record<string, { correct: number; wrong: number }>
+
+function sessionRequired(stats: SessionStats, id: string): number {
+  return 2 + (stats[id]?.wrong ?? 0)
+}
+
+function isSessionCountryDone(stats: SessionStats, id: string): boolean {
+  return (stats[id]?.correct ?? 0) >= sessionRequired(stats, id)
+}
+
 const CONTINENT_COLORS: Record<Exclude<Continent, 'Wereld'>, string> = {
   Afrika: '#e8c87a',
   Azie: '#7dbe9e',
@@ -204,12 +214,20 @@ function App() {
   const [clues, setClues] = useState<ClueSettings>(DEFAULT_CLUES)
   const [previousQuestion, setPreviousQuestion] = useState<Question | null>(null)
   const [showPreviousQuestion, setShowPreviousQuestion] = useState(false)
+  const [session, setSession] = useState<SessionStats | null>(null)
   const progressRef = useRef(progress)
 
   const pool = useMemo(
     () => (continent === 'Wereld' ? countries : countries.filter((country) => country.continent === continent)),
     [continent],
   )
+
+  const sessionActivePool = useMemo(
+    () => (session !== null ? pool.filter((c) => !isSessionCountryDone(session, c.id)) : null),
+    [session, pool],
+  )
+  const sessionComplete = session !== null && (sessionActivePool?.length ?? 1) === 0
+  const activePool = sessionActivePool !== null && sessionActivePool.length > 0 ? sessionActivePool : pool
 
   const [question, setQuestion] = useState<Question>(() => buildQuestion(countries, progress, 'vlaggen', 'slim'))
 
@@ -237,8 +255,9 @@ function App() {
       setPreviousQuestion(question)
     }
     setShowPreviousQuestion(false)
-    setQuestion(buildQuestion(pool, progress, mode, routine))
-  }, [mode, pool, progress, question, routine])
+    if (session !== null && (sessionActivePool?.length ?? 1) === 0) return
+    setQuestion(buildQuestion(activePool, progress, mode, routine))
+  }, [mode, activePool, progress, question, routine, session, sessionActivePool])
 
   useEffect(() => {
     if (!question.answered) {
@@ -255,6 +274,19 @@ function App() {
 
   function recordAnswer(correct: boolean) {
     setProgress((current) => applyAnswer(current, { countryId: question.country.id, mode: question.mode, correct }))
+    if (session !== null) {
+      setSession((prev) => {
+        if (prev === null) return prev
+        const old = prev[question.country.id] ?? { correct: 0, wrong: 0 }
+        return {
+          ...prev,
+          [question.country.id]: {
+            correct: old.correct + (correct ? 1 : 0),
+            wrong: old.wrong + (correct ? 0 : 1),
+          },
+        }
+      })
+    }
   }
 
   function chooseOption(countryId: string) {
@@ -282,6 +314,17 @@ function App() {
   function clearProgress() {
     resetProgress()
     setProgress({})
+    setSession(null)
+  }
+
+  function startSession() {
+    setSession({})
+    setQuestion(buildQuestion(pool, progress, mode, routine))
+    setShowPreviousQuestion(false)
+  }
+
+  function stopSession() {
+    setSession(null)
   }
 
   function toggleClue(clueMode: Exclude<TrainerMode, 'gemengd'>, clue: Clue) {
@@ -345,6 +388,39 @@ function App() {
           </div>
         </section>
 
+        <section className="control-group session-ctrl-group" aria-labelledby="session-ctrl-title">
+          <h2 id="session-ctrl-title">Trainingsessie</h2>
+          {session === null ? (
+            <button type="button" className="session-start-btn" onClick={startSession}>
+              <GraduationCap size={15} aria-hidden="true" />
+              Sessie starten
+            </button>
+          ) : (
+            <div className="session-sidebar-status">
+              {sessionComplete ? (
+                <span className="session-done-pill">
+                  <Check size={13} aria-hidden="true" /> Sessie klaar!
+                </span>
+              ) : (
+                <>
+                  <div className="session-bar-wrap">
+                    <div
+                      className="session-bar-fill"
+                      style={{ width: `${Math.round(((pool.length - (sessionActivePool?.length ?? pool.length)) / pool.length) * 100)}%` }}
+                    />
+                  </div>
+                  <span className="session-count">
+                    {pool.length - (sessionActivePool?.length ?? pool.length)} / {pool.length} klaar
+                  </span>
+                </>
+              )}
+              <button type="button" className="session-stop-btn" onClick={stopSession}>
+                Stoppen
+              </button>
+            </div>
+          )}
+        </section>
+
         <section className="control-group" aria-labelledby="clues-title">
           <h2 id="clues-title">Toon bij vraag</h2>
           <ClueControls mode={mode} clues={clues} toggleClue={toggleClue} />
@@ -401,6 +477,10 @@ function App() {
             setQuestion={setQuestion}
             nextQuestion={nextQuestion}
             setShowPreviousQuestion={setShowPreviousQuestion}
+            session={session}
+            sessionComplete={sessionComplete}
+            sessionActivePool={sessionActivePool}
+            onStopSession={stopSession}
           />
         )}
 
@@ -467,6 +547,10 @@ type PracticePanelProps = {
   setQuestion: Dispatch<SetStateAction<Question>>
   nextQuestion: () => void
   setShowPreviousQuestion: Dispatch<SetStateAction<boolean>>
+  session: SessionStats | null
+  sessionComplete: boolean
+  sessionActivePool: Country[] | null
+  onStopSession: () => void
 }
 
 function ClueControls({
@@ -512,6 +596,10 @@ function PracticePanel({
   setQuestion,
   nextQuestion,
   setShowPreviousQuestion,
+  session,
+  sessionComplete,
+  sessionActivePool,
+  onStopSession,
 }: PracticePanelProps) {
   const isCapital = question.mode === 'hoofdsteden'
   const isMapQuestion = question.mode === 'landen'
@@ -524,6 +612,9 @@ function PracticePanel({
       capitalInputRef.current?.focus()
     }
   }, [isCapital, question])
+
+  const sessionDone = sessionActivePool !== null ? visibleCountries.length - sessionActivePool.length : 0
+  const sessionPct = visibleCountries.length > 0 ? Math.round((sessionDone / visibleCountries.length) * 100) : 0
 
   return (
     <div className="practice-layout">
@@ -538,101 +629,175 @@ function PracticePanel({
         </div>
       </header>
 
-      {previousQuestion && (
-        <div className="previous-question-tools">
-          <button type="button" onClick={() => setShowPreviousQuestion((current) => !current)}>
-            {showPreviousQuestion ? 'Verberg vorige vraag' : 'Vorige vraag'}
-          </button>
-        </div>
-      )}
-
-      {showPreviousQuestion && previousQuestion && <PreviousQuestionPanel question={previousQuestion} countries={visibleCountries} continent={continent} />}
-
-      <div className={isMapQuestion ? `question-stage map-question-stage map-layout-${mapLayout}` : 'question-stage'}>
-        {isMapQuestion ? (
-          <div className="map-question-content">
-            <CountryClickMap continent={continent} countries={visibleCountries} question={question} chooseCountry={chooseOption} />
-            <CuePanel
-              continent={continent}
-              countries={visibleCountries}
-              country={question.country}
-              mode={question.mode}
-              clues={activeClues}
-              answered={question.answered}
-              correct={question.correct}
-              feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
-              onNext={nextQuestion}
-            />
+      {session !== null && !sessionComplete && sessionActivePool !== null && (
+        <div className="session-hud" role="status" aria-label="Sessie voortgang">
+          <div className="session-hud-bar">
+            <div className="session-hud-fill" style={{ width: `${sessionPct}%` }} />
           </div>
-        ) : (
-          <CuePanel
-            continent={continent}
-            countries={visibleCountries}
-            country={question.country}
-            mode={question.mode}
-            clues={activeClues}
-            answered={question.answered}
-            correct={question.correct}
-            feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
-            onNext={nextQuestion}
-          />
-        )}
-      </div>
-
-      {isCapital ? (
-        <form className="answer-form" onSubmit={submitCapital}>
-          <input
-            ref={capitalInputRef}
-            value={question.typedAnswer}
-            onChange={(event) => setQuestion((current) => ({ ...current, typedAnswer: event.target.value }))}
-            disabled={question.answered}
-            placeholder="Hoofdstad"
-            autoComplete="off"
-            className={question.answered ? (question.correct ? 'answered-correct' : 'answered-wrong') : ''}
-          />
-          <button type="submit" disabled={question.answered && !question.correct}>
-            {question.answered ? 'Volgende' : 'Controleer'}
-          </button>
-        </form>
-      ) : !isMapQuestion ? (
-        <div className={question.mode === 'vlaggen' ? 'options-grid flag-options-grid' : 'options-grid'}>
-          {question.options.map((country) => {
-            const isSelected = question.selectedId === country.id
-            const isCorrectAnswer = question.answered && country.id === question.country.id
-            const isWrongSelection = question.answered && isSelected && country.id !== question.country.id
-
-            return (
-              <button
-                className={['option-button', isCorrectAnswer ? 'correct' : '', isWrongSelection ? 'wrong' : ''].join(' ')}
-                type="button"
-                key={country.id}
-                data-country-id={country.id}
-                aria-label={question.mode === 'vlaggen' ? `Vlag van ${country.name}` : country.name}
-                onClick={() => chooseOption(country.id)}
-              >
-                {question.mode === 'vlaggen' ? (
-                  <>
-                    <span aria-hidden="true">{country.flag}</span>
-                    {(isCorrectAnswer || isWrongSelection) && (
-                      <span className="option-reveal-name">{country.name}</span>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    {country.name}
-                    {isCorrectAnswer && <Check size={14} aria-hidden="true" />}
-                    {isWrongSelection && <X size={14} aria-hidden="true" />}
-                  </>
-                )}
-              </button>
-            )
-          })}
+          <span className="session-hud-text">
+            {sessionDone} / {visibleCountries.length} landen klaar
+          </span>
         </div>
-      ) : null}
-
-      {question.answered && !question.correct && (
-        <WrongAnswerReveal question={question} countries={visibleCountries} />
       )}
+
+      {sessionComplete && session !== null ? (
+        <SessionCompletePanel countries={visibleCountries} session={session} onStop={onStopSession} />
+      ) : (
+        <>
+          {previousQuestion && (
+            <div className="previous-question-tools">
+              <button type="button" onClick={() => setShowPreviousQuestion((current) => !current)}>
+                {showPreviousQuestion ? 'Verberg vorige vraag' : 'Vorige vraag'}
+              </button>
+            </div>
+          )}
+
+          {showPreviousQuestion && previousQuestion && <PreviousQuestionPanel question={previousQuestion} countries={visibleCountries} continent={continent} />}
+
+          <div className={isMapQuestion ? `question-stage map-question-stage map-layout-${mapLayout}` : 'question-stage'}>
+            {isMapQuestion ? (
+              <div className="map-question-content">
+                <CountryClickMap continent={continent} countries={visibleCountries} question={question} chooseCountry={chooseOption} />
+                <CuePanel
+                  continent={continent}
+                  countries={visibleCountries}
+                  country={question.country}
+                  mode={question.mode}
+                  clues={activeClues}
+                  answered={question.answered}
+                  correct={question.correct}
+                  feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
+                  onNext={nextQuestion}
+                />
+              </div>
+            ) : (
+              <CuePanel
+                continent={continent}
+                countries={visibleCountries}
+                country={question.country}
+                mode={question.mode}
+                clues={activeClues}
+                answered={question.answered}
+                correct={question.correct}
+                feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
+                onNext={nextQuestion}
+              />
+            )}
+            {question.answered && !question.correct && (
+              <WrongAnswerReveal question={question} countries={visibleCountries} />
+            )}
+          </div>
+
+          {isCapital ? (
+            <form className="answer-form" onSubmit={submitCapital}>
+              <input
+                ref={capitalInputRef}
+                value={question.typedAnswer}
+                onChange={(event) => setQuestion((current) => ({ ...current, typedAnswer: event.target.value }))}
+                disabled={question.answered}
+                placeholder="Hoofdstad"
+                autoComplete="off"
+                className={question.answered ? (question.correct ? 'answered-correct' : 'answered-wrong') : ''}
+              />
+              <button type="submit" disabled={question.answered && !question.correct}>
+                {question.answered ? 'Volgende' : 'Controleer'}
+              </button>
+            </form>
+          ) : !isMapQuestion ? (
+            <div className={question.mode === 'vlaggen' ? 'options-grid flag-options-grid' : 'options-grid'}>
+              {question.options.map((country) => {
+                const isSelected = question.selectedId === country.id
+                const isCorrectAnswer = question.answered && country.id === question.country.id
+                const isWrongSelection = question.answered && isSelected && country.id !== question.country.id
+
+                return (
+                  <button
+                    className={['option-button', isCorrectAnswer ? 'correct' : '', isWrongSelection ? 'wrong' : ''].join(' ')}
+                    type="button"
+                    key={country.id}
+                    data-country-id={country.id}
+                    aria-label={question.mode === 'vlaggen' ? `Vlag van ${country.name}` : country.name}
+                    onClick={() => chooseOption(country.id)}
+                  >
+                    {question.mode === 'vlaggen' ? (
+                      <>
+                        <span aria-hidden="true">{country.flag}</span>
+                        {(isCorrectAnswer || isWrongSelection) && (
+                          <span className="option-reveal-name">{country.name}</span>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {country.name}
+                        {isCorrectAnswer && <Check size={14} aria-hidden="true" />}
+                        {isWrongSelection && <X size={14} aria-hidden="true" />}
+                      </>
+                    )}
+                  </button>
+                )
+              })}
+            </div>
+          ) : null}
+        </>
+      )}
+    </div>
+  )
+}
+
+function SessionCompletePanel({
+  countries,
+  session,
+  onStop,
+}: {
+  countries: Country[]
+  session: SessionStats
+  onStop: () => void
+}) {
+  const totalCorrect = countries.reduce((sum, c) => sum + (session[c.id]?.correct ?? 0), 0)
+  const totalWrong = countries.reduce((sum, c) => sum + (session[c.id]?.wrong ?? 0), 0)
+  const total = totalCorrect + totalWrong
+  const pct = total > 0 ? Math.round((totalCorrect / total) * 100) : 100
+
+  const toughCountries = countries
+    .filter((c) => (session[c.id]?.wrong ?? 0) > 0)
+    .sort((a, b) => (session[b.id]?.wrong ?? 0) - (session[a.id]?.wrong ?? 0))
+    .slice(0, 6)
+
+  return (
+    <div className="session-complete">
+      <div className="session-complete-icon" aria-hidden="true">🎉</div>
+      <h2>Sessie voltooid!</h2>
+      <p>Je hebt alle <strong>{countries.length}</strong> landen geoefend.</p>
+      <div className="session-complete-stats">
+        <div className="scs-item">
+          <strong style={{ color: pct >= 80 ? '#228b5b' : pct >= 60 ? '#b07400' : '#c84b4b' }}>{pct}%</strong>
+          <span>score</span>
+        </div>
+        <div className="scs-item">
+          <strong style={{ color: '#228b5b' }}>{totalCorrect}</strong>
+          <span>goed</span>
+        </div>
+        <div className="scs-item">
+          <strong style={{ color: '#c84b4b' }}>{totalWrong}</strong>
+          <span>fout</span>
+        </div>
+      </div>
+      {toughCountries.length > 0 && (
+        <div className="session-tough">
+          <p>Volgende keer extra aandacht:</p>
+          <div className="session-tough-list">
+            {toughCountries.map((c) => (
+              <span key={c.id} className="session-tough-item">
+                {c.flag} {c.name}
+                <small>{session[c.id]?.wrong ?? 0}× fout</small>
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+      <button type="button" className="session-start-btn" onClick={onStop}>
+        Sessie afsluiten
+      </button>
     </div>
   )
 }

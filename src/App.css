@@ -267,6 +267,8 @@ button.is-active:hover {
   background: linear-gradient(150deg, #ffffff 0%, #f6f9fb 100%);
   padding: 28px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05), 0 0 0 0 transparent;
+  position: relative;
+  overflow: hidden;
 }
 
 /* ─── Inline feedback (shown inside question stage, no layout shift) ─── */
@@ -1434,12 +1436,18 @@ input.answered-wrong {
   .learn-view-toggle .lvt-btn { padding: 5px 10px; font-size: 12px; }
 }
 
-/* ─── Wrong answer reveal panel ─── */
+/* ─── Wrong answer reveal panel (overlay inside question-stage) ─── */
 .wrong-answer-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
   border-radius: 14px;
   border: 2px solid #d45252;
-  background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
+  background: linear-gradient(135deg, rgba(255,245,245,0.97) 0%, rgba(255,240,240,0.97) 100%);
+  backdrop-filter: blur(2px);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .war-countdown {
@@ -1460,6 +1468,7 @@ input.answered-wrong {
   align-items: center;
   gap: 12px;
   padding: 16px 20px;
+  flex: 1;
 }
 
 .war-card {
@@ -1603,4 +1612,220 @@ input.answered-wrong {
 
 @media (max-width: 700px) {
   .continent-map-col .map-layer-controls { flex-wrap: wrap; }
+}
+
+/* ─── Session sidebar controls ─── */
+.session-ctrl-group {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+.session-start-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--accent);
+  background: linear-gradient(135deg, rgba(226,88,34,0.08) 0%, rgba(226,88,34,0.04) 100%);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.session-start-btn:hover {
+  background: linear-gradient(135deg, rgba(226,88,34,0.16) 0%, rgba(226,88,34,0.1) 100%);
+  box-shadow: 0 2px 8px rgba(226,88,34,0.18);
+}
+
+.session-sidebar-status {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.session-bar-wrap {
+  height: 6px;
+  border-radius: 99px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.session-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent), #f59e0b);
+  transition: width 0.4s ease;
+}
+
+.session-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.session-stop-btn {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text-muted);
+  cursor: pointer;
+  align-self: flex-start;
+}
+.session-stop-btn:hover {
+  border-color: #c84b4b;
+  color: #c84b4b;
+}
+
+.session-done-pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #228b5b;
+  background: rgba(38,164,108,0.1);
+  border: 1.5px solid rgba(38,164,108,0.3);
+  border-radius: 99px;
+  padding: 4px 12px;
+}
+
+/* ─── Session HUD (inline progress bar in practice header) ─── */
+.session-hud {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(226,88,34,0.06) 0%, rgba(245,158,11,0.05) 100%);
+  border: 1px solid rgba(226,88,34,0.18);
+}
+
+.session-hud-bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.session-hud-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent), #f59e0b);
+  transition: width 0.5s ease;
+}
+
+.session-hud-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ─── Session complete panel ─── */
+.session-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 48px 32px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #fffbf6 0%, #fff8f0 100%);
+  box-shadow: 0 4px 24px rgba(226,88,34,0.08);
+}
+
+.session-complete-icon {
+  font-size: 56px;
+  line-height: 1;
+}
+
+.session-complete h2 {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--text-strong);
+  margin: 0;
+}
+
+.session-complete > p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.session-complete-stats {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  padding: 20px 28px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.scs-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.scs-item strong {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.scs-item span {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+}
+
+.session-tough {
+  width: 100%;
+  max-width: 480px;
+  text-align: left;
+}
+
+.session-tough > p {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin: 0 0 8px 0;
+}
+
+.session-tough-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.session-tough-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: rgba(212,82,82,0.08);
+  border: 1px solid rgba(212,82,82,0.2);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.session-tough-item small {
+  font-size: 11px;
+  font-weight: 500;
+  color: #c84b4b;
 }
