@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type SetStateAction } from 'react'
 import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, RotateCcw, Target, Timer, X } from 'lucide-react'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
-import detailedGeoUrl from 'world-atlas/countries-10m.json?url'
 import mediumGeoUrl from 'world-atlas/countries-50m.json?url'
 import worldGeoUrl from 'world-atlas/countries-110m.json?url'
 import './App.css'
@@ -789,11 +788,7 @@ function strokeWidthForZoom(view: MapView, zoom: number) {
 }
 
 function geoDataFor(continent: Continent, zoom: number) {
-  if (continent !== 'Wereld') {
-    return detailedGeoUrl
-  }
-
-  return zoom < WORLD_DETAIL_ZOOM ? worldGeoUrl : mediumGeoUrl
+  return continent === 'Wereld' && zoom < WORLD_DETAIL_ZOOM ? worldGeoUrl : mediumGeoUrl
 }
 
 function markerAreaLimit(continent: Continent) {
