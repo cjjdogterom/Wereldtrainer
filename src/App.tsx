@@ -492,6 +492,27 @@ function App() {
   )
 }
 
+function CorrectAnswerReveal({ question, onNext }: { question: Question; onNext?: () => void }) {
+  return (
+    <div className="correct-answer-reveal" role="status" aria-live="polite">
+      <div className="car-top">
+        <Check size={15} aria-hidden="true" />
+        <span>Goed!</span>
+      </div>
+      <div className="car-body">
+        <span className="war-flag">{question.country.flag}</span>
+        <strong className="war-name">{question.country.name}</strong>
+        <span className="war-capital">{question.country.capital}</span>
+      </div>
+      {onNext && (
+        <button type="button" className="inline-next-button car-next" onClick={onNext}>
+          Volgende →
+        </button>
+      )}
+    </div>
+  )
+}
+
 function WrongAnswerReveal({ question, countries: visibleCountries }: { question: Question; countries: Country[] }) {
   const wrongCountry = question.selectedId ? (visibleCountries.find((c) => c.id === question.selectedId) ?? null) : null
   const isCapital = question.mode === 'hoofdsteden'
@@ -683,8 +704,10 @@ function PracticePanel({
                 onNext={nextQuestion}
               />
             )}
-            {question.answered && !question.correct && (
-              <WrongAnswerReveal question={question} countries={visibleCountries} />
+            {question.answered && (
+              question.correct
+                ? <CorrectAnswerReveal question={question} onNext={isCapital ? nextQuestion : undefined} />
+                : <WrongAnswerReveal question={question} countries={visibleCountries} />
             )}
           </div>
 
@@ -1523,9 +1546,9 @@ function LearnContinentView({
                 const showCap = layers.capitals || (allOff && isHov)
                 if (!showFlag && !showName && !showCap) return null
 
-                const flagPx = Math.max(8, 18 / position.zoom)
-                const namePx = Math.max(5, 12 / position.zoom)
-                const capPx = Math.max(3.5, 8 / position.zoom)
+                const flagPx = 18 / position.zoom
+                const namePx = 12 / position.zoom
+                const capPx = 8 / position.zoom
 
                 const totalH =
                   (showFlag ? flagPx : 0) +

@@ -1436,6 +1436,45 @@ input.answered-wrong {
   .learn-view-toggle .lvt-btn { padding: 5px 10px; font-size: 12px; }
 }
 
+/* ─── Correct answer reveal panel (overlay inside question-stage) ─── */
+.correct-answer-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  border-radius: 14px;
+  border: 2px solid #26a46c;
+  background: linear-gradient(135deg, rgba(240,255,248,0.97) 0%, rgba(232,254,242,0.97) 100%);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.car-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1b7d52;
+}
+
+.car-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.car-next {
+  margin-top: 4px;
+}
+
 /* ─── Wrong answer reveal panel (overlay inside question-stage) ─── */
 .wrong-answer-reveal {
   position: absolute;
