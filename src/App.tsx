@@ -384,7 +384,7 @@ function App() {
           />
         )}
 
-        {screen === 'leren' && <LearnPanel countries={pool} progress={progress} />}
+        {screen === 'leren' && <LearnPanel continent={continent} countries={pool} progress={progress} />}
 
         {screen === 'kaart' && <MapPanel continent={continent} countries={pool} progress={progress} weakestCountries={weakestCountries} />}
       </section>
@@ -897,7 +897,13 @@ function practiceTitle(mode: Exclude<TrainerMode, 'gemengd'>) {
   return 'Welke vlag hoort hierbij?'
 }
 
-function LearnPanel({ countries: visibleCountries, progress }: { countries: Country[]; progress: ProgressState }) {
+function LearnPanel({ continent, countries: visibleCountries, progress }: { continent: Continent; countries: Country[]; progress: ProgressState }) {
+  const [selectedCountry, setSelectedCountry] = useState<Country | null>(null)
+
+  function selectCountry(country: Country) {
+    setSelectedCountry((current) => (current?.id === country.id ? null : country))
+  }
+
   return (
     <div className="learn-panel">
       <header className="panel-header">
@@ -908,24 +914,92 @@ function LearnPanel({ countries: visibleCountries, progress }: { countries: Coun
         <span className="count-pill">{visibleCountries.length} landen</span>
       </header>
 
-      <div className="learn-grid">
-        {visibleCountries.map((country) => {
-          const score = masteryForCountry(progress, country.id)
-          return (
-            <article className="country-card" key={country.id}>
-              <span className="card-flag" aria-hidden="true">
-                {country.flag}
-              </span>
-              <div>
-                <h3>{country.name}</h3>
-                <p>{country.capital}</p>
-                <span>{country.continent}</span>
-              </div>
-              <strong style={{ color: scoreColor(score) }}>{score}%</strong>
-            </article>
-          )
-        })}
+      <div className={selectedCountry ? 'learn-layout has-detail' : 'learn-layout'}>
+        <div className="learn-grid">
+          {visibleCountries.map((country) => {
+            const score = masteryForCountry(progress, country.id)
+            const isSelected = selectedCountry?.id === country.id
+            return (
+              <article
+                className={isSelected ? 'country-card is-selected' : 'country-card'}
+                key={country.id}
+                onClick={() => selectCountry(country)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && selectCountry(country)}
+                aria-pressed={isSelected}
+              >
+                <span className="card-flag" aria-hidden="true">{country.flag}</span>
+                <div>
+                  <h3>{country.name}</h3>
+                  <p>{country.capital}</p>
+                  <span>{country.continent}</span>
+                </div>
+                <strong style={{ color: scoreColor(score) }}>{score}%</strong>
+              </article>
+            )
+          })}
+        </div>
+
+        {selectedCountry ? (
+          <CountryDetailPanel
+            continent={continent}
+            countries={visibleCountries}
+            country={selectedCountry}
+            progress={progress}
+            onClose={() => setSelectedCountry(null)}
+          />
+        ) : (
+          <div className="learn-detail-placeholder">
+            <Globe2 size={36} aria-hidden="true" />
+            <p>Klik op een land om de kaart en details te zien</p>
+          </div>
+        )}
       </div>
+    </div>
+  )
+}
+
+function CountryDetailPanel({
+  continent,
+  countries,
+  country,
+  progress,
+  onClose,
+}: {
+  continent: Continent
+  countries: Country[]
+  country: Country
+  progress: ProgressState
+  onClose: () => void
+}) {
+  const score = masteryForCountry(progress, country.id)
+  return (
+    <div className="learn-detail-panel">
+      <div className="detail-header">
+        <span className="detail-flag" aria-hidden="true">{country.flag}</span>
+        <button className="detail-close" type="button" onClick={onClose} aria-label="Sluiten">
+          <X size={16} aria-hidden="true" />
+        </button>
+      </div>
+      <div className="detail-info">
+        <h3>{country.name}</h3>
+        <div className="detail-meta">
+          <div className="detail-meta-item">
+            <span>Hoofdstad</span>
+            <strong>{country.capital}</strong>
+          </div>
+          <div className="detail-meta-item">
+            <span>Continent</span>
+            <strong>{country.continent}</strong>
+          </div>
+          <div className="detail-meta-item">
+            <span>Score</span>
+            <strong style={{ color: scoreColor(score) }}>{score}%</strong>
+          </div>
+        </div>
+      </div>
+      <CountryClueMap continent={continent} countries={countries} country={country} />
     </div>
   )
 }
