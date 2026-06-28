@@ -188,6 +188,39 @@ button.is-active {
   white-space: nowrap;
 }
 
+.clue-controls,
+.clue-mode,
+.clue-mode div {
+  display: grid;
+  gap: 8px;
+}
+
+.clue-mode strong {
+  color: var(--text-strong);
+  font-size: 14px;
+}
+
+.clue-mode label {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--button);
+  padding: 7px 10px;
+  color: var(--text-strong);
+  cursor: pointer;
+}
+
+.clue-mode input {
+  width: 16px;
+  height: 16px;
+  min-height: 0;
+  padding: 0;
+  accent-color: var(--accent);
+}
+
 .question-stage {
   min-height: 330px;
   display: grid;
@@ -253,6 +286,64 @@ button.is-active {
   font-size: 28px;
 }
 
+.cue-panel {
+  width: 100%;
+  display: grid;
+  gap: 16px;
+}
+
+.cue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.cue-card {
+  min-height: 92px;
+  display: grid;
+  align-content: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--flag-bg);
+  padding: 14px;
+  text-align: center;
+}
+
+.cue-card span {
+  color: var(--text-soft);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.cue-card strong {
+  color: var(--text-strong);
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.cue-card.flag-cue strong {
+  font-size: 64px;
+  line-height: 1;
+}
+
+.cue-map {
+  grid-column: 1 / -1;
+  height: 260px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #e9f0f4;
+  overflow: hidden;
+}
+
+.cue-map svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .options-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -263,6 +354,15 @@ button.is-active {
   min-height: 64px;
   font-weight: 700;
   color: var(--text-strong);
+}
+
+.flag-options-grid .option-button {
+  min-height: 96px;
+}
+
+.flag-options-grid .option-button span {
+  font-size: 54px;
+  line-height: 1;
 }
 
 .option-button.correct {
@@ -444,6 +544,14 @@ input {
   .options-grid,
   .answer-form {
     grid-template-columns: 1fr;
+  }
+
+  .cue-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cue-map {
+    height: 220px;
   }
 
   .flag-display span {

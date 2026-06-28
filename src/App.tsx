@@ -18,6 +18,8 @@ import {
 } from './lib/training'
 
 type Screen = 'oefenen' | 'leren' | 'kaart'
+type Clue = 'name' | 'flag' | 'capital' | 'place'
+type ClueSettings = Record<Exclude<TrainerMode, 'gemengd'>, Record<Clue, boolean>>
 
 type Question = {
   country: Country
@@ -31,6 +33,25 @@ type Question = {
 
 const TRAINING_MODES: Exclude<TrainerMode, 'gemengd'>[] = ['landen', 'vlaggen', 'hoofdsteden']
 const SMALL_COUNTRY_AREA = 3000
+
+const DEFAULT_CLUES: ClueSettings = {
+  landen: { name: true, flag: false, capital: false, place: false },
+  vlaggen: { name: true, flag: false, capital: false, place: false },
+  hoofdsteden: { name: true, flag: true, capital: false, place: false },
+}
+
+const CLUE_LABELS: Record<Clue, string> = {
+  name: 'Naam',
+  flag: 'Vlag',
+  capital: 'Hoofdstad',
+  place: 'Plek op kaart',
+}
+
+const CLUES_BY_MODE: Record<Exclude<TrainerMode, 'gemengd'>, Clue[]> = {
+  landen: ['name', 'flag', 'capital'],
+  vlaggen: ['place', 'name', 'capital'],
+  hoofdsteden: ['place', 'name', 'flag'],
+}
 
 function pickRandom<T>(items: T[]) {
   return items[Math.floor(Math.random() * items.length)]
@@ -105,6 +126,7 @@ function App() {
   const [mode, setMode] = useState<TrainerMode>('vlaggen')
   const [routine, setRoutine] = useState<Routine>('slim')
   const [progress, setProgress] = useState<ProgressState>(() => loadProgress())
+  const [clues, setClues] = useState<ClueSettings>(DEFAULT_CLUES)
   const progressRef = useRef(progress)
 
   const pool = useMemo(
@@ -167,6 +189,23 @@ function App() {
     setProgress({})
   }
 
+  function toggleClue(clueMode: Exclude<TrainerMode, 'gemengd'>, clue: Clue) {
+    setClues((current) => {
+      const activeClues = CLUES_BY_MODE[clueMode].filter((item) => current[clueMode][item])
+      if (current[clueMode][clue] && activeClues.length === 1) {
+        return current
+      }
+
+      return {
+        ...current,
+        [clueMode]: {
+          ...current[clueMode],
+          [clue]: !current[clueMode][clue],
+        },
+      }
+    })
+  }
+
   return (
     <main className="app-shell">
       <aside className="sidebar" aria-label="Instellingen">
@@ -211,6 +250,11 @@ function App() {
           </div>
         </section>
 
+        <section className="control-group" aria-labelledby="clues-title">
+          <h2 id="clues-title">Toon bij vraag</h2>
+          <ClueControls mode={mode} clues={clues} toggleClue={toggleClue} />
+        </section>
+
         <nav className="nav-tabs" aria-label="Schermen">
           <button className={screen === 'oefenen' ? 'is-active' : ''} type="button" onClick={() => setScreen('oefenen')} title="Oefenen">
             <Target size={18} aria-hidden="true" />
@@ -252,6 +296,7 @@ function App() {
           <PracticePanel
             continent={continent}
             countries={pool}
+            clues={clues}
             question={question}
             routine={routine}
             chooseOption={chooseOption}
@@ -272,6 +317,7 @@ function App() {
 type PracticePanelProps = {
   continent: Continent
   countries: Country[]
+  clues: ClueSettings
   question: Question
   routine: Routine
   chooseOption: (countryId: string) => void
@@ -280,9 +326,40 @@ type PracticePanelProps = {
   nextQuestion: () => void
 }
 
-function PracticePanel({ continent, countries: visibleCountries, question, routine, chooseOption, submitCapital, setQuestion, nextQuestion }: PracticePanelProps) {
+function ClueControls({
+  mode,
+  clues,
+  toggleClue,
+}: {
+  mode: TrainerMode
+  clues: ClueSettings
+  toggleClue: (mode: Exclude<TrainerMode, 'gemengd'>, clue: Clue) => void
+}) {
+  const modes = mode === 'gemengd' ? TRAINING_MODES : [mode]
+
+  return (
+    <div className="clue-controls">
+      {modes.map((clueMode) => (
+        <div className="clue-mode" key={clueMode}>
+          {mode === 'gemengd' && <strong>{modeLabels[clueMode]}</strong>}
+          <div>
+            {CLUES_BY_MODE[clueMode].map((clue) => (
+              <label key={clue}>
+                <input type="checkbox" checked={clues[clueMode][clue]} onChange={() => toggleClue(clueMode, clue)} />
+                <span>{CLUE_LABELS[clue]}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function PracticePanel({ continent, countries: visibleCountries, clues, question, routine, chooseOption, submitCapital, setQuestion, nextQuestion }: PracticePanelProps) {
   const isCapital = question.mode === 'hoofdsteden'
   const isMapQuestion = question.mode === 'landen'
+  const activeClues = clues[question.mode]
 
   return (
     <div className="practice-layout">
@@ -300,23 +377,11 @@ function PracticePanel({ continent, countries: visibleCountries, question, routi
       <div className={isMapQuestion ? 'question-stage map-question-stage' : 'question-stage'}>
         {isMapQuestion ? (
           <>
-            <div className="country-clues">
-              <strong>{question.country.name}</strong>
-              <span>Klik dit land aan op de kaart.</span>
-            </div>
+            <CuePanel continent={continent} countries={visibleCountries} country={question.country} mode={question.mode} clues={activeClues} />
             <CountryClickMap continent={continent} countries={visibleCountries} question={question} chooseCountry={chooseOption} />
           </>
         ) : (
-          <div className={question.mode === 'vlaggen' ? 'flag-display only-flag' : 'flag-display'}>
-            <span aria-label={`Vlag van ${question.country.name}`}>{question.country.flag}</span>
-          </div>
-        )}
-
-        {question.mode === 'hoofdsteden' && (
-          <div className="country-clues">
-            <strong>{question.country.name}</strong>
-            <span>Typ de hoofdstad. Kleine spelfouten tellen goed.</span>
-          </div>
+          <CuePanel continent={continent} countries={visibleCountries} country={question.country} mode={question.mode} clues={activeClues} />
         )}
       </div>
 
@@ -332,7 +397,7 @@ function PracticePanel({ continent, countries: visibleCountries, question, routi
           <button type="submit">{question.answered ? 'Volgende' : 'Controleer'}</button>
         </form>
       ) : !isMapQuestion ? (
-        <div className="options-grid">
+        <div className={question.mode === 'vlaggen' ? 'options-grid flag-options-grid' : 'options-grid'}>
           {question.options.map((country) => {
             const isSelected = question.selectedId === country.id
             const isCorrectAnswer = question.answered && country.id === question.country.id
@@ -345,7 +410,7 @@ function PracticePanel({ continent, countries: visibleCountries, question, routi
                 key={country.id}
                 onClick={() => chooseOption(country.id)}
               >
-                {country.name}
+                {question.mode === 'vlaggen' ? <span aria-hidden="true">{country.flag}</span> : country.name}
               </button>
             )
           })}
@@ -361,6 +426,106 @@ function PracticePanel({ continent, countries: visibleCountries, question, routi
           </button>
         </div>
       )}
+    </div>
+  )
+}
+
+function CuePanel({
+  continent,
+  countries: visibleCountries,
+  country,
+  mode,
+  clues,
+}: {
+  continent: Continent
+  countries: Country[]
+  country: Country
+  mode: Exclude<TrainerMode, 'gemengd'>
+  clues: Record<Clue, boolean>
+}) {
+  return (
+    <div className="cue-panel">
+      <div className="country-clues">
+        <strong>{cueInstruction(mode)}</strong>
+        <span>{mode === 'hoofdsteden' ? 'Typ de hoofdstad. Kleine spelfouten tellen goed.' : 'Gebruik de aangevinkte hints.'}</span>
+      </div>
+      <div className="cue-grid">
+        {clues.name && (
+          <div className="cue-card">
+            <span>Land</span>
+            <strong>{country.name}</strong>
+          </div>
+        )}
+        {clues.flag && (
+          <div className="cue-card flag-cue">
+            <span>Vlag</span>
+            <strong aria-label={`Vlag van ${country.name}`}>{country.flag}</strong>
+          </div>
+        )}
+        {clues.capital && (
+          <div className="cue-card">
+            <span>Hoofdstad</span>
+            <strong>{country.capital}</strong>
+          </div>
+        )}
+        {clues.place && <CountryClueMap continent={continent} countries={visibleCountries} country={country} />}
+      </div>
+    </div>
+  )
+}
+
+function cueInstruction(mode: Exclude<TrainerMode, 'gemengd'>) {
+  if (mode === 'landen') {
+    return 'Klik het land aan op de kaart.'
+  }
+
+  if (mode === 'vlaggen') {
+    return 'Kies de juiste vlag.'
+  }
+
+  return 'Welke hoofdstad hoort erbij?'
+}
+
+function CountryClueMap({ continent, countries: visibleCountries, country }: { continent: Continent; countries: Country[]; country: Country }) {
+  const countryByMapId = useMemo(() => new Map(visibleCountries.map((item) => [item.mapId, item])), [visibleCountries])
+  const view = mapViewForContinent(continent)
+
+  return (
+    <div className="cue-map">
+      <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
+        <ZoomableGroup center={view.center} zoom={view.zoom}>
+          <Geographies geography={geoUrl}>
+            {({ geographies }) =>
+              geographies.map((geography) => {
+                const mapCountry = countryByMapId.get(String(geography.id))
+                const isTarget = mapCountry?.id === country.id
+
+                return (
+                  <Geography
+                    key={geography.rsmKey}
+                    geography={geography}
+                    data-country-id={mapCountry?.id}
+                    aria-label={mapCountry?.name}
+                    fill={isTarget ? '#2364aa' : mapCountry ? '#d8e5ed' : 'transparent'}
+                    stroke={mapCountry ? '#ffffff' : 'transparent'}
+                    strokeWidth={view.strokeWidth}
+                    style={{
+                      default: { opacity: mapCountry ? 1 : 0, outline: 'none', pointerEvents: 'none' },
+                      hover: { opacity: mapCountry ? 1 : 0, outline: 'none' },
+                      pressed: { outline: 'none' },
+                    }}
+                  />
+                )
+              })
+            }
+          </Geographies>
+          {country.area <= SMALL_COUNTRY_AREA && (
+            <Marker coordinates={[country.latlng[1], country.latlng[0]]}>
+              <circle r={markerRadius(country, view)} fill="#2364aa" stroke="#0f172a" strokeWidth={0.9 / view.zoom} vectorEffect="non-scaling-stroke" />
+            </Marker>
+          )}
+        </ZoomableGroup>
+      </ComposableMap>
     </div>
   )
 }
@@ -490,7 +655,7 @@ function practiceTitle(mode: Exclude<TrainerMode, 'gemengd'>) {
     return 'Klik het land aan op de kaart'
   }
 
-  return 'Welk land hoort bij deze vlag?'
+  return 'Welke vlag hoort hierbij?'
 }
 
 function LearnPanel({ countries: visibleCountries, progress }: { countries: Country[]; progress: ProgressState }) {
