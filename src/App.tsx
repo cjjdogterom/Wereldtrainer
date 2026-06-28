@@ -37,7 +37,7 @@ const SMALL_COUNTRY_AREA = 3000
 const WORLD_MARKER_MAX_AREA = 200
 const WORLD_DETAIL_ZOOM = 1.65
 const ADVANCE_CORRECT_MS = 1750
-const ADVANCE_WRONG_MS = 2500
+const ADVANCE_WRONG_MS = 4000
 
 const CONTINENT_COLORS: Record<Exclude<Continent, 'Wereld'>, string> = {
   Afrika: '#e8c87a',
@@ -412,6 +412,48 @@ function App() {
   )
 }
 
+function WrongAnswerReveal({ question, countries: visibleCountries }: { question: Question; countries: Country[] }) {
+  const wrongCountry = question.selectedId ? (visibleCountries.find((c) => c.id === question.selectedId) ?? null) : null
+  const isCapital = question.mode === 'hoofdsteden'
+
+  return (
+    <div className="wrong-answer-reveal" role="status" aria-live="polite">
+      <div className="war-countdown" key={`${question.country.id}-${question.mode}`} />
+      <div className="war-cards">
+        <div className="war-card war-wrong">
+          <span className="war-label">
+            <X size={15} aria-hidden="true" /> Jij koos
+          </span>
+          {isCapital ? (
+            <>
+              <span className="war-flag">{question.country.flag}</span>
+              <strong className="war-name">{question.country.name}</strong>
+              <span className="war-capital war-typed">"{question.typedAnswer || '—'}"</span>
+            </>
+          ) : wrongCountry ? (
+            <>
+              <span className="war-flag">{wrongCountry.flag}</span>
+              <strong className="war-name">{wrongCountry.name}</strong>
+              <span className="war-capital">{wrongCountry.capital}</span>
+            </>
+          ) : (
+            <span className="war-capital">—</span>
+          )}
+        </div>
+        <div className="war-arrow">→</div>
+        <div className="war-card war-correct">
+          <span className="war-label">
+            <Check size={15} aria-hidden="true" /> Goede antwoord
+          </span>
+          <span className="war-flag">{question.country.flag}</span>
+          <strong className="war-name">{question.country.name}</strong>
+          <span className="war-capital">{question.country.capital}</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 type PracticePanelProps = {
   continent: Continent
   countries: Country[]
@@ -548,7 +590,9 @@ function PracticePanel({
             autoComplete="off"
             className={question.answered ? (question.correct ? 'answered-correct' : 'answered-wrong') : ''}
           />
-          <button type="submit">{question.answered ? 'Volgende' : 'Controleer'}</button>
+          <button type="submit" disabled={question.answered && !question.correct}>
+            {question.answered ? 'Volgende' : 'Controleer'}
+          </button>
         </form>
       ) : !isMapQuestion ? (
         <div className={question.mode === 'vlaggen' ? 'options-grid flag-options-grid' : 'options-grid'}>
@@ -585,6 +629,10 @@ function PracticePanel({
           })}
         </div>
       ) : null}
+
+      {question.answered && !question.correct && (
+        <WrongAnswerReveal question={question} countries={visibleCountries} />
+      )}
     </div>
   )
 }
@@ -764,9 +812,11 @@ function CuePanel({
                 {correct ? <Check size={18} aria-hidden="true" /> : <X size={18} aria-hidden="true" />}
                 <span>{feedbackMessage}</span>
               </div>
-              <button type="button" className="inline-next-button" onClick={onNext}>
-                Volgende →
-              </button>
+              {correct && (
+                <button type="button" className="inline-next-button" onClick={onNext}>
+                  Volgende →
+                </button>
+              )}
             </div>
           </div>
         ) : (
@@ -883,7 +933,7 @@ function CountryClickMap({
 
   const effectiveContinent: Continent = drillContinent ?? continent
   const effectiveView = useMemo(() => mapViewForContinent(effectiveContinent), [effectiveContinent])
-  const geoData = geoDataFor(continent, position.zoom)
+  const geoData = geoDataFor(effectiveContinent, position.zoom)
 
   const smallCountries = useMemo(
     () => visibleCountries.filter((c) => {
@@ -907,7 +957,8 @@ function CountryClickMap({
   function drillTo(cont: Exclude<Continent, 'Wereld'>) {
     const contView = mapViewForContinent(cont)
     setDrillContinent(cont)
-    setPosition({ coordinates: contView.center, zoom: contView.zoom })
+    // Use ~82% of normal zoom so the full continent fits in the practice frame
+    setPosition({ coordinates: contView.center, zoom: contView.zoom * 0.82 })
   }
 
   const showContinentView = isWorldMode && !drillContinent && !question.answered

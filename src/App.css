@@ -1433,3 +1433,96 @@ input.answered-wrong {
   .continent-list { max-height: 220px; }
   .learn-view-toggle .lvt-btn { padding: 5px 10px; font-size: 12px; }
 }
+
+/* ─── Wrong answer reveal panel ─── */
+.wrong-answer-reveal {
+  border-radius: 14px;
+  border: 2px solid #d45252;
+  background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
+  overflow: hidden;
+}
+
+.war-countdown {
+  height: 4px;
+  background: linear-gradient(90deg, #e25822, #d45252);
+  animation: war-shrink 4s linear forwards;
+  transform-origin: left;
+}
+
+@keyframes war-shrink {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+.war-cards {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+}
+
+.war-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.war-card.war-wrong {
+  background: rgba(212, 82, 82, 0.12);
+  border: 1.5px solid rgba(212, 82, 82, 0.3);
+}
+
+.war-card.war-correct {
+  background: rgba(38, 164, 108, 0.1);
+  border: 1.5px solid rgba(38, 164, 108, 0.3);
+}
+
+.war-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.war-card.war-wrong .war-label { color: #b83838; }
+.war-card.war-correct .war-label { color: #1b7d52; }
+.war-card.war-wrong .war-label svg { color: #b83838; }
+.war-card.war-correct .war-label svg { color: #1b7d52; }
+
+.war-flag {
+  font-size: 42px;
+  line-height: 1;
+}
+
+.war-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-strong);
+  line-height: 1.2;
+}
+
+.war-capital {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.war-typed {
+  font-style: italic;
+  color: #b83838;
+}
+
+.war-arrow {
+  font-size: 22px;
+  color: var(--text-muted);
+  font-weight: 300;
+  opacity: 0.5;
+}
