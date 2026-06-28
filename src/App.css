@@ -287,6 +287,51 @@ button.is-active {
   align-content: start;
 }
 
+.map-question-content {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "cue"
+    "map";
+  gap: 18px;
+}
+
+.map-question-content .cue-panel {
+  grid-area: cue;
+}
+
+.map-question-content .practice-map-frame {
+  grid-area: map;
+}
+
+.map-layout-side .map-question-content {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  grid-template-areas: "map cue";
+  align-items: stretch;
+}
+
+.map-layout-side .cue-panel {
+  align-self: stretch;
+  align-content: start;
+}
+
+.map-layout-side .country-clues {
+  text-align: left;
+}
+
+.map-layout-side .cue-grid {
+  grid-template-columns: 1fr;
+}
+
+.map-layout-side .cue-card {
+  min-height: 112px;
+}
+
+.map-layout-side .practice-map-frame {
+  height: min(68vh, 720px);
+  min-height: 560px;
+}
+
 .practice-map-frame {
   width: 100%;
   height: 560px;
@@ -620,6 +665,21 @@ input {
   .map-question-stage {
     min-height: auto;
     padding: 18px;
+  }
+
+  .map-layout-side .map-question-content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "cue"
+      "map";
+  }
+
+  .map-layout-side .country-clues {
+    text-align: center;
+  }
+
+  .map-layout-side .practice-map-frame {
+    min-height: 390px;
   }
 
   .practice-map-frame {

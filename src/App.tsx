@@ -454,6 +454,7 @@ function PracticePanel({
   const isMapQuestion = question.mode === 'landen'
   const activeClues = clues[question.mode]
   const capitalInputRef = useRef<HTMLInputElement>(null)
+  const mapLayout = mapQuestionLayout(continent)
 
   useEffect(() => {
     if (isCapital && !question.answered) {
@@ -484,12 +485,12 @@ function PracticePanel({
 
       {showPreviousQuestion && previousQuestion && <PreviousQuestionPanel question={previousQuestion} countries={visibleCountries} />}
 
-      <div className={isMapQuestion ? 'question-stage map-question-stage' : 'question-stage'}>
+      <div className={isMapQuestion ? `question-stage map-question-stage map-layout-${mapLayout}` : 'question-stage'}>
         {isMapQuestion ? (
-          <>
-            <CuePanel continent={continent} countries={visibleCountries} country={question.country} mode={question.mode} clues={activeClues} />
+          <div className="map-question-content">
             <CountryClickMap continent={continent} countries={visibleCountries} question={question} chooseCountry={chooseOption} />
-          </>
+            <CuePanel continent={continent} countries={visibleCountries} country={question.country} mode={question.mode} clues={activeClues} />
+          </div>
         ) : (
           <CuePanel continent={continent} countries={visibleCountries} country={question.country} mode={question.mode} clues={activeClues} />
         )}
@@ -759,6 +760,10 @@ type MapView = {
   strokeWidth: number
 }
 
+function mapQuestionLayout(continent: Continent) {
+  return continent === 'Afrika' || continent === 'Zuid-Amerika' ? 'side' : 'stack'
+}
+
 type MapPosition = {
   coordinates: [number, number]
   zoom: number
@@ -767,12 +772,12 @@ type MapPosition = {
 function mapViewForContinent(continent: Continent): MapView {
   const views: Record<Continent, MapView> = {
     Wereld: { center: [8, 14], zoom: 1, strokeWidth: 0.35 },
-    Afrika: { center: [20, 1], zoom: 2.45, strokeWidth: 0.28 },
-    Azie: { center: [87, 28], zoom: 2.05, strokeWidth: 0.24 },
+    Afrika: { center: [20, -4], zoom: 3.45, strokeWidth: 0.2 },
+    Azie: { center: [87, 26], zoom: 2.25, strokeWidth: 0.22 },
     Europa: { center: [15, 51], zoom: 5.9, strokeWidth: 0.1 },
-    'Noord-Amerika': { center: [-95, 42], zoom: 2.25, strokeWidth: 0.22 },
-    'Zuid-Amerika': { center: [-60, -18], zoom: 2.7, strokeWidth: 0.22 },
-    Oceanie: { center: [145, -18], zoom: 3.05, strokeWidth: 0.18 },
+    'Noord-Amerika': { center: [-95, 41], zoom: 2.45, strokeWidth: 0.2 },
+    'Zuid-Amerika': { center: [-60, -19], zoom: 3.85, strokeWidth: 0.15 },
+    Oceanie: { center: [145, -18], zoom: 3.25, strokeWidth: 0.16 },
   }
 
   return views[continent]
