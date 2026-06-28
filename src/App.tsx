@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type SetStateAction } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type SetStateAction } from 'react'
 import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, RotateCcw, Target, Timer, X } from 'lucide-react'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
 import geoUrl from 'world-atlas/countries-10m.json?url'
@@ -33,6 +33,30 @@ type Question = {
 
 const TRAINING_MODES: Exclude<TrainerMode, 'gemengd'>[] = ['landen', 'vlaggen', 'hoofdsteden']
 const SMALL_COUNTRY_AREA = 3000
+
+const SIMILAR_FLAG_GROUPS = [
+  ['NLD', 'LUX', 'RUS', 'SRB', 'SVK', 'SVN', 'HRV', 'PRY'],
+  ['BEL', 'DEU', 'UGA', 'AGO'],
+  ['IRL', 'CIV', 'IND', 'NER'],
+  ['ROU', 'MDA', 'AND', 'TCD'],
+  ['IDN', 'MCO', 'POL', 'SGP', 'AUT', 'LVA'],
+  ['JPN', 'BGD', 'PLW'],
+  ['AUS', 'NZL', 'FJI', 'TUV'],
+  ['USA', 'MYS', 'LBR'],
+  ['TUR', 'TUN', 'PAK', 'AZE'],
+  ['NOR', 'ISL', 'FIN', 'SWE', 'DNK'],
+  ['HUN', 'BGR', 'IRN', 'TJK'],
+  ['COL', 'ECU', 'VEN'],
+  ['ARG', 'SLV', 'HND', 'NIC', 'GTM'],
+  ['QAT', 'BHR'],
+  ['ARE', 'JOR', 'KWT', 'SDN', 'SSD'],
+  ['MLI', 'SEN', 'GIN', 'CMR'],
+  ['GHA', 'ETH', 'BOL', 'LTU', 'MMR'],
+  ['CZE', 'PHL', 'CUB'],
+  ['CHL', 'TEX', 'CUB', 'PRI'],
+  ['MAR', 'VNM'],
+  ['SOM', 'FSM'],
+]
 
 const DEFAULT_CLUES: ClueSettings = {
   landen: { name: true, flag: false, capital: false, place: false },
@@ -104,10 +128,38 @@ function weightedPick(items: Country[], progress: ProgressState, mode: Exclude<T
   return weighted[0].country
 }
 
+function flagSimilarityScore(target: Country, candidate: Country) {
+  if (target.id === candidate.id) {
+    return -1
+  }
+
+  const sameGroup = SIMILAR_FLAG_GROUPS.some((group) => group.includes(target.id) && group.includes(candidate.id))
+  const sameSubregion = target.subregion === candidate.subregion
+  const sameContinent = target.continent === candidate.continent
+  const distance = Math.hypot(target.latlng[0] - candidate.latlng[0], target.latlng[1] - candidate.latlng[1])
+
+  return (sameGroup ? 1000 : 0) + (sameSubregion ? 220 : 0) + (sameContinent ? 80 : 0) - distance
+}
+
+function buildOptions(pool: Country[], country: Country, mode: Exclude<TrainerMode, 'gemengd'>) {
+  if (mode !== 'vlaggen') {
+    return shuffle([country, ...shuffle(pool.filter((item) => item.id !== country.id)).slice(0, 3)])
+  }
+
+  const exactGroup = SIMILAR_FLAG_GROUPS.find((group) => group.includes(country.id)) ?? []
+  const exactCandidates = shuffle(pool.filter((item) => item.id !== country.id && exactGroup.includes(item.id)))
+  const candidates = pool
+    .filter((item) => item.id !== country.id)
+    .sort((a, b) => flagSimilarityScore(country, b) - flagSimilarityScore(country, a))
+  const mergedCandidates = Array.from(new Map([...exactCandidates, ...candidates].map((item) => [item.id, item])).values())
+
+  return shuffle([country, ...mergedCandidates.slice(0, 3)])
+}
+
 function buildQuestion(pool: Country[], progress: ProgressState, selectedMode: TrainerMode, routine: Routine): Question {
   const mode = getMode(selectedMode)
   const country = weightedPick(pool, progress, mode, routine)
-  const options = shuffle([country, ...shuffle(pool.filter((item) => item.id !== country.id)).slice(0, 3)])
+  const options = buildOptions(pool, country, mode)
 
   return {
     country,
@@ -127,6 +179,8 @@ function App() {
   const [routine, setRoutine] = useState<Routine>('slim')
   const [progress, setProgress] = useState<ProgressState>(() => loadProgress())
   const [clues, setClues] = useState<ClueSettings>(DEFAULT_CLUES)
+  const [previousQuestion, setPreviousQuestion] = useState<Question | null>(null)
+  const [showPreviousQuestion, setShowPreviousQuestion] = useState(false)
   const progressRef = useRef(progress)
 
   const pool = useMemo(
@@ -152,11 +206,28 @@ function App() {
 
   useEffect(() => {
     setQuestion(buildQuestion(pool, progressRef.current, mode, routine))
+    setShowPreviousQuestion(false)
   }, [pool, mode, routine])
 
-  function nextQuestion() {
+  const nextQuestion = useCallback(() => {
+    if (question.answered) {
+      setPreviousQuestion(question)
+    }
+    setShowPreviousQuestion(false)
     setQuestion(buildQuestion(pool, progress, mode, routine))
-  }
+  }, [mode, pool, progress, question, routine])
+
+  useEffect(() => {
+    if (!question.answered || !question.correct) {
+      return
+    }
+
+    const timeout = window.setTimeout(() => {
+      nextQuestion()
+    }, 2000)
+
+    return () => window.clearTimeout(timeout)
+  }, [nextQuestion, question])
 
   function recordAnswer(correct: boolean) {
     setProgress((current) => applyAnswer(current, { countryId: question.country.id, mode: question.mode, correct }))
@@ -297,12 +368,15 @@ function App() {
             continent={continent}
             countries={pool}
             clues={clues}
+            previousQuestion={previousQuestion}
+            showPreviousQuestion={showPreviousQuestion}
             question={question}
             routine={routine}
             chooseOption={chooseOption}
             submitCapital={submitCapital}
             setQuestion={setQuestion}
             nextQuestion={nextQuestion}
+            setShowPreviousQuestion={setShowPreviousQuestion}
           />
         )}
 
@@ -318,12 +392,15 @@ type PracticePanelProps = {
   continent: Continent
   countries: Country[]
   clues: ClueSettings
+  previousQuestion: Question | null
+  showPreviousQuestion: boolean
   question: Question
   routine: Routine
   chooseOption: (countryId: string) => void
   submitCapital: (event: FormEvent<HTMLFormElement>) => void
   setQuestion: Dispatch<SetStateAction<Question>>
   nextQuestion: () => void
+  setShowPreviousQuestion: Dispatch<SetStateAction<boolean>>
 }
 
 function ClueControls({
@@ -356,7 +433,20 @@ function ClueControls({
   )
 }
 
-function PracticePanel({ continent, countries: visibleCountries, clues, question, routine, chooseOption, submitCapital, setQuestion, nextQuestion }: PracticePanelProps) {
+function PracticePanel({
+  continent,
+  countries: visibleCountries,
+  clues,
+  previousQuestion,
+  showPreviousQuestion,
+  question,
+  routine,
+  chooseOption,
+  submitCapital,
+  setQuestion,
+  nextQuestion,
+  setShowPreviousQuestion,
+}: PracticePanelProps) {
   const isCapital = question.mode === 'hoofdsteden'
   const isMapQuestion = question.mode === 'landen'
   const activeClues = clues[question.mode]
@@ -373,6 +463,16 @@ function PracticePanel({ continent, countries: visibleCountries, clues, question
           {routineLabels[routine]}
         </div>
       </header>
+
+      {previousQuestion && (
+        <div className="previous-question-tools">
+          <button type="button" onClick={() => setShowPreviousQuestion((current) => !current)}>
+            {showPreviousQuestion ? 'Verberg vorige vraag' : 'Vorige vraag'}
+          </button>
+        </div>
+      )}
+
+      {showPreviousQuestion && previousQuestion && <PreviousQuestionPanel question={previousQuestion} countries={visibleCountries} />}
 
       <div className={isMapQuestion ? 'question-stage map-question-stage' : 'question-stage'}>
         {isMapQuestion ? (
@@ -408,6 +508,8 @@ function PracticePanel({ continent, countries: visibleCountries, clues, question
                 className={['option-button', isCorrectAnswer ? 'correct' : '', isWrongSelection ? 'wrong' : ''].join(' ')}
                 type="button"
                 key={country.id}
+                data-country-id={country.id}
+                aria-label={question.mode === 'vlaggen' ? `Vlag van ${country.name}` : country.name}
                 onClick={() => chooseOption(country.id)}
               >
                 {question.mode === 'vlaggen' ? <span aria-hidden="true">{country.flag}</span> : country.name}
@@ -420,13 +522,28 @@ function PracticePanel({ continent, countries: visibleCountries, clues, question
       {question.answered && (
         <div className={question.correct ? 'feedback correct' : 'feedback wrong'} role="status">
           {question.correct ? <Check size={20} aria-hidden="true" /> : <X size={20} aria-hidden="true" />}
-          <span>{feedbackText(question, visibleCountries)}</span>
+          <span>
+            {feedbackText(question, visibleCountries)}
+            {question.correct ? ' Volgende vraag start automatisch.' : ''}
+          </span>
           <button type="button" onClick={nextQuestion}>
             Volgende vraag
           </button>
         </div>
       )}
     </div>
+  )
+}
+
+function PreviousQuestionPanel({ question, countries: visibleCountries }: { question: Question; countries: Country[] }) {
+  return (
+    <section className={question.correct ? 'previous-question correct' : 'previous-question wrong'} aria-label="Vorige vraag">
+      <div>
+        <span>Vorige vraag</span>
+        <strong>{modeLabels[question.mode]} · {question.country.name}</strong>
+      </div>
+      <p>{feedbackText(question, visibleCountries)}</p>
+    </section>
   )
 }
 
