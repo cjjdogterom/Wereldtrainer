@@ -222,13 +222,13 @@ function App() {
   }, [mode, pool, progress, question, routine])
 
   useEffect(() => {
-    if (!question.answered || !question.correct) {
+    if (!question.answered) {
       return
     }
 
     const timeout = window.setTimeout(() => {
       nextQuestion()
-    }, 2000)
+    }, 1250)
 
     return () => window.clearTimeout(timeout)
   }, [nextQuestion, question])
@@ -536,7 +536,7 @@ function PracticePanel({
           {question.correct ? <Check size={20} aria-hidden="true" /> : <X size={20} aria-hidden="true" />}
           <span>
             {feedbackText(question, visibleCountries)}
-            {question.correct ? ' Volgende vraag start automatisch.' : ''}
+            {' '}Volgende vraag start automatisch.
           </span>
           <button type="button" onClick={nextQuestion}>
             Volgende vraag
