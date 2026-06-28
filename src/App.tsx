@@ -1098,8 +1098,191 @@ function practiceTitle(mode: Exclude<TrainerMode, 'gemengd'>) {
   return 'Welke vlag hoort hierbij?'
 }
 
+function modeAccuracy(progress: ProgressState, countryId: string, mode: Exclude<TrainerMode, 'gemengd'>): number | null {
+  const stats = progress[countryId]?.[mode]
+  if (!stats) return null
+  const attempts = stats.correct + stats.wrong
+  if (!attempts) return null
+  return Math.round((stats.correct / attempts) * 100)
+}
+
+function LearnFlagMap({ continent, countries: visibleCountries }: { continent: Continent; countries: Country[] }) {
+  const view = useMemo(() => mapViewForContinent(continent), [continent])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
+  const countryByMapId = useMemo(() => new Map(visibleCountries.map((c) => [c.mapId, c])), [visibleCountries])
+  const [hovered, setHovered] = useState<Country | null>(null)
+  const geoData = geoDataFor(continent, position.zoom)
+
+  useEffect(() => {
+    setPosition({ coordinates: view.center, zoom: view.zoom })
+  }, [view])
+
+  const emojiPx = Math.max(3, 14 / position.zoom)
+
+  return (
+    <div className="flag-map-wrap">
+      <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
+        <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
+          <Geographies geography={geoData}>
+            {({ geographies }) =>
+              geographies.map((geo) => {
+                const country = countryByMapId.get(geographyKey(geo))
+                const fill = country
+                  ? continent === 'Wereld'
+                    ? (CONTINENT_COLORS[country.continent as Exclude<Continent, 'Wereld'>] ?? '#d8e5ed')
+                    : '#c4d8e8'
+                  : 'transparent'
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill={fill}
+                    stroke={country ? 'rgba(255,255,255,0.7)' : 'transparent'}
+                    strokeWidth={strokeWidthForZoom(view, position.zoom)}
+                    style={{ default: { outline: 'none' }, hover: { outline: 'none', opacity: 0.8 }, pressed: { outline: 'none' } }}
+                    onMouseEnter={() => country && setHovered(country)}
+                    onMouseLeave={() => setHovered(null)}
+                  />
+                )
+              })
+            }
+          </Geographies>
+          {visibleCountries.map((country) => (
+            <Marker key={country.id} coordinates={[country.latlng[1], country.latlng[0]]}>
+              <text
+                textAnchor="middle"
+                dominantBaseline="central"
+                style={{ fontSize: `${emojiPx}px`, userSelect: 'none', pointerEvents: 'none' }}
+              >
+                {country.flag}
+              </text>
+              {position.zoom >= 3.5 && (
+                <text
+                  textAnchor="middle"
+                  y={emojiPx * 0.72}
+                  style={{ fontSize: `${Math.max(1.5, 6 / position.zoom)}px`, fill: '#0f1c2e', fontWeight: 700, userSelect: 'none', pointerEvents: 'none' }}
+                >
+                  {country.name}
+                </text>
+              )}
+            </Marker>
+          ))}
+        </ZoomableGroup>
+      </ComposableMap>
+      {hovered && (
+        <div className="flag-map-tooltip">
+          <span className="fmtt-flag">{hovered.flag}</span>
+          <div>
+            <strong>{hovered.name}</strong>
+            <small>{hovered.capital}</small>
+          </div>
+        </div>
+      )}
+      <p className="flag-map-hint">Scroll om in te zoomen · zweef voor details</p>
+    </div>
+  )
+}
+
+function LearnContinentView({
+  continent,
+  countries: visibleCountries,
+}: {
+  continent: Exclude<Continent, 'Wereld'>
+  countries: Country[]
+}) {
+  const view = useMemo(() => mapViewForContinent(continent), [continent])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
+  const countryByMapId = useMemo(() => new Map(visibleCountries.map((c) => [c.mapId, c])), [visibleCountries])
+  const [hoveredId, setHoveredId] = useState<string | null>(null)
+  const geoData = geoDataFor(continent, position.zoom)
+
+  useEffect(() => {
+    setPosition({ coordinates: view.center, zoom: view.zoom })
+  }, [view])
+
+  return (
+    <div className="continent-overview">
+      <div className="continent-list">
+        {visibleCountries.map((country) => (
+          <div
+            key={country.id}
+            className={`continent-list-item${hoveredId === country.id ? ' is-hovered' : ''}`}
+            onMouseEnter={() => setHoveredId(country.id)}
+            onMouseLeave={() => setHoveredId(null)}
+          >
+            <span className="cl-flag" aria-hidden="true">{country.flag}</span>
+            <div className="cl-info">
+              <strong>{country.name}</strong>
+              <span>{country.capital}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="continent-map-panel">
+        <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
+          <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
+            <Geographies geography={geoData}>
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  const country = countryByMapId.get(geographyKey(geo))
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      fill={country ? (hoveredId === country.id ? '#5592bc' : '#c4d8e8') : 'transparent'}
+                      stroke={country ? '#ffffff' : 'transparent'}
+                      strokeWidth={strokeWidthForZoom(view, position.zoom)}
+                      style={{ default: { outline: 'none' }, hover: { outline: 'none' }, pressed: { outline: 'none' } }}
+                      onMouseEnter={() => country && setHoveredId(country.id)}
+                      onMouseLeave={() => setHoveredId(null)}
+                    />
+                  )
+                })
+              }
+            </Geographies>
+            {visibleCountries.map((country) => (
+              <Marker key={country.id} coordinates={[country.latlng[1], country.latlng[0]]}>
+                <circle
+                  r={4 / position.zoom}
+                  fill={hoveredId === country.id ? '#e25822' : '#2c6fad'}
+                  stroke="#ffffff"
+                  strokeWidth={1 / position.zoom}
+                />
+                {position.zoom >= 3 && (
+                  <text
+                    y={-5 / position.zoom}
+                    textAnchor="middle"
+                    style={{ fontSize: `${Math.max(2, 5 / position.zoom)}px`, fill: '#0f1c2e', fontWeight: 600, userSelect: 'none', pointerEvents: 'none' }}
+                  >
+                    {country.capital}
+                  </text>
+                )}
+              </Marker>
+            ))}
+          </ZoomableGroup>
+        </ComposableMap>
+      </div>
+    </div>
+  )
+}
+
 function LearnPanel({ continent, countries: visibleCountries, progress }: { continent: Continent; countries: Country[]; progress: ProgressState }) {
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null)
+  const [learnView, setLearnView] = useState<'tegels' | 'kaart' | 'overzicht'>('tegels')
+  const [overviewContinent, setOverviewContinent] = useState<Exclude<Continent, 'Wereld'> | null>(null)
+
+  const continentList: Exclude<Continent, 'Wereld'>[] = ['Afrika', 'Azie', 'Europa', 'Noord-Amerika', 'Zuid-Amerika', 'Oceanie']
+
+  const effectiveOverviewContinent: Exclude<Continent, 'Wereld'> | null =
+    continent !== 'Wereld' ? continent : overviewContinent
+
+  const overviewCountries = useMemo(
+    () =>
+      effectiveOverviewContinent
+        ? visibleCountries.filter((c) => c.continent === effectiveOverviewContinent)
+        : visibleCountries,
+    [effectiveOverviewContinent, visibleCountries],
+  )
 
   function selectCountry(country: Country) {
     setSelectedCountry((current) => (current?.id === country.id ? null : country))
@@ -1112,51 +1295,101 @@ function LearnPanel({ continent, countries: visibleCountries, progress }: { cont
           <p className="eyebrow">Leren</p>
           <h2>Alle landen, vlaggen en hoofdsteden</h2>
         </div>
-        <span className="count-pill">{visibleCountries.length} landen</span>
+        <div className="learn-controls">
+          <div className="learn-view-toggle">
+            <button type="button" className={learnView === 'tegels' ? 'lvt-btn active' : 'lvt-btn'} onClick={() => setLearnView('tegels')}>
+              Tegels
+            </button>
+            <button type="button" className={learnView === 'kaart' ? 'lvt-btn active' : 'lvt-btn'} onClick={() => setLearnView('kaart')}>
+              Vlaggenkaart
+            </button>
+            <button type="button" className={learnView === 'overzicht' ? 'lvt-btn active' : 'lvt-btn'} onClick={() => setLearnView('overzicht')}>
+              Per continent
+            </button>
+          </div>
+          <span className="count-pill">{visibleCountries.length} landen</span>
+        </div>
       </header>
 
-      <div className={selectedCountry ? 'learn-layout has-detail' : 'learn-layout'}>
-        <div className="learn-grid">
-          {visibleCountries.map((country) => {
-            const score = masteryForCountry(progress, country.id)
-            const isSelected = selectedCountry?.id === country.id
-            return (
-              <article
-                className={isSelected ? 'country-card is-selected' : 'country-card'}
-                key={country.id}
-                onClick={() => selectCountry(country)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && selectCountry(country)}
-                aria-pressed={isSelected}
-              >
-                <span className="card-flag" aria-hidden="true">{country.flag}</span>
-                <div>
-                  <h3>{country.name}</h3>
-                  <p>{country.capital}</p>
-                  <span>{country.continent}</span>
-                </div>
-                <strong style={{ color: scoreColor(score) }}>{score}%</strong>
-              </article>
-            )
-          })}
-        </div>
+      {learnView === 'kaart' && <LearnFlagMap continent={continent} countries={visibleCountries} />}
 
-        {selectedCountry ? (
-          <CountryDetailPanel
-            continent={continent}
-            countries={visibleCountries}
-            country={selectedCountry}
-            progress={progress}
-            onClose={() => setSelectedCountry(null)}
-          />
-        ) : (
-          <div className="learn-detail-placeholder">
-            <Globe2 size={36} aria-hidden="true" />
-            <p>Klik op een land om de kaart en details te zien</p>
+      {learnView === 'overzicht' &&
+        (effectiveOverviewContinent ? (
+          <div className="overview-wrap">
+            {continent === 'Wereld' && (
+              <button type="button" className="overview-back" onClick={() => setOverviewContinent(null)}>
+                ← Alle continenten
+              </button>
+            )}
+            <LearnContinentView continent={effectiveOverviewContinent} countries={overviewCountries} />
           </div>
-        )}
-      </div>
+        ) : (
+          <div className="continent-picker">
+            <p className="continent-picker-hint">Kies een continent om te verkennen</p>
+            <div className="continent-picker-grid">
+              {continentList.map((cont) => {
+                const cnt = visibleCountries.filter((c) => c.continent === cont).length
+                return (
+                  <button
+                    key={cont}
+                    type="button"
+                    className="continent-pick-card"
+                    style={{ '--cont-color': CONTINENT_COLORS[cont] } as React.CSSProperties}
+                    onClick={() => setOverviewContinent(cont)}
+                  >
+                    <strong>{cont}</strong>
+                    <span>{cnt} landen</span>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        ))}
+
+      {learnView === 'tegels' && (
+        <div className={selectedCountry ? 'learn-layout has-detail' : 'learn-layout'}>
+          <div className="learn-grid">
+            {visibleCountries.map((country) => {
+              const score = masteryForCountry(progress, country.id)
+              const isSelected = selectedCountry?.id === country.id
+              return (
+                <article
+                  className={isSelected ? 'country-card is-selected' : 'country-card'}
+                  key={country.id}
+                  onClick={() => selectCountry(country)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && selectCountry(country)}
+                  aria-pressed={isSelected}
+                >
+                  <span className="card-flag" aria-hidden="true">{country.flag}</span>
+                  <div>
+                    <h3>{country.name}</h3>
+                    <p>{country.capital}</p>
+                    <span>{country.continent}</span>
+                  </div>
+                  <strong style={{ color: scoreColor(score) }}>{score}%</strong>
+                </article>
+              )
+            })}
+          </div>
+
+          {selectedCountry ? (
+            <CountryDetailPanel
+              continent={continent}
+              countries={visibleCountries}
+              country={selectedCountry}
+              progress={progress}
+              onClose={() => setSelectedCountry(null)}
+            />
+          ) : (
+            <div className="learn-detail-placeholder">
+              <Globe2 size={36} aria-hidden="true" />
+              <p>Klik op een land om de kaart en details te zien</p>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }
@@ -1205,6 +1438,93 @@ function CountryDetailPanel({
   )
 }
 
+type SortCol = 'name' | 'totaal' | 'vlaggen' | 'landen' | 'hoofdsteden'
+
+function ProgressListView({ progress }: { progress: ProgressState }) {
+  const [filterContinent, setFilterContinent] = useState<Continent>('Wereld')
+  const [sort, setSort] = useState<{ col: SortCol; dir: 'asc' | 'desc' }>({ col: 'totaal', dir: 'asc' })
+
+  const continentOptions: Continent[] = ['Wereld', 'Afrika', 'Azie', 'Europa', 'Noord-Amerika', 'Zuid-Amerika', 'Oceanie']
+
+  const rows = useMemo(() => {
+    const filtered = filterContinent === 'Wereld' ? countries : countries.filter((c) => c.continent === filterContinent)
+    return [...filtered].sort((a, b) => {
+      const dir = sort.dir === 'asc' ? 1 : -1
+      if (sort.col === 'name') return dir * a.name.localeCompare(b.name, 'nl')
+      if (sort.col === 'totaal') return dir * (masteryForCountry(progress, a.id) - masteryForCountry(progress, b.id))
+      const mode = sort.col as Exclude<TrainerMode, 'gemengd'>
+      return dir * ((modeAccuracy(progress, a.id, mode) ?? -1) - (modeAccuracy(progress, b.id, mode) ?? -1))
+    })
+  }, [filterContinent, sort, progress])
+
+  function toggleSort(col: SortCol) {
+    setSort((prev) => (prev.col === col ? { col, dir: prev.dir === 'asc' ? 'desc' : 'asc' } : { col, dir: 'desc' }))
+  }
+
+  function SortIcon({ col }: { col: SortCol }) {
+    if (sort.col !== col) return <span className="sort-idle">↕</span>
+    return <span className="sort-active">{sort.dir === 'desc' ? '↓' : '↑'}</span>
+  }
+
+  function PctCell({ val }: { val: number | null }) {
+    if (val === null) return <td className="pct-cell pct-none">—</td>
+    const color = val >= 80 ? '#228b5b' : val >= 50 ? '#b07400' : '#c84b4b'
+    return <td className="pct-cell" style={{ color }}>{val}%</td>
+  }
+
+  return (
+    <div className="progress-list-wrap">
+      <div className="progress-continent-filter">
+        {continentOptions.map((cont) => (
+          <button
+            key={cont}
+            type="button"
+            className={filterContinent === cont ? 'pf-chip active' : 'pf-chip'}
+            onClick={() => setFilterContinent(cont)}
+          >
+            {cont === 'Wereld' ? 'Alle' : cont}
+          </button>
+        ))}
+      </div>
+      <div className="progress-table-wrap">
+        <table className="progress-table">
+          <thead>
+            <tr>
+              <th className="sortable" onClick={() => toggleSort('name')}>Land <SortIcon col="name" /></th>
+              <th className="sortable" onClick={() => toggleSort('landen')}>Landen <SortIcon col="landen" /></th>
+              <th className="sortable" onClick={() => toggleSort('vlaggen')}>Vlaggen <SortIcon col="vlaggen" /></th>
+              <th className="sortable" onClick={() => toggleSort('hoofdsteden')}>Hoofdsteden <SortIcon col="hoofdsteden" /></th>
+              <th className="sortable" onClick={() => toggleSort('totaal')}>Totaal <SortIcon col="totaal" /></th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((country) => {
+              const totaal = masteryForCountry(progress, country.id)
+              return (
+                <tr key={country.id}>
+                  <td className="country-name-cell">
+                    <span aria-hidden="true">{country.flag}</span>
+                    <div>
+                      <strong>{country.name}</strong>
+                      <small>{country.capital}</small>
+                    </div>
+                  </td>
+                  <PctCell val={modeAccuracy(progress, country.id, 'landen')} />
+                  <PctCell val={modeAccuracy(progress, country.id, 'vlaggen')} />
+                  <PctCell val={modeAccuracy(progress, country.id, 'hoofdsteden')} />
+                  <td className="pct-cell pct-totaal" style={{ color: totaal > 0 ? scoreColor(totaal) : '#94a3b8', fontWeight: 700 }}>
+                    {totaal > 0 ? `${totaal}%` : '—'}
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+
 function MapPanel({
   continent,
   countries: visibleCountries,
@@ -1216,6 +1536,7 @@ function MapPanel({
   progress: ProgressState
   weakestCountries: Country[]
 }) {
+  const [mapTab, setMapTab] = useState<'kaart' | 'lijst'>('kaart')
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((country) => [country.mapId, country])), [visibleCountries])
   const smallCountries = useMemo(() => visibleCountries.filter((country) => shouldShowMarker(country, continent)), [continent, visibleCountries])
   const view = useMemo(() => mapViewForContinent(continent), [continent])
@@ -1230,67 +1551,83 @@ function MapPanel({
     <div className="map-panel">
       <header className="panel-header">
         <div>
-          <p className="eyebrow">Heatmap</p>
+          <p className="eyebrow">Voortgang</p>
           <h2>Waar ken je de wereld al?</h2>
         </div>
-        <div className="legend">
-          <span className="unknown"></span> nieuw
-          <span className="low"></span> oefenen
-          <span className="mid"></span> groeit
-          <span className="high"></span> sterk
+        <div className="map-tab-group">
+          <button type="button" className={mapTab === 'kaart' ? 'mtab active' : 'mtab'} onClick={() => setMapTab('kaart')}>
+            Kaart
+          </button>
+          <button type="button" className={mapTab === 'lijst' ? 'mtab active' : 'mtab'} onClick={() => setMapTab('lijst')}>
+            Lijst
+          </button>
         </div>
+        {mapTab === 'kaart' && (
+          <div className="legend">
+            <span className="unknown"></span> nieuw
+            <span className="low"></span> oefenen
+            <span className="mid"></span> groeit
+            <span className="high"></span> sterk
+          </div>
+        )}
       </header>
 
-      <div className="map-frame">
-        <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
-          <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
-            <Geographies geography={geoData}>
-              {({ geographies }) =>
-                geographies.map((geography) => {
-                  const country = countryByMapId.get(geographyKey(geography))
-                  const score = country ? masteryForCountry(progress, country.id) : 0
+      {mapTab === 'lijst' ? (
+        <ProgressListView progress={progress} />
+      ) : (
+        <>
+          <div className="map-frame">
+            <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
+              <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
+                <Geographies geography={geoData}>
+                  {({ geographies }) =>
+                    geographies.map((geography) => {
+                      const country = countryByMapId.get(geographyKey(geography))
+                      const score = country ? masteryForCountry(progress, country.id) : 0
+                      return (
+                        <Geography
+                          key={geography.rsmKey}
+                          geography={geography}
+                          data-country-id={country?.id}
+                          aria-label={country?.name}
+                          fill={country ? scoreColor(score) : 'transparent'}
+                          stroke={country ? '#ffffff' : 'transparent'}
+                          strokeWidth={strokeWidthForZoom(view, position.zoom)}
+                          style={{
+                            default: { opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none' },
+                            hover: { opacity: country ? 1 : 0, outline: 'none', fill: country ? '#2364aa' : '#dfe6ea' },
+                            pressed: { outline: 'none' },
+                          }}
+                        />
+                      )
+                    })
+                  }
+                </Geographies>
+                {smallCountries.map((country) => {
+                  const score = masteryForCountry(progress, country.id)
+                  const radius = markerRadiusForZoom(country, position.zoom)
                   return (
-                    <Geography
-                      key={geography.rsmKey}
-                      geography={geography}
-                      data-country-id={country?.id}
-                      aria-label={country?.name}
-                      fill={country ? scoreColor(score) : 'transparent'}
-                      stroke={country ? '#ffffff' : 'transparent'}
-                      strokeWidth={strokeWidthForZoom(view, position.zoom)}
-                      style={{
-                        default: { opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none' },
-                        hover: { opacity: country ? 1 : 0, outline: 'none', fill: country ? '#2364aa' : '#dfe6ea' },
-                        pressed: { outline: 'none' },
-                      }}
-                    />
+                    <Marker key={`marker-${country.id}`} coordinates={[country.latlng[1], country.latlng[0]]}>
+                      <circle r={radius} fill={scoreColor(score)} stroke="#0f172a" strokeWidth={0.85 / position.zoom} vectorEffect="non-scaling-stroke" />
+                    </Marker>
                   )
-                })
-              }
-            </Geographies>
-            {smallCountries.map((country) => {
-              const score = masteryForCountry(progress, country.id)
-              const radius = markerRadiusForZoom(country, position.zoom)
-              return (
-                <Marker key={`marker-${country.id}`} coordinates={[country.latlng[1], country.latlng[0]]}>
-                  <circle r={radius} fill={scoreColor(score)} stroke="#0f172a" strokeWidth={0.85 / position.zoom} vectorEffect="non-scaling-stroke" />
-                </Marker>
-              )
-            })}
-          </ZoomableGroup>
-        </ComposableMap>
-      </div>
+                })}
+              </ZoomableGroup>
+            </ComposableMap>
+          </div>
 
-      <section className="weak-list" aria-labelledby="weak-title">
-        <h3 id="weak-title">Beste volgende landen om te oefenen</h3>
-        <div>
-          {weakestCountries.map((country) => (
-            <span key={country.id}>
-              {country.flag} {country.name} · {masteryForCountry(progress, country.id)}%
-            </span>
-          ))}
-        </div>
-      </section>
+          <section className="weak-list" aria-labelledby="weak-title">
+            <h3 id="weak-title">Beste volgende landen om te oefenen</h3>
+            <div>
+              {weakestCountries.map((country) => (
+                <span key={country.id}>
+                  {country.flag} {country.name} · {masteryForCountry(progress, country.id)}%
+                </span>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
     </div>
   )
 }
