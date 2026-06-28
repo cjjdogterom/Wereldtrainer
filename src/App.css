@@ -1526,3 +1526,81 @@ input.answered-wrong {
   font-weight: 300;
   opacity: 0.5;
 }
+
+/* ─── Map layer controls (shared by LearnFlagMap + LearnContinentView) ─── */
+.map-layer-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 8px 10px;
+  background: var(--panel);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+}
+
+.mlc-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-right: 2px;
+}
+
+.mlc-btn {
+  padding: 3px 11px;
+  font-size: 12px;
+  font-weight: 600;
+  min-height: 28px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+
+.mlc-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.mlc-btn:hover:not(.active) {
+  border-color: var(--accent);
+  color: var(--text-strong);
+}
+
+.mlc-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-left: 4px;
+}
+
+/* Continent map column (controls + map stacked vertically) */
+.continent-map-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+
+.continent-map-col .continent-map-panel {
+  flex: 1;
+  min-height: 320px;
+}
+
+/* Flag map wrap: controls bar sits above the SVG */
+.flag-map-wrap .map-layer-controls {
+  border-radius: 10px 10px 0 0;
+  border-bottom: none;
+}
+
+.flag-map-wrap > .rsm-svg,
+.flag-map-wrap > div[class*="rsm"] {
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .continent-map-col .map-layer-controls { flex-wrap: wrap; }
+}

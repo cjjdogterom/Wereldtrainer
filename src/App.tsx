@@ -1162,16 +1162,29 @@ function LearnFlagMap({ continent, countries: visibleCountries }: { continent: C
   const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((c) => [c.mapId, c])), [visibleCountries])
   const [hovered, setHovered] = useState<Country | null>(null)
+  const [layers, setLayers] = useState({ flags: true, names: true, capitals: false })
   const geoData = geoDataFor(continent, position.zoom)
+  const allOff = !layers.flags && !layers.names && !layers.capitals
 
   useEffect(() => {
     setPosition({ coordinates: view.center, zoom: view.zoom })
   }, [view])
 
-  const emojiPx = Math.max(3, 14 / position.zoom)
+  function toggleLayer(key: keyof typeof layers) {
+    setLayers((prev) => ({ ...prev, [key]: !prev[key] }))
+  }
 
   return (
     <div className="flag-map-wrap">
+      <div className="map-layer-controls">
+        <span className="mlc-label">Toon:</span>
+        {(['flags', 'names', 'capitals'] as const).map((key) => (
+          <button key={key} type="button" className={layers[key] ? 'mlc-btn active' : 'mlc-btn'} onClick={() => toggleLayer(key)}>
+            {key === 'flags' ? 'Vlaggen' : key === 'names' ? 'Namen' : 'Hoofdsteden'}
+          </button>
+        ))}
+        {allOff && <span className="mlc-hint">Zweef voor details</span>}
+      </div>
       <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
         <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
           <Geographies geography={geoData}>
@@ -1187,7 +1200,7 @@ function LearnFlagMap({ continent, countries: visibleCountries }: { continent: C
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
-                    fill={fill}
+                    fill={hovered?.id === country?.id ? '#7aadd4' : fill}
                     stroke={country ? 'rgba(255,255,255,0.7)' : 'transparent'}
                     strokeWidth={strokeWidthForZoom(view, position.zoom)}
                     style={{ default: { outline: 'none' }, hover: { outline: 'none', opacity: 0.8 }, pressed: { outline: 'none' } }}
@@ -1198,26 +1211,57 @@ function LearnFlagMap({ continent, countries: visibleCountries }: { continent: C
               })
             }
           </Geographies>
-          {visibleCountries.map((country) => (
-            <Marker key={country.id} coordinates={[country.latlng[1], country.latlng[0]]}>
-              <text
-                textAnchor="middle"
-                dominantBaseline="central"
-                style={{ fontSize: `${emojiPx}px`, userSelect: 'none', pointerEvents: 'none' }}
-              >
-                {country.flag}
-              </text>
-              {position.zoom >= 3.5 && (
-                <text
-                  textAnchor="middle"
-                  y={emojiPx * 0.72}
-                  style={{ fontSize: `${Math.max(1.5, 6 / position.zoom)}px`, fill: '#0f1c2e', fontWeight: 700, userSelect: 'none', pointerEvents: 'none' }}
-                >
-                  {country.name}
-                </text>
-              )}
-            </Marker>
-          ))}
+          {visibleCountries.map((country) => {
+            const isHov = hovered?.id === country.id
+            const showFlag = layers.flags || (allOff && isHov)
+            const showName = layers.names || (allOff && isHov)
+            const showCap = (layers.capitals && position.zoom >= 2.5) || (allOff && isHov)
+            if (!showFlag && !showName && !showCap) return null
+
+            const flagPx = 14 / position.zoom
+            const namePx = 7 / position.zoom
+            const capPx = 5.5 / position.zoom
+            const totalH = (showFlag ? flagPx : 0) + (showName ? namePx * 0.95 : 0) + (showCap ? capPx * 0.9 : 0)
+            let cy = -totalH / 2
+            let flagY = 0, nameY = 0, capY = 0
+            if (showFlag) { flagY = cy + flagPx * 0.8; cy += flagPx }
+            if (showName) { nameY = cy + namePx * 0.85; cy += namePx * 0.95 }
+            if (showCap) { capY = cy + capPx * 0.75 }
+
+            return (
+              <Marker key={country.id} coordinates={[country.latlng[1], country.latlng[0]]}>
+                {showFlag && (
+                  <text textAnchor="middle" y={flagY} style={{ fontSize: `${flagPx}px`, userSelect: 'none', pointerEvents: 'none' }}>
+                    {country.flag}
+                  </text>
+                )}
+                {showName && (
+                  <text
+                    textAnchor="middle"
+                    y={nameY}
+                    fill="#0f1c2e"
+                    stroke="rgba(255,255,255,0.88)"
+                    strokeWidth={namePx * 0.3}
+                    style={{ fontSize: `${namePx}px`, fontWeight: 700, userSelect: 'none', pointerEvents: 'none', paintOrder: 'stroke' as const }}
+                  >
+                    {country.name}
+                  </text>
+                )}
+                {showCap && (
+                  <text
+                    textAnchor="middle"
+                    y={capY}
+                    fill="#4a5f7a"
+                    stroke="rgba(255,255,255,0.8)"
+                    strokeWidth={capPx * 0.25}
+                    style={{ fontSize: `${capPx}px`, userSelect: 'none', pointerEvents: 'none', paintOrder: 'stroke' as const }}
+                  >
+                    {country.capital}
+                  </text>
+                )}
+              </Marker>
+            )
+          })}
         </ZoomableGroup>
       </ComposableMap>
       {hovered && (
@@ -1245,11 +1289,17 @@ function LearnContinentView({
   const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((c) => [c.mapId, c])), [visibleCountries])
   const [hoveredId, setHoveredId] = useState<string | null>(null)
+  const [layers, setLayers] = useState({ flags: true, names: true, capitals: true })
   const geoData = geoDataFor(continent, position.zoom)
+  const allOff = !layers.flags && !layers.names && !layers.capitals
 
   useEffect(() => {
     setPosition({ coordinates: view.center, zoom: view.zoom })
   }, [view])
+
+  function toggleLayer(key: keyof typeof layers) {
+    setLayers((prev) => ({ ...prev, [key]: !prev[key] }))
+  }
 
   return (
     <div className="continent-overview">
@@ -1269,49 +1319,96 @@ function LearnContinentView({
           </div>
         ))}
       </div>
-      <div className="continent-map-panel">
-        <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
-          <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
-            <Geographies geography={geoData}>
-              {({ geographies }) =>
-                geographies.map((geo) => {
-                  const country = countryByMapId.get(geographyKey(geo))
-                  return (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      fill={country ? (hoveredId === country.id ? '#5592bc' : '#c4d8e8') : 'transparent'}
-                      stroke={country ? '#ffffff' : 'transparent'}
-                      strokeWidth={strokeWidthForZoom(view, position.zoom)}
-                      style={{ default: { outline: 'none' }, hover: { outline: 'none' }, pressed: { outline: 'none' } }}
-                      onMouseEnter={() => country && setHoveredId(country.id)}
-                      onMouseLeave={() => setHoveredId(null)}
-                    />
-                  )
-                })
-              }
-            </Geographies>
-            {visibleCountries.map((country) => (
-              <Marker key={country.id} coordinates={[country.latlng[1], country.latlng[0]]}>
-                <circle
-                  r={4 / position.zoom}
-                  fill={hoveredId === country.id ? '#e25822' : '#2c6fad'}
-                  stroke="#ffffff"
-                  strokeWidth={1 / position.zoom}
-                />
-                {position.zoom >= 3 && (
-                  <text
-                    y={-5 / position.zoom}
-                    textAnchor="middle"
-                    style={{ fontSize: `${Math.max(2, 5 / position.zoom)}px`, fill: '#0f1c2e', fontWeight: 600, userSelect: 'none', pointerEvents: 'none' }}
-                  >
-                    {country.capital}
-                  </text>
-                )}
-              </Marker>
-            ))}
-          </ZoomableGroup>
-        </ComposableMap>
+      <div className="continent-map-col">
+        <div className="map-layer-controls">
+          <span className="mlc-label">Toon:</span>
+          {(['flags', 'names', 'capitals'] as const).map((key) => (
+            <button key={key} type="button" className={layers[key] ? 'mlc-btn active' : 'mlc-btn'} onClick={() => toggleLayer(key)}>
+              {key === 'flags' ? 'Vlaggen' : key === 'names' ? 'Namen' : 'Hoofdsteden'}
+            </button>
+          ))}
+          {allOff && <span className="mlc-hint">Zweef over land voor details</span>}
+        </div>
+        <div className="continent-map-panel">
+          <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
+            <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
+              <Geographies geography={geoData}>
+                {({ geographies }) =>
+                  geographies.map((geo) => {
+                    const country = countryByMapId.get(geographyKey(geo))
+                    return (
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        fill={country ? (hoveredId === country.id ? '#5592bc' : '#c4d8e8') : 'transparent'}
+                        stroke={country ? '#ffffff' : 'transparent'}
+                        strokeWidth={strokeWidthForZoom(view, position.zoom)}
+                        style={{ default: { outline: 'none' }, hover: { outline: 'none' }, pressed: { outline: 'none' } }}
+                        onMouseEnter={() => country && setHoveredId(country.id)}
+                        onMouseLeave={() => setHoveredId(null)}
+                      />
+                    )
+                  })
+                }
+              </Geographies>
+              {visibleCountries.map((country) => {
+                const isHov = hoveredId === country.id
+                const showFlag = layers.flags || (allOff && isHov)
+                const showName = layers.names || (allOff && isHov)
+                const showCap = layers.capitals || (allOff && isHov)
+                if (!showFlag && !showName && !showCap) return null
+
+                const flagPx = Math.max(8, 18 / position.zoom)
+                const namePx = Math.max(5, 12 / position.zoom)
+                const capPx = Math.max(3.5, 8 / position.zoom)
+
+                const totalH =
+                  (showFlag ? flagPx : 0) +
+                  (showName ? namePx * 0.95 : 0) +
+                  (showCap ? capPx * 0.9 : 0)
+                let cy = -totalH / 2
+                let flagY = 0, nameY = 0, capY = 0
+                if (showFlag) { flagY = cy + flagPx * 0.8; cy += flagPx }
+                if (showName) { nameY = cy + namePx * 0.85; cy += namePx * 0.95 }
+                if (showCap) { capY = cy + capPx * 0.75 }
+
+                return (
+                  <Marker key={country.id} coordinates={[country.latlng[1], country.latlng[0]]}>
+                    {showFlag && (
+                      <text textAnchor="middle" y={flagY} style={{ fontSize: `${flagPx}px`, userSelect: 'none', pointerEvents: 'none' }}>
+                        {country.flag}
+                      </text>
+                    )}
+                    {showName && (
+                      <text
+                        textAnchor="middle"
+                        y={nameY}
+                        fill={isHov ? '#1b5a9e' : '#0f1c2e'}
+                        stroke="rgba(255,255,255,0.92)"
+                        strokeWidth={namePx * 0.32}
+                        style={{ fontSize: `${namePx}px`, fontWeight: 800, userSelect: 'none', pointerEvents: 'none', paintOrder: 'stroke' as const }}
+                      >
+                        {country.name}
+                      </text>
+                    )}
+                    {showCap && (
+                      <text
+                        textAnchor="middle"
+                        y={capY}
+                        fill={isHov ? '#2364aa' : '#4a5f7a'}
+                        stroke="rgba(255,255,255,0.85)"
+                        strokeWidth={capPx * 0.25}
+                        style={{ fontSize: `${capPx}px`, userSelect: 'none', pointerEvents: 'none', paintOrder: 'stroke' as const }}
+                      >
+                        ● {country.capital}
+                      </text>
+                    )}
+                  </Marker>
+                )
+              })}
+            </ZoomableGroup>
+          </ComposableMap>
+        </div>
       </div>
     </div>
   )
