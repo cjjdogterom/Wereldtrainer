@@ -36,6 +36,7 @@ const TRAINING_MODES: Exclude<TrainerMode, 'gemengd'>[] = ['landen', 'vlaggen', 
 const SMALL_COUNTRY_AREA = 3000
 const WORLD_MARKER_MAX_AREA = 200
 const WORLD_DETAIL_ZOOM = 1.65
+const AUTO_ADVANCE_MS = 1250
 
 const SIMILAR_FLAG_GROUPS = [
   ['NLD', 'LUX', 'RUS', 'SRB', 'SVK', 'SVN', 'HRV', 'PRY'],
@@ -227,7 +228,7 @@ function App() {
 
     const timeout = window.setTimeout(() => {
       nextQuestion()
-    }, 1250)
+    }, AUTO_ADVANCE_MS)
 
     return () => window.clearTimeout(timeout)
   }, [nextQuestion, question])
@@ -536,7 +537,7 @@ function PracticePanel({
           {question.correct ? <Check size={20} aria-hidden="true" /> : <X size={20} aria-hidden="true" />}
           <span>
             {feedbackText(question, visibleCountries)}
-            {' '}Volgende vraag start automatisch.
+            {' '}Volgende vraag start over 1,25 sec.
           </span>
           <button type="button" onClick={nextQuestion}>
             Volgende vraag
