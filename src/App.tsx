@@ -890,11 +890,6 @@ function MapPanel({
                 </Marker>
               )
             })}
-            {weakestCountries.slice(0, 5).map((country) => (
-              <Marker key={country.id} coordinates={[country.latlng[1], country.latlng[0]]}>
-                <circle r={3} fill="#111827" stroke="#fff" strokeWidth={1.2} />
-              </Marker>
-            ))}
           </ZoomableGroup>
         </ComposableMap>
       </div>
