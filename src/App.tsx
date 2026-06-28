@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type SetStateAction } from 'react'
 import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, RotateCcw, Target, Timer, X } from 'lucide-react'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
-import geoUrl from 'world-atlas/countries-10m.json?url'
+import detailedGeoUrl from 'world-atlas/countries-10m.json?url'
+import worldGeoUrl from 'world-atlas/countries-110m.json?url'
 import './App.css'
 import { continents, countries, modeLabels, routineLabels, type Continent, type Country, type Routine, type TrainerMode } from './data/countries'
 import {
@@ -33,6 +34,7 @@ type Question = {
 
 const TRAINING_MODES: Exclude<TrainerMode, 'gemengd'>[] = ['landen', 'vlaggen', 'hoofdsteden']
 const SMALL_COUNTRY_AREA = 3000
+const WORLD_MARKER_MAX_AREA = 200
 
 const SIMILAR_FLAG_GROUPS = [
   ['NLD', 'LUX', 'RUS', 'SRB', 'SVK', 'SVN', 'HRV', 'PRY'],
@@ -606,12 +608,13 @@ function cueInstruction(mode: Exclude<TrainerMode, 'gemengd'>) {
 function CountryClueMap({ continent, countries: visibleCountries, country }: { continent: Continent; countries: Country[]; country: Country }) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((item) => [item.mapId, item])), [visibleCountries])
   const view = mapViewForContinent(continent)
+  const geoData = continent === 'Wereld' ? worldGeoUrl : detailedGeoUrl
 
   return (
     <div className="cue-map">
       <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
         <ZoomableGroup center={view.center} zoom={view.zoom}>
-          <Geographies geography={geoUrl}>
+          <Geographies geography={geoData}>
             {({ geographies }) =>
               geographies.map((geography) => {
                 const mapCountry = countryByMapId.get(geographyKey(geography))
@@ -659,14 +662,15 @@ function CountryClickMap({
   chooseCountry: (countryId: string) => void
 }) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((country) => [country.mapId, country])), [visibleCountries])
-  const smallCountries = useMemo(() => visibleCountries.filter((country) => country.area <= SMALL_COUNTRY_AREA), [visibleCountries])
+  const smallCountries = useMemo(() => visibleCountries.filter((country) => shouldShowMarker(country, continent)), [continent, visibleCountries])
   const view = mapViewForContinent(continent)
+  const geoData = continent === 'Wereld' ? worldGeoUrl : detailedGeoUrl
 
   return (
     <div className="practice-map-frame">
       <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
         <ZoomableGroup center={view.center} zoom={view.zoom}>
-          <Geographies geography={geoUrl}>
+          <Geographies geography={geoData}>
             {({ geographies }) =>
               geographies.map((geography) => {
                 const country = countryByMapId.get(geographyKey(geography))
@@ -755,6 +759,14 @@ function markerRadius(country: Country, view: MapView) {
   return screenRadius / view.zoom
 }
 
+function markerAreaLimit(continent: Continent) {
+  return continent === 'Wereld' ? WORLD_MARKER_MAX_AREA : SMALL_COUNTRY_AREA
+}
+
+function shouldShowMarker(country: Country, continent: Continent) {
+  return country.area <= markerAreaLimit(continent) || (continent === 'Wereld' && country.id === 'XKX')
+}
+
 function geographyKey(geography: { id?: string | number; properties?: { name?: string } }) {
   return String(geography.id ?? geography.properties?.name ?? '')
 }
@@ -836,8 +848,9 @@ function MapPanel({
   weakestCountries: Country[]
 }) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((country) => [country.mapId, country])), [visibleCountries])
-  const smallCountries = useMemo(() => visibleCountries.filter((country) => country.area <= SMALL_COUNTRY_AREA), [visibleCountries])
+  const smallCountries = useMemo(() => visibleCountries.filter((country) => shouldShowMarker(country, continent)), [continent, visibleCountries])
   const view = mapViewForContinent(continent)
+  const geoData = continent === 'Wereld' ? worldGeoUrl : detailedGeoUrl
 
   return (
     <div className="map-panel">
@@ -857,7 +870,7 @@ function MapPanel({
       <div className="map-frame">
         <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
           <ZoomableGroup center={view.center} zoom={view.zoom}>
-            <Geographies geography={geoUrl}>
+            <Geographies geography={geoData}>
               {({ geographies }) =>
                 geographies.map((geography) => {
                   const country = countryByMapId.get(geographyKey(geography))
