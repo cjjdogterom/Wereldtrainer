@@ -687,27 +687,31 @@ function PracticePanel({
                   clues={activeClues}
                   answered={question.answered}
                   correct={question.correct}
+                  selectedId={question.selectedId}
                   feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
                   onNext={nextQuestion}
                 />
               </div>
             ) : (
-              <CuePanel
-                continent={continent}
-                countries={visibleCountries}
-                country={question.country}
-                mode={question.mode}
-                clues={activeClues}
-                answered={question.answered}
-                correct={question.correct}
-                feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
-                onNext={nextQuestion}
-              />
-            )}
-            {question.answered && (
-              question.correct
-                ? <CorrectAnswerReveal question={question} onNext={isCapital ? nextQuestion : undefined} />
-                : <WrongAnswerReveal question={question} countries={visibleCountries} />
+              <>
+                <CuePanel
+                  continent={continent}
+                  countries={visibleCountries}
+                  country={question.country}
+                  mode={question.mode}
+                  clues={activeClues}
+                  answered={question.answered}
+                  correct={question.correct}
+                  selectedId={question.selectedId}
+                  feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
+                  onNext={nextQuestion}
+                />
+                {question.answered && (
+                  question.correct
+                    ? <CorrectAnswerReveal question={question} onNext={isCapital ? nextQuestion : undefined} />
+                    : <WrongAnswerReveal question={question} countries={visibleCountries} />
+                )}
+              </>
             )}
           </div>
 
@@ -977,6 +981,7 @@ function CuePanel({
   clues,
   answered,
   correct,
+  selectedId,
   feedbackMessage,
   onNext,
 }: {
@@ -987,13 +992,45 @@ function CuePanel({
   clues: Record<Clue, boolean>
   answered?: boolean
   correct?: boolean | null
+  selectedId?: string | null
   feedbackMessage?: string
   onNext?: () => void
 }) {
+  const wrongCountry = selectedId ? (visibleCountries.find((c) => c.id === selectedId) ?? null) : null
+
   return (
     <div className="cue-panel">
       <div className="country-clues">
-        {answered && mode === 'hoofdsteden' ? (
+        {answered && mode === 'landen' ? (
+          <div className={correct ? 'map-answer-feedback correct' : 'map-answer-feedback wrong'} role="status" aria-live="polite">
+            {correct ? (
+              <div className="maf-single maf-correct">
+                <span className="war-label"><Check size={13} aria-hidden="true" /> Goed!</span>
+                <span className="war-flag">{country.flag}</span>
+                <strong className="war-name">{country.name}</strong>
+                <span className="war-capital">{country.capital}</span>
+              </div>
+            ) : (
+              <div className="maf-pair">
+                {wrongCountry ? (
+                  <div className="maf-single maf-wrong">
+                    <span className="war-label"><X size={13} aria-hidden="true" /> Jij koos</span>
+                    <span className="war-flag">{wrongCountry.flag}</span>
+                    <strong className="war-name">{wrongCountry.name}</strong>
+                    <span className="war-capital">{wrongCountry.capital}</span>
+                  </div>
+                ) : null}
+                <div className="maf-arrow">→</div>
+                <div className="maf-single maf-correct">
+                  <span className="war-label"><Check size={13} aria-hidden="true" /> Goed antwoord</span>
+                  <span className="war-flag">{country.flag}</span>
+                  <strong className="war-name">{country.name}</strong>
+                  <span className="war-capital">{country.capital}</span>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : answered && mode === 'hoofdsteden' ? (
           <div className={correct ? 'inline-feedback correct' : 'inline-feedback wrong'} role="status">
             <div className="inline-feedback-row">
               <div className="inline-feedback-text">
