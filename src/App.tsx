@@ -502,7 +502,7 @@ function PracticePanel({
         </div>
       )}
 
-      {showPreviousQuestion && previousQuestion && <PreviousQuestionPanel question={previousQuestion} countries={visibleCountries} />}
+      {showPreviousQuestion && previousQuestion && <PreviousQuestionPanel question={previousQuestion} countries={visibleCountries} continent={continent} />}
 
       <div className={isMapQuestion ? `question-stage map-question-stage map-layout-${mapLayout}` : 'question-stage'}>
         {isMapQuestion ? (
@@ -574,7 +574,7 @@ function PracticePanel({
   )
 }
 
-function PreviousQuestionPanel({ question, countries: visibleCountries }: { question: Question; countries: Country[] }) {
+function PreviousQuestionPanel({ question, countries: visibleCountries, continent }: { question: Question; countries: Country[]; continent: Continent }) {
   return (
     <section className={question.correct ? 'previous-question correct' : 'previous-question wrong'} aria-label="Vorige vraag">
       <div className="prev-q-meta">
@@ -612,18 +612,26 @@ function PreviousQuestionPanel({ question, countries: visibleCountries }: { ques
       )}
 
       {question.mode === 'landen' && (
-        <div className="prev-answer-row">
-          {!question.correct && question.selectedId && (
-            <div className="prev-answer-item wrong">
-              <span>Je klikte</span>
-              <strong>{visibleCountries.find((c) => c.id === question.selectedId)?.name ?? '—'}</strong>
+        <>
+          <div className="prev-answer-row">
+            {!question.correct && question.selectedId && (
+              <div className="prev-answer-item wrong">
+                <span>Je klikte</span>
+                <strong>{visibleCountries.find((c) => c.id === question.selectedId)?.name ?? '—'}</strong>
+              </div>
+            )}
+            <div className="prev-answer-item correct">
+              <span>Juist antwoord</span>
+              <strong>{question.country.name}</strong>
             </div>
-          )}
-          <div className="prev-answer-item correct">
-            <span>Juist antwoord</span>
-            <strong>{question.country.name}</strong>
           </div>
-        </div>
+          <PrevQuestionMap
+            continent={continent}
+            countries={visibleCountries}
+            correctCountry={question.country}
+            wrongCountryId={question.correct ? null : question.selectedId}
+          />
+        </>
       )}
 
       {question.mode === 'hoofdsteden' && (
@@ -641,6 +649,72 @@ function PreviousQuestionPanel({ question, countries: visibleCountries }: { ques
         </div>
       )}
     </section>
+  )
+}
+
+function PrevQuestionMap({
+  continent,
+  countries: visibleCountries,
+  correctCountry,
+  wrongCountryId,
+}: {
+  continent: Continent
+  countries: Country[]
+  correctCountry: Country
+  wrongCountryId: string | null
+}) {
+  const countryByMapId = useMemo(() => new Map(visibleCountries.map((c) => [c.mapId, c])), [visibleCountries])
+  const effectiveContinent: Continent = continent === 'Wereld' ? correctCountry.continent : continent
+  const view = useMemo(() => mapViewForContinent(effectiveContinent), [effectiveContinent])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
+  const geoData = geoDataFor(effectiveContinent, position.zoom)
+  const wrongCountry = wrongCountryId ? visibleCountries.find((c) => c.id === wrongCountryId) ?? null : null
+
+  useEffect(() => {
+    setPosition({ coordinates: view.center, zoom: view.zoom })
+  }, [view])
+
+  return (
+    <div className="cue-map prev-question-map">
+      <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
+        <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
+          <Geographies geography={geoData}>
+            {({ geographies }) =>
+              geographies.map((geography) => {
+                const mapCountry = countryByMapId.get(geographyKey(geography))
+                const isCorrect = mapCountry?.id === correctCountry.id
+                const isWrong = Boolean(wrongCountryId && mapCountry?.id === wrongCountryId)
+                const fill = isCorrect ? '#26a46c' : isWrong ? '#d45252' : mapCountry ? '#d8e5ed' : 'transparent'
+                return (
+                  <Geography
+                    key={geography.rsmKey}
+                    geography={geography}
+                    fill={fill}
+                    stroke={mapCountry ? '#ffffff' : 'transparent'}
+                    strokeWidth={strokeWidthForZoom(view, position.zoom)}
+                    style={{
+                      default: { opacity: mapCountry ? 1 : 0, outline: 'none', pointerEvents: 'none' },
+                      hover: { opacity: mapCountry ? 1 : 0, outline: 'none' },
+                      pressed: { outline: 'none' },
+                    }}
+                  />
+                )
+              })
+            }
+          </Geographies>
+          {correctCountry.area <= SMALL_COUNTRY_AREA && (
+            <Marker coordinates={[correctCountry.latlng[1], correctCountry.latlng[0]]}>
+              <circle r={markerRadiusForZoom(correctCountry, position.zoom)} fill="#26a46c" stroke="#0f172a" strokeWidth={0.9 / position.zoom} vectorEffect="non-scaling-stroke" />
+            </Marker>
+          )}
+          {wrongCountry && wrongCountry.area <= SMALL_COUNTRY_AREA && (
+            <Marker coordinates={[wrongCountry.latlng[1], wrongCountry.latlng[0]]}>
+              <circle r={markerRadiusForZoom(wrongCountry, position.zoom)} fill="#d45252" stroke="#0f172a" strokeWidth={0.9 / position.zoom} vectorEffect="non-scaling-stroke" />
+            </Marker>
+          )}
+        </ZoomableGroup>
+      </ComposableMap>
+    </div>
   )
 }
 
