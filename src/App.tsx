@@ -1002,19 +1002,21 @@ function CuePanel({
     <div className="cue-panel">
       <div className="country-clues">
         {answered && mode === 'landen' ? (
-          <div className={correct ? 'map-answer-feedback correct' : 'map-answer-feedback wrong'} role="status" aria-live="polite">
+          <div className={correct ? 'map-answer-feedback maf-correct-bg' : 'map-answer-feedback maf-wrong-bg'} role="status" aria-live="polite">
             {correct ? (
-              <div className="maf-single maf-correct">
-                <span className="war-label"><Check size={13} aria-hidden="true" /> Goed!</span>
-                <span className="war-flag">{country.flag}</span>
-                <strong className="war-name">{country.name}</strong>
-                <span className="war-capital">{country.capital}</span>
+              <div className="maf-correct-card">
+                <div className="maf-header maf-header-correct">
+                  <Check size={16} aria-hidden="true" /> Goed!
+                </div>
+                <span className="maf-big-flag">{country.flag}</span>
+                <strong className="maf-big-name">{country.name}</strong>
+                <span className="maf-capital-line">{country.capital}</span>
               </div>
             ) : (
               <div className="maf-pair">
                 {wrongCountry ? (
                   <div className="maf-single maf-wrong">
-                    <span className="war-label"><X size={13} aria-hidden="true" /> Jij koos</span>
+                    <span className="war-label"><X size={12} aria-hidden="true" /> Jij koos</span>
                     <span className="war-flag">{wrongCountry.flag}</span>
                     <strong className="war-name">{wrongCountry.name}</strong>
                     <span className="war-capital">{wrongCountry.capital}</span>
@@ -1022,7 +1024,7 @@ function CuePanel({
                 ) : null}
                 <div className="maf-arrow">→</div>
                 <div className="maf-single maf-correct">
-                  <span className="war-label"><Check size={13} aria-hidden="true" /> Goed antwoord</span>
+                  <span className="war-label"><Check size={12} aria-hidden="true" /> Goed antwoord</span>
                   <span className="war-flag">{country.flag}</span>
                   <strong className="war-name">{country.name}</strong>
                   <span className="war-capital">{country.capital}</span>
@@ -1051,27 +1053,29 @@ function CuePanel({
           </>
         )}
       </div>
-      <div className="cue-grid">
-        {clues.name && (
-          <div className="cue-card">
-            <span>Land</span>
-            <strong>{country.name}</strong>
-          </div>
-        )}
-        {clues.flag && (
-          <div className="cue-card flag-cue">
-            <span>Vlag</span>
-            <strong aria-label={`Vlag van ${country.name}`}>{country.flag}</strong>
-          </div>
-        )}
-        {clues.capital && (
-          <div className="cue-card">
-            <span>Hoofdstad</span>
-            <strong>{country.capital}</strong>
-          </div>
-        )}
-        {clues.place && <CountryClueMap continent={continent} countries={visibleCountries} country={country} />}
-      </div>
+      {!(answered && mode === 'landen') && (
+        <div className="cue-grid">
+          {clues.name && (
+            <div className="cue-card">
+              <span>Land</span>
+              <strong>{country.name}</strong>
+            </div>
+          )}
+          {clues.flag && (
+            <div className="cue-card flag-cue">
+              <span>Vlag</span>
+              <strong aria-label={`Vlag van ${country.name}`}>{country.flag}</strong>
+            </div>
+          )}
+          {clues.capital && (
+            <div className="cue-card">
+              <span>Hoofdstad</span>
+              <strong>{country.capital}</strong>
+            </div>
+          )}
+          {clues.place && <CountryClueMap continent={continent} countries={visibleCountries} country={country} />}
+        </div>
+      )}
     </div>
   )
 }
@@ -1230,7 +1234,7 @@ function CountryClickMap({
                   )
                 }
 
-                const fill = question.answered && isTarget ? '#228b5b' : isWrongPick ? '#c84b4b' : country ? '#d8e5ed' : 'transparent'
+                const fill = question.answered && isTarget ? '#16a34a' : isWrongPick ? '#dc2626' : country ? '#d8e5ed' : 'transparent'
                 const isClickable = Boolean(country && !question.answered)
 
                 return (
@@ -1263,7 +1267,7 @@ function CountryClickMap({
           {smallCountries.map((country) => {
             const isTarget = country.id === question.country.id
             const isWrongPick = Boolean(question.answered && question.selectedId === country.id && !isTarget)
-            const fill = question.answered && isTarget ? '#228b5b' : isWrongPick ? '#c84b4b' : '#f8fbfd'
+            const fill = question.answered && isTarget ? '#16a34a' : isWrongPick ? '#dc2626' : '#f8fbfd'
             const radius = markerRadiusForZoom(country, position.zoom)
 
             return (
@@ -1411,7 +1415,12 @@ function LearnFlagMap({ continent, countries: visibleCountries }: { continent: C
         {allOff && <span className="mlc-hint">Zweef voor details</span>}
       </div>
       <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
-        <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
+        <ZoomableGroup
+          center={position.coordinates}
+          zoom={position.zoom}
+          onMove={(m: { zoom: number }) => setPosition((prev) => ({ ...prev, zoom: m.zoom }))}
+          onMoveEnd={setPosition}
+        >
           <Geographies geography={geoData}>
             {({ geographies }) =>
               geographies.map((geo) => {
@@ -1556,7 +1565,12 @@ function LearnContinentView({
         </div>
         <div className="continent-map-panel">
           <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
-            <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
+            <ZoomableGroup
+              center={position.coordinates}
+              zoom={position.zoom}
+              onMove={(m: { zoom: number }) => setPosition((prev) => ({ ...prev, zoom: m.zoom }))}
+              onMoveEnd={setPosition}
+            >
               <Geographies geography={geoData}>
                 {({ geographies }) =>
                   geographies.map((geo) => {
