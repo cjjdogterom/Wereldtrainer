@@ -476,6 +476,16 @@ function PracticePanel({
         </div>
       </header>
 
+      {question.answered && (
+        <div className={question.correct ? 'feedback correct' : 'feedback wrong'} role="status">
+          {question.correct ? <Check size={20} aria-hidden="true" /> : <X size={20} aria-hidden="true" />}
+          <span>{feedbackText(question, visibleCountries)}</span>
+          <button type="button" onClick={nextQuestion}>
+            Volgende vraag
+          </button>
+        </div>
+      )}
+
       {previousQuestion && (
         <div className="previous-question-tools">
           <button type="button" onClick={() => setShowPreviousQuestion((current) => !current)}>
@@ -506,6 +516,7 @@ function PracticePanel({
             disabled={question.answered}
             placeholder="Hoofdstad"
             autoComplete="off"
+            className={question.answered ? (question.correct ? 'answered-correct' : 'answered-wrong') : ''}
           />
           <button type="submit">{question.answered ? 'Volgende' : 'Controleer'}</button>
         </form>
@@ -531,19 +542,6 @@ function PracticePanel({
           })}
         </div>
       ) : null}
-
-      {question.answered && (
-        <div className={question.correct ? 'feedback correct' : 'feedback wrong'} role="status">
-          {question.correct ? <Check size={20} aria-hidden="true" /> : <X size={20} aria-hidden="true" />}
-          <span>
-            {feedbackText(question, visibleCountries)}
-            {' '}Volgende vraag start over 1,25 sec.
-          </span>
-          <button type="button" onClick={nextQuestion}>
-            Volgende vraag
-          </button>
-        </div>
-      )}
     </div>
   )
 }
@@ -551,11 +549,69 @@ function PracticePanel({
 function PreviousQuestionPanel({ question, countries: visibleCountries }: { question: Question; countries: Country[] }) {
   return (
     <section className={question.correct ? 'previous-question correct' : 'previous-question wrong'} aria-label="Vorige vraag">
-      <div>
-        <span>Vorige vraag</span>
-        <strong>{modeLabels[question.mode]} · {question.country.name}</strong>
+      <div className="prev-q-meta">
+        <div>
+          <span className="prev-q-label">Vorige vraag</span>
+          <strong>{modeLabels[question.mode]} · {question.country.name}</strong>
+        </div>
+        <span className={question.correct ? 'result-badge correct' : 'result-badge wrong'}>
+          {question.correct ? <Check size={13} aria-hidden="true" /> : <X size={13} aria-hidden="true" />}
+          {question.correct ? 'Goed' : 'Fout'}
+        </span>
       </div>
-      <p>{feedbackText(question, visibleCountries)}</p>
+
+      {question.mode === 'vlaggen' && (
+        <div className="prev-options-row">
+          {question.options.map((country) => {
+            const isCorrect = country.id === question.country.id
+            const isWrongPick = question.selectedId === country.id && !isCorrect
+            return (
+              <div
+                key={country.id}
+                className={['prev-flag-option', isCorrect ? 'correct' : '', isWrongPick ? 'wrong' : ''].join(' ')}
+                aria-label={`Vlag van ${country.name}${isCorrect ? ' — juist antwoord' : ''}${isWrongPick ? ' — jouw keuze' : ''}`}
+              >
+                <span aria-hidden="true">{country.flag}</span>
+                {(isCorrect || isWrongPick) && (
+                  <span className="prev-flag-badge" aria-hidden="true">
+                    {isCorrect ? <Check size={11} /> : <X size={11} />}
+                  </span>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      )}
+
+      {question.mode === 'landen' && (
+        <div className="prev-answer-row">
+          {!question.correct && question.selectedId && (
+            <div className="prev-answer-item wrong">
+              <span>Je klikte</span>
+              <strong>{visibleCountries.find((c) => c.id === question.selectedId)?.name ?? '—'}</strong>
+            </div>
+          )}
+          <div className="prev-answer-item correct">
+            <span>Juist antwoord</span>
+            <strong>{question.country.name}</strong>
+          </div>
+        </div>
+      )}
+
+      {question.mode === 'hoofdsteden' && (
+        <div className="prev-answer-row">
+          <div className={question.correct ? 'prev-answer-item correct' : 'prev-answer-item wrong'}>
+            <span>{question.correct ? 'Jouw antwoord' : 'Jij typte'}</span>
+            <strong>{question.typedAnswer || '(leeg)'}</strong>
+          </div>
+          {!question.correct && (
+            <div className="prev-answer-item correct">
+              <span>Juist antwoord</span>
+              <strong>{question.country.capital}</strong>
+            </div>
+          )}
+        </div>
+      )}
     </section>
   )
 }
