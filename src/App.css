@@ -216,6 +216,12 @@ button.is-active:hover {
   font-size: 13px;
 }
 
+.repeat-queue-pill {
+  border-color: #b07400;
+  background: #fff8e6;
+  color: #7a4f00;
+}
+
 /* ─── Clue controls ─── */
 .clue-controls,
 .clue-mode,

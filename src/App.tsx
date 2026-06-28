@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type SetStateAction } from 'react'
-import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, RotateCcw, Target, Timer, X } from 'lucide-react'
+import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, RotateCcw, Target, X } from 'lucide-react'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
 import mediumGeoUrl from 'world-atlas/countries-50m.json?url'
 import worldGeoUrl from 'world-atlas/countries-110m.json?url'
 import './App.css'
-import { continents, countries, modeLabels, routineLabels, type Continent, type Country, type Routine, type TrainerMode } from './data/countries'
+import { continents, countries, modeLabels, type Continent, type Country, type Routine, type TrainerMode } from './data/countries'
 import {
   applyAnswer,
   isCloseCapitalAnswer,
@@ -189,9 +189,24 @@ function buildOptions(pool: Country[], country: Country, mode: Exclude<TrainerMo
   return shuffle([country, ...mergedCandidates.slice(0, 3)])
 }
 
-function buildQuestion(pool: Country[], progress: ProgressState, selectedMode: TrainerMode, routine: Routine): Question {
+function buildQuestion(pool: Country[], progress: ProgressState, selectedMode: TrainerMode): Question {
   const mode = getMode(selectedMode)
-  const country = weightedPick(pool, progress, mode, routine)
+  const country = weightedPick(pool, progress, mode, 'slim')
+  const options = buildOptions(pool, country, mode)
+
+  return {
+    country,
+    mode,
+    options,
+    answered: false,
+    correct: null,
+    selectedId: null,
+    typedAnswer: '',
+  }
+}
+
+function buildQuestionForCountry(pool: Country[], country: Country, selectedMode: TrainerMode): Question {
+  const mode = getMode(selectedMode)
   const options = buildOptions(pool, country, mode)
 
   return {
@@ -209,8 +224,10 @@ function App() {
   const [screen, setScreen] = useState<Screen>('oefenen')
   const [continent, setContinent] = useState<Continent>('Wereld')
   const [mode, setMode] = useState<TrainerMode>('vlaggen')
-  const [routine, setRoutine] = useState<Routine>('slim')
   const [progress, setProgress] = useState<ProgressState>(() => loadProgress())
+  const repeatQueueRef = useRef<string[]>([])
+  const [repeatQueue, setRepeatQueue] = useState<string[]>([])
+  const questionsUntilRepeatRef = useRef(4)
   const [clues, setClues] = useState<ClueSettings>(DEFAULT_CLUES)
   const [previousQuestion, setPreviousQuestion] = useState<Question | null>(null)
   const [showPreviousQuestion, setShowPreviousQuestion] = useState(false)
@@ -229,7 +246,7 @@ function App() {
   const sessionComplete = session !== null && (sessionActivePool?.length ?? 1) === 0
   const activePool = sessionActivePool !== null && sessionActivePool.length > 0 ? sessionActivePool : pool
 
-  const [question, setQuestion] = useState<Question>(() => buildQuestion(countries, progress, 'vlaggen', 'slim'))
+  const [question, setQuestion] = useState<Question>(() => buildQuestion(countries, progress, 'vlaggen'))
 
   const summary = useMemo(() => summarizeProgress(progress, pool), [pool, progress])
   const weakestCountries = useMemo(
@@ -246,9 +263,12 @@ function App() {
   }, [progress])
 
   useEffect(() => {
-    setQuestion(buildQuestion(pool, progressRef.current, mode, routine))
+    repeatQueueRef.current = []
+    setRepeatQueue([])
+    questionsUntilRepeatRef.current = 4
+    setQuestion(buildQuestion(pool, progressRef.current, mode))
     setShowPreviousQuestion(false)
-  }, [pool, mode, routine])
+  }, [pool, mode])
 
   const nextQuestion = useCallback(() => {
     if (question.answered) {
@@ -256,8 +276,39 @@ function App() {
     }
     setShowPreviousQuestion(false)
     if (session !== null && (sessionActivePool?.length ?? 1) === 0) return
-    setQuestion(buildQuestion(activePool, progress, mode, routine))
-  }, [mode, activePool, progress, question, routine, session, sessionActivePool])
+
+    questionsUntilRepeatRef.current -= 1
+
+    if (questionsUntilRepeatRef.current <= 0 && repeatQueueRef.current.length > 0) {
+      const remaining: string[] = []
+      let picked: Country | null = null
+      for (const id of repeatQueueRef.current) {
+        if (!picked) {
+          const found = activePool.find((c) => c.id === id)
+          if (found) {
+            picked = found
+          } else {
+            remaining.push(id)
+          }
+        } else {
+          remaining.push(id)
+        }
+      }
+      repeatQueueRef.current = remaining
+      setRepeatQueue([...remaining])
+      questionsUntilRepeatRef.current = 4
+      if (picked) {
+        setQuestion(buildQuestionForCountry(activePool, picked, mode))
+        return
+      }
+    }
+
+    if (questionsUntilRepeatRef.current <= 0) {
+      questionsUntilRepeatRef.current = 4
+    }
+
+    setQuestion(buildQuestion(activePool, progress, mode))
+  }, [mode, activePool, progress, question, session, sessionActivePool])
 
   useEffect(() => {
     if (!question.answered) {
@@ -274,6 +325,11 @@ function App() {
 
   function recordAnswer(correct: boolean) {
     setProgress((current) => applyAnswer(current, { countryId: question.country.id, mode: question.mode, correct }))
+    if (!correct) {
+      const id = question.country.id
+      repeatQueueRef.current = [...repeatQueueRef.current.filter((x) => x !== id), id]
+      setRepeatQueue([...repeatQueueRef.current])
+    }
     if (session !== null) {
       setSession((prev) => {
         if (prev === null) return prev
@@ -315,11 +371,17 @@ function App() {
     resetProgress()
     setProgress({})
     setSession(null)
+    repeatQueueRef.current = []
+    setRepeatQueue([])
+    questionsUntilRepeatRef.current = 4
   }
 
   function startSession() {
+    repeatQueueRef.current = []
+    setRepeatQueue([])
+    questionsUntilRepeatRef.current = 4
     setSession({})
-    setQuestion(buildQuestion(pool, progress, mode, routine))
+    setQuestion(buildQuestion(pool, progress, mode))
     setShowPreviousQuestion(false)
   }
 
@@ -372,17 +434,6 @@ function App() {
             {(['landen', 'vlaggen', 'hoofdsteden', 'gemengd'] as TrainerMode[]).map((item) => (
               <button className={item === mode ? 'is-active' : ''} type="button" key={item} onClick={() => setMode(item)}>
                 {modeLabels[item]}
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <section className="control-group" aria-labelledby="routine-title">
-          <h2 id="routine-title">Routine</h2>
-          <div className="button-grid compact">
-            {(['slim', 'normaal', 'fouten', 'snel'] as Routine[]).map((item) => (
-              <button className={item === routine ? 'is-active' : ''} type="button" key={item} onClick={() => setRoutine(item)}>
-                {routineLabels[item]}
               </button>
             ))}
           </div>
@@ -471,7 +522,7 @@ function App() {
             previousQuestion={previousQuestion}
             showPreviousQuestion={showPreviousQuestion}
             question={question}
-            routine={routine}
+            repeatQueue={repeatQueue}
             chooseOption={chooseOption}
             submitCapital={submitCapital}
             setQuestion={setQuestion}
@@ -562,7 +613,7 @@ type PracticePanelProps = {
   previousQuestion: Question | null
   showPreviousQuestion: boolean
   question: Question
-  routine: Routine
+  repeatQueue: string[]
   chooseOption: (countryId: string) => void
   submitCapital: (event: FormEvent<HTMLFormElement>) => void
   setQuestion: Dispatch<SetStateAction<Question>>
@@ -611,7 +662,7 @@ function PracticePanel({
   previousQuestion,
   showPreviousQuestion,
   question,
-  routine,
+  repeatQueue,
   chooseOption,
   submitCapital,
   setQuestion,
@@ -644,10 +695,12 @@ function PracticePanel({
           <p className="eyebrow">{modeLabels[question.mode]} oefenen</p>
           <h2>{practiceTitle(question.mode)}</h2>
         </div>
-        <div className="routine-pill">
-          {routine === 'snel' ? <Timer size={16} aria-hidden="true" /> : <GraduationCap size={16} aria-hidden="true" />}
-          {routineLabels[routine]}
-        </div>
+        {repeatQueue.length > 0 && (
+          <div className="routine-pill repeat-queue-pill">
+            <RotateCcw size={14} aria-hidden="true" />
+            {repeatQueue.length} te herhalen
+          </div>
+        )}
       </header>
 
       {session !== null && !sessionComplete && sessionActivePool !== null && (
