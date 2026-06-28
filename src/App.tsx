@@ -452,6 +452,13 @@ function PracticePanel({
   const isCapital = question.mode === 'hoofdsteden'
   const isMapQuestion = question.mode === 'landen'
   const activeClues = clues[question.mode]
+  const capitalInputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (isCapital && !question.answered) {
+      capitalInputRef.current?.focus()
+    }
+  }, [isCapital, question])
 
   return (
     <div className="practice-layout">
@@ -490,6 +497,7 @@ function PracticePanel({
       {isCapital ? (
         <form className="answer-form" onSubmit={submitCapital}>
           <input
+            ref={capitalInputRef}
             value={question.typedAnswer}
             onChange={(event) => setQuestion((current) => ({ ...current, typedAnswer: event.target.value }))}
             disabled={question.answered}
