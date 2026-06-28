@@ -20,6 +20,7 @@ export type Country = {
   subregion: string
   flag: string
   latlng: [number, number]
+  area: number
   aliases: string[]
 }
 
@@ -74,6 +75,7 @@ export const countries: Country[] = rawCountries
     subregion: country.subregion ?? country.region,
     flag: country.flag,
     latlng: country.latlng as [number, number],
+    area: country.area,
     aliases: buildAliases(country),
   }))
   .sort((a, b) => a.name.localeCompare(b.name, 'nl'))

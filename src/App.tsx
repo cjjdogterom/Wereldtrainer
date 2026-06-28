@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type SetStateAction } from 'react'
 import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, RotateCcw, Target, Timer, X } from 'lucide-react'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
-import geoUrl from 'world-atlas/countries-110m.json?url'
+import geoUrl from 'world-atlas/countries-10m.json?url'
 import './App.css'
 import { continents, countries, modeLabels, routineLabels, type Continent, type Country, type Routine, type TrainerMode } from './data/countries'
 import {
@@ -30,6 +30,7 @@ type Question = {
 }
 
 const TRAINING_MODES: Exclude<TrainerMode, 'gemengd'>[] = ['landen', 'vlaggen', 'hoofdsteden']
+const SMALL_COUNTRY_AREA = 3000
 
 function pickRandom<T>(items: T[]) {
   return items[Math.floor(Math.random() * items.length)]
@@ -262,7 +263,7 @@ function App() {
 
         {screen === 'leren' && <LearnPanel countries={pool} progress={progress} />}
 
-        {screen === 'kaart' && <MapPanel countries={pool} progress={progress} weakestCountries={weakestCountries} />}
+        {screen === 'kaart' && <MapPanel continent={continent} countries={pool} progress={progress} weakestCountries={weakestCountries} />}
       </section>
     </main>
   )
@@ -376,11 +377,12 @@ function CountryClickMap({
   chooseCountry: (countryId: string) => void
 }) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((country) => [country.mapId, country])), [visibleCountries])
+  const smallCountries = useMemo(() => visibleCountries.filter((country) => country.area <= SMALL_COUNTRY_AREA), [visibleCountries])
   const view = mapViewForContinent(continent)
 
   return (
     <div className="practice-map-frame">
-      <ComposableMap projectionConfig={{ scale: 145 }}>
+      <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
         <ZoomableGroup center={view.center} zoom={view.zoom}>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
@@ -388,23 +390,23 @@ function CountryClickMap({
                 const country = countryByMapId.get(String(geography.id))
                 const isTarget = country?.id === question.country.id
                 const isWrongPick = Boolean(question.answered && country && question.selectedId === country.id && !isTarget)
-                const fill = question.answered && isTarget ? '#228b5b' : isWrongPick ? '#c84b4b' : country ? '#d8e5ed' : '#eef2f4'
+                const fill = question.answered && isTarget ? '#228b5b' : isWrongPick ? '#c84b4b' : country ? '#d8e5ed' : 'transparent'
 
                 return (
                   <Geography
                     key={geography.rsmKey}
                     geography={geography}
                     fill={fill}
-                    stroke="#ffffff"
-                    strokeWidth={0.45}
+                    stroke={country ? '#ffffff' : 'transparent'}
+                    strokeWidth={view.strokeWidth}
                     onClick={() => {
                       if (country) {
                         chooseCountry(country.id)
                       }
                     }}
                     style={{
-                      default: { cursor: country && !question.answered ? 'pointer' : 'default', outline: 'none' },
-                      hover: { cursor: country && !question.answered ? 'pointer' : 'default', fill: country && !question.answered ? '#2364aa' : fill, outline: 'none' },
+                      default: { cursor: country && !question.answered ? 'pointer' : 'default', opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none' },
+                      hover: { cursor: country && !question.answered ? 'pointer' : 'default', opacity: country ? 1 : 0, fill: country && !question.answered ? '#2364aa' : fill, outline: 'none' },
                       pressed: { outline: 'none' },
                     }}
                   />
@@ -412,24 +414,61 @@ function CountryClickMap({
               })
             }
           </Geographies>
+          {smallCountries.map((country) => {
+            const isTarget = country.id === question.country.id
+            const isWrongPick = Boolean(question.answered && question.selectedId === country.id && !isTarget)
+            const fill = question.answered && isTarget ? '#228b5b' : isWrongPick ? '#c84b4b' : '#f8fbfd'
+            const radius = markerRadius(country, view)
+
+            return (
+              <Marker key={`marker-${country.id}`} coordinates={[country.latlng[1], country.latlng[0]]}>
+                <circle
+                  r={radius}
+                  fill={fill}
+                  stroke="#0f172a"
+                  strokeWidth={0.9 / view.zoom}
+                  vectorEffect="non-scaling-stroke"
+                  role="button"
+                  aria-label={country.name}
+                  onClick={() => {
+                    if (!question.answered) {
+                      chooseCountry(country.id)
+                    }
+                  }}
+                  style={{ cursor: question.answered ? 'default' : 'pointer' }}
+                />
+              </Marker>
+            )
+          })}
         </ZoomableGroup>
       </ComposableMap>
     </div>
   )
 }
 
-function mapViewForContinent(continent: Continent): { center: [number, number]; zoom: number } {
-  const views: Record<Continent, { center: [number, number]; zoom: number }> = {
-    Wereld: { center: [10, 15], zoom: 1 },
-    Afrika: { center: [20, 0], zoom: 2.1 },
-    Azie: { center: [85, 30], zoom: 1.8 },
-    Europa: { center: [16, 52], zoom: 3.4 },
-    'Noord-Amerika': { center: [-95, 42], zoom: 1.9 },
-    'Zuid-Amerika': { center: [-60, -18], zoom: 2.2 },
-    Oceanie: { center: [145, -18], zoom: 2.5 },
+type MapView = {
+  center: [number, number]
+  zoom: number
+  strokeWidth: number
+}
+
+function mapViewForContinent(continent: Continent): MapView {
+  const views: Record<Continent, MapView> = {
+    Wereld: { center: [8, 14], zoom: 1, strokeWidth: 0.35 },
+    Afrika: { center: [20, 1], zoom: 2.45, strokeWidth: 0.28 },
+    Azie: { center: [87, 28], zoom: 2.05, strokeWidth: 0.24 },
+    Europa: { center: [15, 51], zoom: 5.9, strokeWidth: 0.1 },
+    'Noord-Amerika': { center: [-95, 42], zoom: 2.25, strokeWidth: 0.22 },
+    'Zuid-Amerika': { center: [-60, -18], zoom: 2.7, strokeWidth: 0.22 },
+    Oceanie: { center: [145, -18], zoom: 3.05, strokeWidth: 0.18 },
   }
 
   return views[continent]
+}
+
+function markerRadius(country: Country, view: MapView) {
+  const screenRadius = country.id === 'VAT' || country.id === 'MCO' ? 7 : 6
+  return screenRadius / view.zoom
 }
 
 function feedbackText(question: Question) {
@@ -485,8 +524,20 @@ function LearnPanel({ countries: visibleCountries, progress }: { countries: Coun
   )
 }
 
-function MapPanel({ countries: visibleCountries, progress, weakestCountries }: { countries: Country[]; progress: ProgressState; weakestCountries: Country[] }) {
+function MapPanel({
+  continent,
+  countries: visibleCountries,
+  progress,
+  weakestCountries,
+}: {
+  continent: Continent
+  countries: Country[]
+  progress: ProgressState
+  weakestCountries: Country[]
+}) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((country) => [country.mapId, country])), [visibleCountries])
+  const smallCountries = useMemo(() => visibleCountries.filter((country) => country.area <= SMALL_COUNTRY_AREA), [visibleCountries])
+  const view = mapViewForContinent(continent)
 
   return (
     <div className="map-panel">
@@ -504,8 +555,8 @@ function MapPanel({ countries: visibleCountries, progress, weakestCountries }: {
       </header>
 
       <div className="map-frame">
-        <ComposableMap projectionConfig={{ scale: 145 }}>
-          <ZoomableGroup center={[10, 15]} zoom={1}>
+        <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
+          <ZoomableGroup center={view.center} zoom={view.zoom}>
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map((geography) => {
@@ -515,12 +566,12 @@ function MapPanel({ countries: visibleCountries, progress, weakestCountries }: {
                     <Geography
                       key={geography.rsmKey}
                       geography={geography}
-                      fill={country ? scoreColor(score) : '#eef2f4'}
-                      stroke="#ffffff"
-                      strokeWidth={0.45}
+                      fill={country ? scoreColor(score) : 'transparent'}
+                      stroke={country ? '#ffffff' : 'transparent'}
+                      strokeWidth={view.strokeWidth}
                       style={{
-                        default: { outline: 'none' },
-                        hover: { outline: 'none', fill: country ? '#2364aa' : '#dfe6ea' },
+                        default: { opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none' },
+                        hover: { opacity: country ? 1 : 0, outline: 'none', fill: country ? '#2364aa' : '#dfe6ea' },
                         pressed: { outline: 'none' },
                       }}
                     />
@@ -528,6 +579,15 @@ function MapPanel({ countries: visibleCountries, progress, weakestCountries }: {
                 })
               }
             </Geographies>
+            {smallCountries.map((country) => {
+              const score = masteryForCountry(progress, country.id)
+              const radius = markerRadius(country, view)
+              return (
+                <Marker key={`marker-${country.id}`} coordinates={[country.latlng[1], country.latlng[0]]}>
+                  <circle r={radius} fill={scoreColor(score)} stroke="#0f172a" strokeWidth={0.85 / view.zoom} vectorEffect="non-scaling-stroke" />
+                </Marker>
+              )
+            })}
             {weakestCountries.slice(0, 5).map((country) => (
               <Marker key={country.id} coordinates={[country.latlng[1], country.latlng[0]]}>
                 <circle r={3} fill="#111827" stroke="#fff" strokeWidth={1.2} />
