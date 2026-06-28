@@ -494,16 +494,6 @@ function PracticePanel({
         </div>
       </header>
 
-      {question.answered && (
-        <div className={question.correct ? 'feedback correct' : 'feedback wrong'} role="status">
-          {question.correct ? <Check size={20} aria-hidden="true" /> : <X size={20} aria-hidden="true" />}
-          <span>{feedbackText(question, visibleCountries)}</span>
-          <button type="button" onClick={nextQuestion}>
-            Volgende vraag
-          </button>
-        </div>
-      )}
-
       {previousQuestion && (
         <div className="previous-question-tools">
           <button type="button" onClick={() => setShowPreviousQuestion((current) => !current)}>
@@ -518,10 +508,30 @@ function PracticePanel({
         {isMapQuestion ? (
           <div className="map-question-content">
             <CountryClickMap continent={continent} countries={visibleCountries} question={question} chooseCountry={chooseOption} />
-            <CuePanel continent={continent} countries={visibleCountries} country={question.country} mode={question.mode} clues={activeClues} />
+            <CuePanel
+              continent={continent}
+              countries={visibleCountries}
+              country={question.country}
+              mode={question.mode}
+              clues={activeClues}
+              answered={question.answered}
+              correct={question.correct}
+              feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
+              onNext={nextQuestion}
+            />
           </div>
         ) : (
-          <CuePanel continent={continent} countries={visibleCountries} country={question.country} mode={question.mode} clues={activeClues} />
+          <CuePanel
+            continent={continent}
+            countries={visibleCountries}
+            country={question.country}
+            mode={question.mode}
+            clues={activeClues}
+            answered={question.answered}
+            correct={question.correct}
+            feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
+            onNext={nextQuestion}
+          />
         )}
       </div>
 
@@ -640,18 +650,42 @@ function CuePanel({
   country,
   mode,
   clues,
+  answered,
+  correct,
+  feedbackMessage,
+  onNext,
 }: {
   continent: Continent
   countries: Country[]
   country: Country
   mode: Exclude<TrainerMode, 'gemengd'>
   clues: Record<Clue, boolean>
+  answered?: boolean
+  correct?: boolean | null
+  feedbackMessage?: string
+  onNext?: () => void
 }) {
   return (
     <div className="cue-panel">
       <div className="country-clues">
-        <strong>{cueInstruction(mode)}</strong>
-        <span>{mode === 'hoofdsteden' ? 'Typ de hoofdstad. Kleine spelfouten tellen goed.' : 'Gebruik de aangevinkte hints.'}</span>
+        {answered ? (
+          <div className={correct ? 'inline-feedback correct' : 'inline-feedback wrong'} role="status">
+            <div className="inline-feedback-row">
+              <div className="inline-feedback-text">
+                {correct ? <Check size={18} aria-hidden="true" /> : <X size={18} aria-hidden="true" />}
+                <span>{feedbackMessage}</span>
+              </div>
+              <button type="button" className="inline-next-button" onClick={onNext}>
+                Volgende →
+              </button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <strong>{cueInstruction(mode)}</strong>
+            <span>{mode === 'hoofdsteden' ? 'Typ de hoofdstad. Kleine spelfouten tellen goed.' : 'Gebruik de aangevinkte hints.'}</span>
+          </>
+        )}
       </div>
       <div className="cue-grid">
         {clues.name && (
