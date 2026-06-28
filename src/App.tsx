@@ -36,7 +36,25 @@ const TRAINING_MODES: Exclude<TrainerMode, 'gemengd'>[] = ['landen', 'vlaggen', 
 const SMALL_COUNTRY_AREA = 3000
 const WORLD_MARKER_MAX_AREA = 200
 const WORLD_DETAIL_ZOOM = 1.65
-const AUTO_ADVANCE_MS = 1250
+const AUTO_ADVANCE_MS = 1750
+
+const CONTINENT_COLORS: Record<Exclude<Continent, 'Wereld'>, string> = {
+  Afrika: '#e8c87a',
+  Azie: '#7dbe9e',
+  Europa: '#7aadd4',
+  'Noord-Amerika': '#e09090',
+  'Zuid-Amerika': '#b48fd8',
+  Oceanie: '#6ecfcf',
+}
+
+const CONTINENT_HOVER_COLORS: Record<Exclude<Continent, 'Wereld'>, string> = {
+  Afrika: '#d4a84a',
+  Azie: '#5aa87e',
+  Europa: '#5592bc',
+  'Noord-Amerika': '#c47474',
+  'Zuid-Amerika': '#9870bc',
+  Oceanie: '#4eb3b3',
+}
 
 const SIMILAR_FLAG_GROUPS = [
   ['NLD', 'LUX', 'RUS', 'SRB', 'SVK', 'SVN', 'HRV', 'PRY'],
@@ -674,9 +692,10 @@ function cueInstruction(mode: Exclude<TrainerMode, 'gemengd'>) {
 
 function CountryClueMap({ continent, countries: visibleCountries, country }: { continent: Continent; countries: Country[]; country: Country }) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((item) => [item.mapId, item])), [visibleCountries])
-  const view = useMemo(() => mapViewForContinent(continent), [continent])
+  const effectiveContinent: Continent = continent === 'Wereld' ? country.continent : continent
+  const view = useMemo(() => mapViewForContinent(effectiveContinent), [effectiveContinent])
   const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
-  const geoData = geoDataFor(continent, position.zoom)
+  const geoData = geoDataFor(effectiveContinent, position.zoom)
 
   useEffect(() => {
     setPosition({ coordinates: view.center, zoom: view.zoom })
@@ -734,17 +753,55 @@ function CountryClickMap({
   chooseCountry: (countryId: string) => void
 }) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((country) => [country.mapId, country])), [visibleCountries])
-  const smallCountries = useMemo(() => visibleCountries.filter((country) => shouldShowMarker(country, continent)), [continent, visibleCountries])
-  const view = useMemo(() => mapViewForContinent(continent), [continent])
-  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
+  const isWorldMode = continent === 'Wereld'
+  const [drillContinent, setDrillContinent] = useState<Exclude<Continent, 'Wereld'> | null>(null)
+  const worldView = useMemo(() => mapViewForContinent(continent), [continent])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: worldView.center, zoom: worldView.zoom })
+
+  const effectiveContinent: Continent = drillContinent ?? continent
+  const effectiveView = useMemo(() => mapViewForContinent(effectiveContinent), [effectiveContinent])
   const geoData = geoDataFor(continent, position.zoom)
 
+  const smallCountries = useMemo(
+    () => visibleCountries.filter((c) => {
+      if (!shouldShowMarker(c, effectiveContinent)) return false
+      if (drillContinent && c.continent !== drillContinent) return false
+      return true
+    }),
+    [effectiveContinent, drillContinent, visibleCountries],
+  )
+
   useEffect(() => {
-    setPosition({ coordinates: view.center, zoom: view.zoom })
-  }, [view])
+    setPosition({ coordinates: worldView.center, zoom: worldView.zoom })
+  }, [worldView])
+
+  useEffect(() => {
+    if (!isWorldMode) return
+    setDrillContinent(null)
+    setPosition({ coordinates: worldView.center, zoom: worldView.zoom })
+  }, [question.country.id, isWorldMode, worldView])
+
+  function drillTo(cont: Exclude<Continent, 'Wereld'>) {
+    const contView = mapViewForContinent(cont)
+    setDrillContinent(cont)
+    setPosition({ coordinates: contView.center, zoom: contView.zoom })
+  }
+
+  const showContinentView = isWorldMode && !drillContinent && !question.answered
 
   return (
     <div className="practice-map-frame">
+      {showContinentView && (
+        <div className="map-overlay-hint">Klik een continent om in te zoomen</div>
+      )}
+      {isWorldMode && drillContinent && !question.answered && (
+        <button className="map-back-button" type="button" onClick={() => {
+          setDrillContinent(null)
+          setPosition({ coordinates: worldView.center, zoom: worldView.zoom })
+        }}>
+          ← Wereld
+        </button>
+      )}
       <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
         <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
           <Geographies geography={geoData}>
@@ -753,7 +810,29 @@ function CountryClickMap({
                 const country = countryByMapId.get(geographyKey(geography))
                 const isTarget = country?.id === question.country.id
                 const isWrongPick = Boolean(question.answered && country && question.selectedId === country.id && !isTarget)
+
+                if (showContinentView) {
+                  const continentColor = country ? CONTINENT_COLORS[country.continent] : 'transparent'
+                  const hoverColor = country ? CONTINENT_HOVER_COLORS[country.continent] : 'transparent'
+                  return (
+                    <Geography
+                      key={geography.rsmKey}
+                      geography={geography}
+                      fill={continentColor}
+                      stroke="#ffffff"
+                      strokeWidth={strokeWidthForZoom(worldView, position.zoom)}
+                      onClick={() => { if (country) drillTo(country.continent) }}
+                      style={{
+                        default: { opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none', cursor: country ? 'pointer' : 'default' },
+                        hover: { opacity: country ? 1 : 0, fill: hoverColor, outline: 'none', cursor: country ? 'pointer' : 'default' },
+                        pressed: { outline: 'none' },
+                      }}
+                    />
+                  )
+                }
+
                 const fill = question.answered && isTarget ? '#228b5b' : isWrongPick ? '#c84b4b' : country ? '#d8e5ed' : 'transparent'
+                const isClickable = Boolean(country && !question.answered)
 
                 return (
                   <Geography
@@ -763,15 +842,18 @@ function CountryClickMap({
                     aria-label={country?.name}
                     fill={fill}
                     stroke={country ? '#ffffff' : 'transparent'}
-                    strokeWidth={strokeWidthForZoom(view, position.zoom)}
+                    strokeWidth={strokeWidthForZoom(effectiveView, position.zoom)}
                     onClick={() => {
-                      if (country) {
+                      if (!country || question.answered) return
+                      if (isWorldMode && drillContinent && country.continent !== drillContinent) {
+                        drillTo(country.continent)
+                      } else {
                         chooseCountry(country.id)
                       }
                     }}
                     style={{
-                      default: { cursor: country && !question.answered ? 'pointer' : 'default', opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none' },
-                      hover: { cursor: country && !question.answered ? 'pointer' : 'default', opacity: country ? 1 : 0, fill: country && !question.answered ? '#2364aa' : fill, outline: 'none' },
+                      default: { cursor: isClickable ? 'pointer' : 'default', opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none' },
+                      hover: { cursor: isClickable ? 'pointer' : 'default', opacity: country ? 1 : 0, fill: isClickable ? '#2364aa' : fill, outline: 'none' },
                       pressed: { outline: 'none' },
                     }}
                   />
@@ -795,11 +877,7 @@ function CountryClickMap({
                   vectorEffect="non-scaling-stroke"
                   role="button"
                   aria-label={country.name}
-                  onClick={() => {
-                    if (!question.answered) {
-                      chooseCountry(country.id)
-                    }
-                  }}
+                  onClick={() => { if (!question.answered) chooseCountry(country.id) }}
                   style={{ cursor: question.answered ? 'default' : 'pointer' }}
                 />
               </Marker>
