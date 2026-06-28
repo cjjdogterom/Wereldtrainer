@@ -661,6 +661,99 @@ button.is-active:hover {
   overflow: hidden;
 }
 
+/* ─── Combo mode layout ─── */
+.combo-question-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 600px;
+}
+
+.combo-question-stage .practice-map-frame {
+  flex: 1;
+  min-height: 400px;
+  height: auto;
+}
+
+.map-layout-side.combo-question-stage {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  grid-template-areas:
+    "flag flag"
+    "map  form"
+    "map  reveal";
+  align-items: start;
+}
+
+.map-layout-side.combo-question-stage .combo-flag-bar { grid-area: flag; }
+.map-layout-side.combo-question-stage .practice-map-frame { grid-area: map; height: min(68vh, 720px); min-height: 480px; }
+.map-layout-side.combo-question-stage .answer-form { grid-area: form; }
+.map-layout-side.combo-question-stage .combo-answer-reveal { grid-area: reveal; }
+
+.combo-flag-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.combo-flag-emoji {
+  font-size: 42px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.combo-instruction {
+  font-size: 15px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ─── Combo answer reveal ─── */
+.combo-answer-reveal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.combo-reveal-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.combo-reveal-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.combo-reveal-item.combo-correct {
+  background: #e8f5ee;
+  color: #1a6b3e;
+}
+
+.combo-reveal-item.combo-wrong {
+  background: #fdeaea;
+  color: #8b2020;
+}
+
+.combo-reveal-flag {
+  font-size: 20px;
+}
+
 .practice-map-frame svg {
   width: 100%;
   height: 100%;
