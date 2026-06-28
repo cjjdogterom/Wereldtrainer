@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type 
 import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, RotateCcw, Target, Timer, X } from 'lucide-react'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
 import detailedGeoUrl from 'world-atlas/countries-10m.json?url'
+import mediumGeoUrl from 'world-atlas/countries-50m.json?url'
 import worldGeoUrl from 'world-atlas/countries-110m.json?url'
 import './App.css'
 import { continents, countries, modeLabels, routineLabels, type Continent, type Country, type Routine, type TrainerMode } from './data/countries'
@@ -35,6 +36,7 @@ type Question = {
 const TRAINING_MODES: Exclude<TrainerMode, 'gemengd'>[] = ['landen', 'vlaggen', 'hoofdsteden']
 const SMALL_COUNTRY_AREA = 3000
 const WORLD_MARKER_MAX_AREA = 200
+const WORLD_DETAIL_ZOOM = 1.65
 
 const SIMILAR_FLAG_GROUPS = [
   ['NLD', 'LUX', 'RUS', 'SRB', 'SVK', 'SVN', 'HRV', 'PRY'],
@@ -615,13 +617,18 @@ function cueInstruction(mode: Exclude<TrainerMode, 'gemengd'>) {
 
 function CountryClueMap({ continent, countries: visibleCountries, country }: { continent: Continent; countries: Country[]; country: Country }) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((item) => [item.mapId, item])), [visibleCountries])
-  const view = mapViewForContinent(continent)
-  const geoData = continent === 'Wereld' ? worldGeoUrl : detailedGeoUrl
+  const view = useMemo(() => mapViewForContinent(continent), [continent])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
+  const geoData = geoDataFor(continent, position.zoom)
+
+  useEffect(() => {
+    setPosition({ coordinates: view.center, zoom: view.zoom })
+  }, [view])
 
   return (
     <div className="cue-map">
       <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
-        <ZoomableGroup center={view.center} zoom={view.zoom}>
+        <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
           <Geographies geography={geoData}>
             {({ geographies }) =>
               geographies.map((geography) => {
@@ -636,7 +643,7 @@ function CountryClueMap({ continent, countries: visibleCountries, country }: { c
                     aria-label={mapCountry?.name}
                     fill={isTarget ? '#2364aa' : mapCountry ? '#d8e5ed' : 'transparent'}
                     stroke={mapCountry ? '#ffffff' : 'transparent'}
-                    strokeWidth={view.strokeWidth}
+                    strokeWidth={strokeWidthForZoom(view, position.zoom)}
                     style={{
                       default: { opacity: mapCountry ? 1 : 0, outline: 'none', pointerEvents: 'none' },
                       hover: { opacity: mapCountry ? 1 : 0, outline: 'none' },
@@ -649,7 +656,7 @@ function CountryClueMap({ continent, countries: visibleCountries, country }: { c
           </Geographies>
           {country.area <= SMALL_COUNTRY_AREA && (
             <Marker coordinates={[country.latlng[1], country.latlng[0]]}>
-              <circle r={markerRadius(country, view)} fill="#2364aa" stroke="#0f172a" strokeWidth={0.9 / view.zoom} vectorEffect="non-scaling-stroke" />
+              <circle r={markerRadiusForZoom(country, position.zoom)} fill="#2364aa" stroke="#0f172a" strokeWidth={0.9 / position.zoom} vectorEffect="non-scaling-stroke" />
             </Marker>
           )}
         </ZoomableGroup>
@@ -671,13 +678,18 @@ function CountryClickMap({
 }) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((country) => [country.mapId, country])), [visibleCountries])
   const smallCountries = useMemo(() => visibleCountries.filter((country) => shouldShowMarker(country, continent)), [continent, visibleCountries])
-  const view = mapViewForContinent(continent)
-  const geoData = continent === 'Wereld' ? worldGeoUrl : detailedGeoUrl
+  const view = useMemo(() => mapViewForContinent(continent), [continent])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
+  const geoData = geoDataFor(continent, position.zoom)
+
+  useEffect(() => {
+    setPosition({ coordinates: view.center, zoom: view.zoom })
+  }, [view])
 
   return (
     <div className="practice-map-frame">
       <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
-        <ZoomableGroup center={view.center} zoom={view.zoom}>
+        <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
           <Geographies geography={geoData}>
             {({ geographies }) =>
               geographies.map((geography) => {
@@ -694,7 +706,7 @@ function CountryClickMap({
                     aria-label={country?.name}
                     fill={fill}
                     stroke={country ? '#ffffff' : 'transparent'}
-                    strokeWidth={view.strokeWidth}
+                    strokeWidth={strokeWidthForZoom(view, position.zoom)}
                     onClick={() => {
                       if (country) {
                         chooseCountry(country.id)
@@ -714,7 +726,7 @@ function CountryClickMap({
             const isTarget = country.id === question.country.id
             const isWrongPick = Boolean(question.answered && question.selectedId === country.id && !isTarget)
             const fill = question.answered && isTarget ? '#228b5b' : isWrongPick ? '#c84b4b' : '#f8fbfd'
-            const radius = markerRadius(country, view)
+            const radius = markerRadiusForZoom(country, position.zoom)
 
             return (
               <Marker key={`marker-${country.id}`} coordinates={[country.latlng[1], country.latlng[0]]}>
@@ -722,7 +734,7 @@ function CountryClickMap({
                   r={radius}
                   fill={fill}
                   stroke="#0f172a"
-                  strokeWidth={0.9 / view.zoom}
+                  strokeWidth={0.9 / position.zoom}
                   vectorEffect="non-scaling-stroke"
                   role="button"
                   aria-label={country.name}
@@ -748,6 +760,11 @@ type MapView = {
   strokeWidth: number
 }
 
+type MapPosition = {
+  coordinates: [number, number]
+  zoom: number
+}
+
 function mapViewForContinent(continent: Continent): MapView {
   const views: Record<Continent, MapView> = {
     Wereld: { center: [8, 14], zoom: 1, strokeWidth: 0.35 },
@@ -762,9 +779,21 @@ function mapViewForContinent(continent: Continent): MapView {
   return views[continent]
 }
 
-function markerRadius(country: Country, view: MapView) {
-  const screenRadius = country.id === 'VAT' || country.id === 'MCO' ? 7 : 6
-  return screenRadius / view.zoom
+function markerRadiusForZoom(country: Country, zoom: number) {
+  const screenRadius = country.id === 'VAT' || country.id === 'MCO' ? 5.2 : 4.4
+  return screenRadius / zoom
+}
+
+function strokeWidthForZoom(view: MapView, zoom: number) {
+  return view.strokeWidth * (view.zoom / zoom)
+}
+
+function geoDataFor(continent: Continent, zoom: number) {
+  if (continent !== 'Wereld') {
+    return detailedGeoUrl
+  }
+
+  return zoom < WORLD_DETAIL_ZOOM ? worldGeoUrl : mediumGeoUrl
 }
 
 function markerAreaLimit(continent: Continent) {
@@ -857,8 +886,13 @@ function MapPanel({
 }) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((country) => [country.mapId, country])), [visibleCountries])
   const smallCountries = useMemo(() => visibleCountries.filter((country) => shouldShowMarker(country, continent)), [continent, visibleCountries])
-  const view = mapViewForContinent(continent)
-  const geoData = continent === 'Wereld' ? worldGeoUrl : detailedGeoUrl
+  const view = useMemo(() => mapViewForContinent(continent), [continent])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
+  const geoData = geoDataFor(continent, position.zoom)
+
+  useEffect(() => {
+    setPosition({ coordinates: view.center, zoom: view.zoom })
+  }, [view])
 
   return (
     <div className="map-panel">
@@ -877,7 +911,7 @@ function MapPanel({
 
       <div className="map-frame">
         <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
-          <ZoomableGroup center={view.center} zoom={view.zoom}>
+          <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
             <Geographies geography={geoData}>
               {({ geographies }) =>
                 geographies.map((geography) => {
@@ -891,7 +925,7 @@ function MapPanel({
                       aria-label={country?.name}
                       fill={country ? scoreColor(score) : 'transparent'}
                       stroke={country ? '#ffffff' : 'transparent'}
-                      strokeWidth={view.strokeWidth}
+                      strokeWidth={strokeWidthForZoom(view, position.zoom)}
                       style={{
                         default: { opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none' },
                         hover: { opacity: country ? 1 : 0, outline: 'none', fill: country ? '#2364aa' : '#dfe6ea' },
@@ -904,10 +938,10 @@ function MapPanel({
             </Geographies>
             {smallCountries.map((country) => {
               const score = masteryForCountry(progress, country.id)
-              const radius = markerRadius(country, view)
+              const radius = markerRadiusForZoom(country, position.zoom)
               return (
                 <Marker key={`marker-${country.id}`} coordinates={[country.latlng[1], country.latlng[0]]}>
-                  <circle r={radius} fill={scoreColor(score)} stroke="#0f172a" strokeWidth={0.85 / view.zoom} vectorEffect="non-scaling-stroke" />
+                  <circle r={radius} fill={scoreColor(score)} stroke="#0f172a" strokeWidth={0.85 / position.zoom} vectorEffect="non-scaling-stroke" />
                 </Marker>
               )
             })}
