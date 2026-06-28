@@ -722,6 +722,10 @@ button.is-active:hover {
   color: var(--text-strong);
   border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
 }
 
@@ -732,25 +736,34 @@ button.is-active:hover {
 
 .flag-options-grid .option-button {
   min-height: 96px;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.flag-options-grid .option-button span {
+.flag-options-grid .option-button span:not(.option-reveal-name) {
   font-size: 52px;
   line-height: 1;
+}
+
+.option-reveal-name {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  opacity: 0.95;
 }
 
 .option-button.correct {
   background: linear-gradient(135deg, #26a46c 0%, #1b7d52 100%);
   border-color: #1b7d52;
   color: #fff;
-  box-shadow: 0 2px 8px rgba(34, 139, 91, 0.2);
+  box-shadow: 0 2px 10px rgba(34, 139, 91, 0.3);
 }
 
 .option-button.wrong {
   background: linear-gradient(135deg, #d45252 0%, #b83838 100%);
   border-color: #b83838;
   color: #fff;
-  box-shadow: 0 2px 8px rgba(200, 75, 75, 0.18);
+  box-shadow: 0 2px 10px rgba(200, 75, 75, 0.25);
 }
 
 /* ─── Answer form (capitals) ─── */

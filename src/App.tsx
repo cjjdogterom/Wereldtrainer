@@ -36,7 +36,8 @@ const TRAINING_MODES: Exclude<TrainerMode, 'gemengd'>[] = ['landen', 'vlaggen', 
 const SMALL_COUNTRY_AREA = 3000
 const WORLD_MARKER_MAX_AREA = 200
 const WORLD_DETAIL_ZOOM = 1.65
-const AUTO_ADVANCE_MS = 1750
+const ADVANCE_CORRECT_MS = 1750
+const ADVANCE_WRONG_MS = 2500
 
 const CONTINENT_COLORS: Record<Exclude<Continent, 'Wereld'>, string> = {
   Afrika: '#e8c87a',
@@ -244,9 +245,10 @@ function App() {
       return
     }
 
+    const delay = question.correct ? ADVANCE_CORRECT_MS : ADVANCE_WRONG_MS
     const timeout = window.setTimeout(() => {
       nextQuestion()
-    }, AUTO_ADVANCE_MS)
+    }, delay)
 
     return () => window.clearTimeout(timeout)
   }, [nextQuestion, question])
@@ -564,7 +566,20 @@ function PracticePanel({
                 aria-label={question.mode === 'vlaggen' ? `Vlag van ${country.name}` : country.name}
                 onClick={() => chooseOption(country.id)}
               >
-                {question.mode === 'vlaggen' ? <span aria-hidden="true">{country.flag}</span> : country.name}
+                {question.mode === 'vlaggen' ? (
+                  <>
+                    <span aria-hidden="true">{country.flag}</span>
+                    {(isCorrectAnswer || isWrongSelection) && (
+                      <span className="option-reveal-name">{country.name}</span>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    {country.name}
+                    {isCorrectAnswer && <Check size={14} aria-hidden="true" />}
+                    {isWrongSelection && <X size={14} aria-hidden="true" />}
+                  </>
+                )}
               </button>
             )
           })}
@@ -742,7 +757,7 @@ function CuePanel({
   return (
     <div className="cue-panel">
       <div className="country-clues">
-        {answered ? (
+        {answered && mode === 'hoofdsteden' ? (
           <div className={correct ? 'inline-feedback correct' : 'inline-feedback wrong'} role="status">
             <div className="inline-feedback-row">
               <div className="inline-feedback-text">
