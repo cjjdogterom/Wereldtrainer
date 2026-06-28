@@ -66,7 +66,7 @@ export const countries: Country[] = rawCountries
   .filter((country) => country.independent && country.capital?.length && country.ccn3 && continentFor(country))
   .map((country) => ({
     id: country.cca3,
-    mapId: String(Number(country.ccn3)),
+    mapId: country.ccn3,
     name: displayName(country),
     englishName: country.name.common,
     capital: capitalNames(country)[0],

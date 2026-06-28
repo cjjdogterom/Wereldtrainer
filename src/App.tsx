@@ -396,6 +396,8 @@ function CountryClickMap({
                   <Geography
                     key={geography.rsmKey}
                     geography={geography}
+                    data-country-id={country?.id}
+                    aria-label={country?.name}
                     fill={fill}
                     stroke={country ? '#ffffff' : 'transparent'}
                     strokeWidth={view.strokeWidth}
@@ -566,6 +568,8 @@ function MapPanel({
                     <Geography
                       key={geography.rsmKey}
                       geography={geography}
+                      data-country-id={country?.id}
+                      aria-label={country?.name}
                       fill={country ? scoreColor(score) : 'transparent'}
                       stroke={country ? '#ffffff' : 'transparent'}
                       strokeWidth={view.strokeWidth}
