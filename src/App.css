@@ -1049,6 +1049,61 @@ button.is-active:hover {
   box-shadow: 0 2px 10px rgba(200, 75, 75, 0.25);
 }
 
+/* ─── Flag-first cue (reversed Vlaggen mode) ─── */
+.flag-cue-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.flag-cue-emoji {
+  font-size: 120px;
+  line-height: 1;
+}
+
+.flag-cue-instruction {
+  font-size: 20px;
+  color: var(--text-strong);
+}
+
+/* ─── Multiple-choice with A/B/C/D keys ─── */
+.name-options-grid .option-button {
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0 14px;
+  text-align: left;
+}
+
+.option-key {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  background: var(--button);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-soft);
+}
+
+.option-button.correct .option-key,
+.option-button.wrong .option-key {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+
+.option-text {
+  flex: 1;
+  min-width: 0;
+}
+
 /* ─── Answer form (capitals) ─── */
 .answer-form {
   display: grid;
@@ -2477,6 +2532,15 @@ input.answered-wrong {
 
   .flag-display.only-flag span {
     font-size: 84px !important;
+  }
+
+  /* flag-first cue compact on mobile */
+  .flag-cue-emoji {
+    font-size: 88px;
+  }
+
+  .flag-cue-instruction {
+    font-size: 16px;
   }
 
   /* cue map compact */

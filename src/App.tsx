@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type SetStateAction } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type RefObject, type SetStateAction } from 'react'
 import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, Menu, RotateCcw, Target, X } from 'lucide-react'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
 import mediumGeoUrl from 'world-atlas/countries-50m.json?url'
@@ -22,6 +22,9 @@ type Screen = 'oefenen' | 'leren' | 'kaart'
 type Clue = 'name' | 'flag' | 'capital' | 'place'
 type ClueSettings = Record<Exclude<TrainerMode, 'gemengd' | 'oefenen'>, Record<Clue, boolean>>
 
+// How the user answers a Vlaggen question (flag shown, you supply the rest)
+type VlagAnswer = 'mc' | 'kaart' | 'hoofdstad' | 'beide'
+
 type Question = {
   country: Country
   mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>
@@ -31,6 +34,15 @@ type Question = {
   selectedId: string | null
   typedAnswer: string
   capitalCorrect?: boolean | null
+  // For mode === 'vlaggen': which answer method this question uses
+  answerKind?: VlagAnswer
+}
+
+const VLAG_ANSWER_LABELS: Record<VlagAnswer, string> = {
+  mc: 'Meerkeuze',
+  kaart: 'Op de kaart',
+  hoofdstad: 'Hoofdstad',
+  beide: 'Kaart + hoofdstad',
 }
 
 const TRAINING_MODES: Exclude<TrainerMode, 'gemengd' | 'oefenen'>[] = ['landen', 'vlaggen', 'hoofdsteden']
@@ -285,10 +297,26 @@ function buildOefenQuestion(optionsPool: Country[], country: Country, progress: 
   }
 }
 
+// Stamp the chosen Vlaggen answer-method onto a freshly built question.
+function withVlag(question: Question, vlagAnswer: VlagAnswer): Question {
+  return question.mode === 'vlaggen' ? { ...question, answerKind: vlagAnswer } : question
+}
+
+// The Vlaggen answer method for a question (null for non-vlaggen questions).
+function vlagKindOf(question: Question): VlagAnswer | null {
+  return question.mode === 'vlaggen' ? question.answerKind ?? 'mc' : null
+}
+
+// Does answering require BOTH clicking the country and typing the capital?
+function isBothAnswer(question: Question): boolean {
+  return question.mode === 'combo' || vlagKindOf(question) === 'beide'
+}
+
 function App() {
   const [screen, setScreen] = useState<Screen>('oefenen')
   const [continent, setContinent] = useState<Continent>('Wereld')
   const [mode, setMode] = useState<TrainerMode>('vlaggen')
+  const [vlagAnswer, setVlagAnswer] = useState<VlagAnswer>('mc')
   const [progress, setProgress] = useState<ProgressState>(() => loadProgress())
   const repeatQueueRef = useRef<string[]>([])
   const [repeatQueue, setRepeatQueue] = useState<string[]>([])
@@ -319,7 +347,7 @@ function App() {
   const sessionComplete = session !== null && (sessionActivePool?.length ?? 1) === 0
   const activePool = sessionActivePool !== null && sessionActivePool.length > 0 ? sessionActivePool : pool
 
-  const [question, setQuestion] = useState<Question>(() => buildQuestion(countries, progress, 'vlaggen'))
+  const [question, setQuestion] = useState<Question>(() => withVlag(buildQuestion(countries, progress, 'vlaggen'), 'mc'))
 
   const summary = useMemo(() => summarizeProgress(progress, pool), [pool, progress])
   const weakestCountries = useMemo(
@@ -353,17 +381,17 @@ function App() {
       setOefenRound(1)
       setOefenPhase(batch.length > 0 ? 'study' : 'done')
     } else {
-      setQuestion(buildQuestion(pool, progressRef.current, mode))
+      setQuestion(withVlag(buildQuestion(pool, progressRef.current, mode), vlagAnswer))
     }
-  }, [pool, mode])
+  }, [pool, mode, vlagAnswer])
 
   const beginOefenQuiz = useCallback(() => {
     if (oefenBatch.length === 0) return
     const first = pickOefenCountry(oefenBatch, progressRef.current)
-    setQuestion(buildOefenQuestion(pool, first, progressRef.current))
+    setQuestion(withVlag(buildOefenQuestion(pool, first, progressRef.current), vlagAnswer))
     setOefenPhase('quiz')
     setShowPreviousQuestion(false)
-  }, [oefenBatch, pool])
+  }, [oefenBatch, pool, vlagAnswer])
 
   const nextQuestion = useCallback(() => {
     if (question.answered) {
@@ -375,7 +403,7 @@ function App() {
     if (mode === 'oefenen') {
       const stillDue = oefenBatch.filter((c) => !isSessionCountryDone(oefenStats, c.id))
       if (stillDue.length > 0) {
-        setQuestion(buildOefenQuestion(pool, pickOefenCountry(stillDue, progress), progress))
+        setQuestion(withVlag(buildOefenQuestion(pool, pickOefenCountry(stillDue, progress), progress), vlagAnswer))
         return
       }
       // Batch finished — mark these countries as drilled and grab the next batch.
@@ -415,7 +443,7 @@ function App() {
       setRepeatQueue([...remaining])
       questionsUntilRepeatRef.current = 4
       if (picked) {
-        setQuestion(buildQuestionForCountry(activePool, picked, mode))
+        setQuestion(withVlag(buildQuestionForCountry(activePool, picked, mode), vlagAnswer))
         return
       }
     }
@@ -424,8 +452,8 @@ function App() {
       questionsUntilRepeatRef.current = 4
     }
 
-    setQuestion(buildQuestion(activePool, progress, mode))
-  }, [mode, activePool, progress, question, session, sessionActivePool, oefenBatch, oefenStats, pool])
+    setQuestion(withVlag(buildQuestion(activePool, progress, mode), vlagAnswer))
+  }, [mode, activePool, progress, question, session, sessionActivePool, oefenBatch, oefenStats, pool, vlagAnswer])
 
   useEffect(() => {
     if (!question.answered) {
@@ -482,7 +510,8 @@ function App() {
       return
     }
 
-    if (question.mode === 'combo') {
+    // map + capital flows (combo, vlaggen "beide"): first click only picks the country
+    if (isBothAnswer(question)) {
       if (question.selectedId !== null) return
       setQuestion((current) => ({ ...current, selectedId: countryId }))
       return
@@ -500,7 +529,7 @@ function App() {
       return
     }
 
-    if (question.mode === 'combo') {
+    if (isBothAnswer(question)) {
       if (question.selectedId === null) return
       const capitalCorrect = isCloseCapitalAnswer(question.typedAnswer, question.country.capitals)
       const mapCorrect = question.selectedId === question.country.id
@@ -537,7 +566,7 @@ function App() {
     setRepeatQueue([])
     questionsUntilRepeatRef.current = 4
     setSession({})
-    setQuestion(buildQuestion(pool, progress, mode))
+    setQuestion(withVlag(buildQuestion(pool, progress, mode), vlagAnswer))
     setShowPreviousQuestion(false)
   }
 
@@ -613,6 +642,19 @@ function App() {
               ))}
             </div>
           </section>
+
+          {(mode === 'vlaggen' || mode === 'gemengd' || mode === 'oefenen') && (
+            <section className="control-group" aria-labelledby="vlag-title">
+              <h2 id="vlag-title">Vlaggen-antwoord</h2>
+              <div className="button-grid compact">
+                {(['mc', 'kaart', 'hoofdstad', 'beide'] as VlagAnswer[]).map((item) => (
+                  <button className={item === vlagAnswer ? 'is-active' : ''} type="button" key={item} onClick={() => { setVlagAnswer(item); setSettingsOpen(false) }}>
+                    {VLAG_ANSWER_LABELS[item]}
+                  </button>
+                ))}
+              </div>
+            </section>
+          )}
 
           {mode !== 'oefenen' && (
           <section className="control-group session-ctrl-group" aria-labelledby="session-ctrl-title">
@@ -743,6 +785,142 @@ function App() {
         </button>
       </nav>
     </main>
+  )
+}
+
+// Big flag shown as the question cue for the (reversed) Vlaggen mode
+function FlagCue({ flag, instruction }: { flag: string; instruction: string }) {
+  return (
+    <div className="flag-cue-display">
+      <span className="flag-cue-emoji" aria-hidden="true">{flag}</span>
+      <strong className="flag-cue-instruction">{instruction}</strong>
+    </div>
+  )
+}
+
+// Multiple-choice country buttons with A/B/C/D labels
+function OptionsGrid({ question, chooseOption }: { question: Question; chooseOption: (id: string) => void }) {
+  const letters = ['A', 'B', 'C', 'D']
+  return (
+    <div className="options-grid name-options-grid">
+      {question.options.map((country, i) => {
+        const isSelected = question.selectedId === country.id
+        const isCorrectAnswer = question.answered && country.id === question.country.id
+        const isWrongSelection = question.answered && isSelected && country.id !== question.country.id
+        return (
+          <button
+            className={['option-button', isCorrectAnswer ? 'correct' : '', isWrongSelection ? 'wrong' : ''].join(' ')}
+            type="button"
+            key={country.id}
+            data-country-id={country.id}
+            aria-label={country.name}
+            disabled={question.answered}
+            onClick={() => chooseOption(country.id)}
+          >
+            <span className="option-key" aria-hidden="true">{letters[i]}</span>
+            <span className="option-text">{country.name}</span>
+            {isCorrectAnswer && <Check size={15} aria-hidden="true" />}
+            {isWrongSelection && <X size={15} aria-hidden="true" />}
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
+// Standalone capital text input (hoofdsteden + vlaggen "hoofdstad")
+function CapitalForm({
+  question,
+  submitCapital,
+  setQuestion,
+  inputRef,
+}: {
+  question: Question
+  submitCapital: (event: FormEvent<HTMLFormElement>) => void
+  setQuestion: Dispatch<SetStateAction<Question>>
+  inputRef: RefObject<HTMLInputElement | null>
+}) {
+  return (
+    <form className="answer-form" onSubmit={submitCapital}>
+      <input
+        ref={inputRef}
+        value={question.typedAnswer}
+        onChange={(event) => setQuestion((current) => ({ ...current, typedAnswer: event.target.value }))}
+        disabled={question.answered}
+        placeholder="Hoofdstad"
+        autoComplete="off"
+        className={question.answered ? (question.correct ? 'answered-correct' : 'answered-wrong') : ''}
+      />
+      <button type="submit" disabled={question.answered && !question.correct}>
+        {question.answered ? 'Volgende' : 'Controleer'}
+      </button>
+    </form>
+  )
+}
+
+// Map + capital combo (combo mode and vlaggen "beide"): flag bar on top, map below
+function ComboStage({
+  question,
+  continent,
+  visibleCountries,
+  chooseOption,
+  submitCapital,
+  setQuestion,
+  nextQuestion,
+  comboInputRef,
+  mapLayout,
+  enableKeyboard,
+  cursorStartId,
+}: {
+  question: Question
+  continent: Continent
+  visibleCountries: Country[]
+  chooseOption: (id: string) => void
+  submitCapital: (event: FormEvent<HTMLFormElement>) => void
+  setQuestion: Dispatch<SetStateAction<Question>>
+  nextQuestion: () => void
+  comboInputRef: RefObject<HTMLInputElement | null>
+  mapLayout: string
+  enableKeyboard: boolean
+  cursorStartId?: string
+}) {
+  return (
+    <div className={`question-stage combo-question-stage map-layout-${mapLayout}`}>
+      <div className="combo-control-bar">
+        <span className="combo-flag-emoji">{question.country.flag}</span>
+        {question.answered ? (
+          <ComboAnswerReveal question={question} onNext={nextQuestion} />
+        ) : (
+          <form className="answer-form combo-form" onSubmit={submitCapital}>
+            <span className="combo-instruction">
+              {question.selectedId === null ? 'Klik het land aan op de kaart' : 'Goed! Typ nu de hoofdstad'}
+            </span>
+            <div className="combo-form-row">
+              <input
+                ref={comboInputRef}
+                value={question.typedAnswer}
+                onChange={(e) => setQuestion((c) => ({ ...c, typedAnswer: e.target.value }))}
+                disabled={question.selectedId === null}
+                placeholder={question.selectedId === null ? 'Klik eerst een land...' : 'Hoofdstad'}
+                autoComplete="off"
+              />
+              <button type="submit" disabled={!question.typedAnswer.trim() || question.selectedId === null}>
+                Controleer
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+      <CountryClickMap
+        continent={continent}
+        countries={visibleCountries}
+        question={question}
+        chooseCountry={chooseOption}
+        mapLocked={question.selectedId !== null}
+        enableKeyboard={enableKeyboard}
+        cursorStartId={cursorStartId}
+      />
+    </div>
   )
 }
 
@@ -919,25 +1097,50 @@ function PracticePanel({
   onBeginOefenQuiz,
 }: PracticePanelProps) {
   const isOefenen = selectedMode === 'oefenen'
-  const isCapital = question.mode === 'hoofdsteden'
-  const isMapQuestion = question.mode === 'landen'
-  const isComboQuestion = question.mode === 'combo'
+  const vlagKind = vlagKindOf(question)
+  // Derived interaction model (works for plain modes AND the configurable Vlaggen mode)
+  const isBoth = question.mode === 'combo' || vlagKind === 'beide'
+  const isMapOnly = question.mode === 'landen' || vlagKind === 'kaart'
+  const isCapitalOnly = question.mode === 'hoofdsteden' || vlagKind === 'hoofdstad'
+  const isMC = vlagKind === 'mc'
+  const isFlagCue = question.mode === 'vlaggen'
   const activeClues = clues[question.mode]
   const capitalInputRef = useRef<HTMLInputElement>(null)
   const comboInputRef = useRef<HTMLInputElement>(null)
   const mapLayout = mapQuestionLayout(continent)
+  const cursorStartId = previousQuestion?.country.id
 
   useEffect(() => {
-    if (isCapital && !question.answered) {
+    if (isCapitalOnly && !question.answered) {
       capitalInputRef.current?.focus()
     }
-  }, [isCapital, question])
+  }, [isCapitalOnly, question])
 
   useEffect(() => {
-    if (isComboQuestion && question.selectedId !== null && !question.answered) {
+    if (isBoth && question.selectedId !== null && !question.answered) {
       comboInputRef.current?.focus()
     }
-  }, [isComboQuestion, question.selectedId, question.answered])
+  }, [isBoth, question.selectedId, question.answered])
+
+  // Keyboard: Enter advances after a correct answer; A/B/C/D (or 1-4) pick a multiple-choice option.
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Enter' && question.answered && question.correct) {
+        e.preventDefault()
+        nextQuestion()
+        return
+      }
+      if (!question.answered && isMC) {
+        const idx = { a: 0, b: 1, c: 2, d: 3, '1': 0, '2': 1, '3': 2, '4': 3 }[e.key.toLowerCase()]
+        if (idx !== undefined && question.options[idx]) {
+          e.preventDefault()
+          chooseOption(question.options[idx].id)
+        }
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [question, isMC, nextQuestion, chooseOption])
 
   const sessionDone = sessionActivePool !== null ? visibleCountries.length - sessionActivePool.length : 0
   const sessionPct = visibleCountries.length > 0 ? Math.round((sessionDone / visibleCountries.length) * 100) : 0
@@ -970,7 +1173,7 @@ function PracticePanel({
       <header className="panel-header">
         <div>
           <p className="eyebrow">{isOefenen ? `Oefenronde ${oefenRound}` : `${modeLabels[question.mode]} oefenen`}</p>
-          <h2>{practiceTitle(question.mode)}</h2>
+          <h2>{practiceTitle(question.mode, question.answerKind)}</h2>
         </div>
         {isOefenen ? (
           <div className="routine-pill repeat-queue-pill">
@@ -1021,45 +1224,31 @@ function PracticePanel({
 
           {showPreviousQuestion && previousQuestion && <PreviousQuestionPanel question={previousQuestion} countries={visibleCountries} continent={continent} />}
 
-          <div className={isMapQuestion ? `question-stage map-question-stage map-layout-${mapLayout}` : isComboQuestion ? `question-stage combo-question-stage map-layout-${mapLayout}` : 'question-stage'}>
-            {isComboQuestion ? (
-              <>
-                <div className="combo-control-bar">
-                  <span className="combo-flag-emoji">{question.country.flag}</span>
-                  {question.answered ? (
-                    <ComboAnswerReveal question={question} onNext={nextQuestion} />
-                  ) : (
-                    <form className="answer-form combo-form" onSubmit={submitCapital}>
-                      <span className="combo-instruction">
-                        {question.selectedId === null ? 'Klik het land aan op de kaart' : 'Goed! Typ nu de hoofdstad'}
-                      </span>
-                      <div className="combo-form-row">
-                        <input
-                          ref={comboInputRef}
-                          value={question.typedAnswer}
-                          onChange={(e) => setQuestion((c) => ({ ...c, typedAnswer: e.target.value }))}
-                          disabled={question.selectedId === null}
-                          placeholder={question.selectedId === null ? 'Klik eerst een land...' : 'Hoofdstad'}
-                          autoComplete="off"
-                        />
-                        <button type="submit" disabled={!question.typedAnswer.trim() || question.selectedId === null}>
-                          Controleer
-                        </button>
-                      </div>
-                    </form>
-                  )}
-                </div>
+          {isBoth ? (
+            <ComboStage
+              question={question}
+              continent={continent}
+              visibleCountries={visibleCountries}
+              chooseOption={chooseOption}
+              submitCapital={submitCapital}
+              setQuestion={setQuestion}
+              nextQuestion={nextQuestion}
+              comboInputRef={comboInputRef}
+              mapLayout={mapLayout}
+              enableKeyboard
+              cursorStartId={cursorStartId}
+            />
+          ) : isMapOnly ? (
+            <div className={`question-stage map-question-stage map-layout-${mapLayout}`}>
+              <div className="map-question-content">
                 <CountryClickMap
                   continent={continent}
                   countries={visibleCountries}
                   question={question}
                   chooseCountry={chooseOption}
-                  mapLocked={question.selectedId !== null}
+                  enableKeyboard
+                  cursorStartId={cursorStartId}
                 />
-              </>
-            ) : isMapQuestion ? (
-              <div className="map-question-content">
-                <CountryClickMap continent={continent} countries={visibleCountries} question={question} chooseCountry={chooseOption} />
                 <CuePanel
                   continent={continent}
                   countries={visibleCountries}
@@ -1071,10 +1260,18 @@ function PracticePanel({
                   selectedId={question.selectedId}
                   feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
                   onNext={nextQuestion}
+                  flagCue={isFlagCue}
                 />
               </div>
-            ) : (
-              <>
+            </div>
+          ) : (
+            <div className="question-stage">
+              {isFlagCue ? (
+                <FlagCue
+                  flag={question.country.flag}
+                  instruction={isMC ? 'Welk land hoort bij deze vlag?' : 'Wat is de hoofdstad?'}
+                />
+              ) : (
                 <CuePanel
                   continent={continent}
                   countries={visibleCountries}
@@ -1087,64 +1284,19 @@ function PracticePanel({
                   feedbackMessage={question.answered ? feedbackText(question, visibleCountries) : undefined}
                   onNext={nextQuestion}
                 />
-                {question.answered && (
-                  question.correct
-                    ? <CorrectAnswerReveal question={question} onNext={isCapital ? nextQuestion : undefined} />
-                    : <WrongAnswerReveal question={question} countries={visibleCountries} />
-                )}
-              </>
-            )}
-          </div>
-
-          {isCapital ? (
-            <form className="answer-form" onSubmit={submitCapital}>
-              <input
-                ref={capitalInputRef}
-                value={question.typedAnswer}
-                onChange={(event) => setQuestion((current) => ({ ...current, typedAnswer: event.target.value }))}
-                disabled={question.answered}
-                placeholder="Hoofdstad"
-                autoComplete="off"
-                className={question.answered ? (question.correct ? 'answered-correct' : 'answered-wrong') : ''}
-              />
-              <button type="submit" disabled={question.answered && !question.correct}>
-                {question.answered ? 'Volgende' : 'Controleer'}
-              </button>
-            </form>
-          ) : !isMapQuestion && !isComboQuestion ? (
-            <div className={question.mode === 'vlaggen' ? 'options-grid flag-options-grid' : 'options-grid'}>
-              {question.options.map((country) => {
-                const isSelected = question.selectedId === country.id
-                const isCorrectAnswer = question.answered && country.id === question.country.id
-                const isWrongSelection = question.answered && isSelected && country.id !== question.country.id
-
-                return (
-                  <button
-                    className={['option-button', isCorrectAnswer ? 'correct' : '', isWrongSelection ? 'wrong' : ''].join(' ')}
-                    type="button"
-                    key={country.id}
-                    data-country-id={country.id}
-                    aria-label={question.mode === 'vlaggen' ? `Vlag van ${country.name}` : country.name}
-                    onClick={() => chooseOption(country.id)}
-                  >
-                    {question.mode === 'vlaggen' ? (
-                      <>
-                        <span aria-hidden="true">{country.flag}</span>
-                        {(isCorrectAnswer || isWrongSelection) && (
-                          <span className="option-reveal-name">{country.name}</span>
-                        )}
-                      </>
-                    ) : (
-                      <>
-                        {country.name}
-                        {isCorrectAnswer && <Check size={14} aria-hidden="true" />}
-                        {isWrongSelection && <X size={14} aria-hidden="true" />}
-                      </>
-                    )}
-                  </button>
-                )
-              })}
+              )}
+              {question.answered && (
+                question.correct
+                  ? <CorrectAnswerReveal question={question} onNext={nextQuestion} />
+                  : <WrongAnswerReveal question={question} countries={visibleCountries} />
+              )}
             </div>
+          )}
+
+          {isCapitalOnly ? (
+            <CapitalForm question={question} submitCapital={submitCapital} setQuestion={setQuestion} inputRef={capitalInputRef} />
+          ) : isMC ? (
+            <OptionsGrid question={question} chooseOption={chooseOption} />
           ) : null}
         </>
       )}
@@ -1440,6 +1592,7 @@ function CuePanel({
   selectedId,
   feedbackMessage,
   onNext,
+  flagCue,
 }: {
   continent: Continent
   countries: Country[]
@@ -1451,13 +1604,15 @@ function CuePanel({
   selectedId?: string | null
   feedbackMessage?: string
   onNext?: () => void
+  flagCue?: boolean
 }) {
   const wrongCountry = selectedId ? (visibleCountries.find((c) => c.id === selectedId) ?? null) : null
+  const showMapFeedback = Boolean(answered && (mode === 'landen' || flagCue))
 
   return (
     <div className="cue-panel">
       <div className="country-clues">
-        {answered && mode === 'landen' ? (
+        {showMapFeedback ? (
           <div className={correct ? 'map-answer-feedback maf-correct-bg' : 'map-answer-feedback maf-wrong-bg'} role="status" aria-live="polite">
             {correct ? (
               <div className="maf-correct-card">
@@ -1502,6 +1657,11 @@ function CuePanel({
               )}
             </div>
           </div>
+        ) : flagCue ? (
+          <div className="flag-cue-display">
+            <span className="flag-cue-emoji" aria-hidden="true">{country.flag}</span>
+            <strong className="flag-cue-instruction">Waar ligt dit land?</strong>
+          </div>
         ) : (
           <>
             <strong>{cueInstruction(mode)}</strong>
@@ -1509,7 +1669,7 @@ function CuePanel({
           </>
         )}
       </div>
-      {!(answered && mode === 'landen') && (
+      {!showMapFeedback && !flagCue && (
         <div className="cue-grid">
           {clues.name && (
             <div className="cue-card">
@@ -1599,24 +1759,83 @@ function CountryClueMap({ continent, countries: visibleCountries, country }: { c
   )
 }
 
+// Nearest country (by lat/lng) to a [lng, lat] map centre — used to seed the keyboard cursor.
+function nearestCountryToCenter(list: Country[], centerLngLat: [number, number]): Country | null {
+  const [clng, clat] = centerLngLat
+  let best: Country | null = null
+  let bestDist = Infinity
+  for (const c of list) {
+    const d = (c.latlng[0] - clat) ** 2 + (c.latlng[1] - clng) ** 2
+    if (d < bestDist) {
+      bestDist = d
+      best = c
+    }
+  }
+  return best
+}
+
+// Closest country in a compass direction from `cur` (arrow-key navigation).
+function bestCountryInDirection(cur: Country, list: Country[], dir: 'up' | 'down' | 'left' | 'right'): Country | null {
+  const clat = cur.latlng[0]
+  const clng = cur.latlng[1]
+  let best: Country | null = null
+  let bestScore = Infinity
+  for (const c of list) {
+    if (c.id === cur.id) continue
+    const dlat = c.latlng[0] - clat
+    const dlng = c.latlng[1] - clng
+    let primary: number
+    let cross: number
+    if (dir === 'up') {
+      if (dlat <= 0) continue
+      primary = dlat
+      cross = Math.abs(dlng)
+    } else if (dir === 'down') {
+      if (dlat >= 0) continue
+      primary = -dlat
+      cross = Math.abs(dlng)
+    } else if (dir === 'right') {
+      if (dlng <= 0) continue
+      primary = dlng
+      cross = Math.abs(dlat)
+    } else {
+      if (dlng >= 0) continue
+      primary = -dlng
+      cross = Math.abs(dlat)
+    }
+    const score = primary + cross * 2
+    if (score < bestScore) {
+      bestScore = score
+      best = c
+    }
+  }
+  return best
+}
+
 function CountryClickMap({
   continent,
   countries: visibleCountries,
   question,
   chooseCountry,
   mapLocked,
+  enableKeyboard,
+  cursorStartId,
 }: {
   continent: Continent
   countries: Country[]
   question: Question
   chooseCountry: (countryId: string) => void
   mapLocked?: boolean
+  enableKeyboard?: boolean
+  cursorStartId?: string
 }) {
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((country) => [country.mapId, country])), [visibleCountries])
   const isWorldMode = continent === 'Wereld'
   const [drillContinent, setDrillContinent] = useState<Exclude<Continent, 'Wereld'> | null>(null)
   const worldView = useMemo(() => mapViewForContinent(continent), [continent])
   const [position, setPosition] = useState<MapPosition>({ coordinates: worldView.center, zoom: worldView.zoom })
+  const [cursorId, setCursorId] = useState<string | null>(cursorStartId ?? null)
+  const cursorIdRef = useRef<string | null>(cursorId)
 
   const effectiveContinent: Continent = drillContinent ?? continent
   const effectiveView = useMemo(() => mapViewForContinent(effectiveContinent), [effectiveContinent])
@@ -1631,6 +1850,12 @@ function CountryClickMap({
     [effectiveContinent, drillContinent, visibleCountries],
   )
 
+  // Countries reachable by the keyboard cursor — those currently shown in this view.
+  const navigable = useMemo(
+    () => (effectiveContinent === 'Wereld' ? visibleCountries : visibleCountries.filter((c) => c.continent === effectiveContinent)),
+    [effectiveContinent, visibleCountries],
+  )
+
   useEffect(() => {
     setPosition({ coordinates: worldView.center, zoom: worldView.zoom })
   }, [worldView])
@@ -1641,6 +1866,15 @@ function CountryClickMap({
     setPosition({ coordinates: worldView.center, zoom: worldView.zoom })
   }, [question.country.id, isWorldMode, worldView])
 
+  // Reset the cursor to the previous question's country whenever a new question loads.
+  useEffect(() => {
+    setCursorId(cursorStartId ?? null)
+  }, [question.country.id, cursorStartId])
+
+  useEffect(() => {
+    cursorIdRef.current = cursorId
+  }, [cursorId])
+
   function drillTo(cont: Exclude<Continent, 'Wereld'>) {
     const contView = mapViewForContinent(cont)
     setDrillContinent(cont)
@@ -1650,6 +1884,31 @@ function CountryClickMap({
 
   const locked = mapLocked ?? question.answered
   const showContinentView = isWorldMode && !drillContinent && !locked
+
+  // Arrow keys move the cursor between countries; Enter confirms the highlighted one.
+  useEffect(() => {
+    if (!enableKeyboard || locked) return
+    function onKey(e: KeyboardEvent) {
+      const tag = (document.activeElement?.tagName ?? '').toLowerCase()
+      if (tag === 'input' || tag === 'textarea') return
+      const dir = ({ ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' } as const)[e.key]
+      if (dir) {
+        e.preventDefault()
+        const cur = navigable.find((c) => c.id === cursorIdRef.current) ?? nearestCountryToCenter(navigable, effectiveView.center)
+        if (!cur) return
+        const next = bestCountryInDirection(cur, navigable, dir) ?? cur
+        setCursorId(next.id)
+      } else if (e.key === 'Enter') {
+        const target = cursorIdRef.current ?? nearestCountryToCenter(navigable, effectiveView.center)?.id ?? null
+        if (target) {
+          e.preventDefault()
+          chooseCountry(target)
+        }
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [enableKeyboard, locked, navigable, effectiveView, chooseCountry])
 
   return (
     <div className="practice-map-frame">
@@ -1672,6 +1931,7 @@ function CountryClickMap({
                 const country = countryByMapId.get(geographyKey(geography))
                 const isTarget = country?.id === question.country.id
                 const isWrongPick = Boolean(locked && country && question.selectedId === country.id && !isTarget)
+                const isCursor = Boolean(enableKeyboard && !locked && country && country.id === cursorId)
 
                 if (showContinentView) {
                   const continentColor = country ? CONTINENT_COLORS[country.continent] : 'transparent'
@@ -1681,8 +1941,8 @@ function CountryClickMap({
                       key={geography.rsmKey}
                       geography={geography}
                       fill={continentColor}
-                      stroke="#ffffff"
-                      strokeWidth={strokeWidthForZoom(worldView, position.zoom)}
+                      stroke={isCursor ? '#1d4ed8' : '#ffffff'}
+                      strokeWidth={isCursor ? strokeWidthForZoom(worldView, position.zoom) * 3.5 : strokeWidthForZoom(worldView, position.zoom)}
                       onClick={() => { if (country) drillTo(country.continent) }}
                       style={{
                         default: { opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none', cursor: country ? 'pointer' : 'default' },
@@ -1693,7 +1953,7 @@ function CountryClickMap({
                   )
                 }
 
-                const fill = locked && isTarget ? '#16a34a' : isWrongPick ? '#dc2626' : country ? '#d8e5ed' : 'transparent'
+                const fill = locked && isTarget ? '#16a34a' : isWrongPick ? '#dc2626' : isCursor ? '#9ec5e8' : country ? '#d8e5ed' : 'transparent'
                 const isClickable = Boolean(country && !locked)
 
                 return (
@@ -1703,8 +1963,8 @@ function CountryClickMap({
                     data-country-id={country?.id}
                     aria-label={country?.name}
                     fill={fill}
-                    stroke={country ? '#ffffff' : 'transparent'}
-                    strokeWidth={strokeWidthForZoom(effectiveView, position.zoom)}
+                    stroke={isCursor ? '#1d4ed8' : country ? '#ffffff' : 'transparent'}
+                    strokeWidth={isCursor ? strokeWidthForZoom(effectiveView, position.zoom) * 3.5 : strokeWidthForZoom(effectiveView, position.zoom)}
                     onClick={() => {
                       if (!country || locked) return
                       if (isWorldMode && drillContinent && country.continent !== drillContinent) {
@@ -1726,16 +1986,17 @@ function CountryClickMap({
           {smallCountries.map((country) => {
             const isTarget = country.id === question.country.id
             const isWrongPick = Boolean(locked && question.selectedId === country.id && !isTarget)
-            const fill = locked && isTarget ? '#16a34a' : isWrongPick ? '#dc2626' : '#f8fbfd'
+            const isCursor = Boolean(enableKeyboard && !locked && country.id === cursorId)
+            const fill = locked && isTarget ? '#16a34a' : isWrongPick ? '#dc2626' : isCursor ? '#9ec5e8' : '#f8fbfd'
             const radius = markerRadiusForZoom(country, position.zoom)
 
             return (
               <Marker key={`marker-${country.id}`} coordinates={[country.latlng[1], country.latlng[0]]}>
                 <circle
-                  r={radius}
+                  r={isCursor ? radius * 1.35 : radius}
                   fill={fill}
-                  stroke="#0f172a"
-                  strokeWidth={0.9 / position.zoom}
+                  stroke={isCursor ? '#1d4ed8' : '#0f172a'}
+                  strokeWidth={isCursor ? 2.4 / position.zoom : 0.9 / position.zoom}
                   vectorEffect="non-scaling-stroke"
                   role="button"
                   aria-label={country.name}
@@ -1825,11 +2086,15 @@ function feedbackText(question: Question, visibleCountries: Country[]) {
     : `Bijna. Je typte ${question.typedAnswer || 'geen antwoord'}. De hoofdstad van ${question.country.name} is ${question.country.capital}.`
 }
 
-function practiceTitle(mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>) {
+function practiceTitle(mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>, answerKind?: VlagAnswer) {
   if (mode === 'hoofdsteden') return 'Welke hoofdstad hoort erbij?'
   if (mode === 'landen') return 'Klik het land aan op de kaart'
   if (mode === 'combo') return 'Klik het land + typ de hoofdstad'
-  return 'Welke vlag hoort hierbij?'
+  // vlaggen — title depends on the chosen answer method
+  if (answerKind === 'kaart') return 'Waar ligt dit land?'
+  if (answerKind === 'hoofdstad') return 'Wat is de hoofdstad?'
+  if (answerKind === 'beide') return 'Waar ligt het + wat is de hoofdstad?'
+  return 'Welk land hoort bij deze vlag?'
 }
 
 function modeAccuracy(progress: ProgressState, countryId: string, mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>): number | null {
