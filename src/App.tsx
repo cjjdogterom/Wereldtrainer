@@ -104,29 +104,34 @@ const CONTINENT_HOVER_COLORS: Record<Exclude<Continent, 'Wereld'>, string> = {
   Oceanie: '#4eb3b3',
 }
 
-const SIMILAR_FLAG_GROUPS = [
-  ['NLD', 'LUX', 'RUS', 'SRB', 'SVK', 'SVN', 'HRV', 'PRY'],
-  ['BEL', 'DEU', 'UGA', 'AGO'],
-  ['IRL', 'CIV', 'IND', 'NER'],
-  ['ROU', 'MDA', 'AND', 'TCD'],
-  ['IDN', 'MCO', 'POL', 'SGP', 'AUT', 'LVA'],
-  ['JPN', 'BGD', 'PLW'],
-  ['AUS', 'NZL', 'FJI', 'TUV'],
-  ['USA', 'MYS', 'LBR'],
-  ['TUR', 'TUN', 'PAK', 'AZE'],
-  ['NOR', 'ISL', 'FIN', 'SWE', 'DNK'],
-  ['HUN', 'BGR', 'IRN', 'TJK'],
-  ['COL', 'ECU', 'VEN'],
-  ['ARG', 'SLV', 'HND', 'NIC', 'GTM'],
-  ['QAT', 'BHR'],
-  ['ARE', 'JOR', 'KWT', 'SDN', 'SSD'],
-  ['MLI', 'SEN', 'GIN', 'CMR'],
-  ['GHA', 'ETH', 'BOL', 'LTU', 'MMR'],
-  ['CZE', 'PHL', 'CUB'],
-  ['CHL', 'TEX', 'CUB', 'PRI'],
-  ['MAR', 'VNM'],
-  ['SOM', 'FSM'],
+// Groups of flags that are easily confused, with a short Dutch hint per group.
+// Used both for smart distractors and the "Gelijkende vlaggen" learn tab.
+const SIMILAR_FLAG_SETS: { label: string; hint: string; ids: string[] }[] = [
+  { label: 'Rood-wit-blauw horizontaal', hint: 'Let op de volgorde en eventuele wapens', ids: ['NLD', 'LUX', 'RUS', 'SRB', 'SVK', 'SVN', 'HRV', 'PRY'] },
+  { label: 'Verticaal groen-wit-rood/oranje', hint: 'Italië, Mexico, Ierland, Ivoorkust…', ids: ['IRL', 'CIV', 'ITA', 'MEX', 'IND', 'NER'] },
+  { label: 'Zwarte/gele/rode banen', hint: 'België vs Duitsland vs Oeganda vs Angola', ids: ['BEL', 'DEU', 'UGA', 'AGO'] },
+  { label: 'Blauw-geel-rood horizontaal', hint: 'Roemenië, Moldavië, Andorra, Tsjaad', ids: ['ROU', 'MDA', 'AND', 'TCD'] },
+  { label: 'Rood-wit (banen of verticaal)', hint: 'Indonesië, Monaco, Polen, Singapore, Malta', ids: ['IDN', 'MCO', 'POL', 'SGP', 'MLT'] },
+  { label: 'Rood-wit-rood banen', hint: 'Oostenrijk, Letland, Peru', ids: ['AUT', 'LVA', 'PER'] },
+  { label: 'Cirkel op effen veld', hint: 'Japan, Bangladesh, Palau', ids: ['JPN', 'BGD', 'PLW'] },
+  { label: 'Union Jack + sterren', hint: 'Australië, Nieuw-Zeeland, Fiji, Tuvalu', ids: ['AUS', 'NZL', 'FJI', 'TUV'] },
+  { label: 'Strepen met kanton', hint: 'VS, Maleisië, Liberia', ids: ['USA', 'MYS', 'LBR'] },
+  { label: 'Rood met ster en maan', hint: 'Turkije, Tunesië, Pakistan', ids: ['TUR', 'TUN', 'PAK'] },
+  { label: 'Scandinavisch kruis', hint: 'Noorwegen, IJsland, Finland, Zweden, Denemarken', ids: ['NOR', 'ISL', 'FIN', 'SWE', 'DNK'] },
+  { label: 'Rood-wit-groen banen', hint: 'Hongarije, Bulgarije, Iran, Tadzjikistan', ids: ['HUN', 'BGR', 'IRN', 'TJK'] },
+  { label: 'Geel-blauw-rood (Gran Colombia)', hint: 'Colombia, Ecuador, Venezuela', ids: ['COL', 'ECU', 'VEN'] },
+  { label: 'Blauw-wit-blauw (Midden-Amerika)', hint: 'Argentinië, El Salvador, Honduras, Nicaragua, Guatemala', ids: ['ARG', 'SLV', 'HND', 'NIC', 'GTM'] },
+  { label: 'Wit-rood met getande rand', hint: 'Qatar vs Bahrein', ids: ['QAT', 'BHR'] },
+  { label: 'Pan-Arabisch (rood-wit-zwart-groen)', hint: 'VAE, Jordanië, Koeweit, Soedan, Zuid-Soedan', ids: ['ARE', 'JOR', 'KWT', 'SDN', 'SSD'] },
+  { label: 'Groen-geel-rood verticaal', hint: 'Mali, Senegal, Guinee, Kameroen', ids: ['MLI', 'SEN', 'GIN', 'CMR'] },
+  { label: 'Pan-Afrikaans (geel-rood-groen)', hint: 'Ghana, Ethiopië, Bolivia, Litouwen, Myanmar', ids: ['GHA', 'ETH', 'BOL', 'LTU', 'MMR'] },
+  { label: 'Wit-blauw-rood met driehoek', hint: 'Tsjechië, Filipijnen', ids: ['CZE', 'PHL'] },
+  { label: 'Eén ster, blauw-wit-rood', hint: 'Chili, Cuba, Puerto Rico', ids: ['CHL', 'CUB', 'PRI'] },
+  { label: 'Rood met ster/symbool', hint: 'Marokko, Vietnam', ids: ['MAR', 'VNM'] },
+  { label: 'Lichtblauw met witte ster', hint: 'Somalië, Micronesia', ids: ['SOM', 'FSM'] },
 ]
+
+const SIMILAR_FLAG_GROUPS = SIMILAR_FLAG_SETS.map((set) => set.ids)
 
 const DEFAULT_CLUES: ClueSettings = {
   landen: { name: true, flag: false, capital: false, place: false },
@@ -2647,9 +2652,43 @@ function LearnContinentView({
   )
 }
 
+// Learn tab: groups of look-alike flags shown side by side
+function SimilarFlagsView() {
+  const byId = useMemo(() => new Map(countries.map((c) => [c.id, c])), [])
+  return (
+    <div className="similar-flags">
+      <p className="similar-flags-intro">
+        Deze vlaggen lijken sterk op elkaar. Bekijk elke groep naast elkaar en let op de kleine verschillen.
+      </p>
+      <div className="similar-flags-groups">
+        {SIMILAR_FLAG_SETS.map((set) => {
+          const members = set.ids.map((id) => byId.get(id)).filter((c): c is Country => Boolean(c))
+          if (members.length < 2) return null
+          return (
+            <section className="flag-group" key={set.label}>
+              <div className="flag-group-head">
+                <strong>{set.label}</strong>
+                <span>{set.hint}</span>
+              </div>
+              <div className="flag-group-row">
+                {members.map((c) => (
+                  <div className="flag-group-item" key={c.id}>
+                    <span className="fg-flag" aria-hidden="true">{c.flag}</span>
+                    <span className="fg-name">{c.name}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
 function LearnPanel({ continent, countries: visibleCountries, progress }: { continent: Continent; countries: Country[]; progress: ProgressState }) {
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null)
-  const [learnView, setLearnView] = useState<'tegels' | 'kaart' | 'overzicht'>('tegels')
+  const [learnView, setLearnView] = useState<'tegels' | 'kaart' | 'overzicht' | 'vlaggen'>('tegels')
   const [overviewContinent, setOverviewContinent] = useState<Exclude<Continent, 'Wereld'> | null>(null)
 
   const continentList: Exclude<Continent, 'Wereld'>[] = ['Afrika', 'Azie', 'Europa', 'Noord-Amerika', 'Zuid-Amerika', 'Oceanie']
@@ -2687,10 +2726,15 @@ function LearnPanel({ continent, countries: visibleCountries, progress }: { cont
             <button type="button" className={learnView === 'overzicht' ? 'lvt-btn active' : 'lvt-btn'} onClick={() => setLearnView('overzicht')}>
               Per continent
             </button>
+            <button type="button" className={learnView === 'vlaggen' ? 'lvt-btn active' : 'lvt-btn'} onClick={() => setLearnView('vlaggen')}>
+              Gelijkende vlaggen
+            </button>
           </div>
-          <span className="count-pill">{visibleCountries.length} landen</span>
+          {learnView !== 'vlaggen' && <span className="count-pill">{visibleCountries.length} landen</span>}
         </div>
       </header>
+
+      {learnView === 'vlaggen' && <SimilarFlagsView />}
 
       {learnView === 'kaart' && <LearnFlagMap continent={continent} countries={visibleCountries} />}
 

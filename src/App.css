@@ -1666,6 +1666,70 @@ input.answered-wrong {
   color: var(--text-strong);
 }
 
+/* ─── Similar flags learn view ─── */
+.similar-flags-intro {
+  margin: 0 0 16px;
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.similar-flags-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.flag-group {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 14px;
+}
+
+.flag-group-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.flag-group-head strong {
+  font-size: 15px;
+  color: var(--text-strong);
+}
+
+.flag-group-head span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.flag-group-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.flag-group-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 72px;
+}
+
+.fg-flag {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.fg-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-strong);
+  text-align: center;
+  line-height: 1.15;
+}
+
 /* ─── Flag map view ─── */
 .flag-map-wrap {
   position: relative;
