@@ -1273,6 +1273,314 @@ button.is-active:hover {
   background: transparent !important;
 }
 
+/* ─── Quiz wizard ─── */
+.wizard {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 8px;
+}
+
+.wizard-presets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.wizard-preset {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  cursor: pointer;
+  text-align: left;
+}
+
+.wizard-preset:hover {
+  border-color: var(--accent);
+  background: linear-gradient(160deg, #f0f5fc 0%, #e9f1fa 100%);
+}
+
+.wizard-preset-max {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, #2364aa 0%, #1b4f87 100%);
+  color: #fff;
+}
+
+.wizard-preset-max:hover {
+  background: linear-gradient(135deg, #2870bd 0%, #1f5c9c 100%);
+}
+
+.wp-icon {
+  font-size: 30px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.wp-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wp-text strong {
+  font-size: 15px;
+}
+
+.wp-text span {
+  font-size: 12.5px;
+  opacity: 0.85;
+}
+
+.wizard-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wizard-section h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.wizard-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.wm {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 11px;
+  background: var(--panel);
+  cursor: pointer;
+  text-align: left;
+}
+
+.wm:hover {
+  border-color: var(--accent);
+}
+
+.wm.is-active {
+  border-color: var(--accent);
+  background: linear-gradient(160deg, #eef4fc 0%, #e3edf8 100%);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.wm-icon {
+  font-size: 22px;
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.wm-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.wm-body strong {
+  font-size: 14px;
+  color: var(--text-strong);
+}
+
+.wm-body span {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.wizard-focus {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  color: var(--text-strong);
+  cursor: pointer;
+}
+
+.wizard-focus input {
+  width: 17px;
+  height: 17px;
+  min-height: 0;
+  accent-color: var(--accent);
+}
+
+.wizard-focus small {
+  color: var(--text-muted);
+}
+
+.wizard-format {
+  display: flex;
+  gap: 10px;
+}
+
+.wizard-format button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  font-weight: 700;
+  color: var(--text-strong);
+  cursor: pointer;
+}
+
+.wizard-format button small {
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.wizard-format button.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.wizard-format button.is-active small {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.wizard-start {
+  align-self: flex-start;
+  padding: 13px 30px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(35, 100, 170, 0.28);
+}
+
+.wizard-start:hover {
+  filter: brightness(1.06);
+}
+
+/* ─── Running quiz wrapper ─── */
+.quiz-running {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+
+.new-quiz-btn {
+  align-self: flex-start;
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  cursor: pointer;
+}
+
+.new-quiz-btn:hover {
+  color: var(--text-strong);
+  border-color: var(--accent);
+}
+
+.exam-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.exam-progress-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.exam-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.3s;
+}
+
+.exam-progress span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+/* ─── Exam result ─── */
+.exam-result .exam-score {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.exam-wrong {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 8px;
+}
+
+.exam-wrong h3 {
+  font-size: 14px;
+  margin: 0 0 8px;
+  color: var(--text-strong);
+}
+
+.exam-wrong-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: center;
+}
+
+.exam-wrong-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(200, 75, 75, 0.1);
+  border: 1px solid rgba(200, 75, 75, 0.25);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.exam-result-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.workspace-oefenen .quiz-running {
+  flex: 1;
+  min-height: 0;
+}
+
 /* ─── Answer form (capitals) ─── */
 .answer-form {
   display: grid;

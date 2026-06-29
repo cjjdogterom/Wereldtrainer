@@ -50,13 +50,6 @@ type Question = {
   countryCorrect?: boolean | null
 }
 
-const VLAG_ANSWER_LABELS: Record<VlagAnswer, string> = {
-  mc: 'Meerkeuze',
-  kaart: 'Op de kaart',
-  hoofdstad: 'Hoofdstad',
-  beide: 'Kaart + hoofdstad',
-}
-
 const TRAINING_MODES: Exclude<TrainerMode, 'gemengd' | 'oefenen'>[] = ['landen', 'vlaggen', 'hoofdsteden']
 const SMALL_COUNTRY_AREA = 3000
 const WORLD_MARKER_MAX_AREA = 200
@@ -140,19 +133,6 @@ const DEFAULT_CLUES: ClueSettings = {
   combo: { name: false, flag: false, capital: false, place: false },
 }
 
-const CLUE_LABELS: Record<Clue, string> = {
-  name: 'Naam',
-  flag: 'Vlag',
-  capital: 'Hoofdstad',
-  place: 'Plek op kaart',
-}
-
-const CLUES_BY_MODE: Record<CluedMode, Clue[]> = {
-  landen: ['name', 'flag', 'capital'],
-  vlaggen: ['place', 'name', 'capital'],
-  hoofdsteden: ['place', 'name', 'flag'],
-  combo: [],
-}
 
 function pickRandom<T>(items: T[]) {
   return items[Math.floor(Math.random() * items.length)]
@@ -340,12 +320,22 @@ function App() {
   const repeatQueueRef = useRef<string[]>([])
   const [repeatQueue, setRepeatQueue] = useState<string[]>([])
   const questionsUntilRepeatRef = useRef(4)
-  const [clues, setClues] = useState<ClueSettings>(DEFAULT_CLUES)
+  const [clues] = useState<ClueSettings>(DEFAULT_CLUES)
   const [previousQuestion, setPreviousQuestion] = useState<Question | null>(null)
   const [showPreviousQuestion, setShowPreviousQuestion] = useState(false)
   const [session, setSession] = useState<SessionStats | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
   const progressRef = useRef(progress)
+
+  // ─── Quiz setup / wizard ───
+  const [quizStarted, setQuizStarted] = useState(false)
+  const [format, setFormat] = useState<'practice' | 'exam'>('practice')
+  const [useFocusPool, setUseFocusPool] = useState(false)
+  // Exam run state
+  const [examQueue, setExamQueue] = useState<Country[]>([])
+  const examIdxRef = useRef(0)
+  const [examResults, setExamResults] = useState<Array<{ id: string; correct: boolean }>>([])
+  const [examDone, setExamDone] = useState(false)
 
   // ─── Oefenen (smart study) state ───
   const [oefenPhase, setOefenPhase] = useState<OefenPhase>('study')
@@ -354,10 +344,20 @@ function App() {
   const [oefenRound, setOefenRound] = useState(1)
   const oefenSeenRef = useRef<Set<string>>(new Set())
 
-  const pool = useMemo(
+  const basePool = useMemo(
     () => (continent === 'Wereld' ? countries : countries.filter((country) => country.continent === continent)),
     [continent],
   )
+  // "Mijn zwakke landen": the weakest (mastery < 80) within the chosen area.
+  const focusPool = useMemo(
+    () =>
+      [...basePool]
+        .filter((c) => masteryForCountry(progress, c.id) < OEFEN_STRONG)
+        .sort((a, b) => masteryForCountry(progress, a.id) - masteryForCountry(progress, b.id))
+        .slice(0, 40),
+    [basePool, progress],
+  )
+  const pool = useFocusPool && focusPool.length > 0 ? focusPool : basePool
 
   const sessionActivePool = useMemo(
     () => (session !== null ? pool.filter((c) => !isSessionCountryDone(session, c.id)) : null),
@@ -387,22 +387,50 @@ function App() {
     [oefenBatch, oefenStats],
   )
 
-  useEffect(() => {
-    repeatQueueRef.current = []
-    setRepeatQueue([])
-    questionsUntilRepeatRef.current = 4
-    setShowPreviousQuestion(false)
-    if (mode === 'oefenen') {
-      oefenSeenRef.current = new Set()
-      const batch = computeOefenBatch(pool, progressRef.current, oefenSeenRef.current, OEFEN_BATCH_SIZE)
-      setOefenBatch(batch)
-      setOefenStats({})
-      setOefenRound(1)
-      setOefenPhase(batch.length > 0 ? 'study' : 'done')
-    } else {
-      setQuestion(withVlag(buildQuestion(pool, progressRef.current, mode), vlagAnswer))
-    }
-  }, [pool, mode, vlagAnswer])
+  // Configure + start a quiz from the wizard. Computes its pool from the config
+  // directly (state setters are async) so the first question is correct.
+  const startQuiz = useCallback(
+    (cfg: { continent: Continent; mode: TrainerMode; vlagAnswer: VlagAnswer; useFocusPool: boolean; format: 'practice' | 'exam' }) => {
+      setContinent(cfg.continent)
+      setMode(cfg.mode)
+      setVlagAnswer(cfg.vlagAnswer)
+      setUseFocusPool(cfg.useFocusPool)
+      setFormat(cfg.format)
+      repeatQueueRef.current = []
+      setRepeatQueue([])
+      questionsUntilRepeatRef.current = 4
+      setSession(null)
+      setPreviousQuestion(null)
+      setShowPreviousQuestion(false)
+      setExamResults([])
+      setExamDone(false)
+      examIdxRef.current = 0
+
+      const base = cfg.continent === 'Wereld' ? countries : countries.filter((c) => c.continent === cfg.continent)
+      const focus = [...base]
+        .filter((c) => masteryForCountry(progressRef.current, c.id) < OEFEN_STRONG)
+        .sort((a, b) => masteryForCountry(progressRef.current, a.id) - masteryForCountry(progressRef.current, b.id))
+        .slice(0, 40)
+      const startPool = cfg.useFocusPool && focus.length > 0 ? focus : base
+
+      if (cfg.mode === 'oefenen') {
+        oefenSeenRef.current = new Set()
+        const batch = computeOefenBatch(startPool, progressRef.current, oefenSeenRef.current, OEFEN_BATCH_SIZE)
+        setOefenBatch(batch)
+        setOefenStats({})
+        setOefenRound(1)
+        setOefenPhase(batch.length > 0 ? 'study' : 'done')
+      } else if (cfg.format === 'exam') {
+        const queue = shuffle(startPool)
+        setExamQueue(queue)
+        setQuestion(withVlag(buildQuestionForCountry(startPool, queue[0], cfg.mode), cfg.vlagAnswer))
+      } else {
+        setQuestion(withVlag(buildQuestion(startPool, progressRef.current, cfg.mode), cfg.vlagAnswer))
+      }
+      setQuizStarted(true)
+    },
+    [],
+  )
 
   const beginOefenQuiz = useCallback(() => {
     if (oefenBatch.length === 0) return
@@ -417,6 +445,18 @@ function App() {
       setPreviousQuestion(question)
     }
     setShowPreviousQuestion(false)
+
+    // ─── Exam: one pass through every country, then show the score ───
+    if (format === 'exam') {
+      const nextIdx = examIdxRef.current + 1
+      if (nextIdx >= examQueue.length) {
+        setExamDone(true)
+        return
+      }
+      examIdxRef.current = nextIdx
+      setQuestion(withVlag(buildQuestionForCountry(pool, examQueue[nextIdx], mode), vlagAnswer))
+      return
+    }
 
     // ─── Oefenen mode: stay within the current batch, then load the next one ───
     if (mode === 'oefenen') {
@@ -472,7 +512,7 @@ function App() {
     }
 
     setQuestion(withVlag(buildQuestion(activePool, progress, mode), vlagAnswer))
-  }, [mode, activePool, progress, question, session, sessionActivePool, oefenBatch, oefenStats, pool, vlagAnswer])
+  }, [mode, activePool, progress, question, session, sessionActivePool, oefenBatch, oefenStats, pool, vlagAnswer, format, examQueue])
 
   useEffect(() => {
     if (!question.answered) {
@@ -496,7 +536,9 @@ function App() {
   function recordResult(overallCorrect: boolean, parts: Array<{ mode: TrainerMode; correct: boolean }>) {
     const id = question.country.id
     setProgress((current) => parts.reduce((acc, p) => applyAnswer(acc, { countryId: id, mode: p.mode, correct: p.correct }), current))
-    if (mode === 'oefenen') {
+    if (format === 'exam') {
+      setExamResults((prev) => [...prev, { id, correct: overallCorrect }])
+    } else if (mode === 'oefenen') {
       setOefenStats((prev) => {
         const old = prev[id] ?? { correct: 0, wrong: 0 }
         return { ...prev, [id]: { correct: old.correct + (overallCorrect ? 1 : 0), wrong: old.wrong + (overallCorrect ? 0 : 1) } }
@@ -622,34 +664,8 @@ function App() {
     }
   }
 
-  function startSession() {
-    repeatQueueRef.current = []
-    setRepeatQueue([])
-    questionsUntilRepeatRef.current = 4
-    setSession({})
-    setQuestion(withVlag(buildQuestion(pool, progress, mode), vlagAnswer))
-    setShowPreviousQuestion(false)
-  }
-
   function stopSession() {
     setSession(null)
-  }
-
-  function toggleClue(clueMode: CluedMode, clue: Clue) {
-    setClues((current) => {
-      const activeClues = CLUES_BY_MODE[clueMode].filter((item) => current[clueMode][item])
-      if (current[clueMode][clue] && activeClues.length === 1) {
-        return current
-      }
-
-      return {
-        ...current,
-        [clueMode]: {
-          ...current[clueMode],
-          [clue]: !current[clueMode][clue],
-        },
-      }
-    })
   }
 
   return (
@@ -682,80 +698,16 @@ function App() {
             <X size={18} aria-hidden="true" /> Sluiten
           </button>
 
-          <section className="control-group" aria-labelledby="continent-title">
-            <h2 id="continent-title">Gebied</h2>
-            <div className="button-grid">
-              {continents.map((item) => (
-                <button className={item === continent ? 'is-active' : ''} type="button" key={item} onClick={() => { setContinent(item); setSettingsOpen(false) }}>
-                  {item}
-                </button>
-              ))}
-            </div>
-          </section>
-
-          <section className="control-group" aria-labelledby="mode-title">
-            <h2 id="mode-title">Training</h2>
-            <div className="button-grid compact">
-              {(['oefenen', 'landen', 'vlaggen', 'hoofdsteden', 'gemengd', 'combo', 'identify', 'maximaal'] as TrainerMode[]).map((item) => (
-                <button className={item === mode ? 'is-active' : ''} type="button" key={item} onClick={() => { setMode(item); setSettingsOpen(false) }}>
-                  {modeLabels[item]}
-                </button>
-              ))}
-            </div>
-          </section>
-
-          {(mode === 'vlaggen' || mode === 'gemengd' || mode === 'oefenen') && (
-            <section className="control-group" aria-labelledby="vlag-title">
-              <h2 id="vlag-title">Vlaggen-antwoord</h2>
-              <div className="button-grid compact">
-                {(['mc', 'kaart', 'hoofdstad', 'beide'] as VlagAnswer[]).map((item) => (
-                  <button className={item === vlagAnswer ? 'is-active' : ''} type="button" key={item} onClick={() => { setVlagAnswer(item); setSettingsOpen(false) }}>
-                    {VLAG_ANSWER_LABELS[item]}
+          {screen !== 'oefenen' && (
+            <section className="control-group" aria-labelledby="continent-title">
+              <h2 id="continent-title">Gebied</h2>
+              <div className="button-grid">
+                {continents.map((item) => (
+                  <button className={item === continent ? 'is-active' : ''} type="button" key={item} onClick={() => { setContinent(item); setSettingsOpen(false) }}>
+                    {item}
                   </button>
                 ))}
               </div>
-            </section>
-          )}
-
-          {mode !== 'oefenen' && (
-          <section className="control-group session-ctrl-group" aria-labelledby="session-ctrl-title">
-            <h2 id="session-ctrl-title">Trainingsessie</h2>
-            {session === null ? (
-              <button type="button" className="session-start-btn" onClick={() => { startSession(); setSettingsOpen(false) }}>
-                <GraduationCap size={15} aria-hidden="true" />
-                Sessie starten
-              </button>
-            ) : (
-              <div className="session-sidebar-status">
-                {sessionComplete ? (
-                  <span className="session-done-pill">
-                    <Check size={13} aria-hidden="true" /> Sessie klaar!
-                  </span>
-                ) : (
-                  <>
-                    <div className="session-bar-wrap">
-                      <div
-                        className="session-bar-fill"
-                        style={{ width: `${Math.round(((pool.length - (sessionActivePool?.length ?? pool.length)) / pool.length) * 100)}%` }}
-                      />
-                    </div>
-                    <span className="session-count">
-                      {pool.length - (sessionActivePool?.length ?? pool.length)} / {pool.length} klaar
-                    </span>
-                  </>
-                )}
-                <button type="button" className="session-stop-btn" onClick={stopSession}>
-                  Stoppen
-                </button>
-              </div>
-            )}
-          </section>
-          )}
-
-          {mode !== 'combo' && mode !== 'oefenen' && (
-            <section className="control-group" aria-labelledby="clues-title">
-              <h2 id="clues-title">Toon bij vraag</h2>
-              <ClueControls mode={mode} clues={clues} toggleClue={toggleClue} />
             </section>
           )}
 
@@ -797,34 +749,59 @@ function App() {
       </aside>
 
       <section className={`workspace workspace-${screen}`}>
-        {screen === 'oefenen' && (
-          <PracticePanel
-            continent={continent}
-            countries={pool}
-            clues={clues}
-            previousQuestion={previousQuestion}
-            showPreviousQuestion={showPreviousQuestion}
-            question={question}
-            repeatQueue={repeatQueue}
-            chooseOption={chooseOption}
-            chooseFlag={chooseFlag}
-            submitCapital={submitCapital}
-            submitIdentify={submitIdentify}
-            setQuestion={setQuestion}
-            nextQuestion={nextQuestion}
-            setShowPreviousQuestion={setShowPreviousQuestion}
-            session={session}
-            sessionComplete={sessionComplete}
-            sessionActivePool={sessionActivePool}
-            onStopSession={stopSession}
-            selectedMode={mode}
-            progress={progress}
-            oefenPhase={oefenPhase}
-            oefenBatch={oefenBatch}
-            oefenRound={oefenRound}
-            oefenActivePool={oefenActivePool}
-            onBeginOefenQuiz={beginOefenQuiz}
+        {screen === 'oefenen' && !quizStarted && (
+          <QuizWizard continent={continent} setContinent={setContinent} progress={progress} onStart={startQuiz} />
+        )}
+
+        {screen === 'oefenen' && quizStarted && format === 'exam' && examDone && (
+          <ExamResultPanel
+            results={examResults}
+            onRestart={() => startQuiz({ continent, mode, vlagAnswer, useFocusPool, format: 'exam' })}
+            onNew={() => setQuizStarted(false)}
           />
+        )}
+
+        {screen === 'oefenen' && quizStarted && !(format === 'exam' && examDone) && (
+          <div className="quiz-running">
+            <button type="button" className="new-quiz-btn" onClick={() => setQuizStarted(false)}>
+              ← Andere overhoring
+            </button>
+            {format === 'exam' && (
+              <div className="exam-progress">
+                <div className="exam-progress-bar">
+                  <div className="exam-progress-fill" style={{ width: `${examQueue.length ? Math.round((examResults.length / examQueue.length) * 100) : 0}%` }} />
+                </div>
+                <span>{examResults.length} / {examQueue.length}</span>
+              </div>
+            )}
+            <PracticePanel
+              continent={continent}
+              countries={pool}
+              clues={clues}
+              previousQuestion={previousQuestion}
+              showPreviousQuestion={showPreviousQuestion}
+              question={question}
+              repeatQueue={repeatQueue}
+              chooseOption={chooseOption}
+              chooseFlag={chooseFlag}
+              submitCapital={submitCapital}
+              submitIdentify={submitIdentify}
+              setQuestion={setQuestion}
+              nextQuestion={nextQuestion}
+              setShowPreviousQuestion={setShowPreviousQuestion}
+              session={session}
+              sessionComplete={sessionComplete}
+              sessionActivePool={sessionActivePool}
+              onStopSession={stopSession}
+              selectedMode={mode}
+              progress={progress}
+              oefenPhase={oefenPhase}
+              oefenBatch={oefenBatch}
+              oefenRound={oefenRound}
+              oefenActivePool={oefenActivePool}
+              onBeginOefenQuiz={beginOefenQuiz}
+            />
+          </div>
         )}
 
         {screen === 'leren' && <LearnPanel continent={continent} countries={pool} progress={progress} />}
@@ -1250,6 +1227,156 @@ function WrongAnswerReveal({ question, countries: visibleCountries }: { question
   )
 }
 
+// The methods offered by the wizard, each mapping to a (mode, vlagAnswer) pair.
+type WizardMethod = { key: string; label: string; desc: string; icon: string; mode: TrainerMode; vlag: VlagAnswer }
+const WIZARD_METHODS: WizardMethod[] = [
+  { key: 'oefenen', label: 'Slim oefenen', desc: 'Je zwakste landen eerst, met actieve herhaling', icon: '🎯', mode: 'oefenen', vlag: 'mc' },
+  { key: 'landen', label: 'Land op de kaart', desc: 'Naam gegeven → wijs het land aan', icon: '📍', mode: 'landen', vlag: 'mc' },
+  { key: 'hoofdsteden', label: 'Hoofdstad typen', desc: 'Naam gegeven → typ de hoofdstad', icon: '⌨️', mode: 'hoofdsteden', vlag: 'mc' },
+  { key: 'vlag-mc', label: 'Vlag herkennen', desc: 'Vlag → kies het land (A/B/C/D)', icon: '🚩', mode: 'vlaggen', vlag: 'mc' },
+  { key: 'vlag-kaart', label: 'Vlag → ligging', desc: 'Vlag → wijs het land aan op de kaart', icon: '🗺️', mode: 'vlaggen', vlag: 'kaart' },
+  { key: 'vlag-hoofdstad', label: 'Vlag → hoofdstad', desc: 'Vlag → typ de hoofdstad', icon: '🏛️', mode: 'vlaggen', vlag: 'hoofdstad' },
+  { key: 'identify', label: 'Herken het land', desc: 'Ligging gegeven → typ land + hoofdstad', icon: '🔍', mode: 'identify', vlag: 'mc' },
+  { key: 'combo', label: 'Land + hoofdstad', desc: 'Naam → aanwijzen + hoofdstad typen', icon: '✌️', mode: 'combo', vlag: 'mc' },
+  { key: 'maximaal', label: 'Maximaal', desc: 'Aanwijzen + vlag kiezen + hoofdstad typen', icon: '🏆', mode: 'maximaal', vlag: 'mc' },
+  { key: 'gemengd', label: 'Mix', desc: 'Alle methodes door elkaar', icon: '🎲', mode: 'gemengd', vlag: 'mc' },
+]
+
+type QuizConfig = { continent: Continent; mode: TrainerMode; vlagAnswer: VlagAnswer; useFocusPool: boolean; format: 'practice' | 'exam' }
+
+function QuizWizard({
+  continent,
+  setContinent,
+  progress,
+  onStart,
+}: {
+  continent: Continent
+  setContinent: (c: Continent) => void
+  progress: ProgressState
+  onStart: (cfg: QuizConfig) => void
+}) {
+  const [methodKey, setMethodKey] = useState('oefenen')
+  const [focus, setFocus] = useState(false)
+  const [format, setFormat] = useState<'practice' | 'exam'>('practice')
+  const method = WIZARD_METHODS.find((m) => m.key === methodKey) ?? WIZARD_METHODS[0]
+  const isOefenen = method.mode === 'oefenen'
+
+  const weakCount = useMemo(() => {
+    const base = continent === 'Wereld' ? countries : countries.filter((c) => c.continent === continent)
+    return base.filter((c) => masteryForCountry(progress, c.id) < OEFEN_STRONG).length
+  }, [continent, progress])
+
+  const start = (over?: Partial<QuizConfig>) =>
+    onStart({ continent, mode: method.mode, vlagAnswer: method.vlag, useFocusPool: focus, format: isOefenen ? 'practice' : format, ...over })
+
+  return (
+    <div className="wizard">
+      <header className="panel-header">
+        <div>
+          <p className="eyebrow">Overhoring samenstellen</p>
+          <h2>Wat wil je oefenen?</h2>
+        </div>
+      </header>
+
+      <div className="wizard-presets">
+        <button type="button" className="wizard-preset wizard-preset-max" onClick={() => start({ mode: 'maximaal', vlagAnswer: 'mc', format: 'exam' })}>
+          <span className="wp-icon">🏆</span>
+          <span className="wp-text"><strong>Maximaal-examen</strong><span>Aanwijzen + vlag + hoofdstad — met eindscore</span></span>
+        </button>
+        <button type="button" className="wizard-preset" onClick={() => start({ mode: 'oefenen', vlagAnswer: 'mc', format: 'practice' })}>
+          <span className="wp-icon">🎯</span>
+          <span className="wp-text"><strong>Slim oefenen</strong><span>Je zwakste landen, met herhaling</span></span>
+        </button>
+      </div>
+
+      <div className="wizard-section">
+        <h3>1 · Gebied</h3>
+        <div className="button-grid">
+          {continents.map((item) => (
+            <button key={item} type="button" className={item === continent ? 'is-active' : ''} onClick={() => setContinent(item)}>
+              {item}
+            </button>
+          ))}
+        </div>
+        <label className="wizard-focus">
+          <input type="checkbox" checked={focus} onChange={() => setFocus((f) => !f)} />
+          <span>Alleen mijn zwakke landen <small>({weakCount})</small></span>
+        </label>
+      </div>
+
+      <div className="wizard-section">
+        <h3>2 · Methode</h3>
+        <div className="wizard-methods">
+          {WIZARD_METHODS.map((m) => (
+            <button key={m.key} type="button" className={m.key === methodKey ? 'wm is-active' : 'wm'} onClick={() => setMethodKey(m.key)}>
+              <span className="wm-icon" aria-hidden="true">{m.icon}</span>
+              <span className="wm-body">
+                <strong>{m.label}</strong>
+                <span>{m.desc}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {!isOefenen && (
+        <div className="wizard-section">
+          <h3>3 · Vorm</h3>
+          <div className="wizard-format">
+            <button type="button" className={format === 'practice' ? 'is-active' : ''} onClick={() => setFormat('practice')}>
+              Oefenen <small>eindeloos</small>
+            </button>
+            <button type="button" className={format === 'exam' ? 'is-active' : ''} onClick={() => setFormat('exam')}>
+              Examen <small>met eindscore</small>
+            </button>
+          </div>
+        </div>
+      )}
+
+      <button type="button" className="wizard-start" onClick={() => start()}>
+        Start overhoring →
+      </button>
+    </div>
+  )
+}
+
+function ExamResultPanel({ results, onRestart, onNew }: { results: Array<{ id: string; correct: boolean }>; onRestart: () => void; onNew: () => void }) {
+  const byId = useMemo(() => new Map(countries.map((c) => [c.id, c])), [])
+  const total = results.length
+  const correct = results.filter((r) => r.correct).length
+  const pct = total > 0 ? Math.round((correct / total) * 100) : 0
+  const wrong = results.filter((r) => !r.correct).map((r) => byId.get(r.id)).filter((c): c is Country => Boolean(c))
+  return (
+    <div className="practice-layout">
+      <header className="panel-header">
+        <div>
+          <p className="eyebrow">Examen afgerond</p>
+          <h2>Je score</h2>
+        </div>
+      </header>
+      <div className="session-complete exam-result">
+        <div className="session-complete-icon" aria-hidden="true">{pct >= 80 ? '🏆' : pct >= 50 ? '👍' : '📚'}</div>
+        <div className="exam-score" style={{ color: pct >= 80 ? '#228b5b' : pct >= 50 ? '#b07400' : '#c84b4b' }}>{pct}%</div>
+        <p>{correct} van de {total} goed</p>
+        {wrong.length > 0 && (
+          <div className="exam-wrong">
+            <h3>Nog oefenen ({wrong.length})</h3>
+            <div className="exam-wrong-list">
+              {wrong.map((c) => (
+                <span key={c.id} className="exam-wrong-item"><span aria-hidden="true">{c.flag}</span> {c.name}</span>
+              ))}
+            </div>
+          </div>
+        )}
+        <div className="exam-result-actions">
+          <button type="button" className="wizard-start" onClick={onRestart}>Opnieuw</button>
+          <button type="button" className="session-stop-btn" onClick={onNew}>Andere overhoring</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 type PracticePanelProps = {
   continent: Continent
   countries: Country[]
@@ -1276,37 +1403,6 @@ type PracticePanelProps = {
   oefenRound: number
   oefenActivePool: Country[]
   onBeginOefenQuiz: () => void
-}
-
-function ClueControls({
-  mode,
-  clues,
-  toggleClue,
-}: {
-  mode: TrainerMode
-  clues: ClueSettings
-  toggleClue: (mode: CluedMode, clue: Clue) => void
-}) {
-  const cluedModes: CluedMode[] = ['landen', 'vlaggen', 'hoofdsteden']
-  const modes: CluedMode[] = mode === 'gemengd' ? cluedModes : cluedModes.includes(mode as CluedMode) ? [mode as CluedMode] : []
-
-  return (
-    <div className="clue-controls">
-      {modes.map((clueMode) => (
-        <div className="clue-mode" key={clueMode}>
-          {mode === 'gemengd' && <strong>{modeLabels[clueMode]}</strong>}
-          <div>
-            {CLUES_BY_MODE[clueMode].map((clue) => (
-              <label key={clue}>
-                <input type="checkbox" checked={clues[clueMode][clue]} onChange={() => toggleClue(clueMode, clue)} />
-                <span>{CLUE_LABELS[clue]}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  )
 }
 
 function PracticePanel({
