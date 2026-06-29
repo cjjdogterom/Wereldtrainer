@@ -662,36 +662,25 @@ button.is-active:hover {
 }
 
 /* ─── Combo mode layout ─── */
-.combo-question-stage {
+/* Always a flex column: control bar on top (flag + input, always visible), map fills the rest. */
+.combo-question-stage,
+.map-layout-side.combo-question-stage {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-height: 600px;
+  min-height: 420px;
+  align-content: stretch;
 }
 
 .combo-question-stage .practice-map-frame {
   flex: 1;
-  min-height: 400px;
+  min-height: 240px;
   height: auto;
 }
 
-.map-layout-side.combo-question-stage {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: minmax(0, 1fr) 260px;
-  grid-template-areas:
-    "flag flag"
-    "map  form"
-    "map  reveal";
-  align-items: start;
-}
-
-.map-layout-side.combo-question-stage .combo-flag-bar { grid-area: flag; }
-.map-layout-side.combo-question-stage .practice-map-frame { grid-area: map; height: min(68vh, 720px); min-height: 480px; }
-.map-layout-side.combo-question-stage .answer-form { grid-area: form; }
-.map-layout-side.combo-question-stage .combo-answer-reveal { grid-area: reveal; }
-
-.combo-flag-bar {
+/* Top control bar: flag + instruction + capital input, never pushed off screen */
+.combo-control-bar {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -711,6 +700,111 @@ button.is-active:hover {
   font-size: 15px;
   color: var(--text-muted);
   font-weight: 500;
+}
+
+/* Higher specificity than the base .answer-form grid so the column wins */
+.combo-control-bar .combo-form {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  grid-template-columns: none;
+}
+
+.combo-form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.combo-control-bar .combo-answer-reveal {
+  flex: 1;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.combo-control-bar .combo-reveal-row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.combo-control-bar .combo-reveal-item {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ─── Desktop: the quiz (Oefenen) screen always fits the viewport — never scroll to answer ─── */
+@media (min-width: 641px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    max-height: 100svh;
+    overflow-y: auto;
+  }
+
+  .workspace-oefenen {
+    height: 100svh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .workspace-oefenen .practice-layout {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .workspace-oefenen .panel-header,
+  .workspace-oefenen .session-hud,
+  .workspace-oefenen .previous-question-tools,
+  .workspace-oefenen .options-grid,
+  .workspace-oefenen .answer-form {
+    flex: none;
+  }
+
+  .workspace-oefenen .question-stage {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  /* Map + combo stages fill the available stage height (drop fixed min-heights) */
+  .workspace-oefenen .map-question-stage,
+  .workspace-oefenen .combo-question-stage {
+    min-height: 0;
+  }
+
+  .workspace-oefenen .map-question-content {
+    height: 100%;
+  }
+
+  .workspace-oefenen .map-question-content .practice-map-frame,
+  .workspace-oefenen .map-layout-side .practice-map-frame,
+  .workspace-oefenen .practice-map-frame {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .workspace-oefenen .combo-question-stage .practice-map-frame {
+    flex: 1;
+    height: auto;
+    min-height: 0;
+  }
+
+  .workspace-oefenen .oefen-study {
+    flex: 1;
+    min-height: 0;
+  }
 }
 
 /* ─── Combo answer reveal ─── */
@@ -2171,8 +2265,19 @@ input.answered-wrong {
   .workspace {
     flex: 1;
     min-height: 0;
-    overflow: hidden;
     padding: 10px 12px 0;
+  }
+
+  /* quiz fills the screen; leren/kaart may scroll their longer content */
+  .workspace-oefenen {
+    overflow: hidden;
+  }
+
+  .workspace-leren,
+  .workspace-kaart {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 12px;
   }
 
   /* mobile bottom navigation */
@@ -2298,17 +2403,22 @@ input.answered-wrong {
     min-height: 180px;
   }
 
-  .combo-flag-bar {
+  .combo-control-bar {
     flex-shrink: 0;
     padding: 8px 12px;
+    gap: 10px;
   }
 
   .combo-flag-emoji {
-    font-size: 28px;
+    font-size: 34px;
   }
 
   .combo-instruction {
-    font-size: 13px;
+    font-size: 12px;
+  }
+
+  .combo-control-bar .combo-reveal-row {
+    flex-direction: column;
   }
 
   /* options and form stay at bottom */
@@ -2399,4 +2509,127 @@ input.answered-wrong {
   .correct-answer-reveal {
     border-radius: 10px;
   }
+
+  /* combo form row stacks button under input on mobile */
+  .combo-form-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  /* oefenen study fills the screen; cards in 2 columns, grid scrolls if long */
+  .oefen-study {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .oefen-study-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+  }
+
+  .oefen-card-flag {
+    font-size: 30px;
+  }
+
+  .oefen-study-intro {
+    font-size: 12px;
+  }
+
+  .oefen-begin-btn {
+    flex-shrink: 0;
+  }
+}
+
+/* ─── Oefenen (smart study) panels ─── */
+.oefen-study {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.oefen-study-intro {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.oefen-study-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  align-content: start;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.oefen-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  text-align: center;
+}
+
+.oefen-card-flag {
+  font-size: 40px;
+  line-height: 1.1;
+}
+
+.oefen-card-name {
+  font-size: 15px;
+  color: var(--text-strong);
+}
+
+.oefen-card-capital {
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+.oefen-card-weak {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.oefen-card-weak span {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(226, 88, 34, 0.12);
+  color: #b4441a;
+}
+
+.oefen-begin-btn {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(35, 100, 170, 0.25);
+}
+
+.oefen-begin-btn:hover {
+  filter: brightness(1.05);
+}
+
+.oefen-done p {
+  max-width: 460px;
 }

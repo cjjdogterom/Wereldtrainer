@@ -5,7 +5,7 @@ type RawCountry = (typeof rawCountries)[number]
 
 export type Continent = 'Wereld' | 'Afrika' | 'Azie' | 'Europa' | 'Noord-Amerika' | 'Zuid-Amerika' | 'Oceanie'
 
-export type TrainerMode = 'landen' | 'vlaggen' | 'hoofdsteden' | 'gemengd' | 'combo'
+export type TrainerMode = 'landen' | 'vlaggen' | 'hoofdsteden' | 'gemengd' | 'combo' | 'oefenen'
 
 export type Routine = 'normaal' | 'slim' | 'fouten' | 'snel'
 
@@ -102,6 +102,7 @@ export const countries: Country[] = [...datasetCountries, ...manualCountries]
 export const continents: Continent[] = ['Wereld', 'Afrika', 'Azie', 'Europa', 'Noord-Amerika', 'Zuid-Amerika', 'Oceanie']
 
 export const modeLabels: Record<TrainerMode, string> = {
+  oefenen: 'Oefenen',
   landen: 'Landen',
   vlaggen: 'Vlaggen',
   hoofdsteden: 'Hoofdsteden',

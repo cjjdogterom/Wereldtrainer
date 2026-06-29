@@ -20,11 +20,11 @@ import {
 
 type Screen = 'oefenen' | 'leren' | 'kaart'
 type Clue = 'name' | 'flag' | 'capital' | 'place'
-type ClueSettings = Record<Exclude<TrainerMode, 'gemengd'>, Record<Clue, boolean>>
+type ClueSettings = Record<Exclude<TrainerMode, 'gemengd' | 'oefenen'>, Record<Clue, boolean>>
 
 type Question = {
   country: Country
-  mode: Exclude<TrainerMode, 'gemengd'>
+  mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>
   options: Country[]
   answered: boolean
   correct: boolean | null
@@ -33,7 +33,7 @@ type Question = {
   capitalCorrect?: boolean | null
 }
 
-const TRAINING_MODES: Exclude<TrainerMode, 'gemengd'>[] = ['landen', 'vlaggen', 'hoofdsteden']
+const TRAINING_MODES: Exclude<TrainerMode, 'gemengd' | 'oefenen'>[] = ['landen', 'vlaggen', 'hoofdsteden']
 const SMALL_COUNTRY_AREA = 3000
 const WORLD_MARKER_MAX_AREA = 200
 const WORLD_DETAIL_ZOOM = 1.65
@@ -48,6 +48,18 @@ function sessionRequired(stats: SessionStats, id: string): number {
 
 function isSessionCountryDone(stats: SessionStats, id: string): boolean {
   return (stats[id]?.correct ?? 0) >= sessionRequired(stats, id)
+}
+
+const OEFEN_BATCH_SIZE = 6
+const OEFEN_STRONG = 80
+type OefenPhase = 'study' | 'quiz' | 'done'
+
+// Pick the weakest not-yet-strong countries that we haven't drilled this run.
+function computeOefenBatch(pool: Country[], progress: ProgressState, seen: Set<string>, size: number): Country[] {
+  return [...pool]
+    .filter((c) => !seen.has(c.id) && masteryForCountry(progress, c.id) < OEFEN_STRONG)
+    .sort((a, b) => masteryForCountry(progress, a.id) - masteryForCountry(progress, b.id))
+    .slice(0, size)
 }
 
 const CONTINENT_COLORS: Record<Exclude<Continent, 'Wereld'>, string> = {
@@ -106,7 +118,7 @@ const CLUE_LABELS: Record<Clue, string> = {
   place: 'Plek op kaart',
 }
 
-const CLUES_BY_MODE: Record<Exclude<TrainerMode, 'gemengd'>, Clue[]> = {
+const CLUES_BY_MODE: Record<Exclude<TrainerMode, 'gemengd' | 'oefenen'>, Clue[]> = {
   landen: ['name', 'flag', 'capital'],
   vlaggen: ['place', 'name', 'capital'],
   hoofdsteden: ['place', 'name', 'flag'],
@@ -121,11 +133,42 @@ function shuffle<T>(items: T[]) {
   return [...items].sort(() => Math.random() - 0.5)
 }
 
-function getMode(mode: TrainerMode): Exclude<TrainerMode, 'gemengd'> {
-  return mode === 'gemengd' ? pickRandom(TRAINING_MODES) : mode
+function getMode(mode: TrainerMode): Exclude<TrainerMode, 'gemengd' | 'oefenen'> {
+  return mode === 'gemengd' || mode === 'oefenen' ? pickRandom(TRAINING_MODES) : mode
 }
 
-function countryWeight(country: Country, progress: ProgressState, mode: Exclude<TrainerMode, 'gemengd'>, routine: Routine) {
+// For Oefenen mode: which base discipline (landen/vlaggen/hoofdsteden) does the
+// user know least well for this country? That is the one we should drill. When
+// several disciplines are equally weak (e.g. a brand-new country) we pick one of
+// them at random so the user is tested on flag, capital AND location over time.
+function weakestModeForCountry(
+  progress: ProgressState,
+  countryId: string,
+): Exclude<TrainerMode, 'gemengd' | 'oefenen' | 'combo'> {
+  const base = ['landen', 'vlaggen', 'hoofdsteden'] as const
+  const scores = base.map((m) => masteryForMode(progress[countryId]?.[m]))
+  const lowest = Math.min(...scores)
+  const tied = base.filter((_, i) => scores[i] === lowest)
+  return tied[Math.floor(Math.random() * tied.length)]
+}
+
+// Overall weakness weight: lower mastery → picked more often.
+function oefenWeight(country: Country, progress: ProgressState) {
+  return Math.max(1, 110 - masteryForCountry(progress, country.id))
+}
+
+function pickOefenCountry(candidates: Country[], progress: ProgressState): Country {
+  const weighted = candidates.map((c) => ({ c, w: oefenWeight(c, progress) }))
+  const total = weighted.reduce((sum, item) => sum + item.w, 0)
+  let cursor = Math.random() * total
+  for (const item of weighted) {
+    cursor -= item.w
+    if (cursor <= 0) return item.c
+  }
+  return weighted[0].c
+}
+
+function countryWeight(country: Country, progress: ProgressState, mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>, routine: Routine) {
   const stats = progress[country.id]?.[mode]
   const mastery = masteryForMode(stats)
   const wrong = stats?.wrong ?? 0
@@ -146,7 +189,7 @@ function countryWeight(country: Country, progress: ProgressState, mode: Exclude<
   return 1
 }
 
-function weightedPick(items: Country[], progress: ProgressState, mode: Exclude<TrainerMode, 'gemengd'>, routine: Routine) {
+function weightedPick(items: Country[], progress: ProgressState, mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>, routine: Routine) {
   const weighted = items.map((country) => ({
     country,
     weight: countryWeight(country, progress, mode, routine),
@@ -177,7 +220,7 @@ function flagSimilarityScore(target: Country, candidate: Country) {
   return (sameGroup ? 1000 : 0) + (sameSubregion ? 220 : 0) + (sameContinent ? 80 : 0) - distance
 }
 
-function buildOptions(pool: Country[], country: Country, mode: Exclude<TrainerMode, 'gemengd'>) {
+function buildOptions(pool: Country[], country: Country, mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>) {
   if (mode !== 'vlaggen') {
     return shuffle([country, ...shuffle(pool.filter((item) => item.id !== country.id)).slice(0, 3)])
   }
@@ -223,6 +266,20 @@ function buildQuestionForCountry(pool: Country[], country: Country, selectedMode
   }
 }
 
+// Oefenen-mode question: drill the given country in the discipline it is weakest at.
+function buildOefenQuestion(optionsPool: Country[], country: Country, progress: ProgressState): Question {
+  const mode = weakestModeForCountry(progress, country.id)
+  return {
+    country,
+    mode,
+    options: buildOptions(optionsPool, country, mode),
+    answered: false,
+    correct: null,
+    selectedId: null,
+    typedAnswer: '',
+  }
+}
+
 function App() {
   const [screen, setScreen] = useState<Screen>('oefenen')
   const [continent, setContinent] = useState<Continent>('Wereld')
@@ -237,6 +294,13 @@ function App() {
   const [session, setSession] = useState<SessionStats | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
   const progressRef = useRef(progress)
+
+  // ─── Oefenen (smart study) state ───
+  const [oefenPhase, setOefenPhase] = useState<OefenPhase>('study')
+  const [oefenBatch, setOefenBatch] = useState<Country[]>([])
+  const [oefenStats, setOefenStats] = useState<SessionStats>({})
+  const [oefenRound, setOefenRound] = useState(1)
+  const oefenSeenRef = useRef<Set<string>>(new Set())
 
   const pool = useMemo(
     () => (continent === 'Wereld' ? countries : countries.filter((country) => country.continent === continent)),
@@ -266,19 +330,63 @@ function App() {
     saveProgress(progress)
   }, [progress])
 
+  const oefenActivePool = useMemo(
+    () => oefenBatch.filter((c) => !isSessionCountryDone(oefenStats, c.id)),
+    [oefenBatch, oefenStats],
+  )
+
   useEffect(() => {
     repeatQueueRef.current = []
     setRepeatQueue([])
     questionsUntilRepeatRef.current = 4
-    setQuestion(buildQuestion(pool, progressRef.current, mode))
     setShowPreviousQuestion(false)
+    if (mode === 'oefenen') {
+      oefenSeenRef.current = new Set()
+      const batch = computeOefenBatch(pool, progressRef.current, oefenSeenRef.current, OEFEN_BATCH_SIZE)
+      setOefenBatch(batch)
+      setOefenStats({})
+      setOefenRound(1)
+      setOefenPhase(batch.length > 0 ? 'study' : 'done')
+    } else {
+      setQuestion(buildQuestion(pool, progressRef.current, mode))
+    }
   }, [pool, mode])
+
+  const beginOefenQuiz = useCallback(() => {
+    if (oefenBatch.length === 0) return
+    const first = pickOefenCountry(oefenBatch, progressRef.current)
+    setQuestion(buildOefenQuestion(pool, first, progressRef.current))
+    setOefenPhase('quiz')
+    setShowPreviousQuestion(false)
+  }, [oefenBatch, pool])
 
   const nextQuestion = useCallback(() => {
     if (question.answered) {
       setPreviousQuestion(question)
     }
     setShowPreviousQuestion(false)
+
+    // ─── Oefenen mode: stay within the current batch, then load the next one ───
+    if (mode === 'oefenen') {
+      const stillDue = oefenBatch.filter((c) => !isSessionCountryDone(oefenStats, c.id))
+      if (stillDue.length > 0) {
+        setQuestion(buildOefenQuestion(pool, pickOefenCountry(stillDue, progress), progress))
+        return
+      }
+      // Batch finished — mark these countries as drilled and grab the next batch.
+      oefenBatch.forEach((c) => oefenSeenRef.current.add(c.id))
+      const next = computeOefenBatch(pool, progress, oefenSeenRef.current, OEFEN_BATCH_SIZE)
+      if (next.length === 0) {
+        setOefenPhase('done')
+        return
+      }
+      setOefenBatch(next)
+      setOefenStats({})
+      setOefenRound((r) => r + 1)
+      setOefenPhase('study')
+      return
+    }
+
     if (session !== null && (sessionActivePool?.length ?? 1) === 0) return
 
     questionsUntilRepeatRef.current -= 1
@@ -312,10 +420,14 @@ function App() {
     }
 
     setQuestion(buildQuestion(activePool, progress, mode))
-  }, [mode, activePool, progress, question, session, sessionActivePool])
+  }, [mode, activePool, progress, question, session, sessionActivePool, oefenBatch, oefenStats, pool])
 
   useEffect(() => {
     if (!question.answered) {
+      return
+    }
+    // In Oefenen mode the quiz pauses on the study/done screens.
+    if (mode === 'oefenen' && oefenPhase !== 'quiz') {
       return
     }
 
@@ -325,11 +437,22 @@ function App() {
     }, delay)
 
     return () => window.clearTimeout(timeout)
-  }, [nextQuestion, question])
+  }, [nextQuestion, question, mode, oefenPhase])
 
   function recordAnswer(correct: boolean) {
     setProgress((current) => applyAnswer(current, { countryId: question.country.id, mode: question.mode, correct }))
-    if (!correct) {
+    if (mode === 'oefenen') {
+      setOefenStats((prev) => {
+        const old = prev[question.country.id] ?? { correct: 0, wrong: 0 }
+        return {
+          ...prev,
+          [question.country.id]: {
+            correct: old.correct + (correct ? 1 : 0),
+            wrong: old.wrong + (correct ? 0 : 1),
+          },
+        }
+      })
+    } else if (!correct) {
       const id = question.country.id
       repeatQueueRef.current = [...repeatQueueRef.current.filter((x) => x !== id), id]
       setRepeatQueue([...repeatQueueRef.current])
@@ -394,6 +517,14 @@ function App() {
     repeatQueueRef.current = []
     setRepeatQueue([])
     questionsUntilRepeatRef.current = 4
+    if (mode === 'oefenen') {
+      oefenSeenRef.current = new Set()
+      const batch = computeOefenBatch(pool, {}, oefenSeenRef.current, OEFEN_BATCH_SIZE)
+      setOefenBatch(batch)
+      setOefenStats({})
+      setOefenRound(1)
+      setOefenPhase(batch.length > 0 ? 'study' : 'done')
+    }
   }
 
   function startSession() {
@@ -409,7 +540,7 @@ function App() {
     setSession(null)
   }
 
-  function toggleClue(clueMode: Exclude<TrainerMode, 'gemengd'>, clue: Clue) {
+  function toggleClue(clueMode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>, clue: Clue) {
     setClues((current) => {
       const activeClues = CLUES_BY_MODE[clueMode].filter((item) => current[clueMode][item])
       if (current[clueMode][clue] && activeClues.length === 1) {
@@ -470,7 +601,7 @@ function App() {
           <section className="control-group" aria-labelledby="mode-title">
             <h2 id="mode-title">Training</h2>
             <div className="button-grid compact">
-              {(['landen', 'vlaggen', 'hoofdsteden', 'gemengd', 'combo'] as TrainerMode[]).map((item) => (
+              {(['oefenen', 'landen', 'vlaggen', 'hoofdsteden', 'gemengd', 'combo'] as TrainerMode[]).map((item) => (
                 <button className={item === mode ? 'is-active' : ''} type="button" key={item} onClick={() => { setMode(item); setSettingsOpen(false) }}>
                   {modeLabels[item]}
                 </button>
@@ -478,6 +609,7 @@ function App() {
             </div>
           </section>
 
+          {mode !== 'oefenen' && (
           <section className="control-group session-ctrl-group" aria-labelledby="session-ctrl-title">
             <h2 id="session-ctrl-title">Trainingsessie</h2>
             {session === null ? (
@@ -510,8 +642,9 @@ function App() {
               </div>
             )}
           </section>
+          )}
 
-          {mode !== 'combo' && (
+          {mode !== 'combo' && mode !== 'oefenen' && (
             <section className="control-group" aria-labelledby="clues-title">
               <h2 id="clues-title">Toon bij vraag</h2>
               <ClueControls mode={mode} clues={clues} toggleClue={toggleClue} />
@@ -555,7 +688,7 @@ function App() {
         </div>
       </aside>
 
-      <section className="workspace">
+      <section className={`workspace workspace-${screen}`}>
         {screen === 'oefenen' && (
           <PracticePanel
             continent={continent}
@@ -574,6 +707,13 @@ function App() {
             sessionComplete={sessionComplete}
             sessionActivePool={sessionActivePool}
             onStopSession={stopSession}
+            selectedMode={mode}
+            progress={progress}
+            oefenPhase={oefenPhase}
+            oefenBatch={oefenBatch}
+            oefenRound={oefenRound}
+            oefenActivePool={oefenActivePool}
+            onBeginOefenQuiz={beginOefenQuiz}
           />
         )}
 
@@ -709,6 +849,13 @@ type PracticePanelProps = {
   sessionComplete: boolean
   sessionActivePool: Country[] | null
   onStopSession: () => void
+  selectedMode: TrainerMode
+  progress: ProgressState
+  oefenPhase: OefenPhase
+  oefenBatch: Country[]
+  oefenRound: number
+  oefenActivePool: Country[]
+  onBeginOefenQuiz: () => void
 }
 
 function ClueControls({
@@ -718,9 +865,9 @@ function ClueControls({
 }: {
   mode: TrainerMode
   clues: ClueSettings
-  toggleClue: (mode: Exclude<TrainerMode, 'gemengd'>, clue: Clue) => void
+  toggleClue: (mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>, clue: Clue) => void
 }) {
-  const modes = mode === 'gemengd' ? TRAINING_MODES : [mode]
+  const modes = mode === 'gemengd' ? TRAINING_MODES : [mode as Exclude<TrainerMode, 'gemengd' | 'oefenen'>]
 
   return (
     <div className="clue-controls">
@@ -758,7 +905,15 @@ function PracticePanel({
   sessionComplete,
   sessionActivePool,
   onStopSession,
+  selectedMode,
+  progress,
+  oefenPhase,
+  oefenBatch,
+  oefenRound,
+  oefenActivePool,
+  onBeginOefenQuiz,
 }: PracticePanelProps) {
+  const isOefenen = selectedMode === 'oefenen'
   const isCapital = question.mode === 'hoofdsteden'
   const isMapQuestion = question.mode === 'landen'
   const isComboQuestion = question.mode === 'combo'
@@ -782,20 +937,59 @@ function PracticePanel({
   const sessionDone = sessionActivePool !== null ? visibleCountries.length - sessionActivePool.length : 0
   const sessionPct = visibleCountries.length > 0 ? Math.round((sessionDone / visibleCountries.length) * 100) : 0
 
+  // ─── Oefenen: study / done screens (no quiz, no scrolling) ───
+  if (isOefenen && oefenPhase !== 'quiz') {
+    return (
+      <div className="practice-layout">
+        <header className="panel-header">
+          <div>
+            <p className="eyebrow">Slim oefenen</p>
+            <h2>{oefenPhase === 'done' ? 'Alles geoefend!' : `Leer deze ${oefenBatch.length} landen`}</h2>
+          </div>
+        </header>
+        {oefenPhase === 'done' ? (
+          <OefenDonePanel continent={continent} />
+        ) : (
+          <OefenStudyPanel batch={oefenBatch} progress={progress} round={oefenRound} onBegin={onBeginOefenQuiz} />
+        )}
+      </div>
+    )
+  }
+
+  const oefenTotal = oefenBatch.length
+  const oefenDone = oefenTotal - oefenActivePool.length
+  const oefenPct = oefenTotal > 0 ? Math.round((oefenDone / oefenTotal) * 100) : 0
+
   return (
     <div className="practice-layout">
       <header className="panel-header">
         <div>
-          <p className="eyebrow">{modeLabels[question.mode]} oefenen</p>
+          <p className="eyebrow">{isOefenen ? `Oefenronde ${oefenRound}` : `${modeLabels[question.mode]} oefenen`}</p>
           <h2>{practiceTitle(question.mode)}</h2>
         </div>
-        {repeatQueue.length > 0 && (
+        {isOefenen ? (
+          <div className="routine-pill repeat-queue-pill">
+            <GraduationCap size={14} aria-hidden="true" />
+            {weakestModeLabel(question.mode)}
+          </div>
+        ) : repeatQueue.length > 0 ? (
           <div className="routine-pill repeat-queue-pill">
             <RotateCcw size={14} aria-hidden="true" />
             {repeatQueue.length} te herhalen
           </div>
-        )}
+        ) : null}
       </header>
+
+      {isOefenen && (
+        <div className="session-hud" role="status" aria-label="Oefenronde voortgang">
+          <div className="session-hud-bar">
+            <div className="session-hud-fill" style={{ width: `${oefenPct}%` }} />
+          </div>
+          <span className="session-hud-text">
+            {oefenDone} / {oefenTotal} landen in deze ronde
+          </span>
+        </div>
+      )}
 
       {session !== null && !sessionComplete && sessionActivePool !== null && (
         <div className="session-hud" role="status" aria-label="Sessie voortgang">
@@ -825,15 +1019,30 @@ function PracticePanel({
           <div className={isMapQuestion ? `question-stage map-question-stage map-layout-${mapLayout}` : isComboQuestion ? `question-stage combo-question-stage map-layout-${mapLayout}` : 'question-stage'}>
             {isComboQuestion ? (
               <>
-                <div className="combo-flag-bar">
+                <div className="combo-control-bar">
                   <span className="combo-flag-emoji">{question.country.flag}</span>
-                  <span className="combo-instruction">
-                    {question.answered
-                      ? null
-                      : question.selectedId === null
-                      ? 'Klik het land aan op de kaart'
-                      : 'Goed! Typ nu de hoofdstad'}
-                  </span>
+                  {question.answered ? (
+                    <ComboAnswerReveal question={question} onNext={nextQuestion} />
+                  ) : (
+                    <form className="answer-form combo-form" onSubmit={submitCapital}>
+                      <span className="combo-instruction">
+                        {question.selectedId === null ? 'Klik het land aan op de kaart' : 'Goed! Typ nu de hoofdstad'}
+                      </span>
+                      <div className="combo-form-row">
+                        <input
+                          ref={comboInputRef}
+                          value={question.typedAnswer}
+                          onChange={(e) => setQuestion((c) => ({ ...c, typedAnswer: e.target.value }))}
+                          disabled={question.selectedId === null}
+                          placeholder={question.selectedId === null ? 'Klik eerst een land...' : 'Hoofdstad'}
+                          autoComplete="off"
+                        />
+                        <button type="submit" disabled={!question.typedAnswer.trim() || question.selectedId === null}>
+                          Controleer
+                        </button>
+                      </div>
+                    </form>
+                  )}
                 </div>
                 <CountryClickMap
                   continent={continent}
@@ -842,23 +1051,6 @@ function PracticePanel({
                   chooseCountry={chooseOption}
                   mapLocked={question.selectedId !== null}
                 />
-                {question.answered ? (
-                  <ComboAnswerReveal question={question} onNext={nextQuestion} />
-                ) : (
-                  <form className="answer-form" onSubmit={submitCapital}>
-                    <input
-                      ref={comboInputRef}
-                      value={question.typedAnswer}
-                      onChange={(e) => setQuestion((c) => ({ ...c, typedAnswer: e.target.value }))}
-                      disabled={question.selectedId === null}
-                      placeholder={question.selectedId === null ? 'Klik eerst een land...' : 'Hoofdstad'}
-                      autoComplete="off"
-                    />
-                    <button type="submit" disabled={!question.typedAnswer.trim() || question.selectedId === null}>
-                      Controleer
-                    </button>
-                  </form>
-                )}
               </>
             ) : isMapQuestion ? (
               <div className="map-question-content">
@@ -951,6 +1143,81 @@ function PracticePanel({
           ) : null}
         </>
       )}
+    </div>
+  )
+}
+
+const OEFEN_AREA_LABELS: Record<Exclude<TrainerMode, 'gemengd' | 'oefenen' | 'combo'>, string> = {
+  landen: 'Ligging',
+  vlaggen: 'Vlag',
+  hoofdsteden: 'Hoofdstad',
+}
+
+function weakestModeLabel(mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>): string {
+  return mode === 'combo' ? 'Dubbel' : OEFEN_AREA_LABELS[mode]
+}
+
+// Which disciplines does the user not yet know well for this country?
+function weakAreas(progress: ProgressState, id: string): string[] {
+  const out: string[] = []
+  for (const m of ['landen', 'vlaggen', 'hoofdsteden'] as const) {
+    if (masteryForMode(progress[id]?.[m]) < 50) out.push(OEFEN_AREA_LABELS[m])
+  }
+  return out
+}
+
+function OefenStudyPanel({
+  batch,
+  progress,
+  round,
+  onBegin,
+}: {
+  batch: Country[]
+  progress: ProgressState
+  round: number
+  onBegin: () => void
+}) {
+  return (
+    <div className="oefen-study">
+      <p className="oefen-study-intro">
+        Ronde {round} · Bekijk deze landen goed. Daarna overhoor ik je op wat je nog niet zeker weet — vlag, hoofdstad én ligging.
+      </p>
+      <div className="oefen-study-grid">
+        {batch.map((c) => {
+          const weak = weakAreas(progress, c.id)
+          return (
+            <div className="oefen-card" key={c.id}>
+              <span className="oefen-card-flag" aria-hidden="true">{c.flag}</span>
+              <strong className="oefen-card-name">{c.name}</strong>
+              <span className="oefen-card-capital">{c.capital}</span>
+              {weak.length > 0 && (
+                <div className="oefen-card-weak">
+                  {weak.map((w) => (
+                    <span key={w}>{w}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+      <button className="oefen-begin-btn" type="button" onClick={onBegin}>
+        Begin overhoren →
+      </button>
+    </div>
+  )
+}
+
+function OefenDonePanel({ continent }: { continent: Continent }) {
+  const where = continent === 'Wereld' ? 'de hele wereld' : continent
+  return (
+    <div className="session-complete oefen-done">
+      <div className="session-complete-icon" aria-hidden="true">🏆</div>
+      <h2>Knap gedaan!</h2>
+      <p>
+        Je kent alle landen van <strong>{where}</strong> nu goed (80%+). Kies een ander gebied of een andere
+        trainingsmodus om verder te gaan.
+      </p>
     </div>
   )
 }
@@ -1172,7 +1439,7 @@ function CuePanel({
   continent: Continent
   countries: Country[]
   country: Country
-  mode: Exclude<TrainerMode, 'gemengd'>
+  mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>
   clues: Record<Clue, boolean>
   answered?: boolean
   correct?: boolean | null
@@ -1264,7 +1531,7 @@ function CuePanel({
   )
 }
 
-function cueInstruction(mode: Exclude<TrainerMode, 'gemengd'>) {
+function cueInstruction(mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>) {
   if (mode === 'landen') {
     return 'Klik het land aan op de kaart.'
   }
@@ -1553,14 +1820,14 @@ function feedbackText(question: Question, visibleCountries: Country[]) {
     : `Bijna. Je typte ${question.typedAnswer || 'geen antwoord'}. De hoofdstad van ${question.country.name} is ${question.country.capital}.`
 }
 
-function practiceTitle(mode: Exclude<TrainerMode, 'gemengd'>) {
+function practiceTitle(mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>) {
   if (mode === 'hoofdsteden') return 'Welke hoofdstad hoort erbij?'
   if (mode === 'landen') return 'Klik het land aan op de kaart'
   if (mode === 'combo') return 'Klik het land + typ de hoofdstad'
   return 'Welke vlag hoort hierbij?'
 }
 
-function modeAccuracy(progress: ProgressState, countryId: string, mode: Exclude<TrainerMode, 'gemengd'>): number | null {
+function modeAccuracy(progress: ProgressState, countryId: string, mode: Exclude<TrainerMode, 'gemengd' | 'oefenen'>): number | null {
   const stats = progress[countryId]?.[mode]
   if (!stats) return null
   const attempts = stats.correct + stats.wrong
@@ -2021,7 +2288,7 @@ function ProgressListView({ progress }: { progress: ProgressState }) {
       const dir = sort.dir === 'asc' ? 1 : -1
       if (sort.col === 'name') return dir * a.name.localeCompare(b.name, 'nl')
       if (sort.col === 'totaal') return dir * (masteryForCountry(progress, a.id) - masteryForCountry(progress, b.id))
-      const mode = sort.col as Exclude<TrainerMode, 'gemengd'>
+      const mode = sort.col as Exclude<TrainerMode, 'gemengd' | 'oefenen'>
       return dir * ((modeAccuracy(progress, a.id, mode) ?? -1) - (modeAccuracy(progress, b.id, mode) ?? -1))
     })
   }, [filterContinent, sort, progress])
