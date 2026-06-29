@@ -137,19 +137,24 @@ function getMode(mode: TrainerMode): Exclude<TrainerMode, 'gemengd' | 'oefenen'>
   return mode === 'gemengd' || mode === 'oefenen' ? pickRandom(TRAINING_MODES) : mode
 }
 
-// For Oefenen mode: which base discipline (landen/vlaggen/hoofdsteden) does the
-// user know least well for this country? That is the one we should drill. When
-// several disciplines are equally weak (e.g. a brand-new country) we pick one of
-// them at random so the user is tested on flag, capital AND location over time.
-function weakestModeForCountry(
+// For Oefenen mode: pick which base discipline (landen/vlaggen/hoofdsteden) to
+// drill for this country. We weight each discipline by how weak the user is at
+// it (weaker → more likely), with a baseline so EVERY discipline — including
+// location ("waar ligt het") — keeps coming back now and then, and a lot more
+// when the user is also getting that one wrong.
+function pickOefenDiscipline(
   progress: ProgressState,
   countryId: string,
 ): Exclude<TrainerMode, 'gemengd' | 'oefenen' | 'combo'> {
   const base = ['landen', 'vlaggen', 'hoofdsteden'] as const
-  const scores = base.map((m) => masteryForMode(progress[countryId]?.[m]))
-  const lowest = Math.min(...scores)
-  const tied = base.filter((_, i) => scores[i] === lowest)
-  return tied[Math.floor(Math.random() * tied.length)]
+  const weights = base.map((m) => 14 + (100 - masteryForMode(progress[countryId]?.[m])))
+  const total = weights.reduce((sum, w) => sum + w, 0)
+  let cursor = Math.random() * total
+  for (let i = 0; i < base.length; i += 1) {
+    cursor -= weights[i]
+    if (cursor <= 0) return base[i]
+  }
+  return base[0]
 }
 
 // Overall weakness weight: lower mastery → picked more often.
@@ -268,7 +273,7 @@ function buildQuestionForCountry(pool: Country[], country: Country, selectedMode
 
 // Oefenen-mode question: drill the given country in the discipline it is weakest at.
 function buildOefenQuestion(optionsPool: Country[], country: Country, progress: ProgressState): Question {
-  const mode = weakestModeForCountry(progress, country.id)
+  const mode = pickOefenDiscipline(progress, country.id)
   return {
     country,
     mode,
