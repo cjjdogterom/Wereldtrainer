@@ -137,6 +137,24 @@ export function isCloseCapitalAnswer(answer: string, capitals: string[]) {
   })
 }
 
+// Fuzzy match for a typed country name (Dutch name, English name, or any alias).
+export function isCloseCountryAnswer(answer: string, country: Country): boolean {
+  const normalizedAnswer = normalizeAnswer(answer)
+  if (!normalizedAnswer) {
+    return false
+  }
+
+  const candidates = [country.name, country.englishName, ...country.aliases]
+  return candidates.some((candidate) => {
+    const normalized = normalizeAnswer(candidate)
+    if (!normalized) {
+      return false
+    }
+    const allowedErrors = normalized.length <= 5 ? 1 : normalized.length <= 10 ? 2 : 3
+    return normalizedAnswer === normalized || levenshtein(normalizedAnswer, normalized) <= allowedErrors
+  })
+}
+
 export function scoreColor(score: number) {
   if (score >= 80) {
     return '#228b5b'

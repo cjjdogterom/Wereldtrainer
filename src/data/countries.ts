@@ -5,7 +5,7 @@ type RawCountry = (typeof rawCountries)[number]
 
 export type Continent = 'Wereld' | 'Afrika' | 'Azie' | 'Europa' | 'Noord-Amerika' | 'Zuid-Amerika' | 'Oceanie'
 
-export type TrainerMode = 'landen' | 'vlaggen' | 'hoofdsteden' | 'gemengd' | 'combo' | 'oefenen'
+export type TrainerMode = 'landen' | 'vlaggen' | 'hoofdsteden' | 'gemengd' | 'combo' | 'oefenen' | 'identify' | 'maximaal'
 
 export type Routine = 'normaal' | 'slim' | 'fouten' | 'snel'
 
@@ -108,6 +108,8 @@ export const modeLabels: Record<TrainerMode, string> = {
   hoofdsteden: 'Hoofdsteden',
   gemengd: 'Mix',
   combo: 'Dubbel',
+  identify: 'Herken het land',
+  maximaal: 'Maximaal',
 }
 
 export const routineLabels: Record<Routine, string> = {
