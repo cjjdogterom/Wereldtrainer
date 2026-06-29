@@ -2109,7 +2109,7 @@ function CountryClueMap({ continent, countries: visibleCountries, country, big }
                     geography={geography}
                     data-country-id={mapCountry?.id}
                     aria-label={mapCountry?.name}
-                    fill={isTarget ? '#2364aa' : mapCountry ? '#d8e5ed' : 'transparent'}
+                    fill={isTarget ? '#0f766e' : mapCountry ? '#d8e5ed' : 'transparent'}
                     stroke={mapCountry ? '#ffffff' : 'transparent'}
                     strokeWidth={strokeWidthForZoom(view, position.zoom)}
                     style={{
@@ -2124,7 +2124,7 @@ function CountryClueMap({ continent, countries: visibleCountries, country, big }
           </Geographies>
           {country.area <= SMALL_COUNTRY_AREA && (
             <Marker coordinates={[country.latlng[1], country.latlng[0]]}>
-              <circle r={markerRadiusForZoom(country, position.zoom)} fill="#2364aa" stroke="#0f172a" strokeWidth={0.9 / position.zoom} vectorEffect="non-scaling-stroke" />
+              <circle r={markerRadiusForZoom(country, position.zoom)} fill="#0f766e" stroke="#0f172a" strokeWidth={0.9 / position.zoom} vectorEffect="non-scaling-stroke" />
             </Marker>
           )}
         </ZoomableGroup>
@@ -2349,7 +2349,7 @@ function CountryClickMap({
                     }}
                     style={{
                       default: { cursor: isClickable ? 'pointer' : 'default', opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none' },
-                      hover: { cursor: isClickable ? 'pointer' : 'default', opacity: country ? 1 : 0, fill: isClickable ? '#2364aa' : fill, outline: 'none' },
+                      hover: { cursor: isClickable ? 'pointer' : 'default', opacity: country ? 1 : 0, fill: isClickable ? '#0f766e' : fill, outline: 'none' },
                       pressed: { outline: 'none' },
                     }}
                   />
@@ -2729,7 +2729,7 @@ function LearnContinentView({
                       <text
                         textAnchor="middle"
                         y={capY}
-                        fill={isHov ? '#2364aa' : '#4a5f7a'}
+                        fill={isHov ? '#0f766e' : '#4a5f7a'}
                         stroke="rgba(255,255,255,0.85)"
                         strokeWidth={capPx * 0.25}
                         style={{ fontSize: `${capPx}px`, userSelect: 'none', pointerEvents: 'none', paintOrder: 'stroke' as const }}
@@ -3116,7 +3116,7 @@ function MapPanel({
                           strokeWidth={strokeWidthForZoom(view, position.zoom)}
                           style={{
                             default: { opacity: country ? 1 : 0, outline: 'none', pointerEvents: country ? 'auto' : 'none' },
-                            hover: { opacity: country ? 1 : 0, outline: 'none', fill: country ? '#2364aa' : '#dfe6ea' },
+                            hover: { opacity: country ? 1 : 0, outline: 'none', fill: country ? '#0f766e' : '#dfe6ea' },
                             pressed: { outline: 'none' },
                           }}
                         />

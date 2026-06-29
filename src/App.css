@@ -10,7 +10,8 @@
   min-height: 100svh;
   padding: 24px;
   border-right: 1px solid var(--border);
-  background: linear-gradient(175deg, #f9fbfc 0%, #edf1f5 100%);
+  background: linear-gradient(185deg, #ffffff 0%, #f4f7f9 100%);
+  box-shadow: 1px 0 0 rgba(13, 27, 42, 0.02);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -94,8 +95,8 @@ button {
 }
 
 button:hover {
-  border-color: #b0c4d8;
-  background: linear-gradient(160deg, #f2f6fb 0%, #eaf1f8 100%);
+  border-color: #b7c7c4;
+  background: linear-gradient(160deg, #f1f7f6 0%, #e8f1ef 100%);
 }
 
 button:focus-visible,
@@ -105,14 +106,14 @@ input:focus-visible {
 }
 
 button.is-active {
-  background: linear-gradient(155deg, #2a72c0 0%, #1b5a9e 100%);
-  border-color: #1b5a9e;
+  background: linear-gradient(155deg, #12877d 0%, #0e6c64 100%);
+  border-color: var(--accent-strong);
   color: #fff;
-  box-shadow: 0 2px 6px rgba(35, 100, 170, 0.28);
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
 }
 
 button.is-active:hover {
-  background: linear-gradient(155deg, #3079ca 0%, #1f65ad 100%);
+  background: linear-gradient(155deg, #149589 0%, #0f766e 100%);
 }
 
 /* ─── Nav tabs ─── */
@@ -198,8 +199,9 @@ button.is-active:hover {
   margin: 0 0 4px;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   font-weight: 700;
+  color: var(--accent) !important;
 }
 
 .routine-pill,
@@ -269,10 +271,10 @@ button.is-active:hover {
   place-items: center;
   gap: 18px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 16px;
   background: linear-gradient(150deg, #ffffff 0%, #f6f9fb 100%);
   padding: 28px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05), 0 0 0 0 transparent;
+  box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
 }
@@ -1142,7 +1144,7 @@ button.is-active:hover {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--accent);
-  background: rgba(35, 100, 170, 0.1);
+  background: rgba(15, 118, 110, 0.1);
   padding: 4px 10px;
   border-radius: 999px;
 }
@@ -1308,12 +1310,12 @@ button.is-active:hover {
 
 .wizard-preset-max {
   border-color: var(--accent);
-  background: linear-gradient(135deg, #2364aa 0%, #1b4f87 100%);
+  background: linear-gradient(135deg, #12877d 0%, #0b5b54 100%);
   color: #fff;
 }
 
 .wizard-preset-max:hover {
-  background: linear-gradient(135deg, #2870bd 0%, #1f5c9c 100%);
+  background: linear-gradient(135deg, #149589 0%, #0f766e 100%);
 }
 
 .wp-icon {
@@ -1469,7 +1471,7 @@ button.is-active:hover {
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(35, 100, 170, 0.28);
+  box-shadow: 0 2px 10px rgba(15, 118, 110, 0.3);
 }
 
 .wizard-start:hover {
@@ -1657,7 +1659,7 @@ input.answered-wrong {
 
 .country-card.is-selected {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(35, 100, 170, 0.15);
+  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.18);
 }
 
 .card-flag {
@@ -3228,7 +3230,7 @@ input.answered-wrong {
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(35, 100, 170, 0.25);
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.28);
 }
 
 .oefen-begin-btn:hover {
