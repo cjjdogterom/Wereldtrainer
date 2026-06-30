@@ -72,9 +72,10 @@ const OEFEN_STRONG = 80
 type OefenPhase = 'study' | 'quiz' | 'done'
 
 // Pick the weakest not-yet-strong countries that we haven't drilled this run.
+// Shuffle first so that countries with the same mastery (e.g. all 0%) come out
+// in a random order instead of always alphabetically.
 function computeOefenBatch(pool: Country[], progress: ProgressState, seen: Set<string>, size: number): Country[] {
-  return [...pool]
-    .filter((c) => !seen.has(c.id) && masteryForCountry(progress, c.id) < OEFEN_STRONG)
+  return shuffle(pool.filter((c) => !seen.has(c.id) && masteryForCountry(progress, c.id) < OEFEN_STRONG))
     .sort((a, b) => masteryForCountry(progress, a.id) - masteryForCountry(progress, b.id))
     .slice(0, size)
 }
@@ -1701,6 +1702,57 @@ function weakAreas(progress: ProgressState, id: string): string[] {
   return out
 }
 
+// Shows where a set of countries lie — highlights them all on one map.
+function BatchLocationMap({ batch }: { batch: Country[] }) {
+  const ids = useMemo(() => new Set(batch.map((c) => c.id)), [batch])
+  const conts = new Set(batch.map((c) => c.continent))
+  const effectiveContinent: Continent = conts.size === 1 ? ([...conts][0] as Continent) : 'Wereld'
+  const view = useMemo(() => mapViewForContinent(effectiveContinent), [effectiveContinent])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
+  const countryByMapId = useMemo(() => new Map(countries.map((c) => [c.mapId, c])), [])
+  const geoData = geoDataFor(effectiveContinent, position.zoom)
+
+  useEffect(() => {
+    setPosition({ coordinates: view.center, zoom: view.zoom })
+  }, [view])
+
+  return (
+    <div className="oefen-map">
+      <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
+        <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
+          <Geographies geography={geoData}>
+            {({ geographies }) =>
+              geographies.map((geography) => {
+                const c = countryByMapId.get(geographyKey(geography))
+                const hit = Boolean(c && ids.has(c.id))
+                return (
+                  <Geography
+                    key={geography.rsmKey}
+                    geography={geography}
+                    fill={hit ? '#0f766e' : c ? '#d8e5ed' : 'transparent'}
+                    stroke={c ? '#ffffff' : 'transparent'}
+                    strokeWidth={strokeWidthForZoom(view, position.zoom)}
+                    style={{
+                      default: { opacity: c ? 1 : 0, outline: 'none', pointerEvents: 'none' },
+                      hover: { opacity: c ? 1 : 0, outline: 'none' },
+                      pressed: { outline: 'none' },
+                    }}
+                  />
+                )
+              })
+            }
+          </Geographies>
+          {batch.map((c) => (
+            <Marker key={c.id} coordinates={[c.latlng[1], c.latlng[0]]}>
+              <circle r={7 / position.zoom} fill="#0f766e" stroke="#ffffff" strokeWidth={2 / position.zoom} vectorEffect="non-scaling-stroke" />
+            </Marker>
+          ))}
+        </ZoomableGroup>
+      </ComposableMap>
+    </div>
+  )
+}
+
 function OefenStudyPanel({
   batch,
   progress,
@@ -1715,8 +1767,9 @@ function OefenStudyPanel({
   return (
     <div className="oefen-study">
       <p className="oefen-study-intro">
-        Ronde {round} · Bekijk deze landen goed. Daarna overhoor ik je op wat je nog niet zeker weet — vlag, hoofdstad én ligging.
+        Ronde {round} · Bekijk waar deze landen liggen en leer de vlag + hoofdstad. Daarna overhoor ik je op wat je nog niet zeker weet.
       </p>
+      <BatchLocationMap batch={batch} />
       <div className="oefen-study-grid">
         {batch.map((c) => {
           const weak = weakAreas(progress, c.id)
@@ -2487,7 +2540,13 @@ function modeAccuracy(progress: ProgressState, countryId: string, mode: Exclude<
 
 function LearnFlagMap({ continent, countries: visibleCountries }: { continent: Continent; countries: Country[] }) {
   const view = useMemo(() => mapViewForContinent(continent), [continent])
-  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
+  // On phones the world map is shown in a tall frame — open it zoomed in so the
+  // countries are legible and the map fills the frame instead of letterboxing.
+  const initialZoom = useMemo(() => {
+    const phone = typeof window !== 'undefined' && window.innerWidth <= 640
+    return phone && continent === 'Wereld' ? view.zoom * 2.4 : view.zoom
+  }, [continent, view])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: initialZoom })
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((c) => [c.mapId, c])), [visibleCountries])
   const [hovered, setHovered] = useState<Country | null>(null)
   const [layers, setLayers] = useState({ flags: true, names: true, capitals: false })
@@ -2495,8 +2554,8 @@ function LearnFlagMap({ continent, countries: visibleCountries }: { continent: C
   const allOff = !layers.flags && !layers.names && !layers.capitals
 
   useEffect(() => {
-    setPosition({ coordinates: view.center, zoom: view.zoom })
-  }, [view])
+    setPosition({ coordinates: view.center, zoom: initialZoom })
+  }, [view, initialZoom])
 
   function toggleLayer(key: keyof typeof layers) {
     setLayers((prev) => ({ ...prev, [key]: !prev[key] }))
