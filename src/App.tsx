@@ -1320,7 +1320,7 @@ function QuizWizard({
         </button>
       </div>
 
-      <div className="wizard-section">
+      <div className="wizard-section wizard-section-area">
         <h3>1 · Gebied</h3>
         <div className="button-grid">
           {continents.map((item) => (
@@ -1335,7 +1335,7 @@ function QuizWizard({
         </label>
       </div>
 
-      <div className="wizard-section">
+      <div className="wizard-section wizard-section-methods">
         <h3>2 · Methode</h3>
         <div className="wizard-methods">
           {WIZARD_METHODS.map((m) => (
