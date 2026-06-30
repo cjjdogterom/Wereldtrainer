@@ -316,6 +316,17 @@ function isBothAnswer(question: Question): boolean {
   return question.mode === 'combo' || vlagKindOf(question) === 'beide'
 }
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches)
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)')
+    const onChange = () => setMobile(mq.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+  return mobile
+}
+
 function App() {
   const [screen, setScreen] = useState<Screen>('oefenen')
   const [continent, setContinent] = useState<Continent>('Wereld')
@@ -330,6 +341,7 @@ function App() {
   const [showPreviousQuestion, setShowPreviousQuestion] = useState(false)
   const [session, setSession] = useState<SessionStats | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
+  const isMobile = useIsMobile()
   const progressRef = useRef(progress)
 
   // ─── Quiz setup / wizard ───
@@ -673,8 +685,18 @@ function App() {
     setSession(null)
   }
 
+  // A live quiz question is on screen (not the wizard, study/done or exam result)
+  const quizQuestionActive =
+    screen === 'oefenen' &&
+    quizStarted &&
+    !(format === 'exam' && examDone) &&
+    !(mode === 'oefenen' && oefenPhase !== 'quiz')
+  // On phones that becomes a full-screen, chrome-free experience
+  const immersive = isMobile && quizQuestionActive
+
   return (
-    <main className="app-shell">
+    <main className={`app-shell${immersive ? ' app-immersive' : ''}`}>
+
       <aside className="sidebar" aria-label="Instellingen">
         {/* sidebar-head: always visible; on mobile = compact top bar */}
         <div className="sidebar-head">
@@ -805,6 +827,10 @@ function App() {
               oefenRound={oefenRound}
               oefenActivePool={oefenActivePool}
               onBeginOefenQuiz={beginOefenQuiz}
+              onClose={() => setQuizStarted(false)}
+              format={format}
+              examAnswered={examResults.length}
+              examTotal={examQueue.length}
             />
           </div>
         )}
@@ -1408,6 +1434,179 @@ type PracticePanelProps = {
   oefenRound: number
   oefenActivePool: Country[]
   onBeginOefenQuiz: () => void
+  onClose: () => void
+  format: 'practice' | 'exam'
+  examAnswered: number
+  examTotal: number
+}
+
+// ─── Full-screen mobile quiz: map fills the screen, the question floats over it ───
+function MobileQuiz({
+  continent,
+  visibleCountries,
+  question,
+  chooseOption,
+  chooseFlag,
+  submitCapital,
+  submitIdentify,
+  setQuestion,
+  nextQuestion,
+  onClose,
+  isOefenen,
+  oefenDone,
+  oefenTotal,
+  format,
+  examAnswered,
+  examTotal,
+}: {
+  continent: Continent
+  visibleCountries: Country[]
+  question: Question
+  chooseOption: (id: string) => void
+  chooseFlag: (id: string) => void
+  submitCapital: (event: FormEvent<HTMLFormElement>) => void
+  submitIdentify: (event: FormEvent<HTMLFormElement>) => void
+  setQuestion: Dispatch<SetStateAction<Question>>
+  nextQuestion: () => void
+  onClose: () => void
+  isOefenen: boolean
+  oefenDone: number
+  oefenTotal: number
+  format: 'practice' | 'exam'
+  examAnswered: number
+  examTotal: number
+}) {
+  const vlagKind = vlagKindOf(question)
+  const isBoth = question.mode === 'combo' || vlagKind === 'beide'
+  const isMapOnly = question.mode === 'landen' || vlagKind === 'kaart'
+  const isCapitalOnly = question.mode === 'hoofdsteden' || vlagKind === 'hoofdstad'
+  const isMC = vlagKind === 'mc'
+  const isIdentify = question.mode === 'identify'
+  const isMaximaal = question.mode === 'maximaal'
+  const flagCueMode = question.mode === 'vlaggen' || question.mode === 'combo'
+  const usesClickMap = isMapOnly || isBoth || isMaximaal
+  const hasMapBg = usesClickMap || isIdentify
+  const answered = question.answered
+  const step = question.step ?? 0
+  const capRef = useRef<HTMLInputElement>(null)
+  const countryRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (answered) return
+    if (isIdentify) countryRef.current?.focus()
+    else if (isCapitalOnly) capRef.current?.focus()
+    else if ((isBoth && question.selectedId !== null) || (isMaximaal && step === 2)) capRef.current?.focus()
+  }, [answered, isIdentify, isCapitalOnly, isBoth, isMaximaal, step, question.selectedId, question.country.id])
+
+  const mapLocked = isBoth ? question.selectedId !== null : isMaximaal ? step !== 0 : answered
+
+  let prompt = ''
+  if (isMaximaal) prompt = step === 0 ? 'Wijs het land aan' : step === 1 ? 'Kies de juiste vlag' : 'Typ de hoofdstad'
+  else if (isMapOnly) prompt = question.mode === 'vlaggen' ? 'Waar ligt deze vlag?' : 'Wijs het land aan'
+  else if (isBoth) prompt = question.selectedId === null ? 'Wijs het land aan' : 'Typ de hoofdstad'
+  else if (isMC) prompt = 'Welk land hoort bij deze vlag?'
+  else if (isCapitalOnly) prompt = 'Wat is de hoofdstad?'
+  else if (isIdentify) prompt = 'Welk land is dit? Typ land + hoofdstad'
+
+  const progressText = format === 'exam' ? `${examAnswered}/${examTotal}` : isOefenen ? `${oefenDone}/${oefenTotal}` : ''
+
+  const capInput = (disabled: boolean, placeholder: string) => (
+    <input
+      ref={capRef}
+      value={question.typedAnswer}
+      onChange={(e) => setQuestion((c) => ({ ...c, typedAnswer: e.target.value }))}
+      disabled={disabled}
+      placeholder={placeholder}
+      autoComplete="off"
+    />
+  )
+
+  let answerEl: React.ReactNode = null
+  if (!answered) {
+    if (isMC) answerEl = <OptionsGrid question={question} chooseOption={chooseOption} />
+    else if (isMaximaal && step === 1) answerEl = <FlagOptionsGrid question={question} onPick={chooseFlag} />
+    else if (isMaximaal && step === 2)
+      answerEl = (
+        <form className="answer-form" onSubmit={submitCapital}>
+          {capInput(false, 'Hoofdstad')}
+          <button type="submit" disabled={!question.typedAnswer.trim()}>OK</button>
+        </form>
+      )
+    else if (isBoth)
+      answerEl = (
+        <form className="answer-form" onSubmit={submitCapital}>
+          {capInput(question.selectedId === null, question.selectedId === null ? 'Wijs eerst het land aan' : 'Hoofdstad')}
+          <button type="submit" disabled={!question.typedAnswer.trim() || question.selectedId === null}>OK</button>
+        </form>
+      )
+    else if (isCapitalOnly)
+      answerEl = (
+        <form className="answer-form" onSubmit={submitCapital}>
+          {capInput(false, 'Hoofdstad')}
+          <button type="submit" disabled={!question.typedAnswer.trim()}>OK</button>
+        </form>
+      )
+    else if (isIdentify)
+      answerEl = (
+        <form className="answer-form identify-form" onSubmit={submitIdentify}>
+          <input ref={countryRef} value={question.typedCountry ?? ''} onChange={(e) => setQuestion((c) => ({ ...c, typedCountry: e.target.value }))} placeholder="Welk land?" autoComplete="off" />
+          {capInput(false, 'Hoofdstad')}
+          <button type="submit">OK</button>
+        </form>
+      )
+  }
+
+  const reveal = (
+    <div className={`immersive-reveal ${question.correct ? 'ir-ok' : 'ir-bad'}`} role="status" aria-live="polite">
+      <span className="ir-flag" aria-hidden="true">{question.country.flag}</span>
+      <div className="ir-info">
+        <strong>{question.country.name}</strong>
+        <span>{question.country.capital}</span>
+      </div>
+      <button type="button" className="inline-next-button" onClick={nextQuestion}>Volgende →</button>
+    </div>
+  )
+
+  return (
+    <div className={`immersive ${hasMapBg ? 'immersive-has-map' : 'immersive-no-map'}`}>
+      {usesClickMap && (
+        <CountryClickMap continent={continent} countries={visibleCountries} question={question} chooseCountry={chooseOption} mapLocked={mapLocked} />
+      )}
+      {isIdentify && (
+        <div className="immersive-locmap">
+          <CountryClueMap continent={continent} countries={visibleCountries} country={question.country} big />
+        </div>
+      )}
+
+      <button className="immersive-close" type="button" onClick={onClose} aria-label="Overhoring sluiten">✕</button>
+
+      {hasMapBg ? (
+        <div className="immersive-prompt">
+          {flagCueMode && <span className="ip-flag" aria-hidden="true">{question.country.flag}</span>}
+          <div className="ip-text">
+            {(isMaximaal || (!flagCueMode && !isIdentify)) && <strong className="ip-subject">{question.country.name}</strong>}
+            <span className="ip-instruction">{prompt}{isMaximaal && !answered ? ` · stap ${step + 1}/3` : ''}</span>
+          </div>
+          {progressText && <span className="ip-progress">{progressText}</span>}
+        </div>
+      ) : (
+        <div className="immersive-cue">
+          {flagCueMode ? (
+            <span className="immersive-cue-flag" aria-hidden="true">{question.country.flag}</span>
+          ) : (
+            <>
+              <span className="immersive-cue-label">LAND</span>
+              <strong className="immersive-cue-name">{question.country.name}</strong>
+            </>
+          )}
+          <span className="immersive-cue-instr">{prompt}</span>
+          {progressText && <span className="immersive-cue-progress">{progressText}</span>}
+        </div>
+      )}
+
+      {(answered || answerEl) && <div className="immersive-bottom">{answered ? reveal : answerEl}</div>}
+    </div>
+  )
 }
 
 function PracticePanel({
@@ -1436,7 +1635,12 @@ function PracticePanel({
   oefenRound,
   oefenActivePool,
   onBeginOefenQuiz,
+  onClose,
+  format,
+  examAnswered,
+  examTotal,
 }: PracticePanelProps) {
+  const isMobile = useIsMobile()
   const isOefenen = selectedMode === 'oefenen'
   const vlagKind = vlagKindOf(question)
   // Derived interaction model (works for plain modes AND the configurable Vlaggen mode)
@@ -1521,6 +1725,30 @@ function PracticePanel({
   const oefenTotal = oefenBatch.length
   const oefenDone = oefenTotal - oefenActivePool.length
   const oefenPct = oefenTotal > 0 ? Math.round((oefenDone / oefenTotal) * 100) : 0
+
+  // On phones the quiz is a full-screen, map-first experience (the question floats over the map).
+  if (isMobile) {
+    return (
+      <MobileQuiz
+        continent={continent}
+        visibleCountries={visibleCountries}
+        question={question}
+        chooseOption={chooseOption}
+        chooseFlag={chooseFlag}
+        submitCapital={submitCapital}
+        submitIdentify={submitIdentify}
+        setQuestion={setQuestion}
+        nextQuestion={nextQuestion}
+        onClose={onClose}
+        isOefenen={isOefenen}
+        oefenDone={oefenDone}
+        oefenTotal={oefenTotal}
+        format={format}
+        examAnswered={examAnswered}
+        examTotal={examTotal}
+      />
+    )
+  }
 
   return (
     <div className="practice-layout">
@@ -2264,7 +2492,9 @@ function CountryClickMap({
   const isWorldMode = continent === 'Wereld'
   const [drillContinent, setDrillContinent] = useState<Exclude<Continent, 'Wereld'> | null>(null)
   const worldView = useMemo(() => mapViewForContinent(continent), [continent])
-  const [position, setPosition] = useState<MapPosition>({ coordinates: worldView.center, zoom: worldView.zoom })
+  // On phones the map is full-screen and portrait, so open it zoomed in to fill it.
+  const zoomBoost = useMemo(() => (typeof window !== 'undefined' && window.innerWidth <= 640 ? 1.7 : 1), [])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: worldView.center, zoom: worldView.zoom * zoomBoost })
   const [cursorId, setCursorId] = useState<string | null>(cursorStartId ?? null)
   const cursorIdRef = useRef<string | null>(cursorId)
 
@@ -2288,14 +2518,14 @@ function CountryClickMap({
   )
 
   useEffect(() => {
-    setPosition({ coordinates: worldView.center, zoom: worldView.zoom })
-  }, [worldView])
+    setPosition({ coordinates: worldView.center, zoom: worldView.zoom * zoomBoost })
+  }, [worldView, zoomBoost])
 
   useEffect(() => {
     if (!isWorldMode) return
     setDrillContinent(null)
-    setPosition({ coordinates: worldView.center, zoom: worldView.zoom })
-  }, [question.country.id, isWorldMode, worldView])
+    setPosition({ coordinates: worldView.center, zoom: worldView.zoom * zoomBoost })
+  }, [question.country.id, isWorldMode, worldView, zoomBoost])
 
   // Reset the cursor to the previous question's country whenever a new question loads.
   useEffect(() => {
@@ -2310,7 +2540,7 @@ function CountryClickMap({
     const contView = mapViewForContinent(cont)
     setDrillContinent(cont)
     // Use ~82% of normal zoom so the full continent fits in the practice frame
-    setPosition({ coordinates: contView.center, zoom: contView.zoom * 0.82 })
+    setPosition({ coordinates: contView.center, zoom: contView.zoom * 0.82 * zoomBoost })
   }
 
   const locked = mapLocked ?? question.answered
@@ -2355,7 +2585,7 @@ function CountryClickMap({
         </button>
       )}
       <ComposableMap projectionConfig={{ scale: 145 }} width={980} height={520}>
-        <ZoomableGroup center={position.coordinates} zoom={position.zoom} onMoveEnd={setPosition}>
+        <ZoomableGroup center={position.coordinates} zoom={position.zoom} minZoom={1} maxZoom={48} onMoveEnd={setPosition}>
           <Geographies geography={geoData}>
             {({ geographies }) =>
               geographies.map((geography) => {

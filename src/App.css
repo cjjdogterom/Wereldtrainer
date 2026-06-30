@@ -3278,3 +3278,257 @@ input.answered-wrong {
 .oefen-done p {
   max-width: 460px;
 }
+
+/* ═══ Full-screen mobile quiz (immersive) ═══ */
+/* Hide all chrome so only the map + question + close button are on screen */
+.app-immersive .sidebar,
+.app-immersive .mobile-bottom-nav {
+  display: none !important;
+}
+
+.app-immersive .workspace {
+  padding: 0 !important;
+  height: 100svh !important;
+  overflow: hidden !important;
+}
+
+.app-immersive .quiz-running {
+  height: 100%;
+  gap: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-immersive .quiz-running > .new-quiz-btn,
+.app-immersive .quiz-running > .exam-progress {
+  display: none;
+}
+
+.immersive {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #e5edf3;
+}
+
+/* Map fills the whole frame */
+.immersive .practice-map-frame,
+.immersive .immersive-locmap,
+.immersive .immersive-locmap .cue-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+.immersive .practice-map-frame svg,
+.immersive .immersive-locmap svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Close button — top right */
+.immersive-close {
+  position: absolute;
+  top: calc(10px + env(safe-area-inset-top));
+  right: 10px;
+  z-index: 30;
+  width: 42px;
+  height: 42px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text-strong);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Floating question prompt (over the map) */
+.immersive-prompt {
+  position: absolute;
+  top: calc(10px + env(safe-area-inset-top));
+  left: 10px;
+  right: 64px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow-md);
+}
+
+.ip-flag {
+  font-size: 34px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ip-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ip-subject {
+  font-size: 18px;
+  color: var(--text-strong);
+  line-height: 1.15;
+}
+
+.ip-instruction {
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+.ip-progress {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+/* Cue (no-map modes: flag MC / capital typing) — big and centred */
+.immersive-no-map {
+  display: flex;
+  flex-direction: column;
+}
+
+.immersive-cue {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 60px 20px 16px;
+  text-align: center;
+}
+
+.immersive-cue-flag {
+  font-size: 110px;
+  line-height: 1;
+}
+
+.immersive-cue-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.immersive-cue-name {
+  font-size: 30px;
+  color: var(--text-strong);
+}
+
+.immersive-cue-instr {
+  font-size: 15px;
+  color: var(--text-soft);
+}
+
+.immersive-cue-progress {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* Bottom answer / reveal bar (over the map) */
+.immersive-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  padding: 12px 12px calc(14px + env(safe-area-inset-bottom));
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.98) 70%, rgba(255, 255, 255, 0));
+}
+
+.immersive-no-map .immersive-bottom {
+  position: relative;
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+}
+
+.immersive-bottom .answer-form {
+  margin: 0;
+}
+
+.immersive-bottom .answer-form input {
+  background: var(--panel);
+}
+
+.immersive-bottom .options-grid {
+  gap: 8px;
+}
+
+/* Compact reveal card */
+.immersive-reveal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  background: var(--panel);
+  box-shadow: var(--shadow-md);
+}
+
+.immersive-reveal.ir-ok {
+  border-color: #26a46c;
+  background: #f0fdf6;
+}
+
+.immersive-reveal.ir-bad {
+  border-color: #d97777;
+  background: #fdf1f1;
+}
+
+.immersive-reveal .ir-flag {
+  font-size: 40px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.immersive-reveal .ir-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.immersive-reveal .ir-info strong {
+  font-size: 17px;
+  color: var(--text-strong);
+}
+
+.immersive-reveal .ir-info span {
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.immersive-reveal .inline-next-button {
+  flex-shrink: 0;
+}
