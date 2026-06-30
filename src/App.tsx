@@ -2908,7 +2908,8 @@ function LearnContinentView({
   countries: Country[]
 }) {
   const view = useMemo(() => mapViewForContinent(continent), [continent])
-  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom })
+  const zoomBoost = useMemo(() => (typeof window !== 'undefined' && window.innerWidth <= 640 ? 1.5 : 1), [])
+  const [position, setPosition] = useState<MapPosition>({ coordinates: view.center, zoom: view.zoom * zoomBoost })
   const countryByMapId = useMemo(() => new Map(visibleCountries.map((c) => [c.mapId, c])), [visibleCountries])
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const [layers, setLayers] = useState({ flags: true, names: true, capitals: true })
@@ -2916,8 +2917,8 @@ function LearnContinentView({
   const allOff = !layers.flags && !layers.names && !layers.capitals
 
   useEffect(() => {
-    setPosition({ coordinates: view.center, zoom: view.zoom })
-  }, [view])
+    setPosition({ coordinates: view.center, zoom: view.zoom * zoomBoost })
+  }, [view, zoomBoost])
 
   function toggleLayer(key: keyof typeof layers) {
     setLayers((prev) => ({ ...prev, [key]: !prev[key] }))
