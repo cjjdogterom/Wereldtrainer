@@ -18,6 +18,7 @@ import {
   summarizeProgress,
   type ProgressState,
 } from './lib/training'
+import { fetchShared, saveShared } from './lib/sync'
 
 type Screen = 'oefenen' | 'leren' | 'kaart'
 type Clue = 'name' | 'flag' | 'capital' | 'place'
@@ -360,6 +361,22 @@ function App() {
   const [oefenStats, setOefenStats] = useState<SessionStats>({})
   const [oefenRound, setOefenRound] = useState(1)
   const oefenSeenRef = useRef<Set<string>>(new Set())
+  // Slim-oefenen "seen this cycle" per area (continent / focus), synced across devices
+  const seenMapRef = useRef<Record<string, Set<string>>>({})
+  const syncLoadedRef = useRef(false)
+
+  const persistShared = useCallback(() => {
+    if (!syncLoadedRef.current) return
+    const oefenSeen: Record<string, string[]> = {}
+    for (const [k, s] of Object.entries(seenMapRef.current)) oefenSeen[k] = [...s]
+    // local mirror so the cycle survives a reload even before KV is enabled
+    try {
+      localStorage.setItem('wt-oefenseen-v1', JSON.stringify(oefenSeen))
+    } catch {
+      /* ignore */
+    }
+    saveShared({ v: 1, progress: progressRef.current, oefenSeen, updatedAt: Date.now() })
+  }, [])
 
   const basePool = useMemo(
     () => (continent === 'Wereld' ? countries : countries.filter((country) => country.continent === continent)),
@@ -397,7 +414,46 @@ function App() {
   useEffect(() => {
     progressRef.current = progress
     saveProgress(progress)
-  }, [progress])
+    persistShared()
+  }, [progress, persistShared])
+
+  // On load, pull the shared (cross-device) state; fall back to local if the
+  // store isn't set up yet. Guard so we don't overwrite the remote before load.
+  useEffect(() => {
+    let cancelled = false
+    fetchShared().then((shared) => {
+      if (cancelled) {
+        syncLoadedRef.current = true
+        return
+      }
+      if (shared) {
+        const map: Record<string, Set<string>> = {}
+        for (const [k, ids] of Object.entries(shared.oefenSeen ?? {})) map[k] = new Set(ids)
+        seenMapRef.current = map
+        if (shared.progress) {
+          progressRef.current = shared.progress
+          setProgress(shared.progress)
+        }
+      } else {
+        // No shared store yet — restore the local cycle mirror
+        try {
+          const raw = localStorage.getItem('wt-oefenseen-v1')
+          if (raw) {
+            const parsed = JSON.parse(raw) as Record<string, string[]>
+            const map: Record<string, Set<string>> = {}
+            for (const [k, ids] of Object.entries(parsed)) map[k] = new Set(ids)
+            seenMapRef.current = map
+          }
+        } catch {
+          /* ignore */
+        }
+      }
+      syncLoadedRef.current = true
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   const oefenActivePool = useMemo(
     () => oefenBatch.filter((c) => !isSessionCountryDone(oefenStats, c.id)),
@@ -431,8 +487,18 @@ function App() {
       const startPool = cfg.useFocusPool && focus.length > 0 ? focus : base
 
       if (cfg.mode === 'oefenen') {
-        oefenSeenRef.current = new Set()
-        const batch = computeOefenBatch(startPool, progressRef.current, oefenSeenRef.current, OEFEN_BATCH_SIZE)
+        // Continue the cycle: keep the persisted "seen" set for this area so
+        // countries that were already covered don't return until all others have.
+        const areaKey = cfg.continent + (cfg.useFocusPool ? ':focus' : '')
+        if (!seenMapRef.current[areaKey]) seenMapRef.current[areaKey] = new Set()
+        oefenSeenRef.current = seenMapRef.current[areaKey]
+        let batch = computeOefenBatch(startPool, progressRef.current, oefenSeenRef.current, OEFEN_BATCH_SIZE)
+        // Cycle finished but weak countries remain → start a fresh cycle
+        if (batch.length === 0 && startPool.some((c) => masteryForCountry(progressRef.current, c.id) < OEFEN_STRONG)) {
+          oefenSeenRef.current.clear()
+          batch = computeOefenBatch(startPool, progressRef.current, oefenSeenRef.current, OEFEN_BATCH_SIZE)
+        }
+        persistShared()
         setOefenBatch(batch)
         setOefenStats({})
         setOefenRound(1)
@@ -482,9 +548,15 @@ function App() {
         setQuestion(withVlag(buildOefenQuestion(pool, pickOefenCountry(stillDue, progress), progress), vlagAnswer))
         return
       }
-      // Batch finished — mark these countries as drilled and grab the next batch.
+      // Batch finished — mark these countries as drilled (persisted per area) and grab the next batch.
       oefenBatch.forEach((c) => oefenSeenRef.current.add(c.id))
-      const next = computeOefenBatch(pool, progress, oefenSeenRef.current, OEFEN_BATCH_SIZE)
+      let next = computeOefenBatch(pool, progress, oefenSeenRef.current, OEFEN_BATCH_SIZE)
+      // Whole cycle covered but weak countries remain → start a fresh cycle.
+      if (next.length === 0 && pool.some((c) => masteryForCountry(progress, c.id) < OEFEN_STRONG)) {
+        oefenSeenRef.current.clear()
+        next = computeOefenBatch(pool, progress, oefenSeenRef.current, OEFEN_BATCH_SIZE)
+      }
+      persistShared()
       if (next.length === 0) {
         setOefenPhase('done')
         return
@@ -671,8 +743,10 @@ function App() {
     repeatQueueRef.current = []
     setRepeatQueue([])
     questionsUntilRepeatRef.current = 4
+    // Reset the shared Slim-oefenen cycle too (the progress effect persists it)
+    seenMapRef.current = {}
+    oefenSeenRef.current = new Set()
     if (mode === 'oefenen') {
-      oefenSeenRef.current = new Set()
       const batch = computeOefenBatch(pool, {}, oefenSeenRef.current, OEFEN_BATCH_SIZE)
       setOefenBatch(batch)
       setOefenStats({})
