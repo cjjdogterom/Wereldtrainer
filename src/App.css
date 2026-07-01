@@ -1354,6 +1354,39 @@ button.is-active:hover {
   color: var(--text-muted);
 }
 
+.wizard-or {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin: -4px 0 -2px;
+}
+
+.wizard-goals,
+.wizard-sees {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.wizard-goals button,
+.wizard-sees button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.wizard-note {
+  font-size: 12.5px;
+  color: var(--text-soft);
+  background: var(--accent-soft);
+  border-radius: 8px;
+  padding: 8px 11px;
+  line-height: 1.35;
+}
+
 .wizard-methods {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -3222,12 +3255,12 @@ input.answered-wrong {
     gap: 8px;
   }
 
-  /* ─── Wizard fits the screen; only the method list scrolls ─── */
+  /* ─── Wizard: compact, scrolls as one column on phones ─── */
   .wizard {
     height: 100%;
-    overflow: hidden;
-    gap: 10px;
-    padding-bottom: 0;
+    overflow-y: auto;
+    gap: 12px;
+    padding-bottom: 8px;
   }
 
   .wizard .panel-header {
@@ -3238,13 +3271,10 @@ input.answered-wrong {
     font-size: 20px;
   }
 
-  /* presets hidden on mobile (Slim oefenen + Maximaal are in the method list) */
+  /* presets stack full-width (Slim oefenen is only reachable here) */
   .wizard-presets {
-    display: none;
-  }
-
-  .wizard-section-area {
-    flex-shrink: 0;
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   /* Gebied as compact wrapping chips */
@@ -3261,33 +3291,10 @@ input.answered-wrong {
     font-size: 12.5px;
   }
 
-  /* Method list is the only scroll area */
-  .wizard-section-methods {
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .wizard-section-methods .wizard-methods {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding-right: 2px;
-  }
-
-  /* keep method cards uniform: single-line description */
-  .wizard-methods .wm {
-    align-items: center;
-  }
-
-  .wizard-methods .wm-body span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  /* Two columns for the goal + see chips on phones */
+  .wizard-goals,
+  .wizard-sees {
+    grid-template-columns: 1fr 1fr;
   }
 
   .wizard-start {

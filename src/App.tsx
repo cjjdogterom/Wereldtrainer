@@ -60,8 +60,12 @@ const ADVANCE_WRONG_MS = 4000
 
 type SessionStats = Record<string, { correct: number; wrong: number }>
 
+// How often a country must be answered correctly (in one Slim-oefenen batch)
+// before it counts as learned. Base is high on purpose so the country really
+// sticks; every wrong answer raises the bar further and keeps it coming back.
+const OEFEN_REQUIRED_CORRECT = 5
 function sessionRequired(stats: SessionStats, id: string): number {
-  return 2 + (stats[id]?.wrong ?? 0)
+  return OEFEN_REQUIRED_CORRECT + (stats[id]?.wrong ?? 0)
 }
 
 function isSessionCountryDone(stats: SessionStats, id: string): boolean {
@@ -336,7 +340,10 @@ function App() {
   const [progress, setProgress] = useState<ProgressState>(() => loadProgress())
   const repeatQueueRef = useRef<string[]>([])
   const [repeatQueue, setRepeatQueue] = useState<string[]>([])
-  const questionsUntilRepeatRef = useRef(4)
+  // How many more correct answers each wrong country still owes before it stops
+  // returning in endless practice (2 on a miss). Keeps mistakes coming back.
+  const repeatDebtRef = useRef<Map<string, number>>(new Map())
+  const questionsUntilRepeatRef = useRef(3)
   const [clues] = useState<ClueSettings>(DEFAULT_CLUES)
   const [previousQuestion, setPreviousQuestion] = useState<Question | null>(null)
   const [showPreviousQuestion, setShowPreviousQuestion] = useState(false)
@@ -471,7 +478,8 @@ function App() {
       setFormat(cfg.format)
       repeatQueueRef.current = []
       setRepeatQueue([])
-      questionsUntilRepeatRef.current = 4
+      repeatDebtRef.current.clear()
+      questionsUntilRepeatRef.current = 3
       setSession(null)
       setPreviousQuestion(null)
       setShowPreviousQuestion(false)
@@ -573,31 +581,27 @@ function App() {
     questionsUntilRepeatRef.current -= 1
 
     if (questionsUntilRepeatRef.current <= 0 && repeatQueueRef.current.length > 0) {
-      const remaining: string[] = []
-      let picked: Country | null = null
-      for (const id of repeatQueueRef.current) {
-        if (!picked) {
-          const found = activePool.find((c) => c.id === id)
-          if (found) {
-            picked = found
-          } else {
-            remaining.push(id)
-          }
-        } else {
-          remaining.push(id)
-        }
-      }
-      repeatQueueRef.current = remaining
-      setRepeatQueue([...remaining])
-      questionsUntilRepeatRef.current = 4
-      if (picked) {
+      questionsUntilRepeatRef.current = 3
+      // Re-ask the oldest still-outstanding mistake and rotate it to the back so
+      // the others get a turn too. It only leaves the queue once its debt is paid
+      // off (see recordResult), so wrong answers keep coming back until learned.
+      const idx = repeatQueueRef.current.findIndex((id) => activePool.some((c) => c.id === id))
+      if (idx !== -1) {
+        const id = repeatQueueRef.current[idx]
+        repeatQueueRef.current = [
+          ...repeatQueueRef.current.slice(0, idx),
+          ...repeatQueueRef.current.slice(idx + 1),
+          id,
+        ]
+        setRepeatQueue([...repeatQueueRef.current])
+        const picked = activePool.find((c) => c.id === id)!
         setQuestion(withVlag(buildQuestionForCountry(activePool, picked, mode), vlagAnswer))
         return
       }
     }
 
     if (questionsUntilRepeatRef.current <= 0) {
-      questionsUntilRepeatRef.current = 4
+      questionsUntilRepeatRef.current = 3
     }
 
     setQuestion(withVlag(buildQuestion(activePool, progress, mode), vlagAnswer))
@@ -633,8 +637,21 @@ function App() {
         return { ...prev, [id]: { correct: old.correct + (overallCorrect ? 1 : 0), wrong: old.wrong + (overallCorrect ? 0 : 1) } }
       })
     } else if (!overallCorrect) {
+      // Endless practice: a miss must be answered correctly twice before it stops
+      // returning. Queue it (at the back) and (re)set its debt.
+      repeatDebtRef.current.set(id, 2)
       repeatQueueRef.current = [...repeatQueueRef.current.filter((x) => x !== id), id]
       setRepeatQueue([...repeatQueueRef.current])
+    } else if (repeatDebtRef.current.has(id)) {
+      // Correct on a country we were still drilling: pay down its repeat debt.
+      const left = (repeatDebtRef.current.get(id) ?? 0) - 1
+      if (left <= 0) {
+        repeatDebtRef.current.delete(id)
+        repeatQueueRef.current = repeatQueueRef.current.filter((x) => x !== id)
+        setRepeatQueue([...repeatQueueRef.current])
+      } else {
+        repeatDebtRef.current.set(id, left)
+      }
     }
     if (session !== null) {
       setSession((prev) => {
@@ -742,7 +759,8 @@ function App() {
     setSession(null)
     repeatQueueRef.current = []
     setRepeatQueue([])
-    questionsUntilRepeatRef.current = 4
+    repeatDebtRef.current.clear()
+    questionsUntilRepeatRef.current = 3
     // Reset the shared Slim-oefenen cycle too (the progress effect persists it)
     seenMapRef.current = {}
     oefenSeenRef.current = new Set()
@@ -1332,19 +1350,67 @@ function WrongAnswerReveal({ question, countries: visibleCountries }: { question
   )
 }
 
-// The methods offered by the wizard, each mapping to a (mode, vlagAnswer) pair.
-type WizardMethod = { key: string; label: string; desc: string; icon: string; mode: TrainerMode; vlag: VlagAnswer }
-const WIZARD_METHODS: WizardMethod[] = [
-  { key: 'oefenen', label: 'Slim oefenen', desc: 'Je zwakste landen eerst, met actieve herhaling', icon: '🎯', mode: 'oefenen', vlag: 'mc' },
-  { key: 'landen', label: 'Land op de kaart', desc: 'Naam gegeven → wijs het land aan', icon: '📍', mode: 'landen', vlag: 'mc' },
-  { key: 'hoofdsteden', label: 'Hoofdstad typen', desc: 'Naam gegeven → typ de hoofdstad', icon: '⌨️', mode: 'hoofdsteden', vlag: 'mc' },
-  { key: 'vlag-mc', label: 'Vlag herkennen', desc: 'Vlag → kies het land (A/B/C/D)', icon: '🚩', mode: 'vlaggen', vlag: 'mc' },
-  { key: 'vlag-kaart', label: 'Vlag → ligging', desc: 'Vlag → wijs het land aan op de kaart', icon: '🗺️', mode: 'vlaggen', vlag: 'kaart' },
-  { key: 'vlag-hoofdstad', label: 'Vlag → hoofdstad', desc: 'Vlag → typ de hoofdstad', icon: '🏛️', mode: 'vlaggen', vlag: 'hoofdstad' },
-  { key: 'identify', label: 'Herken het land', desc: 'Ligging gegeven → typ land + hoofdstad', icon: '🔍', mode: 'identify', vlag: 'mc' },
-  { key: 'combo', label: 'Land + hoofdstad', desc: 'Naam → aanwijzen + hoofdstad typen', icon: '✌️', mode: 'combo', vlag: 'mc' },
-  { key: 'maximaal', label: 'Maximaal', desc: 'Aanwijzen + vlag kiezen + hoofdstad typen', icon: '🏆', mode: 'maximaal', vlag: 'mc' },
-  { key: 'gemengd', label: 'Mix', desc: 'Alle methodes door elkaar', icon: '🎲', mode: 'gemengd', vlag: 'mc' },
+// The wizard is built around two clear choices: WHAT you want to learn (the goal,
+// i.e. the answer you give) and WHAT you see as a hint. Each combination maps to
+// an internal (mode, vlagAnswer) pair.
+type WizardSee = { key: string; label: string; sub: string; mode: TrainerMode; vlag: VlagAnswer }
+type LearnGoal = { key: string; label: string; icon: string; sees: WizardSee[] }
+
+const LEARN_GOALS: LearnGoal[] = [
+  {
+    key: 'ligging',
+    label: 'Waar het ligt',
+    icon: '🗺️',
+    sees: [
+      { key: 'naam', label: 'Bij de naam', sub: 'Je ziet de naam → wijs het land aan op de kaart', mode: 'landen', vlag: 'mc' },
+      { key: 'vlag', label: 'Bij de vlag', sub: 'Je ziet de vlag → wijs het land aan op de kaart', mode: 'vlaggen', vlag: 'kaart' },
+      { key: 'naam-hfd', label: 'Naam + hoofdstad', sub: 'Je ziet de naam → wijs het land aan én typ de hoofdstad', mode: 'combo', vlag: 'mc' },
+    ],
+  },
+  {
+    key: 'hoofdsteden',
+    label: 'Hoofdsteden',
+    icon: '🏛️',
+    sees: [
+      { key: 'naam', label: 'Bij de naam', sub: 'Je ziet de naam → typ de hoofdstad', mode: 'hoofdsteden', vlag: 'mc' },
+      { key: 'vlag', label: 'Bij de vlag', sub: 'Je ziet de vlag → typ de hoofdstad', mode: 'vlaggen', vlag: 'hoofdstad' },
+    ],
+  },
+  {
+    key: 'vlaggen',
+    label: 'Vlaggen',
+    icon: '🚩',
+    sees: [
+      { key: 'mc', label: 'Kies het land', sub: 'Je ziet de vlag → kies het juiste land (A/B/C/D)', mode: 'vlaggen', vlag: 'mc' },
+      { key: 'kaart', label: 'Wijs het aan', sub: 'Je ziet de vlag → wijs het land aan op de kaart', mode: 'vlaggen', vlag: 'kaart' },
+      { key: 'hoofdstad', label: 'Typ de hoofdstad', sub: 'Je ziet de vlag → typ de hoofdstad', mode: 'vlaggen', vlag: 'hoofdstad' },
+      { key: 'beide', label: 'Aanwijzen + hoofdstad', sub: 'Je ziet de vlag → wijs het aan én typ de hoofdstad', mode: 'vlaggen', vlag: 'beide' },
+    ],
+  },
+  {
+    key: 'herkennen',
+    label: 'Landen herkennen',
+    icon: '🔍',
+    sees: [
+      { key: 'only', label: 'Typ land + hoofdstad', sub: 'Je ziet alleen de ligging → typ het land én de hoofdstad', mode: 'identify', vlag: 'mc' },
+    ],
+  },
+  {
+    key: 'alles',
+    label: 'Alles tegelijk',
+    icon: '🏆',
+    sees: [
+      { key: 'only', label: 'Maximaal', sub: 'Je ziet de naam → wijs aan + kies de vlag + typ de hoofdstad', mode: 'maximaal', vlag: 'mc' },
+    ],
+  },
+  {
+    key: 'mix',
+    label: 'Mix',
+    icon: '🎲',
+    sees: [
+      { key: 'only', label: 'Door elkaar', sub: 'Een verrassingsmix van alle methodes', mode: 'gemengd', vlag: 'mc' },
+    ],
+  },
 ]
 
 type QuizConfig = { continent: Continent; mode: TrainerMode; vlagAnswer: VlagAnswer; useFocusPool: boolean; format: 'practice' | 'exam' }
@@ -1360,11 +1426,18 @@ function QuizWizard({
   progress: ProgressState
   onStart: (cfg: QuizConfig) => void
 }) {
-  const [methodKey, setMethodKey] = useState('oefenen')
+  const [goalKey, setGoalKey] = useState('ligging')
+  const [seeKey, setSeeKey] = useState('naam')
   const [focus, setFocus] = useState(false)
   const [format, setFormat] = useState<'practice' | 'exam'>('practice')
-  const method = WIZARD_METHODS.find((m) => m.key === methodKey) ?? WIZARD_METHODS[0]
-  const isOefenen = method.mode === 'oefenen'
+
+  const goal = LEARN_GOALS.find((g) => g.key === goalKey) ?? LEARN_GOALS[0]
+  const see = goal.sees.find((s) => s.key === seeKey) ?? goal.sees[0]
+
+  const chooseGoal = (g: LearnGoal) => {
+    setGoalKey(g.key)
+    setSeeKey(g.sees[0].key)
+  }
 
   const weakCount = useMemo(() => {
     const base = continent === 'Wereld' ? countries : countries.filter((c) => c.continent === continent)
@@ -1372,7 +1445,7 @@ function QuizWizard({
   }, [continent, progress])
 
   const start = (over?: Partial<QuizConfig>) =>
-    onStart({ continent, mode: method.mode, vlagAnswer: method.vlag, useFocusPool: focus, format: isOefenen ? 'practice' : format, ...over })
+    onStart({ continent, mode: see.mode, vlagAnswer: see.vlag, useFocusPool: focus, format, ...over })
 
   return (
     <div className="wizard">
@@ -1384,15 +1457,17 @@ function QuizWizard({
       </header>
 
       <div className="wizard-presets">
+        <button type="button" className="wizard-preset" onClick={() => start({ mode: 'oefenen', vlagAnswer: 'mc', format: 'practice' })}>
+          <span className="wp-icon">🎯</span>
+          <span className="wp-text"><strong>Slim oefenen</strong><span>Je zwakste landen, tot je ze 5× goed hebt</span></span>
+        </button>
         <button type="button" className="wizard-preset wizard-preset-max" onClick={() => start({ mode: 'maximaal', vlagAnswer: 'mc', format: 'exam' })}>
           <span className="wp-icon">🏆</span>
           <span className="wp-text"><strong>Maximaal-examen</strong><span>Aanwijzen + vlag + hoofdstad — met eindscore</span></span>
         </button>
-        <button type="button" className="wizard-preset" onClick={() => start({ mode: 'oefenen', vlagAnswer: 'mc', format: 'practice' })}>
-          <span className="wp-icon">🎯</span>
-          <span className="wp-text"><strong>Slim oefenen</strong><span>Je zwakste landen, met herhaling</span></span>
-        </button>
       </div>
+
+      <p className="wizard-or">of stel het zelf samen</p>
 
       <div className="wizard-section wizard-section-area">
         <h3>1 · Gebied</h3>
@@ -1409,34 +1484,42 @@ function QuizWizard({
         </label>
       </div>
 
-      <div className="wizard-section wizard-section-methods">
-        <h3>2 · Methode</h3>
-        <div className="wizard-methods">
-          {WIZARD_METHODS.map((m) => (
-            <button key={m.key} type="button" className={m.key === methodKey ? 'wm is-active' : 'wm'} onClick={() => setMethodKey(m.key)}>
-              <span className="wm-icon" aria-hidden="true">{m.icon}</span>
-              <span className="wm-body">
-                <strong>{m.label}</strong>
-                <span>{m.desc}</span>
-              </span>
+      <div className="wizard-section">
+        <h3>2 · Wat wil je leren?</h3>
+        <div className="button-grid wizard-goals">
+          {LEARN_GOALS.map((g) => (
+            <button key={g.key} type="button" className={g.key === goalKey ? 'is-active' : ''} onClick={() => chooseGoal(g)}>
+              <span aria-hidden="true">{g.icon}</span> {g.label}
             </button>
           ))}
         </div>
       </div>
 
-      {!isOefenen && (
-        <div className="wizard-section">
-          <h3>3 · Vorm</h3>
-          <div className="wizard-format">
-            <button type="button" className={format === 'practice' ? 'is-active' : ''} onClick={() => setFormat('practice')}>
-              Oefenen <small>eindeloos</small>
-            </button>
-            <button type="button" className={format === 'exam' ? 'is-active' : ''} onClick={() => setFormat('exam')}>
-              Examen <small>met eindscore</small>
-            </button>
+      <div className="wizard-section">
+        <h3>3 · Wat zie je?</h3>
+        {goal.sees.length > 1 && (
+          <div className="button-grid wizard-sees">
+            {goal.sees.map((s) => (
+              <button key={s.key} type="button" className={s.key === see.key ? 'is-active' : ''} onClick={() => setSeeKey(s.key)}>
+                {s.label}
+              </button>
+            ))}
           </div>
+        )}
+        <p className="wizard-note">{see.sub}</p>
+      </div>
+
+      <div className="wizard-section">
+        <h3>4 · Vorm</h3>
+        <div className="wizard-format">
+          <button type="button" className={format === 'practice' ? 'is-active' : ''} onClick={() => setFormat('practice')}>
+            Oefenen <small>eindeloos, fouten komen terug</small>
+          </button>
+          <button type="button" className={format === 'exam' ? 'is-active' : ''} onClick={() => setFormat('exam')}>
+            Examen <small>met eindscore</small>
+          </button>
         </div>
-      )}
+      </div>
 
       <button type="button" className="wizard-start" onClick={() => start()}>
         Start overhoring →
@@ -2046,7 +2129,22 @@ function BatchLocationMap({ batch }: { batch: Country[] }) {
           </Geographies>
           {batch.map((c) => (
             <Marker key={c.id} coordinates={[c.latlng[1], c.latlng[0]]}>
-              <circle r={7 / position.zoom} fill="#0f766e" stroke="#ffffff" strokeWidth={2 / position.zoom} vectorEffect="non-scaling-stroke" />
+              <circle r={6 / position.zoom} fill="#0f766e" stroke="#ffffff" strokeWidth={2 / position.zoom} vectorEffect="non-scaling-stroke" />
+              <text
+                y={-10 / position.zoom}
+                textAnchor="middle"
+                style={{
+                  fontSize: `${12 / position.zoom}px`,
+                  fontWeight: 700,
+                  fill: '#0b3b37',
+                  stroke: '#ffffff',
+                  strokeWidth: 3.5 / position.zoom,
+                  paintOrder: 'stroke',
+                  fontFamily: 'inherit',
+                }}
+              >
+                {c.flag} {c.name}
+              </text>
             </Marker>
           ))}
         </ZoomableGroup>
@@ -2069,7 +2167,7 @@ function OefenStudyPanel({
   return (
     <div className="oefen-study">
       <p className="oefen-study-intro">
-        Ronde {round} · Bekijk waar deze landen liggen en leer de vlag + hoofdstad. Daarna overhoor ik je op wat je nog niet zeker weet.
+        Ronde {round} · Bekijk op de kaart waar deze landen liggen (met vlag en naam) en leer de hoofdstad. Daarna overhoor ik je tot je elk land 5× goed hebt.
       </p>
       <BatchLocationMap batch={batch} />
       <div className="oefen-study-grid">
