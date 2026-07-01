@@ -3542,6 +3542,13 @@ input.answered-wrong {
   line-height: 1.15;
 }
 
+.ip-capital {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-strong);
+  line-height: 1.2;
+}
+
 .ip-instruction {
   font-size: 13px;
   color: var(--text-soft);

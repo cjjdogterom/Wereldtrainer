@@ -24,9 +24,6 @@ type Screen = 'oefenen' | 'leren' | 'kaart'
 type Clue = 'name' | 'flag' | 'capital' | 'place'
 // A concrete question mode used for rendering/answering
 type QuestionMode = Exclude<TrainerMode, 'gemengd' | 'oefenen'>
-// Modes that have configurable "show as hint" clues
-type CluedMode = Exclude<QuestionMode, 'identify' | 'maximaal'>
-type ClueSettings = Record<CluedMode, Record<Clue, boolean>>
 
 // How the user answers a Vlaggen question (flag shown, you supply the rest)
 type VlagAnswer = 'mc' | 'kaart' | 'hoofdstad' | 'beide'
@@ -136,11 +133,26 @@ const SIMILAR_FLAG_SETS: { label: string; hint: string; ids: string[] }[] = [
 
 const SIMILAR_FLAG_GROUPS = SIMILAR_FLAG_SETS.map((set) => set.ids)
 
-const DEFAULT_CLUES: ClueSettings = {
-  landen: { name: true, flag: false, capital: false, place: false },
-  vlaggen: { name: true, flag: false, capital: false, place: false },
-  hoofdsteden: { name: true, flag: true, capital: false, place: false },
-  combo: { name: false, flag: false, capital: false, place: false },
+// Turn a list of chosen hints into a full clue record.
+function cluesFromList(list: Clue[]): Record<Clue, boolean> {
+  return { name: list.includes('name'), flag: list.includes('flag'), capital: list.includes('capital'), place: list.includes('place') }
+}
+
+// The hints shown for a question when the user hasn't customized them (presets,
+// Slim oefenen, Mix). Each mode shows the natural cue that doesn't give it away.
+function defaultCluesForMode(mode: QuestionMode): Record<Clue, boolean> {
+  switch (mode) {
+    case 'vlaggen':
+      return { name: false, flag: true, capital: false, place: false }
+    case 'identify':
+      return { name: false, flag: false, capital: false, place: true }
+    case 'hoofdsteden':
+    case 'landen':
+    case 'combo':
+    case 'maximaal':
+    default:
+      return { name: true, flag: false, capital: false, place: false }
+  }
 }
 
 
@@ -344,7 +356,8 @@ function App() {
   // returning in endless practice (2 on a miss). Keeps mistakes coming back.
   const repeatDebtRef = useRef<Map<string, number>>(new Map())
   const questionsUntilRepeatRef = useRef(3)
-  const [clues] = useState<ClueSettings>(DEFAULT_CLUES)
+  // Hints the user chose in the wizard (null → use per-mode defaults).
+  const [quizCues, setQuizCues] = useState<Clue[] | null>(null)
   const [previousQuestion, setPreviousQuestion] = useState<Question | null>(null)
   const [showPreviousQuestion, setShowPreviousQuestion] = useState(false)
   const [session, setSession] = useState<SessionStats | null>(null)
@@ -470,12 +483,13 @@ function App() {
   // Configure + start a quiz from the wizard. Computes its pool from the config
   // directly (state setters are async) so the first question is correct.
   const startQuiz = useCallback(
-    (cfg: { continent: Continent; mode: TrainerMode; vlagAnswer: VlagAnswer; useFocusPool: boolean; format: 'practice' | 'exam' }) => {
+    (cfg: { continent: Continent; mode: TrainerMode; vlagAnswer: VlagAnswer; useFocusPool: boolean; format: 'practice' | 'exam'; cues?: Clue[] }) => {
       setContinent(cfg.continent)
       setMode(cfg.mode)
       setVlagAnswer(cfg.vlagAnswer)
       setUseFocusPool(cfg.useFocusPool)
       setFormat(cfg.format)
+      setQuizCues(cfg.cues && cfg.cues.length > 0 ? cfg.cues : null)
       repeatQueueRef.current = []
       setRepeatQueue([])
       repeatDebtRef.current.clear()
@@ -896,7 +910,7 @@ function App() {
             <PracticePanel
               continent={continent}
               countries={pool}
-              clues={clues}
+              effectiveCues={quizCues ? cluesFromList(quizCues) : defaultCluesForMode(question.mode)}
               previousQuestion={previousQuestion}
               showPreviousQuestion={showPreviousQuestion}
               question={question}
@@ -1350,70 +1364,33 @@ function WrongAnswerReveal({ question, countries: visibleCountries }: { question
   )
 }
 
-// The wizard is built around two clear choices: WHAT you want to learn (the goal,
-// i.e. the answer you give) and WHAT you see as a hint. Each combination maps to
-// an internal (mode, vlagAnswer) pair.
-type WizardSee = { key: string; label: string; sub: string; mode: TrainerMode; vlag: VlagAnswer }
-type LearnGoal = { key: string; label: string; icon: string; sees: WizardSee[] }
+// The wizard is fully customizable: you pick ONE answer task (what you must do)
+// and then freely pick ANY combination of hints to see (name / flag / capital /
+// location). Each task allows the hints that don't give the answer away.
+const CLUE_LABELS: Record<Clue, string> = { name: 'Naam', flag: 'Vlag', capital: 'Hoofdstad', place: 'Ligging' }
 
-const LEARN_GOALS: LearnGoal[] = [
-  {
-    key: 'ligging',
-    label: 'Waar het ligt',
-    icon: '🗺️',
-    sees: [
-      { key: 'naam', label: 'Bij de naam', sub: 'Je ziet de naam → wijs het land aan op de kaart', mode: 'landen', vlag: 'mc' },
-      { key: 'vlag', label: 'Bij de vlag', sub: 'Je ziet de vlag → wijs het land aan op de kaart', mode: 'vlaggen', vlag: 'kaart' },
-      { key: 'naam-hfd', label: 'Naam + hoofdstad', sub: 'Je ziet de naam → wijs het land aan én typ de hoofdstad', mode: 'combo', vlag: 'mc' },
-    ],
-  },
-  {
-    key: 'hoofdsteden',
-    label: 'Hoofdsteden',
-    icon: '🏛️',
-    sees: [
-      { key: 'naam', label: 'Bij de naam', sub: 'Je ziet de naam → typ de hoofdstad', mode: 'hoofdsteden', vlag: 'mc' },
-      { key: 'vlag', label: 'Bij de vlag', sub: 'Je ziet de vlag → typ de hoofdstad', mode: 'vlaggen', vlag: 'hoofdstad' },
-    ],
-  },
-  {
-    key: 'vlaggen',
-    label: 'Vlaggen',
-    icon: '🚩',
-    sees: [
-      { key: 'mc', label: 'Kies het land', sub: 'Je ziet de vlag → kies het juiste land (A/B/C/D)', mode: 'vlaggen', vlag: 'mc' },
-      { key: 'kaart', label: 'Wijs het aan', sub: 'Je ziet de vlag → wijs het land aan op de kaart', mode: 'vlaggen', vlag: 'kaart' },
-      { key: 'hoofdstad', label: 'Typ de hoofdstad', sub: 'Je ziet de vlag → typ de hoofdstad', mode: 'vlaggen', vlag: 'hoofdstad' },
-      { key: 'beide', label: 'Aanwijzen + hoofdstad', sub: 'Je ziet de vlag → wijs het aan én typ de hoofdstad', mode: 'vlaggen', vlag: 'beide' },
-    ],
-  },
-  {
-    key: 'herkennen',
-    label: 'Landen herkennen',
-    icon: '🔍',
-    sees: [
-      { key: 'only', label: 'Typ land + hoofdstad', sub: 'Je ziet alleen de ligging → typ het land én de hoofdstad', mode: 'identify', vlag: 'mc' },
-    ],
-  },
-  {
-    key: 'alles',
-    label: 'Alles tegelijk',
-    icon: '🏆',
-    sees: [
-      { key: 'only', label: 'Maximaal', sub: 'Je ziet de naam → wijs aan + kies de vlag + typ de hoofdstad', mode: 'maximaal', vlag: 'mc' },
-    ],
-  },
-  {
-    key: 'mix',
-    label: 'Mix',
-    icon: '🎲',
-    sees: [
-      { key: 'only', label: 'Door elkaar', sub: 'Een verrassingsmix van alle methodes', mode: 'gemengd', vlag: 'mc' },
-    ],
-  },
+type AnswerTask = {
+  key: string
+  label: string
+  icon: string
+  mode: TrainerMode
+  vlag: VlagAnswer
+  doing: string // short description of what you do
+  allowedCues: Clue[] // hints the user may switch on (empty = fixed)
+  defaultCues: Clue[]
+}
+
+const ANSWER_TASKS: AnswerTask[] = [
+  { key: 'aanwijzen', label: 'Aanwijzen', icon: '🗺️', mode: 'landen', vlag: 'mc', doing: 'wijs het land aan op de kaart', allowedCues: ['name', 'flag', 'capital'], defaultCues: ['name'] },
+  { key: 'hoofdstad', label: 'Hoofdstad typen', icon: '🏛️', mode: 'hoofdsteden', vlag: 'mc', doing: 'typ de hoofdstad', allowedCues: ['name', 'flag', 'place'], defaultCues: ['name'] },
+  { key: 'landkiezen', label: 'Land kiezen', icon: '🔤', mode: 'vlaggen', vlag: 'mc', doing: 'kies het juiste land (A/B/C/D)', allowedCues: ['flag', 'capital', 'place'], defaultCues: ['flag'] },
+  { key: 'combo', label: 'Aanwijzen + hoofdstad', icon: '✌️', mode: 'combo', vlag: 'mc', doing: 'wijs het land aan én typ de hoofdstad', allowedCues: ['name', 'flag'], defaultCues: ['name'] },
+  { key: 'identify', label: 'Land + hoofdstad typen', icon: '🔍', mode: 'identify', vlag: 'mc', doing: 'typ welk land het is én de hoofdstad', allowedCues: ['place', 'flag'], defaultCues: ['place'] },
+  { key: 'maximaal', label: 'Alles tegelijk', icon: '🏆', mode: 'maximaal', vlag: 'mc', doing: 'wijs aan + kies de vlag + typ de hoofdstad', allowedCues: ['name'], defaultCues: ['name'] },
+  { key: 'mix', label: 'Mix', icon: '🎲', mode: 'gemengd', vlag: 'mc', doing: 'een verrassingsmix van alle methodes', allowedCues: [], defaultCues: [] },
 ]
 
-type QuizConfig = { continent: Continent; mode: TrainerMode; vlagAnswer: VlagAnswer; useFocusPool: boolean; format: 'practice' | 'exam' }
+type QuizConfig = { continent: Continent; mode: TrainerMode; vlagAnswer: VlagAnswer; useFocusPool: boolean; format: 'practice' | 'exam'; cues?: Clue[] }
 
 function QuizWizard({
   continent,
@@ -1426,18 +1403,33 @@ function QuizWizard({
   progress: ProgressState
   onStart: (cfg: QuizConfig) => void
 }) {
-  const [goalKey, setGoalKey] = useState('ligging')
-  const [seeKey, setSeeKey] = useState('naam')
+  const [taskKey, setTaskKey] = useState('aanwijzen')
+  const [cueSel, setCueSel] = useState<Clue[]>(['name'])
   const [focus, setFocus] = useState(false)
   const [format, setFormat] = useState<'practice' | 'exam'>('practice')
 
-  const goal = LEARN_GOALS.find((g) => g.key === goalKey) ?? LEARN_GOALS[0]
-  const see = goal.sees.find((s) => s.key === seeKey) ?? goal.sees[0]
+  const task = ANSWER_TASKS.find((t) => t.key === taskKey) ?? ANSWER_TASKS[0]
 
-  const chooseGoal = (g: LearnGoal) => {
-    setGoalKey(g.key)
-    setSeeKey(g.sees[0].key)
+  const chooseTask = (t: AnswerTask) => {
+    setTaskKey(t.key)
+    setCueSel(t.defaultCues)
   }
+
+  const toggleCue = (c: Clue) => {
+    setCueSel((prev) => {
+      if (prev.includes(c)) {
+        const next = prev.filter((x) => x !== c)
+        return next.length > 0 ? next : prev // always keep at least one hint
+      }
+      // keep the wizard's declared order for a stable display
+      return task.allowedCues.filter((x) => x === c || prev.includes(x))
+    })
+  }
+
+  const cueSummary =
+    task.allowedCues.length === 0
+      ? 'Alles door elkaar — hints wisselen per vraag.'
+      : `Je ziet ${cueSel.map((c) => CLUE_LABELS[c].toLowerCase()).join(' + ')} → ${task.doing}.`
 
   const weakCount = useMemo(() => {
     const base = continent === 'Wereld' ? countries : countries.filter((c) => c.continent === continent)
@@ -1445,7 +1437,7 @@ function QuizWizard({
   }, [continent, progress])
 
   const start = (over?: Partial<QuizConfig>) =>
-    onStart({ continent, mode: see.mode, vlagAnswer: see.vlag, useFocusPool: focus, format, ...over })
+    onStart({ continent, mode: task.mode, vlagAnswer: task.vlag, useFocusPool: focus, format, cues: cueSel, ...over })
 
   return (
     <div className="wizard">
@@ -1457,11 +1449,11 @@ function QuizWizard({
       </header>
 
       <div className="wizard-presets">
-        <button type="button" className="wizard-preset" onClick={() => start({ mode: 'oefenen', vlagAnswer: 'mc', format: 'practice' })}>
+        <button type="button" className="wizard-preset" onClick={() => start({ mode: 'oefenen', vlagAnswer: 'mc', format: 'practice', cues: undefined })}>
           <span className="wp-icon">🎯</span>
           <span className="wp-text"><strong>Slim oefenen</strong><span>Je zwakste landen, tot je ze 5× goed hebt</span></span>
         </button>
-        <button type="button" className="wizard-preset wizard-preset-max" onClick={() => start({ mode: 'maximaal', vlagAnswer: 'mc', format: 'exam' })}>
+        <button type="button" className="wizard-preset wizard-preset-max" onClick={() => start({ mode: 'maximaal', vlagAnswer: 'mc', format: 'exam', cues: ['name'] })}>
           <span className="wp-icon">🏆</span>
           <span className="wp-text"><strong>Maximaal-examen</strong><span>Aanwijzen + vlag + hoofdstad — met eindscore</span></span>
         </button>
@@ -1485,28 +1477,28 @@ function QuizWizard({
       </div>
 
       <div className="wizard-section">
-        <h3>2 · Wat wil je leren?</h3>
+        <h3>2 · Wat moet je doen?</h3>
         <div className="button-grid wizard-goals">
-          {LEARN_GOALS.map((g) => (
-            <button key={g.key} type="button" className={g.key === goalKey ? 'is-active' : ''} onClick={() => chooseGoal(g)}>
-              <span aria-hidden="true">{g.icon}</span> {g.label}
+          {ANSWER_TASKS.map((t) => (
+            <button key={t.key} type="button" className={t.key === taskKey ? 'is-active' : ''} onClick={() => chooseTask(t)}>
+              <span aria-hidden="true">{t.icon}</span> {t.label}
             </button>
           ))}
         </div>
       </div>
 
       <div className="wizard-section">
-        <h3>3 · Wat zie je?</h3>
-        {goal.sees.length > 1 && (
+        <h3>3 · Wat zie je erbij?</h3>
+        {task.allowedCues.length > 0 && (
           <div className="button-grid wizard-sees">
-            {goal.sees.map((s) => (
-              <button key={s.key} type="button" className={s.key === see.key ? 'is-active' : ''} onClick={() => setSeeKey(s.key)}>
-                {s.label}
+            {task.allowedCues.map((c) => (
+              <button key={c} type="button" className={cueSel.includes(c) ? 'is-active' : ''} onClick={() => toggleCue(c)}>
+                {cueSel.includes(c) ? '✓ ' : ''}{CLUE_LABELS[c]}
               </button>
             ))}
           </div>
         )}
-        <p className="wizard-note">{see.sub}</p>
+        <p className="wizard-note">{cueSummary}</p>
       </div>
 
       <div className="wizard-section">
@@ -1568,7 +1560,7 @@ function ExamResultPanel({ results, onRestart, onNew }: { results: Array<{ id: s
 type PracticePanelProps = {
   continent: Continent
   countries: Country[]
-  clues: ClueSettings
+  effectiveCues: Record<Clue, boolean>
   previousQuestion: Question | null
   showPreviousQuestion: boolean
   question: Question
@@ -1602,6 +1594,7 @@ function MobileQuiz({
   continent,
   visibleCountries,
   question,
+  cues,
   chooseOption,
   chooseFlag,
   submitCapital,
@@ -1619,6 +1612,7 @@ function MobileQuiz({
   continent: Continent
   visibleCountries: Country[]
   question: Question
+  cues: Record<Clue, boolean>
   chooseOption: (id: string) => void
   chooseFlag: (id: string) => void
   submitCapital: (event: FormEvent<HTMLFormElement>) => void
@@ -1640,9 +1634,11 @@ function MobileQuiz({
   const isMC = vlagKind === 'mc'
   const isIdentify = question.mode === 'identify'
   const isMaximaal = question.mode === 'maximaal'
-  const flagCueMode = question.mode === 'vlaggen' || question.mode === 'combo'
   const usesClickMap = isMapOnly || isBoth || isMaximaal
-  const hasMapBg = usesClickMap || isIdentify
+  // Show a locator map when the country's location is a hint (identify, or any
+  // task where "Ligging" is switched on) and it isn't the click-map you answer on.
+  const showLocMap = !usesClickMap && (isIdentify || cues.place)
+  const hasMapBg = usesClickMap || showLocMap
   const answered = question.answered
   const step = question.step ?? 0
   const capRef = useRef<HTMLInputElement>(null)
@@ -1661,7 +1657,7 @@ function MobileQuiz({
   if (isMaximaal) prompt = step === 0 ? 'Wijs het land aan' : step === 1 ? 'Kies de juiste vlag' : 'Typ de hoofdstad'
   else if (isMapOnly) prompt = question.mode === 'vlaggen' ? 'Waar ligt deze vlag?' : 'Wijs het land aan'
   else if (isBoth) prompt = question.selectedId === null ? 'Wijs het land aan' : 'Typ de hoofdstad'
-  else if (isMC) prompt = 'Welk land hoort bij deze vlag?'
+  else if (isMC) prompt = cues.flag ? 'Welk land hoort bij deze vlag?' : cues.capital ? 'Welk land heeft deze hoofdstad?' : 'Welk land is dit?'
   else if (isCapitalOnly) prompt = 'Wat is de hoofdstad?'
   else if (isIdentify) prompt = 'Welk land is dit? Typ land + hoofdstad'
 
@@ -1729,7 +1725,7 @@ function MobileQuiz({
       {usesClickMap && (
         <CountryClickMap continent={continent} countries={visibleCountries} question={question} chooseCountry={chooseOption} mapLocked={mapLocked} />
       )}
-      {isIdentify && (
+      {showLocMap && (
         <div className="immersive-locmap">
           <CountryClueMap continent={continent} countries={visibleCountries} country={question.country} big />
         </div>
@@ -1739,21 +1735,27 @@ function MobileQuiz({
 
       {hasMapBg ? (
         <div className="immersive-prompt">
-          {flagCueMode && <span className="ip-flag" aria-hidden="true">{question.country.flag}</span>}
+          {cues.flag && <span className="ip-flag" aria-hidden="true">{question.country.flag}</span>}
           <div className="ip-text">
-            {(isMaximaal || (!flagCueMode && !isIdentify)) && <strong className="ip-subject">{question.country.name}</strong>}
+            {cues.name && <strong className="ip-subject">{question.country.name}</strong>}
+            {cues.capital && <span className="ip-capital">{question.country.capital}</span>}
             <span className="ip-instruction">{prompt}{isMaximaal && !answered ? ` · stap ${step + 1}/3` : ''}</span>
           </div>
           {progressText && <span className="ip-progress">{progressText}</span>}
         </div>
       ) : (
         <div className="immersive-cue">
-          {flagCueMode ? (
-            <span className="immersive-cue-flag" aria-hidden="true">{question.country.flag}</span>
-          ) : (
+          {cues.flag && <span className="immersive-cue-flag" aria-hidden="true">{question.country.flag}</span>}
+          {cues.name && (
             <>
               <span className="immersive-cue-label">LAND</span>
               <strong className="immersive-cue-name">{question.country.name}</strong>
+            </>
+          )}
+          {cues.capital && (
+            <>
+              <span className="immersive-cue-label">HOOFDSTAD</span>
+              <strong className="immersive-cue-name">{question.country.capital}</strong>
             </>
           )}
           <span className="immersive-cue-instr">{prompt}</span>
@@ -1769,7 +1771,7 @@ function MobileQuiz({
 function PracticePanel({
   continent,
   countries: visibleCountries,
-  clues,
+  effectiveCues,
   previousQuestion,
   showPreviousQuestion,
   question,
@@ -1808,7 +1810,8 @@ function PracticePanel({
   const isFlagCue = question.mode === 'vlaggen'
   const isIdentify = question.mode === 'identify'
   const isMaximaal = question.mode === 'maximaal'
-  const activeClues = clues[(question.mode in clues ? question.mode : 'landen') as CluedMode]
+  // The hints to show (chosen in the wizard, or the per-mode default).
+  const activeClues = effectiveCues
   const capitalInputRef = useRef<HTMLInputElement>(null)
   const comboInputRef = useRef<HTMLInputElement>(null)
   const countryInputRef = useRef<HTMLInputElement>(null)
@@ -1890,6 +1893,7 @@ function PracticePanel({
         continent={continent}
         visibleCountries={visibleCountries}
         question={question}
+        cues={activeClues}
         chooseOption={chooseOption}
         chooseFlag={chooseFlag}
         submitCapital={submitCapital}
@@ -2028,7 +2032,7 @@ function PracticePanel({
             </div>
           ) : (
             <div className="question-stage">
-              {isFlagCue ? (
+              {isFlagCue && activeClues.flag && !activeClues.name && !activeClues.capital && !activeClues.place ? (
                 <FlagCue
                   flag={question.country.flag}
                   instruction={isMC ? 'Welk land hoort bij deze vlag?' : 'Wat is de hoofdstad?'}
