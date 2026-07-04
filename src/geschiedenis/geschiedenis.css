@@ -1,4 +1,218 @@
 /* Module-specifiek: geschiedenis van Nederland */
+
+/* ── Artikel-layout: zij-tijdlijn + wikipedia-achtig artikel ── */
+.gs-artikel-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.gs-zijlijn {
+  position: sticky;
+  top: 84px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-left: 2px solid var(--km-line);
+  padding-left: 0.15rem;
+}
+
+.gs-zijlijn-kop {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--km-soft);
+  padding: 0 0.75rem 0.35rem;
+}
+
+.gs-zijlijn-item {
+  text-align: left;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0 9px 9px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.gs-zijlijn-item:hover {
+  background: color-mix(in srgb, var(--km-accent) 6%, white);
+}
+
+.gs-zijlijn-item.active {
+  border-left-color: var(--km-accent);
+  background: color-mix(in srgb, var(--km-accent) 9%, white);
+}
+
+.gs-zijlijn-jaren {
+  font-size: 0.78rem;
+  color: var(--km-accent) !important;
+}
+
+.gs-zijlijn-staat {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--km-text);
+  line-height: 1.35;
+}
+
+.gs-artikel {
+  max-width: 760px;
+  min-width: 0;
+}
+
+.gs-sectie {
+  margin-bottom: 3rem;
+  scroll-margin-top: 84px;
+}
+
+.gs-sectie::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.gs-sectie h2 {
+  font-size: 1.35rem;
+  border-bottom: 1px solid var(--km-line);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.gs-infobox {
+  float: right;
+  width: 280px;
+  margin: 0 0 1rem 1.5rem;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 12px;
+  box-shadow: var(--km-shadow);
+  overflow: hidden;
+}
+
+.gs-infobox figure {
+  margin: 0;
+}
+
+.gs-infobox img {
+  width: 100%;
+  display: block;
+  background: #fff;
+}
+
+.gs-infobox figcaption {
+  font-size: 0.78rem;
+  color: var(--km-soft);
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid var(--km-line);
+}
+
+.gs-infobox dl {
+  padding: 0.7rem 0.85rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.3rem 0.7rem;
+}
+
+.gs-infobox dt {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--km-soft);
+  padding-top: 0.15rem;
+}
+
+.gs-infobox dd {
+  font-size: 0.85rem;
+  color: var(--km-ink);
+  font-weight: 550;
+}
+
+.gs-alinea {
+  margin-bottom: 0.9rem;
+  line-height: 1.7;
+  color: var(--km-text);
+}
+
+.gs-figuur {
+  margin: 1.25rem 0;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 12px;
+  box-shadow: var(--km-shadow);
+  overflow: hidden;
+  max-width: 440px;
+}
+
+.gs-figuur img {
+  width: 100%;
+  display: block;
+}
+
+.gs-figuur figcaption {
+  font-size: 0.8rem;
+  color: var(--km-soft);
+  padding: 0.5rem 0.85rem;
+}
+
+.gs-gebeurtenissen-kop {
+  clear: both;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--km-accent);
+  margin: 1.5rem 0 0.6rem;
+}
+
+@media (max-width: 860px) {
+  .gs-artikel-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .gs-zijlijn {
+    position: static;
+    border-left: none;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0.4rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .gs-zijlijn-kop {
+    display: none;
+  }
+
+  .gs-zijlijn-item {
+    flex: 0 0 auto;
+    border-left: none;
+    border: 1px solid var(--km-line);
+    border-radius: 999px;
+    padding: 0.4rem 0.85rem;
+    background: var(--km-panel);
+  }
+
+  .gs-zijlijn-item.active {
+    border-color: var(--km-accent);
+  }
+
+  .gs-zijlijn-staat {
+    display: none;
+  }
+
+  .gs-infobox {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
 .gs-lijst {
   display: flex;
   flex-direction: column;

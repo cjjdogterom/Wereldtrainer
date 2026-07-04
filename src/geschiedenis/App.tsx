@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { pickRandom, shuffle } from '../leer/match'
-import { ALLES, GESORTEERD, PERIODES, jaarLabel, type HistItem, type Periode } from './data'
+import { ALLES, GESORTEERD, jaarLabel, type HistItem } from './data'
+import { STATEN } from './staten'
 import './geschiedenis.css'
 
 const ACCENT = '#7a4a1f'
@@ -125,10 +126,10 @@ function maakBlokQuiz(blok: HistItem[]): Vraag[] {
 
 export default function GeschiedenisApp() {
   const [tab, setTab] = useState('tijdlijn')
-  const [periode, setPeriode] = useState<Periode | 'alles'>('alles')
   const [quiz, setQuiz] = useState<QuizSoort | null>(null)
   const [blokIdx, setBlokIdx] = useState(0)
   const [blokQuiz, setBlokQuiz] = useState(false)
+  const [actiefAnker, setActiefAnker] = useState(STATEN[0].anker)
 
   const blokken = useMemo(() => {
     const out: HistItem[][] = []
@@ -138,6 +139,28 @@ export default function GeschiedenisApp() {
 
   const blok = blokken[blokIdx]
 
+  // Scrollspy: markeer in de zij-tijdlijn de sectie die in beeld is.
+  useEffect(() => {
+    if (tab !== 'tijdlijn') return
+    const secties = STATEN.map((s) => document.getElementById(`sectie-${s.anker}`)).filter(Boolean) as HTMLElement[]
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const zichtbaar = entries.filter((e) => e.isIntersecting)
+        if (zichtbaar.length > 0) {
+          setActiefAnker(zichtbaar[0].target.id.replace('sectie-', ''))
+        }
+      },
+      { rootMargin: '-15% 0px -70% 0px' },
+    )
+    secties.forEach((s) => observer.observe(s))
+    return () => observer.disconnect()
+  }, [tab])
+
+  function scrollNaar(anker: string) {
+    setActiefAnker(anker)
+    document.getElementById(`sectie-${anker}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <LeerShell
       mark="NL"
@@ -145,40 +168,91 @@ export default function GeschiedenisApp() {
       title="Geschiedenis van Nederland"
       subtitle={`${ALLES.length} gebeurtenissen en personen sinds 1300`}
       tabs={[
-        { id: 'tijdlijn', label: 'Tijdlijn' },
+        { id: 'tijdlijn', label: 'Artikel' },
         { id: 'personen', label: 'Personen' },
         { id: 'leren', label: 'Leren in blokken' },
         { id: 'overhoren', label: 'Overhoren' },
       ]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null); setBlokQuiz(false) }}
-      footnote={<p>Selectie op hoofdlijnen; indeling naar de tijdvakken van de <a href="https://nl.wikipedia.org/wiki/Tijdlijn_van_de_Nederlandse_geschiedenis" target="_blank" rel="noreferrer">Wikipedia-tijdlijn van de Nederlandse geschiedenis</a>.</p>}
+      footnote={<p>Selectie op hoofdlijnen; indeling naar de tijdvakken van de <a href="https://nl.wikipedia.org/wiki/Tijdlijn_van_de_Nederlandse_geschiedenis" target="_blank" rel="noreferrer">Wikipedia-tijdlijn van de Nederlandse geschiedenis</a> · kaarten en afbeeldingen via Wikimedia Commons.</p>}
     >
       {tab === 'tijdlijn' && (
-        <>
-          <div className="km-page-head">
-            <p className="km-eyebrow">Tijdlijn</p>
-            <h1>Nederland vanaf 1300</h1>
-          </div>
-          <div className="km-filters">
-            <button type="button" className={`km-chip${periode === 'alles' ? ' active' : ''}`} onClick={() => setPeriode('alles')}>Alles</button>
-            {PERIODES.map((p) => (
-              <button key={p} type="button" className={`km-chip${periode === p ? ' active' : ''}`} onClick={() => setPeriode(p)}>{p}</button>
+        <div className="gs-artikel-layout">
+          <nav className="gs-zijlijn" aria-label="Tijdvakken">
+            <p className="gs-zijlijn-kop">Tijdlijn</p>
+            {STATEN.map((s) => (
+              <button
+                key={s.anker}
+                type="button"
+                className={`gs-zijlijn-item${actiefAnker === s.anker ? ' active' : ''}`}
+                onClick={() => scrollNaar(s.anker)}
+              >
+                <span className="gs-zijlijn-jaren km-num">{s.jaren}</span>
+                <span className="gs-zijlijn-staat">{s.staat}</span>
+              </button>
             ))}
-          </div>
-          <div className="gs-lijst">
-            {GESORTEERD.filter((i) => periode === 'alles' || i.periode === periode).map((item) => (
-              <article className={`gs-item${item.soort === 'persoon' ? ' gs-persoon' : ''}`} key={`${item.jaar}-${item.titel}`}>
-                <span className="gs-jaar km-num">{jaarLabel(item)}</span>
-                <div>
-                  <strong>{item.titel}</strong>
-                  {item.soort === 'persoon' && <span className="gs-tag">persoon</span>}
-                  <p>{item.uitleg}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </>
+          </nav>
+
+          <article className="gs-artikel">
+            <div className="km-page-head">
+              <p className="km-eyebrow">Geschiedenis van Nederland</p>
+              <h1>Van gewesten tot koninkrijk</h1>
+              <p>Acht tijdvakken: welk rijk was "Nederland" toen, hoe kwam dat zo — en wat gebeurde er.</p>
+            </div>
+
+            {STATEN.map((s) => {
+              const items = GESORTEERD.filter((i) => i.periode === s.periode)
+              return (
+                <section key={s.anker} id={`sectie-${s.anker}`} className="gs-sectie">
+                  <h2>{s.periode}</h2>
+
+                  <aside className="gs-infobox">
+                    {s.kaart && (
+                      <figure>
+                        <img src={`/geschiedenis/${s.kaart.file}`} alt={s.kaart.caption} loading="lazy" />
+                        <figcaption>{s.kaart.caption}</figcaption>
+                      </figure>
+                    )}
+                    <dl>
+                      <dt>Staat</dt>
+                      <dd>{s.staat}</dd>
+                      <dt>Jaren</dt>
+                      <dd>{s.jaren}</dd>
+                      <dt>Staatsvorm</dt>
+                      <dd>{s.staatsvorm}</dd>
+                    </dl>
+                  </aside>
+
+                  {s.verhaal.map((alinea, i) => (
+                    <p className="gs-alinea" key={i}>{alinea}</p>
+                  ))}
+
+                  {s.extra && (
+                    <figure className="gs-figuur">
+                      <img src={`/geschiedenis/${s.extra.file}`} alt={s.extra.caption} loading="lazy" />
+                      <figcaption>{s.extra.caption}</figcaption>
+                    </figure>
+                  )}
+
+                  <h3 className="gs-gebeurtenissen-kop">Gebeurtenissen en personen</h3>
+                  <div className="gs-lijst">
+                    {items.map((item) => (
+                      <article className={`gs-item${item.soort === 'persoon' ? ' gs-persoon' : ''}`} key={`${item.jaar}-${item.titel}`}>
+                        <span className="gs-jaar km-num">{jaarLabel(item)}</span>
+                        <div>
+                          <strong>{item.titel}</strong>
+                          {item.soort === 'persoon' && <span className="gs-tag">persoon</span>}
+                          <p>{item.uitleg}</p>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              )
+            })}
+          </article>
+        </div>
       )}
 
       {tab === 'personen' && (
