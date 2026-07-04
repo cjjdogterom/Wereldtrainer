@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Anchor, BookOpen, Church, Flag, Globe2, Trophy } from 'lucide-react'
+import { Anchor, BookOpen, Church, Crown, Flag, Globe2, Trophy } from 'lucide-react'
 import './home.css'
 import { countries } from './data/countries'
 
@@ -49,6 +49,15 @@ const MODULES = [
     subtitle: 'Rooms-Katholieke Kerk',
     description: 'Alle posities van paus tot diaken, plus kardinalen, eretitels en de rangorde in kloosterordes.',
     stats: ['van paus tot diaken', 'incl. ordes'],
+  },
+  {
+    to: '/europa',
+    icon: <Crown size={34} aria-hidden="true" />,
+    accent: '#245c8f',
+    title: 'Europa in vogelvlucht',
+    subtitle: 'Machtsgeschiedenis',
+    description: 'Wie had wanneer de macht in Europa, van de Minoërs en Romeinen tot de EU — bewust beknopt.',
+    stats: ['±40 machten', '4000 jaar'],
   },
 ]
 

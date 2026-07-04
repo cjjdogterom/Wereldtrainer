@@ -1,0 +1,66 @@
+/* Module-specifiek: Europa in vogelvlucht */
+.eu-tijdvak {
+  margin-bottom: 2.25rem;
+}
+
+.eu-tijdvak h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--km-accent);
+  display: inline-block;
+}
+
+.eu-lijst {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 760px;
+}
+
+.eu-item {
+  display: flex;
+  gap: 1.1rem;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 12px;
+  box-shadow: var(--km-shadow);
+  padding: 0.9rem 1.1rem;
+}
+
+.eu-periode {
+  flex-shrink: 0;
+  width: 128px;
+  font-size: 0.88rem;
+  color: var(--km-accent) !important;
+}
+
+.eu-item strong {
+  color: var(--km-ink);
+}
+
+.eu-gebied {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--km-soft);
+  margin: 0.1rem 0 0.25rem;
+}
+
+.eu-item p {
+  font-size: 0.9rem;
+  color: var(--km-soft);
+}
+
+@media (max-width: 600px) {
+  .eu-item {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .eu-periode {
+    width: auto;
+  }
+}
