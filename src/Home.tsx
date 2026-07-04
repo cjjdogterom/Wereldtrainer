@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Anchor, Bird, BookOpen, Church, Crown, Flag, Globe2, Landmark, Trophy } from 'lucide-react'
+import { Anchor, Bird, BookOpen, Church, Crown, Flag, Globe2, Landmark, Shield, Trophy } from 'lucide-react'
 import './home.css'
 import { countries } from './data/countries'
 
@@ -76,6 +76,15 @@ const MODULES = [
     subtitle: 'Zien & horen',
     description: 'Veertig veelvoorkomende vogels herkennen aan uiterlijk én geluid, met foto\'s en opnames.',
     stats: ['40 soorten', 'foto + geluid'],
+  },
+  {
+    to: '/rangen',
+    icon: <Shield size={34} aria-hidden="true" />,
+    accent: '#455a64',
+    title: 'Rangen en standen',
+    subtitle: 'Krijgsmacht · politie · brandweer',
+    description: 'De rangordes van marine, mariniers, landmacht, luchtmacht, marechaussee, politie en brandweer — met aanspreektitels.',
+    stats: ['7 onderdelen', '±110 rangen'],
   },
 ]
 
