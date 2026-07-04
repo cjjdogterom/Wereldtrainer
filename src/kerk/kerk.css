@@ -158,12 +158,110 @@
   font-size: 1.2rem;
 }
 
-/* ── Wapens ── */
-.rk-wapens .rk-wapen img {
-  height: 130px;
+/* ── Artikel & positie-rijen (wiki-stijl) ── */
+.rk-artikel {
+  max-width: 760px;
+}
+
+.rk-paus-figuur {
+  float: right;
+  width: 180px;
+  margin: 0 0 1rem 1.5rem;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 12px;
+  box-shadow: var(--km-shadow);
+  overflow: hidden;
+}
+
+.rk-paus-figuur img {
+  width: 100%;
+  display: block;
+}
+
+.rk-paus-figuur figcaption {
+  font-size: 0.75rem;
+  color: var(--km-soft);
+  padding: 0.45rem 0.7rem;
+}
+
+.rk-artikel .gs-alinea,
+.rk-artikel > p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.rk-posities {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  clear: both;
+}
+
+.rk-positie {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 12px;
+  box-shadow: var(--km-shadow);
+  padding: 0.8rem 1rem;
+}
+
+.rk-positie-wapen {
+  flex-shrink: 0;
+  width: 72px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rk-positie-wapen img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  align-self: center;
-  margin-bottom: 0.4rem;
+}
+
+.rk-geen-wapen {
+  color: var(--km-muted);
+}
+
+.rk-positie strong {
+  color: var(--km-ink);
+}
+
+.rk-positie p {
+  font-size: 0.9rem;
+  color: var(--km-soft);
+  margin-top: 0.15rem;
+}
+
+.rk-wapen-uitleg {
+  font-style: italic;
+  color: var(--km-accent) !important;
+  font-size: 0.82rem !important;
+}
+
+.rk-vraagwapen {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.rk-vraagwapen img {
+  height: 150px;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .rk-paus-figuur {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
 }
 
 @media (max-width: 600px) {

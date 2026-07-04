@@ -2,19 +2,22 @@ import { useState } from 'react'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { distractors, pickRandom, shuffle } from '../leer/match'
-import { ALLE_POSITIES, GROEPEN, LADDER, type Positie } from './data'
+import { ALLE_POSITIES, LADDER, SECTIES, type Positie } from './data'
 import './kerk.css'
 
 const ACCENT = '#6b3a5b'
 
-type QuizSoort = 'wie-hoger' | 'positie-taak' | 'taak-positie' | 'mix'
+type QuizSoort = 'wie-hoger' | 'positie-taak' | 'taak-positie' | 'wapen' | 'mix'
 
 const QUIZZEN: { id: QuizSoort; titel: string; uitleg: string }[] = [
   { id: 'wie-hoger', titel: 'Wie staat hoger?', uitleg: 'Kies van twee posities de hoogste in de hiërarchie.' },
   { id: 'positie-taak', titel: 'Positie → rol', uitleg: 'Wat doet deze positie?' },
   { id: 'taak-positie', titel: 'Rol → positie', uitleg: 'Welke positie hoort bij deze rol?' },
+  { id: 'wapen', titel: 'Wapen → positie', uitleg: 'Herken de positie aan het kerkelijke wapen.' },
   { id: 'mix', titel: 'Mix', uitleg: 'Alle vraagsoorten door elkaar.' },
 ]
+
+const MET_WAPEN = SECTIES.flatMap((s) => s.posities).filter((p) => p.wapen)
 
 function vraagWieHoger(): Vraag {
   const a = pickRandom(LADDER)
@@ -48,11 +51,27 @@ function vraagTaakPositie(p: Positie): Vraag {
   }
 }
 
+function vraagWapen(): Vraag {
+  const p = pickRandom(MET_WAPEN)
+  const opts = shuffle([p, ...distractors(MET_WAPEN, p, 3, (x) => x.naam)])
+  return {
+    prompt: (
+      <div className="rk-vraagwapen">
+        <img src={`/kerk/${p.wapen}`} alt="Kerkelijk wapen" />
+        <span>Bij welke positie hoort dit wapen?</span>
+      </div>
+    ),
+    options: opts.map((x) => x.naam),
+    correct: opts.findIndex((x) => x.naam === p.naam),
+    explain: p.wapenUitleg ? `${p.naam}: ${p.wapenUitleg.toLowerCase()}.` : p.naam,
+  }
+}
+
 function maakQuiz(soort: QuizSoort): Vraag[] {
-  const n = 15
-  return Array.from({ length: n }, () => {
-    const s = soort === 'mix' ? pickRandom(['wie-hoger', 'positie-taak', 'taak-positie'] as const) : soort
+  return Array.from({ length: 15 }, () => {
+    const s = soort === 'mix' ? pickRandom(['wie-hoger', 'positie-taak', 'taak-positie', 'wapen'] as const) : soort
     if (s === 'wie-hoger') return vraagWieHoger()
+    if (s === 'wapen') return vraagWapen()
     const p = pickRandom(ALLE_POSITIES)
     return s === 'positie-taak' ? vraagPositieTaak(p) : vraagTaakPositie(p)
   })
@@ -73,33 +92,32 @@ export default function KerkApp() {
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={
         <p>
-          Gebaseerd op <a href="https://nl.wikipedia.org/wiki/Hi%C3%ABrarchie_van_de_Rooms-Katholieke_Kerk" target="_blank" rel="noreferrer">Wikipedia: Hiërarchie van de Rooms-Katholieke Kerk</a> · wapens via Wikimedia Commons.
+          Structuur en wapens overgenomen (beknopt) van <a href="https://nl.wikipedia.org/wiki/Hi%C3%ABrarchie_van_de_Rooms-Katholieke_Kerk" target="_blank" rel="noreferrer">Wikipedia: Hiërarchie van de Rooms-Katholieke Kerk</a> · afbeeldingen via Wikimedia Commons.
         </p>
       }
     >
       {tab === 'leren' && (
-        <>
+        <article className="rk-artikel">
           <div className="km-page-head">
             <p className="km-eyebrow">Leren</p>
-            <h1>Van paus tot diaken</h1>
-            <p>De ladder hieronder is de ambtelijke hiërarchie. Daarnaast bestaan wijdingen, vervangende functies, eretitels en de rangorde binnen kloosterordes.</p>
+            <h1>Hiërarchie van de Rooms-Katholieke Kerk</h1>
           </div>
 
-          <ol className="rk-ladder">
-            {LADDER.map((p) => (
-              <li key={p.id} className="rk-trede">
-                <span className="rk-rang">{p.rang}</span>
-                <div>
-                  <strong>{p.naam}</strong>
-                  <p>{p.omschrijving}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <figure className="rk-paus-figuur">
+            <img src="/kerk/paus-foto.png" alt="Paus Leo XIV" loading="lazy" />
+            <figcaption>De paus — hoofd van de wereldkerk (paus Leo XIV).</figcaption>
+          </figure>
+
+          <p className="gs-alinea">
+            De katholieke kerk kent twee hiërarchieën die vaak door elkaar worden gehaald. De <strong>wijdingshiërarchie</strong> is
+            sacramenteel: er bestaan maar drie wijdingen (diaken, priester, bisschop). De <strong>ambtelijke hiërarchie</strong> gaat
+            over besturen: wie leidt welk gebied — van de wereldkerk tot de parochie. Daarnaast zijn er vervangende functies,
+            pauselijke eretitels en de eigen rangorde van kloosterordes. Elke positie heeft een eigen kerkelijk wapen: aan de
+            kleur van de galero (pelgrimshoed) en het aantal kwasten lees je de rang af.
+          </p>
 
           <section className="rk-groep">
             <h2>Zo past het in elkaar: van wereldkerk tot parochie</h2>
-            <p className="rk-groep-uitleg">Elke laag van de kerk is onderdeel van de laag erboven; elke laag heeft een eigen leider.</p>
             <div className="rk-boom">
               {[
                 { niveau: 'Wereldkerk', leider: 'Paus', extra: 'bisschop van Rome' },
@@ -120,62 +138,27 @@ export default function KerkApp() {
             </div>
           </section>
 
-          <section className="rk-groep">
-            <h2>De wijdingslijn</h2>
-            <p className="rk-groep-uitleg">Los van alle functies zijn er maar drie wijdingsgraden — elke volgende wijding bevat de vorige.</p>
-            <div className="rk-wijding">
-              <div className="rk-wijding-stap">
-                <span className="rk-wijding-nr">1</span>
-                <div><strong>Diaken</strong><p>eerste wijding: dopen, huwelijk inzegenen, preken</p></div>
-              </div>
-              <span className="rk-wijding-pijl">→</span>
-              <div className="rk-wijding-stap">
-                <span className="rk-wijding-nr">2</span>
-                <div><strong>Priester</strong><p>+ eucharistie vieren en biecht afnemen</p></div>
-              </div>
-              <span className="rk-wijding-pijl">→</span>
-              <div className="rk-wijding-stap">
-                <span className="rk-wijding-nr">3</span>
-                <div><strong>Bisschop</strong><p>+ wijden van priesters en het vormsel</p></div>
-              </div>
-            </div>
-          </section>
-
-          <section className="rk-groep">
-            <h2>Herken de rang aan het wapen</h2>
-            <p className="rk-groep-uitleg">Geestelijken voeren een kerkelijk wapen met een galero (pelgrimshoed); de kleur en het aantal kwasten verraden de rang.</p>
-            <div className="km-grid rk-wapens">
-              {[
-                { img: 'paus.png', naam: 'Paus', uitleg: 'Gekruiste sleutels van Petrus achter het schild, met tiara of mijter (voorbeeld: wapen van Benedictus XVI).' },
-                { img: 'kardinaal.png', naam: 'Kardinaal', uitleg: 'Rode galero met 15 kwasten aan elke kant.' },
-                { img: 'aartsbisschop.png', naam: 'Aartsbisschop', uitleg: 'Groene galero met 10 kwasten per kant en een dubbelgekruiste staf; metropolieten dragen het pallium.' },
-                { img: 'bisschop.png', naam: 'Bisschop', uitleg: 'Groene galero met 6 kwasten per kant en een bisschopsstaf.' },
-                { img: 'priester.png', naam: 'Priester', uitleg: 'Zwarte galero met 1 kwast aan elke kant.' },
-              ].map((w) => (
-                <div className="km-card rk-wapen" key={w.naam}>
-                  <img src={`/kerk/${w.img}`} alt={`Wapen van een ${w.naam.toLowerCase()}`} loading="lazy" />
-                  <h3>{w.naam}</h3>
-                  <p>{w.uitleg}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {GROEPEN.map((groep) => (
-            <section key={groep.titel} className="rk-groep">
-              <h2>{groep.titel}</h2>
-              <p className="rk-groep-uitleg">{groep.uitleg}</p>
-              <div className="km-grid">
-                {groep.posities.map((p) => (
-                  <div className="km-card" key={p.id}>
-                    <h3>{p.naam}</h3>
-                    <p>{p.omschrijving}</p>
+          {SECTIES.map((sectie) => (
+            <section key={sectie.titel} className="rk-groep">
+              <h2>{sectie.titel}</h2>
+              <p className="rk-groep-uitleg">{sectie.uitleg}</p>
+              <div className="rk-posities">
+                {sectie.posities.map((p) => (
+                  <div className="rk-positie" key={p.id}>
+                    <div className="rk-positie-wapen">
+                      {p.wapen ? <img src={`/kerk/${p.wapen}`} alt={`Wapen: ${p.naam}`} loading="lazy" /> : <span className="rk-geen-wapen" aria-hidden="true">—</span>}
+                    </div>
+                    <div>
+                      <strong>{p.naam}</strong>
+                      <p>{p.omschrijving}</p>
+                      {p.wapenUitleg && <p className="rk-wapen-uitleg">Wapen: {p.wapenUitleg.toLowerCase()}.</p>}
+                    </div>
                   </div>
                 ))}
               </div>
             </section>
           ))}
-        </>
+        </article>
       )}
 
       {tab === 'overhoren' && quiz === null && (
