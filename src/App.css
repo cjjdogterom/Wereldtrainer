@@ -23,6 +23,8 @@
   gap: 12px;
   align-items: center;
   padding-bottom: 4px;
+  color: inherit;
+  text-decoration: none;
 }
 
 .brand svg {

@@ -1,0 +1,195 @@
+.filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.filter-select {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  background: white;
+  cursor: pointer;
+}
+
+.results-count {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.champions-table-wrapper {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.champions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.champions-table th {
+  background: var(--bg-light);
+  padding: 0.875rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-dark);
+  border-bottom: 2px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.champions-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.champions-table tr:hover:not(.no-champion) {
+  background: rgba(30, 64, 175, 0.03);
+}
+
+.champions-table tr.no-champion {
+  background: rgba(0, 0, 0, 0.02);
+  color: var(--text-light);
+}
+
+.season-cell {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.club-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+}
+
+.club-link {
+  color: var(--text-dark);
+  transition: color 0.2s;
+}
+
+.club-link:hover {
+  color: var(--primary-color);
+}
+
+.club-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.club-logo-img {
+  background: white;
+  padding: 2px;
+  border: 1px solid var(--border-color);
+}
+
+.club-logo-fallback {
+  color: white;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.club-logo-empty {
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.no-winner {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.era-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.era-voor-eredivisie {
+  background: rgba(100, 116, 139, 0.15);
+  color: #475569;
+}
+
+.era-eredivisie {
+  background: rgba(30, 64, 175, 0.1);
+  color: var(--primary-color);
+}
+
+.era-geen-kampioen {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--secondary-color);
+}
+
+.era-europacup-i {
+  background: rgba(100, 116, 139, 0.15);
+  color: #475569;
+}
+
+.era-champions-league {
+  background: rgba(30, 64, 175, 0.12);
+  color: var(--primary-color);
+}
+
+.club-logo-flag {
+  background: transparent;
+  border-radius: 0;
+}
+
+.mnemonic-cell {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  max-width: 220px;
+  line-height: 1.35;
+}
+
+.mnemonic-tooltip {
+  cursor: help;
+}
+
+.note-cell {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  max-width: 200px;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .mnemonic-cell {
+    display: none;
+  }
+}

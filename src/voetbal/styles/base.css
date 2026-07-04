@@ -1,0 +1,49 @@
+/* Basis van de voetbal-app, gescoped onder .voetbal-app zodat de rest van de
+   leerapp (topografie, home) er geen last van heeft. */
+.voetbal-app {
+  --primary-color: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary-color: #dc2626;
+  --accent-color: #059669;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --bg-light: #f8fafc;
+  --bg-white: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --radius: 0.75rem;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100svh;
+}
+
+.voetbal-app,
+.voetbal-app *,
+.voetbal-app *::before,
+.voetbal-app *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.voetbal-app button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.voetbal-app a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.voetbal-app input,
+.voetbal-app select {
+  font-family: inherit;
+}

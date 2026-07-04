@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type RefObject, type SetStateAction } from 'react'
 import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, Menu, RotateCcw, Target, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
 import mediumGeoUrl from 'world-atlas/countries-50m.json?url'
 import worldGeoUrl from 'world-atlas/countries-110m.json?url'
@@ -831,13 +832,13 @@ function App() {
       <aside className="sidebar" aria-label="Instellingen">
         {/* sidebar-head: always visible; on mobile = compact top bar */}
         <div className="sidebar-head">
-          <div className="brand">
+          <Link to="/" className="brand" title="Terug naar de leerapp">
             <Globe2 size={28} aria-hidden="true" />
             <div>
               <h1>Wereldtrainer</h1>
               <p>{countries.length} landen om te leren</p>
             </div>
-          </div>
+          </Link>
           <button
             className="sidebar-toggle"
             type="button"
