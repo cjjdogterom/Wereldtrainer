@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { distractors, pickRandom, shuffle } from '../leer/match'
-import { MACHTEN, TIJDVAKKEN, type Macht } from './data'
-import { KAARTEN, LANDEN } from './kaarten'
+import { MACHTEN, type Macht } from './data'
+import { LANDEN } from './kaarten'
+import { ARTIKEL } from './artikel'
 import './europa.css'
 
 const ACCENT = '#245c8f'
@@ -97,6 +98,27 @@ function maakQuiz(soort: QuizSoort): Vraag[] {
 export default function EuropaApp() {
   const [tab, setTab] = useState('leren')
   const [quiz, setQuiz] = useState<QuizSoort | null>(null)
+  const [actiefAnker, setActiefAnker] = useState(ARTIKEL[0].anker)
+
+  // Scrollspy voor de zij-tijdlijn
+  useEffect(() => {
+    if (tab !== 'leren') return
+    const secties = ARTIKEL.map((s) => document.getElementById(`eu-${s.anker}`)).filter(Boolean) as HTMLElement[]
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const zichtbaar = entries.filter((e) => e.isIntersecting)
+        if (zichtbaar.length > 0) setActiefAnker(zichtbaar[0].target.id.replace('eu-', ''))
+      },
+      { rootMargin: '-15% 0px -70% 0px' },
+    )
+    secties.forEach((s) => observer.observe(s))
+    return () => observer.disconnect()
+  }, [tab])
+
+  function scrollNaar(anker: string) {
+    setActiefAnker(anker)
+    document.getElementById(`eu-${anker}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <LeerShell
@@ -104,48 +126,58 @@ export default function EuropaApp() {
       accent={ACCENT}
       title="Europa in vogelvlucht"
       subtitle="Wie had wanneer de macht, en waar"
-      tabs={[{ id: 'leren', label: 'Tijdlijn' }, { id: 'landen', label: 'Ontstaan van landen' }, { id: 'overhoren', label: 'Overhoren' }]}
+      tabs={[{ id: 'leren', label: 'Artikel' }, { id: 'landen', label: 'Ontstaan van landen' }, { id: 'overhoren', label: 'Overhoren' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={<p>Bewust beknopt: de grote lijnen van de Europese machtsgeschiedenis · kaarten via Wikimedia Commons.</p>}
     >
       {tab === 'leren' && (
-        <>
-          <div className="km-page-head">
-            <p className="km-eyebrow">Tijdlijn</p>
-            <h1>Van Minoërs tot de Europese Unie</h1>
-            <p>De grote machten van Europa in chronologische volgorde, per tijdvak.</p>
-          </div>
+        <div className="gs-artikel-layout">
+          <nav className="gs-zijlijn" aria-label="Tijdvakken">
+            <p className="gs-zijlijn-kop">Tijdlijn</p>
+            {ARTIKEL.map((s) => (
+              <button
+                key={s.anker}
+                type="button"
+                className={`gs-zijlijn-item${actiefAnker === s.anker ? ' active' : ''}`}
+                onClick={() => scrollNaar(s.anker)}
+              >
+                <span className="gs-zijlijn-jaren km-num">{s.jaren}</span>
+                <span className="gs-zijlijn-staat">{s.titel}</span>
+              </button>
+            ))}
+          </nav>
 
-          {TIJDVAKKEN.map((tijdvak) => (
-            <section key={tijdvak} className="eu-tijdvak">
-              <h2>{tijdvak}</h2>
-              <div className="eu-lijst">
-                {MACHTEN.filter((m) => m.tijdvak === tijdvak).map((m) => (
-                  <article className="eu-item" key={m.id}>
-                    <span className="eu-periode km-num">{m.periode}</span>
-                    <div>
-                      <strong>{m.macht}</strong>
-                      <span className="eu-gebied">{m.gebied}</span>
-                      <p>{m.uitleg}</p>
-                    </div>
-                  </article>
+          <article className="gs-artikel">
+            <div className="km-page-head">
+              <p className="km-eyebrow">Geschiedenis van Europa</p>
+              <h1>Van Minoërs tot Europese Unie</h1>
+              <p>Hoe de grond van Europa telkens opnieuw verdeeld werd — verteld per tijdvak, met de kaart erbij.</p>
+            </div>
+
+            {ARTIKEL.map((s) => (
+              <section key={s.anker} id={`eu-${s.anker}`} className="gs-sectie">
+                <h2>{s.titel} <span className="eu-sectie-jaren km-num">({s.jaren})</span></h2>
+                {s.alineas.map((alinea, i) => (
+                  <p className="gs-alinea" key={i}>{alinea}</p>
                 ))}
-              </div>
-              <div className="eu-kaarten">
-                {KAARTEN.filter((k) => k.tijdvak === tijdvak).map((k) => (
-                  <figure className="eu-kaart" key={k.file}>
-                    <img src={`/europa/${k.file}`} alt={k.titel} loading="lazy" />
-                    <figcaption>
-                      <strong>{k.titel}</strong>
-                      <p>{k.uitleg}</p>
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            </section>
-          ))}
-        </>
+                {s.kaarten.length > 0 && (
+                  <div className="eu-kaarten">
+                    {s.kaarten.map((k) => (
+                      <figure className="eu-kaart" key={k.file}>
+                        <img src={`/europa/${k.file}`} alt={k.titel} loading="lazy" />
+                        <figcaption>
+                          <strong>{k.titel}</strong>
+                          <p>{k.uitleg}</p>
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                )}
+              </section>
+            ))}
+          </article>
+        </div>
       )}
 
       {tab === 'landen' && (
