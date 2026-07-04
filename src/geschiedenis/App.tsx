@@ -201,56 +201,39 @@ export default function GeschiedenisApp() {
               <p>Acht tijdvakken: welk rijk was "Nederland" toen, hoe kwam dat zo — en wat gebeurde er.</p>
             </div>
 
-            {STATEN.map((s) => {
-              const items = GESORTEERD.filter((i) => i.periode === s.periode)
-              return (
-                <section key={s.anker} id={`sectie-${s.anker}`} className="gs-sectie">
-                  <h2>{s.periode}</h2>
+            {STATEN.map((s) => (
+              <section key={s.anker} id={`sectie-${s.anker}`} className="gs-sectie">
+                <h2>{s.periode}</h2>
 
-                  <aside className="gs-infobox">
-                    {s.kaart && (
-                      <figure>
-                        <img src={`/geschiedenis/${s.kaart.file}`} alt={s.kaart.caption} loading="lazy" />
-                        <figcaption>{s.kaart.caption}</figcaption>
-                      </figure>
-                    )}
-                    <dl>
-                      <dt>Staat</dt>
-                      <dd>{s.staat}</dd>
-                      <dt>Jaren</dt>
-                      <dd>{s.jaren}</dd>
-                      <dt>Staatsvorm</dt>
-                      <dd>{s.staatsvorm}</dd>
-                    </dl>
-                  </aside>
-
-                  {s.verhaal.map((alinea, i) => (
-                    <p className="gs-alinea" key={i}>{alinea}</p>
-                  ))}
-
-                  {s.extra && (
-                    <figure className="gs-figuur">
-                      <img src={`/geschiedenis/${s.extra.file}`} alt={s.extra.caption} loading="lazy" />
-                      <figcaption>{s.extra.caption}</figcaption>
+                <aside className="gs-infobox">
+                  {s.kaart && (
+                    <figure>
+                      <img src={`/geschiedenis/${s.kaart.file}`} alt={s.kaart.caption} loading="lazy" />
+                      <figcaption>{s.kaart.caption}</figcaption>
                     </figure>
                   )}
+                  <dl>
+                    <dt>Staat</dt>
+                    <dd>{s.staat}</dd>
+                    <dt>Jaren</dt>
+                    <dd>{s.jaren}</dd>
+                    <dt>Staatsvorm</dt>
+                    <dd>{s.staatsvorm}</dd>
+                  </dl>
+                </aside>
 
-                  <h3 className="gs-gebeurtenissen-kop">Gebeurtenissen en personen</h3>
-                  <div className="gs-lijst">
-                    {items.map((item) => (
-                      <article className={`gs-item${item.soort === 'persoon' ? ' gs-persoon' : ''}`} key={`${item.jaar}-${item.titel}`}>
-                        <span className="gs-jaar km-num">{jaarLabel(item)}</span>
-                        <div>
-                          <strong>{item.titel}</strong>
-                          {item.soort === 'persoon' && <span className="gs-tag">persoon</span>}
-                          <p>{item.uitleg}</p>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </section>
-              )
-            })}
+                {s.verhaal.map((alinea, i) => (
+                  <p className="gs-alinea" key={i}>{alinea}</p>
+                ))}
+
+                {s.extra && (
+                  <figure className="gs-figuur">
+                    <img src={`/geschiedenis/${s.extra.file}`} alt={s.extra.caption} loading="lazy" />
+                    <figcaption>{s.extra.caption}</figcaption>
+                  </figure>
+                )}
+              </section>
+            ))}
           </article>
         </div>
       )}
