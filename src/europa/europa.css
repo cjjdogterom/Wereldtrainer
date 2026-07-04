@@ -54,6 +54,45 @@
   color: var(--km-soft);
 }
 
+/* ── Historische kaarten ── */
+.eu-kaarten {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin-top: 1rem;
+}
+
+.eu-kaart {
+  margin: 0;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: var(--km-radius);
+  box-shadow: var(--km-shadow);
+  overflow: hidden;
+}
+
+.eu-kaart img {
+  width: 100%;
+  display: block;
+  background: #fff;
+}
+
+.eu-kaart figcaption {
+  padding: 0.8rem 1rem 0.95rem;
+}
+
+.eu-kaart figcaption strong {
+  color: var(--km-ink);
+  font-size: 0.95rem;
+}
+
+.eu-kaart figcaption p {
+  font-size: 0.85rem;
+  color: var(--km-soft);
+  margin-top: 0.25rem;
+}
+
 @media (max-width: 600px) {
   .eu-item {
     flex-direction: column;
