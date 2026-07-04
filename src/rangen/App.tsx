@@ -94,7 +94,7 @@ export default function RangenApp() {
         <div className="km-quiz-menu rg-keuze">
           {ONDERDELEN.map((o) => (
             <button key={o.id} type="button" className="km-card rg-tegel" onClick={() => { setOnderdeelId(o.id); setTab('leren'); setQuiz(null) }}>
-              <span className="comp-mark rg-mark" style={{ background: o.accent }}>{o.mark}</span>
+              <span className="rg-mark" aria-hidden="true" style={{ background: o.accent }}>{o.mark}</span>
               <h3>{o.naam}</h3>
               <p>{o.rangen.length} rangen</p>
             </button>

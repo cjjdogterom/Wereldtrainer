@@ -8,9 +8,16 @@
 }
 
 .rg-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 44px;
   height: 44px;
+  border-radius: 26%;
+  color: #fff;
+  font-weight: 750;
   font-size: 0.8rem;
+  letter-spacing: 0.04em;
   margin-bottom: 0.35rem;
 }
 

@@ -534,6 +534,14 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .km-header-inner,
+  .km-brand {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .km-nav::-webkit-scrollbar {
