@@ -160,10 +160,10 @@ export default function GeschiedenisApp() {
             <p className="km-eyebrow">Tijdlijn</p>
             <h1>Nederland vanaf 1300</h1>
           </div>
-          <div className="gs-filters">
-            <button type="button" className={`gs-chip${periode === 'alles' ? ' active' : ''}`} onClick={() => setPeriode('alles')}>Alles</button>
+          <div className="km-filters">
+            <button type="button" className={`km-chip${periode === 'alles' ? ' active' : ''}`} onClick={() => setPeriode('alles')}>Alles</button>
             {PERIODES.map((p) => (
-              <button key={p} type="button" className={`gs-chip${periode === p ? ' active' : ''}`} onClick={() => setPeriode(p)}>{p}</button>
+              <button key={p} type="button" className={`km-chip${periode === p ? ' active' : ''}`} onClick={() => setPeriode(p)}>{p}</button>
             ))}
           </div>
           <div className="gs-lijst">

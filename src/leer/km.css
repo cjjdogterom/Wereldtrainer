@@ -463,6 +463,36 @@
   color: var(--km-ink);
 }
 
+/* ── Filterchips ── */
+.km-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.km-chip {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--km-line);
+  background: var(--km-panel);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--km-soft);
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.km-chip:hover {
+  border-color: var(--km-accent);
+  color: var(--km-accent);
+}
+
+.km-chip.active {
+  background: var(--km-accent);
+  border-color: var(--km-accent);
+  color: #fff;
+}
+
 /* ── Quiz-keuzescherm ── */
 .km-quiz-menu {
   display: grid;

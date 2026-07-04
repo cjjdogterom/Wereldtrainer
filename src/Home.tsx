@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Anchor, BookOpen, Church, Crown, Flag, Globe2, Landmark, Trophy } from 'lucide-react'
+import { Anchor, Bird, BookOpen, Church, Crown, Flag, Globe2, Landmark, Trophy } from 'lucide-react'
 import './home.css'
 import { countries } from './data/countries'
 
@@ -67,6 +67,15 @@ const MODULES = [
     subtitle: 'Vanaf 1300',
     description: 'Ruim 150 belangrijke gebeurtenissen en personen, van de Hoekse twisten tot nu — leren in blokken en overhoren.',
     stats: ['±150 items', '8 tijdvakken'],
+  },
+  {
+    to: '/vogels',
+    icon: <Bird size={34} aria-hidden="true" />,
+    accent: '#3a6b35',
+    title: 'Vogels van Nederland',
+    subtitle: 'Zien & horen',
+    description: 'Veertig veelvoorkomende vogels herkennen aan uiterlijk én geluid, met foto\'s en opnames.',
+    stats: ['40 soorten', 'foto + geluid'],
   },
 ]
 

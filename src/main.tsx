@@ -12,6 +12,7 @@ const KnopenApp = lazy(() => import('./knopen/App.tsx'))
 const KerkApp = lazy(() => import('./kerk/App.tsx'))
 const EuropaApp = lazy(() => import('./europa/App.tsx'))
 const GeschiedenisApp = lazy(() => import('./geschiedenis/App.tsx'))
+const VogelsApp = lazy(() => import('./vogels/App.tsx'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/kerk/*" element={<KerkApp />} />
           <Route path="/europa/*" element={<EuropaApp />} />
           <Route path="/geschiedenis/*" element={<GeschiedenisApp />} />
+          <Route path="/vogels/*" element={<VogelsApp />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
