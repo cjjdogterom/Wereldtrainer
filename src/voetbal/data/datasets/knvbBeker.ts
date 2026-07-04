@@ -223,7 +223,7 @@ export const knvbBeker: Dataset = {
   shortTitle: 'KNVB Beker',
   subtitle: 'Bekerwinnaars sinds 1899',
   icon: '🏆',
-  theme: { primary: '#ea580c', primaryDark: '#9a3412', secondary: '#1e293b', accent: '#0d9488' },
+  theme: { primary: '#92400e', primaryDark: '#713208', secondary: '#b91c1c', accent: '#15803d' },
   heroBadge: 'Het nationale bekertoernooi sinds 1899',
   heroTitle: 'Leer alle winnaars van de KNVB Beker',
   heroText:

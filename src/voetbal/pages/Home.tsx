@@ -61,27 +61,22 @@ export default function Home() {
         <h2>Wat kun je doen?</h2>
         <div className="feature-grid">
           <Link to={`${base}/overzicht`} className="feature-card">
-            <span className="feature-icon">📋</span>
             <h3>Compleet overzicht</h3>
             <p>Doorzoek en filter alle winnaars per jaar, {dataset.entityNoun} of periode.</p>
           </Link>
           <Link to={`${base}/overhoren`} className="feature-card">
-            <span className="feature-icon">🎓</span>
             <h3>Overhoringsmodus</h3>
             <p>Test jezelf met quizzen: wie won welk jaar, en in welk jaar won wie?</p>
           </Link>
           <Link to={`${base}/leren`} className="feature-card">
-            <span className="feature-icon">📚</span>
             <h3>Jaartallen leren</h3>
             <p>Leer stap voor stap, telkens 6 jaren op rij: bekijken, oefenen, door naar de volgende 6.</p>
           </Link>
           <Link to={`${base}/winnaars`} className="feature-card">
-            <span className="feature-icon">⚽</span>
             <h3>Per {dataset.entityNoun}</h3>
             <p>Bekijk per {dataset.entityNoun} alle gewonnen titels, met ezelsbruggetjes.</p>
           </Link>
           <Link to={`${base}/statistieken`} className="feature-card">
-            <span className="feature-icon">📊</span>
             <h3>Statistieken</h3>
             <p>Bekijk welke {dataset.entityNounPlural} de meeste titels wonnen.</p>
           </Link>

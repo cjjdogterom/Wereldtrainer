@@ -70,7 +70,7 @@ export default function Clubs() {
 
               {meta.mnemonic && (
                 <p className="club-mnemonic-preview">
-                  <span className="mnemonic-icon">🧠</span> {meta.mnemonic}
+                  {meta.mnemonic}
                 </p>
               )}
 

@@ -57,7 +57,7 @@ export const wereldkampioenschap: Dataset = {
   shortTitle: 'Wereldkampioenen',
   subtitle: 'Wereldkampioenen sinds 1930',
   icon: '🌍',
-  theme: { primary: '#047857', primaryDark: '#064e3b', secondary: '#f59e0b', accent: '#1d4ed8' },
+  theme: { primary: '#1d6b4a', primaryDark: '#155238', secondary: '#b91c1c', accent: '#15803d' },
   heroBadge: 'Het WK voetbal sinds 1930',
   heroTitle: 'Leer alle wereldkampioenen voetbal',
   heroText:

@@ -66,8 +66,7 @@
 
 .option-btn:hover:not(:disabled) {
   border-color: var(--primary-color);
-  background-color: rgba(30, 64, 175, 0.05);
-  transform: translateX(4px);
+  background-color: color-mix(in srgb, var(--primary-color) 5%, white);
 }
 
 .option-btn:disabled {
@@ -126,17 +125,16 @@
 .next-btn {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--primary-color);
   color: white;
-  border-radius: 0.5rem;
+  border-radius: 10px;
   font-size: 1.0625rem;
   font-weight: 700;
-  transition: all 0.3s ease;
+  transition: background 0.15s;
 }
 
 .next-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+  background: var(--primary-dark, #163a5b);
 }
 
 .quiz-finished {
@@ -162,9 +160,10 @@
 }
 
 .final-score {
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(220, 38, 38, 0.05));
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
   padding: 2rem;
-  border-radius: 0.75rem;
+  border-radius: 12px;
   margin-bottom: 1.5rem;
 }
 

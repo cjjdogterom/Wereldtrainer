@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import type { CSSProperties } from 'react';
 import { datasets } from '../data/datasets';
 import { getUniqueWinners, winnersOnly } from '../data/DatasetContext';
 import { VOETBAL_BASE } from '../App';
+import CompetitionMark from '../components/CompetitionMark';
 import '../styles/Trainers.css';
 
 export default function TrainerPicker() {
@@ -10,27 +10,29 @@ export default function TrainerPicker() {
     <div className="trainers-page">
       <header className="trainers-hero">
         <Link to="/" className="trainers-back">← Leerapp</Link>
-        <span className="trainers-badge">⚽ Voetbalwinnaars · Overhoringsplatform</span>
-        <h1>Kies je trainer</h1>
-        <p>
-          Leer en overhoor de winnaars van het Nederlandse en Europese voetbal:
-          landskampioenen, bekerwinnaars, Europacup/Champions League, en de wereld- en
-          Europees kampioenen.
+        <p className="trainers-eyebrow">Voetbalwinnaars</p>
+        <h1>Kies je competitie</h1>
+        <p className="trainers-intro">
+          Alle winnaars van het Nederlandse en Europese voetbal sinds 1889 — bekijk de
+          erelijsten, leer de jaartallen en overhoor jezelf.
         </p>
       </header>
 
       <main className="trainers-main">
         <div className="trainers-grid">
           {datasets.map((d) => {
-            const accent = { '--card-accent': d.theme.primary } as CSSProperties;
             const titles = winnersOnly(d).length;
             const unique = getUniqueWinners(d).length;
 
             return (
-              <Link key={d.id} to={`${VOETBAL_BASE}/${d.id}`} className="trainer-card" style={accent}>
-                <span className="trainer-card-icon">{d.icon}</span>
-                <h2>{d.title}</h2>
-                <span className="trainer-card-sub">{d.subtitle}</span>
+              <Link key={d.id} to={`${VOETBAL_BASE}/${d.id}`} className="trainer-card">
+                <div className="trainer-card-head">
+                  <CompetitionMark id={d.id} color={d.theme.primary} size={44} />
+                  <div>
+                    <h2>{d.title}</h2>
+                    <span className="trainer-card-sub" style={{ color: d.theme.primary }}>{d.subtitle}</span>
+                  </div>
+                </div>
                 <p className="trainer-card-desc">{d.cardDescription}</p>
                 <div className="trainer-card-stats">
                   <div className="tc-stat">
@@ -39,10 +41,10 @@ export default function TrainerPicker() {
                   </div>
                   <div className="tc-stat">
                     <span className="tc-num">{unique}</span>
-                    <span className="tc-label">Unieke {d.entityNounPlural}</span>
+                    <span className="tc-label">{d.entityNounPlural}</span>
                   </div>
+                  <span className="trainer-card-cta" style={{ color: d.theme.primary }}>Open trainer →</span>
                 </div>
-                <span className="trainer-card-cta">Start trainer →</span>
               </Link>
             );
           })}

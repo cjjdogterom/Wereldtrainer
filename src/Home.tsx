@@ -17,7 +17,7 @@ const MODULES = [
   {
     to: '/voetbal',
     icon: <Trophy size={34} aria-hidden="true" />,
-    accent: '#1e40af',
+    accent: '#1f4e79',
     title: 'Voetbalwinnaars',
     subtitle: 'Eredivisie & meer',
     description: 'Alle winnaars van de Eredivisie, KNVB Beker, Champions League, het WK en EK — leren en overhoren.',

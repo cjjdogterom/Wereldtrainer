@@ -49,7 +49,7 @@ export default function Stats() {
               <tr key={club.winner} className={index < 3 ? `top-${index + 1}` : ''}>
                 <td className="rank-cell">{index + 1}</td>
                 <td className="club-name-cell">
-                  {index < 3 && <span className="medal">{['🥇', '🥈', '🥉'][index]}</span>}
+
                   <span className="stats-winner">
                     <EntityLogo winner={club.winner} size={24} />
                     {club.winner}

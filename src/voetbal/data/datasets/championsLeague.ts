@@ -165,7 +165,7 @@ export const championsLeague: Dataset = {
   shortTitle: 'Champions League',
   subtitle: 'Europese topclubs sinds 1956',
   icon: '⭐',
-  theme: { primary: '#0b1f4d', primaryDark: '#060f2b', secondary: '#1f6feb', accent: '#f5c518' },
+  theme: { primary: '#3d3a7d', primaryDark: '#2d2b5e', secondary: '#b91c1c', accent: '#15803d' },
   heroBadge: 'Europees clubvoetbal sinds 1956',
   heroTitle: 'Leer alle Europacup I- en Champions League-winnaars',
   heroText:

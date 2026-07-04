@@ -158,7 +158,7 @@ export default function Learn() {
                   <span className="study-winner">{c.winner}</span>
                   {meta.mnemonic && (
                     <span className="study-mnemonic" title={meta.mnemonicDetail}>
-                      🧠 {meta.mnemonic}
+                      {meta.mnemonic}
                     </span>
                   )}
                 </li>
@@ -226,7 +226,7 @@ export default function Learn() {
                 )}
                 {status === 'wrong' && getMeta(dataset, current.winner).mnemonic && (
                   <p className="mnemonic-hint">
-                    🧠 {getMeta(dataset, current.winner).mnemonic}
+                    {getMeta(dataset, current.winner).mnemonic}
                   </p>
                 )}
               </div>
@@ -240,7 +240,7 @@ export default function Learn() {
 
       {phase === 'blockDone' && (
         <div className="learn-card learn-done">
-          <h2>Blok voltooid! 🎉</h2>
+          <h2>Blok voltooid</h2>
           <p>Je kent de jaren {blockRange(chunk)}. Klaar voor de volgende 6?</p>
           <div className="learn-done-actions">
             <button className="btn btn-outline" onClick={() => goToBlock(chunkIndex)}>
@@ -258,7 +258,7 @@ export default function Learn() {
 
       {phase === 'allDone' && (
         <div className="learn-card learn-done">
-          <h2>Helemaal klaar! 🏆</h2>
+          <h2>Alles afgerond</h2>
           <p>
             Je hebt alle {dataset.editionNounPlural} van {dataset.title} geoefend. Begin
             gerust opnieuw om alles scherp te houden.

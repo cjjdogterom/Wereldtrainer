@@ -188,7 +188,7 @@ export const eredivisie: Dataset = {
   shortTitle: 'Eredivisie',
   subtitle: 'Landskampioenen sinds 1889',
   icon: '🏆',
-  theme: { primary: '#1e40af', primaryDark: '#1e3a8a', secondary: '#dc2626', accent: '#059669' },
+  theme: { primary: '#1f4e79', primaryDark: '#163a5b', secondary: '#b91c1c', accent: '#15803d' },
   heroBadge: 'Nederlands voetbal sinds 1889',
   heroTitle: 'Leer alle landskampioenen van Nederland',
   heroText:

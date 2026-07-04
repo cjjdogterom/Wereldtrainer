@@ -127,17 +127,22 @@
 }
 
 .mnemonic-card {
-  background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(30, 64, 175, 0.05));
-  border: 2px solid rgba(5, 150, 105, 0.2);
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--primary-color);
   padding: 1.5rem;
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
   margin-bottom: 2rem;
 }
 
 .mnemonic-card h2 {
-  font-size: 1.125rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   margin-bottom: 0.75rem;
-  color: var(--accent-color);
+  color: var(--primary-color);
 }
 
 .mnemonic-short {

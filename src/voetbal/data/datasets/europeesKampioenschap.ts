@@ -54,7 +54,7 @@ export const europeesKampioenschap: Dataset = {
   shortTitle: 'Europees kampioenen',
   subtitle: 'Europees kampioenen sinds 1960',
   icon: '🇪🇺',
-  theme: { primary: '#1d4ed8', primaryDark: '#1e3a8a', secondary: '#f59e0b', accent: '#dc2626' },
+  theme: { primary: '#2b6b8f', primaryDark: '#1e516e', secondary: '#b91c1c', accent: '#15803d' },
   heroBadge: 'Het EK voetbal sinds 1960',
   heroTitle: 'Leer alle Europees kampioenen voetbal',
   heroText:

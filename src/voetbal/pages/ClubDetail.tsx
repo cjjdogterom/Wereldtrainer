@@ -68,7 +68,7 @@ export default function ClubDetail() {
       {meta.mnemonic && (
         <div className="mnemonic-card">
           <h2>
-            <span className="mnemonic-icon">🧠</span> Ezelsbruggetje
+            Ezelsbruggetje
           </h2>
           <p className="mnemonic-short">{meta.mnemonic}</p>
           {meta.mnemonicDetail && <p className="mnemonic-detail">{meta.mnemonicDetail}</p>}

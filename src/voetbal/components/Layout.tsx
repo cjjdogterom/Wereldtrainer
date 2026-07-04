@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import type { CSSProperties, ReactNode } from 'react';
 import { useDataset } from '../data/DatasetContext';
 import { VOETBAL_BASE } from '../App';
+import CompetitionMark from './CompetitionMark';
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,12 +18,12 @@ export default function Layout({ children }: LayoutProps) {
   const base = `${VOETBAL_BASE}/${dataset.id}`;
 
   const navItems = [
-    { path: base, label: 'Home', icon: '🏠', exact: true },
-    { path: `${base}/overzicht`, label: 'Overzicht', icon: '📋', exact: false },
-    { path: `${base}/winnaars`, label: capitalize(dataset.entityNounPlural), icon: '⚽', exact: false },
-    { path: `${base}/overhoren`, label: 'Overhoren', icon: '🎓', exact: false },
-    { path: `${base}/leren`, label: 'Leren', icon: '📚', exact: false },
-    { path: `${base}/statistieken`, label: 'Statistieken', icon: '📊', exact: false },
+    { path: base, label: 'Home', exact: true },
+    { path: `${base}/overzicht`, label: 'Overzicht', exact: false },
+    { path: `${base}/winnaars`, label: capitalize(dataset.entityNounPlural), exact: false },
+    { path: `${base}/overhoren`, label: 'Overhoren', exact: false },
+    { path: `${base}/leren`, label: 'Leren', exact: false },
+    { path: `${base}/statistieken`, label: 'Statistieken', exact: false },
   ];
 
   const themeStyle = {
@@ -37,7 +38,7 @@ export default function Layout({ children }: LayoutProps) {
       <header className="site-header">
         <div className="header-inner">
           <Link to={base} className="vb-brand">
-            <span className="brand-icon">{dataset.icon}</span>
+            <CompetitionMark id={dataset.id} color={dataset.theme.primary} size={40} />
             <div>
               <span className="brand-title">{dataset.title}</span>
               <span className="brand-subtitle">{dataset.subtitle}</span>
@@ -54,17 +55,15 @@ export default function Layout({ children }: LayoutProps) {
                   to={item.path}
                   className={`nav-link ${isActive ? 'active' : ''}`}
                 >
-                  <span className="nav-icon">{item.icon}</span>
                   {item.label}
                 </Link>
               );
             })}
-            <Link to={VOETBAL_BASE} className="nav-link nav-link-trainers">
-              <span className="nav-icon">🔁</span>
-              Alle trainers
+            <span className="nav-sep" aria-hidden="true" />
+            <Link to={VOETBAL_BASE} className="nav-link nav-link-quiet">
+              Alle competities
             </Link>
-            <Link to="/" className="nav-link nav-link-trainers">
-              <span className="nav-icon">🏠</span>
+            <Link to="/" className="nav-link nav-link-quiet">
               Leerapp
             </Link>
           </nav>

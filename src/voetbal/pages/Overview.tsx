@@ -150,7 +150,7 @@ export default function Overview() {
                   <td className="mnemonic-cell">
                     {meta?.mnemonic ? (
                       <span className="mnemonic-tooltip" title={meta.mnemonicDetail}>
-                        🧠 {meta.mnemonic}
+                        {meta.mnemonic}
                       </span>
                     ) : (
                       ''
