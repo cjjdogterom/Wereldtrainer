@@ -2,14 +2,20 @@ import { useState } from 'react'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { pickRandom, shuffle } from '../leer/match'
-import { ONDERDELEN, type Onderdeel } from './data'
+import { ONDERDELEN, type Onderdeel, type Rang } from './data'
+import { INSIGNES } from './insignes'
 import './rangen.css'
+
+function insigneVan(o: Onderdeel, rang: Rang): string | undefined {
+  return INSIGNES[`${o.id}|${rang.naam}`]
+}
 
 const ACCENT = '#455a64'
 
-type QuizSoort = 'wie-hoger' | 'aanspreektitel' | 'cluster' | 'mix'
+type QuizSoort = 'wie-hoger' | 'aanspreektitel' | 'cluster' | 'insigne' | 'mix'
 
 const QUIZZEN: { id: QuizSoort; titel: string; uitleg: string }[] = [
+  { id: 'insigne', titel: 'Insigne → rang', uitleg: 'Herken de rang aan het onderscheidingsteken.' },
   { id: 'wie-hoger', titel: 'Wie staat hoger?', uitleg: 'Kies van twee rangen de hoogste.' },
   { id: 'aanspreektitel', titel: 'Aanspreektitel', uitleg: 'Hoe spreek je deze rang aan?' },
   { id: 'cluster', titel: 'Rang → cluster', uitleg: 'Bij welk rangcluster hoort deze rang?' },
@@ -58,11 +64,31 @@ function vraagCluster(o: Onderdeel): Vraag {
   }
 }
 
+function vraagInsigne(o: Onderdeel): Vraag {
+  const metInsigne = o.rangen.filter((r) => insigneVan(o, r))
+  if (metInsigne.length < 4) return vraagWieHoger(o)
+  const rang = pickRandom(metInsigne)
+  const rest = shuffle(o.rangen.filter((r) => r.naam !== rang.naam)).slice(0, 3)
+  const opts = shuffle([rang, ...rest])
+  return {
+    prompt: (
+      <div className="rg-vraaginsigne">
+        <img src={`/rangen/${insigneVan(o, rang)}`} alt="Rangonderscheidingsteken" />
+        <span>Welke rang hoort bij dit onderscheidingsteken?</span>
+      </div>
+    ),
+    options: opts.map((r) => r.naam),
+    correct: opts.findIndex((r) => r.naam === rang.naam),
+    explain: `${rang.naam} (${rang.cluster})`,
+  }
+}
+
 function maakQuiz(o: Onderdeel, soort: QuizSoort): Vraag[] {
   return Array.from({ length: 12 }, () => {
-    const s = soort === 'mix' ? pickRandom(['wie-hoger', 'aanspreektitel', 'cluster'] as const) : soort
+    const s = soort === 'mix' ? pickRandom(['wie-hoger', 'aanspreektitel', 'cluster', 'insigne'] as const) : soort
     if (s === 'wie-hoger') return vraagWieHoger(o)
     if (s === 'aanspreektitel') return vraagAanspreektitel(o)
+    if (s === 'insigne') return vraagInsigne(o)
     return vraagCluster(o)
   })
 }
@@ -85,7 +111,7 @@ export default function RangenApp() {
         tabs={[{ id: 'keuze', label: 'Onderdelen' }]}
         active="keuze"
         onSelect={() => {}}
-        footnote={<p>Bronnen: brochure "Rangonderscheidingstekens van de krijgsmacht" (Ministerie van Defensie) en Wikipedia (politie en brandweer).</p>}
+        footnote={<p>Bronnen: brochure "Rangonderscheidingstekens van de krijgsmacht" (Ministerie van Defensie) en Wikipedia (politie en brandweer) · insigne-afbeeldingen via Wikimedia Commons.</p>}
       >
         <div className="km-page-head">
           <p className="km-eyebrow">Kies een onderdeel</p>
@@ -139,6 +165,11 @@ export default function RangenApp() {
                   {nieuwCluster && <p className="rg-cluster">{rang.cluster}</p>}
                   <div className="rg-rang">
                     <span className="rg-nr km-num">{i + 1}</span>
+                    {insigneVan(onderdeel, rang) ? (
+                      <img className="rg-insigne" src={`/rangen/${insigneVan(onderdeel, rang)}`} alt={`Onderscheidingsteken ${rang.naam}`} loading="lazy" />
+                    ) : (
+                      <span className="rg-insigne rg-insigne-leeg" aria-hidden="true" />
+                    )}
                     <div>
                       <strong>{rang.naam}</strong>
                       {rang.detail && <p>{rang.detail}</p>}

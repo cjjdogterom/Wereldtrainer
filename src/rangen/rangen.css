@@ -67,6 +67,37 @@
   margin-top: 2px;
 }
 
+.rg-insigne {
+  flex-shrink: 0;
+  width: 72px;
+  height: 64px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--km-line);
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.rg-insigne-leeg {
+  visibility: hidden;
+}
+
+.rg-vraaginsigne {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.rg-vraaginsigne img {
+  height: 110px;
+  object-fit: contain;
+  background: var(--km-paper);
+  border: 1px solid var(--km-line);
+  border-radius: 8px;
+  padding: 6px;
+}
+
 .rg-rang strong {
   color: var(--km-ink);
 }

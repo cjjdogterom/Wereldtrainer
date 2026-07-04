@@ -56,7 +56,7 @@ export const ONDERDELEN: Onderdeel[] = [
     kort: 'Mariniers',
     mark: 'MRN',
     accent: '#14532d',
-    intro: 'De mariniers vallen onder de Koninklijke Marine maar voeren landmacht-achtige rangen "der mariniers". Bij onderofficieren en manschappen zit rood om de chevrons.',
+    intro: 'De mariniers vallen onder de Koninklijke Marine maar voeren landmacht-achtige rangen "der mariniers". Bij onderofficieren en manschappen zit rood om de chevrons. (Van de mariniersrangen zijn geen vrije insigne-afbeeldingen beschikbaar.)',
     rangen: [
       { naam: 'Generaal der mariniers', cluster: 'Opperofficieren' },
       { naam: 'Luitenant-generaal der mariniers', cluster: 'Opperofficieren', detail: 'aanspreektitel: generaal' },
