@@ -1,0 +1,525 @@
+/* ─── Gedeelde stijl voor kennismodules (seinen, knopen, vogels, kerk,
+   geschiedenis, europa) — zelfde paper-taal als de rest van de leerapp.
+   Alles gescoped onder .km-app, resets via :where() zodat componentklassen
+   altijd winnen. ─── */
+
+.km-app {
+  --km-ink: #0c1722;
+  --km-text: #3a4757;
+  --km-soft: #5c6a7b;
+  --km-muted: #8b98a8;
+  --km-paper: #e9edf2;
+  --km-panel: #ffffff;
+  --km-line: #d9e0e8;
+  --km-good: #15803d;
+  --km-bad: #b91c1c;
+  --km-shadow: 0 1px 2px rgba(13, 27, 42, 0.05);
+  --km-shadow-lg: 0 6px 20px -8px rgba(13, 27, 42, 0.18), 0 2px 6px rgba(13, 27, 42, 0.06);
+  --km-radius: 14px;
+
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--km-paper);
+  color: var(--km-text);
+  line-height: 1.6;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+.km-app,
+:where(.km-app) :where(*, *::before, *::after) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:where(.km-app) :where(button) {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+:where(.km-app) :where(a) {
+  color: inherit;
+  text-decoration: none;
+}
+
+:where(.km-app) :where(input, select) {
+  font-family: inherit;
+}
+
+:where(.km-app) :where(h1, h2, h3) {
+  color: var(--km-ink);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+/* ── Kop ── */
+.km-header {
+  background: var(--km-panel);
+  border-bottom: 1px solid var(--km-line);
+  padding: 0.85rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.km-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.km-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.km-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 26%;
+  background: var(--km-accent);
+  color: #fff;
+  font-weight: 750;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.km-title {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: var(--km-ink);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.km-subtitle {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--km-soft);
+}
+
+.km-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  flex-wrap: wrap;
+}
+
+.km-tab {
+  padding: 0.45rem 0.75rem;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--km-soft);
+  transition: background 0.15s, color 0.15s;
+}
+
+.km-tab:hover {
+  background: var(--km-paper);
+  color: var(--km-ink);
+}
+
+.km-tab.active {
+  background: color-mix(in srgb, var(--km-accent) 10%, white);
+  color: var(--km-accent);
+}
+
+.km-nav-sep {
+  width: 1px;
+  height: 1.1rem;
+  background: var(--km-line);
+  margin: 0 0.5rem;
+}
+
+.km-tab-quiet {
+  font-weight: 500;
+}
+
+/* ── Hoofdvlak ── */
+.km-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.km-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--km-soft);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--km-line);
+}
+
+.km-footer a {
+  text-decoration: underline;
+}
+
+.km-page-head {
+  margin-bottom: 1.5rem;
+  max-width: 640px;
+}
+
+.km-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--km-accent);
+  margin-bottom: 0.35rem;
+}
+
+.km-page-head h1 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.km-page-head p {
+  color: var(--km-soft);
+}
+
+/* ── Panelen & grids ── */
+.km-panel {
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: var(--km-radius);
+  box-shadow: var(--km-shadow);
+  padding: 1.5rem;
+}
+
+.km-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.km-card {
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: var(--km-radius);
+  box-shadow: var(--km-shadow);
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.km-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.km-card-sub {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--km-accent);
+}
+
+.km-card p {
+  font-size: 0.9rem;
+  color: var(--km-soft);
+  line-height: 1.55;
+}
+
+/* ── Tabellen ── */
+.km-table-wrap {
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: var(--km-radius);
+  box-shadow: var(--km-shadow);
+  overflow-x: auto;
+}
+
+.km-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.km-table th {
+  text-align: left;
+  padding: 0.8rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--km-soft);
+  border-bottom: 1px solid var(--km-line);
+  white-space: nowrap;
+}
+
+.km-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--km-line);
+  vertical-align: top;
+}
+
+.km-table tr:last-child td {
+  border-bottom: none;
+}
+
+.km-num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--km-ink);
+  white-space: nowrap;
+}
+
+/* ── Knoppen ── */
+.km-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.3rem;
+  border-radius: 10px;
+  font-weight: 650;
+  font-size: 0.93rem;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.km-btn-primary {
+  background: var(--km-accent);
+  color: #fff;
+}
+
+.km-btn-primary:hover {
+  background: color-mix(in srgb, var(--km-accent) 85%, black);
+}
+
+.km-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.km-btn-secondary {
+  background: var(--km-panel);
+  color: var(--km-ink);
+  border: 1px solid var(--km-line);
+}
+
+.km-btn-secondary:hover {
+  border-color: var(--km-accent);
+  color: var(--km-accent);
+}
+
+/* ── Quiz ── */
+.km-quiz {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.km-quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--km-soft);
+  margin-bottom: 1.25rem;
+}
+
+.km-quiz-score {
+  font-weight: 700;
+  color: var(--km-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.km-quiz-prompt {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--km-ink);
+  margin-bottom: 1.25rem;
+}
+
+.km-quiz-options {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.km-option {
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--km-line);
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--km-text);
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.km-option:hover:not(:disabled) {
+  border-color: var(--km-accent);
+  background: color-mix(in srgb, var(--km-accent) 5%, white);
+}
+
+.km-option:disabled {
+  cursor: default;
+}
+
+.km-option.good {
+  border-color: var(--km-good);
+  background: color-mix(in srgb, var(--km-good) 8%, white);
+  color: var(--km-good);
+}
+
+.km-option.bad {
+  border-color: var(--km-bad);
+  background: color-mix(in srgb, var(--km-bad) 8%, white);
+  color: var(--km-bad);
+}
+
+.km-quiz-form {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.km-quiz-form input {
+  flex: 1;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--km-line);
+  border-radius: 10px;
+  font-size: 1rem;
+  color: var(--km-ink);
+  background: var(--km-panel);
+}
+
+.km-quiz-form input:focus {
+  outline: 2px solid color-mix(in srgb, var(--km-accent) 35%, white);
+  border-color: var(--km-accent);
+}
+
+.km-feedback {
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.km-feedback.good {
+  border-color: color-mix(in srgb, var(--km-good) 40%, white);
+  background: color-mix(in srgb, var(--km-good) 6%, white);
+}
+
+.km-feedback.bad {
+  border-color: color-mix(in srgb, var(--km-bad) 40%, white);
+  background: color-mix(in srgb, var(--km-bad) 6%, white);
+}
+
+.km-feedback strong {
+  color: var(--km-ink);
+}
+
+.km-feedback.good > strong {
+  color: var(--km-good);
+}
+
+.km-feedback.bad > strong {
+  color: var(--km-bad);
+}
+
+.km-feedback-explain {
+  font-size: 0.92rem;
+  color: var(--km-text);
+}
+
+.km-quiz-result {
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.km-result-score {
+  font-size: 3rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--km-ink);
+}
+
+/* ── Quiz-keuzescherm ── */
+.km-quiz-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+}
+
+.km-quiz-menu .km-card {
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.km-quiz-menu .km-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--km-shadow-lg);
+  border-color: #c3cdd8;
+}
+
+.km-back-row {
+  margin-bottom: 1.25rem;
+}
+
+/* ── Mobiel ── */
+@media (max-width: 700px) {
+  .km-header {
+    padding: 0.6rem 1rem;
+  }
+
+  .km-header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+
+  .km-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .km-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .km-tab {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .km-main {
+    padding: 1.25rem 1rem 2.5rem;
+  }
+
+  .km-quiz-form input {
+    font-size: 16px; /* voorkomt iOS-zoom */
+  }
+}

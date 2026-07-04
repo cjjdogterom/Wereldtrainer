@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { BookOpen, Globe2, Trophy } from 'lucide-react'
+import { BookOpen, Flag, Globe2, Trophy } from 'lucide-react'
 import './home.css'
 import { countries } from './data/countries'
 
@@ -22,6 +22,15 @@ const MODULES = [
     subtitle: 'Eredivisie & meer',
     description: 'Alle winnaars van de Eredivisie, KNVB Beker, Champions League, het WK en EK — leren en overhoren.',
     stats: ['5 trainers', 'sinds 1889'],
+  },
+  {
+    to: '/seinen',
+    icon: <Flag size={34} aria-hidden="true" />,
+    accent: '#1e516e',
+    title: 'Nautisch seinen',
+    subtitle: 'Vlaggen · morse · spelalfabet',
+    description: 'De internationale seinvlaggen met hun betekenis, het NAVO-spelalfabet en morsecode.',
+    stats: ['26 vlaggen', 'morse A–Z + 0–9'],
   },
 ]
 

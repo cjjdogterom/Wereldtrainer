@@ -7,6 +7,7 @@ import Home from './Home.tsx'
 // Elke leermodule is een eigen chunk: de home laadt licht en snel.
 const TopografieApp = lazy(() => import('./App.tsx'))
 const VoetbalApp = lazy(() => import('./voetbal/App.tsx'))
+const SeinenApp = lazy(() => import('./seinen/App.tsx'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/" element={<Home />} />
           <Route path="/topografie/*" element={<TopografieApp />} />
           <Route path="/voetbal/*" element={<VoetbalApp />} />
+          <Route path="/seinen/*" element={<SeinenApp />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
