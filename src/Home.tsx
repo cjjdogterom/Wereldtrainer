@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { BookOpen, Flag, Globe2, Trophy } from 'lucide-react'
+import { Anchor, BookOpen, Flag, Globe2, Trophy } from 'lucide-react'
 import './home.css'
 import { countries } from './data/countries'
 
@@ -31,6 +31,15 @@ const MODULES = [
     subtitle: 'Vlaggen · morse · spelalfabet',
     description: 'De internationale seinvlaggen met hun betekenis, het NAVO-spelalfabet en morsecode.',
     stats: ['26 vlaggen', 'morse A–Z + 0–9'],
+  },
+  {
+    to: '/knopen',
+    icon: <Anchor size={34} aria-hidden="true" />,
+    accent: '#8a5a2b',
+    title: 'Nautische knopen',
+    subtitle: 'Knopen & steken',
+    description: 'De belangrijkste knopen en steken: hoe ze eruitzien, waarvoor je ze gebruikt en waar je op let.',
+    stats: ['13 knopen', 'met foto’s'],
   },
 ]
 

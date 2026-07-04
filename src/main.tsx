@@ -8,6 +8,7 @@ import Home from './Home.tsx'
 const TopografieApp = lazy(() => import('./App.tsx'))
 const VoetbalApp = lazy(() => import('./voetbal/App.tsx'))
 const SeinenApp = lazy(() => import('./seinen/App.tsx'))
+const KnopenApp = lazy(() => import('./knopen/App.tsx'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/topografie/*" element={<TopografieApp />} />
           <Route path="/voetbal/*" element={<VoetbalApp />} />
           <Route path="/seinen/*" element={<SeinenApp />} />
+          <Route path="/knopen/*" element={<KnopenApp />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
