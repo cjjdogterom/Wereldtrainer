@@ -36,6 +36,68 @@
   font-style: italic;
 }
 
+.kn-zoek {
+  margin-bottom: 1rem;
+  max-width: 420px;
+}
+
+.kn-zoek input {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--km-line);
+  border-radius: 10px;
+  font-size: 1rem;
+  background: var(--km-panel);
+  color: var(--km-ink);
+}
+
+.kn-zoek input:focus {
+  outline: 2px solid color-mix(in srgb, var(--km-accent) 35%, white);
+  border-color: var(--km-accent);
+}
+
+.kn-lijst {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-width: 720px;
+}
+
+.kn-rij {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 10px;
+  box-shadow: var(--km-shadow);
+  padding: 0.7rem 1rem;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.kn-rij:hover {
+  border-color: var(--km-accent);
+  transform: translateX(2px);
+}
+
+.kn-rij strong {
+  color: var(--km-ink);
+}
+
+.kn-rij p {
+  font-size: 0.87rem;
+  color: var(--km-soft);
+}
+
+.kn-3d {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--km-accent);
+  white-space: nowrap;
+}
+
 .kn-vraagfoto {
   display: flex;
   flex-direction: column;

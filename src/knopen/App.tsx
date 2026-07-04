@@ -3,16 +3,18 @@ import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { distractors, shuffle } from '../leer/match'
 import { KNOPEN, type Knoop } from './data'
+import { VAARKNOPEN } from './knots3d'
 import './knopen.css'
 
 const ACCENT = '#8a5a2b'
 
-type QuizSoort = 'foto-naam' | 'doel-naam' | 'naam-doel' | 'mix'
+type QuizSoort = 'foto-naam' | 'doel-naam' | 'naam-doel' | 'vaarknopen' | 'mix'
 
 const QUIZZEN: { id: QuizSoort; titel: string; uitleg: string }[] = [
   { id: 'foto-naam', titel: 'Foto → naam', uitleg: 'Herken de knoop op de foto.' },
   { id: 'doel-naam', titel: 'Doel → knoop', uitleg: 'Welke knoop gebruik je hiervoor?' },
   { id: 'naam-doel', titel: 'Knoop → doel', uitleg: 'Waarvoor is deze knoop bedoeld?' },
+  { id: 'vaarknopen', titel: 'Alle vaarknopen', uitleg: 'Doelvragen uit de volledige knots3d-lijst (58 knopen).' },
   { id: 'mix', titel: 'Mix', uitleg: 'Alle vraagsoorten door elkaar.' },
 ]
 
@@ -41,6 +43,18 @@ function vraagDoelNaam(knoop: Knoop): Vraag {
   }
 }
 
+// Extra variatie: doelvragen uit de volledige knots3d-vaarknopenlijst
+function vraagVaarknoop(): Vraag {
+  const knoop = VAARKNOPEN[Math.floor(Math.random() * VAARKNOPEN.length)]
+  const opts = shuffle([knoop, ...distractors(VAARKNOPEN, knoop, 3, (k) => k.naam)])
+  return {
+    prompt: <>Welke knoop hoort hierbij: <em>{knoop.doel}</em></>,
+    options: opts.map((k) => k.naam),
+    correct: opts.findIndex((k) => k.naam === knoop.naam),
+    explain: `${knoop.naam}: ${knoop.doel}`,
+  }
+}
+
 function vraagNaamDoel(knoop: Knoop): Vraag {
   const opts = shuffle([knoop, ...distractors(KNOPEN, knoop, 3, (k) => k.id)])
   return {
@@ -52,12 +66,16 @@ function vraagNaamDoel(knoop: Knoop): Vraag {
 }
 
 function maakQuiz(soort: QuizSoort): Vraag[] {
+  if (soort === 'vaarknopen') {
+    return Array.from({ length: 15 }, () => vraagVaarknoop())
+  }
   const volgorde = shuffle(KNOPEN)
-  const soorten: Exclude<QuizSoort, 'mix'>[] = ['foto-naam', 'doel-naam', 'naam-doel']
+  const soorten = ['foto-naam', 'doel-naam', 'naam-doel', 'vaarknopen'] as const
   return volgorde.map((knoop) => {
     const s = soort === 'mix' ? soorten[Math.floor(Math.random() * soorten.length)] : soort
     if (s === 'foto-naam') return vraagFotoNaam(knoop)
     if (s === 'doel-naam') return vraagDoelNaam(knoop)
+    if (s === 'vaarknopen') return vraagVaarknoop()
     return vraagNaamDoel(knoop)
   })
 }
@@ -65,6 +83,7 @@ function maakQuiz(soort: QuizSoort): Vraag[] {
 export default function KnopenApp() {
   const [tab, setTab] = useState('leren')
   const [quiz, setQuiz] = useState<QuizSoort | null>(null)
+  const [zoek, setZoek] = useState('')
 
   return (
     <LeerShell
@@ -72,12 +91,12 @@ export default function KnopenApp() {
       accent={ACCENT}
       title="Nautische knopen"
       subtitle={`${KNOPEN.length} knopen en hun gebruik`}
-      tabs={[{ id: 'leren', label: 'Leren' }, { id: 'overhoren', label: 'Overhoren' }]}
+      tabs={[{ id: 'leren', label: 'Basisknopen' }, { id: 'alle', label: 'Alle vaarknopen' }, { id: 'overhoren', label: 'Overhoren' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={
         <p>
-          Foto's via <a href="https://commons.wikimedia.org" target="_blank" rel="noreferrer">Wikimedia Commons</a> (vrije licenties).
+          Foto's via <a href="https://commons.wikimedia.org" target="_blank" rel="noreferrer">Wikimedia Commons</a> (vrije licenties) · knopenlijst en 3D-animaties via <a href="https://knots3d.com/nl/vaarknopen" target="_blank" rel="noreferrer">knots3d.com</a>.
         </p>
       }
     >
@@ -100,6 +119,35 @@ export default function KnopenApp() {
                 <p>{k.uitleg}</p>
                 {k.onthoud && <p className="kn-onthoud">Onthoud: {k.onthoud}</p>}
               </article>
+            ))}
+          </div>
+        </>
+      )}
+
+      {tab === 'alle' && (
+        <>
+          <div className="km-page-head">
+            <p className="km-eyebrow">Alle vaarknopen</p>
+            <h1>{VAARKNOPEN.length} vaarknopen</h1>
+            <p>De volledige lijst van knots3d. Klik op een knoop om de stap-voor-stap 3D-animatie op knots3d.com te bekijken.</p>
+          </div>
+          <div className="kn-zoek">
+            <input
+              value={zoek}
+              onChange={(e) => setZoek(e.target.value)}
+              placeholder="Zoek een knoop…"
+              autoComplete="off"
+            />
+          </div>
+          <div className="kn-lijst">
+            {VAARKNOPEN.filter((k) => (k.naam + ' ' + k.doel).toLowerCase().includes(zoek.toLowerCase())).map((k) => (
+              <a className="kn-rij" key={k.url} href={k.url} target="_blank" rel="noreferrer">
+                <div>
+                  <strong>{k.naam}</strong>
+                  <p>{k.doel}</p>
+                </div>
+                <span className="kn-3d">3D →</span>
+              </a>
             ))}
           </div>
         </>
