@@ -1,0 +1,99 @@
+/* Module-specifiek: geschiedenis van Nederland */
+.gs-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.gs-chip {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--km-line);
+  background: var(--km-panel);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--km-soft);
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.gs-chip:hover {
+  border-color: var(--km-accent);
+  color: var(--km-accent);
+}
+
+.gs-chip.active {
+  background: var(--km-accent);
+  border-color: var(--km-accent);
+  color: #fff;
+}
+
+.gs-lijst {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  max-width: 800px;
+}
+
+.gs-item {
+  display: flex;
+  gap: 1.1rem;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 12px;
+  box-shadow: var(--km-shadow);
+  padding: 0.85rem 1.1rem;
+}
+
+.gs-item.gs-persoon {
+  border-left: 3px solid var(--km-accent);
+}
+
+.gs-jaar {
+  flex-shrink: 0;
+  width: 96px;
+  font-size: 0.9rem;
+  color: var(--km-accent) !important;
+}
+
+.gs-item strong {
+  color: var(--km-ink);
+}
+
+.gs-tag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--km-accent);
+  background: color-mix(in srgb, var(--km-accent) 10%, white);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  vertical-align: middle;
+}
+
+.gs-item p {
+  font-size: 0.9rem;
+  color: var(--km-soft);
+  margin-top: 0.15rem;
+}
+
+.gs-blok-nav {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .gs-item {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .gs-jaar {
+    width: auto;
+  }
+}

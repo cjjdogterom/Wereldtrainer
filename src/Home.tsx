@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Anchor, BookOpen, Church, Crown, Flag, Globe2, Trophy } from 'lucide-react'
+import { Anchor, BookOpen, Church, Crown, Flag, Globe2, Landmark, Trophy } from 'lucide-react'
 import './home.css'
 import { countries } from './data/countries'
 
@@ -58,6 +58,15 @@ const MODULES = [
     subtitle: 'Machtsgeschiedenis',
     description: 'Wie had wanneer de macht in Europa, van de Minoërs en Romeinen tot de EU — bewust beknopt.',
     stats: ['±40 machten', '4000 jaar'],
+  },
+  {
+    to: '/geschiedenis',
+    icon: <Landmark size={34} aria-hidden="true" />,
+    accent: '#7a4a1f',
+    title: 'Geschiedenis van Nederland',
+    subtitle: 'Vanaf 1300',
+    description: 'Ruim 150 belangrijke gebeurtenissen en personen, van de Hoekse twisten tot nu — leren in blokken en overhoren.',
+    stats: ['±150 items', '8 tijdvakken'],
   },
 ]
 
