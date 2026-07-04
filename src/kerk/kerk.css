@@ -1,0 +1,67 @@
+/* Module-specifiek: kerkelijke hiërarchie */
+.rk-ladder {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 680px;
+  margin-bottom: 2.25rem;
+}
+
+.rk-trede {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 12px;
+  box-shadow: var(--km-shadow);
+  padding: 0.85rem 1.1rem;
+}
+
+/* Hoe hoger de positie, hoe smaller de trede niet — maar wel een accentlijn
+   die dikker wordt naar de top */
+.rk-trede:first-child {
+  border-left: 4px solid var(--km-accent);
+}
+
+.rk-rang {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--km-accent) 12%, white);
+  color: var(--km-accent);
+  font-weight: 750;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+
+.rk-trede strong {
+  color: var(--km-ink);
+}
+
+.rk-trede p {
+  font-size: 0.9rem;
+  color: var(--km-soft);
+  margin-top: 0.15rem;
+}
+
+.rk-groep {
+  margin-bottom: 2.25rem;
+}
+
+.rk-groep h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.rk-groep-uitleg {
+  color: var(--km-soft);
+  max-width: 640px;
+  margin-bottom: 1rem;
+}

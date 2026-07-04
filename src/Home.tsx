@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Anchor, BookOpen, Flag, Globe2, Trophy } from 'lucide-react'
+import { Anchor, BookOpen, Church, Flag, Globe2, Trophy } from 'lucide-react'
 import './home.css'
 import { countries } from './data/countries'
 
@@ -40,6 +40,15 @@ const MODULES = [
     subtitle: 'Knopen & steken',
     description: 'De belangrijkste knopen en steken: hoe ze eruitzien, waarvoor je ze gebruikt en waar je op let.',
     stats: ['13 knopen', 'met foto’s'],
+  },
+  {
+    to: '/kerk',
+    icon: <Church size={34} aria-hidden="true" />,
+    accent: '#6b3a5b',
+    title: 'Kerkelijke hiërarchie',
+    subtitle: 'Rooms-Katholieke Kerk',
+    description: 'Alle posities van paus tot diaken, plus kardinalen, eretitels en de rangorde in kloosterordes.',
+    stats: ['van paus tot diaken', 'incl. ordes'],
   },
 ]
 
