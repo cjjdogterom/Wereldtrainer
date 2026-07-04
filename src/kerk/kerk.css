@@ -55,6 +55,133 @@
   margin-bottom: 2.25rem;
 }
 
+/* ── Organogram wereldkerk → parochie ── */
+.rk-boom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 640px;
+}
+
+.rk-tak {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.rk-tak:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  left: 0.1rem;
+  top: -0.5rem;
+  width: 0.85rem;
+  height: 1.6rem;
+  border-left: 2px solid color-mix(in srgb, var(--km-accent) 45%, white);
+  border-bottom: 2px solid color-mix(in srgb, var(--km-accent) 45%, white);
+  border-bottom-left-radius: 8px;
+}
+
+.rk-knoop {
+  display: inline-flex;
+  flex-direction: column;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-left: 3px solid var(--km-accent);
+  border-radius: 10px;
+  box-shadow: var(--km-shadow);
+  padding: 0.55rem 0.95rem;
+}
+
+.rk-niveau {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--km-accent);
+}
+
+.rk-knoop strong {
+  color: var(--km-ink);
+}
+
+.rk-extra {
+  font-size: 0.82rem;
+  color: var(--km-soft);
+}
+
+/* ── Wijdingslijn ── */
+.rk-wijding {
+  display: flex;
+  align-items: stretch;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.rk-wijding-stap {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 10px;
+  box-shadow: var(--km-shadow);
+  padding: 0.75rem 1rem;
+  max-width: 240px;
+}
+
+.rk-wijding-nr {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--km-accent);
+  color: #fff;
+  font-weight: 750;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rk-wijding-stap strong {
+  color: var(--km-ink);
+}
+
+.rk-wijding-stap p {
+  font-size: 0.82rem;
+  color: var(--km-soft);
+}
+
+.rk-wijding-pijl {
+  align-self: center;
+  color: var(--km-accent);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+/* ── Wapens ── */
+.rk-wapens .rk-wapen img {
+  height: 130px;
+  object-fit: contain;
+  align-self: center;
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 600px) {
+  .rk-wijding {
+    flex-direction: column;
+  }
+
+  .rk-wijding-pijl {
+    transform: rotate(90deg);
+    align-self: flex-start;
+    margin-left: 1rem;
+  }
+
+  .rk-tak {
+    margin-left: 0 !important;
+  }
+}
+
 .rk-groep h2 {
   font-size: 1.2rem;
   margin-bottom: 0.35rem;

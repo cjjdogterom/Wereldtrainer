@@ -73,7 +73,7 @@ export default function KerkApp() {
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={
         <p>
-          Gebaseerd op <a href="https://nl.wikipedia.org/wiki/Hi%C3%ABrarchie_van_de_Rooms-Katholieke_Kerk" target="_blank" rel="noreferrer">Wikipedia: Hiërarchie van de Rooms-Katholieke Kerk</a>.
+          Gebaseerd op <a href="https://nl.wikipedia.org/wiki/Hi%C3%ABrarchie_van_de_Rooms-Katholieke_Kerk" target="_blank" rel="noreferrer">Wikipedia: Hiërarchie van de Rooms-Katholieke Kerk</a> · wapens via Wikimedia Commons.
         </p>
       }
     >
@@ -96,6 +96,70 @@ export default function KerkApp() {
               </li>
             ))}
           </ol>
+
+          <section className="rk-groep">
+            <h2>Zo past het in elkaar: van wereldkerk tot parochie</h2>
+            <p className="rk-groep-uitleg">Elke laag van de kerk is onderdeel van de laag erboven; elke laag heeft een eigen leider.</p>
+            <div className="rk-boom">
+              {[
+                { niveau: 'Wereldkerk', leider: 'Paus', extra: 'bisschop van Rome' },
+                { niveau: 'Patriarchaat', leider: 'Patriarch', extra: 'groep kerkprovincies met eigen traditie' },
+                { niveau: 'Kerkprovincie (metropool)', leider: 'Aartsbisschop (metropoliet)', extra: 'in Nederland: kerkprovincie Utrecht' },
+                { niveau: 'Bisdom', leider: 'Bisschop', extra: 'Nederland telt 7 bisdommen' },
+                { niveau: 'Decanaat', leider: 'Deken', extra: 'groep parochies' },
+                { niveau: 'Parochie', leider: 'Pastoor', extra: 'bijgestaan door kapelaan en diaken' },
+              ].map((n, i) => (
+                <div className="rk-tak" style={{ marginLeft: `${i * 1.6}rem` }} key={n.niveau}>
+                  <div className="rk-knoop">
+                    <span className="rk-niveau">{n.niveau}</span>
+                    <strong>{n.leider}</strong>
+                    <span className="rk-extra">{n.extra}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="rk-groep">
+            <h2>De wijdingslijn</h2>
+            <p className="rk-groep-uitleg">Los van alle functies zijn er maar drie wijdingsgraden — elke volgende wijding bevat de vorige.</p>
+            <div className="rk-wijding">
+              <div className="rk-wijding-stap">
+                <span className="rk-wijding-nr">1</span>
+                <div><strong>Diaken</strong><p>eerste wijding: dopen, huwelijk inzegenen, preken</p></div>
+              </div>
+              <span className="rk-wijding-pijl">→</span>
+              <div className="rk-wijding-stap">
+                <span className="rk-wijding-nr">2</span>
+                <div><strong>Priester</strong><p>+ eucharistie vieren en biecht afnemen</p></div>
+              </div>
+              <span className="rk-wijding-pijl">→</span>
+              <div className="rk-wijding-stap">
+                <span className="rk-wijding-nr">3</span>
+                <div><strong>Bisschop</strong><p>+ wijden van priesters en het vormsel</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section className="rk-groep">
+            <h2>Herken de rang aan het wapen</h2>
+            <p className="rk-groep-uitleg">Geestelijken voeren een kerkelijk wapen met een galero (pelgrimshoed); de kleur en het aantal kwasten verraden de rang.</p>
+            <div className="km-grid rk-wapens">
+              {[
+                { img: 'paus.png', naam: 'Paus', uitleg: 'Gekruiste sleutels van Petrus achter het schild, met tiara of mijter (voorbeeld: wapen van Benedictus XVI).' },
+                { img: 'kardinaal.png', naam: 'Kardinaal', uitleg: 'Rode galero met 15 kwasten aan elke kant.' },
+                { img: 'aartsbisschop.png', naam: 'Aartsbisschop', uitleg: 'Groene galero met 10 kwasten per kant en een dubbelgekruiste staf; metropolieten dragen het pallium.' },
+                { img: 'bisschop.png', naam: 'Bisschop', uitleg: 'Groene galero met 6 kwasten per kant en een bisschopsstaf.' },
+                { img: 'priester.png', naam: 'Priester', uitleg: 'Zwarte galero met 1 kwast aan elke kant.' },
+              ].map((w) => (
+                <div className="km-card rk-wapen" key={w.naam}>
+                  <img src={`/kerk/${w.img}`} alt={`Wapen van een ${w.naam.toLowerCase()}`} loading="lazy" />
+                  <h3>{w.naam}</h3>
+                  <p>{w.uitleg}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
           {GROEPEN.map((groep) => (
             <section key={groep.titel} className="rk-groep">
