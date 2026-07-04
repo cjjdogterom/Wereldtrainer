@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type RefObject, type SetStateAction } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type FormEvent, type RefObject, type SetStateAction } from 'react'
 import { BookOpen, Check, Globe2, GraduationCap, Map as MapIcon, Menu, RotateCcw, Target, X } from 'lucide-react'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
 import mediumGeoUrl from 'world-atlas/countries-50m.json?url'
@@ -160,8 +160,14 @@ function pickRandom<T>(items: T[]) {
   return items[Math.floor(Math.random() * items.length)]
 }
 
+// Fisher-Yates: unbiased and O(n), unlike sorting on a random comparator.
 function shuffle<T>(items: T[]) {
-  return [...items].sort(() => Math.random() - 0.5)
+  const result = [...items]
+  for (let i = result.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[result[i], result[j]] = [result[j], result[i]]
+  }
+  return result
 }
 
 function getMode(mode: TrainerMode): Exclude<TrainerMode, 'gemengd' | 'oefenen'> {
@@ -437,6 +443,19 @@ function App() {
     persistShared()
   }, [progress, persistShared])
 
+  // iOS Safari ignores the viewport zoom settings and pinch-zooms the whole
+  // page. Block that page gesture here; the map does its own pinch-zoom via
+  // d3-zoom (touch events), which this does not affect.
+  useEffect(() => {
+    const prevent = (e: Event) => e.preventDefault()
+    document.addEventListener('gesturestart', prevent)
+    document.addEventListener('gesturechange', prevent)
+    return () => {
+      document.removeEventListener('gesturestart', prevent)
+      document.removeEventListener('gesturechange', prevent)
+    }
+  }, [])
+
   // On load, pull the shared (cross-device) state; fall back to local if the
   // store isn't set up yet. Guard so we don't overwrite the remote before load.
   useEffect(() => {
@@ -534,7 +553,7 @@ function App() {
       }
       setQuizStarted(true)
     },
-    [],
+    [persistShared],
   )
 
   const beginOefenQuiz = useCallback(() => {
@@ -619,7 +638,7 @@ function App() {
     }
 
     setQuestion(withVlag(buildQuestion(activePool, progress, mode), vlagAnswer))
-  }, [mode, activePool, progress, question, session, sessionActivePool, oefenBatch, oefenStats, pool, vlagAnswer, format, examQueue])
+  }, [mode, activePool, progress, question, session, sessionActivePool, oefenBatch, oefenStats, pool, vlagAnswer, format, examQueue, persistShared])
 
   useEffect(() => {
     if (!question.answered) {
@@ -704,7 +723,7 @@ function App() {
     ])
   }
 
-  function chooseOption(countryId: string) {
+  function chooseOptionImpl(countryId: string) {
     if (question.answered) {
       return
     }
@@ -728,6 +747,12 @@ function App() {
     setQuestion((current) => ({ ...current, answered: true, correct, selectedId: countryId }))
     recordAnswer(correct)
   }
+
+  // Stable identity so the memoized click-map doesn't re-render on every
+  // keystroke/state change; the ref always points at the latest closure.
+  const chooseOptionRef = useRef(chooseOptionImpl)
+  chooseOptionRef.current = chooseOptionImpl
+  const chooseOption = useCallback((countryId: string) => chooseOptionRef.current(countryId), [])
 
   function submitCapital(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -1091,9 +1116,10 @@ function ComboStage({
       <CountryClickMap
         continent={continent}
         countries={visibleCountries}
-        question={question}
+        targetId={question.country.id}
+        selectedId={question.selectedId}
+        locked={question.selectedId !== null}
         chooseCountry={chooseOption}
-        mapLocked={question.selectedId !== null}
         enableKeyboard={enableKeyboard}
         cursorStartId={cursorStartId}
       />
@@ -1187,7 +1213,7 @@ function MaximaalStage({
       ) : step === 0 ? (
         <>
           <p className="maximaal-instruction">Wijs het land aan op de kaart (pijltjes + Enter, of klik)</p>
-          <CountryClickMap continent={continent} countries={visibleCountries} question={question} chooseCountry={chooseOption} enableKeyboard cursorStartId={cursorStartId} />
+          <CountryClickMap continent={continent} countries={visibleCountries} targetId={question.country.id} selectedId={question.selectedId} locked={question.answered} chooseCountry={chooseOption} enableKeyboard cursorStartId={cursorStartId} />
         </>
       ) : step === 1 ? (
         <>
@@ -1709,21 +1735,43 @@ function MobileQuiz({
       )
   }
 
+  // On a wrong answer, show what the user actually picked/typed — not only the
+  // asked country.
+  const wrongPick =
+    !question.correct && question.selectedId && question.selectedId !== question.country.id
+      ? visibleCountries.find((c) => c.id === question.selectedId) ?? null
+      : null
+  const wrongTyped = !question.correct && (isCapitalOnly || question.capitalCorrect === false)
+
   const reveal = (
     <div className={`immersive-reveal ${question.correct ? 'ir-ok' : 'ir-bad'}`} role="status" aria-live="polite">
-      <span className="ir-flag" aria-hidden="true">{question.country.flag}</span>
-      <div className="ir-info">
-        <strong>{question.country.name}</strong>
-        <span>{question.country.capital}</span>
+      {wrongPick && (
+        <div className="ir-wrong-pick">
+          <X size={13} aria-hidden="true" />
+          <span>Jij klikte: {wrongPick.flag} <strong>{wrongPick.name}</strong></span>
+        </div>
+      )}
+      {wrongTyped && (
+        <div className="ir-wrong-pick">
+          <X size={13} aria-hidden="true" />
+          <span>Jij typte: <strong>"{question.typedAnswer || '—'}"</strong></span>
+        </div>
+      )}
+      <div className="ir-main">
+        <span className="ir-flag" aria-hidden="true">{question.country.flag}</span>
+        <div className="ir-info">
+          <strong>{question.country.name}</strong>
+          <span>{question.country.capital}</span>
+        </div>
+        <button type="button" className="inline-next-button" onClick={nextQuestion}>Volgende →</button>
       </div>
-      <button type="button" className="inline-next-button" onClick={nextQuestion}>Volgende →</button>
     </div>
   )
 
   return (
     <div className={`immersive ${hasMapBg ? 'immersive-has-map' : 'immersive-no-map'}`}>
       {usesClickMap && (
-        <CountryClickMap continent={continent} countries={visibleCountries} question={question} chooseCountry={chooseOption} mapLocked={mapLocked} />
+        <CountryClickMap continent={continent} countries={visibleCountries} targetId={question.country.id} selectedId={question.selectedId} locked={mapLocked} chooseCountry={chooseOption} />
       )}
       {showLocMap && (
         <div className="immersive-locmap">
@@ -2010,7 +2058,9 @@ function PracticePanel({
                 <CountryClickMap
                   continent={continent}
                   countries={visibleCountries}
-                  question={question}
+                  targetId={question.country.id}
+                  selectedId={question.selectedId}
+                  locked={question.answered}
                   chooseCountry={chooseOption}
                   enableKeyboard
                   cursorStartId={cursorStartId}
@@ -2647,20 +2697,25 @@ function bestCountryInDirection(cur: Country, list: Country[], dir: 'up' | 'down
   return best
 }
 
-function CountryClickMap({
+// Memoized on purpose: this renders hundreds of SVG paths, and the quiz state
+// (typed capital etc.) changes on every keystroke. Only the primitive props
+// below can trigger a re-render.
+const CountryClickMap = memo(function CountryClickMap({
   continent,
   countries: visibleCountries,
-  question,
+  targetId,
+  selectedId,
+  locked,
   chooseCountry,
-  mapLocked,
   enableKeyboard,
   cursorStartId,
 }: {
   continent: Continent
   countries: Country[]
-  question: Question
+  targetId: string
+  selectedId: string | null
+  locked: boolean
   chooseCountry: (countryId: string) => void
-  mapLocked?: boolean
   enableKeyboard?: boolean
   cursorStartId?: string
 }) {
@@ -2701,12 +2756,12 @@ function CountryClickMap({
     if (!isWorldMode) return
     setDrillContinent(null)
     setPosition({ coordinates: worldView.center, zoom: worldView.zoom * zoomBoost })
-  }, [question.country.id, isWorldMode, worldView, zoomBoost])
+  }, [targetId, isWorldMode, worldView, zoomBoost])
 
   // Reset the cursor to the previous question's country whenever a new question loads.
   useEffect(() => {
     setCursorId(cursorStartId ?? null)
-  }, [question.country.id, cursorStartId])
+  }, [targetId, cursorStartId])
 
   useEffect(() => {
     cursorIdRef.current = cursorId
@@ -2719,7 +2774,6 @@ function CountryClickMap({
     setPosition({ coordinates: contView.center, zoom: contView.zoom * 0.82 * zoomBoost })
   }
 
-  const locked = mapLocked ?? question.answered
   const showContinentView = isWorldMode && !drillContinent && !locked
 
   // Arrow keys move the cursor between countries; Enter confirms the highlighted one.
@@ -2766,8 +2820,8 @@ function CountryClickMap({
             {({ geographies }) =>
               geographies.map((geography) => {
                 const country = countryByMapId.get(geographyKey(geography))
-                const isTarget = country?.id === question.country.id
-                const isWrongPick = Boolean(locked && country && question.selectedId === country.id && !isTarget)
+                const isTarget = country?.id === targetId
+                const isWrongPick = Boolean(locked && country && selectedId === country.id && !isTarget)
                 const isCursor = Boolean(enableKeyboard && !locked && country && country.id === cursorId)
 
                 if (showContinentView) {
@@ -2821,8 +2875,8 @@ function CountryClickMap({
             }
           </Geographies>
           {smallCountries.map((country) => {
-            const isTarget = country.id === question.country.id
-            const isWrongPick = Boolean(locked && question.selectedId === country.id && !isTarget)
+            const isTarget = country.id === targetId
+            const isWrongPick = Boolean(locked && selectedId === country.id && !isTarget)
             const isCursor = Boolean(enableKeyboard && !locked && country.id === cursorId)
             const fill = locked && isTarget ? '#16a34a' : isWrongPick ? '#dc2626' : isCursor ? '#9ec5e8' : '#f8fbfd'
             const radius = markerRadiusForZoom(country, position.zoom)
@@ -2847,7 +2901,7 @@ function CountryClickMap({
       </ComposableMap>
     </div>
   )
-}
+})
 
 type MapView = {
   center: [number, number]

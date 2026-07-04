@@ -44,6 +44,13 @@
   box-sizing: border-box;
 }
 
+/* Pinch/double-tap must never zoom the app itself — the map handles its own
+   zoom. Scrolling (pan) stays allowed. */
+html,
+body {
+  touch-action: pan-x pan-y;
+}
+
 body {
   margin: 0;
   min-width: 320px;

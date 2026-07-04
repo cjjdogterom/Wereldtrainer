@@ -856,6 +856,12 @@ button.is-active:hover {
   display: block;
 }
 
+/* All react-simple-maps svgs: touch gestures go to the map (d3-zoom),
+   never to the browser — a pinch zooms the kaart, not the app. */
+svg.rsm-svg {
+  touch-action: none;
+}
+
 .map-overlay-hint {
   position: absolute;
   bottom: 14px;
@@ -3646,13 +3652,39 @@ input.answered-wrong {
 /* Compact reveal card */
 .immersive-reveal {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
   padding: 12px 14px;
   border-radius: 14px;
   border: 2px solid var(--border);
   background: var(--panel);
   box-shadow: var(--shadow-md);
+}
+
+.immersive-reveal .ir-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* "Jij klikte: …" line when the wrong country was picked */
+.immersive-reveal .ir-wrong-pick {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 9px;
+  background: #fbe3e3;
+  color: #8b2020;
+  font-size: 13.5px;
+}
+
+.immersive-reveal .ir-wrong-pick strong {
+  color: #6d1414;
+}
+
+.immersive-reveal .ir-wrong-pick svg {
+  flex-shrink: 0;
 }
 
 .immersive-reveal.ir-ok {
