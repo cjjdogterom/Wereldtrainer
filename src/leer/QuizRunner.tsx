@@ -9,13 +9,24 @@ export type Vraag = {
   accepted?: string[]
   antwoordLabel?: string
   explain?: ReactNode
+  // vrij te gebruiken sleutel zodat modules per vraag voortgang kunnen bijhouden
+  id?: string
 }
 
 type Uitslag = { goed: boolean; fuzzy: boolean }
 
 // Generieke overhoring: toont vragen één voor één, houdt de score bij en
 // eindigt met een resultaatkaart. `maak` levert per run een verse vragenlijst.
-export default function QuizRunner({ maak, herstartLabel = 'Nog een keer' }: { maak: () => Vraag[]; herstartLabel?: string }) {
+// `onUitslag` wordt (indien opgegeven) na elk antwoord aangeroepen.
+export default function QuizRunner({
+  maak,
+  herstartLabel = 'Nog een keer',
+  onUitslag,
+}: {
+  maak: () => Vraag[]
+  herstartLabel?: string
+  onUitslag?: (vraag: Vraag, goed: boolean) => void
+}) {
   const [run, setRun] = useState(0)
   const vragen = useMemo(() => maak(), [run]) // eslint-disable-line react-hooks/exhaustive-deps
   const [idx, setIdx] = useState(0)
@@ -31,6 +42,7 @@ export default function QuizRunner({ maak, herstartLabel = 'Nog een keer' }: { m
   function beantwoord(goed: boolean, fuzzy = false) {
     setUitslag({ goed, fuzzy })
     if (goed) setScore((s) => s + 1)
+    onUitslag?.(vraag, goed)
   }
 
   function kies(i: number) {

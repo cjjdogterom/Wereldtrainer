@@ -1,0 +1,72 @@
+/* Module-specifiek: Spaanse taaltrainer */
+.es-themas {
+  max-width: 900px;
+}
+
+.es-thema {
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.es-thema:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--km-shadow-lg);
+  border-color: #c3cdd8;
+}
+
+.es-balk {
+  height: 7px;
+  border-radius: 4px;
+  background: var(--km-paper);
+  overflow: hidden;
+}
+
+.es-balk-vulling {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--km-accent);
+  transition: width 0.4s ease;
+}
+
+.es-pct {
+  font-size: 0.78rem;
+  color: var(--km-soft) !important;
+}
+
+.es-tabel {
+  max-width: 760px;
+}
+
+.es-alt {
+  color: var(--km-soft);
+  font-size: 0.85rem;
+}
+
+.es-status {
+  font-size: 0.78rem;
+  color: var(--km-muted);
+  white-space: nowrap;
+}
+
+.es-status-goed {
+  color: var(--km-good);
+  font-weight: 700;
+}
+
+.es-status-bezig {
+  color: var(--km-soft);
+}
+
+.es-quiz-thema {
+  align-self: center;
+  margin-left: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--km-soft);
+}
+
+.km-back-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}

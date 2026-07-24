@@ -1,0 +1,51 @@
+/* Module-specifiek: bridge */
+.br-hand {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: #fff;
+  border: 1px solid var(--km-line);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  box-shadow: var(--km-shadow);
+}
+
+.br-kleur {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.br-symbool {
+  width: 1.1rem;
+  font-size: 1.05rem;
+  color: var(--km-ink);
+}
+
+.br-rood {
+  color: #b91c1c;
+}
+
+.br-kaarten {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--km-ink);
+}
+
+.br-vraag {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: flex-start;
+  font-weight: 600;
+}
+
+.br-context {
+  font-weight: 600;
+}
+
+.br-cursus .br-tabel {
+  max-width: 620px;
+  margin: 0.75rem 0 1rem;
+}

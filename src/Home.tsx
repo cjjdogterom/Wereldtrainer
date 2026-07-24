@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Anchor, Bird, BookOpen, Church, Crown, Flag, Globe2, Landmark, Shield, Trophy } from 'lucide-react'
+import { Anchor, Bird, BookOpen, Church, Club, Crown, Flag, Globe2, Landmark, MessageCircle, Shield, Spade, Trophy } from 'lucide-react'
 import './home.css'
 import { countries } from './data/countries'
 
@@ -85,6 +85,33 @@ const MODULES = [
     subtitle: 'Krijgsmacht · politie · brandweer',
     description: 'De rangordes van marine, mariniers, landmacht, luchtmacht, marechaussee, politie en brandweer — met aanspreektitels.',
     stats: ['7 onderdelen', '±110 rangen'],
+  },
+  {
+    to: '/spaans',
+    icon: <MessageCircle size={34} aria-hidden="true" />,
+    accent: '#b3541e',
+    title: 'Spaans',
+    subtitle: 'Taaltrainer',
+    description: 'Ruim 290 woorden en zinnen in 15 thema\'s — je voortgang per woord wordt automatisch bewaard.',
+    stats: ['15 thema\'s', 'met voortgang'],
+  },
+  {
+    to: '/bridge',
+    icon: <Spade size={34} aria-hidden="true" />,
+    accent: '#3b5b34',
+    title: 'Bridge',
+    subtitle: 'Vijfkaart hoog',
+    description: 'Complete cursus vanaf nul plus biedtrainers met echte gedeelde handen — na afloop kun je meedoen.',
+    stats: ['9 hoofdstukken', '3 trainers'],
+  },
+  {
+    to: '/klaverjas',
+    icon: <Club size={34} aria-hidden="true" />,
+    accent: '#20614d',
+    title: 'Klaverjassen',
+    subtitle: 'Amsterdams (verplicht)',
+    description: 'Van kaartvolgorde tot roem en nat: leer de Amsterdamse regels en oefen met echte spelsituaties.',
+    stats: ['7 hoofdstukken', '4 trainers'],
   },
 ]
 

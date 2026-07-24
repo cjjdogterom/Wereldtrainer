@@ -14,6 +14,9 @@ const EuropaApp = lazy(() => import('./europa/App.tsx'))
 const GeschiedenisApp = lazy(() => import('./geschiedenis/App.tsx'))
 const VogelsApp = lazy(() => import('./vogels/App.tsx'))
 const RangenApp = lazy(() => import('./rangen/App.tsx'))
+const SpaansApp = lazy(() => import('./spaans/App.tsx'))
+const KlaverjasApp = lazy(() => import('./klaverjas/App.tsx'))
+const BridgeApp = lazy(() => import('./bridge/App.tsx'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -30,6 +33,9 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/geschiedenis/*" element={<GeschiedenisApp />} />
           <Route path="/vogels/*" element={<VogelsApp />} />
           <Route path="/rangen/*" element={<RangenApp />} />
+          <Route path="/spaans/*" element={<SpaansApp />} />
+          <Route path="/klaverjas/*" element={<KlaverjasApp />} />
+          <Route path="/bridge/*" element={<BridgeApp />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>

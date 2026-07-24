@@ -1,0 +1,65 @@
+/* Module-specifiek: klaverjassen */
+.kj-kaart {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  background: #fff;
+  border: 1px solid var(--km-line);
+  border-radius: 6px;
+  padding: 0.15rem 0.45rem;
+  font-weight: 750;
+  color: var(--km-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.kj-rood {
+  color: #b91c1c;
+}
+
+.kj-cursus .kj-tabel {
+  max-width: 560px;
+  margin: 0.75rem 0 1rem;
+}
+
+.kj-regels {
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--km-text);
+  line-height: 1.65;
+}
+
+.kj-slag {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: flex-start;
+  font-weight: 600;
+}
+
+.kj-troef {
+  font-size: 0.85rem;
+  color: var(--km-soft);
+}
+
+.kj-slag-kaarten {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.kj-gespeeld {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.kj-speler {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--km-soft);
+}
