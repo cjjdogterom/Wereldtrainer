@@ -63,3 +63,124 @@
   text-transform: uppercase;
   color: var(--km-soft);
 }
+
+/* ── Scorekaart ── */
+.kj-start {
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kj-start p {
+  color: var(--km-soft);
+}
+
+.kj-start-knoppen {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.kj-start-knoppen .km-btn {
+  flex: 1;
+}
+
+.kj-score-kop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.kj-score-kop h2 {
+  font-size: 1.25rem;
+  margin: 0.15rem 0 0.3rem;
+}
+
+.kj-score-hint {
+  color: var(--km-soft);
+  font-size: 0.88rem;
+  max-width: 560px;
+}
+
+.kj-score-tabel {
+  max-width: 860px;
+}
+
+.kj-score-tabel input {
+  width: 64px;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid var(--km-line);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--km-ink);
+  background: var(--km-panel);
+}
+
+.kj-score-tabel input:focus {
+  outline: 2px solid color-mix(in srgb, var(--km-accent) 35%, white);
+  border-color: var(--km-accent);
+}
+
+.kj-score-tabel td {
+  padding: 0.45rem 0.65rem;
+}
+
+.kj-maker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.12rem 0.55rem;
+}
+
+.kj-maker-wij {
+  background: color-mix(in srgb, var(--km-accent) 14%, white);
+  color: var(--km-accent);
+}
+
+.kj-maker-zij {
+  background: var(--km-paper);
+  color: var(--km-soft);
+}
+
+.kj-nat-rij {
+  background: color-mix(in srgb, var(--km-bad) 5%, white);
+}
+
+.kj-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.12rem 0.5rem;
+  margin-right: 0.25rem;
+  white-space: nowrap;
+}
+
+.kj-badge-nat {
+  background: color-mix(in srgb, var(--km-bad) 12%, white);
+  color: var(--km-bad);
+}
+
+.kj-badge-pit {
+  background: color-mix(in srgb, var(--km-good) 12%, white);
+  color: var(--km-good);
+}
+
+.kj-totaal {
+  font-size: 1.05rem;
+}
+
+.kj-winnaar {
+  margin-top: 1rem;
+  font-weight: 750;
+  font-size: 1.1rem;
+  color: var(--km-ink);
+}

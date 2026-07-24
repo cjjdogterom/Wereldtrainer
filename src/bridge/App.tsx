@@ -4,6 +4,7 @@ import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { pickRandom, shuffle } from '../leer/match'
 import { ANTWOORD_SCENARIOS } from './antwoorden'
 import BridgeCursus from './Cursus'
+import Scorekaart from './Scorekaart'
 import { hcp, isSans, KLEUREN, KLEUR_SYMBOOL, legUitOpening, maakHand, openingsbod, rangLabel, type Bod, type Hand } from './kaarten'
 import './bridge.css'
 
@@ -123,7 +124,7 @@ export default function BridgeApp() {
       accent={ACCENT}
       title="Bridge"
       subtitle="Vijfkaart hoog — cursus en biedtrainer"
-      tabs={[{ id: 'cursus', label: 'Cursus' }, { id: 'overhoren', label: 'Trainen' }]}
+      tabs={[{ id: 'cursus', label: 'Cursus' }, { id: 'overhoren', label: 'Trainen' }, { id: 'score', label: 'Scorekaart' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={<p>Biedafspraken volgens het standaard Nederlandse beginnerssysteem (vijfkaart hoog, zwakke sans 15–17).</p>}
@@ -156,6 +157,8 @@ export default function BridgeApp() {
           <QuizRunner maak={() => maakQuiz(quiz)} />
         </>
       )}
+
+      {tab === 'score' && <Scorekaart />}
     </LeerShell>
   )
 }

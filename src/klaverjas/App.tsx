@@ -6,6 +6,7 @@ import {
   NIET_TROEF_PUNTEN, NIET_TROEF_VOLGORDE, RANG_NAMEN, REGEL_VRAGEN, ROEM_VRAGEN,
   SLAG_SCENARIOS, TROEF_PUNTEN, TROEF_VOLGORDE, type Kaart,
 } from './data'
+import Scorekaart from './Scorekaart'
 import './klaverjas.css'
 
 const ACCENT = '#20614d'
@@ -107,7 +108,7 @@ export default function KlaverjasApp() {
       accent={ACCENT}
       title="Klaverjassen"
       subtitle="Amsterdams (verplicht) — cursus en trainer"
-      tabs={[{ id: 'cursus', label: 'Cursus' }, { id: 'overhoren', label: 'Overhoren' }]}
+      tabs={[{ id: 'cursus', label: 'Cursus' }, { id: 'overhoren', label: 'Overhoren' }, { id: 'score', label: 'Scorekaart' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={<p>Regels volgens de Amsterdamse speelwijze ("verplicht"); huisregels kunnen iets afwijken.</p>}
@@ -255,6 +256,8 @@ export default function KlaverjasApp() {
           <QuizRunner maak={() => maakQuiz(quiz)} />
         </>
       )}
+
+      {tab === 'score' && <Scorekaart />}
     </LeerShell>
   )
 }

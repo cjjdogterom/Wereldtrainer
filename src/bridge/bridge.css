@@ -250,3 +250,93 @@
   margin-bottom: 0;
   font-size: 0.92rem;
 }
+
+/* ── Scorekaart ── */
+.br-invoer {
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.br-invoer-velden {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.br-invoer label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.br-invoer label > span:first-child {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--km-soft);
+}
+
+.br-invoer select {
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--km-line);
+  border-radius: 8px;
+  background: var(--km-panel);
+  font-size: 0.95rem;
+  color: var(--km-ink);
+}
+
+.br-contract-keuze {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.br-check {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.45rem !important;
+  padding-bottom: 0.5rem;
+}
+
+.br-check span {
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  color: var(--km-text) !important;
+}
+
+.br-invoer-actie {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--km-line);
+  padding-top: 0.9rem;
+}
+
+.br-preview {
+  font-size: 1.05rem;
+}
+
+.br-kw {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--km-bad);
+  text-transform: uppercase;
+}
+
+.br-verwijder {
+  color: var(--km-muted);
+  font-size: 0.85rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+}
+
+.br-verwijder:hover {
+  color: var(--km-bad);
+  background: color-mix(in srgb, var(--km-bad) 8%, white);
+}
