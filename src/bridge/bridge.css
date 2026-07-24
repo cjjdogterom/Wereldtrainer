@@ -46,6 +46,207 @@
 }
 
 .br-cursus .br-tabel {
-  max-width: 620px;
+  max-width: 720px;
   margin: 0.75rem 0 1rem;
+}
+
+.br-subkop {
+  font-size: 1.02rem;
+  margin: 1.4rem 0 0.8rem;
+}
+
+/* ── Speelkaart-tegels ── */
+.spk-hand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0.35rem 0;
+}
+
+.spk-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--km-soft);
+}
+
+.spk-rij {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  row-gap: 0.4rem;
+}
+
+.spk-groep {
+  display: inline-flex;
+}
+
+.spk {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 42px;
+  background: #fff;
+  border: 1px solid #c9d2dc;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(13, 27, 42, 0.12);
+  margin-left: -9px;
+  color: var(--km-ink);
+  line-height: 1.05;
+}
+
+.spk:first-child {
+  margin-left: 0;
+}
+
+.spk-rood {
+  color: #b91c1c;
+}
+
+.spk-leeg {
+  opacity: 0.35;
+}
+
+.spk-rang {
+  font-size: 0.78rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.spk-sym {
+  font-size: 0.72rem;
+}
+
+/* ── Voorbeeldblokken ── */
+.br-voorbeeld {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-left: 3px solid var(--km-accent);
+  border-radius: 12px;
+  box-shadow: var(--km-shadow);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.br-voorbeeld .spk-hand {
+  margin: 0;
+}
+
+.br-voorbeeld-tekst {
+  flex: 1;
+  min-width: 220px;
+}
+
+.br-voorbeeld-tekst strong {
+  color: var(--km-accent);
+}
+
+.br-voorbeeld-tekst p {
+  font-size: 0.92rem;
+  color: var(--km-text);
+  margin-top: 0.2rem;
+  line-height: 1.6;
+}
+
+/* ── Biedtrap ── */
+.br-ladder-wrap {
+  margin: 1rem 0 1.25rem;
+}
+
+.br-ladder {
+  border-collapse: collapse;
+  background: var(--km-panel);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--km-shadow);
+}
+
+.br-ladder td {
+  border: 1px solid var(--km-line);
+  padding: 0.3rem 0.75rem;
+  text-align: center;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+}
+
+.br-ladder .br-manche {
+  background: color-mix(in srgb, var(--km-accent) 14%, white);
+}
+
+.br-manche-vlek {
+  background: color-mix(in srgb, var(--km-accent) 14%, white);
+  padding: 0 0.35rem;
+  border-radius: 4px;
+}
+
+.br-ladder-uitleg {
+  font-size: 0.85rem;
+  color: var(--km-soft);
+  margin-top: 0.5rem;
+  max-width: 620px;
+}
+
+/* ── Biedseries en gesprekken ── */
+.br-serie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.75rem 0;
+}
+
+.br-stap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.br-stap-wie {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--km-soft);
+}
+
+.br-stap-bod {
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 8px;
+  padding: 0.25rem 0.7rem;
+  font-weight: 800;
+  color: var(--km-ink);
+}
+
+.br-stap-pijl {
+  color: var(--km-muted);
+  font-weight: 700;
+}
+
+.br-gesprek {
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  border-radius: 12px;
+  box-shadow: var(--km-shadow);
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.br-gesprek-handen {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.br-gesprek .gs-alinea {
+  margin-bottom: 0;
+  font-size: 0.92rem;
 }

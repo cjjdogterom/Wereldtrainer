@@ -3,6 +3,7 @@ import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { pickRandom, shuffle } from '../leer/match'
 import { ANTWOORD_SCENARIOS } from './antwoorden'
+import BridgeCursus from './Cursus'
 import { hcp, isSans, KLEUREN, KLEUR_SYMBOOL, legUitOpening, maakHand, openingsbod, rangLabel, type Bod, type Hand } from './kaarten'
 import './bridge.css'
 
@@ -127,146 +128,7 @@ export default function BridgeApp() {
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={<p>Biedafspraken volgens het standaard Nederlandse beginnerssysteem (vijfkaart hoog, zwakke sans 15–17).</p>}
     >
-      {tab === 'cursus' && (
-        <article className="gs-artikel br-cursus">
-          <div className="km-page-head">
-            <p className="km-eyebrow">Cursus</p>
-            <h1>Bridge vanaf nul</h1>
-            <p>Negen korte hoofdstukken: na afloop kun je een avond meebridgen met het systeem vijfkaart hoog.</p>
-          </div>
-
-          <section className="gs-sectie">
-            <h2>1 · Wat is bridge?</h2>
-            <p className="gs-alinea">
-              Bridge speel je met vier spelers in twee vaste paren: Noord–Zuid tegen Oost–West. Alle 52 kaarten worden
-              verdeeld; iedereen krijgt er 13. Elk spel bestaat uit twee delen: eerst <strong>bieden</strong> jullie om te bepalen
-              welk paar hoeveel slagen belooft te halen (het contract), daarna wordt er <strong>gespeeld</strong> in 13 slagen.
-              Kaartvolgorde is gewoon A, H, V, B, 10 … 2.
-            </p>
-          </section>
-
-          <section className="gs-sectie">
-            <h2>2 · Slagen, de leider en de dummy</h2>
-            <p className="gs-alinea">
-              Een slag: iedere speler legt met de klok mee één kaart bij; je moet de gevraagde kleur <strong>bekennen</strong> als je
-              kan. De hoogste kaart van de gevraagde kleur wint — tenzij er een troefkaart valt, want elke troef klopt elke
-              niet-troefkaart. Wie de slag wint, komt uit voor de volgende.
-            </p>
-            <p className="gs-alinea">
-              Bijzonder aan bridge: van het parenteam dat het contract speelt, doet er maar één echt mee — de <strong>leider</strong>.
-              Zijn partner, de <strong>dummy</strong>, legt na de eerste uitkomst zijn hele hand open op tafel en de leider speelt
-              beide handen. De tegenpartij begint: de speler links van de leider komt uit.
-            </p>
-          </section>
-
-          <section className="gs-sectie">
-            <h2>3 · Punten tellen</h2>
-            <p className="gs-alinea">
-              Je hand waardeer je met honneurpunten (HCP): <strong>aas = 4, heer = 3, vrouw = 2, boer = 1</strong>. In het hele spel
-              zitten 40 punten; een gemiddelde hand heeft er 10. Vuistregel voor het bieden: met samen 25 punten kun je een
-              manche aan; tel bij lange kleuren een lengtepunt bij voor elke kaart boven de vier.
-            </p>
-          </section>
-
-          <section className="gs-sectie">
-            <h2>4 · Het bieden: hoe werkt dat?</h2>
-            <p className="gs-alinea">
-              Een bod bestaat uit een niveau en een "kleur": 1♣ betekent "wij halen 6+1 = 7 slagen met klaveren als troef",
-              3SA betekent "9 slagen zonder troef". Elk volgend bod moet hoger zijn; de kleurvolgorde van laag naar hoog is
-              <strong> ♣ ♦ ♥ ♠ SA</strong>. Bieden gaat rond tot er drie keer achter elkaar gepast is; het laatste bod is het
-              contract. Haal je je contract, dan scoor je; anders krijgt de tegenpartij punten per "downslag".
-            </p>
-          </section>
-
-          <section className="gs-sectie">
-            <h2>5 · Openen met vijfkaart hoog</h2>
-            <p className="gs-alinea">Met minder dan 12 punten pas je. Vanaf 12 open je volgens dit rijtje:</p>
-            <div className="km-table-wrap br-tabel">
-              <table className="km-table">
-                <thead><tr><th>Hand</th><th>Opening</th></tr></thead>
-                <tbody>
-                  <tr><td>12–19 punten, vijfkaart (of langer) ♥ of ♠</td><td><strong>1♥ / 1♠</strong> (langste; bij 5-5 de hoogste)</td></tr>
-                  <tr><td>12–19 punten, géén vijfkaart hoog</td><td><strong>1♣ / 1♦</strong> (langste lage kleur; 3-3 → 1♣, 4-4 → 1♦)</td></tr>
-                  <tr><td>15–17 punten, sans-verdeling*</td><td><strong>1SA</strong></td></tr>
-                  <tr><td>20–21 punten, sans-verdeling</td><td><strong>2SA</strong></td></tr>
-                  <tr><td>22+ punten</td><td><strong>2♣</strong> (kunstmatig en sterk)</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="gs-alinea">
-              *Sans-verdeling = geen renonce of singleton en hooguit één doubleton (4-3-3-3, 4-4-3-2 of 5-3-3-2).
-              De regel "vijfkaart hoog" betekent dus: 1♥ of 1♠ belooft altijd minstens vijf kaarten in die kleur —
-              daarom kun je partner al met drie kaarten mee steunen.
-            </p>
-          </section>
-
-          <section className="gs-sectie">
-            <h2>6 · Antwoorden op 1♥ / 1♠ (en 1♣ / 1♦)</h2>
-            <p className="gs-alinea">Met 0–5 punten pas je. Vanaf 6 punten antwoord je:</p>
-            <div className="km-table-wrap br-tabel">
-              <table className="km-table">
-                <thead><tr><th>Jouw hand</th><th>Antwoord</th></tr></thead>
-                <tbody>
-                  <tr><td>6–9 punten, 3+ steun voor partners hoge kleur</td><td><strong>2♥ / 2♠</strong></td></tr>
-                  <tr><td>10–11 punten, steun</td><td><strong>3♥ / 3♠</strong> (uitnodiging)</td></tr>
-                  <tr><td>12+ punten, steun</td><td>eerst een nieuwe kleur, of meteen <strong>4♥ / 4♠</strong></td></tr>
-                  <tr><td>6+ punten, eigen kleur op 1-niveau te bieden</td><td><strong>nieuwe kleur op 1-niveau</strong> (bijv. 1♠ na 1♥)</td></tr>
-                  <tr><td>10+ punten, eigen kleur die alleen op 2-niveau kan</td><td><strong>nieuwe kleur op 2-niveau</strong></td></tr>
-                  <tr><td>6–9 punten, geen steun en geen kleur op 1-niveau</td><td><strong>1SA</strong> (vangnet)</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="gs-alinea">
-              Na 1♣ of 1♦ geldt hetzelfde idee: nieuwe kleuren van onderaf laten zien (met twee vierkaarten eerst de laagste),
-              en steun in de lage kleur pas als er geen hoge kleur te melden valt.
-            </p>
-          </section>
-
-          <section className="gs-sectie">
-            <h2>7 · Antwoorden op 1SA</h2>
-            <div className="km-table-wrap br-tabel">
-              <table className="km-table">
-                <thead><tr><th>Jouw punten</th><th>Antwoord</th></tr></thead>
-                <tbody>
-                  <tr><td>0–7</td><td><strong>pas</strong></td></tr>
-                  <tr><td>8–9</td><td><strong>2SA</strong> (uitnodiging: partner biedt 3SA met 16–17)</td></tr>
-                  <tr><td>10+</td><td><strong>3SA</strong></td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="gs-alinea">
-              Gevorderden gebruiken hier nog 2♣ ("Stayman") om naar vierkaarten hoog te vragen — handig om te kennen,
-              niet nodig om te beginnen.
-            </p>
-          </section>
-
-          <section className="gs-sectie">
-            <h2>8 · Samen naar de manche</h2>
-            <p className="gs-alinea">
-              Waarom al dat geboden? Bepaalde contracten leveren een flinke premie op: de <strong>manches</strong> zijn 3SA (9 slagen),
-              4♥/4♠ (10 slagen) en 5♣/5♦ (11 slagen). Vuistregel: bied manche met samen ±25 punten (voor 5♣/5♦ liever 28).
-              Nog hoger zijn slem (12 slagen) en groot slem (13) — voor later. Als openaar tel je na partners antwoord simpel
-              op: past het samen bij 25, dan stuur je naar de manche; zo niet, dan stop je zo laag mogelijk.
-            </p>
-          </section>
-
-          <section className="gs-sectie">
-            <h2>9 · Het spelen en de score</h2>
-            <p className="gs-alinea">
-              Uitkomen tegen een sans-contract: kies de <strong>vierde kaart van je langste kleur</strong>. Tegen een troefcontract is
-              een kleur waarvan je A-H hebt of een singleton aantrekkelijk. Als leider in een troefcontract: <strong>trek eerst
-              troef</strong> (speel troef tot de tegenpartij er geen meer heeft), tegen sans: ontwikkel je lange kleur. Een
-              <strong> snit</strong> proberen (bijv. richting je V spelen in de hoop dat de heer "ervoor" zit) wint vaak een extra slag.
-            </p>
-            <p className="gs-alinea">
-              De score hoef je niet uit je hoofd te kennen — die staat op elk biedbriefje. Onthoud alleen: contract gehaald =
-              punten voor jullie (manche = veel extra), elke downslag = punten voor de tegenpartij, en "kwetsbaar" (na een
-              eerder gewonnen manche in een robber) maakt alles duurder. Daarmee weet je genoeg om aan te schuiven —
-              de rest leer je aan tafel.
-            </p>
-          </section>
-        </article>
-      )}
+      {tab === 'cursus' && <BridgeCursus />}
 
       {tab === 'overhoren' && quiz === null && (
         <>
