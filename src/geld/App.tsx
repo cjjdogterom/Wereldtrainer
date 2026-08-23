@@ -7,7 +7,7 @@ import './geld.css'
 
 const ACCENT = '#8a6d1f'
 
-const GROEPEN: Geld['groep'][] = ['Munten', 'Biljetten & bijnamen', 'Geld in het algemeen']
+const GROEPEN: Geld['groep'][] = ['Munten (gulden)', 'Biljetten & bijnamen (gulden)', 'Euro (informeel & straattaal)', 'Geld in het algemeen']
 
 // Alleen bijnamen met een concreet bedrag lenen zich voor de bedrag-quiz.
 const MET_BEDRAG = GELD.filter((g) => g.waardeCent !== null)
@@ -56,21 +56,21 @@ export default function GeldApp() {
 
   return (
     <LeerShell
-      mark="ƒ"
+      mark="ƒ€"
       accent={ACCENT}
-      title="Guldenbijnamen"
-      subtitle="Geldnamen uit het gulden-tijdperk"
+      title="Geldbijnamen"
+      subtitle="Gulden, euro & straattaal"
       tabs={[{ id: 'leren', label: 'Leren' }, { id: 'overhoren', label: 'Overhoren' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
-      footnote={<p>Bijnamen uit het gulden-tijdperk (tot de invoering van de euro in 2002). Veel namen komen uit het Bargoens, de dieventaal met sterke Jiddisch-Hebreeuwse invloed.</p>}
+      footnote={<p>Geldnamen van het gulden-tijdperk (tot de euro in 2002) tot de euro-straattaal van nu. Veel oude namen komen uit het Bargoens (dieventaal met sterke Jiddisch-Hebreeuwse invloed), de nieuwe vooral uit de hiphop en straattaal.</p>}
     >
       {tab === 'leren' && (
         <article className="gl-artikel">
           <div className="km-page-head">
             <p className="km-eyebrow">Leren</p>
-            <h1>Wat is een joet, een meier of een knaak?</h1>
-            <p>Van kleingeld tot bankbiljet: de bijnamen van de gulden en waar ze vandaan komen.</p>
+            <h1>Wat is een joet, een meier of een barkie?</h1>
+            <p>Van kleingeld tot miljoen: de bijnamen van de gulden én de euro, en waar ze vandaan komen.</p>
           </div>
 
           {GROEPEN.map((groep) => (

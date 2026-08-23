@@ -126,10 +126,10 @@ const MODULES = [
     to: '/geld',
     icon: <Coins size={34} aria-hidden="true" />,
     accent: '#8a6d1f',
-    title: 'Guldenbijnamen',
-    subtitle: 'Joet · meier · knaak',
-    description: 'De bijnamen van het gulden-geld — van heitje tot rooie rug — met hun vaak Bargoense herkomst, en overhoren op bedrag.',
-    stats: ['munten & biljetten', 'met herkomst'],
+    title: 'Geldbijnamen',
+    subtitle: 'Joet · meier · barkie',
+    description: 'De bijnamen van geld — van gulden (heitje, rooie rug) tot euro-straattaal (barkie, mille, meloen) — met hun herkomst en overhoren op bedrag.',
+    stats: ['gulden & euro', 'met herkomst'],
   },
 ]
 
