@@ -17,6 +17,8 @@ const RangenApp = lazy(() => import('./rangen/App.tsx'))
 const SpaansApp = lazy(() => import('./spaans/App.tsx'))
 const KlaverjasApp = lazy(() => import('./klaverjas/App.tsx'))
 const BridgeApp = lazy(() => import('./bridge/App.tsx'))
+const WeetjesApp = lazy(() => import('./weetjes/App.tsx'))
+const GeldApp = lazy(() => import('./geld/App.tsx'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -36,6 +38,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/spaans/*" element={<SpaansApp />} />
           <Route path="/klaverjas/*" element={<KlaverjasApp />} />
           <Route path="/bridge/*" element={<BridgeApp />} />
+          <Route path="/weetjes/*" element={<WeetjesApp />} />
+          <Route path="/geld/*" element={<GeldApp />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Anchor, Bird, BookOpen, Church, Club, Crown, Flag, Globe2, Landmark, MessageCircle, Shield, Spade, Trophy } from 'lucide-react'
+import { Anchor, Bird, BookOpen, Church, Club, Coins, Crown, Flag, Globe2, Landmark, Lightbulb, MessageCircle, Shield, Spade, Trophy } from 'lucide-react'
 import './home.css'
 import { countries } from './data/countries'
 
@@ -112,6 +112,24 @@ const MODULES = [
     subtitle: 'Amsterdams (verplicht)',
     description: 'Van kaartvolgorde tot roem en nat: leer de Amsterdamse regels en oefen met echte spelsituaties.',
     stats: ['7 hoofdstukken', '4 trainers'],
+  },
+  {
+    to: '/weetjes',
+    icon: <Lightbulb size={34} aria-hidden="true" />,
+    accent: '#4c3f91',
+    title: 'Weetjes',
+    subtitle: 'Elke dag iets nieuws',
+    description: 'Driehonderd diepe weetjes uit techniek, natuur en wetenschap — met een weetje van de dag, een bibliotheek per vakgebied en overhoren.',
+    stats: ['300 weetjes', '±30 vakgebieden'],
+  },
+  {
+    to: '/geld',
+    icon: <Coins size={34} aria-hidden="true" />,
+    accent: '#8a6d1f',
+    title: 'Guldenbijnamen',
+    subtitle: 'Joet · meier · knaak',
+    description: 'De bijnamen van het gulden-geld — van heitje tot rooie rug — met hun vaak Bargoense herkomst, en overhoren op bedrag.',
+    stats: ['munten & biljetten', 'met herkomst'],
   },
 ]
 
