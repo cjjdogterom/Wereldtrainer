@@ -1,0 +1,669 @@
+{
+  "viertakt-kleptiming": [
+    {
+      "wiki": "Camshaft",
+      "taal": "en",
+      "bijschrift": "Nokkenas: de nokken duwen de kleppen open"
+    },
+    {
+      "wiki": "Poppet valve",
+      "taal": "en",
+      "bijschrift": "Klep: schotelvormige kop op een lange steel"
+    }
+  ],
+  "benzine-vs-diesel": [
+    {
+      "wiki": "Dieselmotor",
+      "taal": "nl",
+      "bijschrift": "Dieselmotor: zelfontbranding, geen bougies"
+    },
+    {
+      "wiki": "Glow plug",
+      "taal": "en",
+      "bijschrift": "Gloeibougie: helpt een koude diesel starten"
+    }
+  ],
+  "brandstofinjectie": [
+    {
+      "wiki": "Common rail",
+      "taal": "en",
+      "bijschrift": "Common rail: hogedrukrail met injectoren"
+    },
+    {
+      "wiki": "Fuel injection",
+      "taal": "en",
+      "bijschrift": "Directe injectie: injector in de cilinderkop"
+    }
+  ],
+  "turbo-intercooler": [
+    {
+      "wiki": "Turbocharger",
+      "taal": "en",
+      "bijschrift": "Turbo: uitlaatturbine en compressor op één as"
+    },
+    {
+      "wiki": "Intercooler",
+      "taal": "en",
+      "bijschrift": "Intercooler: radiateur die de inlaatlucht koelt"
+    }
+  ],
+  "ontsteking-motormanagement": [
+    {
+      "wiki": "Spark plug",
+      "taal": "en",
+      "bijschrift": "Bougie: de vonk springt tussen de elektroden"
+    },
+    {
+      "wiki": "Lambdasonde",
+      "taal": "nl",
+      "bijschrift": "Lambdasonde: meet zuurstof in het uitlaatgas"
+    }
+  ],
+  "smering-koeling": [
+    {
+      "wiki": "Oil filter",
+      "taal": "en",
+      "bijschrift": "Oliefilter: de bus die je bij een beurt vervangt"
+    },
+    {
+      "wiki": "Wax thermostatic element",
+      "taal": "en",
+      "bijschrift": "Thermostaat: wasklep die koelvloeistof doorlaat"
+    }
+  ],
+  "koppeling-versnellingsbak": [
+    {
+      "wiki": "Clutch",
+      "taal": "en",
+      "bijschrift": "Koppelingsplaat met frictievoering"
+    },
+    {
+      "wiki": "Direct-shift gearbox",
+      "taal": "en",
+      "bijschrift": "DSG: dubbele koppeling met mechatronica"
+    }
+  ],
+  "differentieel-aandrijving": [
+    {
+      "wiki": "Differential (mechanical device)",
+      "taal": "en",
+      "bijschrift": "Differentieel: kegelwielen in het huis"
+    },
+    {
+      "wiki": "Variomatic",
+      "taal": "en",
+      "bijschrift": "Variomatic (CVT): riem over verstelbare poelies"
+    }
+  ],
+  "remmen-abs": [
+    {
+      "wiki": "Disc brake",
+      "taal": "en",
+      "bijschrift": "Schijfrem: remklauw rond de remschijf"
+    },
+    {
+      "wiki": "Anti-lock braking system",
+      "taal": "en",
+      "bijschrift": "ABS: wielsensor, regelaar en klepblok"
+    }
+  ],
+  "wielophanging-sturing": [
+    {
+      "wiki": "MacPherson strut",
+      "taal": "en",
+      "bijschrift": "MacPherson-veerpoot: schokdemper in de veer"
+    },
+    {
+      "wiki": "Rack and pinion",
+      "taal": "en",
+      "bijschrift": "Tandheugelbesturing: rondsel op een heugel"
+    }
+  ],
+  "hybride-aandrijving": [
+    {
+      "wiki": "Hybride auto",
+      "taal": "nl",
+      "bijschrift": "Toyota Prius: de bekendste volhybride"
+    },
+    {
+      "wiki": "Plug-in hybrid",
+      "taal": "en",
+      "bijschrift": "Plug-in hybride aan de laadkabel"
+    }
+  ],
+  "tweetakt-vs-viertakt": [
+    {
+      "wiki": "Tweetaktmotor",
+      "taal": "nl",
+      "bijschrift": "Tweetakt: poorten in de cilinderwand, geen kleppen"
+    },
+    {
+      "wiki": "Four-stroke engine",
+      "taal": "en",
+      "bijschrift": "Viertakt: kleppen bovenin de cilinderkop"
+    }
+  ],
+  "cilinderconfiguraties-motor": [
+    {
+      "wiki": "V-twin engine",
+      "taal": "en",
+      "bijschrift": "V-twin: twee cilinders in een V"
+    },
+    {
+      "wiki": "Flat-twin engine",
+      "taal": "en",
+      "bijschrift": "Boxer: cilinders steken links en rechts uit"
+    }
+  ],
+  "eindaandrijving-motor": [
+    {
+      "wiki": "Roller chain",
+      "taal": "en",
+      "bijschrift": "Rollenketting: de klassieke eindaandrijving"
+    },
+    {
+      "wiki": "Shaft drive",
+      "taal": "en",
+      "bijschrift": "Cardanas: aandrijfas met kruiskoppelingen"
+    }
+  ],
+  "koppeling-motorfiets": [
+    {
+      "wiki": "Clutch",
+      "taal": "en",
+      "bijschrift": "Frictieplaat: zo ziet een koppelingsplaat eruit"
+    }
+  ],
+  "remmen-motorfiets": [
+    {
+      "wiki": "Schijfrem",
+      "taal": "nl",
+      "bijschrift": "Remklauw: de zuigers knijpen de schijf"
+    },
+    {
+      "wiki": "Disc brake",
+      "taal": "en",
+      "bijschrift": "Remschijf met klauw van dichtbij"
+    }
+  ],
+  "tegensturen-geometrie": [
+    {
+      "wiki": "Countersteering",
+      "taal": "en",
+      "bijschrift": "Tegensturen: motor helt de bocht in"
+    },
+    {
+      "wiki": "Bicycle and motorcycle geometry",
+      "taal": "en",
+      "bijschrift": "Rake en trail: balhoofdhoek en naloop"
+    }
+  ],
+  "vering-motorfiets": [
+    {
+      "wiki": "Motorcycle fork",
+      "taal": "en",
+      "bijschrift": "Telescoopvork; upside-down: dikke buizen boven"
+    },
+    {
+      "wiki": "Swingarm",
+      "taal": "en",
+      "bijschrift": "Achterbrug (swingarm) met schokdemper"
+    }
+  ],
+  "rijhulp-motorfiets": [
+    {
+      "wiki": "Quickshifter",
+      "taal": "en",
+      "bijschrift": "Quickshifter op het schakelpedaal"
+    },
+    {
+      "wiki": "Inertial measurement unit",
+      "taal": "en",
+      "bijschrift": "IMU: meet hellingshoek en versnelling"
+    }
+  ],
+  "lithium-ion-accu": [
+    {
+      "wiki": "Lithium-ion battery",
+      "taal": "en",
+      "bijschrift": "Lithium-ioncellen in een accupack"
+    },
+    {
+      "wiki": "Battery pack",
+      "taal": "en",
+      "bijschrift": "Accupack: vele cellen samengebouwd"
+    }
+  ],
+  "laadcurve-c-rate": [
+    {
+      "wiki": "Charging station",
+      "taal": "en",
+      "bijschrift": "Snellader met kabel aan de auto"
+    },
+    {
+      "wiki": "Electric vehicle battery",
+      "taal": "en",
+      "bijschrift": "Accupack in de bodem van een EV"
+    }
+  ],
+  "ac-dc-laden": [
+    {
+      "wiki": "Type 2 connector",
+      "taal": "en",
+      "bijschrift": "Type 2-stekker: AC-laden in Europa"
+    },
+    {
+      "wiki": "Combined Charging System",
+      "taal": "en",
+      "bijschrift": "CCS-stekker: extra DC-pinnen onderaan"
+    }
+  ],
+  "elektromotor-ev": [
+    {
+      "wiki": "Stator",
+      "taal": "nl",
+      "bijschrift": "Stator: koperwikkelingen in het blikpakket"
+    },
+    {
+      "wiki": "Rotor (electric)",
+      "taal": "en",
+      "bijschrift": "Rotors: het draaiende deel van de motor"
+    }
+  ],
+  "inverter-ev": [
+    {
+      "wiki": "Insulated-gate bipolar transistor",
+      "taal": "en",
+      "bijschrift": "IGBT-module: de schakelaar in de inverter"
+    },
+    {
+      "wiki": "Variable-frequency drive",
+      "taal": "en",
+      "bijschrift": "Frequentieregelaar: inverter voor een motor"
+    }
+  ],
+  "regeneratief-remmen": [
+    {
+      "wiki": "Regenerative braking",
+      "taal": "en",
+      "bijschrift": "Regeneratief remmen: motor wordt dynamo"
+    },
+    {
+      "wiki": "Traction motor",
+      "taal": "en",
+      "bijschrift": "Tractiemotor: remt én laadt bij"
+    }
+  ],
+  "thermisch-management-ev": [
+    {
+      "wiki": "Heat pump",
+      "taal": "en",
+      "bijschrift": "Warmtepomp: verplaatst warmte"
+    },
+    {
+      "wiki": "Radiator (engine cooling)",
+      "taal": "en",
+      "bijschrift": "Radiateur voor het koelcircuit"
+    }
+  ],
+  "accu-degradatie": [
+    {
+      "wiki": "Lithium-ion battery",
+      "taal": "en",
+      "bijschrift": "Lithium-ioncel: veroudert per laadcyclus"
+    },
+    {
+      "wiki": "Electric vehicle battery",
+      "taal": "en",
+      "bijschrift": "EV-accupack: cellen, modules en koeling"
+    }
+  ],
+  "waterstof-brandstofcel": [
+    {
+      "wiki": "Fuel cell",
+      "taal": "en",
+      "bijschrift": "Brandstofcelstack: waterstof wordt stroom"
+    },
+    {
+      "wiki": "Toyota Mirai",
+      "taal": "en",
+      "bijschrift": "Toyota Mirai: waterstofauto"
+    }
+  ],
+  "verbruik-rendement-ev": [
+    {
+      "wiki": "Electric vehicle",
+      "taal": "en",
+      "bijschrift": "Elektrische auto aan de snellader"
+    },
+    {
+      "wiki": "Tesla Model 3",
+      "taal": "en",
+      "bijschrift": "Tesla Model 3: zuinige, gestroomlijnde EV"
+    }
+  ],
+  "tractie-stroomvoorziening-nl": [
+    {
+      "wiki": "Overhead line",
+      "taal": "en",
+      "bijschrift": "Bovenleiding: rijdraad boven het spoor"
+    },
+    {
+      "wiki": "Pantograph (transport)",
+      "taal": "en",
+      "bijschrift": "Pantograaf: stroomafnemer op het dak"
+    }
+  ],
+  "remweg-adhesie-trein": [
+    {
+      "wiki": "Railway brake",
+      "taal": "en",
+      "bijschrift": "Blokrem: remblok tegen het wiel"
+    },
+    {
+      "wiki": "Brake shoe",
+      "taal": "en",
+      "bijschrift": "Remblokken van een trein"
+    }
+  ],
+  "conische-wielen": [
+    {
+      "wiki": "Wheelset (rail transport)",
+      "taal": "en",
+      "bijschrift": "Wielstel: twee conische wielen op één as"
+    },
+    {
+      "wiki": "Bogie",
+      "taal": "en",
+      "bijschrift": "Draaistel met twee wielstellen"
+    }
+  ],
+  "blokstelsel-seinen": [
+    {
+      "wiki": "Railway signal",
+      "taal": "en",
+      "bijschrift": "Lichtseinen langs het spoor"
+    },
+    {
+      "wiki": "Railway signalling",
+      "taal": "en",
+      "bijschrift": "Sein bij een wissel: trein wacht op groen"
+    }
+  ],
+  "atb-ertms": [
+    {
+      "wiki": "Balise",
+      "taal": "en",
+      "bijschrift": "Balise: kastje tussen de rails"
+    },
+    {
+      "wiki": "European Train Control System",
+      "taal": "en",
+      "bijschrift": "ETCS-balises in het spoor"
+    }
+  ],
+  "wissels-overwegen": [
+    {
+      "wiki": "Railroad switch",
+      "taal": "en",
+      "bijschrift": "Wissel: beweegbare tongen leiden de trein af"
+    },
+    {
+      "wiki": "Level crossing",
+      "taal": "en",
+      "bijschrift": "Overweg met slagbomen en lichten"
+    }
+  ],
+  "elektrisch-dieselelektrisch": [
+    {
+      "wiki": "Diesel–electric transmission",
+      "taal": "en",
+      "bijschrift": "Diesel-elektrische loc: diesel drijft generator"
+    },
+    {
+      "wiki": "Electric locomotive",
+      "taal": "en",
+      "bijschrift": "Elektrische locomotief met pantograaf"
+    }
+  ],
+  "ns-materieel": [
+    {
+      "wiki": "Sprinter New Generation",
+      "taal": "en",
+      "bijschrift": "SNG: Sprinter Nieuwe Generatie van NS"
+    },
+    {
+      "wiki": "NS Intercity Nieuwe Generatie",
+      "taal": "en",
+      "bijschrift": "ICNG: nieuwe intercity van NS"
+    }
+  ],
+  "drijfvermogen-stabiliteit": [
+    {
+      "wiki": "Plimsollmerk",
+      "taal": "nl",
+      "bijschrift": "Plimsollmerk: maximale diepgang op de romp"
+    },
+    {
+      "wiki": "Bulbous bow",
+      "taal": "en",
+      "bijschrift": "Bulbsteven: romp onder water in het droogdok"
+    }
+  ],
+  "scheepsschroef-voortstuwing": [
+    {
+      "wiki": "Scheepsschroef",
+      "taal": "nl",
+      "bijschrift": "Scheepsschroef: bladen met spoed"
+    },
+    {
+      "wiki": "Cavitation",
+      "taal": "en",
+      "bijschrift": "Cavitatie: dampbellen achter een schroef"
+    }
+  ],
+  "roer-sturen-schip": [
+    {
+      "wiki": "Rudder",
+      "taal": "en",
+      "bijschrift": "Roer direct achter de schroef"
+    },
+    {
+      "wiki": "Boegschroef",
+      "taal": "nl",
+      "bijschrift": "Boegschroef: tunnel dwars door de boeg"
+    }
+  ],
+  "scheepsdiesel": [
+    {
+      "wiki": "Two-stroke diesel engine",
+      "taal": "en",
+      "bijschrift": "Grote tweetakt-diesel"
+    },
+    {
+      "wiki": "Emma Mærsk",
+      "taal": "en",
+      "bijschrift": "Emma Mærsk: aangedreven door een reuzentweetakt"
+    }
+  ],
+  "navigatielichten": [
+    {
+      "wiki": "Navigation light",
+      "taal": "en",
+      "bijschrift": "Navigatielichten: rood bakboord, groen stuurboord"
+    },
+    {
+      "wiki": "Port and starboard",
+      "taal": "en",
+      "bijschrift": "Bakboord en stuurboord van achteren gezien"
+    }
+  ],
+  "bpr-vaarregels": [
+    {
+      "wiki": "Binnenvaart",
+      "taal": "nl",
+      "bijschrift": "Binnenvaartschip op het Amsterdam-Rijnkanaal"
+    },
+    {
+      "wiki": "Duwbak",
+      "taal": "nl",
+      "bijschrift": "Duwvaart: duwboot met bakken"
+    }
+  ],
+  "betonning-iala": [
+    {
+      "wiki": "Betonning",
+      "taal": "nl",
+      "bijschrift": "Ton in de vaargeul"
+    },
+    {
+      "wiki": "Buoy",
+      "taal": "en",
+      "bijschrift": "Boei: drijvend vaarwegmarkering"
+    }
+  ],
+  "marifoon-basis": [
+    {
+      "wiki": "Marine VHF radio",
+      "taal": "en",
+      "bijschrift": "Marifoon: handheld VHF-radio"
+    }
+  ],
+  "sluizen-schutten": [
+    {
+      "wiki": "Lock (water navigation)",
+      "taal": "en",
+      "bijschrift": "Sluis: kolk tussen twee deuren"
+    },
+    {
+      "wiki": "Sluis (waterbouwkunde)",
+      "taal": "nl",
+      "bijschrift": "Sluisdeuren van dichtbij"
+    }
+  ],
+  "rotor-lift": [
+    {
+      "wiki": "Helicopter rotor",
+      "taal": "en",
+      "bijschrift": "Hoofdrotor: draaiende vleugels"
+    },
+    {
+      "wiki": "Helikopter",
+      "taal": "nl",
+      "bijschrift": "Helikopter boven een platform"
+    }
+  ],
+  "collective": [
+    {
+      "wiki": "Helicopter flight controls",
+      "taal": "en",
+      "bijschrift": "Cockpit: collective links, cyclic in het midden"
+    },
+    {
+      "wiki": "Rotorhead",
+      "taal": "en",
+      "bijschrift": "Rotorkop: hier verandert de bladhoek"
+    }
+  ],
+  "cyclic-swashplate": [
+    {
+      "wiki": "Swashplate",
+      "taal": "en",
+      "bijschrift": "Tuimelschijf: kantelt en verstelt de bladen"
+    },
+    {
+      "wiki": "Swashplate (aeronautics)",
+      "taal": "en",
+      "bijschrift": "Tuimelschijf onder de rotorkop"
+    }
+  ],
+  "staartrotor-anti-torque": [
+    {
+      "wiki": "Tail rotor",
+      "taal": "en",
+      "bijschrift": "Staartrotor: compenseert het rotorkoppel"
+    },
+    {
+      "wiki": "NOTAR",
+      "taal": "en",
+      "bijschrift": "NOTAR: helikopter zonder staartrotor"
+    },
+    {
+      "wiki": "Tandem rotors",
+      "taal": "en",
+      "bijschrift": "Tandemrotor: twee tegendraaiende rotors"
+    }
+  ],
+  "dissymmetry-flapping": [
+    {
+      "wiki": "Rotorhead",
+      "taal": "en",
+      "bijschrift": "Rotorkop met scharnieren voor flappen"
+    },
+    {
+      "wiki": "Dissymmetry of lift",
+      "taal": "en",
+      "bijschrift": "Voorwaarts en terugdraaiend blad"
+    }
+  ],
+  "translational-lift-grondeffect": [
+    {
+      "wiki": "Downwash",
+      "taal": "en",
+      "bijschrift": "Downwash: rotorwind slaat op het water"
+    },
+    {
+      "wiki": "Eurocopter EC135",
+      "taal": "en",
+      "bijschrift": "Helikopter die laag overvliegt"
+    }
+  ],
+  "autorotatie": [
+    {
+      "wiki": "Autorotation",
+      "taal": "en",
+      "bijschrift": "Autorotatie: luchtstroom drijft de rotor aan"
+    },
+    {
+      "wiki": "Helicopter",
+      "taal": "en",
+      "bijschrift": "Helikopter vlak voor de landing"
+    }
+  ],
+  "vortex-ring-state": [
+    {
+      "wiki": "Vortex ring state",
+      "taal": "en",
+      "bijschrift": "Vortex ring: heli zakt in eigen wervel"
+    },
+    {
+      "wiki": "Helicopter",
+      "taal": "en",
+      "bijschrift": "Helikopter bij steile nadering"
+    }
+  ],
+  "turboshaft": [
+    {
+      "wiki": "Turbomeca Arriel",
+      "taal": "en",
+      "bijschrift": "Turbomeca Arriel: opengewerkte turboshaft"
+    },
+    {
+      "wiki": "Turboshaft",
+      "taal": "en",
+      "bijschrift": "Turboshaft: turbine drijft een as aan"
+    }
+  ],
+  "snelheidslimieten-heli": [
+    {
+      "wiki": "Sikorsky X2",
+      "taal": "en",
+      "bijschrift": "Sikorsky X2: coaxrotor tegen blade stall"
+    },
+    {
+      "wiki": "Eurocopter X3",
+      "taal": "en",
+      "bijschrift": "Eurocopter X3: extra propellers voor snelheid"
+    }
+  ]
+}

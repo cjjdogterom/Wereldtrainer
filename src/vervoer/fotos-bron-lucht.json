@@ -1,0 +1,676 @@
+{
+  "lift-en-vleugelprofiel": [
+    {
+      "wiki": "Wing",
+      "taal": "en",
+      "bijschrift": "Vleugel van een verkeersvliegtuig van bovenaf"
+    },
+    {
+      "wiki": "Vleugelprofiel",
+      "taal": "nl",
+      "bijschrift": "Doorsnede van een vleugelprofiel met de benamingen"
+    }
+  ],
+  "overtrek-stall": [
+    {
+      "wiki": "Stall strips",
+      "taal": "en",
+      "bijschrift": "Stall strip: klein wigje op de vleugelvoorrand"
+    },
+    {
+      "wiki": "Vortex generator",
+      "taal": "en",
+      "bijschrift": "Vortexgeneratoren houden de stroming langer aan de vleugel"
+    }
+  ],
+  "vier-krachten-klimmen-glijden": [
+    {
+      "wiki": "Climb (aeronautics)",
+      "taal": "en",
+      "bijschrift": "Verkeersvliegtuig in de klim na de start"
+    },
+    {
+      "wiki": "Glider (sailplane)",
+      "taal": "en",
+      "bijschrift": "Zweefvliegtuig: glijden zonder motor"
+    },
+    {
+      "wiki": "Cessna 172",
+      "taal": "en",
+      "bijschrift": "Cessna 172, het bekendste lesvliegtuig"
+    }
+  ],
+  "stuurvlakken-en-trim": [
+    {
+      "wiki": "Rolroer",
+      "taal": "nl",
+      "bijschrift": "Rolroer aan de achterrand bij de vleugeltip"
+    },
+    {
+      "wiki": "Richtingsroer",
+      "taal": "nl",
+      "bijschrift": "Hoogteroer en richtingsroer aan de staart"
+    },
+    {
+      "wiki": "Trim tab",
+      "taal": "en",
+      "bijschrift": "Trimvlakjes op een roer"
+    }
+  ],
+  "flaps-en-slats": [
+    {
+      "wiki": "Welvingsklep",
+      "taal": "nl",
+      "bijschrift": "Uitgeschoven flaps aan de vleugelachterrand"
+    },
+    {
+      "wiki": "Leading-edge slat",
+      "taal": "en",
+      "bijschrift": "Uitgeschoven slats aan de vleugelvoorrand"
+    }
+  ],
+  "stabiliteit-zwaartepunt": [
+    {
+      "wiki": "Empennage",
+      "taal": "en",
+      "bijschrift": "Staartstuk met stabilo en kielvlak"
+    },
+    {
+      "wiki": "Stabilizer (aeronautics)",
+      "taal": "en",
+      "bijschrift": "Horizontaal en verticaal stabilo aan de staart"
+    }
+  ],
+  "zuigermotor-luchtvaart": [
+    {
+      "wiki": "Lycoming O-320",
+      "taal": "en",
+      "bijschrift": "Lycoming O-320: viercilinder boxermotor"
+    },
+    {
+      "wiki": "Lycoming O-360",
+      "taal": "en",
+      "bijschrift": "Lycoming IO-360 met injectie"
+    },
+    {
+      "wiki": "Variable-pitch propeller (aeronautics)",
+      "taal": "en",
+      "bijschrift": "Naaf van een verstelbare propeller"
+    }
+  ],
+  "straalmotor-turbofan": [
+    {
+      "wiki": "Turbofan",
+      "taal": "en",
+      "bijschrift": "Doorsnede turbofan: fan, compressor, turbine"
+    },
+    {
+      "wiki": "CFM International CFM56",
+      "taal": "en",
+      "bijschrift": "CFM56-motor met open kap"
+    },
+    {
+      "wiki": "Rolls-Royce Trent",
+      "taal": "en",
+      "bijschrift": "Rolls-Royce Trent op de testbank"
+    }
+  ],
+  "pitot-statische-instrumenten": [
+    {
+      "wiki": "Pitot tube",
+      "taal": "en",
+      "bijschrift": "Pitotbuis onder de vleugel"
+    },
+    {
+      "wiki": "Airspeed indicator",
+      "taal": "en",
+      "bijschrift": "Snelheidsmeter met gekleurde bogen"
+    },
+    {
+      "wiki": "Variometer",
+      "taal": "en",
+      "bijschrift": "Variometer (VSI): stijgen of dalen in ft/min"
+    }
+  ],
+  "gyro-instrumenten": [
+    {
+      "wiki": "Attitude indicator",
+      "taal": "en",
+      "bijschrift": "Kunstmatige horizon: hemel blauw, grond bruin"
+    },
+    {
+      "wiki": "Heading indicator",
+      "taal": "en",
+      "bijschrift": "Koersgyro van een Cessna 172"
+    },
+    {
+      "wiki": "Turn and slip indicator",
+      "taal": "en",
+      "bijschrift": "Bochtaanwijzer met slipkogel"
+    }
+  ],
+  "glass-cockpit-autopilot": [
+    {
+      "wiki": "Primary flight display",
+      "taal": "en",
+      "bijschrift": "Primary flight display van een Boeing 737"
+    },
+    {
+      "wiki": "Garmin G1000",
+      "taal": "en",
+      "bijschrift": "Garmin G1000-glass cockpit"
+    },
+    {
+      "wiki": "Flight management system",
+      "taal": "en",
+      "bijschrift": "FMS-bedieningspaneel voor de autopilot"
+    }
+  ],
+  "v-snelheden": [
+    {
+      "wiki": "V speeds",
+      "taal": "en",
+      "bijschrift": "Snelheidsmeter met V-snelheidsmarkeringen"
+    },
+    {
+      "wiki": "Rotation (aeronautics)",
+      "taal": "en",
+      "bijschrift": "Neus omhoog bij de rotatiesnelheid (VR)"
+    }
+  ],
+  "fir-en-luchtruimindeling": [
+    {
+      "wiki": "Vluchtinformatiegebied",
+      "taal": "nl",
+      "bijschrift": "FIR-grenzen boven de Atlantische Oceaan"
+    },
+    {
+      "wiki": "Controlled airspace",
+      "taal": "en",
+      "bijschrift": "Opbouw van gecontroleerd luchtruim (CTR, TMA)"
+    }
+  ],
+  "luchtruimklassen": [
+    {
+      "wiki": "Sectional aeronautical chart",
+      "taal": "en",
+      "bijschrift": "VFR-kaart met luchtruimgrenzen en klassen"
+    },
+    {
+      "wiki": "Controlled airspace",
+      "taal": "en",
+      "bijschrift": "Luchtruimklassen in doorsnede"
+    }
+  ],
+  "vfr-ifr-vmc-minima": [
+    {
+      "wiki": "Visual meteorological conditions",
+      "taal": "en",
+      "bijschrift": "Zicht- en wolkenafstand-minima per luchtruim"
+    },
+    {
+      "wiki": "Instrument meteorological conditions",
+      "taal": "en",
+      "bijschrift": "Landen in IMC: nauwelijks zicht"
+    },
+    {
+      "wiki": "Instrument flight rules",
+      "taal": "en",
+      "bijschrift": "IFR-vlucht in de wolken"
+    }
+  ],
+  "hoogteregels-kruishoogte": [
+    {
+      "wiki": "Altimeter",
+      "taal": "en",
+      "bijschrift": "Hoogtemeter met drie wijzers"
+    },
+    {
+      "wiki": "Cruise (aeronautics)",
+      "taal": "en",
+      "bijschrift": "Verkeersvliegtuig op kruishoogte"
+    }
+  ],
+  "transitiehoogte-flight-levels": [
+    {
+      "wiki": "Flight level",
+      "taal": "en",
+      "bijschrift": "Flight levels tegenover hoogte boven zeeniveau"
+    },
+    {
+      "wiki": "Altimeter",
+      "taal": "en",
+      "bijschrift": "Hoogtemeter: hier zet je 1013 of QNH in"
+    }
+  ],
+  "transponder-squawk": [
+    {
+      "wiki": "Transponder (aeronautics)",
+      "taal": "en",
+      "bijschrift": "Transponder in de cockpit met squawkcode"
+    },
+    {
+      "wiki": "Secondary surveillance radar",
+      "taal": "en",
+      "bijschrift": "Antenne van de secundaire radar (SSR)"
+    }
+  ],
+  "voorrangsregels-lucht": [
+    {
+      "wiki": "Traffic collision avoidance system",
+      "taal": "en",
+      "bijschrift": "TCAS-weergave van verkeer in de buurt"
+    },
+    {
+      "wiki": "Cessna 152",
+      "taal": "en",
+      "bijschrift": "Klein lesvliegtuig: uitkijken blijft de basis"
+    }
+  ],
+  "noodprocedures-radio-uitval": [
+    {
+      "wiki": "Aviation light signals",
+      "taal": "en",
+      "bijschrift": "Lichtpistool in de toren voor lichtsignalen"
+    },
+    {
+      "wiki": "Transponder (aeronautics)",
+      "taal": "en",
+      "bijschrift": "Squawk 7600 bij radio-uitval, 7700 bij nood"
+    }
+  ],
+  "vliegplan": [
+    {
+      "wiki": "Flight plan",
+      "taal": "en",
+      "bijschrift": "ICAO-vliegplanformulier"
+    }
+  ],
+  "beperkte-gebieden-drones": [
+    {
+      "wiki": "DJI Phantom",
+      "taal": "en",
+      "bijschrift": "Quadcopter-drone"
+    },
+    {
+      "wiki": "Restricted airspace",
+      "taal": "en",
+      "bijschrift": "Beperkt gebied op de luchtvaartkaart"
+    }
+  ],
+  "baannummers-markeringen": [
+    {
+      "wiki": "Polderbaan",
+      "taal": "nl",
+      "bijschrift": "Polderbaan van bovenaf met markeringen"
+    },
+    {
+      "wiki": "Runway",
+      "taal": "en",
+      "bijschrift": "Landingsbaan met drempel en baannummer"
+    },
+    {
+      "wiki": "Kaagbaan",
+      "taal": "nl",
+      "bijschrift": "Kaagbaan op Schiphol"
+    }
+  ],
+  "baanverlichting": [
+    {
+      "wiki": "Approach lighting system",
+      "taal": "en",
+      "bijschrift": "Naderingsverlichting voor de drempel"
+    },
+    {
+      "wiki": "Runway edge lights",
+      "taal": "en",
+      "bijschrift": "Baanrandverlichting bij het landen"
+    },
+    {
+      "wiki": "Runway end identifier light",
+      "taal": "en",
+      "bijschrift": "Flitslichten bij de baandrempel (REIL)"
+    }
+  ],
+  "platzcircuit": [
+    {
+      "wiki": "Windzak",
+      "taal": "nl",
+      "bijschrift": "Windzak naast een klein vliegveld"
+    },
+    {
+      "wiki": "Vliegveld Teuge",
+      "taal": "nl",
+      "bijschrift": "Sportvliegveld Teuge vanuit de lucht"
+    },
+    {
+      "wiki": "Airfield traffic pattern",
+      "taal": "en",
+      "bijschrift": "Toestel in de eindnadering van het circuit"
+    }
+  ],
+  "checklists-en-flows": [
+    {
+      "wiki": "Flight instruments",
+      "taal": "en",
+      "bijschrift": "Instrumentenpaneel van een lesvliegtuig"
+    },
+    {
+      "wiki": "Yoke (aeronautics)",
+      "taal": "en",
+      "bijschrift": "Stuurhoorns in een verkeerscockpit"
+    }
+  ],
+  "atc-fraseologie": [
+    {
+      "wiki": "Verkeerstoren",
+      "taal": "nl",
+      "bijschrift": "Verkeerstoren van Schiphol"
+    },
+    {
+      "wiki": "Luchtverkeersleider",
+      "taal": "nl",
+      "bijschrift": "Verkeersleider in de Schipholtoren"
+    }
+  ],
+  "readback-klaringen": [
+    {
+      "wiki": "Air traffic controller",
+      "taal": "en",
+      "bijschrift": "Verkeersleider aan het werk in de toren"
+    },
+    {
+      "wiki": "Luchtverkeersleiding Nederland",
+      "taal": "nl",
+      "bijschrift": "Verkeersleiding bij LVNL"
+    }
+  ],
+  "atis": [
+    {
+      "wiki": "Automated airport weather station",
+      "taal": "en",
+      "bijschrift": "Automatisch weerstation op een vliegveld"
+    },
+    {
+      "wiki": "Verkeerstoren",
+      "taal": "nl",
+      "bijschrift": "Vanuit de toren wordt de ATIS uitgezonden"
+    }
+  ],
+  "sid-star": [
+    {
+      "wiki": "Standard instrument departure",
+      "taal": "en",
+      "bijschrift": "Vertrekkaart (SID)"
+    },
+    {
+      "wiki": "Standard terminal arrival route",
+      "taal": "en",
+      "bijschrift": "Aankomstkaart (STAR)"
+    }
+  ],
+  "papi": [
+    {
+      "wiki": "Precision approach path indicator",
+      "taal": "en",
+      "bijschrift": "PAPI: vier lampen naast de baan"
+    },
+    {
+      "wiki": "Final approach",
+      "taal": "en",
+      "bijschrift": "Toestel in de eindnadering"
+    }
+  ],
+  "ils-nadering": [
+    {
+      "wiki": "Instrument landing system",
+      "taal": "nl",
+      "bijschrift": "Glijpadantenne naast de Polderbaan"
+    },
+    {
+      "wiki": "Instrument landing system localizer",
+      "taal": "en",
+      "bijschrift": "Localizer-bundel langs de baanas"
+    },
+    {
+      "wiki": "Instrument meteorological conditions",
+      "taal": "en",
+      "bijschrift": "ILS-landing in slecht zicht"
+    }
+  ],
+  "non-precisie-naderingen": [
+    {
+      "wiki": "VHF omnidirectional range",
+      "taal": "en",
+      "bijschrift": "VOR-baken (D-VOR) op de grond"
+    },
+    {
+      "wiki": "Instrument approach",
+      "taal": "en",
+      "bijschrift": "Naderingskaart met MDA en baken"
+    },
+    {
+      "wiki": "Area navigation",
+      "taal": "en",
+      "bijschrift": "RNAV: direct vliegen tussen waypoints"
+    }
+  ],
+  "go-around": [
+    {
+      "wiki": "Missed approach",
+      "taal": "en",
+      "bijschrift": "Missed-approachprocedure op de kaart"
+    },
+    {
+      "wiki": "Final approach",
+      "taal": "en",
+      "bijschrift": "Laag in de eindnadering: doorstarten kan nog"
+    }
+  ],
+  "hoogtemeter-qnh-qfe": [
+    {
+      "wiki": "Altimeter",
+      "taal": "en",
+      "bijschrift": "Hoogtemeter met instelvenster voor de druk"
+    },
+    {
+      "wiki": "Barometer",
+      "taal": "nl",
+      "bijschrift": "Barometer: de luchtdruk aflezen"
+    }
+  ],
+  "metar-opbouw": [
+    {
+      "wiki": "METAR",
+      "taal": "en",
+      "bijschrift": "Apparaat dat METAR-berichten verwerkt"
+    },
+    {
+      "wiki": "Automated airport weather station",
+      "taal": "en",
+      "bijschrift": "Weerstation dat de METAR-gegevens meet"
+    },
+    {
+      "wiki": "Windsock",
+      "taal": "en",
+      "bijschrift": "Windzak: windrichting en -sterkte zien"
+    }
+  ],
+  "metar-zicht-weer": [
+    {
+      "wiki": "Runway visual range",
+      "taal": "en",
+      "bijschrift": "Baan in slecht zicht (RVR)"
+    },
+    {
+      "wiki": "Transmissometer",
+      "taal": "en",
+      "bijschrift": "Transmissometer meet het baanzicht"
+    },
+    {
+      "wiki": "Rain",
+      "taal": "en",
+      "bijschrift": "Regen (RA) beperkt het zicht"
+    }
+  ],
+  "metar-wolken-cavok": [
+    {
+      "wiki": "Ceilometer",
+      "taal": "en",
+      "bijschrift": "Ceilometer meet de wolkenbasis"
+    },
+    {
+      "wiki": "Cumulus cloud",
+      "taal": "en",
+      "bijschrift": "Stapelwolken (FEW/SCT)"
+    },
+    {
+      "wiki": "Stratus cloud",
+      "taal": "en",
+      "bijschrift": "Laag stratusdek (BKN/OVC)"
+    }
+  ],
+  "taf-verwachting": [
+    {
+      "wiki": "Cumulonimbus cloud",
+      "taal": "en",
+      "bijschrift": "Cumulonimbus met aambeeld (CB)"
+    },
+    {
+      "wiki": "Weather front",
+      "taal": "en",
+      "bijschrift": "Naderend front: weer verandert (BECMG/TEMPO)"
+    }
+  ],
+  "dichtheidshoogte-prestaties": [
+    {
+      "wiki": "Hot and high",
+      "taal": "en",
+      "bijschrift": "Langere startrol bij warm weer en hoogte"
+    },
+    {
+      "wiki": "Density altitude",
+      "taal": "en",
+      "bijschrift": "Dichtheidshoogte uit druk en temperatuur"
+    }
+  ],
+  "wind-zijwind-windschering": [
+    {
+      "wiki": "Crosswind landing",
+      "taal": "en",
+      "bijschrift": "KLM 747 landt schuin met zijwind"
+    },
+    {
+      "wiki": "Windschering",
+      "taal": "nl",
+      "bijschrift": "Microburst: valwind bij een bui"
+    },
+    {
+      "wiki": "Windsock",
+      "taal": "en",
+      "bijschrift": "Windzak toont richting en kracht"
+    }
+  ],
+  "wolken-fronten-ijs": [
+    {
+      "wiki": "Cumulonimbus",
+      "taal": "nl",
+      "bijschrift": "Onweerswolk: wegblijven"
+    },
+    {
+      "wiki": "Icing (aeronautics)",
+      "taal": "en",
+      "bijschrift": "IJs op de vleugelvoorrand"
+    },
+    {
+      "wiki": "Rime ice",
+      "taal": "en",
+      "bijschrift": "Rijp-ijs: wit en ruw"
+    }
+  ],
+  "zicht-en-mist": [
+    {
+      "wiki": "Fog",
+      "taal": "en",
+      "bijschrift": "Mist over het land"
+    },
+    {
+      "wiki": "Mist",
+      "taal": "nl",
+      "bijschrift": "Dichte mist in de polder"
+    },
+    {
+      "wiki": "Haze",
+      "taal": "en",
+      "bijschrift": "Nevel en heiigheid beperken het zicht"
+    }
+  ],
+  "koers-variatie-windcorrectie": [
+    {
+      "wiki": "Compass",
+      "taal": "en",
+      "bijschrift": "Magnetisch kompas"
+    },
+    {
+      "wiki": "Wind triangle",
+      "taal": "en",
+      "bijschrift": "Winddriehoek voor windcorrectie"
+    },
+    {
+      "wiki": "Heading indicator",
+      "taal": "en",
+      "bijschrift": "Koersgyro: gelijkzetten met het kompas"
+    }
+  ],
+  "vor-navigatie": [
+    {
+      "wiki": "VHF omnidirectional range",
+      "taal": "en",
+      "bijschrift": "VOR-baken op de grond"
+    },
+    {
+      "wiki": "Course deviation indicator",
+      "taal": "en",
+      "bijschrift": "VOR-instrument met CDI-naald"
+    },
+    {
+      "wiki": "Horizontal situation indicator",
+      "taal": "en",
+      "bijschrift": "HSI: koers en VOR-naald in één"
+    }
+  ],
+  "ndb-dme": [
+    {
+      "wiki": "Automatic direction finder",
+      "taal": "en",
+      "bijschrift": "Lusantenne van een ADF"
+    },
+    {
+      "wiki": "Distance measuring equipment",
+      "taal": "nl",
+      "bijschrift": "VOR/DME-station; DME geeft de afstand"
+    },
+    {
+      "wiki": "Tactical air navigation system",
+      "taal": "en",
+      "bijschrift": "TACAN-baken met DME-functie"
+    }
+  ],
+  "gps-rnav-kaarten": [
+    {
+      "wiki": "Garmin G1000",
+      "taal": "en",
+      "bijschrift": "GPS-kaart op het G1000-scherm"
+    },
+    {
+      "wiki": "Aeronautical chart",
+      "taal": "en",
+      "bijschrift": "VFR-luchtvaartkaart"
+    },
+    {
+      "wiki": "Global Positioning System",
+      "taal": "en",
+      "bijschrift": "GPS-satelliet"
+    }
+  ]
+}

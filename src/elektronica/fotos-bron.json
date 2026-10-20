@@ -1,0 +1,648 @@
+{
+  "de-aansluiting": [
+    {
+      "wiki": "Kilowattuurmeter",
+      "taal": "nl",
+      "bijschrift": "kWh-meter met dubbel tarief (draaischijfmeter)"
+    },
+    {
+      "wiki": "Slimme meter",
+      "taal": "nl",
+      "bijschrift": "Slimme meter zoals de netbeheerder die plaatst"
+    }
+  ],
+  "groepenkast-opbouw": [
+    {
+      "wiki": "Elektrotechnische verdeelinrichting",
+      "taal": "nl",
+      "bijschrift": "Groepenkast in een woonhuis"
+    },
+    {
+      "wiki": "DIN rail",
+      "taal": "en",
+      "bijschrift": "DIN-rail waarop automaten en aardlekschakelaars klikken"
+    }
+  ],
+  "een-fase-drie-fase": [
+    {
+      "wiki": "IEC 60309",
+      "taal": "en",
+      "bijschrift": "Rode 5-polige krachtstroomcontactdoos (3 fasen + N + PE)"
+    },
+    {
+      "wiki": "Three-phase electric power",
+      "taal": "en",
+      "bijschrift": "Animatie: drie fasen uit een draaistroomgenerator"
+    },
+    {
+      "wiki": "Overhead power line",
+      "taal": "en",
+      "bijschrift": "Hoogspanningsmasten met draden per fase"
+    }
+  ],
+  "groepen-verdelen": [
+    {
+      "wiki": "Elektrotechnische verdeelinrichting",
+      "taal": "nl",
+      "bijschrift": "Groepenkast: groepen naast elkaar op de rail"
+    },
+    {
+      "wiki": "Busbar",
+      "taal": "en",
+      "bijschrift": "Koperen rails (busbars) die fasen verdelen in een kast"
+    }
+  ],
+  "aardlekschakelaar": [
+    {
+      "wiki": "Aardlekschakelaar",
+      "taal": "nl",
+      "bijschrift": "Aardlekschakelaar met testknop"
+    },
+    {
+      "wiki": "Earth-leakage circuit breaker",
+      "taal": "en",
+      "bijschrift": "Tweepolige aardlekschakelaar van 30 mA"
+    }
+  ],
+  "installatieautomaat": [
+    {
+      "wiki": "Installatieautomaat",
+      "taal": "nl",
+      "bijschrift": "Installatieautomaten op een DIN-rail"
+    },
+    {
+      "wiki": "Aardlekautomaat",
+      "taal": "nl",
+      "bijschrift": "Aardlekautomaat: automaat en aardlek in één module"
+    }
+  ],
+  "aarding-vereffening": [
+    {
+      "wiki": "Ground (electricity)",
+      "taal": "en",
+      "bijschrift": "Aardpen met aardkabel bij een woning"
+    },
+    {
+      "wiki": "Ground and neutral",
+      "taal": "en",
+      "bijschrift": "Aarde- en nulgeleiders op hun rail in de verdeelkast"
+    },
+    {
+      "wiki": "Electrical bonding",
+      "taal": "en",
+      "bijschrift": "Bordje: alle metalen delen hier hebben dezelfde potentiaal"
+    }
+  ],
+  "kabels-kleuren-doorsnede": [
+    {
+      "wiki": "Installatiedraad",
+      "taal": "nl",
+      "bijschrift": "Installatiedraad in bruin, blauw en geel/groen"
+    },
+    {
+      "wiki": "Copper conductor",
+      "taal": "en",
+      "bijschrift": "Koperen aders van een kabel van dichtbij"
+    },
+    {
+      "wiki": "Wire gauge",
+      "taal": "en",
+      "bijschrift": "Draadmaat-plaatje om de draaddikte te bepalen"
+    }
+  ],
+  "enkelpolige-schakeling": [
+    {
+      "wiki": "Light switch",
+      "taal": "en",
+      "bijschrift": "Geopende lichtschakelaar met aansluitklemmen"
+    },
+    {
+      "wiki": "Switch",
+      "taal": "en",
+      "bijschrift": "Verschillende soorten elektrische schakelaars"
+    }
+  ],
+  "wisselschakeling": [
+    {
+      "wiki": "Light switch",
+      "taal": "en",
+      "bijschrift": "Lichtschakelaar: een wisselschakelaar ziet er net zo uit"
+    },
+    {
+      "wiki": "Wisselschakelaar",
+      "taal": "nl",
+      "bijschrift": "Schemasymbool van een wisselschakelaar"
+    }
+  ],
+  "kruisschakeling": [
+    {
+      "wiki": "Switch",
+      "taal": "en",
+      "bijschrift": "Schakelaars: een kruisschakelaar heeft vier klemmen"
+    },
+    {
+      "wiki": "Staircase timer",
+      "taal": "en",
+      "bijschrift": "Trappenhuisautomaat met drukknop, alternatief bij veel plekken"
+    }
+  ],
+  "wandcontactdozen-badkamer": [
+    {
+      "wiki": "Randaarde",
+      "taal": "nl",
+      "bijschrift": "Wandcontactdoos met randaarde (Schuko)"
+    },
+    {
+      "wiki": "Contactdoos (lichtnet)",
+      "taal": "nl",
+      "bijschrift": "Wandcontactdoos zoals in Nederlandse woningen"
+    },
+    {
+      "wiki": "Stopcontact",
+      "taal": "nl",
+      "bijschrift": "Opbouwwandcontactdoos"
+    }
+  ],
+  "veilig-werken": [
+    {
+      "wiki": "Test light",
+      "taal": "en",
+      "bijschrift": "Spanningstester met indicatielampje"
+    },
+    {
+      "wiki": "Lockout–tagout",
+      "taal": "en",
+      "bijschrift": "Vergrendelbeugel voor hangsloten tegen herinschakelen"
+    }
+  ],
+  "lading-stroom-spanning": [
+    {
+      "wiki": "Electric battery",
+      "taal": "en",
+      "bijschrift": "Batterijen in verschillende maten: bron van spanning"
+    },
+    {
+      "wiki": "Lead–acid battery",
+      "taal": "en",
+      "bijschrift": "Loodaccu van een auto (12 V)"
+    }
+  ],
+  "wet-van-ohm": [
+    {
+      "wiki": "Weerstand (component)",
+      "taal": "nl",
+      "bijschrift": "Drie weerstanden met kleurringen"
+    },
+    {
+      "wiki": "Ohm's law",
+      "taal": "en",
+      "bijschrift": "Schema: spanning, stroom en weerstand in een kring"
+    }
+  ],
+  "soortelijke-weerstand": [
+    {
+      "wiki": "Wire",
+      "taal": "en",
+      "bijschrift": "Doorsnede van een hoogspanningsdraad met aluminium en staal"
+    },
+    {
+      "wiki": "Copper conductor",
+      "taal": "en",
+      "bijschrift": "Koperdraad: lage soortelijke weerstand"
+    }
+  ],
+  "vermogen-energie": [
+    {
+      "wiki": "Kilowatt-hour",
+      "taal": "en",
+      "bijschrift": "kWh-meter die verbruikte energie optelt"
+    },
+    {
+      "wiki": "Wattmeter",
+      "taal": "en",
+      "bijschrift": "Wattmeter voor het meten van vermogen"
+    }
+  ],
+  "serieschakeling": [
+    {
+      "wiki": "Christmas lights",
+      "taal": "en",
+      "bijschrift": "Lichtsnoer: lampjes vaak in serie geschakeld"
+    },
+    {
+      "wiki": "Serieschakeling",
+      "taal": "nl",
+      "bijschrift": "Schema van een serie- en parallelschakeling"
+    }
+  ],
+  "parallelschakeling": [
+    {
+      "wiki": "Power strip",
+      "taal": "en",
+      "bijschrift": "Stekkerdoos: apparaten parallel aangesloten"
+    },
+    {
+      "wiki": "Parallelschakeling",
+      "taal": "nl",
+      "bijschrift": "Schema van een parallelschakeling"
+    }
+  ],
+  "spanningsdeler": [
+    {
+      "wiki": "Spanningsdeler",
+      "taal": "nl",
+      "bijschrift": "Spanningsdeler opgebouwd met weerstanden"
+    },
+    {
+      "wiki": "Potentiometer",
+      "taal": "en",
+      "bijschrift": "Potentiometer: een instelbare spanningsdeler"
+    }
+  ],
+  "wisselspanning": [
+    {
+      "wiki": "Oscilloscope",
+      "taal": "en",
+      "bijschrift": "Oscilloscoop die een signaal in de tijd laat zien"
+    },
+    {
+      "wiki": "Wisselspanning",
+      "taal": "nl",
+      "bijschrift": "Sinus van de netspanning: 230 V, 50 Hz"
+    }
+  ],
+  "condensator-rc": [
+    {
+      "wiki": "Capacitor",
+      "taal": "en",
+      "bijschrift": "Verschillende condensatoren"
+    },
+    {
+      "wiki": "Capacitor types",
+      "taal": "en",
+      "bijschrift": "Overzicht van condensatortypen naast elkaar"
+    }
+  ],
+  "spoel-magnetisme": [
+    {
+      "wiki": "Inductor",
+      "taal": "en",
+      "bijschrift": "Spoelen als elektronische componenten"
+    },
+    {
+      "wiki": "Electric motor",
+      "taal": "en",
+      "bijschrift": "Elektromotor (industrieel)"
+    },
+    {
+      "wiki": "Relay",
+      "taal": "en",
+      "bijschrift": "Relais op een printplaat"
+    }
+  ],
+  "transformator": [
+    {
+      "wiki": "Transformer",
+      "taal": "en",
+      "bijschrift": "Kleine nettransformator"
+    },
+    {
+      "wiki": "Distribution transformer",
+      "taal": "en",
+      "bijschrift": "Distributietransformator op een mast"
+    },
+    {
+      "wiki": "Transformator",
+      "taal": "nl",
+      "bijschrift": "Binnenkant van een transformator: kern en wikkelingen"
+    }
+  ],
+  "blindvermogen-cosphi": [
+    {
+      "wiki": "Electrical ballast",
+      "taal": "en",
+      "bijschrift": "Voorschakelapparaat voor tl-verlichting (inductief)"
+    },
+    {
+      "wiki": "Electric motor",
+      "taal": "en",
+      "bijschrift": "Elektromotor: typische inductieve verbruiker"
+    }
+  ],
+  "gelijkrichten": [
+    {
+      "wiki": "Diode bridge",
+      "taal": "en",
+      "bijschrift": "Bruggelijkrichter in één behuizing"
+    },
+    {
+      "wiki": "Electrolytic capacitor",
+      "taal": "en",
+      "bijschrift": "Elco's, gebruikt om af te vlakken"
+    },
+    {
+      "wiki": "AC adapter",
+      "taal": "en",
+      "bijschrift": "Netadapter met gelijkrichter erin"
+    }
+  ],
+  "weerstanden-kleurcode": [
+    {
+      "wiki": "Resistor",
+      "taal": "en",
+      "bijschrift": "Weerstanden met kleurringen"
+    },
+    {
+      "wiki": "Electronic color code",
+      "taal": "en",
+      "bijschrift": "Precisieweerstand 2,26 kΩ met vijf kleurringen"
+    },
+    {
+      "wiki": "Surface-mount technology",
+      "taal": "en",
+      "bijschrift": "SMD-componenten op een printplaat"
+    }
+  ],
+  "condensatoren-soorten": [
+    {
+      "wiki": "Ceramic capacitor",
+      "taal": "en",
+      "bijschrift": "Keramische condensator"
+    },
+    {
+      "wiki": "Electrolytic capacitor",
+      "taal": "en",
+      "bijschrift": "Elektrolytische condensatoren (elco's)"
+    },
+    {
+      "wiki": "Decoupling capacitor",
+      "taal": "en",
+      "bijschrift": "SMD-condensatoren op een print"
+    }
+  ],
+  "diode-zener": [
+    {
+      "wiki": "Diode",
+      "taal": "en",
+      "bijschrift": "Diode met streep aan de kathodezijde"
+    },
+    {
+      "wiki": "Zener diode",
+      "taal": "en",
+      "bijschrift": "Zenerdiode in glazen behuizing"
+    }
+  ],
+  "led-voorschakelweerstand": [
+    {
+      "wiki": "Light-emitting diode",
+      "taal": "en",
+      "bijschrift": "Rode, groene en blauwe LED's"
+    },
+    {
+      "wiki": "LED circuit",
+      "taal": "en",
+      "bijschrift": "Schema: LED met voorschakelweerstand"
+    }
+  ],
+  "transistor-schakelaar": [
+    {
+      "wiki": "Bipolar junction transistor",
+      "taal": "en",
+      "bijschrift": "Transistoren in verschillende behuizingen"
+    },
+    {
+      "wiki": "Transistor",
+      "taal": "en",
+      "bijschrift": "Overzicht van transistorbehuizingen"
+    }
+  ],
+  "mosfet": [
+    {
+      "wiki": "MOSFET",
+      "taal": "en",
+      "bijschrift": "Power-MOSFET in D2PAK-behuizing"
+    },
+    {
+      "wiki": "TO-220",
+      "taal": "en",
+      "bijschrift": "TO-220-behuizing, veel gebruikt voor MOSFETs"
+    }
+  ],
+  "ic-555-timer": [
+    {
+      "wiki": "555 timer IC",
+      "taal": "en",
+      "bijschrift": "NE555-timer in DIP-8-behuizing"
+    },
+    {
+      "wiki": "Dual in-line package",
+      "taal": "en",
+      "bijschrift": "IC's in DIP-behuizing"
+    },
+    {
+      "wiki": "Integrated circuit",
+      "taal": "en",
+      "bijschrift": "Close-up van een chip in zijn behuizing"
+    }
+  ],
+  "spanningsregelaar": [
+    {
+      "wiki": "Voltage regulator",
+      "taal": "en",
+      "bijschrift": "7812-spanningsregelaar in TO-220-behuizing"
+    },
+    {
+      "wiki": "Switched-mode power supply",
+      "taal": "en",
+      "bijschrift": "Schakelende voeding"
+    }
+  ],
+  "microcontrollers": [
+    {
+      "wiki": "Arduino Nano",
+      "taal": "en",
+      "bijschrift": "Arduino Nano-bordje"
+    },
+    {
+      "wiki": "ESP32",
+      "taal": "en",
+      "bijschrift": "ESP32-module (ESP-WROOM-32)"
+    },
+    {
+      "wiki": "ATmega328",
+      "taal": "en",
+      "bijschrift": "ATmega328P: de chip op de Arduino Uno"
+    }
+  ],
+  "breadboard-prototype": [
+    {
+      "wiki": "Breadboard",
+      "taal": "nl",
+      "bijschrift": "Breadboard met onderdelen en draadjes"
+    },
+    {
+      "wiki": "Breadboard",
+      "taal": "en",
+      "bijschrift": "Leeg breadboard met voedingsrails"
+    },
+    {
+      "wiki": "Stripboard",
+      "taal": "en",
+      "bijschrift": "Gaatjesprint met koperbanen"
+    }
+  ],
+  "solderen-esd": [
+    {
+      "wiki": "Soldering iron",
+      "taal": "en",
+      "bijschrift": "Soldeerpistool"
+    },
+    {
+      "wiki": "Desoldering",
+      "taal": "en",
+      "bijschrift": "Desoldeerpomp (tinzuiger)"
+    },
+    {
+      "wiki": "Antistatic device",
+      "taal": "en",
+      "bijschrift": "Antistatische polsband tegen ESD"
+    }
+  ],
+  "multimeter-cat": [
+    {
+      "wiki": "Multimeter",
+      "taal": "nl",
+      "bijschrift": "Digitale multimeter met draaiknop"
+    },
+    {
+      "wiki": "Multimeter",
+      "taal": "en",
+      "bijschrift": "Analoge multimeter"
+    }
+  ],
+  "spanning-meten": [
+    {
+      "wiki": "Voltmeter",
+      "taal": "en",
+      "bijschrift": "Voltmeter"
+    },
+    {
+      "wiki": "Voltmeter",
+      "taal": "nl",
+      "bijschrift": "Voltmeter met wijzer"
+    }
+  ],
+  "stroom-meten": [
+    {
+      "wiki": "Ammeter",
+      "taal": "en",
+      "bijschrift": "Ampèremeter"
+    },
+    {
+      "wiki": "Current clamp",
+      "taal": "en",
+      "bijschrift": "Stroomtang (Fluke 337)"
+    },
+    {
+      "wiki": "Shunt (electrical)",
+      "taal": "en",
+      "bijschrift": "Shuntweerstand voor het meten van grote stromen"
+    }
+  ],
+  "weerstand-meten": [
+    {
+      "wiki": "Ohmmeter",
+      "taal": "en",
+      "bijschrift": "Ohmmeter"
+    },
+    {
+      "wiki": "Weerstand (component)",
+      "taal": "nl",
+      "bijschrift": "Losse weerstanden om na te meten"
+    }
+  ],
+  "doorgang-kabelbreuk": [
+    {
+      "wiki": "Fuse (electrical)",
+      "taal": "en",
+      "bijschrift": "Zekering in een apparaat: controleer met doorgangstest"
+    },
+    {
+      "wiki": "Extension cord",
+      "taal": "en",
+      "bijschrift": "Verlengsnoer: veel voorkomende plek voor kabelbreuk"
+    }
+  ],
+  "schemasymbolen": [
+    {
+      "wiki": "Electronic symbol",
+      "taal": "en",
+      "bijschrift": "Overzicht van internationale schemasymbolen"
+    },
+    {
+      "wiki": "Circuit diagram",
+      "taal": "en",
+      "bijschrift": "Dezelfde schakeling als tekening en als schema"
+    }
+  ],
+  "eenlijnschema": [
+    {
+      "wiki": "Single-line diagram",
+      "taal": "en",
+      "bijschrift": "Voorbeeld van een eenlijnschema"
+    },
+    {
+      "wiki": "Electrical wiring",
+      "taal": "en",
+      "bijschrift": "Installatiesymbolen voor schakelaars en lampen"
+    }
+  ],
+  "storing-aardlek": [
+    {
+      "wiki": "Aardlekschakelaar",
+      "taal": "nl",
+      "bijschrift": "Aardlekschakelaar: hendel omlaag na een lekstroom"
+    },
+    {
+      "wiki": "Power strip",
+      "taal": "en",
+      "bijschrift": "Stekkerdoos: koppel eerst alle apparaten los"
+    }
+  ],
+  "storing-automaat": [
+    {
+      "wiki": "Short circuit",
+      "taal": "en",
+      "bijschrift": "Gekruiste draden: kortsluiting"
+    },
+    {
+      "wiki": "Installatieautomaat",
+      "taal": "nl",
+      "bijschrift": "Installatieautomaten: zoek de afgeslagen hendel"
+    }
+  ],
+  "isolatieweerstand": [
+    {
+      "wiki": "Megohmmeter",
+      "taal": "en",
+      "bijschrift": "Isolatieweerstandsmeter (megger)"
+    }
+  ],
+  "veilig-meten": [
+    {
+      "wiki": "Arc flash",
+      "taal": "en",
+      "bijschrift": "Vlamboog bij 3000 V: waarom CAT-klasse ertoe doet"
+    },
+    {
+      "wiki": "Test light",
+      "taal": "en",
+      "bijschrift": "Spanningstester: eerst testen op een bekende bron"
+    },
+    {
+      "wiki": "Earth-leakage circuit breaker",
+      "taal": "en",
+      "bijschrift": "Aardlekschakelaar: extra bescherming bij een fout"
+    }
+  ]
+}

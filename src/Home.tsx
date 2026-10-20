@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Check } from 'lucide-react'
 import './home.css'
 import TopBalk from './ui/TopBalk'
-import { GROEPEN, MODULES } from './modules'
-import { useDagStand } from './dag/useDag'
+import { GROEPEN, MODULES, MODULE_BY_ID } from './modules'
+import { dagSleutel } from './dag/geheugen'
+import { roosterVoor } from './dag/rooster'
+import { useGeheugen, usePoco } from './dag/useLeer'
 
 function begroeting(): string {
   const h = new Date().getHours()
@@ -15,11 +17,16 @@ function begroeting(): string {
 }
 
 export default function Home() {
-  const { uitslagen, reeks, poco } = useDagStand()
-  const totaal = MODULES.length
-  const af = MODULES.filter((m) => uitslagen[m.id]).length
-  const pct = Math.round((af / totaal) * 100)
-  const alles = af >= totaal
+  const { g, vandaag, reeks } = useGeheugen()
+  const poco = usePoco(vandaag)
+  const gepland = roosterVoor()
+  const klaar = g.dagen[dagSleutel(vandaag)]?.klaar ?? []
+  const pocoKlaar = poco.totaal > 0 && poco.klaar >= poco.totaal
+  const onderdelen = ['spaans', ...gepland]
+  const isKlaar = (id: string) => (id === 'spaans' ? pocoKlaar : klaar.includes(id))
+  const af = onderdelen.filter(isKlaar).length
+  const pct = Math.round((af / onderdelen.length) * 100)
+  const alles = af >= onderdelen.length
 
   return (
     <div className="hub">
@@ -29,48 +36,46 @@ export default function Home() {
         <div className="hub-dag-tekst">
           <p className="hub-eyebrow">{begroeting()}</p>
           <h1 id="dag-titel">
-            {alles ? 'Je dagprogramma is af.' : af === 0 ? 'Vandaag staan er ' + totaal + ' kaarten klaar.' : `Nog ${totaal - af} te gaan vandaag.`}
+            {alles ? 'Je lessen van vandaag zijn af.' : af === 0 ? 'Vandaag leer je:' : `Nog ${onderdelen.length - af} te gaan vandaag.`}
           </h1>
           <p className="hub-dag-uitleg">
-            Uit elk onderwerp één kaart, plus dertig Spaanse woorden
-            {poco.klaar > 0 ? ` (${Math.min(poco.klaar, poco.totaal)} van ${poco.totaal} gedaan)` : ''}. Tien minuten, elke dag.
+            Volgens je weekrooster: Spaans plus {gepland.map((id) => MODULE_BY_ID[id]?.title).join(', ')}. Eerst leerkaarten, dan een korte overhoring — ongeveer een kwartier.
           </p>
           <Link to="/vandaag" className="hub-start">
-            {alles ? 'Bekijk wat je deed' : af === 0 ? 'Begin aan vandaag' : 'Ga verder'} <ArrowRight size={18} />
+            {alles ? 'Bekijk je week' : af === 0 ? 'Begin aan vandaag' : 'Ga verder'} <ArrowRight size={18} />
           </Link>
         </div>
 
-        <div className="hub-dag-ring" style={{ '--pct': pct } as CSSProperties} aria-label={`${af} van ${totaal} af`}>
+        <div className="hub-dag-ring" style={{ '--pct': pct } as CSSProperties} aria-label={`${af} van ${onderdelen.length} af`}>
           <div className="hub-dag-ring-binnen">
             <span className="hub-dag-getal tabular">{af}</span>
-            <span className="hub-dag-van">van {totaal}</span>
+            <span className="hub-dag-van">van {onderdelen.length}</span>
           </div>
         </div>
 
-        <ul className="hub-dag-chips" aria-label="Onderwerpen van vandaag">
-          {MODULES.map((m) => (
-            <li
-              key={m.id}
-              className={`hub-chip ${uitslagen[m.id] ?? ''}`}
-              style={{ '--hub-accent': m.accent } as CSSProperties}
-              title={m.title}
-            >
-              <span className="hub-chip-icoon">{uitslagen[m.id] ? <Check size={14} strokeWidth={3} /> : m.icon}</span>
-              <span className="hub-chip-naam">{m.title}</span>
-            </li>
-          ))}
+        <ul className="hub-dag-chips" aria-label="Lessen van vandaag">
+          {onderdelen.map((id) => {
+            const m = MODULE_BY_ID[id]
+            if (!m) return null
+            return (
+              <li key={id} className={`hub-chip${isKlaar(id) ? ' goed' : ''}`} style={{ '--hub-accent': m.accent } as CSSProperties}>
+                <span className="hub-chip-icoon">{isKlaar(id) ? <Check size={14} strokeWidth={3} /> : m.icon}</span>
+                <span className="hub-chip-naam">{m.title}</span>
+              </li>
+            )
+          })}
         </ul>
       </section>
 
       <main className="hub-kast">
-        {GROEPEN.map((g) => {
-          const leden = MODULES.filter((m) => m.groep === g.id)
+        {GROEPEN.map((gr) => {
+          const leden = MODULES.filter((m) => m.groep === gr.id)
           if (!leden.length) return null
           return (
-            <section key={g.id} className="hub-plank" aria-labelledby={`plank-${g.id}`}>
+            <section key={gr.id} className="hub-plank" aria-labelledby={`plank-${gr.id}`}>
               <header className="hub-plank-kop">
-                <h2 id={`plank-${g.id}`}>{g.titel}</h2>
-                <p>{g.ondertitel}</p>
+                <h2 id={`plank-${gr.id}`}>{gr.titel}</h2>
+                <p>{gr.ondertitel}</p>
               </header>
               <div className="hub-laden">
                 {leden.map((m) => (
@@ -78,10 +83,8 @@ export default function Home() {
                     <div className={`hub-lade-front lade-${m.id}`}>
                       <span className="hub-lade-icoon">{m.icon}</span>
                       <span className="hub-lade-greep" aria-hidden="true" />
-                      {uitslagen[m.id] && (
-                        <span className="hub-lade-vandaag">
-                          <Check size={13} strokeWidth={3} /> vandaag
-                        </span>
+                      {(gepland.includes(m.id) || m.id === 'spaans') && (
+                        <span className="hub-lade-vandaag">{isKlaar(m.id) ? <><Check size={13} strokeWidth={3} /> vandaag</> : 'vandaag'}</span>
                       )}
                     </div>
                     <div className="hub-lade-body">
