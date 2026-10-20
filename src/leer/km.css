@@ -1,23 +1,24 @@
-/* ─── Gedeelde stijl voor kennismodules (seinen, knopen, vogels, kerk,
-   geschiedenis, europa) — zelfde paper-taal als de rest van de leerapp.
-   Alles gescoped onder .km-app, resets via :where() zodat componentklassen
-   altijd winnen. ─── */
+@import '../ui/laden.css';
+
+/* ─── Gedeelde stijl voor kennismodules — zelfde huisstijl als de rest van
+   de Wereldtrainer. Alles gescoped onder .km-app, resets via :where() zodat
+   componentklassen altijd winnen. ─── */
 
 .km-app {
-  --km-ink: #0c1722;
-  --km-text: #3a4757;
-  --km-soft: #5c6a7b;
-  --km-muted: #8b98a8;
-  --km-paper: #e9edf2;
-  --km-panel: #ffffff;
-  --km-line: #d9e0e8;
-  --km-good: #15803d;
-  --km-bad: #b91c1c;
-  --km-shadow: 0 1px 2px rgba(13, 27, 42, 0.05);
-  --km-shadow-lg: 0 6px 20px -8px rgba(13, 27, 42, 0.18), 0 2px 6px rgba(13, 27, 42, 0.06);
+  --km-ink: var(--text-strong);
+  --km-text: var(--text);
+  --km-soft: var(--text-soft);
+  --km-muted: var(--text-muted);
+  --km-paper: var(--page);
+  --km-panel: var(--panel);
+  --km-line: var(--border);
+  --km-good: var(--good);
+  --km-bad: var(--bad);
+  --km-shadow: var(--shadow-sm);
+  --km-shadow-lg: var(--shadow-md);
   --km-radius: 14px;
 
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--body);
   background: var(--km-paper);
   color: var(--km-text);
   line-height: 1.6;
@@ -774,5 +775,109 @@
     float: none;
     width: 100%;
     margin: 0 0 1rem;
+  }
+}
+/* ── Kop in het materiaal van de module ── */
+.km-nav-rij {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.km-wereld {
+  position: relative;
+  overflow: hidden;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 1.5rem 1.6rem;
+  color: #fff;
+}
+
+.km-wereld::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.28));
+  z-index: 0;
+  pointer-events: none;
+}
+
+.km-wereld-binnen {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.km-terug {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.km-terug:hover {
+  color: #fff;
+}
+
+:where(.km-app) .km-wereld-titel {
+  margin-top: 0.9rem;
+  font-size: clamp(32px, 6.5vw, 50px);
+  line-height: 1.02;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  max-width: 20ch;
+}
+
+.km-wereld-sub {
+  margin-top: 0.35rem;
+  color: rgba(255, 255, 255, 0.86);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.km-tabbalk {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--km-panel) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--km-line);
+}
+
+.km-tabbalk-binnen {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.km-tabbalk-binnen::-webkit-scrollbar {
+  display: none;
+}
+
+.km-tabbalk .km-nav {
+  flex-wrap: nowrap;
+  gap: 0.3rem;
+}
+
+.km-tabbalk .km-tab {
+  white-space: nowrap;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+}
+
+.km-tabbalk .km-tab.active {
+  background: var(--km-accent);
+  color: #fff;
+}
+
+@media (max-width: 560px) {
+  .km-wereld {
+    padding-inline: 1rem;
+  }
+  .km-tabbalk-binnen {
+    padding-inline: 1rem;
   }
 }

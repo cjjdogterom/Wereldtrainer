@@ -105,6 +105,7 @@ export default function RangenApp() {
     return (
       <LeerShell
         mark="RG"
+        wereld="rangen"
         accent={ACCENT}
         title="Rangen en standen"
         subtitle="Krijgsmacht · politie · brandweer"

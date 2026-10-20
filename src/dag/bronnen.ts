@@ -194,6 +194,35 @@ export const BRONNEN: Bron[] = [
     },
   },
   {
+    moduleId: 'planten',
+    laad: async () => {
+      const [{ PLANTEN }, { FOTO }] = await Promise.all([import('../planten/data'), import('../planten/media')])
+      return PLANTEN.filter((p) => FOTO[p.id]).map((p) => ({
+        id: p.id,
+        label: p.naam,
+        vraag: 'Welke soort is dit, en waaraan herken je hem?',
+        beeld: { soort: 'img' as const, src: `/planten/${FOTO[p.id].bestand}`, alt: 'Welke soort is dit?', vorm: 'foto' as const },
+        antwoord: `${p.naam} (${p.latijn})`,
+        extra: [p.herkennen, p.giftig ? `Giftig: ${p.giftig}` : '', p.wetenswaard].filter(Boolean).join(' '),
+      }))
+    },
+  },
+  {
+    moduleId: 'elektronica',
+    laad: async () => {
+      const { LESSEN } = await import('../elektronica/lessen')
+      return LESSEN.flatMap((l) =>
+        l.vragen.map((v, i) => ({
+          id: `${l.id}-${i}`,
+          label: l.titel,
+          vraag: v.vraag,
+          antwoord: v.opties[v.goed],
+          extra: `${v.uitleg} Kern van de les „${l.titel}”: ${l.kern}`,
+        })),
+      )
+    },
+  },
+  {
     moduleId: 'knopen',
     laad: async () => {
       const { KNOPEN } = await import('../knopen/data')

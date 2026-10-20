@@ -84,6 +84,7 @@ export default function KerkApp() {
   return (
     <LeerShell
       mark="RK"
+      wereld="kerk"
       accent={ACCENT}
       title="Kerkelijke hiërarchie"
       subtitle="Posities in de Rooms-Katholieke Kerk"

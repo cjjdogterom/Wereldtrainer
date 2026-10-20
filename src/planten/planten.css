@@ -1,0 +1,526 @@
+@import '../ui/laden.css';
+
+.pl-app {
+  --km-accent: #4f7a2a;
+  --km-paper: #eef0e8;
+  --papier: #fbfaf4;
+  background: #eef0e8;
+  min-height: 100svh;
+}
+
+.pl-kop {
+  position: relative;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 28px;
+}
+
+.pl-kop-binnen {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.pl-terug {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #e6f0d8;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.pl-kop h1 {
+  margin: 16px 0 4px;
+  font-size: clamp(34px, 7vw, 52px);
+  font-style: italic;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pl-kop p {
+  color: #e2edd2;
+}
+
+/* Tabs als tabbladen van een herbariummap */
+.pl-tabs {
+  max-width: 1120px;
+  margin: -16px auto 0;
+  padding: 0 16px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.pl-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.pl-tab {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #d6d8c8;
+  border-radius: 10px 10px 0 0;
+  background: #e3e6d6;
+  color: #4a5240;
+  font: inherit;
+  font-weight: 700;
+  font-size: 14.5px;
+  cursor: pointer;
+}
+
+.pl-tab span {
+  font-size: 12px;
+  font-weight: 400;
+  color: #7a8270;
+}
+
+.pl-tab.aan {
+  background: #eef0e8;
+  border-bottom-color: #eef0e8;
+  color: #2e4a17;
+}
+
+.pl-tab.let {
+  color: #8a3b1f;
+}
+
+.pl-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 18px 16px 60px;
+}
+
+.pl-modi {
+  display: inline-flex;
+  padding: 4px;
+  gap: 4px;
+  background: #e0e3d4;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.pl-modi button {
+  border: 0;
+  background: none;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  color: #535b48;
+  cursor: pointer;
+}
+
+.pl-modi button.aan {
+  background: #fff;
+  color: #3d6120;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14);
+}
+
+/* ─── Herbariumvellen ─── */
+.pl-vellen {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 22px 18px;
+}
+
+.pl-vel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 14px 14px;
+  background: var(--papier);
+  border: 1px solid #e2e0d2;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(60, 60, 30, 0.08), 0 12px 24px -16px rgba(60, 60, 30, 0.45);
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pl-vel:nth-child(3n + 1) {
+  transform: rotate(-0.6deg);
+}
+
+.pl-vel:nth-child(3n + 2) {
+  transform: rotate(0.5deg);
+}
+
+.pl-vel:hover,
+.pl-vel:focus-visible {
+  transform: translateY(-4px) rotate(0deg);
+  box-shadow: 0 2px 4px rgba(60, 60, 30, 0.1), 0 20px 34px -18px rgba(60, 60, 30, 0.55);
+}
+
+/* Plakbandjes over de hoeken van de foto */
+.pl-tape {
+  position: absolute;
+  top: 8px;
+  z-index: 1;
+  width: 54px;
+  height: 18px;
+  background: rgba(236, 226, 186, 0.78);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
+}
+
+.pl-tape.links {
+  left: 4px;
+  transform: rotate(-38deg);
+}
+
+.pl-tape.rechts {
+  right: 4px;
+  transform: rotate(38deg);
+}
+
+.pl-foto {
+  aspect-ratio: 4 / 3;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #e6e8dc;
+}
+
+.pl-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pl-foto.leeg {
+  display: grid;
+  place-items: center;
+  color: #9aa37f;
+}
+
+.pl-foto.groot {
+  aspect-ratio: 16 / 10;
+  max-height: 360px;
+  width: 100%;
+}
+
+/* Het etiket rechtsonder, zoals op een echt herbariumvel */
+.pl-etiket {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  min-width: 70%;
+  padding: 6px 10px;
+  border: 1px solid #c9c6ae;
+  background: #fffef8;
+}
+
+.pl-naam {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  color: #20281a;
+  line-height: 1.15;
+}
+
+.pl-latijn {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 14px;
+  color: #4d5641;
+}
+
+.pl-familie {
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: #848b74;
+}
+
+.pl-herken {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #4a5240;
+}
+
+.pl-badges {
+  display: flex;
+  gap: 6px;
+}
+
+.pl-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.pl-badge.eet {
+  background: #e3f1d6;
+  color: #3d6120;
+}
+
+.pl-badge.gif {
+  background: #f7e0d8;
+  color: #8a2e1c;
+}
+
+/* ─── Detailvenster ─── */
+.pl-scherm {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(24, 30, 18, 0.55);
+  backdrop-filter: blur(3px);
+  animation: pl-in 0.2s ease;
+}
+
+@keyframes pl-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.pl-detail {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: calc(100svh - 32px);
+  overflow-y: auto;
+  background: var(--papier);
+  border-radius: 6px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
+}
+
+.pl-sluit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.92);
+  color: #20281a;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.pl-detail .pl-foto.groot {
+  border-radius: 6px 6px 0 0;
+  max-height: 380px;
+}
+
+.pl-detail-tekst {
+  padding: 20px clamp(18px, 4vw, 30px) 26px;
+}
+
+.pl-detail h2 {
+  margin: 4px 0 0;
+  font-size: clamp(28px, 5vw, 38px);
+  color: #1d2616;
+}
+
+.pl-detail .pl-latijn {
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.pl-herken-groot {
+  font-family: var(--display);
+  font-size: 18px;
+  line-height: 1.45;
+  color: #3d6120;
+  padding-left: 12px;
+  border-left: 3px solid #a8c47a;
+}
+
+.pl-kenmerken {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.pl-kenmerken div {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted #d8d5c1;
+}
+
+.pl-kenmerken dt {
+  font-weight: 700;
+  font-size: 13px;
+  color: #6a7258;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pl-kenmerken dd {
+  margin: 0;
+  color: #2d3524;
+}
+
+.pl-weetje {
+  padding: 12px 14px;
+  background: #f0f2e4;
+  border-radius: 8px;
+  color: #2d3524;
+}
+
+.pl-melding {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.pl-melding svg {
+  flex: none;
+  margin-top: 3px;
+}
+
+.pl-melding.eet {
+  background: #e7f3dc;
+  color: #2f4e17;
+}
+
+.pl-melding.gif {
+  background: #f9e4dc;
+  color: #7a2a18;
+}
+
+.pl-melding.let {
+  background: #fcf1d6;
+  color: #6a4b0c;
+}
+
+.pl-bron {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #8a8f7c;
+}
+
+.pl-bron a {
+  color: inherit;
+}
+
+/* ─── Giftig & eetbaar ─── */
+.pl-ge {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.pl-ge h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  color: #1d2616;
+}
+
+.pl-waarschuwing {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #fcf1d6;
+  border: 1px solid #efd9a3;
+  color: #6a4b0c;
+  max-width: 760px;
+}
+
+.pl-waarschuwing svg {
+  flex: none;
+  color: #c48a12;
+}
+
+.pl-rijen {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 10px;
+}
+
+.pl-rij {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 10px;
+  background: var(--papier);
+  border: 1px solid #e2e0d2;
+  border-radius: 10px;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+
+.pl-rij:hover {
+  border-color: #a8c47a;
+}
+
+.pl-rij .pl-foto {
+  aspect-ratio: 1;
+  border-radius: 6px;
+}
+
+.pl-rij b {
+  font-family: var(--display);
+  font-size: 16px;
+  color: #1d2616;
+}
+
+.pl-rij i {
+  font-family: var(--display);
+  color: #6a7258;
+  font-size: 13px;
+}
+
+.pl-rij-tekst {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #3e4733;
+}
+
+/* ─── Quiz ─── */
+.pl-quiz {
+  max-width: 720px;
+}
+
+.pl-vraag {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.pl-aanwijzingen {
+  margin: 0;
+  padding: 12px 14px 12px 30px;
+  background: var(--papier);
+  border: 1px solid #e2e0d2;
+  border-radius: 10px;
+  display: grid;
+  gap: 6px;
+  font-size: 15px;
+  color: #2d3524;
+}

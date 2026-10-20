@@ -164,6 +164,7 @@ export default function GeschiedenisApp() {
   return (
     <LeerShell
       mark="NL"
+      wereld="geschiedenis"
       accent={ACCENT}
       title="Geschiedenis van Nederland"
       subtitle={`${ALLES.length} gebeurtenissen en personen sinds 1300`}

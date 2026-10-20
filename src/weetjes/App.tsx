@@ -131,6 +131,7 @@ export default function WeetjesApp() {
   return (
     <LeerShell
       mark="?!"
+      wereld="weetjes"
       accent={ACCENT}
       title="Weetjes"
       subtitle="Elke dag iets nieuws leren"

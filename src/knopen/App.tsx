@@ -88,6 +88,7 @@ export default function KnopenApp() {
   return (
     <LeerShell
       mark="KN"
+      wereld="knopen"
       accent={ACCENT}
       title="Nautische knopen"
       subtitle={`${KNOPEN.length} knopen en hun gebruik`}

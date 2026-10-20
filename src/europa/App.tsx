@@ -123,6 +123,7 @@ export default function EuropaApp() {
   return (
     <LeerShell
       mark="EU"
+      wereld="europa"
       accent={ACCENT}
       title="Europa in vogelvlucht"
       subtitle="Wie had wanneer de macht, en waar"

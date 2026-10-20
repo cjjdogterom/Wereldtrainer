@@ -57,6 +57,7 @@ export default function GeldApp() {
   return (
     <LeerShell
       mark="ƒ€"
+      wereld="geld"
       accent={ACCENT}
       title="Geldbijnamen"
       subtitle="Gulden, euro & straattaal"

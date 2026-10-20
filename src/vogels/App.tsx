@@ -113,6 +113,7 @@ export default function VogelsApp() {
   return (
     <LeerShell
       mark="VG"
+      wereld="vogels"
       accent={ACCENT}
       title="Vogels van Nederland"
       subtitle={`${VOGELS.length} soorten herkennen op zicht en geluid`}

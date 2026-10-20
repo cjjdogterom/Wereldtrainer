@@ -105,6 +105,7 @@ export default function KlaverjasApp() {
   return (
     <LeerShell
       mark="KJ"
+      wereld="klaverjas"
       accent={ACCENT}
       title="Klaverjassen"
       subtitle="Amsterdams (verplicht) — cursus en trainer"

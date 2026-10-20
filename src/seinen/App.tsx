@@ -113,6 +113,7 @@ export default function SeinenApp() {
   return (
     <LeerShell
       mark="SN"
+      wereld="seinen"
       accent={ACCENT}
       title="Nautisch seinen"
       subtitle="Seinvlaggen · morse · spelalfabet"
