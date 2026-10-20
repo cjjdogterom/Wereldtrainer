@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biedtrainer · 5-kaart hoog</title>
+</head>
+<body>
+<style>
+  @font-face{font-family:Fraunces;src:url('/fonts/fraunces-vf.woff2') format('woff2');font-weight:100 900;font-display:swap}
+  @font-face{font-family:Lexend;src:url('/fonts/lexend-vf.woff2') format('woff2');font-weight:100 900;font-display:swap}
+
+  :root{
+    --bg:#eef2ec; --surface:#fffdf6; --surface2:#efeadb;
+    --ink:#20291f; --ink-soft:#5c6457; --line:#ddd6c2;
+    --accent:#1e5c3a; --accent-ink:#f4f8f2;
+    --red:#b23a2c; --black-suit:#2a2f28;
+    --good:#1e6b3f; --good-bg:#e4f0e5;
+    --bad:#a03227; --bad-bg:#f6e6e1;
+    --chip:#e9e3d2;
+    --felt:#2e6b4b; --felt2:#3b7e5a; --hout:#8a6a45; --rug1:#8c2f39; --rug2:#a24049;
+  }
+  
+  
+  
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font:16px/1.55 Lexend,system-ui,-apple-system,sans-serif;
+    min-height:100vh;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:24px 16px 64px}
+  header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  h1{
+    font-family:Fraunces,Georgia,serif;
+    font-size:1.65rem;font-weight:600;margin:0;letter-spacing:.01em;text-wrap:balance;
+  }
+  h1 .sub{color:var(--accent);font-style:italic}
+  .score{display:flex;gap:8px;align-items:center;font-variant-numeric:tabular-nums}
+  .chip{background:var(--chip);border-radius:999px;padding:3px 12px;font-size:.83rem;color:var(--ink)}
+  .chip b{font-weight:650}
+  .tabs{display:flex;gap:6px;margin:18px 0 14px;border-bottom:1px solid var(--line);padding-bottom:0}
+  .tab{
+    appearance:none;border:none;background:none;color:var(--ink-soft);cursor:pointer;
+    font:inherit;font-weight:600;padding:8px 14px 10px;border-bottom:2.5px solid transparent;margin-bottom:-1px;
+  }
+  .tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+  .tab:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .situatie{
+    font-family:Fraunces,Georgia,serif;
+    font-size:1.12rem;margin:4px 0 12px;color:var(--ink);
+  }
+  .situatie .bidref{font-weight:700}
+  .situatie .rood{color:var(--red)}
+
+  .hand{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:14px 10px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow-x:auto;
+  }
+  .handFan{display:flex;justify-content:center;align-items:flex-end;min-width:min-content;padding:2px 6px}
+  .suitGroep{display:flex}
+  .suitGroep + .suitGroep{margin-left:9px}
+  .speelkaart{
+    --kb:clamp(40px,7.4vw,56px);
+    width:var(--kb);aspect-ratio:5/7;flex:none;position:relative;
+    background:#fdfcf5;border:1px solid #c9c3ae;border-radius:7px;
+    box-shadow:-1px 1px 3px rgba(0,0,0,.18);
+    margin-left:calc(var(--kb) * -0.46);
+    font-family:Fraunces,Georgia,serif;
+  }
+  .suitGroep .speelkaart:first-child{margin-left:0}
+  .speelkaart .hoek{position:absolute;top:4px;left:5px;display:flex;flex-direction:column;align-items:center;line-height:1.05;font-weight:650;font-size:clamp(.8rem,1.9vw,1rem)}
+  .speelkaart .hoek em{font-style:normal;font-size:.9em}
+  .speelkaart .midden{position:absolute;bottom:5px;right:6px;font-size:clamp(.95rem,2.2vw,1.25rem);opacity:.9}
+  .speelkaart.rd{color:#bf3a2b}
+  .speelkaart.zw{color:#262b22}
+  .handmeta{margin-top:10px;font-size:.85rem;color:var(--ink-soft);display:flex;gap:16px;font-variant-numeric:tabular-nums}
+  .handmeta.verborgen{visibility:hidden}
+
+  .bidbox{margin-top:16px;background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:12px}
+  .bidbox .rij{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:7px}
+  .bidbox .rij:last-child{margin-bottom:0}
+  .bid{
+    appearance:none;font:inherit;cursor:pointer;
+    background:linear-gradient(180deg,#fefdf8,#f3f0e4);border:1px solid #ccc6b1;border-radius:8px;
+    padding:11px 0;font-size:1.12rem;font-weight:650;color:#262b22;
+    font-family:Fraunces,Georgia,serif;
+    box-shadow:0 1px 2px rgba(0,0,0,.14),0 2px 5px rgba(0,0,0,.06);
+    transition:transform .12s,box-shadow .12s;
+  }
+  .bid:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 6px 14px rgba(0,0,0,.18)}
+  .bid:disabled{opacity:.32;cursor:default;box-shadow:none;transform:none}
+  .bid .r,.bid .rood{color:#bf3a2b}
+  .bid.pas{grid-column:span 5;background:linear-gradient(180deg,var(--felt2),var(--felt));color:#f2f7f0;border-color:var(--felt);letter-spacing:.16em;text-transform:uppercase;font-size:.92rem;font-family:inherit}
+  .bid.gekozen-goed{background:var(--good-bg);border-color:var(--good);opacity:1;color:var(--ink)}
+  .bid.gekozen-fout{background:var(--bad-bg);border-color:var(--bad);opacity:1;color:var(--ink)}
+  .bid.juist{background:var(--good-bg);border-color:var(--good);opacity:1;color:var(--ink)}
+  .bid.gekozen-goed .r,.bid.gekozen-fout .r,.bid.juist .r{color:var(--red)}
+
+  .feedback{
+    margin-top:16px;border-radius:14px;padding:16px 20px;border:1px solid var(--line);
+    background:var(--surface);display:none;
+  }
+  .feedback.zichtbaar{display:block}
+  .feedback.goed{border-color:var(--good);background:var(--good-bg)}
+  .feedback.fout{border-color:var(--bad);background:var(--bad-bg)}
+  .oordeel{font-weight:700;font-size:1.05rem;margin:0 0 6px}
+  .feedback.goed .oordeel{color:var(--good)} .feedback.fout .oordeel{color:var(--bad)}
+  .uitleg{margin:0;max-width:60ch}
+  .uitleg .bidref{font-weight:700;white-space:nowrap}
+  .uitleg .rood{color:var(--red)}
+  .ook{margin:8px 0 0;font-size:.88rem;color:var(--ink-soft);max-width:60ch}
+
+  .volgende{
+    margin-top:14px;appearance:none;border:none;cursor:pointer;font:inherit;font-weight:650;
+    background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:10px 26px;font-size:.97rem;
+  }
+  .hintEnter{font-size:.8rem;color:var(--ink-soft);margin-left:12px}
+
+  .opties{margin-top:28px;display:flex;gap:18px;flex-wrap:wrap;font-size:.88rem;color:var(--ink-soft)}
+  .opties label{display:flex;gap:7px;align-items:center;cursor:pointer}
+  .opties input{accent-color:var(--accent)}
+
+  details.kaart{margin-top:26px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+  details.kaart summary{
+    cursor:pointer;padding:12px 18px;font-weight:650;
+    font-family:Fraunces,Georgia,serif;font-size:1.05rem;
+  }
+  .kaartinhoud{padding:2px 20px 18px;font-size:.92rem}
+  .kaartinhoud h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.09em;color:var(--accent);margin:16px 0 6px}
+  .kaartinhoud table{border-collapse:collapse;width:100%}
+  .kaartinhoud td{padding:3px 10px 3px 0;vertical-align:top;border-bottom:1px solid var(--line)}
+  .kaartinhoud td:first-child{white-space:nowrap;font-weight:650;font-family:Fraunces,Georgia,serif}
+  .kaartinhoud .rood{color:var(--red)}
+  .kaartinhoud p.toel{margin:4px 0 10px;color:var(--ink-soft);max-width:65ch}
+  .vb{display:block;margin-top:4px;font-size:.85rem;color:var(--ink-soft);font-weight:400}
+  .vb .hi{font-family:Fraunces,Georgia,serif;color:var(--ink);letter-spacing:.03em;white-space:nowrap}
+  .veiling{display:none;margin:0 0 14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 14px;overflow-x:auto}
+  .veiling table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+  .veiling th{font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);padding:5px 8px;text-align:center;border-bottom:1px solid var(--line);font-weight:650}
+  .veiling th.aanZet{color:var(--accent)}
+  .veiling td{text-align:center;padding:5px 8px;font-family:Fraunces,Georgia,serif;font-size:1.05rem}
+  .veiling .rood{color:var(--red)}
+  .beurtmark{color:var(--accent);font-weight:700}
+  #afloop{display:none;margin-top:16px;border:1px solid var(--accent);border-radius:14px;padding:16px 20px;background:var(--surface)}
+  #afloop .oordeel{color:var(--accent)}
+  #afloop .bidref{font-weight:700}
+  .alleHanden{display:flex;flex-direction:column;gap:6px;margin:10px 0 6px;font-size:.93rem;font-variant-numeric:tabular-nums}
+  .alleHanden .rood{color:var(--red)}
+  .alleHanden b{display:inline-block;min-width:5.5em}
+  .tafelZone{display:none;margin:0 0 14px}
+  .stoel.noord{display:flex;flex-direction:column;align-items:center;gap:5px;margin-bottom:10px}
+  .middenRij{display:flex;align-items:center;gap:12px}
+  .stoel.zijkant{display:flex;flex-direction:column;align-items:center;gap:8px;width:60px;flex:none}
+  .stoelNaam{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-soft);font-weight:650;white-space:nowrap}
+  .stoelNaam.zuid{text-align:center;margin-top:10px}
+  .blad{
+    position:relative;flex:1;height:clamp(210px,34vw,330px);
+    background:radial-gradient(ellipse at 50% 32%,var(--felt2) 0%,var(--felt) 75%);
+    border-radius:28px;border:7px solid var(--hout);
+    box-shadow:inset 0 0 34px rgba(0,0,0,.35),0 5px 16px rgba(0,0,0,.2);
+  }
+  .bladPos{position:absolute;display:flex;justify-content:center;min-height:32px}
+  .bladPos.n{top:7%;left:50%;transform:translateX(-50%)}
+  .bladPos.z{bottom:7%;left:50%;transform:translateX(-50%)}
+  .bladPos.w{left:4.5%;top:50%;transform:translateY(-50%)}
+  .bladPos.o{right:4.5%;top:50%;transform:translateY(-50%)}
+  .bladInfo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;color:#e7f0e6;font-size:.86rem;letter-spacing:.05em;text-shadow:0 1px 3px rgba(0,0,0,.5);pointer-events:none}
+  .miniKaart{background:#fdfcf5;color:#262b22;border-radius:6px;padding:3px 9px;font-family:Fraunces,Georgia,serif;font-weight:700;font-size:1.02rem;box-shadow:0 2px 5px rgba(0,0,0,.35)}
+  .miniKaart .rood{color:#bf3a2b}
+  .pasChip{background:rgba(0,0,0,.28);color:#dce8db;border-radius:999px;padding:3px 11px;font-size:.78rem;letter-spacing:.06em;align-self:center}
+  .denk{color:#fff;font-weight:800;font-size:1.15rem;align-self:center;animation:pols 1.3s ease-in-out infinite}
+  @keyframes pols{0%,100%{opacity:.35}50%{opacity:1}}
+  .rugfan{display:flex}
+  .rugfan.rugV{flex-direction:column}
+  .kaartRug{
+    width:25px;height:37px;flex:none;border-radius:4px;
+    border:1px solid rgba(255,255,255,.55);
+    background:repeating-linear-gradient(45deg,var(--rug1) 0 4px,var(--rug2) 4px 8px);
+    box-shadow:0 1px 2px rgba(0,0,0,.25);
+  }
+  .rugfan.rugH .kaartRug{margin-left:-17px}
+  .rugfan.rugH .kaartRug:first-child{margin-left:0}
+  .rugfan.rugV .kaartRug{width:37px;height:25px;margin-top:-17px}
+  .rugfan.rugV .kaartRug:first-child{margin-top:0}
+  @media (max-width:560px){
+    .stoel.zijkant .stoelNaam{display:none}
+    .middenRij{gap:6px}
+    .blad{height:190px}
+  }
+  @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Biedtrainer <span class="sub">5-kaart hoog</span></h1>
+    <div class="score">
+      <span class="chip">Goed <b id="scoreGoed">0</b>/<b id="scoreTotaal">0</b></span>
+      <span class="chip">Reeks <b id="scoreReeks">0</b></span>
+    </div>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tabOpen" aria-selected="true">Openen</button>
+    <button class="tab" role="tab" id="tabAntw" aria-selected="false">Antwoorden</button>
+    <button class="tab" role="tab" id="tabTafel" aria-selected="false">Aan tafel</button>
+  </div>
+
+  <p class="situatie" id="situatie"></p>
+
+  <div class="tafelZone" id="tafelZone">
+    <div class="stoel noord">
+      <div class="stoelNaam">Noord · partner</div>
+      <div class="rugfan rugH" id="rugN"></div>
+    </div>
+    <div class="middenRij">
+      <div class="stoel zijkant">
+        <div class="stoelNaam">West</div>
+        <div class="rugfan rugV" id="rugW"></div>
+      </div>
+      <div class="blad">
+        <div class="bladPos n" id="bladN"></div>
+        <div class="bladPos o" id="bladO"></div>
+        <div class="bladPos z" id="bladZ"></div>
+        <div class="bladPos w" id="bladW"></div>
+        <div class="bladInfo" id="bladInfo"></div>
+      </div>
+      <div class="stoel zijkant">
+        <div class="stoelNaam">Oost</div>
+        <div class="rugfan rugV" id="rugO"></div>
+      </div>
+    </div>
+    <div class="stoelNaam zuid">Zuid · jij</div>
+  </div>
+
+  <div class="veiling" id="veiling"></div>
+
+  <div class="hand" id="handWeergave"></div>
+  <div class="handmeta verborgen" id="handMeta"></div>
+
+  <div class="bidbox" id="bidbox" aria-label="Biedbox"></div>
+
+  <div class="feedback" id="tafelFeedback" role="status"></div>
+  <div id="afloop" role="status"></div>
+
+  <div class="feedback" id="feedback" role="status">
+    <p class="oordeel" id="oordeel"></p>
+    <p class="uitleg" id="uitleg"></p>
+    <p class="ook" id="ook"></p>
+    <button class="volgende" id="btnVolgende">Volgende hand</button>
+    <span class="hintEnter">of druk Enter</span>
+  </div>
+
+  <div class="opties">
+    <label><input type="checkbox" id="optZwak2" checked> Zwakke tweeën &amp; preëmpts</label>
+    <label><input type="checkbox" id="optConv" checked> Stayman &amp; Jacoby na 1SA</label>
+    <label><input type="checkbox" id="optPunten" checked> Toon punten vooraf</label>
+  </div>
+
+  <details class="kaart">
+    <summary>Systeemkaart — de regels die deze trainer gebruikt</summary>
+    <div class="kaartinhoud">
+      <h3>Puntentelling</h3>
+      <table>
+        <tr><td>Honneurpunten</td><td>Aas 4 · Heer 3 · Vrouw 2 · Boer 1. In het hele spel zitten er 40.</td></tr>
+        <tr><td>Lengtepunten</td><td>1 punt per kaart ná de vierde in een kleur: een 5-kaart is +1, een 6-kaart +2, een 7-kaart +3. Je totale kracht = honneur + lengte; met dat totaal bied je.
+          <span class="vb">Voorbeeld: <span class="hi">♠AH8632 <span class="rood">♥</span>A54 <span class="rood">♦</span>H2 ♣97</span> — 14 honneur + 2 lengte (6-kaart) = 16 punten.</span></td></tr>
+      </table>
+      <h3>Begrippen die je steeds nodig hebt</h3>
+      <table>
+        <tr><td>Manche</td><td>3SA, 4<span class="rood">♥</span> of 4♠ (of 5♣/5<span class="rood">♦</span>): contracten met een flinke bonus. Vuistregel: samen 25 punten → manche bieden.</td></tr>
+        <tr><td>Fit</td><td>Samen 8+ kaarten in één kleur. De openaar van 1<span class="rood">♥</span>/1♠ belooft er 5, dus met 3 mee heb je al een fit.</td></tr>
+        <tr><td>Forcing</td><td>Partner mág niet passen. Een nieuwe kleur van de antwoordende hand is forcing: de sterkte is nog onbegrensd.</td></tr>
+        <tr><td>Mancheforcing</td><td>Nog sterker: géén van beiden mag passen vóórdat de manche is bereikt. De 2♣-opening is mancheforcing.</td></tr>
+        <tr><td>Inviterend</td><td>Uitnodiging tot de manche: partner past met een minimum en biedt door met een maximum. Bijvoorbeeld een verhoging naar 3-niveau of 2SA.</td></tr>
+      </table>
+      <h3>Openingen</h3>
+      <p class="toel">Kijk in deze volgorde: extreem sterk (2♣ of 2SA)? Sans-verdeling met 15–17? Anders: 12+ punten → open een kleur, waarbij een 5-kaart hoog altijd vóór gaat. Minder dan 12 → pas, tenzij je preëmptief kunt openen.</p>
+      <table>
+        <tr><td>1<span class="rood">♥</span> / 1♠</td><td>12–19 punten en een 5-kaart of langer in die kleur. Met twee vijfkaarten open je de hoogste.
+          <span class="vb"><span class="hi">♠AHV62 <span class="rood">♥</span>H83 <span class="rood">♦</span>95 ♣762</span> — 12 + 1 lengte = 13 punten → 1♠.</span>
+          <span class="vb"><span class="hi">♠AH862 <span class="rood">♥</span>AV953 <span class="rood">♦</span>4 ♣82</span> — twee 5-kaarten, 15 punten → 1♠, de hoogste.</span></td></tr>
+        <tr><td>1♣ / 1<span class="rood">♦</span></td><td>12–19 punten, geen 5-kaart hoog: open je langste lage kleur. Gelijke lengte: met 3-3 → 1♣, met 4-4 → 1<span class="rood">♦</span>.
+          <span class="vb"><span class="hi">♠A962 <span class="rood">♥</span>H74 <span class="rood">♦</span>V6 ♣HB53</span> — 13 punten, klaveren het langst → 1♣.</span>
+          <span class="vb"><span class="hi">♠AH5 <span class="rood">♥</span>97 <span class="rood">♦</span>HV82 ♣B632</span> — 13 punten, laag 4-4 → 1<span class="rood">♦</span>.</span></td></tr>
+        <tr><td>1SA</td><td>15–17 punten en een sans-verdeling: 4-3-3-3, 4-4-3-2 of 5-3-3-2 (geen 5-kaart hoog vereist, wél gelijkmatig).
+          <span class="vb"><span class="hi">♠HB4 <span class="rood">♥</span>AV6 <span class="rood">♦</span>H852 ♣V93</span> — 15 punten, 4-3-3-3 → 1SA.</span></td></tr>
+        <tr><td>2♣</td><td>22+ punten: de enige mancheforcing opening. Partner moet bieden (2<span class="rood">♦</span> is de wachtbieding) en er wordt doorgeboden tot minstens de manche.
+          <span class="vb"><span class="hi">♠AHV4 <span class="rood">♥</span>AV2 <span class="rood">♦</span>AH3 ♣872</span> — 22 punten → 2♣.</span></td></tr>
+        <tr><td>2SA</td><td>20–21 punten met een sans-verdeling.
+          <span class="vb"><span class="hi">♠AH3 <span class="rood">♥</span>HV62 <span class="rood">♦</span>AH4 ♣B53</span> — 20 punten, sans → 2SA.</span></td></tr>
+        <tr><td>2<span class="rood">♦</span>/2<span class="rood">♥</span>/2♠</td><td>Zwakke twee: 6–10 punten met een mooie 6-kaart. Beschrijft je hand in één keer en neemt de tegenpartij ruimte af. Met klaveren kan het niet (2♣ is de sterke opening).
+          <span class="vb"><span class="hi">♠HVB963 <span class="rood">♥</span>84 <span class="rood">♦</span>752 ♣96</span> — 6 + 2 lengte = 8 punten → 2♠.</span></td></tr>
+        <tr><td>3 in kleur</td><td>Preëmptief: 5–9 punten met een 7-kaart. Je verwacht zelf veel slagen in je kleur en verstoort het bieden van de tegenpartij.
+          <span class="vb"><span class="hi">♠8 <span class="rood">♥</span>6 <span class="rood">♦</span>HVB8642 ♣9753</span> — 6 + 3 lengte = 9 punten → 3<span class="rood">♦</span>.</span></td></tr>
+        <tr><td>Pas</td><td>Minder dan 12 punten en geen preëmptieve hand.
+          <span class="vb"><span class="hi">♠B853 <span class="rood">♥</span>V4 <span class="rood">♦</span>H962 ♣853</span> — 6 punten → pas.</span></td></tr>
+      </table>
+      <h3>Antwoorden na 1<span class="rood">♥</span> / 1♠</h3>
+      <p class="toel">Met 0–5 punten pas je altijd. Vanaf 6 punten kijk je éérst of je steun hebt (3+ kaarten mee — partner heeft er immers al 5): met steun vertel je meteen hoe sterk je bent. Zonder steun zoek je een ander bod. Voorbeelden hieronder: partner opende 1<span class="rood">♥</span>.</p>
+      <table>
+        <tr><td>Steun, 6–9</td><td>Verhoog één keer. Zwak, maar partner weet meteen: fit en 6–9.
+          <span class="vb"><span class="hi">♠84 <span class="rood">♥</span>V96 <span class="rood">♦</span>A853 ♣B762</span> — 7 punten, 3 harten mee → 2<span class="rood">♥</span>.</span></td></tr>
+        <tr><td>Steun, 10–11</td><td>Verhoog twee keer: inviterend. Partner biedt de manche met extra's.
+          <span class="vb"><span class="hi">♠H4 <span class="rood">♥</span>V965 <span class="rood">♦</span>A853 ♣B76</span> — 10 punten, 4 harten mee → 3<span class="rood">♥</span>.</span></td></tr>
+        <tr><td>Steun, 12+</td><td>Samen is er manche. Direct verhogen zou te zwak klinken, dus bied éérst een nieuwe kleur (forcing) en daarna (minstens) de manche in partners kleur.
+          <span class="vb"><span class="hi">♠AV53 <span class="rood">♥</span>H86 <span class="rood">♦</span>A952 ♣84</span> — 13 punten, 3 harten mee → eerst 1♠, daarna naar 4<span class="rood">♥</span>.</span></td></tr>
+        <tr><td>Nieuwe kleur, 1-niveau</td><td>1♠ na 1<span class="rood">♥</span>: 4+ schoppen en 6+ punten. Forcing, dus ook met een sterke hand goed.
+          <span class="vb"><span class="hi">♠AV53 <span class="rood">♥</span>86 <span class="rood">♦</span>V952 ♣842</span> — 8 punten, geen steun → 1♠.</span></td></tr>
+        <tr><td>Nieuwe kleur, 2-niveau</td><td>Belooft 10+ punten. Let op: 2<span class="rood">♥</span> na 1♠ belooft bovendien een 5-kaart harten.
+          <span class="vb"><span class="hi">♠H53 <span class="rood">♥</span>86 <span class="rood">♦</span>AV952 ♣H42</span> — 12 + 1 lengte = 13 punten → 2<span class="rood">♦</span>.</span></td></tr>
+        <tr><td>1SA</td><td>De restcategorie: 6–9 punten, geen steun en geen biedbare hoge kleur. Zegt niets over de verdeling.
+          <span class="vb"><span class="hi">♠H53 <span class="rood">♥</span>86 <span class="rood">♦</span>V952 ♣HB42</span> — 9 punten → 1SA.</span></td></tr>
+      </table>
+      <h3>Antwoorden na 1♣ / 1<span class="rood">♦</span></h3>
+      <p class="toel">Het doel blijft een fit in een hóge kleur vinden: een 4-kaart harten of schoppen bieden gaat daarom vóór alles, hoe zwak of sterk je verder ook bent. Pas daarna komen steun in partners lage kleur of een sans-antwoord in beeld.</p>
+      <table>
+        <tr><td>1<span class="rood">♥</span> / 1♠</td><td>6+ punten en een 4-kaart hoog: bied hem. Met twee vierkaarten hoog bied je de laagste (1<span class="rood">♥</span>), zodat 1♠ vindbaar blijft.
+          <span class="vb"><span class="hi">♠V874 <span class="rood">♥</span>AB62 <span class="rood">♦</span>H93 ♣54</span> — 10 punten, 4-4 hoog → 1<span class="rood">♥</span>.</span></td></tr>
+        <tr><td>Steun laag</td><td>Geen 4-kaart hoog, wel steun: 6–9 → één verhogen, 10–11 → twee verhogen (inviterend).
+          <span class="vb"><span class="hi">♠96 <span class="rood">♥</span>H84 <span class="rood">♦</span>972 ♣V9853</span> — na 1♣: 5 + 1 lengte = 6 punten → 2♣.</span></td></tr>
+        <tr><td>1SA / 2SA / 3SA</td><td>Geen 4-kaart hoog, geen steun: 6–9 → 1SA · 10–11 → 2SA (inviterend) · 12–15 → 3SA.
+          <span class="vb"><span class="hi">♠B74 <span class="rood">♥</span>V83 <span class="rood">♦</span>H95 ♣V632</span> — na 1♣: 8 punten → 1SA.</span></td></tr>
+      </table>
+      <h3>Antwoorden na 1SA (15–17)</h3>
+      <p class="toel">Partner is nauwkeurig begrensd, dus jij kunt meteen rekenen: samen 25 → manche. Met een lange hoge kleur gebruik je een conventie zodat de sterke hand het contract speelt en gedekt blijft bij het uitkomen.</p>
+      <table>
+        <tr><td>2♣ Stayman</td><td>8+ punten en een 4-kaart hoog: vraagt of partner er ook één heeft. Partner antwoordt 2<span class="rood">♦</span> = nee, 2<span class="rood">♥</span>/2♠ = ja, die 4-kaart.
+          <span class="vb"><span class="hi">♠HV52 <span class="rood">♥</span>B83 <span class="rood">♦</span>A962 ♣74</span> — 10 punten, 4 schoppen → 2♣.</span></td></tr>
+        <tr><td>2<span class="rood">♦</span> / 2<span class="rood">♥</span> Jacoby</td><td>Transfer met een 5-kaart of langer, elke sterkte: 2<span class="rood">♦</span> zegt "bied 2<span class="rood">♥</span>", 2<span class="rood">♥</span> zegt "bied 2♠". Daarna: passen met een zwakke hand, doorbieden met manche-interesse.
+          <span class="vb"><span class="hi">♠4 <span class="rood">♥</span>VB8632 <span class="rood">♦</span>H72 ♣962</span> — 6 + 2 lengte = 8 punten → 2<span class="rood">♦</span>, en na partners 2<span class="rood">♥</span>: pas.</span></td></tr>
+        <tr><td>2SA</td><td>8–9 punten zonder hoge 4- of 5-kaart: inviterend. Partner past met 15, biedt 3SA met 16–17.
+          <span class="vb"><span class="hi">♠H92 <span class="rood">♥</span>V54 <span class="rood">♦</span>B873 ♣V64</span> — 8 punten → 2SA.</span></td></tr>
+        <tr><td>3SA</td><td>10–15 punten zonder hoge 4- of 5-kaart: samen is er 25+, bied de manche direct.
+          <span class="vb"><span class="hi">♠H92 <span class="rood">♥</span>V54 <span class="rood">♦</span>AB73 ♣V64</span> — 12 punten → 3SA.</span></td></tr>
+        <tr><td>Pas</td><td>0–7 punten zonder 5-kaart hoog: zelfs tegenover 17 is er geen manche.</td></tr>
+      </table>
+      <h3>Antwoorden na 2♣ (22+, mancheforcing)</h3>
+      <p class="toel">Passen mag niet: er wordt hoe dan ook doorgeboden tot minstens de manche. Je eerste antwoord hoeft dus niets te beloven — het zegt alleen of je zelf iets meebrengt.</p>
+      <table>
+        <tr><td>2<span class="rood">♦</span> wachtbieding</td><td>Verreweg het gewoonste antwoord: "vertel maar verder, partner". Zegt niets over ruiten en kan met 0 punten. De openaar beschrijft daarna zijn hand.
+          <span class="vb"><span class="hi">♠975 <span class="rood">♥</span>B863 <span class="rood">♦</span>V42 ♣853</span> — 3 punten → 2<span class="rood">♦</span>, en gewoon blijven bieden tot de manche.</span></td></tr>
+        <tr><td>2<span class="rood">♥</span>/2♠/3♣/3<span class="rood">♦</span></td><td>Positief antwoord: 8+ punten én een goede 5-kaart. Wek meteen slem-interesse.
+          <span class="vb"><span class="hi">♠AV953 <span class="rood">♥</span>842 <span class="rood">♦</span>H72 ♣96</span> — 9 + 1 lengte = 10 punten → 2♠.</span></td></tr>
+        <tr><td>2SA</td><td>Positief zonder 5-kaart: 8+ punten, sans-achtige hand.
+          <span class="vb"><span class="hi">♠H92 <span class="rood">♥</span>V85 <span class="rood">♦</span>B743 ♣A64</span> — 10 punten → 2SA.</span></td></tr>
+        <tr><td>Het vervolg</td><td>Na 2♣–2<span class="rood">♦</span> biedt de openaar 2SA met 22–24 sans (daarna werken Stayman en Jacoby precies als na 1SA, één niveau hoger) of zijn langste kleur. Pas als de manche is bereikt mag er gepast worden.</td></tr>
+      </table>
+      <h3>Antwoorden na 2SA (20–21)</h3>
+      <p class="toel">Zelfde gedachte als na 1SA, één niveau hoger. Partner heeft 20–21, dus met 5 punten zit je al aan de 25: bijna elke hand biedt door naar de manche.</p>
+      <table>
+        <tr><td>Pas</td><td>0–4 punten: samen geen 25, hoger is kansloos.
+          <span class="vb"><span class="hi">♠B7542 <span class="rood">♥</span>963 <span class="rood">♦</span>852 ♣74</span> — 1 + 1 lengte = 2 punten → pas.</span></td></tr>
+        <tr><td>3♣ Stayman</td><td>5+ punten en een 4-kaart hoog: vraagt naar een 4-kaart hoog bij partner (3<span class="rood">♦</span> = nee).
+          <span class="vb"><span class="hi">♠HB62 <span class="rood">♥</span>975 <span class="rood">♦</span>V843 ♣52</span> — 6 punten → 3♣.</span></td></tr>
+        <tr><td>3<span class="rood">♦</span> / 3<span class="rood">♥</span> Jacoby</td><td>Transfer naar <span class="rood">♥</span> / ♠ met een 5-kaart of langer, elke sterkte.
+          <span class="vb"><span class="hi">♠5 <span class="rood">♥</span>B87632 <span class="rood">♦</span>954 ♣862</span> — 1 + 2 lengte = 3 punten → 3<span class="rood">♦</span>, en na partners 3<span class="rood">♥</span>: pas.</span></td></tr>
+        <tr><td>3SA</td><td>5–11 punten zonder hoge 4- of 5-kaart: bied de manche direct.
+          <span class="vb"><span class="hi">♠V92 <span class="rood">♥</span>H54 <span class="rood">♦</span>B873 ♣V64</span> — 8 punten → 3SA.</span></td></tr>
+      </table>
+      <h3>Antwoorden na een zwakke twee (2<span class="rood">♦</span>/2<span class="rood">♥</span>/2♠)</h3>
+      <p class="toel">Partner heeft 6–10 punten en een 6-kaart — dat weet je precies. Meestal is passen het beste. Let op: verhogen is hier géén invite, maar verder storen.</p>
+      <table>
+        <tr><td>Pas</td><td>Het vaakst juist, ook met een redelijke hand: zonder fit of extra sterkte valt er niets te halen.</td></tr>
+        <tr><td>Verhogen</td><td>Met een fit (3+ mee) stoor je de tegenpartij verder; partner moet passen.
+          <span class="vb"><span class="hi">♠H853 <span class="rood">♥</span>7 <span class="rood">♦</span>A9642 ♣853</span> — na 2♠: 4 schoppen mee → 3♠, puur storend.</span></td></tr>
+        <tr><td>Manche bieden</td><td>Met een sterke hand (16+) en een fit bied je zelf 4<span class="rood">♥</span>/4♠.
+          <span class="vb"><span class="hi">♠AV5 <span class="rood">♥</span>A864 <span class="rood">♦</span>AH72 ♣53</span> — na 2♠: 17 punten en 3 schoppen mee → 4♠.</span></td></tr>
+        <tr><td>Nieuwe kleur / 2SA</td><td>Forcing: een sterke eigen hand (15+) zonder directe fit. Partner beschrijft verder.</td></tr>
+      </table>
+      <h3>Antwoorden na een preëmpt (3-niveau)</h3>
+      <p class="toel">Partner heeft 5–9 punten en een 7-kaart: reken in slagen, niet in punten. Zijn hand is vrijwel waardeloos búiten de eigen kleur.</p>
+      <table>
+        <tr><td>Pas</td><td>De normale actie, ook met een behoorlijke hand.</td></tr>
+        <tr><td>Manche bieden</td><td>Met een sterke hand (16+): 3SA met dekking in de andere kleuren, of 4<span class="rood">♥</span>/4♠ met fit in partners hoge kleur.</td></tr>
+        <tr><td>Verhogen</td><td>Met een fit: verder storen — partner moet passen.</td></tr>
+      </table>
+
+      <h3>Tweede beurt van de openaar (herbieding)</h3>
+      <p class="toel">Je opende met 12–19: een grote spanwijdte. Nu vertel je aan welke kant van die schaal je zit. Deel je hand in: <b>minimum 12–14</b>, <b>matig 15–17</b>, <b>maximum 18–19</b>. Vervolgens kijk je of je partners kleur kunt steunen (fit gevonden!), je eigen kleur kunt herhalen (belooft een 6-kaart), een nieuwe kleur kunt tonen, of naar sans kunt gaan.</p>
+      <table>
+        <tr><td>Steun partners kleur</td><td>4-kaart steun (soms 3-kaart): één verhogen = 12–14, twee verhogen = 15–17, direct naar manche = 18–19.
+          <span class="vb">Na 1♣ – 1<span class="rood">♥</span>: <span class="hi">♠A5 <span class="rood">♥</span>HB93 <span class="rood">♦</span>V72 ♣AV84</span> — 15 punten, 4 harten mee → 3<span class="rood">♥</span>.</span></td></tr>
+        <tr><td>Eigen kleur herhalen</td><td>Belooft een 6-kaart of langer. Zelfde niveau = 12–14, sprong = 15–17 (invite), naar manche = 18–19.
+          <span class="vb">Na 1♠ – 1SA: <span class="hi">♠AHV964 <span class="rood">♥</span>B4 <span class="rood">♦</span>H82 ♣53</span> — 13 + 2 lengte = 15 punten, 6-kaart → 3♠ (sprongherbieding, invite).</span></td></tr>
+        <tr><td>Nieuwe kleur, laag</td><td>12–17 punten, natuurlijke 4-kaart. Niet forcing. Je zoekt een fit die er nog kan zijn.
+          <span class="vb">Na 1<span class="rood">♦</span> – 1<span class="rood">♥</span>: <span class="hi">♠HB84 <span class="rood">♥</span>7 <span class="rood">♦</span>AHV62 ♣A93</span> — 16 punten, 4 schoppen → 1♠.</span></td></tr>
+        <tr><td>Reverse (nieuwe kleur, hoog)</td><td>Een nieuwe kleur die hóger is dan je eerste, op een hoger niveau: belooft 16+ punten en is forcing één ronde. Sterke aanwijzing.
+          <span class="vb">Na 1<span class="rood">♦</span> – 1SA: <span class="hi">♠4 <span class="rood">♥</span>AHV6 <span class="rood">♦</span>AHV84 ♣B73</span> — 19 punten → 2<span class="rood">♥</span> (reverse).</span></td></tr>
+        <tr><td>Sans</td><td>Vlakke hand zonder fit: 1SA = 12–14, 2SA (sprong) = 18–19. Een sans-hand van 15–17 had je 1SA moeten openen.
+          <span class="vb">Na 1♣ – 1<span class="rood">♥</span>: <span class="hi">♠H84 <span class="rood">♥</span>75 <span class="rood">♦</span>HB4 ♣AV932</span> — 13 punten, geen fit, vlak → 1SA.</span></td></tr>
+        <tr><td>Manche bieden</td><td>Met 18–19 en een fit: direct 4<span class="rood">♥</span>/4♠ of 3SA. Partner beloofde 6+, dus samen zeker 24+, meestal 25+.</td></tr>
+      </table>
+
+      <h3>Tweede beurt van de antwoorder</h3>
+      <p class="toel">Nu weet je partners kracht op 3 punten nauwkeurig: je kunt de rekening maken. Tel jouw punten bij het midden van zijn range: <b>samen &lt;25</b> → stop op deelscore · <b>25–26</b> → inviteren · <b>26+</b> → manche bieden. Onthoud wat jij zelf al beloofde: <b>6–9</b> (zwak, meestal passen), <b>10–11</b> (invite) of <b>12+</b> (mancheforcing).</p>
+      <table>
+        <tr><td>Zwak (6–9) na een minimum</td><td>Pas op partners herbieding, tenzij die zelf uitnodigt (sprong of reverse). Bij een invite: door met 9, pas met 6–7.
+          <span class="vb">Jij 1<span class="rood">♥</span>, partner 2<span class="rood">♥</span>: jij hebt 8 punten, geen extra's → pas.</span></td></tr>
+        <tr><td>Invite (10–11)</td><td>Nodig zelf uit: kleur op 3-niveau herhalen, partners kleur naar 3 tillen, of 2SA bieden. Partner beslist: pas met minimum, manche met maximum.
+          <span class="vb">Na 1♣ – 1<span class="rood">♥</span> – 1♠: <span class="hi">♠95 <span class="rood">♥</span>AV863 <span class="rood">♦</span>H74 ♣V82</span> — 11 punten, 5-kaart harten → 3<span class="rood">♥</span> (invite).</span></td></tr>
+        <tr><td>Manche (12–15)</td><td>Bied de manche direct (3SA of 4 in de fit), of eerst een nieuwe kleur — nieuwe kleur van de antwoorder blijft forcing.
+          <span class="vb">Na 1<span class="rood">♦</span> – 1♠ – 2♠: <span class="hi">♠HV84 <span class="rood">♥</span>A75 <span class="rood">♦</span>V93 ♣B62</span> — 12 punten, fit → 4♠.</span></td></tr>
+        <tr><td>Voorkeur teruggeven</td><td>Als partner twee kleuren bood: kies er één. In zijn eerste kleur op laagste niveau = "valse preferentie" (kan met dubbelton — hij heeft daar meestal langer); in zijn tweede kleur = echte fit.
+          <span class="vb">Na 1♣ – 1<span class="rood">♥</span> – 1♠: <span class="hi">♠84 <span class="rood">♥</span>V976 <span class="rood">♦</span>V953 ♣H82</span> — 7 punten, geen fit hoog → 2♣ (partner belooft 4♠, meestal 4+♣).</span></td></tr>
+        <tr><td>Slem-interesse (16+)</td><td>Nieuwe kleuren om info te winnen, of 4SA Blackwood (vraagt naar azen). Slem valt buiten deze basiskaart.</td></tr>
+      </table>
+
+      <h3>Zo denk je in de tweede ronde</h3>
+      <p class="toel">Kort stappenplan als je opnieuw aan de beurt bent:</p>
+      <table>
+        <tr><td>1. Bereken samen</td><td>Neem het midden van partners range en tel je eigen punten erbij. &lt;20 → stop laag · 20–24 → deelscore · 25+ → manche.</td></tr>
+        <tr><td>2. Is er een fit?</td><td>Steun gaat vóór sans. 8+ kaarten samen in één kleur = fit — speel daarin.</td></tr>
+        <tr><td>3. Wie beslist?</td><td>Een invite geeft de keus aan de ander. Op een forcing bod mag níemand passen.</td></tr>
+        <tr><td>4. Twijfel?</td><td>Kies het veiligste bod dat partner nog kan corrigeren. Passen op iets forcing is de duurste fout.</td></tr>
+      </table>
+    </div>
+  </details>
+</div>
+
+<script>
+"use strict";
+/* ---------- basis ---------- */
+const KLEUREN = ["S","H","D","C"];               // weergavevolgorde ♠ ♥ ♦ ♣
+const SYM = {S:"♠",H:"♥",D:"♦",C:"♣",NT:"SA"};
+const ROOD = {H:true,D:true};
+const RANGEN = ["A","H","V","B","10","9","8","7","6","5","4","3","2"];
+const PUNTEN = {A:4,H:3,V:2,B:1};
+
+function schud(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function volledigDek(){ const d=[]; for(const k of KLEUREN) for(const r of RANGEN) d.push({k,r}); return d; }
+function deel(){ return schud(volledigDek()).slice(0,13); }
+function deelMetHonneurs(){ // voor sterke handen: dwing 5-7 honneurs af
+  const dek = volledigDek();
+  const honneurs = schud(dek.filter(c=>PUNTEN[c.r]>=1)).slice(0, 5+Math.floor(Math.random()*3));
+  const rest = schud(dek.filter(c=>!honneurs.includes(c))).slice(0, 13-honneurs.length);
+  return honneurs.concat(rest);
+}
+function deelMetLengte(kleur,n){ // voor zwakke 2 / preëmpts
+  const dek = volledigDek();
+  const inKleur = schud(dek.filter(c=>c.k===kleur)).slice(0,n);
+  const rest = schud(dek.filter(c=>c.k!==kleur)).slice(0,13-n);
+  return inKleur.concat(rest);
+}
+function lengtes(hand){ const l={S:0,H:0,D:0,C:0}; for(const c of hand) l[c.k]++; return l; }
+function hcp(hand){ return hand.reduce((t,c)=>t+(PUNTEN[c.r]||0),0); }
+function lengtePunten(l){ return Math.max(0,l.S-4)+Math.max(0,l.H-4)+Math.max(0,l.D-4)+Math.max(0,l.C-4); }
+function isSans(l){ const v=[l.S,l.H,l.D,l.C].sort((a,b)=>b-a).join(""); return v==="4333"||v==="4432"||v==="5332"; }
+function verdeling(l){ return [l.S,l.H,l.D,l.C].sort((a,b)=>b-a).join("-"); }
+
+/* ---------- bied-notatie ---------- */
+function bidHTML(b){
+  if(b==="PAS") return "pas";
+  const lvl=b[0], strain=b.slice(1);
+  if(strain==="NT") return lvl+"SA";
+  const kls = ROOD[strain] ? "rood" : "";
+  return lvl+'<span class="'+kls+'">'+SYM[strain]+"</span>";
+}
+
+/* ---------- openingsengine ---------- */
+function opening(hand, opt){
+  const l=lengtes(hand), p=hcp(hand)+lengtePunten(l), sans=isSans(l);
+  const uit = (bid,txt,ook)=>({bid,uitleg:txt,ook:ook||[]});
+
+  if(p>=22) return uit("2C","Met "+p+" punten open je 2♣: de sterkste opening, mancheforcing.");
+  if(sans && p>=20 && p<=21) return uit("2NT","Sans-verdeling ("+verdeling(l)+") met "+p+" punten: open 2SA (20–21).");
+  if(sans && p>=15 && p<=17){
+    const vijfM = l.S>=5?"1S":(l.H>=5?"1H":null);
+    return uit("1NT","Sans-verdeling ("+verdeling(l)+") met "+p+" punten: open 1SA (15–17).",
+      vijfM?[[vijfM,"met een 5-kaart hoog is de kleur openen ook verdedigbaar"]]:[]);
+  }
+  if(p>=12){
+    if(l.S>=5 || l.H>=5){
+      const bid = (l.S>l.H)?"1S":(l.H>l.S)?"1H":"1S";
+      const kleur = bid==="1S"?"schoppen":"harten";
+      let txt="Met "+p+" punten en een "+Math.max(l.S,l.H)+"-kaart "+kleur+" open je "+(bid==="1S"?"1♠":"1♥")+" (5-kaart hoog).";
+      if(l.S>=5&&l.H>=5) txt="Twee vijfkaarten hoog: open de hoogste, 1♠. ("+p+" punten)";
+      return uit(bid,txt);
+    }
+    let bid, txt;
+    if(l.D>l.C){ bid="1D"; txt="Geen 5-kaart hoog: open je langste lage kleur, "+l.D+"-kaart ruiten. ("+p+" punten)"; }
+    else if(l.C>l.D){ bid="1C"; txt="Geen 5-kaart hoog: open je langste lage kleur, "+l.C+"-kaart klaveren. ("+p+" punten)"; }
+    else if(l.D>=4){ bid="1D"; txt="Geen 5-kaart hoog, lage kleuren gelijk ("+l.D+"-"+l.C+"): met 4-4 of langer open je 1♦. ("+p+" punten)"; }
+    else { bid="1C"; txt="Geen 5-kaart hoog, lage kleuren 3-3: open 1♣. ("+p+" punten)"; }
+    return uit(bid,txt);
+  }
+  if(opt.zwak2){
+    for(const k of ["S","H","D"]){
+      if(l[k]===6 && p>=6 && p<=10)
+        return uit("2"+k,"Zwakke twee: 6–10 punten met een 6-kaart "+kleurNaam(k)+". Lastig voor de tegenpartij, beschrijvend voor partner.");
+    }
+    for(const k of ["S","H","D","C"]){
+      if(l[k]>=7 && p>=5 && p<=9)
+        return uit("3"+k,"Preëmptief: een 7-kaart "+kleurNaam(k)+" met "+p+" punten. Op 3-niveau openen neemt de tegenpartij biedruimte af.");
+    }
+  }
+  return uit("PAS","Met "+p+" punten (minder dan 12) en geen preëmptieve hand: pas.");
+}
+function kleurNaam(k){ return {S:"schoppen",H:"harten",D:"ruiten",C:"klaveren"}[k]; }
+
+/* ---------- antwoordengine ---------- */
+function antwoord(hand, open1, opt){
+  const l=lengtes(hand), p=hcp(hand)+lengtePunten(l), sans=isSans(l);
+  const uit=(bid,txt,ook)=>({bid,uitleg:txt,ook:ook||[]});
+
+  if(open1==="1NT") return antwoordNa1SA(hand,l,p,opt,uit);
+
+  const K = open1[1];                       // geopende kleur
+  if(p<6) return uit("PAS","Met "+p+" punten (minder dan 6) pas je: samen is de manche buiten bereik en elk bod belooft 6+.");
+
+  if(K==="H"||K==="S"){
+    const naam=kleurNaam(K), symb=K==="H"?"♥":"♠";
+    if(l[K]>=3){
+      if(p<=9) return uit("2"+K,"Steun ("+l[K]+"-kaart mee) en "+p+" punten (6–9): verhoog één keer naar 2"+symb+".");
+      if(p<=11) return uit("3"+K,"Steun ("+l[K]+"-kaart mee) en "+p+" punten (10–11): verhoog naar 3"+symb+" — inviterend.");
+      let nieuw;
+      if(K==="H" && l.S>=4) nieuw="1S";
+      else if(K==="S" && l.H>=5) nieuw="2H";
+      else nieuw = (l.C>l.D)?"2C":(l.D>l.C)?"2D":"2C";
+      return uit(nieuw,"Met "+p+" punten en steun voor "+naam+" bied je eerst een nieuwe kleur (forcing) en daarna minstens de manche in "+symb+". Direct verhogen zou te zwak klinken.");
+    }
+    if(K==="H" && l.S>=4)
+      return uit("1S","Geen hartensteun, wel een "+l.S+"-kaart schoppen en "+p+" punten: bied 1♠ (6+ punten, forcing).");
+    if(p<=9)
+      return uit("1NT","Geen steun, geen biedbare hoge kleur, "+p+" punten (6–9): antwoord 1SA.");
+    if(K==="S" && l.H>=5)
+      return uit("2H","Met "+p+" punten (10+) en een "+l.H+"-kaart harten: 2♥. Een nieuwe kleur op 2-niveau belooft 10+ punten, en 2♥ na 1♠ een 5-kaart.");
+    const m=(l.C>l.D)?"C":(l.D>l.C)?"D":"C";
+    return uit("2"+m,"Geen steun, wel "+p+" punten (10+): nieuwe kleur op 2-niveau — je langste lage kleur, "+l[m]+"-kaart "+kleurNaam(m)+".");
+  }
+
+  /* na 1♣ of 1♦ */
+  if(l.H>=4 || l.S>=4){
+    let bid;
+    if(l.S>l.H) bid="1S"; else if(l.H>l.S) bid="1H"; else bid="1H";
+    const naam=bid==="1S"?"schoppen":"harten";
+    let txt="Een 4-kaart hoog gaat vóór: bied 1"+(bid==="1S"?"♠":"♥")+" ("+Math.max(l.H,l.S)+"-kaart "+naam+", "+p+" punten).";
+    if(l.H>=4&&l.S>=4&&l.H===l.S) txt="Met twee vierkaarten hoog bied je de laagste eerst: 1♥ ("+p+" punten). Zo blijft 1♠ vindbaar.";
+    return uit(bid,txt);
+  }
+  if(K==="C"){
+    if(l.D>=4){
+      const ookSA = (p<=9 && sans) ? [["1NT","met een sans-verdeling en 6–9 punten is 1SA ook goed"]] : [];
+      return uit("1D","Geen 4-kaart hoog, wel een "+l.D+"-kaart ruiten: bied 1♦ ("+p+" punten).",ookSA);
+    }
+    if(l.C>=5){
+      if(p<=9) return uit("2C","Geen 4-kaart hoog, wel klaverensteun ("+l.C+"-kaart) en "+p+" punten (6–9): verhoog naar 2♣.");
+      if(p<=11) return uit("3C","Klaverensteun ("+l.C+"-kaart) en "+p+" punten (10–11): verhoog naar 3♣ — inviterend.");
+    }
+    if(p<=9) return uit("1NT","Geen 4-kaart hoog, geen steun: 1SA met "+p+" punten (6–9).");
+    if(p<=11) return uit("2NT","Geen 4-kaart hoog: 2SA met "+p+" punten (10–11), inviterend.");
+    return uit("3NT","Geen 4-kaart hoog en "+p+" punten (12–15): bied de manche, 3SA.");
+  }
+  /* na 1♦ */
+  if(l.D>=4){
+    if(p<=9) return uit("2D","Ruitensteun ("+l.D+"-kaart) en "+p+" punten (6–9): verhoog naar 2♦.");
+    if(p<=11) return uit("3D","Ruitensteun ("+l.D+"-kaart) en "+p+" punten (10–11): verhoog naar 3♦ — inviterend.");
+    if(l.C>=4) return uit("2C","Met "+p+" punten bied je eerst een nieuwe kleur (2♣, forcing); de ruitensteun komt later aan bod.");
+    return uit("3NT","Ruitensteun maar "+p+" punten en een vlakke hand: bied de manche, 3SA.");
+  }
+  if(l.C>=5 && p>=10)
+    return uit("2C","Geen 4-kaart hoog of ruitensteun, wel "+p+" punten (10+) en een "+l.C+"-kaart klaveren: 2♣.");
+  if(p<=9) return uit("1NT","Geen 4-kaart hoog, geen steun: 1SA met "+p+" punten (6–9).");
+  if(p<=11) return uit("2NT","Geen 4-kaart hoog, geen steun: 2SA met "+p+" punten (10–11), inviterend.");
+  return uit("3NT","Geen 4-kaart hoog en "+p+" punten (12–15): bied de manche, 3SA.");
+}
+
+function antwoordNa1SA(hand,l,p,opt,uit){
+  if(opt.conv){
+    if(l.H>=5 && l.H>=l.S)
+      return uit("2D","Jacoby: met een "+l.H+"-kaart harten bied je 2♦ — partner moet 2♥ bieden. Zo speelt de sterke hand het contract. Kan met elke sterkte.");
+    if(l.S>=5)
+      return uit("2H","Jacoby: met een "+l.S+"-kaart schoppen bied je 2♥ — partner moet 2♠ bieden. Zo speelt de sterke hand het contract. Kan met elke sterkte.");
+    if((l.H===4||l.S===4) && p>=8)
+      return uit("2C","Stayman: met "+p+" punten (8+) en een 4-kaart hoog vraag je met 2♣ naar een 4-kaart hoog bij partner.");
+  }
+  if(p<=7) return uit("PAS","Partner heeft 15–17; met "+p+" punten (0–7) is samen zelfs 25 niet haalbaar: pas.");
+  if(p<=9) return uit("2NT","Met "+p+" punten (8–9) inviteer je met 2SA: partner biedt 3SA met een maximum (17).");
+  if(!opt.conv && (l.H>=6||l.S>=6)){
+    const k=l.H>=6?"H":"S";
+    return uit("4"+k,"Met "+p+" punten en een 6-kaart "+kleurNaam(k)+" bied je direct de manche in je kleur.");
+  }
+  return uit("3NT","Met "+p+" punten (10–15) tegenover 15–17 is er samen 25+: bied de manche, 3SA.");
+}
+
+/* ---------- handgeneratie per categorie ---------- */
+const OPEN_CATS = [
+  {w:20, test:b=>b==="1H"||b==="1S"},
+  {w:18, test:b=>b==="1C"||b==="1D"},
+  {w:13, test:b=>b==="1NT", deler:deel},
+  {w:13, test:b=>b==="PAS"},
+  {w:12, test:b=>["2D","2H","2S"].includes(b), zwak2:true,
+        deler:()=>deelMetLengte(["S","H","D"][Math.floor(Math.random()*3)],6)},
+  {w:7,  test:b=>b==="2NT", deler:deelMetHonneurs},
+  {w:7,  test:b=>b==="2C",  deler:deelMetHonneurs},
+  {w:5,  test:b=>b[0]==="3", zwak2:true,
+        deler:()=>deelMetLengte(KLEUREN[Math.floor(Math.random()*4)],7)},
+];
+function kiesGewogen(items){
+  const tot=items.reduce((t,i)=>t+i.w,0); let r=Math.random()*tot;
+  for(const i of items){ r-=i.w; if(r<=0) return i; } return items[0];
+}
+function maakOpeningsHand(opt){
+  const cats = OPEN_CATS.filter(c=>!c.zwak2 || opt.zwak2);
+  const cat = kiesGewogen(cats);
+  const deler = cat.deler || deel;
+  let hand;
+  for(let i=0;i<3000;i++){
+    hand = deler();
+    if(cat.test(opening(hand,opt).bid)) return hand;
+  }
+  return hand;
+}
+const ANTW_OPENINGEN = [["1C",18],["1D",14],["1H",22],["1S",22],["1NT",24]];
+const ANTW_PUNTEN = [[0,5,16],[6,9,34],[10,11,28],[12,20,22]];
+function maakAntwoordHand(opt){
+  const open1 = kiesGewogen(ANTW_OPENINGEN.map(([b,w])=>({b,w}))).b;
+  const [lo,hi] = (()=>{const c=kiesGewogen(ANTW_PUNTEN.map(([lo,hi,w])=>({lo,hi,w})));return [c.lo,c.hi];})();
+  let hand;
+  for(let i=0;i<3000;i++){
+    hand = deel();
+    const l = lengtes(hand), p = hcp(hand)+lengtePunten(l);
+    if(p>=lo && p<=hi && (open1==="1NT" || l[open1[1]]<=5)) return {hand,open1};
+  }
+  return {hand,open1};
+}
+
+/* ---------- tafelmodus: vier spelers bieden ---------- */
+const ZITS=["N","O","Z","W"];
+const ZITNAAM={N:"Noord",O:"Oost",Z:"Zuid",W:"West"};
+const partnerZit=z=>({N:"Z",Z:"N",O:"W",W:"O"}[z]);
+const RANGSTRAIN={C:0,D:1,H:2,S:3,NT:4};
+const bidRank=b=>b==="PAS"?-1:(+b[0])*5+RANGSTRAIN[b.slice(1)];
+function punten(hand){ return hcp(hand)+lengtePunten(lengtes(hand)); }
+function volgendeZit(z){ return ZITS[(ZITS.indexOf(z)+1)%4]; }
+function hoogsteBod(){ const nb=state.tafel.biedingen.filter(x=>x.bid!=="PAS"); return nb.length?nb[nb.length-1]:null; }
+function legaal(bid){ const h=hoogsteBod(); return bid==="PAS"||!h||bidRank(bid)>bidRank(h.bid); }
+
+function nieuwDeel(){
+  const dek=schud(volledigDek());
+  state.tafel={
+    id:Math.random(),
+    handen:{N:dek.slice(0,13),O:dek.slice(13,26),Z:dek.slice(26,39),W:dek.slice(39,52)},
+    gever:ZITS[Math.floor(Math.random()*4)],
+    biedingen:[], klaar:false,
+  };
+  state.tafel.beurt=state.tafel.gever;
+  state.klaar=false;
+  el("situatie").innerHTML="Gever: <b>"+ZITNAAM[state.tafel.gever]+"</b> · jij zit Zuid. Open- en antwoordbeurten tellen mee voor je score; de rest bied je vrij.";
+  toonHand(state.tafel.handen.Z);
+  el("feedback").className="feedback";
+  el("tafelFeedback").className="feedback";
+  el("afloop").style.display="none";
+  tekenVeiling(); zetBidboxActief(); plandBots();
+}
+function veilingKlaar(){
+  const b=state.tafel.biedingen;
+  if(b.length<4) return false;
+  if(b.every(x=>x.bid==="PAS")) return true;
+  return b.slice(-3).every(x=>x.bid==="PAS");
+}
+function doeBod(zit,bid){
+  state.tafel.biedingen.push({zit,bid});
+  state.tafel.beurt=volgendeZit(zit);
+  tekenVeiling();
+  if(veilingKlaar()){ eindeVeiling(); return; }
+  zetBidboxActief(); plandBots();
+}
+function plandBots(){
+  const t=state.tafel;
+  if(!t||t.klaar||t.beurt==="Z") return;
+  const id=t.id;
+  setTimeout(()=>{
+    const t2=state.tafel;
+    if(state.modus!=="tafel"||!t2||t2.id!==id||t2.klaar||t2.beurt==="Z") return;
+    doeBod(t2.beurt, botBod(t2.beurt));
+  },420);
+}
+function botBod(zit){
+  const t=state.tafel, hand=t.handen[zit], opt=opties();
+  const nonPass=t.biedingen.filter(x=>x.bid!=="PAS");
+  if(nonPass.length===0) return opening(hand,opt).bid;
+  const partner=partnerZit(zit);
+  const mijn=nonPass.filter(x=>x.zit===zit), vanPartner=nonPass.filter(x=>x.zit===partner);
+  if(!mijn.length && !vanPartner.length) return volgbod(hand);
+  if(nonPass.length===1 && vanPartner.length===1 && nonPass[0].bid[0]==="1"){
+    const a=antwoord(hand,nonPass[0].bid,opt).bid;
+    return legaal(a)?a:"PAS";
+  }
+  return vervolgBod(hand,zit);
+}
+function volgbod(hand){
+  const l=lengtes(hand), p=punten(hand);
+  let beste=null;
+  for(const k of ["S","H","D","C"]) if(l[k]>=5 && (beste===null||l[k]>l[beste])) beste=k;
+  if(beste===null||p<8||p>17) return "PAS";
+  if(legaal("1"+beste)) return "1"+beste;
+  if(legaal("2"+beste) && p>=11) return "2"+beste;
+  return "PAS";
+}
+function schatPartner(zit){
+  const t=state.tafel, partner=partnerZit(zit);
+  const idx=t.biedingen.findIndex(x=>x.zit===partner&&x.bid!=="PAS");
+  if(idx<0) return 0;
+  const bid=t.biedingen[idx].bid;
+  const eerder=t.biedingen.slice(0,idx).filter(x=>x.bid!=="PAS");
+  if(eerder.length===0){ // partner opende
+    if(bid==="1NT")return 16; if(bid==="2NT")return 20.5; if(bid==="2C")return 23;
+    if(bid[0]==="1")return 14; if(bid[0]==="2")return 8; return 7;
+  }
+  const onzeEerder=eerder.filter(x=>x.zit===zit);
+  if(onzeEerder.length){ // partner antwoordde op ons
+    const s=bid.slice(1);
+    if(s==="NT") return {"1":7.5,"2":11.5,"3":13.5}[bid[0]]||9;
+    const steun=onzeEerder.some(x=>x.bid.slice(1)===s);
+    if(steun) return bid[0]==="2"?7.5:10.5;
+    return bid[0]==="1"?10:11.5;
+  }
+  return 10; // volgbod
+}
+function vervolgBod(hand,zit){
+  const t=state.tafel, partner=partnerZit(zit);
+  const l=lengtes(hand), p=punten(hand);
+  const nonPass=t.biedingen.filter(x=>x.bid!=="PAS");
+  const onze=nonPass.filter(x=>x.zit===zit||x.zit===partner);
+  const laatstOnze=onze.length?onze[onze.length-1]:null;
+  if(laatstOnze && bidRank(laatstOnze.bid)>=bidRank("3NT")) return "PAS";
+  const vanPartner=onze.filter(x=>x.zit===partner);
+  if(!vanPartner.length) return "PAS";
+  const samen=p+schatPartner(zit);
+  let pKleur=null;
+  for(const x of vanPartner){ const s=x.bid.slice(1); if(s!=="NT"){ pKleur=s; break; } }
+  const mijnNP=onze.filter(x=>x.zit===zit);
+  let bod="PAS";
+  if(samen>=25){
+    if(pKleur&&(pKleur==="H"||pKleur==="S")&&l[pKleur]>=3&&legaal("4"+pKleur)) bod="4"+pKleur;
+    else if(l.H>=6&&legaal("4H")) bod="4H";
+    else if(l.S>=6&&legaal("4S")) bod="4S";
+    else if(legaal("3NT")) bod="3NT";
+  } else if(samen>=23 && mijnNP.length<2){
+    if(pKleur&&l[pKleur]>=3){
+      for(let lv=2;lv<=3;lv++){ if(legaal(lv+pKleur)){ bod=lv+pKleur; break; } }
+    } else if(legaal("2NT")) bod="2NT";
+  }
+  if(bod!=="PAS") return bod;
+  // partner bood een nieuwe kleur (forcing): houd het bieden gaande
+  const lp2=vanPartner[vanPartner.length-1];
+  const h=hoogsteBod();
+  const s=lp2.bid.slice(1);
+  const nieuw = s!=="NT" && h && h.zit===partner && h.bid===lp2.bid &&
+    onze.filter(x=>x.bid.slice(1)===s).length===1 && bidRank(lp2.bid)<=bidRank("2S") && mijnNP.length;
+  if(nieuw){
+    if(l[s]>=4) for(let lv=2;lv<=3;lv++){ if(legaal(lv+s)) return lv+s; }
+    for(const k of ["S","H","D","C"]) if(l[k]>=6) for(let lv=2;lv<=3;lv++){ if(legaal(lv+k)) return lv+k; }
+    for(let lv=1;lv<=2;lv++){ if(legaal(lv+"NT")) return lv+"NT"; }
+    if(l[s]>=3) for(let lv=2;lv<=3;lv++){ if(legaal(lv+s)) return lv+s; }
+  }
+  return "PAS";
+}
+function tekenVeiling(){
+  const t=state.tafel;
+  const start=ZITS.indexOf(t.gever);
+  const rows=[]; let rij=new Array(4).fill(""); let idx=start;
+  for(const b of t.biedingen){
+    rij[idx]=bidHTML(b.bid);
+    idx++; if(idx===4){ rows.push(rij); rij=new Array(4).fill(""); idx=0; }
+  }
+  if(!t.klaar) rij[idx]='<span class="beurtmark">?</span>';
+  if(rij.some(c=>c!=="")) rows.push(rij);
+  el("veiling").innerHTML="<table><thead><tr>"+
+    ZITS.map(z=>'<th class="'+(z===t.beurt&&!t.klaar?"aanZet":"")+'">'+ZITNAAM[z]+(z==="Z"?" (jij)":"")+"</th>").join("")+
+    "</tr></thead><tbody>"+
+    rows.map(r=>"<tr>"+r.map(c=>"<td>"+c+"</td>").join("")+"</tr>").join("")+
+    "</tbody></table>";
+  el("veiling").style.display="block";
+  tekenTafel();
+}
+function tekenTafel(){
+  const t=state.tafel;
+  if(state.modus!=="tafel"||!t){ el("tafelZone").style.display="none"; return; }
+  el("tafelZone").style.display="block";
+  ["N","W","O"].forEach(z=>{
+    const rug=el("rug"+z);
+    if(!rug.dataset.gevuld){ rug.innerHTML='<span class="kaartRug"></span>'.repeat(13); rug.dataset.gevuld="1"; }
+  });
+  const laatste={};
+  for(const b of t.biedingen) laatste[b.zit]=b.bid;
+  const posMap={N:"bladN",O:"bladO",Z:"bladZ",W:"bladW"};
+  for(const z of ZITS){
+    let html="";
+    if(!t.klaar && t.beurt===z) html='<span class="denk" aria-label="aan de beurt">?</span>';
+    else if(laatste[z]!==undefined)
+      html = laatste[z]==="PAS" ? '<span class="pasChip">pas</span>' : '<span class="miniKaart">'+bidHTML(laatste[z])+"</span>";
+    el(posMap[z]).innerHTML=html;
+  }
+  const nb=t.biedingen.filter(x=>x.bid!=="PAS");
+  el("bladInfo").innerHTML = t.klaar
+    ? (nb.length ? '<span class="miniKaart">'+bidHTML(nb[nb.length-1].bid)+"</span> door "+ZITNAAM[nb[nb.length-1].zit] : "Rondgepast")
+    : "Gever: "+ZITNAAM[t.gever];
+}
+function zetBidboxActief(){
+  const t=state.tafel;
+  el("bidbox").querySelectorAll(".bid").forEach(b=>{
+    b.className="bid"+(b.dataset.bid==="PAS"?" pas":"");
+    b.disabled = !t || t.klaar || t.beurt!=="Z" || !legaal(b.dataset.bid);
+  });
+}
+function kiesTafel(bid){
+  const t=state.tafel;
+  if(!t||t.klaar||t.beurt!=="Z"||!legaal(bid)) return;
+  const opt=opties();
+  const nonPass=t.biedingen.filter(x=>x.bid!=="PAS");
+  let beo=null;
+  if(nonPass.length===0) beo=opening(t.handen.Z,opt);
+  else if(nonPass.length===1 && nonPass[0].zit==="N" && nonPass[0].bid[0]==="1") beo=antwoord(t.handen.Z,nonPass[0].bid,opt);
+  const fb=el("tafelFeedback");
+  if(beo){
+    const goed = bid===beo.bid || beo.ook.some(([b])=>b===bid);
+    state.totaal++; if(goed){state.goed++;state.reeks++;}else{state.reeks=0;}
+    toonScore();
+    fb.className="feedback zichtbaar "+(goed?"goed":"fout");
+    fb.innerHTML='<p class="oordeel">'+(goed?"Goed geboden!":"Niet het beste bod")+'</p><p class="uitleg">'+
+      (goed?"":'Het juiste bod is <span class="bidref">'+bidHTML(beo.bid)+"</span>. ")+beo.uitleg+"</p>";
+    el("handMeta").classList.remove("verborgen");
+  }else{
+    const sug=botBod("Z");
+    fb.className="feedback zichtbaar";
+    fb.innerHTML='<p class="uitleg">Vrije biedronde — telt niet mee voor je score. De simulator had hier <span class="bidref">'+bidHTML(sug)+"</span> gekozen.</p>";
+  }
+  doeBod("Z",bid);
+}
+function eindeVeiling(){
+  const t=state.tafel;
+  t.klaar=true; state.klaar=true;
+  zetBidboxActief();
+  tekenVeiling();
+  const nb=t.biedingen.filter(x=>x.bid!=="PAS");
+  const kop = nb.length
+    ? 'Eindcontract: <span class="bidref">'+bidHTML(nb[nb.length-1].bid)+"</span> door "+ZITNAAM[nb[nb.length-1].zit]
+    : "Rondgepast — niemand kon openen";
+  el("afloop").innerHTML='<p class="oordeel">'+kop+"</p>"+
+    '<div class="alleHanden">'+["N","W","O"].map(z=>{
+      const hand=t.handen[z];
+      return "<div><b>"+ZITNAAM[z]+"</b> "+punten(hand)+" pt · "+KLEUREN.map(k=>{
+        const kk=hand.filter(c=>c.k===k).sort((a,b)=>RANGEN.indexOf(a.r)-RANGEN.indexOf(b.r)).map(c=>c.r).join(" ");
+        return '<span class="'+(ROOD[k]?"rood":"")+'">'+SYM[k]+"</span> "+(kk||"—");
+      }).join("&ensp;")+"</div>";
+    }).join("")+"</div>"+
+    '<button class="volgende" id="btnDeel">Volgend spel</button><span class="hintEnter">of druk Enter</span>';
+  el("afloop").style.display="block";
+  el("btnDeel").addEventListener("click",nieuwDeel);
+  el("handMeta").classList.remove("verborgen");
+}
+
+/* ---------- UI ---------- */
+const el = id=>document.getElementById(id);
+const state = {
+  modus:"open", hand:null, open1:null, antwoordObj:null, klaar:false,
+  goed:+(localStorage.getItem("bt_goed")||0),
+  totaal:+(localStorage.getItem("bt_totaal")||0),
+  reeks:+(localStorage.getItem("bt_reeks")||0),
+};
+function opties(){
+  return { zwak2: el("optZwak2").checked, conv: el("optConv").checked };
+}
+function toonScore(){
+  el("scoreGoed").textContent=state.goed;
+  el("scoreTotaal").textContent=state.totaal;
+  el("scoreReeks").textContent=state.reeks;
+  localStorage.setItem("bt_goed",state.goed);
+  localStorage.setItem("bt_totaal",state.totaal);
+  localStorage.setItem("bt_reeks",state.reeks);
+}
+function toonHand(hand){
+  const l=lengtes(hand);
+  const waaierVolg=["S","H","C","D"]; // afwisselend zwart-rood in de waaier
+  el("handWeergave").innerHTML = '<div class="handFan">'+waaierVolg.map(k=>{
+    const kaarten = hand.filter(c=>c.k===k)
+      .sort((a,b)=>RANGEN.indexOf(a.r)-RANGEN.indexOf(b.r));
+    if(!kaarten.length) return "";
+    return '<div class="suitGroep">'+kaarten.map(c=>
+      '<div class="speelkaart '+(ROOD[k]?"rd":"zw")+'"><span class="hoek">'+c.r+'<em>'+SYM[k]+'</em></span><span class="midden">'+SYM[k]+'</span></div>'
+    ).join("")+"</div>";
+  }).join("")+"</div>";
+  const hp=hcp(hand), lpn=lengtePunten(l);
+  el("handMeta").innerHTML = lpn>0
+    ? "<span><b>"+(hp+lpn)+" punten</b> ("+hp+" honneur + "+lpn+" lengte)</span><span>verdeling "+verdeling(l)+"</span>"
+    : "<span><b>"+hp+" punten</b> (alleen honneur)</span><span>verdeling "+verdeling(l)+"</span>";
+  el("handMeta").classList.toggle("verborgen", !el("optPunten").checked);
+}
+function bouwBidbox(){
+  let html="";
+  for(let lvl=1;lvl<=4;lvl++){
+    html+='<div class="rij">';
+    for(const s of ["C","D","H","S","NT"]){
+      const b=lvl+s;
+      html+='<button class="bid" data-bid="'+b+'">'+bidHTML(b)+"</button>";
+    }
+    html+="</div>";
+  }
+  html+='<div class="rij"><button class="bid pas" data-bid="PAS">Pas</button></div>';
+  el("bidbox").innerHTML=html;
+  el("bidbox").querySelectorAll(".bid").forEach(btn=>{
+    btn.addEventListener("click",()=>kies(btn.dataset.bid,btn));
+  });
+}
+function nieuweHand(){
+  state.klaar=false;
+  const opt=opties();
+  if(state.modus==="open"){
+    state.hand=maakOpeningsHand(opt);
+    state.open1=null;
+    state.antwoordObj=opening(state.hand,opt);
+    el("situatie").innerHTML="Jij bent de gever, niemand heeft geboden. <b>Wat open je?</b>";
+  }else{
+    const {hand,open1}=maakAntwoordHand(opt);
+    state.hand=hand; state.open1=open1;
+    state.antwoordObj=antwoord(hand,open1,opt);
+    el("situatie").innerHTML='Partner opent <span class="bidref">'+bidHTML(open1)+"</span>, rechts wordt gepast. <b>Wat bied je?</b>";
+  }
+  toonHand(state.hand);
+  el("feedback").className="feedback";
+  el("bidbox").querySelectorAll(".bid").forEach(b=>{b.disabled=false;b.className="bid"+(b.dataset.bid==="PAS"?" pas":"");});
+}
+function kies(bid,btn){
+  if(state.modus==="tafel"){ kiesTafel(bid); return; }
+  if(state.klaar) return;
+  state.klaar=true;
+  const a=state.antwoordObj;
+  const ookGoed = a.ook.some(([b])=>b===bid);
+  const goed = bid===a.bid || ookGoed;
+  state.totaal++; if(goed){state.goed++;state.reeks++;}else{state.reeks=0;}
+  toonScore();
+  el("bidbox").querySelectorAll(".bid").forEach(b=>{
+    b.disabled=true;
+    if(b.dataset.bid===a.bid) b.classList.add("juist");
+  });
+  btn.classList.add(goed?"gekozen-goed":"gekozen-fout");
+  const fb=el("feedback");
+  fb.className="feedback zichtbaar "+(goed?"goed":"fout");
+  el("oordeel").textContent = goed ? "Goed geboden!" : "Niet het beste bod";
+  el("uitleg").innerHTML = (goed?"":"Het juiste bod is <span class=\"bidref\">"+bidHTML(a.bid)+"</span>. ")+a.uitleg;
+  el("ook").innerHTML = a.ook.length
+    ? "Ook verdedigbaar: "+a.ook.map(([b,t])=>'<span class="bidref">'+bidHTML(b)+"</span> — "+t).join(" · ")
+    : "";
+  el("handMeta").classList.remove("verborgen");
+  el("btnVolgende").focus();
+}
+function zetModus(m){
+  state.modus=m;
+  el("tabOpen").setAttribute("aria-selected", m==="open");
+  el("tabAntw").setAttribute("aria-selected", m==="antw");
+  el("tabTafel").setAttribute("aria-selected", m==="tafel");
+  el("veiling").style.display="none";
+  el("tafelZone").style.display="none";
+  el("afloop").style.display="none";
+  el("tafelFeedback").className="feedback";
+  if(m==="tafel") nieuwDeel(); else nieuweHand();
+}
+el("tabOpen").addEventListener("click",()=>zetModus("open"));
+el("tabAntw").addEventListener("click",()=>zetModus("antw"));
+el("tabTafel").addEventListener("click",()=>zetModus("tafel"));
+el("btnVolgende").addEventListener("click",nieuweHand);
+document.addEventListener("keydown",e=>{ if(e.key==="Enter"&&state.klaar){ state.modus==="tafel"?nieuwDeel():nieuweHand(); } });
+["optZwak2","optConv"].forEach(id=>el(id).addEventListener("change",()=>{ if(!state.klaar){ state.modus==="tafel"?nieuwDeel():nieuweHand(); } }));
+el("optPunten").addEventListener("change",()=>{
+  el("handMeta").classList.toggle("verborgen", !el("optPunten").checked && !state.klaar);
+});
+
+bouwBidbox();
+toonScore();
+nieuweHand();
+</script>
+</body>
+</html>

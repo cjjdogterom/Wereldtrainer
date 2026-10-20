@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biedhulp · 5-kaart hoog</title>
+</head>
+<body>
+<style>
+  @font-face{font-family:Fraunces;src:url('/fonts/fraunces-vf.woff2') format('woff2');font-weight:100 900;font-display:swap}
+  @font-face{font-family:Lexend;src:url('/fonts/lexend-vf.woff2') format('woff2');font-weight:100 900;font-display:swap}
+
+  :root{
+    --bg:#eef2ec; --surface:#fffdf6; --surface2:#efeadb;
+    --ink:#20291f; --ink-soft:#5c6457; --line:#ddd6c2;
+    --accent:#1e5c3a; --accent-ink:#f4f8f2;
+    --red:#b23a2c; --zw:#2a2f28;
+    --good:#1e6b3f; --good-bg:#e4f0e5;
+    --warn:#a86818; --warn-bg:#f5ecd7;
+    --chip:#e9e3d2;
+  }
+  
+  
+  
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font:15px/1.5 Lexend,system-ui,-apple-system,sans-serif;min-height:100vh}
+  .wrap{max-width:720px;margin:0 auto;padding:20px 14px 60px}
+  h1{font-family:Fraunces,Georgia,serif;
+    font-size:1.55rem;font-weight:600;margin:0 0 4px;letter-spacing:.01em}
+  h1 .sub{color:var(--accent);font-style:italic}
+  .lead{color:var(--ink-soft);margin:0 0 18px;max-width:60ch}
+
+  h2{font-family:Fraunces,Georgia,serif;font-size:1.05rem;
+    font-weight:700;color:var(--accent);margin:22px 0 8px;
+    text-transform:uppercase;letter-spacing:.08em}
+
+  .kleurblok{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:10px 14px;margin-bottom:8px}
+  .kleurkop{display:flex;align-items:center;gap:10px;font-family:Fraunces,Georgia,serif;
+    font-size:1.15rem;margin-bottom:6px}
+  .kleurkop .sym{font-size:1.5rem;width:1.4em}
+  .kleurkop .sym.r{color:var(--red)} .kleurkop .sym.z{color:var(--zw)}
+  .kleurkop .naam{color:var(--ink-soft);font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;font-family:Lexend,system-ui,-apple-system,sans-serif;font-weight:650}
+  .kaartrij{display:grid;grid-template-columns:repeat(13,1fr);gap:4px}
+  .kaartknop{
+    appearance:none;font:inherit;cursor:pointer;
+    background:var(--surface2);border:1px solid var(--line);border-radius:7px;
+    padding:8px 0;font-size:.95rem;font-weight:600;color:var(--ink);
+    font-family:Fraunces,Georgia,serif;
+    transition:transform .1s,background .12s;
+  }
+  .kaartknop:hover:not(:disabled){transform:translateY(-2px)}
+  .kaartknop.aan{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .kaartknop.aan.r{background:#a03227;border-color:#a03227}
+  .kaartknop:disabled{opacity:.28;cursor:not-allowed}
+  @media (max-width:520px){ .kaartrij{gap:3px} .kaartknop{padding:6px 0;font-size:.85rem} }
+
+  .telbalk{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:12px 16px;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;
+    font-variant-numeric:tabular-nums;margin-top:10px;
+  }
+  .telbalk .g{color:var(--ink-soft);font-size:.85rem;margin-right:2px}
+  .telbalk b{font-size:1.15rem}
+  .telbalk .waarschuwing{color:var(--warn);font-weight:650;margin-left:auto;font-size:.9rem}
+  .telbalk .waarschuwing.ok{color:var(--good)}
+  .knopjes{display:flex;gap:8px;margin-left:auto}
+  .knopjes button{appearance:none;border:1px solid var(--line);background:var(--surface2);
+    color:var(--ink);border-radius:999px;padding:5px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+  .knopjes button:hover{background:var(--line)}
+
+  .kaartje{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;margin-top:10px;
+  }
+  .kaartje.groen{border-color:var(--accent);background:linear-gradient(180deg,var(--good-bg),var(--surface))}
+  .kaartje h3{margin:0 0 4px;font-family:Fraunces,Georgia,serif;
+    font-size:.85rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.09em;font-weight:650}
+  .advies{font-family:Fraunces,Georgia,serif;font-size:1.6rem;font-weight:700;
+    color:var(--accent);letter-spacing:.02em;margin:2px 0 6px}
+  .advies .r{color:var(--red)}
+  .uitleg{margin:0;max-width:62ch;color:var(--ink)}
+  .uitleg .bidref{font-weight:700;white-space:nowrap}
+  .uitleg .rood{color:var(--red)}
+  .alt{margin:6px 0 0;font-size:.88rem;color:var(--ink-soft)}
+
+  .stap{display:none}
+  .stap.aan{display:block}
+
+  .kies{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .kies button{
+    appearance:none;font:inherit;cursor:pointer;
+    background:var(--surface);border:1px solid var(--line);border-radius:8px;
+    padding:9px 14px;font-size:1rem;font-weight:600;color:var(--ink);
+    font-family:Fraunces,Georgia,serif;
+    transition:transform .1s,background .12s;
+  }
+  .kies button:hover{transform:translateY(-2px);background:var(--surface2)}
+  .kies button.aan{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .kies button .r{color:var(--red)}
+  .kies button.aan .r{color:#ffd7d0}
+  .kies button.pas{letter-spacing:.1em;text-transform:uppercase;font-size:.85rem;font-family:inherit}
+
+  .rondes{display:flex;gap:0;margin:20px 0 6px;border-bottom:1px solid var(--line)}
+  .rondetab{appearance:none;font:inherit;background:none;border:none;cursor:pointer;
+    padding:8px 14px 10px;color:var(--ink-soft);font-weight:600;border-bottom:2.5px solid transparent;margin-bottom:-1px}
+  .rondetab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+
+  details{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+  details summary{cursor:pointer;padding:10px 16px;font-weight:650;
+    font-family:Fraunces,Georgia,serif;color:var(--accent)}
+  details .inhoud{padding:2px 18px 14px;font-size:.9rem;color:var(--ink-soft);max-width:62ch}
+</style>
+
+<div class="wrap">
+  <h1>Biedhulp <span class="sub">5-kaart hoog</span></h1>
+  <p class="lead">Tik je 13 kaarten aan, kies daarna of jij opent of dat partner opent. Je krijgt het advies met uitleg, en als het bieden doorloopt krijg je ook je herbieding.</p>
+
+  <h2>Je hand</h2>
+  <div id="kaartroosters"></div>
+
+  <div class="telbalk" id="telbalk">
+    <span><span class="g">Honneur</span><b id="hp">0</b></span>
+    <span><span class="g">Lengte</span><b id="lp">0</b></span>
+    <span><span class="g">Totaal</span><b id="tot">0</b></span>
+    <span><span class="g">Verdeling</span><b id="verd">–</b></span>
+    <span class="waarschuwing" id="stat">nog 13 kaarten te kiezen</span>
+    <span class="knopjes">
+      <button id="btnRandom">Willekeurige hand</button>
+      <button id="btnLeeg">Leeg</button>
+    </span>
+  </div>
+
+  <div class="rondes" role="tablist">
+    <button class="rondetab" role="tab" id="tabOpen" aria-selected="true">Jij bent aan de beurt om te openen</button>
+    <button class="rondetab" role="tab" id="tabAntw" aria-selected="false">Partner opent</button>
+  </div>
+
+  <div class="stap aan" id="paneelOpen">
+    <div class="kaartje groen" id="advOpen" hidden>
+      <h3>Openingsadvies</h3>
+      <div class="advies" id="advOpenBod"></div>
+      <p class="uitleg" id="advOpenTekst"></p>
+      <p class="alt" id="advOpenAlt"></p>
+    </div>
+
+    <h2 id="kopHerbied" hidden>Partner antwoordt</h2>
+    <div class="kies" id="kiesAntwPartner"></div>
+
+    <div class="kaartje" id="advHerb" hidden>
+      <h3>Jouw herbieding</h3>
+      <div class="advies" id="advHerbBod"></div>
+      <p class="uitleg" id="advHerbTekst"></p>
+    </div>
+
+    <h2 id="kopPartner3" hidden>Partner biedt daarna</h2>
+    <div class="kies" id="kiesPartner3"></div>
+
+    <div class="kaartje" id="advBod3" hidden>
+      <h3>Jouw derde bod</h3>
+      <div class="advies" id="advBod3Bod"></div>
+      <p class="uitleg" id="advBod3Tekst"></p>
+    </div>
+  </div>
+
+  <div class="stap" id="paneelAntw">
+    <h2>Partner opent met</h2>
+    <div class="kies" id="kiesOpenPartner"></div>
+
+    <div class="kaartje" id="advAntw" hidden>
+      <h3>Jouw antwoord</h3>
+      <div class="advies" id="advAntwBod"></div>
+      <p class="uitleg" id="advAntwTekst"></p>
+      <p class="alt" id="advAntwAlt"></p>
+    </div>
+
+    <h2 id="kopHerbPartner" hidden>Partner herbiedt</h2>
+    <div class="kies" id="kiesHerbPartner"></div>
+
+    <div class="kaartje" id="advAntw2" hidden>
+      <h3>Jouw tweede bod</h3>
+      <div class="advies" id="advAntw2Bod"></div>
+      <p class="uitleg" id="advAntw2Tekst"></p>
+    </div>
+  </div>
+
+  <details>
+    <summary>Hoe werkt deze hulp?</summary>
+    <div class="inhoud">
+      Deze biedhulp gebruikt hetzelfde 5-kaart hoog systeem als de biedtrainer: honneurpunten (A 4, H 3, V 2, B 1) plus 1 lengtepunt per kaart ná de vierde in een kleur. Openen vanaf 12 totaal, sans 1SA op 15–17, 2♣ vanaf 22, en de gebruikelijke antwoorden inclusief Stayman en Jacoby na 1SA.<br><br>
+      <b>Belangrijk over "pas":</b> in bridge geldt drie keer pas achter elkaar = einde veiling. Als partner in een tussenronde past, is het bieden dus voorbij en komt er geen nieuwe beurt van hem meer. In de lijstjes hieronder betekent PAS dan ook: "partner sluit hier af" — dan verschijnt er geen volgend advies meer, want jullie spelen het laatste bod.
+    </div>
+  </details>
+</div>
+
+<script>
+"use strict";
+const KLEUREN=["S","H","D","C"];
+const SYM={S:"♠",H:"♥",D:"♦",C:"♣",NT:"SA"};
+const NAAM={S:"schoppen",H:"harten",D:"ruiten",C:"klaveren"};
+const ROOD={H:true,D:true};
+const RANGEN=["A","H","V","B","10","9","8","7","6","5","4","3","2"];
+const PUNTEN={A:4,H:3,V:2,B:1};
+
+function bidHTML(b){
+  if(b==="PAS") return "pas";
+  const lvl=b[0], s=b.slice(1);
+  if(s==="NT") return lvl+"SA";
+  return lvl+'<span class="r">'+SYM[s]+"</span>";
+}
+function kleurVanBod(b){ return b==="PAS"?null:b.slice(1); }
+
+/* ---------- opslag hand ---------- */
+const state = { gekozen:new Set() };
+function key(k,r){ return k+"|"+r; }
+function lengtes(){ const l={S:0,H:0,D:0,C:0}; for(const s of state.gekozen){ l[s.split("|")[0]]++; } return l; }
+function hcp(){ let t=0; for(const s of state.gekozen){ t+=PUNTEN[s.split("|")[1]]||0; } return t; }
+function lengtePunten(l){ return Math.max(0,l.S-4)+Math.max(0,l.H-4)+Math.max(0,l.D-4)+Math.max(0,l.C-4); }
+function verdelingTxt(l){ return [l.S,l.H,l.D,l.C].sort((a,b)=>b-a).join("-"); }
+function isSans(l){ const v=verdelingTxt(l); return v==="4-3-3-3"||v==="4-4-3-2"||v==="5-3-3-2"; }
+function totaal(){ return hcp()+lengtePunten(lengtes()); }
+
+/* ---------- kaartrooster ---------- */
+function bouwRoosters(){
+  const wr=document.getElementById("kaartroosters");
+  wr.innerHTML = KLEUREN.map(k=>
+    '<div class="kleurblok"><div class="kleurkop"><span class="sym '+(ROOD[k]?"r":"z")+'">'+SYM[k]+"</span>"+
+    '<span class="naam">'+NAAM[k]+"</span></div>"+
+    '<div class="kaartrij">'+RANGEN.map(r=>
+      '<button type="button" class="kaartknop'+(ROOD[k]?" r":"")+'" data-k="'+k+'" data-r="'+r+'">'+r+"</button>"
+    ).join("")+"</div></div>"
+  ).join("");
+  wr.querySelectorAll(".kaartknop").forEach(b=>b.addEventListener("click",()=>toggleKaart(b.dataset.k,b.dataset.r)));
+}
+function toggleKaart(k,r){
+  const id=key(k,r);
+  if(state.gekozen.has(id)) state.gekozen.delete(id);
+  else if(state.gekozen.size<13) state.gekozen.add(id);
+  renderKaarten(); herbereken();
+}
+function renderKaarten(){
+  document.querySelectorAll(".kaartknop").forEach(b=>{
+    const id=key(b.dataset.k,b.dataset.r);
+    const aan=state.gekozen.has(id);
+    b.classList.toggle("aan",aan);
+    b.disabled = !aan && state.gekozen.size>=13;
+  });
+}
+function willekeurig(){
+  state.gekozen.clear();
+  const alle=[]; for(const k of KLEUREN) for(const r of RANGEN) alle.push(key(k,r));
+  for(let i=alle.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [alle[i],alle[j]]=[alle[j],alle[i]]; }
+  alle.slice(0,13).forEach(s=>state.gekozen.add(s));
+  renderKaarten(); herbereken();
+}
+function leeg(){ state.gekozen.clear(); renderKaarten(); herbereken(); }
+
+/* ---------- openingslogica ---------- */
+function bepaalOpening(){
+  const l=lengtes(), h=hcp(), t=h+lengtePunten(l), sans=isSans(l);
+  const uit=(bid,tekst,alt)=>({bid,tekst,alt:alt||""});
+  if(t>=22) return uit("2C","Met "+t+" punten open je 2♣: de sterkste opening, mancheforcing. Partner mag niet passen.");
+  if(sans && t>=20 && t<=21) return uit("2NT","Sans-verdeling ("+verdelingTxt(l)+") en "+t+" punten: open 2SA (20–21).");
+  if(sans && t>=15 && t<=17){
+    let alt="";
+    if(l.S>=5||l.H>=5) alt="Met een 5-kaart hoog is de kleur openen (1"+(l.S>=5?"♠":"<span class=\"rood\">♥</span>")+") ook verdedigbaar.";
+    return uit("1NT","Sans-verdeling ("+verdelingTxt(l)+") en "+t+" punten: open 1SA (15–17).",alt);
+  }
+  if(t>=12){
+    if(l.S>=5||l.H>=5){
+      let bid,txt;
+      if(l.S>=5&&l.H>=5){ bid="1S"; txt="Twee 5-kaarten hoog en "+t+" punten: open de hoogste, 1♠."; }
+      else if(l.S>=5){ bid="1S"; txt=t+" punten met een "+l.S+"-kaart schoppen: open 1♠."; }
+      else { bid="1H"; txt=t+" punten met een "+l.H+"-kaart harten: open 1<span class=\"rood\">♥</span>."; }
+      return uit(bid,txt);
+    }
+    if(l.D>l.C) return uit("1D","Geen 5-kaart hoog: open je langste lage kleur, "+l.D+"-kaart ruiten. ("+t+" punten)");
+    if(l.C>l.D) return uit("1C","Geen 5-kaart hoog: open je langste lage kleur, "+l.C+"-kaart klaveren. ("+t+" punten)");
+    if(l.D>=4) return uit("1D","Geen 5-kaart hoog en 4-4 laag: open 1<span class=\"rood\">♦</span>. ("+t+" punten)");
+    return uit("1C","Geen 5-kaart hoog en 3-3 laag: open 1♣. ("+t+" punten)");
+  }
+  // zwakke twee / preëmpt
+  for(const k of ["S","H","D"])
+    if(l[k]===6 && t>=6 && t<=10)
+      return uit("2"+k,"Zwakke twee: "+t+" punten en een 6-kaart "+NAAM[k]+". Beschrijft je hand en stoort de tegenpartij.");
+  for(const k of KLEUREN)
+    if(l[k]>=7 && t>=5 && t<=9)
+      return uit("3"+k,"Preëmptief: "+t+" punten en een 7-kaart "+NAAM[k]+". Op 3-niveau openen neemt de tegenpartij ruimte af.");
+  return uit("PAS","Met "+t+" punten (minder dan 12) en geen preëmpt: pas.");
+}
+
+/* ---------- antwoord op partners opening ---------- */
+function bepaalAntwoord(open1){
+  const l=lengtes(), h=hcp(), t=h+lengtePunten(l), sans=isSans(l);
+  const uit=(bid,tekst,alt)=>({bid,tekst,alt:alt||""});
+
+  if(open1==="1NT"){ // antwoord na 1SA
+    if(l.H>=5 && l.H>=l.S)
+      return uit("2D","Jacoby: met een "+l.H+"-kaart harten bied je 2<span class=\"rood\">♦</span>. Partner moet 2<span class=\"rood\">♥</span> bieden — daarna pas met zwak, doorbieden met manche-interesse.");
+    if(l.S>=5)
+      return uit("2H","Jacoby: met een "+l.S+"-kaart schoppen bied je 2<span class=\"rood\">♥</span>. Partner moet 2♠ bieden.");
+    if((l.H===4||l.S===4) && t>=8)
+      return uit("2C","Stayman: met "+t+" punten en een 4-kaart hoog vraag je met 2♣ naar een 4-kaart hoog bij partner (2<span class=\"rood\">♦</span> = geen).");
+    if(t<=7) return uit("PAS","Met "+t+" punten (0–7) is samen zelfs 25 niet haalbaar: pas.");
+    if(t<=9) return uit("2NT","Met "+t+" punten (8–9) inviteer je met 2SA. Partner biedt 3SA met een maximum.");
+    if(l.H>=6) return uit("4H","Met "+t+" punten en een 6-kaart harten: direct de manche, 4<span class=\"rood\">♥</span>.");
+    if(l.S>=6) return uit("4S","Met "+t+" punten en een 6-kaart schoppen: direct de manche, 4♠.");
+    return uit("3NT","Met "+t+" punten tegenover 15–17 is er samen 25+: bied 3SA.");
+  }
+
+  if(open1==="2C"){ // mancheforcing
+    for(const k of ["S","H","D","C"]){
+      if(l[k]>=5 && t>=8){
+        const heeftHV = state.gekozen.has(key(k,"A")) || state.gekozen.has(key(k,"H"))+ state.gekozen.has(key(k,"V"))>=2;
+        const bid = k==="C"?"3C":k==="D"?"3D":k==="H"?"2H":"2S";
+        return uit(bid,"Positief antwoord: "+t+" punten en een "+l[k]+"-kaart "+NAAM[k]+". Wek slem-interesse.");
+      }
+    }
+    if(t>=8 && sans) return uit("2NT","Positief zonder 5-kaart: "+t+" punten, sans-achtige hand — 2SA.");
+    return uit("2D","Standaard wachtbieding: 2<span class=\"rood\">♦</span> zegt niets over ruiten en kan met 0 punten. Partner beschrijft nu zijn hand — passen mag niet, jullie bieden hoe dan ook door tot minstens de manche.");
+  }
+
+  if(open1==="2NT"){ // 20-21 sans
+    if(t<=4) return uit("PAS","Partner heeft 20–21; met "+t+" punten is samen 25 buiten bereik: pas.");
+    if(l.H>=5 && l.H>=l.S) return uit("3D","Jacoby: transfer naar harten met een "+l.H+"-kaart.");
+    if(l.S>=5) return uit("3H","Jacoby: transfer naar schoppen met een "+l.S+"-kaart.");
+    if(l.H===4||l.S===4) return uit("3C","Stayman: vraagt naar een 4-kaart hoog. 3<span class=\"rood\">♦</span> = geen.");
+    return uit("3NT","Geen hoge 4/5-kaart: bied de manche, 3SA. ("+t+" punten)");
+  }
+
+  if(["2D","2H","2S"].includes(open1)){ // zwakke twee
+    const k=open1[1];
+    if(l[k]>=3 && t>=16){
+      const symb = k==="H"?"<span class=\"rood\">♥</span>":k==="D"?"<span class=\"rood\">♦</span>":"♠";
+      if(k!=="D") return uit("4"+k,"Met "+t+" punten en een fit in "+NAAM[k]+" ("+l[k]+"-kaart mee): bied zelf de manche, 4"+symb+".");
+    }
+    if(l[k]>=3 && t<=15) return uit("3"+k,"Met een fit ("+l[k]+"-kaart mee) verhoog je storend naar 3"+NAAM[k]+" — partner moet passen.");
+    if(t<=14) return uit("PAS","Zonder fit en "+t+" punten: pas. Partners hand is buiten zijn kleur bijna waardeloos.");
+    return uit("2NT","Sterke eigen hand ("+t+" punten): 2SA is forcing en vraagt partner meer te vertellen.");
+  }
+
+  if(open1[0]==="3"){ // preëmpt
+    const k=open1[1];
+    if(l[k]>=2 && t>=16){
+      if(k==="H"||k==="S") return uit("4"+k,"Sterke hand ("+t+") met fit: bied de manche, 4 in "+NAAM[k]+".");
+      return uit("3NT","Sterke hand ("+t+"): probeer 3SA met dekking in de andere kleuren.");
+    }
+    return uit("PAS","Denk in slagen, niet in punten: partner heeft 5–9 en een 7-kaart. Zonder duidelijke reden om anders te doen: pas.");
+  }
+
+  // 1-openingen in een kleur
+  const K = open1[1];
+  if(t<6) return uit("PAS","Met "+t+" punten (minder dan 6) pas je: elk bod belooft 6+.");
+
+  if(K==="H"||K==="S"){
+    const symb = K==="H"?"<span class=\"rood\">♥</span>":"♠";
+    if(l[K]>=3){
+      if(t<=9) return uit("2"+K,"Steun ("+l[K]+"-kaart mee) en "+t+" punten (6–9): verhoog één keer naar 2"+symb+".");
+      if(t<=11) return uit("3"+K,"Steun en "+t+" punten (10–11): verhoog naar 3"+symb+" — inviterend.");
+      let nieuw;
+      if(K==="H" && l.S>=4) nieuw="1S";
+      else if(K==="S" && l.H>=5) nieuw="2H";
+      else nieuw = (l.C>l.D)?"2C":(l.D>l.C)?"2D":"2C";
+      return uit(nieuw,"Met "+t+" punten en steun zou direct verhogen te zwak klinken. Bied eerst een nieuwe kleur (forcing), daarna minstens de manche in "+symb+".");
+    }
+    if(K==="H" && l.S>=4)
+      return uit("1S","Geen hartensteun, wel een "+l.S+"-kaart schoppen: bied 1♠ (6+ punten, forcing).");
+    if(t<=9) return uit("1NT","Geen steun, geen biedbare hoge kleur, "+t+" punten (6–9): 1SA.");
+    if(K==="S" && l.H>=5)
+      return uit("2H","Met "+t+" punten (10+) en een "+l.H+"-kaart harten: 2<span class=\"rood\">♥</span>. Nieuwe kleur op 2-niveau belooft 10+.");
+    const m=(l.C>l.D)?"C":(l.D>l.C)?"D":"C";
+    return uit("2"+m,"Geen steun, "+t+" punten (10+): nieuwe kleur op 2-niveau — "+l[m]+"-kaart "+NAAM[m]+".");
+  }
+
+  /* na 1♣ of 1♦ */
+  if(l.H>=4 || l.S>=4){
+    let bid, naam;
+    if(l.S>l.H){ bid="1S"; naam="schoppen"; }
+    else if(l.H>l.S){ bid="1H"; naam="harten"; }
+    else { bid="1H"; naam="harten (met 4-4 hoog de laagste — 1♠ blijft vindbaar)"; }
+    const symb = bid==="1S"?"♠":"<span class=\"rood\">♥</span>";
+    return uit(bid,"Een 4-kaart hoog gaat vóór: bied 1"+symb+" ("+Math.max(l.H,l.S)+"-kaart "+naam+", "+t+" punten).");
+  }
+  if(K==="C"){
+    if(l.D>=4){
+      const alt = (t<=9 && sans) ? "Met een sans-verdeling en 6–9 is 1SA ook goed." : "";
+      return uit("1D","Geen 4-kaart hoog, wel een "+l.D+"-kaart ruiten: bied 1<span class=\"rood\">♦</span> ("+t+" punten).",alt);
+    }
+    if(l.C>=5){
+      if(t<=9) return uit("2C","Klaverensteun ("+l.C+"-kaart) en "+t+" punten (6–9): verhoog naar 2♣.");
+      if(t<=11) return uit("3C","Klaverensteun en "+t+" punten (10–11): 3♣ — inviterend.");
+    }
+    if(t<=9) return uit("1NT","Geen 4-kaart hoog, geen steun: 1SA met "+t+" punten (6–9).");
+    if(t<=11) return uit("2NT","Geen 4-kaart hoog: 2SA met "+t+" punten (10–11), inviterend.");
+    return uit("3NT","Geen 4-kaart hoog en "+t+" punten (12–15): bied de manche, 3SA.");
+  }
+  // na 1♦
+  if(l.D>=4){
+    if(t<=9) return uit("2D","Ruitensteun ("+l.D+"-kaart) en "+t+" punten (6–9): verhoog naar 2<span class=\"rood\">♦</span>.");
+    if(t<=11) return uit("3D","Ruitensteun en "+t+" punten (10–11): 3<span class=\"rood\">♦</span> — inviterend.");
+    if(l.C>=4) return uit("2C","Met "+t+" punten bied je eerst een nieuwe kleur (2♣, forcing); ruitensteun komt later.");
+    return uit("3NT","Ruitensteun maar "+t+" punten en een vlakke hand: bied de manche, 3SA.");
+  }
+  if(l.C>=5 && t>=10) return uit("2C","Geen 4-kaart hoog of ruitensteun, wel "+t+" punten en een "+l.C+"-kaart klaveren: 2♣.");
+  if(t<=9) return uit("1NT","Geen 4-kaart hoog, geen steun: 1SA met "+t+" punten (6–9).");
+  if(t<=11) return uit("2NT","Geen 4-kaart hoog, geen steun: 2SA met "+t+" punten (10–11), inviterend.");
+  return uit("3NT","Geen 4-kaart hoog en "+t+" punten (12–15): bied de manche, 3SA.");
+}
+
+/* ---------- herbieding van de openaar ---------- */
+function bepaalHerbieding(mijnOpening, partnerAntw){
+  const l=lengtes(), t=hcp()+lengtePunten(l), sans=isSans(l);
+  const uit=(bid,tekst)=>({bid,tekst});
+  const kracht = t<=14 ? "minimum" : t<=17 ? "matig" : "maximum";
+  const kk = mijnOpening[1]; // kleur van je opening, mits kleurbod
+
+  // simpele situaties eerst
+  if(partnerAntw==="PAS"){
+    return uit("PAS","Partner paste — hij heeft minder dan 6 punten. De veiling is voorbij; jullie spelen "+bidHTML(mijnOpening)+".");
+  }
+
+  // partner steunde je kleur direct
+  if(kk && kk!=="NT" && partnerAntw[1]===kk){
+    const niveau = +partnerAntw[0];
+    if(niveau===2){ // 6-9
+      if(kracht==="minimum") return uit("PAS","Partner belooft 6–9 met steun, jij hebt "+t+" ("+kracht+"): pas. Samen &lt;25, dus deelscore.");
+      if(kracht==="matig") return uit((niveau+1)+kk,"Partner heeft 6–9 met steun; jij hebt "+t+" ("+kracht+"): inviteer met "+bidHTML((niveau+1)+kk)+" — partner biedt manche met 9.");
+      const m = kk==="H"||kk==="S" ? "4"+kk : "3NT";
+      return uit(m,"Partner heeft 6–9 met steun; jij hebt "+t+" ("+kracht+"): bied de manche, "+bidHTML(m)+".");
+    }
+    if(niveau===3){ // 10-11 invite
+      if(t<=13) return uit("PAS","Partner nodigt uit (10–11 met steun); jij hebt "+t+" (minimum): pas.");
+      const m = kk==="H"||kk==="S" ? "4"+kk : "3NT";
+      return uit(m,"Partner nodigt uit; jij hebt "+t+" — genoeg om de manche te bieden: "+bidHTML(m)+".");
+    }
+  }
+
+  // partner bood 1SA (na 1H/1S) = 6-9 zonder steun
+  if(partnerAntw==="1NT" && (kk==="H"||kk==="S")){
+    if(l[kk]>=6){ // eigen 6-kaart herhalen
+      if(kracht==="minimum") return uit("2"+kk,"Partner heeft 6–9. Jij hebt een 6-kaart en "+t+" punten (minimum): herhaal je kleur op laagste niveau, "+bidHTML("2"+kk)+".");
+      if(kracht==="matig") return uit("3"+kk,"Sprong met een 6-kaart en "+t+" punten: "+bidHTML("3"+kk)+" is inviterend.");
+      return uit("4"+kk,"Maximum met een 6-kaart: bied de manche, "+bidHTML("4"+kk)+".");
+    }
+    if(sans){ // vlakke hand
+      if(t<=14) return uit("PAS","Vlakke hand en "+t+" punten: pas. Partner heeft 6–9, dus samen 18–23 in 1SA.");
+      if(t<=17) return uit("2NT","Vlakke hand, "+t+" punten: nodig uit met 2SA.");
+      return uit("3NT","Vlakke hand, "+t+" punten: bied 3SA — partner heeft minstens 6.");
+    }
+    // toon nieuwe kleur
+    let nieuw = null;
+    for(const k of ["D","C"]) if(l[k]>=4) nieuw=k;
+    if(!nieuw){
+      // niets natuurlijks; herhaal maar
+      return uit("2"+kk,"Zonder duidelijke nieuwe kleur of extra kracht: herhaal je 5-kaart op laagste niveau. Vaak kortste route naar veilig.");
+    }
+    return uit("2"+nieuw,"Toon je "+l[nieuw]+"-kaart "+NAAM[nieuw]+" — partner kan kiezen tussen jouw twee kleuren.");
+  }
+
+  // partner bood nieuwe kleur op 1-niveau (bijv. 1H/1S na jouw 1C/1D)
+  if(partnerAntw[0]==="1" && partnerAntw!=="1NT"){
+    const pk = partnerAntw[1]; // partners kleur
+    if(l[pk]>=4){ // fit!
+      if(kracht==="minimum") return uit("2"+pk,"Fit in partners kleur en "+t+" (minimum): één verhogen, "+bidHTML("2"+pk)+".");
+      if(kracht==="matig") return uit("3"+pk,"Fit en "+t+" (matig): sprongsteun "+bidHTML("3"+pk)+" — inviterend.");
+      return uit("4"+pk,"Fit en "+t+" (maximum): bied de manche, "+bidHTML("4"+pk)+".");
+    }
+    // geen fit: eigen kleur, nieuwe kleur, of sans
+    if(kk && kk!=="NT" && l[kk]>=6){
+      if(kracht==="minimum") return uit("2"+kk,"Geen fit; je hebt een 6-kaart in je eigen kleur en "+t+" punten (minimum): herhaal met "+bidHTML("2"+kk)+".");
+      if(kracht==="matig") return uit("3"+kk,"Sprong met je 6-kaart en "+t+" punten (matig): "+bidHTML("3"+kk)+".");
+    }
+    // andere hoge kleur (bijv. na 1D-1H heb jij 4S)
+    for(const k of ["S","H","D","C"]){
+      if(k===kk||k===pk) continue;
+      if(l[k]>=4){
+        // reverse check: nieuwe kleur die hoger is dan je eerste + verhoogt niveau
+        const nieuwBid = "1"+k;
+        const bidRang={C:0,D:1,H:2,S:3,NT:4};
+        const isHoger = kk && kk!=="NT" && bidRang[k]>bidRang[kk];
+        if(!isHoger || t>=16){
+          // 1-niveau kan altijd
+          const naam=NAAM[k];
+          if(k==="S" || (kk==="C" && k==="D")){
+            return uit("1"+k,"Toon je 4-kaart "+naam+" — "+bidHTML("1"+k)+" ("+t+" punten). Zoek nog een fit.");
+          }
+        }
+      }
+    }
+    // niets speciaals: sans
+    if(kracht==="minimum") return uit("1NT","Vlakke hand zonder fit: 1SA (12–14).");
+    if(kracht==="maximum") return uit("2NT","Vlakke hand met "+t+" punten: 2SA is een sprong en toont je 18–19.");
+    // 15-17 met sans had 1SA moeten openen; herhaal iets rustigs
+    return uit("1NT","Vlakke hand: 1SA. (Met 15–17 sans had je 1SA moeten openen.)");
+  }
+
+  // partner bood nieuwe kleur op 2-niveau = 10+ (forcing)
+  if(partnerAntw[0]==="2" && partnerAntw!=="2NT" && partnerAntw!=="2C" && kleurVanBod(partnerAntw)!==kk){
+    return uit("Zie systeemkaart","Partner bood een nieuwe kleur op 2-niveau (10+, forcing). Dit valt buiten de basisregels van deze hulp — kijk in de systeemkaart van de biedtrainer voor het vervolg. In het kort: samen 25+ → naar manche, anders het rustigste beschrijvende bod.");
+  }
+
+  // partner sprongsteun 3-in-jouw-kleur (invite) al hierboven afgehandeld
+  // partner 2SA / 3SA
+  if(partnerAntw==="2NT") return uit(t<=13?"PAS":"3NT","Partner had 10–11 sans invite; met "+t+" pas je (minimum) of biedt 3SA (maximum).");
+  if(partnerAntw==="3NT") return uit("PAS","Partner biedt 3SA — dat is de manche. Pas, tenzij je slem overweegt.");
+
+  return uit("Zie systeemkaart","Deze situatie valt buiten de basisregels van de hulp. Raadpleeg de systeemkaart in de biedtrainer.");
+}
+
+/* ---------- range-schatter voor partners bod ---------- */
+function bidRang(b){
+  if(b==="PAS") return -1;
+  const orde={C:0,D:1,H:2,S:3,NT:4};
+  return (+b[0])*5 + orde[b.slice(1)];
+}
+function schatRange(open1, herb, mijnAntw){
+  // vaste openingen
+  if(open1==="1NT") return {min:15,max:17};
+  if(open1==="2NT") return {min:20,max:21};
+  if(open1==="2C")  return {min:22,max:40};
+  if(open1[0]==="2") return {min:6,max:10};
+  if(open1[0]==="3") return {min:5,max:9};
+
+  // herbieding na 1-in-kleur opening
+  if(herb==="PAS") return {min:12,max:14};
+  if(herb==="1NT") return {min:12,max:14};
+  if(herb==="2NT") return {min:18,max:19};
+  if(herb==="3NT") return {min:16,max:18};
+
+  const lvl=+herb[0], strain=herb.slice(1);
+  const openK = open1[1];
+  const antwK = (mijnAntw && mijnAntw!=="PAS" && mijnAntw!=="1NT" && mijnAntw!=="2NT" && mijnAntw!=="3NT") ? mijnAntw.slice(1) : null;
+
+  // eigen kleur herhalen
+  if(strain===openK){
+    if(lvl===2) return {min:12,max:14};
+    if(lvl===3) return {min:15,max:17};
+    if(lvl>=4)  return {min:18,max:19};
+  }
+  // steun in mijn kleur
+  if(antwK && strain===antwK){
+    if(lvl===2) return {min:12,max:14};
+    if(lvl===3) return {min:15,max:17};
+    if(lvl>=4)  return {min:18,max:19};
+  }
+  // reverse: nieuwe kleur hoger dan openings-kleur op 2-niveau
+  const orde={C:0,D:1,H:2,S:3};
+  if(lvl===2 && strain!=="NT" && orde[strain]>orde[openK]) return {min:16,max:19};
+  // nieuwe kleur laag: 12-17 (niet forcing)
+  return {min:12,max:17};
+}
+
+/* ---------- tweede bod van de antwoorder ---------- */
+function tweedeBodAntwoorder(open1, mijnAntw, herb){
+  const l=lengtes(), t=totaal();
+  const rng=schatRange(open1,herb,mijnAntw);
+  const samenMin = t+rng.min, samenMax = t+rng.max;
+  const midden = t + (rng.min+rng.max)/2;
+  const uit=(bid,tekst)=>({bid,tekst,samen:{min:samenMin,max:samenMax}});
+
+  if(herb==="PAS")
+    return uit("PAS","Partner paste — dat sluit de veiling af. Jullie spelen "+bidHTML(mijnAntw)+".");
+
+  const openK = open1[1];
+  const antwK = (mijnAntw!=="PAS" && mijnAntw!=="1NT" && mijnAntw!=="2NT" && mijnAntw!=="3NT") ? mijnAntw.slice(1) : null;
+  const herbK = (herb!=="1NT"&&herb!=="2NT"&&herb!=="3NT") ? herb.slice(1) : "NT";
+  const partnerNieuweKleur = herbK!=="NT" && herbK!==openK && herbK!==antwK;
+
+  const kader = "Partner belooft "+rng.min+"–"+rng.max+" punten. Jij hebt "+t+
+    ", samen "+samenMin+"–"+samenMax+". ";
+  const doel = midden<20 ? "onder de manche blijven"
+             : midden<24.5 ? "deelscore of inviteren"
+             : midden<32.5 ? "de manche bieden" : "slem overwegen";
+
+  // Bepaal beste fit-kleur (samen 8+)
+  let besteFit=null, besteFitLen=0;
+  const partnerBelooft={};
+  if(openK && openK!=="NT") partnerBelooft[openK] = herb===("2"+openK) || herb===("3"+openK) || herb===("4"+openK) ? 6 : (open1[0]==="1"?(openK==="H"||openK==="S"?5:3):5);
+  if(herbK!=="NT" && herbK!==openK) partnerBelooft[herbK]=4;
+  for(const k of KLEUREN){
+    const pb = partnerBelooft[k]||0;
+    if(l[k]+pb>=8 && l[k]+pb>besteFitLen){ besteFit=k; besteFitLen=l[k]+pb; }
+  }
+
+  // 1. Manche is binnen bereik (samen 25+)
+  if(midden>=25){
+    if(besteFit==="H"||besteFit==="S") return uit("4"+besteFit, kader+"Er is een 8+ fit in "+NAAM[besteFit]+" en samen 25+: bied de manche, "+bidHTML("4"+besteFit)+".");
+    if(besteFit==="C"||besteFit==="D"){
+      // laag manche is 5-niveau; probeer eerst 3SA
+      return uit("3NT", kader+"Samen 25+: bied 3SA (de lage manche 5♣/5♦ vereist 29+, dus 3SA is efficiënter).");
+    }
+    return uit("3NT", kader+"Geen 8-kaart fit hoog gevonden en samen 25+: bied 3SA.");
+  }
+
+  // 2. Inviteren (samen 22-24) — alleen zinvol als partner niet al maximum toonde
+  if(midden>=22 && rng.min<=15){
+    if(besteFit==="H"||besteFit==="S") return uit("3"+besteFit, kader+"Fit in "+NAAM[besteFit]+" en samen 22–24: inviteer met "+bidHTML("3"+besteFit)+". Partner biedt manche met maximum.");
+    if(t>=10 && t<=11) return uit("2NT", kader+"Zonder fit, jouw 10–11 tegenover partners "+rng.min+"–"+rng.max+": inviteer met 2SA.");
+  }
+
+  // 3. Deelscore — kies veiligste rustplek
+  if(besteFit==="H"||besteFit==="S"){
+    const lvl = herb[0]===besteFit || herbK===besteFit ? +herb[0] : 2;
+    // pas op als partner zelf al de fit noemde
+    if(herbK===besteFit) return uit("PAS", kader+"Partner steunde/noemde "+NAAM[besteFit]+"; samen &lt;25: pas op deelscore "+bidHTML(herb)+".");
+    return uit("2"+besteFit, kader+"Fit in "+NAAM[besteFit]+" gevonden, samen &lt;25: rust in "+bidHTML("2"+besteFit)+".");
+  }
+  if(besteFit==="C"||besteFit==="D") {
+    if(herbK===besteFit) return uit("PAS", kader+"Partner heeft "+NAAM[besteFit]+" gesteund/geboden; samen &lt;25: pas.");
+    return uit("2"+besteFit, kader+"Fit in "+NAAM[besteFit]+", samen &lt;25: kies deelscore in "+bidHTML("2"+besteFit)+".");
+  }
+
+  // 4. Geen fit, samen te weinig: kies de rustigste
+  if(herb==="1NT" || herb==="2NT") return uit("PAS", kader+"Zonder fit is sans de rustplek: pas.");
+  // valse preferentie: terug naar partners eerste kleur
+  if(openK && openK!=="NT" && l[openK]>=2){
+    return uit("2"+openK, kader+"Zonder fit hoog geef je voorkeur terug in partners eerste kleur ("+NAAM[openK]+"): "+bidHTML("2"+openK)+". Kan met dubbelton — hij heeft er meestal langer.");
+  }
+  return uit("PAS", kader+"Zonder fit en niet genoeg voor de manche: pas op het laagste veilige contract.");
+}
+
+/* ---------- derde bod van de openaar ---------- */
+function derdeBodOpenaar(mijnOpening, partnerAntw, mijnHerb, partnerBod3){
+  const l=lengtes(), t=totaal();
+  const uit=(bid,tekst)=>({bid,tekst});
+
+  if(partnerBod3==="PAS")
+    return uit("PAS","Partner past — de veiling is voorbij. Jullie spelen "+bidHTML(mijnHerb)+".");
+
+  // Als partner de manche bood, gewoon passen (behalve slem overwegen)
+  if(["3NT","4H","4S","4C","4D","5C","5D"].includes(partnerBod3))
+    return uit("PAS","Partner bood de manche — pas, tenzij je slem overweegt (16+ tegen partners maximum-range).");
+
+  // Als partner uitnodigde (bijv. 3 in jouw kleur, 2SA), beslis op je eigen kracht
+  const openK = mijnOpening[1];
+  if(partnerBod3==="2NT"){
+    if(t>=14) return uit("3NT","Partner nodigt uit met 2SA (10–11). Jij hebt "+t+" — bied de manche, 3SA.");
+    return uit("PAS","Partner nodigt uit; jouw "+t+" punten is niet genoeg boven je minimum. Pas op 2SA.");
+  }
+  if(openK && partnerBod3==="3"+openK){
+    if(t>=14){
+      const m = (openK==="H"||openK==="S") ? "4"+openK : "3NT";
+      return uit(m,"Partner nodigt uit met steun. Jij hebt "+t+" — bied de manche, "+bidHTML(m)+".");
+    }
+    return uit("PAS","Partner nodigt uit; jij hebt "+t+" — te weinig extra. Pas op "+bidHTML(partnerBod3)+".");
+  }
+
+  // Partner tilde jouw kleur naar 4 (invite / of eigen initiatief) — check systeemkaart
+  return uit("Zie systeemkaart","Deze biedronde valt buiten de basisregels van de hulp. Kijk in de systeemkaart van de biedtrainer voor slem-overwegingen en fijnere tweede-ronde-situaties.");
+}
+
+/* ---------- UI-koppeling ---------- */
+const uiState = { modus:"open", opening:null, antwPartner:null, openPartner:null };
+function herbereken(){
+  const l=lengtes(), h=hcp(), lp=lengtePunten(l);
+  document.getElementById("hp").textContent=h;
+  document.getElementById("lp").textContent=lp;
+  document.getElementById("tot").textContent=h+lp;
+  document.getElementById("verd").textContent = state.gekozen.size===13 ? verdelingTxt(l) : "–";
+  const stat=document.getElementById("stat");
+  const n=state.gekozen.size;
+  if(n<13){ stat.className="waarschuwing"; stat.textContent="nog "+(13-n)+" kaart"+(13-n===1?"":"en")+" te kiezen"; }
+  else { stat.className="waarschuwing ok"; stat.textContent="hand compleet"; }
+
+  // reset stappen
+  uiState.opening=null; uiState.antwPartner=null; uiState.openPartner=null;
+  uiState.mijnHerb=null; uiState.mijnAntw=null;
+  document.getElementById("advHerb").hidden=true;
+  document.getElementById("advAntw").hidden=true;
+  document.getElementById("advAntw2").hidden=true;
+  document.getElementById("advBod3").hidden=true;
+  document.getElementById("kopHerbPartner").hidden=true;
+  document.getElementById("kiesHerbPartner").innerHTML="";
+  document.getElementById("kopPartner3").hidden=true;
+  document.getElementById("kiesPartner3").innerHTML="";
+
+  if(n===13){
+    if(uiState.modus==="open") toonOpening();
+    else toonKiesOpen();
+  } else {
+    document.getElementById("advOpen").hidden=true;
+    document.getElementById("kopHerbied").hidden=true;
+    document.getElementById("kiesAntwPartner").innerHTML="";
+    document.getElementById("kiesOpenPartner").innerHTML="";
+  }
+}
+function toonOpening(){
+  const r=bepaalOpening();
+  uiState.opening=r.bid;
+  document.getElementById("advOpen").hidden=false;
+  document.getElementById("advOpenBod").innerHTML=bidHTML(r.bid);
+  document.getElementById("advOpenTekst").innerHTML=r.tekst;
+  document.getElementById("advOpenAlt").innerHTML=r.alt||"";
+  toonKiesAntwPartner(r.bid);
+}
+function toonKiesAntwPartner(mijnOpening){
+  // toon logische partnerantwoorden
+  const kop=document.getElementById("kopHerbied");
+  const kies=document.getElementById("kiesAntwPartner");
+  if(mijnOpening==="PAS"){ kop.hidden=true; kies.innerHTML=""; return; }
+  kop.hidden=false;
+  const opties = mogelijkeAntwoorden(mijnOpening);
+  kies.innerHTML = opties.map(b=>'<button data-bid="'+b+'" class="'+(b==="PAS"?"pas":"")+'">'+bidHTML(b)+"</button>").join("");
+  kies.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{
+    kies.querySelectorAll("button").forEach(b=>b.classList.remove("aan"));
+    btn.classList.add("aan");
+    // reset vervolgstappen zodat oude adviezen niet blijven staan
+    document.getElementById("advBod3").hidden=true;
+    document.getElementById("kopPartner3").hidden=true;
+    document.getElementById("kiesPartner3").innerHTML="";
+    uiState.antwPartner=btn.dataset.bid;
+    const r=bepaalHerbieding(mijnOpening, btn.dataset.bid);
+    uiState.mijnHerb=r.bid;
+    document.getElementById("advHerb").hidden=false;
+    document.getElementById("advHerbBod").innerHTML=bidHTML(r.bid);
+    document.getElementById("advHerbTekst").innerHTML=r.tekst;
+    toonKiesPartner3(mijnOpening, btn.dataset.bid, r.bid);
+  }));
+}
+function toonKiesPartner3(mijnOpening, partnerAntw, mijnHerb){
+  const kop=document.getElementById("kopPartner3");
+  const kies=document.getElementById("kiesPartner3");
+  document.getElementById("advBod3").hidden=true;
+  if(mijnHerb==="PAS"||partnerAntw==="PAS"||mijnHerb==="Zie systeemkaart"){ kop.hidden=true; kies.innerHTML=""; return; }
+  kop.hidden=false;
+  const minRang = bidRang(mijnHerb);
+  const opties = ["PAS","2NT","3C","3D","3H","3S","3NT","4C","4D","4H","4S"]
+    .filter(b=>b==="PAS"||bidRang(b)>minRang);
+  kies.innerHTML = opties.map(b=>'<button data-bid="'+b+'" class="'+(b==="PAS"?"pas":"")+'">'+bidHTML(b)+"</button>").join("");
+  kies.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{
+    kies.querySelectorAll("button").forEach(b=>b.classList.remove("aan"));
+    btn.classList.add("aan");
+    const r=derdeBodOpenaar(mijnOpening, partnerAntw, mijnHerb, btn.dataset.bid);
+    document.getElementById("advBod3").hidden=false;
+    document.getElementById("advBod3Bod").innerHTML=bidHTML(r.bid);
+    document.getElementById("advBod3Tekst").innerHTML=r.tekst;
+  }));
+}
+function mogelijkeAntwoorden(open1){
+  if(open1==="1NT") return ["PAS","2C","2D","2H","2NT","3NT"];
+  if(open1==="2C") return ["2D","2H","2S","2NT","3C","3D"];
+  if(open1==="2NT") return ["PAS","3C","3D","3H","3NT"];
+  if(["2D","2H","2S"].includes(open1)) return ["PAS","2NT","3"+open1[1],"4"+open1[1]];
+  if(open1[0]==="3") return ["PAS","3NT","4"+open1[1]];
+  // 1-openingen: relevante antwoorden
+  const k = open1[1];
+  const opties = ["PAS","1NT"];
+  ["C","D","H","S"].forEach(x=>{
+    if(x===k) return;
+    if("CDHS".indexOf(x)>"CDHS".indexOf(k)) opties.push("1"+x);
+  });
+  opties.push("2"+k);      // steun
+  opties.push("3"+k);      // sprongsteun
+  ["C","D","H","S"].forEach(x=>{
+    if(x!==k) opties.push("2"+x);
+  });
+  opties.push("2NT","3NT");
+  // uniek + logische volgorde
+  const bidRang={PAS:-1,"1C":10,"1D":11,"1H":12,"1S":13,"1NT":14,
+    "2C":20,"2D":21,"2H":22,"2S":23,"2NT":24,
+    "3C":30,"3D":31,"3H":32,"3S":33,"3NT":34};
+  return [...new Set(opties)].sort((a,b)=>(bidRang[a]||99)-(bidRang[b]||99));
+}
+function toonKiesOpen(){
+  const kies=document.getElementById("kiesOpenPartner");
+  const opties=["PAS","1C","1D","1H","1S","1NT","2C","2D","2H","2S","2NT","3C","3D","3H","3S"];
+  kies.innerHTML = opties.map(b=>'<button data-bid="'+b+'" class="'+(b==="PAS"?"pas":"")+'">'+bidHTML(b)+"</button>").join("");
+  kies.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{
+    kies.querySelectorAll("button").forEach(b=>b.classList.remove("aan"));
+    btn.classList.add("aan");
+    // reset vervolgstappen zodat oude adviezen niet blijven staan
+    document.getElementById("advAntw2").hidden=true;
+    document.getElementById("kopHerbPartner").hidden=true;
+    document.getElementById("kiesHerbPartner").innerHTML="";
+    uiState.openPartner=btn.dataset.bid;
+    if(btn.dataset.bid==="PAS"){
+      document.getElementById("advAntw").hidden=false;
+      document.getElementById("advAntwBod").innerHTML="pas";
+      document.getElementById("advAntwTekst").innerHTML="Partner paste. Nu bepaal jij of jij als tweede opent — kijk daarvoor bij het tabblad 'Jij bent aan de beurt om te openen'.";
+      document.getElementById("advAntwAlt").innerHTML="";
+      return;
+    }
+    const r=bepaalAntwoord(btn.dataset.bid);
+    uiState.mijnAntw=r.bid;
+    document.getElementById("advAntw").hidden=false;
+    document.getElementById("advAntwBod").innerHTML=bidHTML(r.bid);
+    document.getElementById("advAntwTekst").innerHTML=r.tekst;
+    document.getElementById("advAntwAlt").innerHTML=r.alt||"";
+    toonKiesHerbPartner(btn.dataset.bid, r.bid);
+  }));
+}
+function toonKiesHerbPartner(open1, mijnAntw){
+  const kop=document.getElementById("kopHerbPartner");
+  const kies=document.getElementById("kiesHerbPartner");
+  document.getElementById("advAntw2").hidden=true;
+  if(mijnAntw==="PAS"||open1==="PAS"){ kop.hidden=true; kies.innerHTML=""; return; }
+  kop.hidden=false;
+  const minRang = bidRang(mijnAntw);
+  const opties = ["PAS","1H","1S","1NT","2C","2D","2H","2S","2NT","3C","3D","3H","3S","3NT","4H","4S"]
+    .filter(b=>b==="PAS"||bidRang(b)>minRang);
+  kies.innerHTML = opties.map(b=>'<button data-bid="'+b+'" class="'+(b==="PAS"?"pas":"")+'">'+bidHTML(b)+"</button>").join("");
+  kies.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{
+    kies.querySelectorAll("button").forEach(b=>b.classList.remove("aan"));
+    btn.classList.add("aan");
+    const r=tweedeBodAntwoorder(open1, mijnAntw, btn.dataset.bid);
+    document.getElementById("advAntw2").hidden=false;
+    document.getElementById("advAntw2Bod").innerHTML=bidHTML(r.bid);
+    document.getElementById("advAntw2Tekst").innerHTML=r.tekst;
+  }));
+}
+
+/* ---------- tabs ---------- */
+document.getElementById("tabOpen").addEventListener("click",()=>zetModus("open"));
+document.getElementById("tabAntw").addEventListener("click",()=>zetModus("antw"));
+function zetModus(m){
+  uiState.modus=m;
+  document.getElementById("tabOpen").setAttribute("aria-selected",m==="open");
+  document.getElementById("tabAntw").setAttribute("aria-selected",m==="antw");
+  document.getElementById("paneelOpen").classList.toggle("aan",m==="open");
+  document.getElementById("paneelAntw").classList.toggle("aan",m==="antw");
+  herbereken();
+}
+
+document.getElementById("btnRandom").addEventListener("click",willekeurig);
+document.getElementById("btnLeeg").addEventListener("click",leeg);
+bouwRoosters(); renderKaarten(); herbereken();
+</script>
+</body>
+</html>

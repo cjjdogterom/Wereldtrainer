@@ -225,7 +225,7 @@ function BeeldBlok({ beeld, verborgen }: { beeld: Beeld; verborgen: boolean }) {
             <span className="vd-hand-kaarten">{k.kaarten}</span>
           </div>
         ))}
-        {!verborgen && <span className="vd-hand-punten">{beeld.punten} honneurpunten</span>}
+        {!verborgen && <span className="vd-hand-punten">{beeld.puntenTekst}</span>}
       </div>
     )
   return <div className="vd-groot">{beeld.tekst}</div>

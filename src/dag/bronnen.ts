@@ -5,7 +5,7 @@ export type Beeld =
   | { soort: 'img'; src: string; alt: string; vorm?: 'foto' | 'object' }
   | { soort: 'groot'; tekst: string }
   | { soort: 'seinvlag'; letter: string }
-  | { soort: 'hand'; kleuren: { symbool: string; rood: boolean; kaarten: string }[]; punten: number }
+  | { soort: 'hand'; kleuren: { symbool: string; rood: boolean; kaarten: string }[]; punten: number; puntenTekst: string }
 
 export type DagItem = {
   id: string
@@ -224,37 +224,42 @@ export const BRONNEN: Bron[] = [
   {
     moduleId: 'bridge',
     laad: async () => {
-      const { KLEUREN, KLEUR_SYMBOOL, hcp, openingsbod, legUitOpening, rangLabel } = await import('../bridge/kaarten')
-      // 120 vaste oefenhanden; de volgorde rouleert net als bij de andere modules
+      const { KLEUREN, RANGEN, SYMBOOL, hcp, lengtes, lengtePunten, opening, bodTekst } = await import('../bridge/systeem')
+      // 120 vaste oefenhanden met dezelfde regels als de Biedtrainer
       const handen = [] as DagItem[]
-      for (let n = 0; handen.length < 120 && n < 2000; n += 1) {
+      for (let n = 0; n < 120; n += 1) {
         const rnd = mulberry32(hash(`bridge-hand-${n}`))
-        const dek: { k: (typeof KLEUREN)[number]; r: number }[] = []
-        for (const k of KLEUREN) for (let r = 2; r <= 14; r += 1) dek.push({ k, r })
+        const dek = KLEUREN.flatMap((k) => RANGEN.map((r) => ({ k, r })))
         for (let i = dek.length - 1; i > 0; i -= 1) {
           const j = Math.floor(rnd() * (i + 1))
           ;[dek[i], dek[j]] = [dek[j], dek[i]]
         }
-        const hand = { S: [] as number[], H: [] as number[], D: [] as number[], C: [] as number[] }
-        for (const c of dek.slice(0, 13)) hand[c.k].push(c.r)
-        for (const k of KLEUREN) hand[k].sort((a, b) => b - a)
-        const bod = openingsbod(hand)
-        if (!bod) continue
+        const hand = dek.slice(0, 13)
+        const l = lengtes(hand)
+        const { bod, uitleg } = opening(hand)
+        const hp = hcp(hand)
+        const lp = lengtePunten(l)
         handen.push({
           id: `hand-${n}`,
-          label: `Hand ${handen.length + 1}`,
+          label: `Hand ${n + 1}`,
           vraag: 'Je bent gever. Wat open je?',
           beeld: {
             soort: 'hand',
-            punten: hcp(hand),
+            punten: hp + lp,
+            puntenTekst: lp ? `${hp} honneur + ${lp} lengte = ${hp + lp} punten` : `${hp} punten`,
             kleuren: KLEUREN.map((k) => ({
-              symbool: KLEUR_SYMBOOL[k],
+              symbool: SYMBOOL[k],
               rood: k === 'H' || k === 'D',
-              kaarten: hand[k].map(rangLabel).join(' ') || '—',
+              kaarten:
+                hand
+                  .filter((c) => c.k === k)
+                  .sort((a, b) => RANGEN.indexOf(a.r) - RANGEN.indexOf(b.r))
+                  .map((c) => c.r)
+                  .join(' ') || '—',
             })),
           },
-          antwoord: bod === 'pas' ? 'Pas' : bod,
-          extra: legUitOpening(hand, bod),
+          antwoord: bodTekst(bod),
+          extra: uitleg,
         })
       }
       return handen

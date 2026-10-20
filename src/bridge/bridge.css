@@ -340,3 +340,225 @@
   color: var(--km-bad);
   background: color-mix(in srgb, var(--km-bad) 8%, white);
 }
+
+/* ─── Speeltafel-kop en biedkaart-tabs ─── */
+.br-app {
+  --km-paper: #eef2ec;
+  background: #eef2ec;
+  min-height: 100svh;
+}
+
+.br-tafel {
+  position: relative;
+  background:
+    radial-gradient(ellipse 70% 120% at 50% 0%, rgba(255, 255, 255, 0.13), transparent 70%),
+    repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.045) 0 2px, transparent 2px 4px),
+    linear-gradient(175deg, #3a6e3f, #1f4123);
+  border-bottom: 6px solid #6f5034;
+  box-shadow: inset 0 -10px 24px rgba(0, 0, 0, 0.22);
+  color: #eef6ec;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 0;
+}
+
+.br-tafel-binnen {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.br-terug {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #d8e8d4;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.br-terug:hover {
+  color: #fff;
+}
+
+.br-titel {
+  padding: 14px 0 18px;
+}
+
+.br-kleuren {
+  display: inline-flex;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.br-kleuren span {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: #fdfcf6;
+  color: #1c2226;
+  font-size: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.br-kleuren span.rd {
+  color: #c0392b;
+}
+
+.br-titel h1 {
+  margin: 6px 0 2px;
+  font-size: clamp(34px, 7vw, 48px);
+  line-height: 1;
+  color: #fff;
+}
+
+.br-titel p {
+  color: #cfe1cb;
+  font-size: 15px;
+}
+
+/* De tabs liggen als biedkaartjes op de rand van de tafel */
+.br-biedbox {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 2px 0;
+  margin-bottom: -6px;
+  scrollbar-width: none;
+}
+
+.br-biedbox::-webkit-scrollbar {
+  display: none;
+}
+
+.br-biedkaart {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 92px;
+  padding: 9px 12px 14px;
+  border: 1px solid #cdc6ae;
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  background: linear-gradient(180deg, #fbf9f0, #ece7d6);
+  color: #3a4136;
+  cursor: pointer;
+  transform: translateY(8px);
+  transition: transform 0.16s ease, background 0.16s ease;
+}
+
+.br-biedkaart:hover {
+  transform: translateY(3px);
+}
+
+.br-biedkaart.aan {
+  background: #eef2ec;
+  transform: translateY(0);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.br-bod {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1;
+  color: #1c2226;
+}
+
+.br-bod.rd {
+  color: #c0392b;
+}
+
+.br-bod-label {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.br-tab-uitleg {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px 16px 0;
+  color: var(--km-soft);
+  font-size: 14px;
+}
+
+/* ─── Biedkaart-PDF ─── */
+.br-pdf {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 12px 0 24px;
+}
+
+.br-pdf-blad {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  aspect-ratio: 1 / 1.414;
+  padding: 22px 20px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 18px 34px -16px rgba(20, 50, 25, 0.45);
+  transform: rotate(-2.5deg);
+}
+
+.br-pdf-kop {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 650;
+  color: #1e5c3a;
+}
+
+.br-pdf-sub {
+  font-family: var(--display);
+  font-style: italic;
+  color: #5c6457;
+  margin-bottom: 6px;
+}
+
+.br-pdf-regel {
+  font-size: 11px;
+  padding: 3px 6px;
+  background: #f0eadb;
+  border-left: 3px solid #1e5c3a;
+  color: #3a4136;
+}
+
+.br-pdf-tekst h2 {
+  margin: 0 0 10px;
+  font-size: clamp(24px, 4vw, 32px);
+  color: var(--km-ink);
+}
+
+.br-pdf-tekst p {
+  max-width: 52ch;
+  color: var(--km-text);
+}
+
+.br-pdf-knoppen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.br-pdf-knoppen .km-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+@media (max-width: 620px) {
+  .br-pdf {
+    grid-template-columns: 1fr;
+  }
+  .br-pdf-blad {
+    max-width: 220px;
+    justify-self: center;
+  }
+}

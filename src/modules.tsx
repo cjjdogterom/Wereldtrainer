@@ -148,8 +148,8 @@ export const MODULES: Module[] = [
     accent: '#2f5a33',
     title: 'Bridge',
     subtitle: 'Vijfkaart hoog',
-    description: 'Cursus vanaf nul, biedtrainers met echte gedeelde handen en een scorekaart.',
-    stats: ['9 hoofdstukken', '3 trainers'],
+    description: 'Biedtrainer met vier spelers aan tafel, een biedhulp voor je eigen hand, cursus, scorekaart en biedkaart-PDF.',
+    stats: ['aan tafel bieden', 'biedkaart-PDF'],
   },
   {
     id: 'klaverjas',
