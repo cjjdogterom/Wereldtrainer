@@ -1,0 +1,92 @@
+.tb {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) clamp(16px, 4vw, 32px) 10px;
+  background: color-mix(in srgb, var(--page) 88%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+
+.tb-merk {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-strong);
+  text-decoration: none;
+}
+
+.tb-merk-teken {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.tb-merk-naam {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.tb-rechts {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tb-datum {
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.tb-reeks {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.tb-reeks.aan {
+  background: var(--saffron-soft);
+  border-color: color-mix(in srgb, var(--saffron) 40%, transparent);
+  color: var(--text-strong);
+}
+
+.tb-reeks.aan svg {
+  color: var(--saffron);
+  fill: var(--saffron);
+}
+
+.tb-reeks-lbl {
+  font-weight: 400;
+  color: var(--text-soft);
+}
+
+@media (max-width: 520px) {
+  .tb-datum {
+    display: none;
+  }
+  .tb-merk-naam {
+    font-size: 18px;
+  }
+}

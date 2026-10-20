@@ -1,0 +1,423 @@
+@import '../ui/laden.css';
+
+.vd {
+  min-height: 100svh;
+  padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
+}
+
+.vd-kop {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 44px) 18px 8px;
+}
+
+.vd-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.vd-kop h1 {
+  margin: 8px 0 10px;
+  font-size: clamp(30px, 6.5vw, 44px);
+  line-height: 1.08;
+  color: var(--text-strong);
+}
+
+.vd-intro {
+  color: var(--text-soft);
+  max-width: 58ch;
+}
+
+.vd-voortgang {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.vd-segmenten {
+  flex: 1;
+  display: flex;
+  gap: 4px;
+}
+
+.vd-seg {
+  flex: 1;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--border);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.vd-seg.goed {
+  background: var(--seg);
+}
+
+.vd-seg.fout {
+  background: repeating-linear-gradient(-45deg, var(--seg) 0 3px, color-mix(in srgb, var(--seg) 35%, white) 3px 6px);
+}
+
+.vd-telling {
+  color: var(--text-soft);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.vd-telling b {
+  color: var(--text-strong);
+  font-size: 18px;
+}
+
+.vd-klaar {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--saffron-soft);
+  color: var(--text-strong);
+  font-weight: 700;
+}
+
+.vd-lijst {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 18px 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.vd-kaart {
+  scroll-margin-top: 76px;
+  background: var(--panel);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vd-kaart.gedaan {
+  box-shadow: var(--shadow-sm);
+}
+
+.vd-kaart-band {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 46px;
+  padding: 10px 16px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.vd-kaart-band > * {
+  position: relative;
+  z-index: 1;
+}
+
+.vd-kaart-mod {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.vd-kaart-mod svg {
+  width: 20px;
+  height: 20px;
+}
+
+.vd-stempel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  background: #fff;
+}
+
+.vd-stempel.goed {
+  color: var(--good);
+}
+
+.vd-stempel.fout {
+  color: var(--bad);
+}
+
+.vd-kaart-body {
+  padding: 20px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vd-vraag {
+  margin: 0;
+  font-size: clamp(20px, 4.4vw, 24px);
+  line-height: 1.25;
+  color: var(--text-strong);
+}
+
+.vd-hint {
+  color: var(--text-soft);
+  font-size: 15px;
+}
+
+.vd-beeld {
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.vd-beeld.foto img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.vd-beeld.object {
+  padding: 18px;
+}
+
+.vd-beeld.object img {
+  max-height: 150px;
+  width: auto;
+  object-fit: contain;
+}
+
+.vd-groot {
+  font-family: var(--display);
+  font-size: clamp(48px, 12vw, 72px);
+  line-height: 1;
+  text-align: center;
+  padding: 10px 0 2px;
+  color: var(--text-strong);
+}
+
+.vd-hand {
+  display: grid;
+  gap: 6px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, 0.1), transparent 70%),
+    linear-gradient(170deg, #3a6e3f, #1f4123);
+}
+
+.vd-hand-rij {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: #fdfcf6;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.vd-hand-sym {
+  font-size: 22px;
+  width: 22px;
+  color: #1c2226;
+}
+
+.vd-hand-sym.rood {
+  color: #c0392b;
+}
+
+.vd-hand-kaarten {
+  font-family: var(--display);
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  color: #1c2226;
+}
+
+.vd-hand-punten {
+  justify-self: end;
+  color: #e7f2e5;
+  font-size: 13px;
+}
+
+.vd-antwoord {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  animation: vd-in 0.28s ease;
+}
+
+@keyframes vd-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.vd-antwoord-kern {
+  font-family: var(--display);
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 560;
+  line-height: 1.2;
+  color: var(--mk);
+}
+
+.vd-antwoord-extra {
+  color: var(--text);
+  font-size: 15.5px;
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.vd-oordeel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.vd-knop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.08s ease, filter 0.15s ease, background 0.15s ease;
+}
+
+.vd-knop:active {
+  transform: translateY(1px);
+}
+
+.vd-knop.hoofd {
+  background: var(--mk);
+  color: #fff;
+  align-self: flex-start;
+}
+
+.vd-knop.hoofd:hover {
+  filter: brightness(1.08);
+}
+
+.vd-knop.goed {
+  background: var(--good-soft);
+  color: var(--good);
+  border-color: color-mix(in srgb, var(--good) 35%, transparent);
+}
+
+.vd-knop.fout {
+  background: var(--bad-soft);
+  color: var(--bad);
+  border-color: color-mix(in srgb, var(--bad) 30%, transparent);
+}
+
+.vd-na {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.vd-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  color: var(--mk);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.vd-link.stil {
+  color: var(--text-soft);
+  font-weight: 400;
+}
+
+.vd-poco {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.vd-poco-balk {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.vd-poco-balk i {
+  display: block;
+  height: 100%;
+  background: var(--mk);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.vd-skelet {
+  height: 22px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--bg), var(--line-soft), var(--bg));
+  background-size: 200% 100%;
+  animation: vd-glans 1.2s linear infinite;
+}
+
+.vd-skelet.kort {
+  width: 55%;
+}
+
+@keyframes vd-glans {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.vd-voet {
+  max-width: 680px;
+  margin: 28px auto 0;
+  padding: 0 18px;
+  color: var(--text-muted);
+  font-size: 13.5px;
+}
+
+@media (max-width: 420px) {
+  .vd-kaart-body {
+    padding: 16px 16px 18px;
+  }
+  .vd-knop.hoofd {
+    align-self: stretch;
+  }
+}

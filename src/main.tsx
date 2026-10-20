@@ -19,6 +19,7 @@ const KlaverjasApp = lazy(() => import('./klaverjas/App.tsx'))
 const BridgeApp = lazy(() => import('./bridge/App.tsx'))
 const WeetjesApp = lazy(() => import('./weetjes/App.tsx'))
 const GeldApp = lazy(() => import('./geld/App.tsx'))
+const Vandaag = lazy(() => import('./dag/Vandaag.tsx'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
       <Suspense fallback={<div className="module-loading">Laden…</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/vandaag" element={<Vandaag />} />
           <Route path="/topografie/*" element={<TopografieApp />} />
           <Route path="/voetbal/*" element={<VoetbalApp />} />
           <Route path="/seinen/*" element={<SeinenApp />} />

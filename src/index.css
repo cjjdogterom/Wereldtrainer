@@ -1,39 +1,69 @@
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/fonts/fraunces-vf.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/fonts/fraunces-vf-italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/lexend-vf.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* Surfaces — cool paper neutrals */
-  --page: #e9edf2;
+  --display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --body: 'Lexend', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Studiepapier — koel, licht blauwgetint */
+  --page: #eceff3;
   --panel: #ffffff;
-  --bg: #f2f5f8;
-  --button: #f6f8fa;
-  --flag-bg: #f5f8fa;
-  --border: #d9e0e8;
+  --bg: #f3f5f8;
+  --button: #f5f7fa;
+  --flag-bg: #f5f7fa;
+  --border: #d6dce5;
+  --line-soft: #e4e8ee;
 
-  /* Ink scale */
-  --text-strong: #0c1722;
-  --text: #3a4757;
-  --text-soft: #5c6a7b;
-  --text-muted: #8b98a8;
+  /* Inkt */
+  --text-strong: #14202e;
+  --text: #34414f;
+  --text-soft: #586575;
+  --text-muted: #8691a0;
 
-  /* Brand — deep teal */
-  --accent: #0f766e;
-  --accent-strong: #0b5b54;
-  --accent-soft: #e2f1ef;
-  --focus: rgba(15, 118, 110, 0.28);
+  /* Huiskleur — inktblauw; saffraan voor voortgang */
+  --accent: #22406f;
+  --accent-strong: #182f54;
+  --accent-soft: #e3e9f3;
+  --focus: rgba(34, 64, 111, 0.3);
+  --saffron: #d99a1e;
+  --saffron-soft: #fbf0d6;
 
-  /* Semantic (aligned with the map colours) */
-  --good: #16a34a;
-  --bad: #dc2626;
-  --warn: #b45309;
+  --good: #1d8a52;
+  --good-soft: #dff1e7;
+  --bad: #c43c2f;
+  --bad-soft: #f9e2df;
+  --warn: #a8670f;
 
-  /* Elevation */
-  --shadow-sm: 0 1px 2px rgba(13, 27, 42, 0.05);
-  --shadow-md: 0 6px 20px -8px rgba(13, 27, 42, 0.18), 0 2px 6px rgba(13, 27, 42, 0.06);
-  --shadow-lg: 0 18px 44px -16px rgba(13, 27, 42, 0.28);
+  --shadow-sm: 0 1px 2px rgba(20, 32, 46, 0.06);
+  --shadow-md: 0 1px 2px rgba(20, 32, 46, 0.05), 0 8px 24px -10px rgba(20, 32, 46, 0.22);
+  --shadow-lg: 0 2px 4px rgba(20, 32, 46, 0.06), 0 22px 48px -18px rgba(20, 32, 46, 0.32);
   --radius: 14px;
 
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
   color: var(--text);
   background: var(--page);
+  color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,8 +74,7 @@
   box-sizing: border-box;
 }
 
-/* Pinch/double-tap must never zoom the app itself — the map handles its own
-   zoom. Scrolling (pan) stays allowed. */
+/* Knijpen/dubbeltikken mag de app zelf niet zoomen — de kaart regelt eigen zoom. */
 html,
 body {
   touch-action: pan-x pan-y;
@@ -55,17 +84,45 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100svh;
-  background:
-    radial-gradient(1200px 600px at 100% -10%, rgba(15, 118, 110, 0.07), transparent 60%),
-    radial-gradient(900px 500px at -10% 110%, rgba(15, 118, 110, 0.05), transparent 55%),
-    var(--page);
-  background-attachment: fixed;
+  background: var(--page);
+  -webkit-tap-highlight-color: transparent;
 }
 
-h1, h2, h3 {
-  letter-spacing: -0.015em;
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-weight: 560;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
 }
 
 p {
   margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

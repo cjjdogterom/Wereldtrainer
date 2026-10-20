@@ -1,119 +1,345 @@
-/* ─── Home-hub: kies wat je wil leren ─── */
+@import './ui/laden.css';
+
 .hub {
   min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: clamp(24px, 5vw, 56px) 20px 32px;
-  gap: clamp(24px, 4vw, 44px);
+  padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
 }
 
-.hub-hero {
-  text-align: center;
-  max-width: 560px;
-}
-
-.hub-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 18px;
-}
-
-.hub-hero h1 {
-  margin: 0 0 10px;
-  font-size: clamp(28px, 6vw, 40px);
-  color: var(--text-strong);
-}
-
-.hub-hero p {
-  color: var(--text-soft);
-  font-size: 15.5px;
-}
-
-.hub-grid {
+/* ─── Dagprogramma ─── */
+.hub-dag {
+  width: min(1120px, calc(100% - 24px));
+  margin: clamp(18px, 4vw, 36px) auto 0;
+  padding: clamp(22px, 4vw, 36px);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-  justify-content: center;
-  gap: 18px;
-  width: 100%;
-  max-width: 1180px;
-}
-
-.hub-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 22px 22px 20px;
-  border-radius: 18px;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-top: 4px solid var(--hub-accent);
-  box-shadow: var(--shadow-md);
-  color: inherit;
-  text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.hub-card:hover {
-  transform: translateY(-3px);
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'tekst ring'
+    'chips chips';
+  gap: 22px 32px;
+  background:
+    radial-gradient(ellipse 60% 90% at 100% 0%, rgba(217, 154, 30, 0.14), transparent 70%),
+    linear-gradient(165deg, #22406f, #172c4e);
+  color: #eef2f8;
+  border-radius: 24px;
   box-shadow: var(--shadow-lg);
 }
 
-.hub-card-icon {
-  color: var(--hub-accent);
-  margin-bottom: 4px;
+.hub-dag-tekst {
+  grid-area: tekst;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 
-.hub-card h2 {
+.hub-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f1c568;
+}
+
+.hub-dag h1 {
   margin: 0;
-  font-size: 22px;
+  font-size: clamp(30px, 5.4vw, 50px);
+  line-height: 1.04;
+  color: #fff;
+  max-width: 16ch;
+}
+
+.hub-dag-uitleg {
+  color: #c4cfe0;
+  max-width: 52ch;
+}
+
+.hub-start {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: var(--saffron);
+  color: #1b1405;
+  font-weight: 700;
+  font-size: 17px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px -6px rgba(217, 154, 30, 0.7);
+  transition: transform 0.12s ease, filter 0.15s ease;
+}
+
+.hub-start:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.hub-dag-ring {
+  grid-area: ring;
+  align-self: center;
+  width: clamp(116px, 18vw, 156px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(var(--saffron) calc(var(--pct) * 1%), rgba(255, 255, 255, 0.12) 0);
+  display: grid;
+  place-items: center;
+}
+
+.hub-dag-ring-binnen {
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #1b345c;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.hub-dag-getal {
+  font-family: var(--display);
+  font-size: clamp(36px, 6vw, 52px);
+  line-height: 1;
+  color: #fff;
+}
+
+.hub-dag-van {
+  color: #aebbd0;
+  font-size: 13px;
+}
+
+.hub-dag-chips {
+  grid-area: chips;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hub-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px 5px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #c4cfe0;
+  font-size: 13px;
+}
+
+.hub-chip-icoon {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--hub-accent);
+  color: #fff;
+}
+
+.hub-chip-icoon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.hub-chip.goed,
+.hub-chip.fout {
+  background: rgba(255, 255, 255, 0.95);
+  color: #172c4e;
+  border-color: transparent;
+  font-weight: 700;
+}
+
+.hub-chip.fout .hub-chip-icoon {
+  background: var(--bad);
+}
+
+.hub-chip.goed .hub-chip-icoon {
+  background: var(--good);
+}
+
+@media (max-width: 640px) {
+  .hub-dag {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'tekst'
+      'chips';
+  }
+  .hub-dag-ring {
+    display: none;
+  }
+  .hub-chip-naam {
+    display: none;
+  }
+  .hub-chip {
+    padding: 5px;
+  }
+  .hub-start {
+    align-self: stretch;
+    justify-content: center;
+  }
+}
+
+/* ─── De kast met laden ─── */
+.hub-kast {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 52px) clamp(14px, 3vw, 20px) 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(30px, 5vw, 48px);
+}
+
+.hub-plank-kop {
+  display: flex;
+  align-items: baseline;
+  gap: 6px 14px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid var(--text-strong);
+}
+
+.hub-plank-kop h2 {
+  margin: 0;
+  font-size: clamp(22px, 3.6vw, 28px);
   color: var(--text-strong);
 }
 
-.hub-card-sub {
-  font-size: 13px;
-  font-weight: 600;
+.hub-plank-kop p {
+  color: var(--text-muted);
+  font-size: 14.5px;
+}
+
+.hub-laden {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.hub-lade {
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 0.18s ease;
+}
+
+.hub-lade:hover,
+.hub-lade:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hub-lade-front {
+  position: relative;
+  height: 104px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px 16px;
+}
+
+.hub-lade-front > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hub-lade-icoon {
+  display: inline-grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--hub-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Ladegreep: het knopje dat van elke tegel een lade maakt */
+.hub-lade-greep {
+  position: absolute !important;
+  top: 14px;
+  left: 50%;
+  width: 46px;
+  height: 9px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(#f4efe2, #c9c0a8);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.hub-lade-vandaag {
+  position: absolute !important;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--good);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hub-lade-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px 18px;
+}
+
+.hub-lade-sub {
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   color: var(--hub-accent);
 }
 
-.hub-card p {
+.hub-lade h3 {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.15;
+  color: var(--text-strong);
+}
+
+.hub-lade p {
   color: var(--text-soft);
   font-size: 14.5px;
-  line-height: 1.55;
+  line-height: 1.5;
   flex: 1;
 }
 
-.hub-card-stats {
+.hub-lade-stats {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
+  margin-top: 6px;
 }
 
-.hub-card-stats span {
-  background: var(--bg);
-  border: 1px solid var(--border);
+.hub-lade-stats span {
+  padding: 2px 9px;
   border-radius: 999px;
-  padding: 3px 11px;
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
   font-size: 12.5px;
-  color: var(--text);
+  color: var(--text-soft);
 }
 
-.hub-card-cta {
-  margin-top: 12px;
-  font-weight: 700;
-  color: var(--hub-accent);
-}
-
-.hub-footer {
+.hub-voet {
+  margin-top: 48px;
+  text-align: center;
   color: var(--text-muted);
   font-size: 13px;
 }

@@ -1,0 +1,200 @@
+import type { ReactNode } from 'react'
+import {
+  Anchor,
+  Bird,
+  Church,
+  Club,
+  Coins,
+  Crown,
+  Flag,
+  Globe2,
+  Landmark,
+  Lightbulb,
+  MessageCircle,
+  Shield,
+  Spade,
+  Trophy,
+} from 'lucide-react'
+
+export type Groep = 'wereld' | 'natuur' | 'techniek' | 'spel' | 'cultuur'
+
+export const GROEPEN: { id: Groep; titel: string; ondertitel: string }[] = [
+  { id: 'wereld', titel: 'Wereld & geschiedenis', ondertitel: 'Landen, machten en rangordes' },
+  { id: 'natuur', titel: 'Natuur', ondertitel: 'Wat er groeit en vliegt in Nederland' },
+  { id: 'techniek', titel: 'Techniek & zeemanschap', ondertitel: 'Stroom, knopen en seinen' },
+  { id: 'spel', titel: 'Spel & taal', ondertitel: 'Kaarten op tafel en Spaans in je hoofd' },
+  { id: 'cultuur', titel: 'Sport & weetjes', ondertitel: 'Kampioenen, geld en diepe vragen' },
+]
+
+export type Module = {
+  id: string
+  to: string
+  groep: Groep
+  icon: ReactNode
+  accent: string
+  title: string
+  subtitle: string
+  description: string
+  stats: string[]
+}
+
+const ic = { size: 30, strokeWidth: 1.6, 'aria-hidden': true } as const
+
+export const MODULES: Module[] = [
+  {
+    id: 'topografie',
+    to: '/topografie',
+    groep: 'wereld',
+    icon: <Globe2 {...ic} />,
+    accent: '#0f6b64',
+    title: 'Topografie',
+    subtitle: 'Landen · vlaggen · hoofdsteden',
+    description: 'Elk land van de wereld aanwijzen op de kaart, met vlag en hoofdstad. Slim oefenen en examens.',
+    stats: ['± 200 landen', '6 continenten'],
+  },
+  {
+    id: 'europa',
+    to: '/europa',
+    groep: 'wereld',
+    icon: <Crown {...ic} />,
+    accent: '#24508a',
+    title: 'Europa in vogelvlucht',
+    subtitle: 'Machtsgeschiedenis',
+    description: 'Wie had wanneer de macht in Europa, van de Minoërs tot de EU — met historische kaarten.',
+    stats: ['± 40 machten', '4000 jaar'],
+  },
+  {
+    id: 'geschiedenis',
+    to: '/geschiedenis',
+    groep: 'wereld',
+    icon: <Landmark {...ic} />,
+    accent: '#7a4a1f',
+    title: 'Geschiedenis van Nederland',
+    subtitle: 'Vanaf 1300',
+    description: 'Ruim 150 gebeurtenissen en personen, van de Hoekse twisten tot nu.',
+    stats: ['± 150 items', '8 tijdvakken'],
+  },
+  {
+    id: 'kerk',
+    to: '/kerk',
+    groep: 'wereld',
+    icon: <Church {...ic} />,
+    accent: '#6b3a5b',
+    title: 'Kerkelijke hiërarchie',
+    subtitle: 'Rooms-Katholieke Kerk',
+    description: 'Van paus tot diaken, plus kardinalen, eretitels en de rangorde in kloosterordes.',
+    stats: ['paus tot diaken', 'incl. ordes'],
+  },
+  {
+    id: 'rangen',
+    to: '/rangen',
+    groep: 'wereld',
+    icon: <Shield {...ic} />,
+    accent: '#3f5560',
+    title: 'Rangen en standen',
+    subtitle: 'Krijgsmacht · politie · brandweer',
+    description: 'De rangordes van marine tot brandweer, met onderscheidingstekens en aanspreektitels.',
+    stats: ['7 onderdelen', '± 110 rangen'],
+  },
+  {
+    id: 'vogels',
+    to: '/vogels',
+    groep: 'natuur',
+    icon: <Bird {...ic} />,
+    accent: '#3a6b35',
+    title: 'Vogels van Nederland',
+    subtitle: 'Zien & horen',
+    description: 'Veertig veelvoorkomende vogels herkennen aan uiterlijk én geluid.',
+    stats: ['40 soorten', 'foto + geluid'],
+  },
+  {
+    id: 'knopen',
+    to: '/knopen',
+    groep: 'techniek',
+    icon: <Anchor {...ic} />,
+    accent: '#8a5a2b',
+    title: 'Nautische knopen',
+    subtitle: 'Knopen & steken',
+    description: 'De belangrijkste knopen en steken: hoe ze eruitzien en waarvoor je ze gebruikt.',
+    stats: ['13 knopen', 'met foto’s'],
+  },
+  {
+    id: 'seinen',
+    to: '/seinen',
+    groep: 'techniek',
+    icon: <Flag {...ic} />,
+    accent: '#1e4f72',
+    title: 'Nautisch seinen',
+    subtitle: 'Vlaggen · morse · spelalfabet',
+    description: 'De internationale seinvlaggen met hun betekenis, het NAVO-spelalfabet en morse.',
+    stats: ['26 vlaggen', 'morse A–Z'],
+  },
+  {
+    id: 'spaans',
+    to: '/spaans',
+    groep: 'spel',
+    icon: <MessageCircle {...ic} />,
+    accent: '#b4471f',
+    title: 'Spaans',
+    subtitle: 'Poco a Poco',
+    description: 'Elke dag 30 nieuwe woorden, werkwoorden in zes tijden en honderden zinnen — met slimme herhaling.',
+    stats: ['30 woorden per dag', 'met uitspraak'],
+  },
+  {
+    id: 'bridge',
+    to: '/bridge',
+    groep: 'spel',
+    icon: <Spade {...ic} />,
+    accent: '#2f5a33',
+    title: 'Bridge',
+    subtitle: 'Vijfkaart hoog',
+    description: 'Cursus vanaf nul, biedtrainers met echte gedeelde handen en een scorekaart.',
+    stats: ['9 hoofdstukken', '3 trainers'],
+  },
+  {
+    id: 'klaverjas',
+    to: '/klaverjas',
+    groep: 'spel',
+    icon: <Club {...ic} />,
+    accent: '#1f5f4c',
+    title: 'Klaverjassen',
+    subtitle: 'Amsterdams',
+    description: 'Van kaartvolgorde tot roem en nat, met echte spelsituaties.',
+    stats: ['7 hoofdstukken', '4 trainers'],
+  },
+  {
+    id: 'voetbal',
+    to: '/voetbal',
+    groep: 'cultuur',
+    icon: <Trophy {...ic} />,
+    accent: '#1f4e79',
+    title: 'Voetbalwinnaars',
+    subtitle: 'Eredivisie & meer',
+    description: 'Alle winnaars van Eredivisie, KNVB Beker, Champions League, WK en EK.',
+    stats: ['5 trainers', 'sinds 1889'],
+  },
+  {
+    id: 'weetjes',
+    to: '/weetjes',
+    groep: 'cultuur',
+    icon: <Lightbulb {...ic} />,
+    accent: '#4c3f91',
+    title: 'Weetjes',
+    subtitle: 'Diep, niet algemeen',
+    description: 'Driehonderd vakkennis-weetjes uit techniek, natuur en wetenschap.',
+    stats: ['300 weetjes', '± 30 vakgebieden'],
+  },
+  {
+    id: 'geld',
+    to: '/geld',
+    groep: 'cultuur',
+    icon: <Coins {...ic} />,
+    accent: '#86681a',
+    title: 'Geldbijnamen',
+    subtitle: 'Joet · meier · barkie',
+    description: 'Van heitje en rooie rug tot barkie en mille — met herkomst.',
+    stats: ['gulden & euro', 'met herkomst'],
+  },
+]
+
+export const MODULE_BY_ID: Record<string, Module> = Object.fromEntries(MODULES.map((m) => [m.id, m]))
