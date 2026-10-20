@@ -22,6 +22,8 @@ const GeldApp = lazy(() => import('./geld/App.tsx'))
 const Vandaag = lazy(() => import('./dag/Vandaag.tsx'))
 const ElektronicaApp = lazy(() => import('./elektronica/App.tsx'))
 const PlantenApp = lazy(() => import('./planten/App.tsx'))
+const VervoerApp = lazy(() => import('./vervoer/App.tsx'))
+const KlussenApp = lazy(() => import('./klussen/App.tsx'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -32,6 +34,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/vandaag" element={<Vandaag />} />
           <Route path="/elektronica/*" element={<ElektronicaApp />} />
           <Route path="/planten/*" element={<PlantenApp />} />
+          <Route path="/vervoer/*" element={<VervoerApp />} />
+          <Route path="/klussen/*" element={<KlussenApp />} />
           <Route path="/topografie/*" element={<TopografieApp />} />
           <Route path="/voetbal/*" element={<VoetbalApp />} />
           <Route path="/seinen/*" element={<SeinenApp />} />

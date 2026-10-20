@@ -7,6 +7,8 @@ import { shuffle } from '../leer/match'
 import { LesLezer, lessenQuiz, useGelezen } from '../leer/LesLezer'
 import { LESSEN } from './lessen'
 import { SchemaTekening } from './schemas'
+import Fotos from '../ui/Fotos'
+import { FOTOS } from './fotos'
 import { SYMBOOL_INFO, SymboolKaart } from './symbolen'
 import { CATEGORIEEN, type Categorie, type SymboolId } from './types'
 import './elektronica.css'
@@ -126,7 +128,12 @@ export default function ElektronicaApp() {
               les={les}
               nummer={nummer}
               totaal={lessen.length}
-              beeld={les.schema && <SchemaTekening id={les.schema} />}
+              beeld={
+                <>
+                  <Fotos fotos={FOTOS[les.id]} />
+                  {les.schema && <SchemaTekening id={les.schema} />}
+                </>
+              }
               onVorige={() => ga(-1)}
               onVolgende={() => ga(1)}
               onGelezen={() => markeer(les.id)}

@@ -170,3 +170,23 @@
     radial-gradient(circle, transparent 9px, rgba(255, 233, 160, 0.55) 9px 10.5px, rgba(255, 233, 160, 0.18) 10.5px 13px, transparent 13px) 0 0 / 34px 34px,
     linear-gradient(160deg, #9b7b25, #5e470d);
 }
+
+/* Vervoer — instrumentenpaneel met een meter */
+.lade-vervoer {
+  --mk: #3a3f47;
+  background:
+    radial-gradient(circle at 78% 60%, transparent 26px, #f0a03a 26px 28px, transparent 28px),
+    radial-gradient(circle at 78% 60%, #14171c 0 26px, transparent 26px),
+    linear-gradient(110deg, transparent 77.6%, #f0a03a 77.6% 78.4%, transparent 78.4%) no-repeat,
+    radial-gradient(circle at 30% 60%, transparent 22px, rgba(255, 255, 255, 0.35) 22px 23.5px, transparent 23.5px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 2px, transparent 2px 6px),
+    linear-gradient(180deg, #2a2f37, #16191e);
+}
+
+/* Klussen — gaatjesbord van hardboard */
+.lade-klussen {
+  --mk: #a17543;
+  background:
+    radial-gradient(circle at 10px 10px, #5a3d1e 0 2.8px, transparent 3.3px) 0 0 / 20px 20px,
+    linear-gradient(180deg, #b98a52, #a17543);
+}

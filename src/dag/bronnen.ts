@@ -223,6 +223,43 @@ export const BRONNEN: Bron[] = [
     },
   },
   {
+    moduleId: 'vervoer',
+    laad: async () => {
+      const { LESSEN } = await import('../vervoer/lessen')
+      return LESSEN.flatMap((l) =>
+        l.vragen.map((v, i) => ({
+          id: `${l.id}-${i}`,
+          label: l.titel,
+          vraag: v.vraag,
+          antwoord: v.opties[v.goed],
+          extra: `${v.uitleg} Kern van de les „${l.titel}”: ${l.kern}`,
+        })),
+      )
+    },
+  },
+  {
+    moduleId: 'klussen',
+    laad: async () => {
+      const { KEUZES, PROBLEMEN } = await import('../klussen/data')
+      return [
+        ...KEUZES.map((k) => ({
+          id: `keuze-${k.id}`,
+          label: k.vraag,
+          vraag: `${k.vraag} ${k.situatie}`,
+          antwoord: k.keuze,
+          extra: [k.waarom, k.nietGebruiken ? `Niet: ${k.nietGebruiken}` : ''].filter(Boolean).join(' '),
+        })),
+        ...PROBLEMEN.map((p) => ({
+          id: `mis-${p.id}`,
+          label: 'Wat ging er mis?',
+          vraag: `Wat ging er mis? ${p.symptoom}`,
+          antwoord: p.oorzaken.find((o) => o.juist)?.oorzaak ?? '',
+          extra: `${p.uitleg} Herstellen: ${p.oplossing}`,
+        })),
+      ]
+    },
+  },
+  {
     moduleId: 'knopen',
     laad: async () => {
       const { KNOPEN } = await import('../knopen/data')
