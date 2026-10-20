@@ -38,3 +38,167 @@
 .sn-cijfer-teken {
   font-size: 1.3rem;
 }
+
+/* Seinen en vlaggen lezen */
+.sn-seinen,
+.sn-lees {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sn-invoer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 420px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--km-soft);
+}
+
+.sn-invoer input,
+.sn-lees-form input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--km-line);
+  background: var(--km-panel);
+  font-family: var(--display);
+  font-size: 24px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--km-ink);
+}
+
+.sn-hoist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #dfeaf3, #f4f8fb);
+  border: 1px solid var(--km-line);
+}
+
+.sn-hoist-vlag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 78px;
+}
+
+.sn-hoist-letter {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--km-ink);
+}
+
+.sn-hoist-navo {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--km-accent);
+}
+
+.sn-hoist-morse {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 15px;
+  letter-spacing: 0.15em;
+  color: var(--km-soft);
+}
+
+/* Bij lezen hangen de vlaggen onder elkaar aan een lijn, zoals in een mast */
+.sn-mast {
+  display: flex;
+  justify-content: center;
+}
+
+.sn-hoist.klein {
+  position: relative;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 6px;
+  padding: 16px 28px;
+  background: linear-gradient(180deg, #cfe0ee, #eef4f9);
+}
+
+.sn-hoist.klein::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 18px;
+  width: 2px;
+  background: #6b7a88;
+}
+
+.sn-hoist.klein .sn-hoist-vlag {
+  min-width: 0;
+}
+
+.sn-uitspraak {
+  font-size: 15px;
+}
+
+.sn-leeg {
+  color: var(--km-soft);
+}
+
+.sn-lees-kop {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--km-soft);
+}
+
+.sn-lees-kop p {
+  font-family: var(--display);
+  font-size: 20px;
+  color: var(--km-ink);
+}
+
+.sn-lees-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sn-lees-form input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.sn-lees-form input.goed {
+  border-color: var(--good);
+  background: var(--good-soft);
+}
+
+.sn-lees-form input.fout {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+}
+
+.sn-lees-form .km-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sn-lees-uitslag {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+}
+
+.sn-lees-uitslag.goed svg {
+  color: var(--good);
+}
+
+.sn-lees-uitslag.fout svg {
+  color: var(--bad);
+}

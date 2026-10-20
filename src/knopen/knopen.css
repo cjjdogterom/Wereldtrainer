@@ -110,3 +110,121 @@
   border-radius: 10px;
   border: 1px solid var(--km-line);
 }
+
+/* Memory */
+.kn-memory {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.kn-memory-kop {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--km-soft);
+}
+
+.kn-memory-kop p {
+  font-family: var(--display);
+  font-size: 19px;
+  color: var(--km-ink);
+}
+
+.kn-memory-veld {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.kn-mem-kaart {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  perspective: 800px;
+}
+
+.kn-mem-rug,
+.kn-mem-voor {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  transition: transform 0.35s ease;
+}
+
+.kn-mem-rug {
+  background:
+    repeating-linear-gradient(-58deg, #b88a55 0 6px, #8f6534 6px 12px, #c9a06d 12px 14px, #8f6534 14px 20px),
+    #8a5a2b;
+  box-shadow: inset 0 0 0 4px #fff8ec, var(--shadow-sm);
+}
+
+.kn-mem-voor {
+  display: grid;
+  place-items: center;
+  background: var(--km-panel);
+  border: 1.5px solid var(--km-line);
+  overflow: hidden;
+  transform: rotateY(180deg);
+}
+
+.kn-mem-kaart.open .kn-mem-rug {
+  transform: rotateY(180deg);
+}
+
+.kn-mem-kaart.open .kn-mem-voor {
+  transform: rotateY(0deg);
+}
+
+.kn-mem-kaart.gevonden .kn-mem-voor {
+  border-color: var(--good);
+  box-shadow: 0 0 0 2px var(--good-soft);
+}
+
+.kn-mem-voor img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kn-mem-naam {
+  padding: 8px;
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--km-ink);
+}
+
+.kn-mem-laatst {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--good-soft);
+  color: var(--km-ink);
+}
+
+.kn-mem-klaar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.kn-mem-klaar .km-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 520px) {
+  .kn-memory-veld {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .kn-mem-naam {
+    font-size: 13px;
+  }
+}

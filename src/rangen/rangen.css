@@ -106,3 +106,44 @@
   font-size: 0.85rem;
   color: var(--km-soft);
 }
+
+/* Strepen sorteren */
+.rg-sorteren {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rg-sorteer-keuze {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rg-sorteer-keuze button {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1.5px solid var(--km-line);
+  background: var(--km-panel);
+  font-weight: 700;
+  font-size: 13.5px;
+}
+
+.rg-sorteer-keuze button.aan {
+  background: var(--km-accent);
+  border-color: var(--km-accent);
+  color: #fff;
+}
+
+.rg-sorteer-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rg-sorteer-item img {
+  height: 44px;
+  width: auto;
+  max-width: 70px;
+  object-fit: contain;
+}

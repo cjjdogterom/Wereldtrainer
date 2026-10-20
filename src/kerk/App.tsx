@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Ladder from './Ladder'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { distractors, pickRandom, shuffle } from '../leer/match'
@@ -88,7 +89,7 @@ export default function KerkApp() {
       accent={ACCENT}
       title="Kerkelijke hiërarchie"
       subtitle="Posities in de Rooms-Katholieke Kerk"
-      tabs={[{ id: 'leren', label: 'Leren' }, { id: 'overhoren', label: 'Overhoren' }]}
+      tabs={[{ id: 'leren', label: 'Leren' }, { id: 'ladder', label: 'Ladder bouwen' }, { id: 'overhoren', label: 'Overhoren' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={
@@ -161,6 +162,9 @@ export default function KerkApp() {
           ))}
         </article>
       )}
+
+      {tab === 'ladder' && <Ladder />}
+
 
       {tab === 'overhoren' && quiz === null && (
         <>

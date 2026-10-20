@@ -290,3 +290,15 @@
   max-width: 640px;
   margin-bottom: 1rem;
 }
+
+/* Ladder bouwen */
+.kerk-sport {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kerk-sport img {
+  height: 40px;
+  width: auto;
+}

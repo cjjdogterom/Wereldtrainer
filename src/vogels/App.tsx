@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import Hints from './Hints'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { distractors, pickRandom, shuffle } from '../leer/match'
@@ -117,7 +118,7 @@ export default function VogelsApp() {
       accent={ACCENT}
       title="Vogels van Nederland"
       subtitle={`${VOGELS.length} soorten herkennen op zicht en geluid`}
-      tabs={[{ id: 'leren', label: 'Leren' }, { id: 'overhoren', label: 'Overhoren' }]}
+      tabs={[{ id: 'leren', label: 'Leren' }, { id: 'hints', label: 'Drie hints' }, { id: 'overhoren', label: 'Overhoren' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={
@@ -159,6 +160,9 @@ export default function VogelsApp() {
           </div>
         </>
       )}
+
+      {tab === 'hints' && <Hints />}
+
 
       {tab === 'overhoren' && quiz === null && (
         <>

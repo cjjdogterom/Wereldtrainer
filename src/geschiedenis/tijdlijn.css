@@ -1,0 +1,155 @@
+.tl {
+  max-width: 780px;
+}
+
+.tl-filter {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--km-accent) 10%, white);
+  margin-bottom: 18px;
+}
+
+.tl-filter button {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--km-soft);
+}
+
+.tl-filter button.aan {
+  background: var(--km-accent);
+  color: #fff;
+}
+
+.tl-lijn {
+  list-style: none;
+  position: relative;
+  padding-left: 0;
+}
+
+/* de verticale lijn */
+.tl-lijn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 111px;
+  width: 3px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--km-accent) 25%, white);
+}
+
+.tl-item {
+  --tl: #7a4a1f;
+  position: relative;
+}
+
+.tl-p0 { --tl: #7a4a1f; }
+.tl-p1 { --tl: #9b5d1a; }
+.tl-p2 { --tl: #a8761c; }
+.tl-p3 { --tl: #4f7a2a; }
+.tl-p4 { --tl: #2c6b6b; }
+.tl-p5 { --tl: #2f5590; }
+.tl-p6 { --tl: #5b3f8c; }
+.tl-p7 { --tl: #8a3555; }
+
+.tl-periode {
+  margin: 22px 0 8px 132px;
+  padding: 4px 12px;
+  display: inline-block;
+  border-radius: 999px;
+  background: var(--tl);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.tl-eeuw {
+  position: relative;
+  margin: 10px 0 6px;
+  width: 100px;
+  text-align: right;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--km-accent) 60%, white);
+}
+
+.tl-punt {
+  display: grid;
+  grid-template-columns: 100px 24px 1fr;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  padding: 5px 0;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.tl-punt:hover .tl-titel {
+  color: var(--tl);
+}
+
+.tl-jaar {
+  padding-right: 12px;
+  text-align: right;
+  font-size: 13px;
+  color: var(--km-soft);
+}
+
+.tl-stip {
+  justify-self: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--tl);
+  border: 2.5px solid var(--km-paper);
+  box-shadow: 0 0 0 1.5px var(--tl);
+}
+
+.tl-stip.persoon {
+  border-radius: 3px;
+  transform: rotate(45deg);
+}
+
+.tl-titel {
+  padding-left: 10px;
+  font-size: 15.5px;
+  color: var(--km-ink);
+}
+
+.tl-punt.open .tl-titel {
+  font-weight: 700;
+  color: var(--tl);
+}
+
+.tl-uitleg {
+  margin: 4px 0 10px 134px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--tl);
+  border-radius: 0 10px 10px 0;
+  background: var(--km-panel);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+@media (max-width: 560px) {
+  .tl-lijn::before {
+    left: 79px;
+  }
+  .tl-punt {
+    grid-template-columns: 68px 24px 1fr;
+  }
+  .tl-eeuw {
+    width: 68px;
+    font-size: 18px;
+  }
+  .tl-periode,
+  .tl-uitleg {
+    margin-left: 92px;
+  }
+}

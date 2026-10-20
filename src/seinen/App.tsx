@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Seinen, LeesVlaggen } from './Seinen'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { distractors, shuffle } from '../leer/match'
@@ -117,7 +118,7 @@ export default function SeinenApp() {
       accent={ACCENT}
       title="Nautisch seinen"
       subtitle="Seinvlaggen · morse · spelalfabet"
-      tabs={[{ id: 'leren', label: 'Leren' }, { id: 'overhoren', label: 'Overhoren' }]}
+      tabs={[{ id: 'leren', label: 'Leren' }, { id: 'seinen', label: 'Seinen' }, { id: 'lezen', label: 'Vlaggen lezen' }, { id: 'overhoren', label: 'Overhoren' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={<p>Betekenissen volgens het Internationaal Seinboek (enkelvoudige seinen).</p>}
@@ -165,6 +166,12 @@ export default function SeinenApp() {
           </div>
         </>
       )}
+
+      {tab === 'seinen' && <Seinen />}
+
+
+      {tab === 'lezen' && <LeesVlaggen />}
+
 
       {tab === 'overhoren' && quiz === null && (
         <>

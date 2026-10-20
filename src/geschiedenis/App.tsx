@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Tijdlijn, OpVolgorde } from './Tijdlijn'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { pickRandom, shuffle } from '../leer/match'
@@ -172,7 +173,7 @@ export default function GeschiedenisApp() {
         { id: 'tijdlijn', label: 'Artikel' },
         { id: 'personen', label: 'Personen' },
         { id: 'leren', label: 'Leren in blokken' },
-        { id: 'overhoren', label: 'Overhoren' },
+        { id: 'tijdbalk', label: 'Tijdlijn' }, { id: 'volgorde', label: 'Op volgorde' }, { id: 'overhoren', label: 'Overhoren' },
       ]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null); setBlokQuiz(false) }}
@@ -292,6 +293,12 @@ export default function GeschiedenisApp() {
           <QuizRunner maak={() => maakBlokQuiz(blok)} herstartLabel="Blok opnieuw" />
         </>
       )}
+
+      {tab === 'tijdbalk' && <Tijdlijn />}
+
+
+      {tab === 'volgorde' && <OpVolgorde />}
+
 
       {tab === 'overhoren' && quiz === null && (
         <>

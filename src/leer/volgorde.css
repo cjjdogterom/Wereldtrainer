@@ -1,0 +1,187 @@
+.vo {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vo-kop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.vo-opdracht {
+  font-family: var(--display);
+  font-size: 20px;
+  color: var(--km-ink);
+}
+
+.vo-score {
+  font-size: 13px;
+  color: var(--km-soft);
+}
+
+.vo-rij {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.vo-plek {
+  position: relative;
+  display: grid;
+  grid-template-columns: 74px 1fr 20px;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1.5px dashed var(--km-line);
+  background: color-mix(in srgb, var(--km-panel) 60%, transparent);
+}
+
+.vo-plek.vol {
+  border-style: solid;
+  background: var(--km-panel);
+}
+
+.vo-plek.goed {
+  border-color: var(--good);
+  background: var(--good-soft);
+}
+
+.vo-plek.fout {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+}
+
+.vo-nr {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--km-muted);
+}
+
+.vo-leeg {
+  color: var(--km-muted);
+}
+
+.vo-inhoud {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vo-detail {
+  font-size: 13px;
+  color: var(--km-soft);
+}
+
+.vo-icoon {
+  color: currentColor;
+}
+
+.vo-plek.goed .vo-icoon {
+  color: var(--good);
+}
+
+.vo-plek.fout .vo-icoon {
+  color: var(--bad);
+}
+
+.vo-hint {
+  font-size: 14px;
+  color: var(--km-soft);
+}
+
+.vo-stapel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vo-kaart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--km-line);
+  background: var(--km-panel);
+  text-align: left;
+  font-size: 15px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.vo-kaart:hover {
+  transform: translateY(-2px);
+  border-color: var(--km-accent);
+}
+
+.vo-kaart img,
+.vo-inhoud img {
+  height: 46px;
+  width: auto;
+}
+
+.vo-terug {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--km-accent);
+}
+
+.vo-uitslag {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+}
+
+.vo-uitslag > p {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.vo-uitslag.goed > p {
+  color: var(--good);
+}
+
+.vo-uitslag.fout > p {
+  color: var(--bad);
+}
+
+.vo-juist {
+  padding-left: 22px;
+  display: grid;
+  gap: 4px;
+}
+
+.vo-juist-detail {
+  color: var(--km-soft);
+  font-size: 14px;
+}
+
+.vo-uitslag .km-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 520px) {
+  .vo-plek {
+    grid-template-columns: 54px 1fr 18px;
+  }
+}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Sorteren from './Sorteren'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { pickRandom, shuffle } from '../leer/match'
@@ -135,10 +136,11 @@ export default function RangenApp() {
   return (
     <LeerShell
       mark={onderdeel.mark}
+      wereld="rangen"
       accent={onderdeel.accent}
       title={onderdeel.naam}
       subtitle={`${onderdeel.rangen.length} rangen van hoog naar laag`}
-      tabs={[{ id: 'leren', label: 'Rangorde' }, { id: 'overhoren', label: 'Overhoren' }]}
+      tabs={[{ id: 'leren', label: 'Rangorde' }, { id: 'sorteren', label: 'Strepen sorteren' }, { id: 'overhoren', label: 'Overhoren' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={
@@ -182,6 +184,9 @@ export default function RangenApp() {
           </ol>
         </>
       )}
+
+      {tab === 'sorteren' && <Sorteren onderdeelId={onderdeel.id} />}
+
 
       {tab === 'overhoren' && quiz === null && (
         <>

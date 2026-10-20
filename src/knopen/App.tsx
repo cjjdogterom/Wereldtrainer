@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Memory from './Memory'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { distractors, shuffle } from '../leer/match'
@@ -92,7 +93,7 @@ export default function KnopenApp() {
       accent={ACCENT}
       title="Nautische knopen"
       subtitle={`${KNOPEN.length} knopen en hun gebruik`}
-      tabs={[{ id: 'leren', label: 'Basisknopen' }, { id: 'alle', label: 'Alle vaarknopen' }, { id: 'overhoren', label: 'Overhoren' }]}
+      tabs={[{ id: 'leren', label: 'Basisknopen' }, { id: 'alle', label: 'Alle vaarknopen' }, { id: 'memory', label: 'Memory' }, { id: 'overhoren', label: 'Overhoren' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={
@@ -153,6 +154,9 @@ export default function KnopenApp() {
           </div>
         </>
       )}
+
+      {tab === 'memory' && <Memory />}
+
 
       {tab === 'overhoren' && quiz === null && (
         <>

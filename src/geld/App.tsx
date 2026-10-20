@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Afrekenen from './Afrekenen'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { distractors, pickRandom, shuffle } from '../leer/match'
@@ -61,7 +62,7 @@ export default function GeldApp() {
       accent={ACCENT}
       title="Geldbijnamen"
       subtitle="Gulden, euro & straattaal"
-      tabs={[{ id: 'leren', label: 'Leren' }, { id: 'overhoren', label: 'Overhoren' }]}
+      tabs={[{ id: 'leren', label: 'Leren' }, { id: 'afrekenen', label: 'Afrekenen' }, { id: 'overhoren', label: 'Overhoren' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={<p>Geldnamen van het gulden-tijdperk (tot de euro in 2002) tot de euro-straattaal van nu. Veel oude namen komen uit het Bargoens (dieventaal met sterke Jiddisch-Hebreeuwse invloed), de nieuwe vooral uit de hiphop en straattaal.</p>}
@@ -101,6 +102,9 @@ export default function GeldApp() {
           ))}
         </article>
       )}
+
+      {tab === 'afrekenen' && <Afrekenen />}
+
 
       {tab === 'overhoren' && quiz === null && (
         <>

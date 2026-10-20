@@ -18,3 +18,94 @@
 .gl-artikel .km-table td:first-child {
   white-space: nowrap;
 }
+
+/* Afrekenen */
+.gd-afrekenen {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 92% 12%, rgba(255, 233, 160, 0.5) 0 40px, transparent 41px),
+    var(--km-panel);
+  border: 1px solid var(--km-line);
+  box-shadow: var(--shadow-md);
+}
+
+.gd-af-kop {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--km-soft);
+}
+
+.gd-af-munt {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--km-accent) 14%, white);
+  color: var(--km-accent);
+  font-weight: 700;
+}
+
+.gd-af-vraag {
+  font-family: var(--display);
+  font-size: 22px;
+  line-height: 1.35;
+  color: var(--km-ink);
+}
+
+.gd-af-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.gd-af-prefix {
+  font-family: var(--display);
+  font-size: 26px;
+  color: var(--km-accent);
+}
+
+.gd-af-form input {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--km-line);
+  font-family: var(--display);
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.gd-af-form input.goed {
+  border-color: var(--good);
+  background: var(--good-soft);
+}
+
+.gd-af-form input.fout {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+}
+
+.gd-af-form .km-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gd-af-uitslag {
+  display: flex;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.gd-af-uitslag.goed svg {
+  color: var(--good);
+}
+
+.gd-af-uitslag.fout svg {
+  color: var(--bad);
+}

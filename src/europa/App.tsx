@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Tijdreis from './Tijdreis'
 import LeerShell from '../leer/LeerShell'
 import QuizRunner, { type Vraag } from '../leer/QuizRunner'
 import { distractors, pickRandom, shuffle } from '../leer/match'
@@ -127,7 +128,7 @@ export default function EuropaApp() {
       accent={ACCENT}
       title="Europa in vogelvlucht"
       subtitle="Wie had wanneer de macht, en waar"
-      tabs={[{ id: 'leren', label: 'Artikel' }, { id: 'landen', label: 'Ontstaan van landen' }, { id: 'overhoren', label: 'Overhoren' }]}
+      tabs={[{ id: 'leren', label: 'Artikel' }, { id: 'landen', label: 'Ontstaan van landen' }, { id: 'tijdreis', label: 'Tijdreis' }, { id: 'overhoren', label: 'Overhoren' }]}
       active={tab}
       onSelect={(id) => { setTab(id); setQuiz(null) }}
       footnote={<p>Bewust beknopt: de grote lijnen van de Europese machtsgeschiedenis · kaarten via Wikimedia Commons.</p>}
@@ -206,6 +207,9 @@ export default function EuropaApp() {
           </div>
         </>
       )}
+
+      {tab === 'tijdreis' && <Tijdreis />}
+
 
       {tab === 'overhoren' && quiz === null && (
         <>

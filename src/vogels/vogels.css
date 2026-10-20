@@ -86,3 +86,141 @@
   border-radius: 10px;
   border: 1px solid var(--km-line);
 }
+
+/* Drie hints */
+.vg-hints {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vg-hints-teller {
+  font-size: 13px;
+  color: var(--km-soft);
+}
+
+.vg-hint {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+  animation: vg-in 0.25s ease;
+}
+
+@keyframes vg-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.vg-hint-nr {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--km-accent);
+}
+
+.vg-speel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--km-accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.vg-hint-tekst {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.vg-hint-foto {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.vg-meer {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1.5px dashed var(--km-accent);
+  color: var(--km-accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.vg-hint-opties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.vg-hint-opties button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--km-line);
+  background: var(--km-panel);
+  font-weight: 700;
+  text-align: left;
+}
+
+.vg-hint-opties button.goed {
+  border-color: var(--good);
+  background: var(--good-soft);
+  color: var(--good);
+}
+
+.vg-hint-opties button.fout {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+  color: var(--bad);
+}
+
+.vg-hint-opties button.uit {
+  opacity: 0.5;
+}
+
+.vg-hint-uitslag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--km-panel);
+  border: 1px solid var(--km-line);
+}
+
+.vg-hint-uitslag.goed p {
+  color: var(--good);
+  font-weight: 700;
+}
+
+.vg-hints-klaar {
+  align-items: flex-start;
+}
+
+.vg-hints-klaar .km-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
