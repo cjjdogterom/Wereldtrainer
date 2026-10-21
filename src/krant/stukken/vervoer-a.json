@@ -1,0 +1,870 @@
+[
+  {
+    "id": "vervoer-01",
+    "kop": "Vijfentwintig explosies per seconde: zo denkt een zuigermotor",
+    "intro": "Een verbrandingsmotor lijkt uitontwikkeld, maar achter elk getal op het typeplaatje zit een compromis tussen traagheid, warmte en chemie. Wie snapt waarom kleppen te vroeg opengaan en waarom een diesel geen gasklep nodig heeft, hoort ook eerder wanneer er iets misgaat.",
+    "hoofdstuk": "Verbrandingsmotor",
+    "basis": [
+      "viertakt-kleptiming",
+      "benzine-vs-diesel",
+      "brandstofinjectie",
+      "turbo-intercooler",
+      "ontsteking-motormanagement",
+      "smering-koeling",
+      "tweetakt-vs-viertakt",
+      "cilinderconfiguraties-motor"
+    ],
+    "fotos": [
+      {
+        "wiki": "Four-stroke engine",
+        "taal": "en",
+        "bijschrift": "De viertaktcyclus: inlaat, compressie, arbeid en uitlaat in twee omwentelingen"
+      },
+      {
+        "wiki": "Timing belt (camshaft)",
+        "taal": "en",
+        "bijschrift": "Distributieriem vervangen: bij een interferentiemotor geen klus om uit te stellen"
+      },
+      {
+        "wiki": "Engine knocking",
+        "taal": "en",
+        "bijschrift": "Klop: het restmengsel ontbrandt vanzelf voordat het vlamfront er is"
+      },
+      {
+        "wiki": "Diesel exhaust fluid",
+        "taal": "en",
+        "bijschrift": "AdBlue: ureum in water dat in de uitlaat NOx helpt afbreken"
+      },
+      {
+        "wiki": "Expansion chamber",
+        "taal": "en",
+        "bijschrift": "Expansiepijp: de buikige tweetaktuitlaat die mengsel terugduwt"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Zet een viercilinder op 3000 toeren en reken even mee. De krukas draait vijftig keer per seconde rond, één omwenteling duurt twintig milliseconden, en één graad krukashoek is voorbij in nog geen zestig microseconden. Elke cilinder heeft bij een viertakt twee omwentelingen nodig voor één arbeidsslag, dus elke cilinder ontsteekt vijfentwintig keer per seconde. In die fractie moet lucht naar binnen, moet brandstof erbij, moet een vonk of zelfontbranding op precies het goede moment komen en moet het afgewerkte gas er weer uit. Dat dit miljoenen keren foutloos gaat, is geen vanzelfsprekendheid maar het resultaat van een eeuw slim omgaan met natuurkundige beperkingen.",
+          "De basis ken je: inlaat, compressie, arbeid, uitlaat, samen 720 graden krukas. Omdat elke klep maar één keer per twee omwentelingen open hoeft, draait de nokkenas half zo snel als de krukas, via een distributieriem, ketting of tandwielen in een vaste verhouding van 2:1. Die verbinding is heilig. Bij een zogeheten interferentiemotor bewegen de kleppen en zuigers door dezelfde ruimte, alleen nooit tegelijk. Breekt de riem, dan staat de nokkenas stil terwijl de krukas doordraait, en slaan de zuigers tegen openstaande kleppen. Krom geslagen kleppen en een beschadigde cilinderkop zijn het gevolg, vaak een rekening die de dagwaarde van een oudere auto overstijgt."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Kleppen die te vroeg opengaan",
+        "alineas": [
+          "Op papier opent de inlaatklep in het bovenste dode punt en sluit hij in het onderste. In werkelijkheid gaat hij zo'n tien tot dertig graden vóór het bovenste dode punt al open en sluit hij pas dertig tot zeventig graden ná het onderste dode punt. De reden is traagheid. De luchtkolom in het inlaatspruitstuk heeft massa; is die eenmaal op snelheid, dan blijft hij doorstromen, ook als de zuiger alweer omhoog komt. Door de klep langer open te houden, prop je meer lucht in de cilinder dan het geometrische slagvolume doet vermoeden. Dat heet een vullingsgraad boven de honderd procent, iets wat goed afgestemde atmosferische racemotoren in een smal toerengebied echt halen.",
+          "De uitlaat opent juist ruim vóór het onderste dode punt, zo'n veertig tot zestig graden, midden in de arbeidsslag. Je offert een stukje expansie op, maar de restdruk van enkele bars blaast het grootste deel van het uitlaatgas vanzelf naar buiten. De zuiger hoeft in de uitlaatslag dan minder te duwen. Rond het bovenste dode punt staan beide kleppen even tegelijk open: de klepoverlap. Het wegstromende uitlaatgas trekt verse lading mee de cilinder in, het spoeleffect. Bij hoge toeren is dat goud waard, maar stationair is de gasstroom traag en stroomt uitlaatgas juist terug de inlaat in. Het resultaat is een onrustig stationair toerental en hogere emissies.",
+          "Daarom hebben vrijwel alle moderne motoren variabele nokkenastiming. Een hydraulische versteller op het nokkenastandwiel, gevoed door motorolie onder druk, verdraait de nokkenas een paar tientallen krukasgraden ten opzichte van de krukas. Weinig overlap stationair, veel overlap bij vol gas op hoge toeren. Dat verklaart ook een typische storing: vervuilde of te dunne olie, of een verstopt zeefje in de oliestuurklep, en de versteller reageert traag. De motorcomputer ziet dan een afwijking tussen gewenste en gemeten nokkenaspositie en zet een foutcode. Een olieverversing met de juiste specificatie is bij zo'n melding vaak de goedkoopste eerste stap."
+        ],
+        "vt": "viertakt"
+      },
+      {
+        "tussenkop": "Compressie en de klopgrens",
+        "alineas": [
+          "De compressieverhouding is het totale volume boven de zuiger in het onderste dode punt, gedeeld door het volume dat overblijft in het bovenste dode punt. Een cilinder van 500 cc met een verbrandingsruimte van 50 cc heeft dus (500 + 50) / 50 = 11:1. Hoe hoger die verhouding, hoe verder de hete gassen kunnen uitzetten en hoe meer arbeid je uit dezelfde warmte haalt. Bij benzine stopt het feest rond 10:1 tot 13:1, met enkele directe-injectiemotoren rond 14:1. Daarboven ontbrandt het restmengsel vanzelf door de druk- en temperatuurstijging voordat het vlamfront het bereikt. Die tweede, ongecontroleerde verbranding botst op de eerste en geeft drukgolven: klop, het metalige tikken onder belasting.",
+          "Een diesel speelt een ander spel. Hij comprimeert alleen lucht, met een verhouding van 15:1 tot 18:1, en oudere wervelkamerdiesels gingen zelfs boven de 20:1. De lucht bereikt daarbij drukken van dertig tot vijftig bar en temperaturen ruim boven 600 graden, heet genoeg om ingespoten diesel vanzelf te laten ontbranden. Een bougie is overbodig. De gloeibougies verwarmen alleen bij een koude start de verbrandingsruimte. Klop bestaat hier niet in dezelfde vorm, omdat er geen voorgemengd mengsel klaarligt om te ontploffen; de brandstof brandt pas zodra hij wordt ingespoten. Dat is precies waarom een diesel zo hoog kan comprimeren."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Gasklep tegen luchtoverschot",
+        "alineas": [
+          "Een benzinemotor regelt zijn vermogen met de gasklep. Minder gas betekent minder lucht, en de motorregeling spuit evenredig minder benzine in, zodat de verhouding rond 14,7 kilo lucht per kilo benzine blijft: stoichiometrisch, of lambda 1. Het nadeel zit in die half dichte klep. Bij rustig rijden zuigt de motor tegen een onderdruk aan, en die pompverliezen kosten bij deellast een flink deel van het rendement. Dat is waarom een benzinemotor in de stad zo onzuinig is: hij werkt de hele tijd tegen zijn eigen smoorklep in.",
+          "Een diesel heeft in principe geen gasklep. Hij zuigt altijd volle lucht aan en regelt het vermogen alleen met de hoeveelheid ingespoten brandstof. Bij deellast loopt hij dus heel arm, met lambda ver boven 1. Geen smoorverlies, een hogere compressie en ongeveer tien tot vijftien procent meer energie per liter brandstof: samen verklaart dat waarom een diesel zuiniger is. Het koppel laag in de toeren komt uit de lange slag, de hoge compressie en de turbo die er vrijwel altijd op zit. De gasklep die je op moderne diesels toch aantreft, dient voor uitlaatgasrecirculatie en om de motor schokvrij af te zetten, niet om vermogen te regelen."
+        ]
+      },
+      {
+        "tussenkop": "Roet, NOx en AdBlue",
+        "alineas": [
+          "De keerzijde van dat luchtoverschot is een heterogene verbranding. Rond elke brandstofdruppel zijn er zones met te weinig zuurstof, waar roet ontstaat, en hete zones met veel zuurstof, waar stikstof en zuurstof samen stikstofoxiden vormen. Een driewegkatalysator werkt alleen in een smal venster rond lambda 1 en kan NOx in een arm uitlaatgas niet reduceren. Een moderne diesel heeft daarom een hele fabriek in zijn uitlaat: een oxidatiekatalysator voor koolmonoxide en koolwaterstoffen, een roetfilter en een SCR-katalysator. Die laatste krijgt AdBlue ingespoten, een oplossing van 32,5 procent ureum in water die in de hete uitlaat ammoniak wordt. Ammoniak zet NOx om in stikstof en water.",
+          "Het roetfilter is een keramische honingraat waarvan de kanaaltjes om en om aan de voor- of achterkant dicht zijn, zodat het gas door de poreuze wanden moet. Het roet blijft hangen en moet periodiek worden verbrand bij ongeveer 600 graden. Bij snelwegritten gaat dat deels vanzelf; anders start de motorregeling een actieve regeneratie door extra brandstof na te spuiten. Wordt die regeneratie steeds afgebroken omdat de rit maar tien minuten duurt, dan slibt het filter dicht. De drukverschilsensor over het filter meldt dat, het lampje gaat aan, en in het ergste geval schakelt de auto naar een noodloop. Een diesel voor uitsluitend korte ritten is daarom een technische misser, geen kwestie van smaak."
+        ],
+        "kader": {
+          "titel": "Storingen herkennen",
+          "punten": [
+            "Metalig tikken onder belasting: klop; te laag octaan, koolafzetting of een defecte klopsensor",
+            "Roetfilterlampje na veel korte ritten: twintig minuten constant op de snelweg rijden helpt vaak",
+            "AdBlue bevriest rond −11 °C; het systeem heeft daarom verwarming in tank en leiding",
+            "Blauwe rook: olie verbrandt; witte rook bij warme motor: koelvloeistof; zwarte rook: te veel brandstof",
+            "Rammel bij koude start van een kettingmotor: mogelijk een uitgerekte distributieketting of spanner"
+          ]
+        },
+        "foto": 3
+      },
+      {
+        "tussenkop": "Van vier tot 2700 bar",
+        "alineas": [
+          "Hoe hoger de injectiedruk, hoe fijner de verneveling en hoe sneller de brandstof verdampt. Bij spruitstukinjectie spuit een injector per cilinder benzine op de achterkant van de inlaatklep, bij slechts drie tot vijf bar; er is alle tijd om te mengen. Directe benzine-injectie spuit rechtstreeks in de cilinder, met grofweg 100 tot 350 bar. De verdampende brandstof koelt de lading, wat ruimte geeft voor meer compressie of meer turbodruk zonder klop. Maar de inlaatkleppen worden niet meer schoongespoeld door benzine, en olienevel uit de carterontluchting bakt er als koolaanslag op vast. Sommige fabrikanten combineren daarom beide systemen, en directe injectie maakt ook een benzineroetfilter nodig.",
+          "Een diesel heeft maar milliseconden om brandstof te laten verdampen in hete lucht, dus daar gaat de druk nog veel verder. Bij common rail houdt een hogedrukpomp een gemeenschappelijke buis permanent op 2000 tot 2700 bar. Elektronisch aangestuurde injectoren, met magneetventiel of piëzo-element, openen los van het krukastoerental, in de orde van een tiende milliseconde. Daardoor kan de motor per arbeidsslag meerdere keren inspuiten: een kleine voorinspuiting die de druk geleidelijk laat oplopen en het typische dieseltikken dempt, een hoofdinspuiting voor het vermogen, en na-inspuitingen die het roetfilter helpen regenereren. Lekkende injectoren herkent een garage aan de retourhoeveelheid: een injector die veel meer terugstuurt dan zijn buren, houdt de raildruk niet."
+        ],
+        "citaat": "Hoe hoger de injectiedruk, hoe fijner de verneveling en hoe sneller de brandstof verdampt.",
+        "lesFoto": "brandstofinjectie"
+      },
+      {
+        "tussenkop": "Uitlaatgas als gratis energie",
+        "alineas": [
+          "Het uitlaatgas dat de cilinder verlaat, heeft nog druk en temperatuur over: bij een diesel tot ongeveer 800 graden, bij een benzinemotor tot 950 graden of meer. Een turbo zet een deel daarvan om. Het turbinewiel in de uitlaat en het compressorwiel in de inlaat zitten op één as die 150.000 tot 250.000 toeren draait. Een overdruk van één bar betekent ongeveer twee bar absoluut in het inlaatspruitstuk, dus bij gelijke temperatuur ruwweg twee keer zoveel lucht en twee keer zoveel brandstof. Maar comprimeren verwarmt, net als bij een fietspomp: de lucht komt al snel op tachtig tot ruim honderd graden uit de compressor. De intercooler koelt die terug, zodat de dichtheid stijgt en de klopgrens verder weg ligt.",
+          "Een wastegate laat uitlaatgas langs de turbine lopen zodra de gewenste druk bereikt is. Diesels hebben bijna altijd een turbo met variabele geometrie: verstelbare schoepjes rond het turbinewiel die bij weinig gasstroom dichtgaan, zodat het gas sneller op de schoepen blaast en de druk vroeg opbouwt. Bij benzinemotoren is die techniek zeldzaam, omdat het hetere uitlaatgas de beweeglijke delen te zwaar belast. Een klassieke kwaal van variabele geometrie bij weinig gereden diesels is verroeten van het mechanisme, waarna de schoepen vastzitten: te weinig druk onderin of juist overboost en een noodloop. Regelmatig eens flink doortrekken houdt het mechanisme vrij. En gun de turbo na een stevige rit een halve minuut rustig uitrijden: zet je de motor direct af, dan verkookt de stilstaande olie in het gloeiende lagerhuis tot koolafzetting."
+        ],
+        "lesFoto": "turbo-intercooler"
+      },
+      {
+        "tussenkop": "De ECU als dirigent",
+        "alineas": [
+          "De motorregeleenheid leest de krukas- en nokkenaspositie, de luchtmassa of de inlaatdruk, de temperatuur van lucht en koelvloeistof en de stand van het gaspedaal. Uit tabellen en modellen berekent hij per cyclus hoeveel brandstof erin moet en wanneer de vonk komt. Ontsteken gebeurt vóór het bovenste dode punt, omdat de verbranding tijd kost. De piekdruk moet ongeveer tien tot twintig graden ná het bovenste dode punt vallen, wanneer de drijfstang al een gunstige hoek maakt. Bij hogere toeren is er per graad minder tijd, dus moet de ontsteking verder vervroegd worden. Te vroeg betekent klop; te laat betekent dat de verbranding nog doorgaat in de uitlaat, met hete uitlaatkleppen en verloren rendement.",
+          "Twee sensoren maken van dit stuurwerk een regelkring. De klopsensor is een piëzo-element op het blok dat de karakteristieke trillingsfrequentie van klop herkent. De ECU verlaat dan per cilinder de ontsteking een paar graden en schuift hem daarna voorzichtig terug. Zo loopt de motor vlak tegen de klopgrens, ook op Euro 95 in plaats van 98. Octaan is trouwens een maat voor klopvastheid, niet voor energie: beide brandstoffen bevatten vrijwel even veel. De lambdasonde vóór de katalysator meet restzuurstof en laat het mengsel rond lambda 1 schommelen, waar de driewegkat koolmonoxide en koolwaterstoffen oxideert en NOx reduceert. Een tweede sonde achter de kat controleert of die nog zuurstof opslaat."
+        ]
+      },
+      {
+        "tussenkop": "Een oliefilm van micrometers",
+        "alineas": [
+          "In de glijlagers van krukas en drijfstangen raakt metaal nooit metaal, zolang er een hydrodynamische oliefilm is. De draaiende as sleept olie mee in een wigvormige spleet en bouwt daarin zelf de druk op die het lager draagt. De oliepomp levert alleen de aanvoer, bij grofweg één tot vijf bar. Valt die druk weg, dan breekt de film en lopen lagers binnen seconden tot minuten vast. Daarom is het rode oliedruklampje iets heel anders dan de gele melding dat het peil laag is: rood betekent onmiddellijk stoppen en de motor uitzetten. Omdat de film pas ontstaat zodra de as draait, ontstaat de meeste slijtage bij de koude start, wanneer de olie dik is en nog onderweg naar de lagers.",
+          "Daarover zegt de viscositeitsklasse veel. Bij 5W-30 vertelt het getal vóór de W hoe goed de olie bij kou nog stroomt, het getal erna de dikte bij 100 graden. Viscositeitsverbeteraars laten een multigrade-olie zich koud als een dunne en warm als een dikkere olie gedragen. Het koelsysteem staat onder een overdruk van één tot anderhalve bar via de dop van het expansievat, waardoor het kookpunt boven de 120 graden komt. De thermostaat blijft dicht tot zo'n 85 à 95 graden, zodat de motor snel opwarmt. Moderne motoren draaien bij deellast zelfs rond 105 graden, omdat warme olie minder wrijving geeft. Open dat vat nooit heet: door de drukval kookt de vloeistof ineens."
+        ],
+        "lesFoto": "smering-koeling"
+      },
+      {
+        "tussenkop": "Tweetakt: elke omwenteling raak",
+        "alineas": [
+          "Een tweetakt heeft geen kleppen. De zuiger opent en sluit zelf poorten in de cilinderwand. Op de weg omhoog comprimeert hij boven het mengsel en zuigt hij onder, in het carter, vers mengsel aan. Op de weg omlaag perst hij dat carter licht samen; zodra eerst de uitlaatpoort en daarna de spoelpoorten vrijkomen, stroomt het verse mengsel de cilinder in en duwt het uitlaatgas weg. Elke omwenteling een arbeidsslag, weinig onderdelen, laag gewicht. Omdat het carter deel is van het gaspad, kan er geen oliebad in: de olie gaat met de benzine mee, in mengsels als 1:50 of via een doseerpomp, en verbrandt mee. Vandaar de blauwe walm en de typische geur.",
+          "Het echte probleem is de spoeling. Uitlaat- en spoelpoorten staan tegelijk open, dus een deel van het verse mengsel verdwijnt rechtstreeks de uitlaat in. Een expansiepijp, de buikige uitlaat, stuurt een drukgolf terug die een deel van dat mengsel weer de cilinder in duwt, maar alleen in een smal toerengebied. Dat geeft het beruchte powerband-karakter: eronder sloom, erin explosief. Met emissienormen was die verspilling niet te verenigen, en op de weg is de tweetakt vrijwel verdwenen. Moderne enduro-tweetakten spuiten de brandstof pas in wanneer de uitlaatpoort bijna dicht is. Een grote scheepsdiesel spoelt alleen met lucht en heeft dat probleem dus helemaal niet, maar daarover later in deze reeks meer."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Balans en karakter",
+        "alineas": [
+          "Elke zuiger die op en neer gaat veroorzaakt traagheidskrachten. De primaire kracht wisselt één keer per omwenteling. De secundaire wisselt twee keer, omdat de drijfstang schuin staat en de zuiger daardoor rond het bovenste dode punt sneller beweegt dan rond het onderste. Die secundaire onbalans groeit met het kwadraat van het toerental. Een eencilinder heeft beide en tempert ze met tegengewichten en meestal een balansas: koppelrijk, licht, smal en trillerig. Een 90-graden-V-twin met gedeelde krukpen is primair perfect in balans, met een onregelmatig vuurritme dat rijders als karakter ervaren. De 270-gradenparalleltwin bootst precies dat ritme na, met ontstekingsintervallen van 270 en 450 graden.",
+          "De viercilinder-in-lijn met 180-graden-krukas is primair in balans maar houdt secundaire trillingen over, die je als zoemen in stuur en voetsteunen voelt; hij is breed maar draait hoog en levert veel topvermogen. De driecilinder met 120-graden-krukas houdt een schommelkoppel over dat een balansas opvangt, en is smaller dan een vier met meer trekkracht onderin. De boxer van BMW, met twee tegenover elkaar liggende cilinders, heeft een goede balans en een laag zwaartepunt. Omdat de krukas in de lengterichting ligt, zie je de motor bij een gasstoot op de standaard even opzij wiebelen: de reactie op het versnellen van de draaiende massa. Geen defect, maar natuurkunde die je kunt zien."
+        ],
+        "citaat": "Geen defect, maar natuurkunde die je kunt zien.",
+        "lesFoto": "cilinderconfiguraties-motor"
+      }
+    ]
+  },
+  {
+    "id": "vervoer-02",
+    "kop": "Van krukas tot contactvlak: waar het koppel naartoe gaat",
+    "intro": "Een motor maakt koppel, maar pas de aandrijflijn, de remmen en de vering bepalen wat daarvan op het asfalt terechtkomt. Op vier wielen en op twee gelden dezelfde natuurwetten, met heel andere gevolgen.",
+    "hoofdstuk": "Aandrijflijn en onderstel",
+    "basis": [
+      "koppeling-versnellingsbak",
+      "differentieel-aandrijving",
+      "remmen-abs",
+      "wielophanging-sturing",
+      "eindaandrijving-motor",
+      "koppeling-motorfiets",
+      "remmen-motorfiets",
+      "tegensturen-geometrie",
+      "vering-motorfiets",
+      "rijhulp-motorfiets"
+    ],
+    "fotos": [
+      {
+        "wiki": "Dual-clutch transmission",
+        "taal": "en",
+        "bijschrift": "Dubbele koppeling: twee ingaande assen, voor de even en de oneven versnellingen"
+      },
+      {
+        "wiki": "Torque converter",
+        "taal": "en",
+        "bijschrift": "Koppelomvormer: pompwiel, turbinewiel en stator in een oliegevuld huis"
+      },
+      {
+        "wiki": "Limited-slip differential",
+        "taal": "en",
+        "bijschrift": "Sperdifferentieel: stuurt koppel naar het wiel dat nog grip heeft"
+      },
+      {
+        "wiki": "Brake fluid",
+        "taal": "en",
+        "bijschrift": "Remvloeistof trekt vocht aan, waardoor het kookpunt langzaam daalt"
+      },
+      {
+        "wiki": "Wheel alignment",
+        "taal": "en",
+        "bijschrift": "Uitlijnen: toespoor en camber worden op tienden van een graad gemeten"
+      },
+      {
+        "wiki": "Steering damper",
+        "taal": "en",
+        "bijschrift": "Stuurdemper: dempt snelle stuurtrillingen zoals een tankslapper"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een gemiddelde benzinemotor levert zo'n 250 newtonmeter koppel. Dat klinkt als veel, maar met dat koppel rechtstreeks op een wiel met een straal van dertig centimeter krijg je nog geen 850 newton trekkracht: te weinig om een auto van anderhalve ton vlot een helling op te krijgen. Bovendien draait die motor pas tussen pakweg 800 en 6500 toeren bruikbaar, terwijl de wielen vanuit stilstand moeten beginnen. Alles tussen krukas en band is er dus om twee problemen op te lossen: toerental ruilen tegen koppel, en de overgang van stilstand naar rijden mogelijk maken zonder dat de motor afslaat.",
+          "Het sleutelwoord is overbrenging. Een tandwielpaar met verhouding 3,5 laat de uitgaande as drieënhalf keer langzamer draaien, maar met drieënhalf keer zoveel koppel. Het vermogen, twee pi maal toerental maal koppel, blijft gelijk op wat wrijving na. Tel de eindoverbrenging in het differentieel erbij, orde 3 tot 4, en die 250 newtonmeter wordt in de eerste versnelling bijna 3000 newtonmeter aan de wielen. Op een wiel van dertig centimeter is dat ruim 9000 newton trekkracht, meer dan de banden op nat asfalt kunnen overbrengen. Daarom draait een wiel in de eerste zo makkelijk door en is gevoelig gas geven daar zo belangrijk."
+        ]
+      },
+      {
+        "tussenkop": "Synchroniseren, overzetten, traploos",
+        "alineas": [
+          "In een handbak zijn alle tandwielparen permanent in aangrijping. De tandwielen draaien los op de as, totdat een schakelmof er één vastzet. Voordat die mof kan invallen, moet het tandwiel even snel draaien als de as. Dat regelen de synchroniseerringen: conusvormige wrijvingsringen die het tandwiel afremmen of meenemen. Een versleten synchroniseerring hoor je als krassen bij snel schakelen, vaak eerst in de tweede, omdat die het meest wordt gebruikt bij hoge toerentalverschillen. De droge koppeling ervoor wordt door een diafragmaveer tegen het vliegwiel geklemd. Een koppeling die bij een stevige acceleratie in de hoogste versnelling laat oplopen zonder vaart te maken, slipt en is op.",
+          "Een dubbele koppeling, zoals de DSG, heeft twee koppelingen en twee ingaande assen: een voor de oneven, een voor de even versnellingen. Rijd je in drie, dan staat vier op de andere as al klaar. Schakelen is niets anders dan de ene koppeling openen terwijl de andere sluit, in honderdsten van seconden en zonder onderbreking van trekkracht. Een CVT doet het traploos met een duwband tussen twee poelies met verschuivende flanken, een Nederlandse uitvinding die in Tilburg wordt gemaakt. De klassieke automaat gebruikt een koppelomvormer: een pompwiel slingert olie naar een turbinewiel, en een stator buigt de terugstroom om, wat bij veel slip het koppel bijna verdubbelt. Bij kruissnelheid zet een lock-up het geheel vast."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Het verraderlijke differentieel",
+        "alineas": [
+          "In een bocht legt het buitenwiel een langere weg af dan het binnenwiel. Op een starre as zou een van beide moeten slippen. Het open differentieel lost dat op met satellietwielen in een huis dat door het kroonwiel wordt rondgedraaid. Rechtuit draaien ze niet om hun eigen as; in een bocht wel, en dan gaat het ene wiel sneller en het andere langzamer. Wiskundig is het simpel: de som van beide wieltoerentallen is altijd twee keer het toerental van het kroonwiel. Krik je één wiel op en draai je aan de aandrijfas, dan draait dat wiel dus twee keer zo snel als het kroonwiel, terwijl het andere stilstaat.",
+          "De keerzijde is minder bekend. Een open differentieel verdeelt het koppel altijd gelijk. Staat één wiel op ijs en kan het maar 50 newtonmeter kwijt voordat het slipt, dan krijgt het andere wiel ook maar 50 newtonmeter. Het ene wiel draait dol, de auto staat stil. Een sperdifferentieel beperkt dat: lamellen onder voorspanning, een Torsen met wormwielen die bij koppelverschil vastlopen, of een volledig blokkeerbare sper bij terreinwagens. De meeste moderne auto's doen het elektronisch: het ABS-systeem remt het doldraaiende wiel licht af, waardoor het differentieel koppel naar het andere wiel kan sturen. Een part-time 4×4 zonder middendifferentieel mag om dezelfde reden nooit op droog asfalt in vierwielaandrijving rijden: de aandrijflijn verspant."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Remmen is warmte maken",
+        "alineas": [
+          "Het rempedaal drukt via een hefboom en een rembekrachtiger op de hoofdremcilinder. Volgens de wet van Pascal is de druk in de hele leiding gelijk, dus een remzuiger met zeven keer het oppervlak van de hoofdcilinderzuiger levert zeven keer de kracht. Bij een noodstop loopt de leidingdruk op tot ruim honderd bar en klemmen de blokken met tienduizenden newtons. Het systeem is opgesplitst in twee kringen, vaak diagonaal, zodat bij een lek nog altijd de helft remt. Zestig tot zeventig procent van de remkracht komt van de vooras, omdat het gewicht bij vertragen naar voren schuift. Daarom zitten daar altijd schijven, en achter soms nog trommels.",
+          "Een auto van 1500 kilo die vanaf 100 kilometer per uur stopt, moet ongeveer 580 kilojoule kwijt, genoeg om een paar liter water tientallen graden op te warmen, en dat in een paar seconden. Schijven koelen goed omdat ze aan de lucht liggen, vaak met interne ventilatiekanalen. De remvloeistof op glycolbasis neemt echter langzaam vocht op door slangen en het reservoir heen. DOT 4 kookt droog bij minimaal 230 graden, maar na vochtopname mag dat zakken tot 155 graden. Kookt de vloeistof tijdens een lange afdaling, dan ontstaan dampbellen die samendrukbaar zijn en zakt het pedaal door naar de vloer. Daarom vervang je remvloeistof ongeveer elke twee jaar, ook als ze er nog helder uitziet."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Waarom een rollend wiel beter remt",
+        "alineas": [
+          "Een band levert de meeste remkracht bij een slip van ongeveer tien tot twintig procent, niet wanneer het wiel blokkeert. ABS meet met sensoren per wiel of een wiel sneller vertraagt dan de auto fysiek kan, en laat dan via kleppen druk af, houdt hem vast of bouwt hem weer op, zo'n tien tot vijftien keer per seconde. De kortere remweg is mooi meegenomen, maar de echte winst is dat een rollend wiel zijwaartse kracht kan leveren: je kunt blijven sturen. Bij een noodstop trap je het pedaal dus vol in en houd je het vast, ook als het ratelt. Alleen op los grind of verse sneeuw kan een geblokkeerd wiel korter remmen, omdat het een wig van materiaal voor zich uit schuift.",
+          "De remweg zelf groeit met het kwadraat van de snelheid. Bij 100 kilometer per uur en een vertraging van 9 meter per seconde kwadraat sta je na ongeveer 43 meter stil, reactietijd niet meegerekend. Bij 130 is dat al ruim 72 meter. Versleten schokdempers maken dat langer, omdat het wiel na een oneffenheid even loskomt en ABS dan steeds druk moet afbouwen. Een demper zet beweging om in warmte door olie door kleine klepjes te persen; zijn kracht hangt af van de snelheid van in- en uitveren, niet van de uitslag. Een auto die na een drempel blijft nadeinen of op golvend wegdek onrustig wordt, heeft vermoeide dempers."
+        ]
+      },
+      {
+        "tussenkop": "Hoeken die je niet ziet",
+        "alineas": [
+          "De meest gebruikte voorwielophanging is de McPherson-veerpoot: veer en demper vormen een staande poot die ook het wiel geleidt, met onderaan één draagarm. Goedkoop en compact, maar bij inveren verandert de wielstand minder gunstig dan bij een dubbele draagarm of multilink. Drie uitlijnhoeken bepalen hoe het wiel de weg raakt. Toespoor, de wielen die van boven gezien iets naar elkaar toe of uit elkaar wijzen, is maar enkele tienden van een graad, maar een verkeerde instelling vreet in een paar duizend kilometer een rand van de band. Negatieve camber, de bovenkant van het wiel iets naar binnen, geeft in de bocht een beter contactvlak. Caster laat het stuur na een bocht vanzelf terugkeren.",
+          "Na het vervangen van stuurkogels, veerpoten of draagarmen hoort de auto opnieuw te worden uitgelijnd; een stoeprandtik kan hetzelfde doen. Een scheef stuur bij rechtuit rijden, een auto die naar één kant trekt of een band die alleen aan de binnenrand slijt, zijn de klassieke signalen. Moderne stuurinrichtingen zijn tandheugels met elektrische bekrachtiging. Die gebruikt alleen stroom wanneer je stuurt, scheelt daardoor enkele procenten brandstof tegenover een hydraulische pomp, en maakt rijstrookassistentie mogelijk. Ook hier geldt dat een nieuwe uitlijning nodig is na reparaties, omdat de camera en de stuurhoeksensor anders een andere rechtuitstand verwachten dan de wielen."
+        ],
+        "kader": {
+          "titel": "Onderhoud aandrijflijn en onderstel",
+          "punten": [
+            "Remvloeistof: circa elke twee jaar vervangen, los van kilometers",
+            "Koppeling die slipt in de hoogste versnelling onder vol gas: plaat versleten",
+            "Ongelijke bandenslijtage aan één rand: uitlijning laten controleren",
+            "Kettingspanning op het strakste punt meten; ketting en tandwielen altijd als set vervangen",
+            "Motorfiets met natte koppeling: olie met JASO MA- of MA2-specificatie"
+          ]
+        },
+        "foto": 4
+      },
+      {
+        "tussenkop": "Twee wielen, andere regels",
+        "alineas": [
+          "Op een motorfiets gaat het koppel meestal via een ketting naar het achterwiel. Die is licht en bij goed onderhoud zo'n 97 tot 98 procent efficiënt. O-, X- of Z-ringen sluiten het vet in de pennen op, maar de buitenkant vraagt elke 500 tot 1000 kilometer en na regen reiniging en smering. De spanning luistert nauw, omdat de afstand tussen voortandwiel en achteras verandert wanneer de achterbrug inveert. Onbelast is vaak 25 tot 35 millimeter speling nodig, gemeten op het strakste punt. Te strak trekt bij inveren de ketting en de lagers kapot; te slap laat hem overslaan. Een riem is schoon en stil maar gevoelig voor steentjes; een cardan is onderhoudsarm maar zwaar en tilt bij gas geven de achterkant op.",
+          "De koppeling is ook anders. In plaats van één grote plaat zit er een stapel kleine frictie- en staalplaten in een mand, meestal draaiend in de motorolie. Dat koelt goed en laat langzaam slippend manoeuvreren toe. Daarom mag er geen autoolie met wrijvingsverlagende toevoegingen in: die laat de platen slippen. Bij hard terugschakelen wil de motorrem het achterwiel laten stuiteren of blokkeren. Een slipper clutch heeft schuine nokken tussen naaf en mand die bij koppel van achteren de platen deels uit elkaar drukken. Bij gas geven werken dezelfde nokken vaak andersom en klemmen ze extra, waardoor lichtere veren en een lichtere hendel mogelijk zijn."
+        ],
+        "lesFoto": "eindaandrijving-motor"
+      },
+      {
+        "tussenkop": "Voorrem: zeventig tot negentig procent",
+        "alineas": [
+          "Een motorfiets is kort en heeft een hoog zwaartepunt ten opzichte van de wielbasis. Bij een noodstop op droog asfalt verschuift zoveel gewicht naar voren dat de voorrem zeventig tot negentig procent van de remkracht levert; het achterwiel komt bijna los. Vandaar twee grote schijven met radiaal gemonteerde vierzuigerklauwen voor, en één kleine schijf achter. Goed remmen betekent progressief opbouwen: eerst de vork laten induiken en het gewicht laten verplaatsen, dan pas volle druk. Een ruk aan de hendel blokkeert het voorwiel voordat het belast is, en een geblokkeerd voorwiel betekent op twee wielen vrijwel zeker een val. ABS is daarom sinds 2016 verplicht op nieuwe motoren boven 125 cc.",
+          "Remmen in een bocht vraagt grip die al nodig is voor de zijkracht. Die verdeling heet de cirkel van Kamm: een band heeft één budget, te verdelen over remmen, gas en sturen. Daarom rem je zoveel mogelijk vóór de bocht, rechtop. Bocht-ABS gebruikt een traagheidsmeter die de hellingshoek kent en de remdruk daarop aanpast. Op een losse of gladde ondergrond verschuift minder gewicht naar voren, en daar mag de achterrem dus relatief meer doen. Combiremsystemen koppelen voor en achter, zodat ook bij alleen het pedaal beide wielen remmen."
+        ],
+        "citaat": "Een band heeft één budget, te verdelen over remmen, gas en sturen.",
+        "lesFoto": "remmen-motorfiets"
+      },
+      {
+        "tussenkop": "Duwen links is links",
+        "alineas": [
+          "Een motor maakt een bocht door te hellen. De benodigde hoek volgt uit tangens theta is v kwadraat gedeeld door g maal r, onafhankelijk van het gewicht. Een bocht met een straal van zestig meter bij tachtig kilometer per uur vraagt ongeveer veertig graden. Maar om te gaan hellen moeten de wielen eerst onder het zwaartepunt vandaan. Duw je het linker handvat naar voren, dan draait het voorwiel kort naar rechts, schuiven de wielen naar rechts weg en valt de motor naar links: hij gaat linksaf. Iedereen doet dit boven zo'n vijftien tot twintig kilometer per uur, meestal onbewust. Wie het bewust leert, stuurt bij een uitwijkmanoeuvre veel sneller in.",
+          "De stabiliteit komt vooral uit de geometrie. De balhoofdhoek ligt bij sportmotoren rond 23 tot 25 graden, bij choppers op dertig of meer. De naloop is de afstand tussen het contactpunt van de band en het punt waar het verlengde van de stuuras de weg raakt; het contactpunt ligt erachter, net als bij een winkelwagenwieltje. Sportmotoren hebben zo'n 90 tot 105 millimeter. Meer naloop geeft rechtuitstabiliteit maar trager sturen. Bij remmen duikt de vork in, verkleint de naloop en stuurt de motor scherper in. Een stuurdemper dempt snelle stuurtrillingen, zoals een tankslapper die ontstaat wanneer het voorwiel even licht wordt bij acceleratie over een hobbel."
+        ],
+        "foto": 5
+      },
+      {
+        "tussenkop": "Vering en elektronica",
+        "alineas": [
+          "Bij een upside-down-vork zitten de dikke buizen in de kroonplaten, waar het buigmoment het grootst is; dat is stijver en verlaagt de onafgeveerde massa. Achter hangt de brug meestal aan één schokdemper via een progressieve link: hoe verder hij inveert, hoe stijver. Afstellen gaat met drie knoppen. Voorspanning verandert niet de veerstijfheid, alleen de doorzakking onder je gewicht, de sag, die op de weg orde 25 tot 35 procent van de veerweg hoort te zijn. Te weinig uitdemping laat de motor na een hobbel pogoën; te veel laat de vering bij opeenvolgende hobbels steeds verder inzakken, tot hij geen veerweg meer overheeft.",
+          "Moderne motoren meten met een IMU, een sensorblok met versnellingsmeters en gyroscopen in drie assen, hun hellingshoek, stampen en gieren. Tractiecontrole vergelijkt de snelheid van voor- en achterwiel en knijpt bij slip het vermogen terug via ontsteking, injectie of de elektronische gasklep. Met de hellingshoek erbij mag er onder 45 graden veel minder slip zijn dan rechtop. Een quickshifter onderbreekt bij opschakelen vijftig tot honderd milliseconden de ontsteking of injectie, zodat de schakelklauwen vrijkomen zonder koppeling. Een autoblipper geeft bij terugschakelen juist een korte gasstoot. Het is dezelfde natuurkunde als in de auto, maar met minder marge en veel meer gevolgen als het misgaat."
+        ],
+        "lesFoto": "rijhulp-motorfiets"
+      }
+    ]
+  },
+  {
+    "id": "vervoer-03",
+    "kop": "Stroom op wielen: wat er echt gebeurt tussen stekker en asfalt",
+    "intro": "Een elektrische auto lijkt eenvoudiger dan een benzineauto: geen versnellingsbak, geen olie, geen uitlaat. Maar wie de laadcurve, de inverter en het warmtebeheer begrijpt, ziet een machine die op een heel andere manier slim is, en waarvan je de levensduur zelf mee bepaalt.",
+    "hoofdstuk": "Elektrisch rijden",
+    "basis": [
+      "hybride-aandrijving",
+      "lithium-ion-accu",
+      "laadcurve-c-rate",
+      "ac-dc-laden",
+      "elektromotor-ev",
+      "inverter-ev",
+      "regeneratief-remmen",
+      "thermisch-management-ev",
+      "accu-degradatie",
+      "waterstof-brandstofcel",
+      "verbruik-rendement-ev"
+    ],
+    "fotos": [
+      {
+        "wiki": "Tesla Supercharger",
+        "taal": "en",
+        "bijschrift": "Snellaadplein langs de snelweg: de gelijkrichter staat in de kast, niet in de auto"
+      },
+      {
+        "wiki": "Toyota Prius",
+        "taal": "en",
+        "bijschrift": "Toyota Prius: volle hybride met planetaire e-CVT"
+      },
+      {
+        "wiki": "Induction motor",
+        "taal": "en",
+        "bijschrift": "Draaistroommotoren: stator met wikkelingen rond een draaiende rotor"
+      },
+      {
+        "wiki": "Toyota Mirai",
+        "taal": "en",
+        "bijschrift": "Toyota Mirai: elektrische auto met brandstofcel en tanks van 700 bar"
+      },
+      {
+        "wiki": "Hyundai Ioniq 5",
+        "taal": "en",
+        "bijschrift": "Hyundai Ioniq 5: een van de auto's met een 800-voltarchitectuur"
+      },
+      {
+        "wiki": "Drag coefficient",
+        "taal": "en",
+        "bijschrift": "Luchtweerstandscoëfficiënt: de vorm bepaalt hoeveel lucht je wegduwt"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een verbrandingsmotor zet in de praktijk maar twintig tot dertig procent van de energie in de tank om in beweging. De rest verdwijnt als warmte door de radiateur en de uitlaat. Een elektrische aandrijving haalt van accu tot wiel vijfentachtig tot negentig procent. Dat verschil verklaart vrijwel alles aan elektrisch rijden: waarom een accu van zestig kilowattuur genoeg is voor drie- tot vierhonderd kilometer terwijl een tank benzine zes keer zoveel energie bevat, waarom de verwarming in de winter ineens een rol speelt, en waarom de snelweg een EV meer kost dan de stad. Het verklaart ook waarom de overgang via hybrides liep: eerst de elektromotor als hulpje, dan als hoofdrolspeler.",
+          "Een liter benzine bevat ongeveer 8,9 kilowattuur. Een auto die zes liter per honderd kilometer verbruikt, gebruikt dus zo'n 53 kilowattuur per honderd kilometer. Een EV van vergelijkbaar formaat doet dezelfde afstand met vijftien tot twintig kilowattuur, inclusief ongeveer tien procent laadverlies nog steeds ruwweg drie keer minder. Beide auto's moeten dezelfde rolweerstand en luchtweerstand overwinnen; het verschil zit volledig in de omzetting. Wie dat eenmaal in kilowattuur durft te denken, kan elk verbruiksgetal van elke aandrijving direct naast elkaar leggen."
+        ]
+      },
+      {
+        "tussenkop": "Drie soorten hybride",
+        "alineas": [
+          "Een mild hybride heeft meestal een 48-voltsysteem met een startergenerator aan de distributieriem, goed voor tien tot twintig kilowatt. Hij wint wat remenergie terug, helpt bij optrekken en maakt start-stop soepel, maar kan de auto niet zelfstandig laten rijden. De winst blijft beperkt tot enkele procenten. Een volle hybride, zoals het systeem van Toyota, kan korte stukken elektrisch rijden. Daar verbindt een planetair tandwielstelsel de verbrandingsmotor, een generator en een elektromotor. Door het toerental van de generator te regelen ontstaat een traploze overbrenging zonder koppeling of versnellingen. De motor kan zo vaker in zijn gunstigste werkpunt draaien.",
+          "Die verbrandingsmotor werkt bovendien volgens de Atkinson-cyclus: de inlaatklep sluit laat, zodat een deel van de lading terug het spruitstuk in wordt geduwd. De effectieve compressieslag is daardoor korter dan de expansieslag; de gassen zetten verder uit dan ze zijn samengeperst. Dat geeft rendement maar kost koppel, en dat gat vult de elektromotor. Een plug-in hybride heeft een accu van tien tot vijfentwintig kilowattuur voor veertig tot tachtig kilometer elektrisch. Wie nooit oplaadt, sleept een paar honderd kilo accu mee en verbruikt meer dan een gewone hybride. De officiële verbruikscijfers gaan uit van regelmatig laden en liggen in de praktijk daarom vaak ver onder wat rijders werkelijk halen."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Cel, module, pack",
+        "alineas": [
+          "Een lithium-ioncel bestaat uit een grafietanode, een kathode van een metaaloxide, een separator en een vloeibaar elektrolyt. Bij ontladen verhuizen lithiumionen door het elektrolyt van anode naar kathode, terwijl de elektronen via het externe circuit gaan, de motor dus. Laden duwt ze terug. Een NMC-cel, met nikkel, mangaan en kobalt, levert nominaal zo'n 3,6 tot 3,7 volt; een LFP-cel, lithium-ijzerfosfaat, ongeveer 3,2 volt. Voor een systeem van 400 volt zet je er zo'n 96 in serie, voor 800 volt het dubbele, en voor capaciteit worden groepjes parallel geschakeld. Een batterijmanagementsysteem bewaakt elke celspanning en temperatuur en houdt aan de boven- en onderkant een buffer vrij.",
+          "Het onderscheid tussen kilowattuur en kilowatt is essentieel. Kilowattuur is energie, de inhoud van de tank: 400 volt maal 150 ampère-uur is 60 kilowattuur. Kilowatt is vermogen, hoe snel energie stroomt. Diezelfde accu kan een uur lang 60 kilowatt leveren, of zes uur lang 10 kilowatt. Cellen halen 160 tot 300 wattuur per kilo, tegen ongeveer 12.000 voor benzine, maar door het drie- tot viervoudige rendement en omdat een accu niet lichter wordt naarmate hij leegraakt, is het gat kleiner dan het lijkt. LFP is minder energiedicht, maar goedkoper, kobaltvrij, gaat meer laadcycli mee en mag vaker tot honderd procent geladen worden."
+        ]
+      },
+      {
+        "tussenkop": "Waarom de laadcurve inzakt",
+        "alineas": [
+          "Een cel wordt geladen volgens een CC-CV-profiel. Eerst constante stroom, waarbij de spanning geleidelijk stijgt; zodra de maximale celspanning bereikt is, rond 4,2 volt bij NMC, wordt de spanning constant gehouden en zakt de stroom steeds verder weg. Op het scherm van de snellader zie je dat als een hoog plateau dat ergens tussen vijftig en tachtig procent gaat afbuigen. De reden achter die voorzichtigheid is lithium plating. Bij hoge stroom moeten de ionen snel de grafietanode in; lukt dat niet omdat de anode vol, koud of overbelast is, dan slaat lithium als metaal neer op het oppervlak. Dat kost blijvend capaciteit en kan uitgroeien tot naaldjes die de separator doorprikken.",
+          "Laadsnelheid druk je uit in C-rate: laadvermogen gedeeld door capaciteit. Een accu van 75 kilowattuur die met 150 kilowatt laadt, laadt met 2C. De grens is warmte, want de verliezen groeien met het kwadraat van de stroom. Bij 150 kilowatt trekt een 400-voltsysteem zo'n 375 ampère, een 800-voltsysteem de helft; de weerstandsverliezen in kabels en contacten worden daarmee een kwart. Daarom laden 800-voltauto's sneller met dunnere kabels. Praktisch gevolg op een lange rit: twee keer kort laden van tien naar zestig procent is vaak sneller dan één keer van tien naar honderd, omdat de laatste twintig procent bijna even lang kan duren als de eerste zeventig."
+        ],
+        "citaat": "De laatste twintig procent kan bijna even lang duren als de eerste zeventig.",
+        "foto": 4
+      },
+      {
+        "tussenkop": "AC thuis, DC onderweg",
+        "alineas": [
+          "Een accu laadt altijd met gelijkstroom. De enige vraag is waar de omzetting uit wisselstroom gebeurt. Bij AC-laden doet de boordlader in de auto dat werk, en omdat die in elke auto mee moet, is hij bescheiden: meestal 7,4 of 11 kilowatt, soms 22. Het vermogen volgt uit het aantal fasen: één fase van 230 volt bij 16 ampère geeft ongeveer 3,7 kilowatt, drie fasen bij 16 ampère wortel drie maal 400 maal 16, ongeveer 11 kilowatt. De zwakste schakel bepaalt de snelheid. Een auto met een eenfase-boordlader laadt aan een paal van 11 kilowatt dus toch maar met 3,7 of 7,4 kilowatt.",
+          "Bij DC-snelladen staat de grote gelijkrichter in de paal, de kast ter grootte van een koelkast, en gaat gelijkstroom rechtstreeks naar de accu. Het batterijmanagementsysteem vertelt de paal continu welke spanning en stroom het wil. In Europa is de stekker CCS2: de Type 2-stekker voor AC met twee dikke gelijkstroompinnen eronder. Vermogens lopen van 50 tot 350 kilowatt of meer, met vloeistofgekoelde kabels bij de snelste palen. Thuis heeft een woning vaak een aansluiting van drie keer 25 ampère; een lader van 11 kilowatt past daar meestal op, liefst met slim laden dat het laadvermogen terugschroeft wanneer de inductieplaat en de wasmachine tegelijk aanstaan."
+        ],
+        "lesFoto": "ac-dc-laden"
+      },
+      {
+        "tussenkop": "Vol koppel vanaf nul toeren",
+        "alineas": [
+          "In elke draaistroommotor maken drie spoelengroepen in de stator samen een draaiend magneetveld. Bij een permanente-magneetsynchroonmotor zitten sterke neodymiummagneten in de rotor, die het veld precies synchroon volgen: compact en met het hoogste rendement, vooral in deellast. De meeste EV's gebruiken dit type. Een asynchrone motor heeft een kooi van koper- of aluminiumstaven als rotor. Het draaiveld induceert daarin stroom, wat pas werkt als de rotor een paar procent achterblijft: slip. Geen zeldzame aardmetalen, robuust, en zonder stroom draait hij vrij mee zonder sleepverlies. Daarom zit hij bij sommige vierwielaangedreven EV's op de as die meestal meeloopt.",
+          "Een elektromotor levert maximaal koppel vanaf stilstand tot een basistoerental, begrensd door de maximale stroom. Daarboven daalt het koppel, omdat de tegen-EMK, de spanning die de draaiende motor zelf opwekt, de accuspanning nadert: het vermogen blijft ongeveer constant. Omdat de motor tot 15.000 à 20.000 toeren kan, volstaat één vaste reductie van acht à tien op één voor het hele snelheidsbereik. Bij 15.000 toeren en vier poolparen moet het magneetveld duizend keer per seconde rondgaan. Rendementen van negentig tot zevenennegentig procent in het beste werkgebied zijn normaal. Onderhoud is er nauwelijks: lagers, de olie in de reductiekast, en soms koelvloeistof."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De inverter als hakmachine",
+        "alineas": [
+          "De accu levert gelijkspanning, de motor wil driefasige wisselspanning met een frequentie die meeloopt met het toerental. De inverter regelt dat met zes vermogensschakelaars, twee per fase: vroeger IGBT's, steeds vaker siliciumcarbide-MOSFET's. Ze schakelen de accuspanning tienduizend tot twintigduizend keer per seconde aan en uit. Door de verhouding tussen aan en uit continu te variëren, pulsbreedtemodulatie, ontstaat in de spoelen een stroom die een sinus benadert. Het hoge piepen dat je bij sommige EV's hoort bij wegrijden, is die schakelfrequentie. De frequentie van de sinus bepaalt het toerental, de amplitude en fasehoek bepalen het koppel, duizenden keren per seconde bijgestuurd op basis van rotorpositie en gemeten stroom.",
+          "Siliciumcarbide heeft lagere schakel- en geleidingsverliezen, vooral bij 800 volt en in deellast, wat enkele procenten verbruik scheelt. En dezelfde hardware werkt ook omgekeerd. Een draaiende motor wekt altijd een spanning op; laat de inverter stroom van motor naar accu lopen, dan wordt de motor een generator en ontstaat een remkoppel. Dat is regeneratief remmen. In de praktijk haalt een auto zo een vertraging van ongeveer 0,1 tot 0,3 g; harder remmen doen de schijven. Bij one-pedal driving remt de auto al stevig zodra je het gas loslaat. Een blended systeem laat het rempedaal eerst de regeneratie aanspreken en schakelt de hydraulische remmen onmerkbaar bij."
+        ],
+        "lesFoto": "inverter-ev"
+      },
+      {
+        "tussenkop": "Hoeveel komt er terug?",
+        "alineas": [
+          "Een auto van 2000 kilo bij 100 kilometer per uur heeft een bewegingsenergie van ongeveer 770 kilojoule, zo'n 0,21 kilowattuur. Dat lijkt weinig, maar in de stad remt en trekt een auto honderden keren op per rit. Van bewegingsenergie naar accu en weer terug naar beweging gaat grofweg zestig tot zeventig procent rond, dus een flink deel komt terug. Op de snelweg, waar nauwelijks geremd wordt, is het effect klein. Twee beperkingen: een volle of koude accu kan weinig laadstroom opnemen, zodat de auto na een nacht aan de lader op honderd procent of in de vrieskou opvallend minder op de motor remt. Wen daar aan voordat je de eerste afdaling neemt.",
+          "Omdat de schijfremmen zo weinig werk doen, krijgen ze een probleem dat een benzineauto zelden kent: roest. Remblokken en schijven gaan bij een EV vaak meer dan honderdduizend kilometer mee, maar de schijven kunnen gaan putten en de geleidepennen van de klauwen kunnen vastroesten. Veel EV's laten daarom periodiek bewust de wrijvingsremmen meewerken. Zelf af en toe een paar keer stevig remmen vanaf snelheid houdt het oppervlak schoon. Bij de APK of een onderhoudsbeurt verdienen remklauwen en remvloeistof bij een EV dus juist extra aandacht, ook al lijken de blokken nog nieuw."
+        ],
+        "kader": {
+          "titel": "Zuinig met de accu",
+          "punten": [
+            "Dagelijks laden tot ongeveer 80 procent bij NMC; 100 procent alleen vlak voor een lange rit",
+            "LFP: fabrikanten adviseren vaak juist periodiek tot 100 procent voor kalibratie van het BMS",
+            "Niet maandenlang op 100 procent in de zon parkeren",
+            "Navigeer naar de snellader, zodat de auto de accu kan voorverwarmen",
+            "Voorverwarmen aan de stekker: de energie komt dan uit het net en niet uit de accu"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Warmte is schaars",
+        "alineas": [
+          "Een verbrandingsmotor heeft warmte over; een EV moet die maken. Een gewone weerstandsverwarming zet één kilowattuur stroom om in één kilowattuur warmte, en op korte winterritten kan dat het verbruik met tientallen procenten verhogen. Een warmtepomp verplaatst warmte in plaats van haar te maken. Een koudemiddel verdampt in een warmtewisselaar en neemt daarbij warmte op uit de buitenlucht, ook bij nul graden. Een compressor perst het samen waardoor het heet wordt, en in de condensor geeft het die warmte af aan het interieur. Per kilowattuur stroom levert dat twee tot drie kilowattuur warmte, bij strenge vorst minder. Veel systemen halen bovendien restwarmte uit accu, inverter en motor.",
+          "De accu zelf heeft een vloeistofcircuit en een smalle comfortzone van ongeveer twintig tot veertig graden. Te koud betekent hogere inwendige weerstand, minder vermogen, langzaam laden en risico op lithium plating. Te warm, boven ongeveer veertig tot vijfenveertig graden, versnelt de veroudering. Daarom koelt de auto de accu actief tijdens snelladen en hard rijden, en verwarmt hij hem voor als je naar een snellader navigeert. Wie in de winter zonder voorverwarmen aan een snellader van 300 kilowatt aankomt, ziet soms maar vijftig kilowatt binnenkomen. Dat is geen defect van de paal, maar de auto die zijn eigen cellen beschermt. Winterbereik ligt typisch vijftien tot dertig procent lager dan in de zomer."
+        ],
+        "lesFoto": "thermisch-management-ev"
+      },
+      {
+        "tussenkop": "Hoe een accu oud wordt",
+        "alineas": [
+          "Een accu veroudert langs twee wegen. Kalenderveroudering gaat door terwijl de auto stilstaat: op de anode groeit langzaam een laagje, de SEI, dat lithium vastlegt dat daarna niet meer meedoet. Dat gaat sneller bij hoge temperatuur en hoge laadtoestand; een vuistregel uit de chemie is dat de verouderingssnelheid per tien graden ongeveer verdubbelt. Cyclische veroudering komt door het laden en ontladen zelf. De elektrodematerialen zetten uit en krimpen, er ontstaan microscheurtjes, de SEI groeit bij. Diepe cycli van nul naar honderd belasten meer dan ondiepe tussen dertig en zeventig. Veel snelladen versnelt het ook, al is het effect met goed warmtebeheer kleiner dan vaak gedacht.",
+          "In de praktijk daalt de capaciteit de eerste jaren een paar procent wat sneller en daarna langzaam en vrijwel lineair. Veel EV's hebben na 200.000 kilometer nog vijfentachtig tot negentig procent over. Fabrikanten geven meestal acht jaar of 160.000 kilometer garantie op minimaal ongeveer zeventig procent. Bij een occasion is de state of health, huidige capaciteit gedeeld door nieuwe capaciteit, het belangrijkste getal, en dat lees je met een accutest of een uitleesrapport, niet met een blik op de bereikmeter. Een accu die voor de auto op is, kan nog jaren mee als stationaire opslag, en lithium, nikkel en kobalt zijn grotendeels terug te winnen."
+        ]
+      },
+      {
+        "tussenkop": "Waterstof: snel tanken, duur rijden",
+        "alineas": [
+          "Een brandstofcelauto is een elektrische auto met een eigen centrale. In de PEM-brandstofcel wordt waterstof aan de anode gesplitst in protonen en elektronen; de protonen gaan door een membraan, de elektronen door de motor, en aan de kathode vormen ze samen met zuurstof uit de lucht water. Een kleine bufferaccu vangt pieken en remenergie op. Waterstof bevat per kilo ongeveer 33 kilowattuur, maar is per liter zo ijl dat het in koolstofvezeltanks onder 700 bar wordt opgeslagen. Een Toyota Mirai heeft ruim vijf kilo aan boord en verbruikt orde één kilo per honderd kilometer. Tanken duurt een paar minuten.",
+          "Het probleem zit in de keten. Groene waterstof maken met elektrolyse kost ongeveer dertig procent van de stroom, comprimeren en transporteren nog eens tien tot vijftien procent, en de brandstofcel zet maar vijftig tot zestig procent om in elektriciteit. Van de oorspronkelijke stroom komt grofweg een kwart tot een derde bij de wielen, tegen zeventig tot tachtig procent bij een batterij-auto. Voor dezelfde afstand is dus twee tot drie keer zoveel duurzame stroom nodig. Bovendien wordt het meeste waterstof nu nog uit aardgas gemaakt. Kansrijker is waterstof waar accu's te zwaar worden of laden te lang duurt: zware industrie, bepaalde vrachttoepassingen en mogelijk de scheepvaart."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "De snelweg als energievreter",
+        "alineas": [
+          "De luchtweerstand groeit met het kwadraat van de snelheid. Reken met een EV met een luchtweerstandscoëfficiënt van 0,25 en een frontaal oppervlak van 2,4 vierkante meter. Bij 100 kilometer per uur is de luchtweerstand dan ongeveer 280 newton, bij 130 ongeveer 470. Tel er zo'n 200 newton rolweerstand bij op en de totale weerstand stijgt van circa 480 naar 670 newton. Kracht maal afstand is energie: dat is ruwweg 13 tegenover 18,5 kilowattuur per honderd kilometer aan de wielen, een toename van zo'n veertig procent. Het benodigde vermogen groeit zelfs met de derde macht van de snelheid. Hier verliest de EV een deel van zijn voorsprong.",
+          "In de stad is het precies andersom. Een EV verbruikt niets bij stilstand, wint remenergie terug en heeft een motor die ook bij lage belasting efficiënt is. Een verbrandingsmotor is in de stad op zijn slechtst: smoorverliezen bij deellast, stationair draaien voor het stoplicht, en alle remenergie die als warmte in de schijven verdwijnt. Wie het verbruik van een EV wil drukken, kan dus vooral op de snelweg winnen: tien kilometer per uur langzamer scheelt meer dan welke spaarstand ook. En wie twijfelt tussen een hybride, een plug-in of een volledig elektrische auto, doet er goed aan eerst eerlijk te kijken naar zijn eigen ritpatroon."
+        ],
+        "foto": 5
+      }
+    ]
+  },
+  {
+    "id": "vervoer-04",
+    "kop": "Een kilometer remweg: waarom het spoor zichzelf moet bewaken",
+    "intro": "Een trein kan niet uitwijken en niet op zicht stoppen. Bijna alles aan het spoor, van de vorm van de wielen tot de seinen en de computer in de cabine, volgt uit dat ene gegeven: staal op staal glijdt.",
+    "hoofdstuk": "Treinen en spoor",
+    "basis": [
+      "tractie-stroomvoorziening-nl",
+      "remweg-adhesie-trein",
+      "conische-wielen",
+      "blokstelsel-seinen",
+      "atb-ertms",
+      "wissels-overwegen",
+      "elektrisch-dieselelektrisch",
+      "ns-materieel"
+    ],
+    "fotos": [
+      {
+        "wiki": "Verlengd interregiomaterieel",
+        "taal": "nl",
+        "bijschrift": "Dubbeldeks intercity's: veel zitplaatsen per meter perron"
+      },
+      {
+        "wiki": "Wheelset (rail transport)",
+        "taal": "en",
+        "bijschrift": "Wielstel: twee wielen star op één as, zonder differentieel"
+      },
+      {
+        "wiki": "Assenteller",
+        "taal": "nl",
+        "bijschrift": "Assenteller: telt de assen die een blok in- en uitrijden"
+      },
+      {
+        "wiki": "European Rail Traffic Management System",
+        "taal": "nl",
+        "bijschrift": "Eurobalises tussen de rails bij Utrecht Centraal"
+      },
+      {
+        "wiki": "Wissel (spoorweg)",
+        "taal": "nl",
+        "bijschrift": "Wissel: beweegbare tongen leiden het wielstel naar het andere spoor"
+      },
+      {
+        "wiki": "Automatische halve overwegbomen",
+        "taal": "nl",
+        "bijschrift": "AHOB: halve bomen sluiten alleen de inrijzijde af"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een autoband op droog asfalt kan een wrijvingscoëfficiënt van 0,8 tot 1,0 halen: de maximale remkracht is bijna even groot als het gewicht van de auto. Staal op staal haalt onder goede omstandigheden 0,2 tot 0,3, en op nat, vervuild spoor veel minder. Dat is het grote voordeel van de spoorweg en tegelijk zijn grootste zwakte. De rolweerstand is minimaal, waardoor een trein met een fractie van de energie van een vrachtwagen duizenden tonnen kan verplaatsen. Maar dezelfde gladheid betekent dat een intercity bij een gewone bedrijfsremming maar zo'n 0,7 tot 1 meter per seconde kwadraat vertraagt, terwijl een auto in een noodstop acht tot tien haalt.",
+          "Reken het uit met de remwegformule: de snelheid in het kwadraat gedeeld door twee keer de vertraging. Bij 140 kilometer per uur, bijna 39 meter per seconde, en een vertraging van 0,7 kom je op ruim 1000 meter. Een zware goederentrein heeft nog veel meer nodig. Zien en stoppen is daarmee uitgesloten: tegen de tijd dat een machinist een obstakel herkent, is hij er al voorbij. Het hele beveiligingssysteem van het spoor, van blokken en seinen tot ATB en ERTMS, bestaat omdat de machinist ver vooruit moet weten dat hij moet stoppen. Wie dat principe snapt, begrijpt ook waarom een overweg met bellen geen suggestie is maar een harde grens."
+        ]
+      },
+      {
+        "tussenkop": "Herfst: bladeren als zeep",
+        "alineas": [
+          "In de herfst rijden treinen over bladeren die op de spoorstaaf worden platgewalst tot een glibberige, teflonachtige laag. De adhesie zakt dan zo ver dat treinen bij optrekken doorslippen en bij remmen doorschuiven langs het perron of, erger, een sein. Treinen strooien daarom zand vóór de wielen, en ProRail zet railreinigingstreinen en conditionering van de spoorstaaf in. Machinisten remmen in die periode eerder en voorzichtiger. Blokkeert een wiel toch, dan slijt er in een paar seconden een vlakke plek in het loopvlak. Die hoor je daarna bij elke omwenteling als een ritmisch kloppen, en het wiel moet worden afgedraaid. Moderne treinen hebben daarom antislipregeling, vergelijkbaar met ABS.",
+          "Elektrische treinen remmen bovendien met hun motoren als generator, wat de remblokken spaart. Op een gelijkstroomnet kan die energie alleen nuttig worden gebruikt als een andere trein in de buurt hem op hetzelfde moment afneemt; anders wordt hij in remweerstanden omgezet in warmte. Voor noodremmingen hebben sommige treinen een magneetrailrem: een elektromagneet die tegen de spoorstaaf wordt getrokken en zo remt zonder tussenkomst van het wiel-railcontact. Precies omdat dat contact zo beperkt is, zoekt het spoor steeds manieren om er niet afhankelijk van te zijn."
+        ],
+        "lesFoto": "remweg-adhesie-trein"
+      },
+      {
+        "tussenkop": "Waarom een trein geen differentieel nodig heeft",
+        "alineas": [
+          "Twee treinwielen zitten star op één as en draaien dus altijd even snel. Toch legt het buitenwiel in een bocht een langere weg af. De oplossing is een detail dat je met het blote oog nauwelijks ziet: het loopvlak is licht kegelvormig, aan de kant van de flens dikker dan aan de buitenkant, met een helling in de orde van 1 op 20 tot 1 op 40. In een bocht schuift het wielstel een paar millimeter naar buiten. Het buitenwiel loopt dan op een grotere diameter en het binnenwiel op een kleinere, en daarmee is het verschil in afgelegde weg opgelost zonder dat er iets hoeft te slippen.",
+          "Hetzelfde principe zorgt op recht spoor voor zelfcentrering. Schuift het wielstel opzij, dan loopt één wiel voor en stuurt het wielstel terug, waarna het doorschiet en weer terugkomt. Het resultaat is een golvende beweging, de sinusloop. Bij te hoge snelheid of versleten wielprofielen kan die instabiel worden; draaistellen met de juiste stijfheid en dempers houden dat onder controle. De flens is dus níét wat een trein normaal stuurt, maar een vangnet. Alleen in krappe bogen en wissels loopt hij tegen de rail aan, met het bekende piepen. Het contactvlak tussen wiel en rail is overigens niet groter dan een muntstuk; daar gaat het hele gewicht van een wiel doorheen."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "1500 volt: een keuze uit de jaren twintig",
+        "alineas": [
+          "Vrijwel het hele Nederlandse spoornet rijdt op 1500 volt gelijkspanning, een keuze die teruggaat op de eerste elektrificaties van de vorige eeuw. De trein neemt stroom af van de rijdraad met een stroomafnemer, de pantograaf, en de stroom keert via de wielen en de spoorstaven terug naar het onderstation. Het nadeel van zo'n lage spanning volgt uit stroom is vermogen gedeeld door spanning. Een trein die vier megawatt trekt, haalt bij 1500 volt zo'n 2700 ampère uit de draad. Dat vraagt dikke koperen rijdraden, onderstations om de paar kilometer, en het geeft spanningsval zodra er veel zware treinen tegelijk op hetzelfde stuk rijden.",
+          "Daarom kunnen er niet onbeperkt meer of zwaardere treinen bij op het bestaande net zonder de energievoorziening te versterken. De HSL-Zuid en de Betuweroute rijden op 25 kilovolt wisselspanning van 50 hertz, de Europese standaard voor nieuwe lijnen. Dezelfde vier megawatt vraagt daar maar ongeveer 160 ampère: lichtere bovenleiding en onderstations op tientallen kilometers afstand. Treinen die op beide systemen rijden, moeten meerspanningsmaterieel zijn. Bij de overgang ligt een spanningssluis, een stuk ongevoede draad waar de trein stroomloos overheen rolt. België gebruikt op het klassieke net 3 kilovolt gelijkspanning, Duitsland 15 kilovolt bij 16,7 hertz, wat grensoverschrijdend rijden ingewikkeld maakt."
+        ],
+        "lesFoto": "tractie-stroomvoorziening-nl",
+        "citaat": "Een trein die vier megawatt trekt, haalt bij 1500 volt zo'n 2700 ampère uit de draad."
+      },
+      {
+        "tussenkop": "Blokken: één trein per vak",
+        "alineas": [
+          "Omdat een trein niet op zicht kan stoppen, is het spoor verdeeld in blokken van honderden meters tot enkele kilometers. In elk blok mag maar één trein zijn. Detectie gebeurt vaak met een spoorstroomkring: een kleine spanning tussen de twee spoorstaven die door de stalen wielassen wordt kortgesloten. Zolang er stroom loopt, houdt een relais het blok op vrij; komt er een as in, dan valt het relais af en wordt het blok bezet. Het slimme zit in die omgekeerde logica. Breekt een draad of valt de voeding uit, dan valt het relais ook af en toont het systeem bezet. Een storing leidt dus tot stilstand, nooit tot een vals vrij sein.",
+          "Het alternatief is de assenteller, die aan het begin en het eind van een blok de passerende wielen telt. Komen er evenveel assen uit als erin gingen, dan is het blok leeg. Is een blok bezet, dan staat het sein ervoor op rood. Het sein daarvoor toont geel: het volgende sein kan rood zijn, verminder snelheid. Groen betekent doorrijden met de toegestane snelheid. Omdat de remweg langer kan zijn dan één blok, kijkt het systeem meerdere blokken vooruit. Kortere blokken betekenen dat treinen dichter op elkaar kunnen, wat capaciteit oplevert. Snelheidsbeperkingen voor een afbuigend wissel staan op cijferbakken: het verlichte cijfer maal tien geeft de snelheid in kilometers per uur."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Van ATB tot ERTMS",
+        "alineas": [
+          "Een sein is maar zo goed als de mens die het ziet. Daarom kent Nederland al sinds de jaren vijftig en zestig automatische treinbeïnvloeding. Bij de eerste generatie zendt het spoor via de spoorstroomkringen codes uit die overeenkomen met een toegestane snelheid. Antennes vóór de eerste as vangen die op, de cabine toont ze, en de trein remt automatisch als de machinist niet tijdig reageert. De beruchte zwakte: dit systeem grijpt pas in boven 40 kilometer per uur. Een trein die langzaam optrekt van een perron en een rood sein voorbijrijdt, een STS-passage, werd dus niet tegengehouden. Na een reeks ernstige incidenten kwam ATB-Vv, met extra lussen bij risicovolle seinen die ook bij lage snelheid ingrijpen.",
+          "ERTMS is het Europese antwoord, en het treinbeveiligingsdeel heet ETCS. Bij Level 1 geven balises, passieve bakens tussen de rails, informatie door die bij de seinen hoort. De balise heeft geen eigen voeding: de antenne van de overrijdende trein voorziet hem van energie, waarna hij een telegram terugstuurt. Bij Level 2 communiceert de trein continu via GSM-R-radio met een centrale die een rijtoestemming geeft: tot waar de trein mag rijden en hoe hard. De machinist ziet dat op een scherm, met een remcurve die continu wordt bewaakt. Seinen langs de baan zijn dan in principe overbodig en balises dienen vooral als vaste positiereferentie."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Eén taal voor heel Europa",
+        "alineas": [
+          "Het voordeel van ERTMS is niet alleen veiligheid. Elk land ontwikkelde vroeger zijn eigen beveiligingssysteem, waardoor internationale treinen vol kasten met verschillende apparatuur zaten en machinisten per land andere systemen moesten kennen. ERTMS is één standaard, met continue bewaking van de remcurve en uiteindelijk meer capaciteit, omdat de computer precies kan uitrekenen hoe dicht een trein op zijn voorganger mag rijden. In Nederland rijden onder meer de HSL-Zuid, de Betuweroute en de Hanzelijn al met ERTMS, en ProRail rolt het de komende jaren gefaseerd uit over het hele net. De radioverbinding GSM-R krijgt daarbij op termijn een opvolger, FRMCS, gebaseerd op modernere mobiele technologie."
+        ]
+      },
+      {
+        "tussenkop": "Wissels: zwakke plek met tongen",
+        "alineas": [
+          "Een wissel bestaat uit twee beweegbare tongen, een vast puntstuk waar twee spoorstaven elkaar kruisen, en geleidingsrails tegenover dat puntstuk die het wielstel daar in het goede spoor houden. Bij het puntstuk is er namelijk een gat in de rail waar de flens doorheen moet, en zonder geleidingsrail zou het wiel de verkeerde kant op kunnen lopen. Een elektrische aandrijving verplaatst de tongen en vergrendelt ze. De beveiliging staat pas een rijweg met groen sein toe als alle wissels gecontroleerd in de juiste stand liggen en vastzitten. Ligt het wissel afbuigend, dan geldt een snelheidsbeperking, vaak 40 kilometer per uur of meer bij lange, slanke wissels.",
+          "Wissels zijn storingsgevoelig. Een steentje, sneeuw of ijs tussen tong en spoorstaaf verhindert dat de tong goed aansluit, en dan kan het wissel niet worden vergrendeld. Het sein blijft rood en de trein staat stil, precies zoals de veiligheidslogica wil. Daarom hebben veel wissels elektrische wisselverwarming, die in de winter vooraf wordt ingeschakeld. Een wisselstoring in een druk knooppunt kan zo een hele regio ontregelen, omdat er op dat punt vaak geen alternatieve route is. Het is een typisch voorbeeld van hoe een spoorwegnet bewust kiest voor stilstand boven risico: liever honderd vertraagde treinen dan één trein over een half omgelegd wissel."
+        ],
+        "foto": 4,
+        "citaat": "Liever honderd vertraagde treinen dan één trein over een half omgelegd wissel."
+      },
+      {
+        "tussenkop": "Overwegen: de trein wijkt niet",
+        "alineas": [
+          "Een overweg is een gelijkvloerse kruising van spoor en weg. Het meest voorkomende beveiligde type in Nederland is de AHOB: automatische halve overwegbomen met knipperlichten en bellen. De bomen sluiten alleen de rijbaan aan de inrijzijde af, zodat niemand tussen twee gesloten bomen ingesloten raakt en een auto altijd naar voren kan wegrijden. De overweg schakelt automatisch in zodra een trein een inschakelpunt passeert dat zo ver weg ligt dat er ook voor de snelste trein op dat baanvak voldoende tijd is. Daarnaast zijn er AKI's, knipperlichten zonder bomen, en onbeveiligde overwegen op minder drukke plekken.",
+          "De praktische les volgt rechtstreeks uit de remweg. Als de bellen gaan, ga je de overweg niet meer op, ook niet als de bomen nog omhoog staan en je denkt dat het nog lukt. Staat je auto vast op het spoor, verlaat hem dan direct, neem iedereen mee en ga een flink eind van het spoor af. Bel het noodnummer op het kastje bij de overweg of 112. Een machinist die een auto ziet staan, kan op zijn best de noodrem trekken; tegen de tijd dat de trein stilstaat, is hij al honderden meters verder."
+        ],
+        "foto": 5,
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Adhesie staal op staal: 0,1 tot 0,3; band op droog asfalt: 0,8 tot 1,0",
+            "Remweg intercity vanaf 140 km/h: orde 800 tot 1200 meter",
+            "Rood = stop, geel = volgend sein kan stop tonen, groen = door; cijfer × 10 = km/h",
+            "Spoorstroomkring is fail-safe: een storing geeft altijd 'bezet'",
+            "NL: 1500 V DC; HSL-Zuid en Betuweroute 25 kV 50 Hz"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Elektrisch, diesel of iets ertussenin",
+        "alineas": [
+          "Een elektrische trein krijgt zijn energie van buiten. Hij is daardoor licht in verhouding tot zijn vermogen, trekt snel op, kan remenergie terugleveren en stoot lokaal niets uit. Moderne treinen hebben driefasige motoren met vermogenselektronica, technisch dezelfde familie als in een elektrische auto. Bij treinstellen zijn de motoren over meerdere draaistellen verdeeld, wat de schaarse adhesie beter benut: meer aangedreven wielen betekent dat elk wiel minder hoeft te trekken. Op lijnen zonder bovenleiding, vooral in het noorden en oosten, rijden dieseltreinen. Een mechanische versnellingsbak voor meer dan een megawatt is zwaar en complex, dus drijft de diesel vaak een generator aan.",
+          "Zo'n diesel-elektrische trein is eigenlijk een elektrische trein met een eigen centrale aan boord, waarbij de diesel altijd in een gunstig toerental kan draaien, ongeacht de snelheid. Tussenvormen rukken op: bi-modetreinen die onder de draad elektrisch rijden en daarbuiten op diesel, batterijtreinen die onder de bovenleiding laden en korte niet-geëlektrificeerde stukken overbruggen, en waterstoftreinen, waarmee in Groningen proeven zijn gedaan. Het is dezelfde afweging als bij auto's: energie meenemen kost gewicht en rendement, energie van buiten halen kost infrastructuur."
+        ]
+      },
+      {
+        "tussenkop": "Treinstellen voor een druk land",
+        "alineas": [
+          "NS rijdt vrijwel uitsluitend met treinstellen in plaats van een locomotief met rijtuigen. Een treinstel heeft aan beide uiteinden een cabine en de aandrijving verdeeld onder de bakken. Aan het eindpunt loopt de machinist naar de andere cabine en rijdt terug, zonder rangeren; bij drukte koppel je twee of drie stellen aan elkaar. Dat past bij een net met korte ritten, veel knooppunten en hoge frequenties. De dubbeldeks VIRM biedt veel zitplaatsen per meter perron, belangrijk omdat perrons niet onbeperkt langer kunnen. De Koploper kreeg zijn hooggeplaatste cabine zodat er tussen gekoppelde stellen een doorloop door de kop mogelijk was. De ICNG is meerspanningsmaterieel en kan dus ook over de HSL-Zuid.",
+          "Sprinters, zoals de SLT en SNG, zijn ontworpen op acceleratie: veel aangedreven assen en lage vloeren voor snel in- en uitstappen bij korte stopafstanden. Elke halve minuut die een sprinter per station wint, telt bij twintig stations op tot minuten per rit, en die minuten bepalen of hij past tussen de intercity's op hetzelfde spoor. Op het klassieke net is de maximumsnelheid meestal 130 tot 140 kilometer per uur. Sneller rijden levert weinig op als de stations dicht op elkaar liggen en de remweg zo lang is; snel optrekken en snel stoppen zijn op het Nederlandse spoor vaak belangrijker dan topsnelheid."
+        ],
+        "lesFoto": "ns-materieel"
+      }
+    ]
+  },
+  {
+    "id": "vervoer-05",
+    "kop": "Sturen zonder remmen: de natuurkunde en de regels van het water",
+    "intro": "Een schip heeft geen remmen, stuurt met zijn achterkant en kan omslaan als het zwaartepunt een paar decimeter te hoog ligt. Wie begrijpt waarom, leest ook de lichten, tonnen en sluisseinen op het water een stuk makkelijker.",
+    "hoofdstuk": "Schepen en varen",
+    "basis": [
+      "drijfvermogen-stabiliteit",
+      "scheepsschroef-voortstuwing",
+      "roer-sturen-schip",
+      "scheepsdiesel",
+      "navigatielichten",
+      "bpr-vaarregels",
+      "betonning-iala",
+      "marifoon-basis",
+      "sluizen-schutten"
+    ],
+    "fotos": [
+      {
+        "wiki": "Container ship",
+        "taal": "en",
+        "bijschrift": "Groot containerschip: één langzaamlopende tweetaktdiesel op één schroef"
+      },
+      {
+        "wiki": "Metacentric height",
+        "taal": "en",
+        "bijschrift": "Metacentrische hoogte: ligt M boven G, dan richt het schip zich op"
+      },
+      {
+        "wiki": "Cavitation",
+        "taal": "en",
+        "bijschrift": "Cavitatie: dampbellen aan een schroef die te hard trekt"
+      },
+      {
+        "wiki": "Rudder",
+        "taal": "en",
+        "bijschrift": "Roer direct achter de schroef: de schroefstroom maakt het roer werkzaam"
+      },
+      {
+        "wiki": "Kardinale markering",
+        "taal": "nl",
+        "bijschrift": "Kardinale tonnen: de kegels wijzen naar de kant van het veilige water"
+      },
+      {
+        "wiki": "Sluizen van IJmuiden",
+        "taal": "nl",
+        "bijschrift": "De sluizen van IJmuiden: toegang van de Noordzee naar het Noordzeekanaal"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een auto stopt met zijn remmen en stuurt met zijn voorwielen. Een schip doet geen van beide. Het heeft geen rem behalve achteruitslaan, het stuurt door zijn achterschip opzij te duwen, en zijn roer werkt alleen als er water langs stroomt. Daarbovenop hangt de hele vraag of het blijft drijven en rechtop blijft af van twee punten die je niet kunt zien: het zwaartepunt en het metacentrum. Voor wie gewend is aan een stuur dat direct reageert, voelt een schip daarom traag en eigenwijs. Maar alles wat het doet, is te verklaren, en elke vaarregel, elk licht en elke ton op het water is een antwoord op die traagheid.",
+          "Begin bij het drijven zelf. Volgens Archimedes ondervindt een ondergedompeld lichaam een opwaartse kracht gelijk aan het gewicht van het verplaatste water. Een stalen schip drijft omdat de romp hol is: hij zakt precies zo ver in tot het verplaatste water evenveel weegt als het hele schip. Dat gewicht heet de waterverplaatsing. Laad je meer, dan zakt het schip dieper, en dat is goed te rekenen. Een binnenvaartschip van 110 bij 11,4 meter verplaatst per centimeter extra diepgang ruwweg elf à twaalf kubieke meter water, en kan dus per centimeter zo'n elf ton meer laden. Schippers rekenen bij laag water letterlijk in centimeters en tonnen."
+        ]
+      },
+      {
+        "tussenkop": "Zoet, zout en het metacentrum",
+        "alineas": [
+          "Zoet water is minder dicht dan zeewater, 1000 tegen ongeveer 1025 kilo per kubieke meter. Een schip dat van zee de rivier op vaart, zakt daardoor een paar procent dieper weg. Daarom staan op zeeschepen laadlijnmerken met aparte lijnen voor zoet en zout water, zomer en winter: een volgeladen schip mag in de zomer op zee dieper liggen dan in de winter, wanneer de golven hoger zijn. Stabiliteit gaat over wat er gebeurt als het schip helt. Het gewicht werkt in het zwaartepunt G, de opwaartse kracht in het drukkingspunt B, het zwaartepunt van het ondergedompelde volume. Helt het schip, dan schuift B naar de lage kant, omdat die kant dieper wegzakt.",
+          "De verticaal door die nieuwe B snijdt het hartvlak van het schip in het metacentrum M. Ligt M boven G, een positieve metacentrische hoogte, dan vormen gewicht en opwaartse kracht samen een oprichtend koppel. Ligt G te hoog, door hoge deklading, een volle bovenruim of water op een tussendek, dan kantelt het koppel de verkeerde kant op en kan het schip kapseizen. Een grote metacentrische hoogte geeft een stijf schip dat snel en schokkerig terugslingert; een kleine een slap schip dat traag maar comfortabel rolt. Verraderlijk is vrij bewegende vloeistof in halfvolle tanks: die stroomt naar de lage kant en verkleint de effectieve stabiliteit. Het is een bekende oorzaak van scheepsrampen."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Een schroef is een draaiende vleugel",
+        "alineas": [
+          "Elk schroefblad heeft een vleugelprofiel. Draait de schroef, dan maakt het blad een invalshoek met het water, ontstaat aan de voorkant onderdruk en aan de achterkant overdruk, en wijst de resultante grotendeels naar voren: stuwkracht. De spoed is de afstand die de schroef per omwenteling zou afleggen als hij als een kurkentrekker door vast materiaal draaide. Een schroef met een spoed van 1,2 meter op 300 toeren, vijf omwentelingen per seconde, zou zes meter per seconde varen, ruim 21 kilometer per uur. In werkelijkheid haalt het schip minder. Dat verschil heet slip, en het is geen verlies maar een voorwaarde: zonder slip geen invalshoek en dus geen stuwkracht.",
+          "Een grote, langzaam draaiende schroef is efficiënter dan een kleine snelle, omdat hij een grotere massa water een kleinere snelheid meegeeft. Dat verklaart de enorme, trage schroeven van zeeschepen. De grens van wat een schroef kan, is cavitatie. Wordt de onderdruk aan de zuigzijde zo groot dat het water lokaal kookt bij omgevingstemperatuur, dan ontstaan dampbellen. Die imploderen zodra ze in een gebied met hogere druk komen, met drukpieken die letterlijk metaal uit het blad slaan. Het resultaat zijn putjes in het brons, trillingen en lawaai. Hoe hoger de bladsnelheid en hoe ondieper de schroef, hoe eerder het begint; leeg varend met de schroef half boven water is het risico groot."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Sturen met je achterkant",
+        "alineas": [
+          "Een roer is net als een schroefblad een vleugel: met een invalshoek ten opzichte van het langsstromende water levert het een dwarskracht. Die duwt het achterschip opzij, en het schip draait om een punt ergens in het voorste deel. Het hek zwaait dus uit naar de buitenkant van de bocht. Wie dicht langs een kade aan bakboord vaart en naar stuurboord stuurt, zwaait met zijn achterschip tegen die kade. Bij het wegvaren van een kade geldt hetzelfde: stuur je te vroeg weg, dan raakt het hek de kant. Ervaren schippers draaien daarom eerst het voorschip een stukje weg, of duwen het achterschip met een korte stoot achteruit los.",
+          "Zonder vaart stroomt er geen water langs het roer en is er geen stuurwerking. Omdat het roer meestal recht achter de schroef staat, is een korte stoot vooruit met het roer opzij de manier om het hek te laten draaien voordat het schip echt vaart maakt. Achteruit werkt het roer slecht, omdat de schroef dan water wegzuigt bij het roer. Daarbij komt het schroefeffect: een rechtsdraaiende schroef trekt bij achteruitslaan het hek duidelijk naar bakboord. Dat is geen hinder maar een gereedschap bij aanleggen. Een boegschroef in een dwarse tunnel duwt de boeg zijwaarts, maar werkt bij vaart steeds slechter, omdat de langsstroming zijn straal afbuigt."
+        ],
+        "foto": 3,
+        "citaat": "Roerwerking hangt af van het water langs het roer, niet van de snelheid over de grond."
+      },
+      {
+        "tussenkop": "Stroom en wind",
+        "alineas": [
+          "Roerwerking hangt af van het water langs het roer, niet van de snelheid over de grond. Vaar je tegen de stroom in, dan stroomt er bij dezelfde grondsnelheid veel meer water langs het roer, en stuur je dus veel beter. Daarom leg je bij voorkeur tegen de stroom in aan: je kunt dan vrijwel stil liggen ten opzichte van de kade terwijl het roer volop werkt. Met de stroom mee aanleggen betekent juist veel vaart over de grond voor weinig stuurwerking. Een leeg binnenvaartschip met veel romp boven water vangt bovendien veel wind en kan bij een stevige zijwind als een zeil wegdrijven. Grote schepen hebben daarom vaak meerdere roeren of roerpropellers."
+        ]
+      },
+      {
+        "tussenkop": "De motor ter grootte van een huis",
+        "alineas": [
+          "Een groot containerschip of een tanker heeft meestal één enorme tweetaktdiesel die met ongeveer 60 tot 120 toeren per minuut draait en zonder tandwielkast direct de schroef aandrijft. Zuigers van bijna een meter diameter, een slag van meer dan twee meter, meer dan tien cilinders en vermogens van tientallen megawatts. Waarom tweetakt? Bij zulke lage toerentallen levert elke omwenteling een arbeidsslag, dus veel vermogen per kilo motor. Het spoelprobleem van de kleine tweetakt uit het eerste artikel van deze reeks speelt hier niet. Een diesel spoelt alleen met lucht en spuit pas daarna brandstof in. Er gaat dus geen onverbrande brandstof de uitlaat in.",
+          "De spoellucht komt via poorten onderin de cilindervoering binnen, aangeblazen door turbo's, en verlaat de cilinder via één grote uitlaatklep bovenin: uniflowspoeling. Zulke motoren hebben een kruishoofd. De zuigerstang gaat recht naar beneden naar een geleid kruishoofd, en pas daar begint de drijfstang. De zuiger duwt dus niet schuin tegen de cilinderwand, en cilinder en carter kunnen gescheiden worden, met een eigen olie voor elk. Het resultaat is een thermisch rendement boven vijftig procent, het hoogste van alle zuigermotoren. Sinds 2020 geldt wereldwijd een zwavellimiet van een half procent in scheepsbrandstof, en nieuwe motoren worden steeds vaker dual-fuel gebouwd voor LNG, methanol en in de toekomst ammoniak."
+        ],
+        "lesFoto": "scheepsdiesel"
+      },
+      {
+        "tussenkop": "Lichten lezen in het donker",
+        "alineas": [
+          "Stuurboord is rechts in de vaarrichting, bakboord links. Een schip voert een groen boordlicht aan stuurboord en een rood aan bakboord, elk zichtbaar over 112,5 graden: van recht vooruit tot iets achterlijker dan dwars. Een wit heklicht schijnt naar achteren over de resterende 135 graden. Een wit toplicht hoog in de mast schijnt over dezelfde 225 graden als de boordlichten samen. Die verdeling is geen toeval. Zie je rood en groen tegelijk met wit erboven, dan komt het schip recht op je af. Zie je alleen groen, dan kijk je tegen zijn stuurboordzijde en vaart hij van links naar rechts voor je langs. Alleen een laag wit licht betekent dat je hem inhaalt.",
+          "Grote schepen voeren twee toplichten, het achterste hoger dan het voorste. Zie je die twee lichten uit elkaar schuiven of juist samenvallen, dan weet je dat het schip van koers verandert, nog voordat je het aan de boordlichten ziet. Een ezelsbrug voor de kleuren is port wine: rood, en port is bakboord in het Engels. In de binnenvaart gelden aanvullende tekens, zoals het blauwe bord of een wit flikkerlicht waarmee een schip aangeeft stuurboord op stuurboord te willen passeren, en speciale lichten voor duwvaart en schepen met gevaarlijke stoffen. Die tekens verraden wat een groot schip van plan is, en juist daarom zijn ze voor een kleine boot zo belangrijk."
+        ],
+        "lesFoto": "navigatielichten"
+      },
+      {
+        "tussenkop": "Klein wijkt voor groot",
+        "alineas": [
+          "Op de meeste Nederlandse binnenwateren geldt het Binnenvaartpolitiereglement, op Rijn en Waal het Rijnvaartpolitiereglement. De basisregel: houd zoveel mogelijk de stuurboordwal, de rechterkant van het vaarwater. Tegenliggers passeren elkaar dan bakboord op bakboord. Een klein schip, in het reglement korter dan twintig meter, moet ruimte laten aan grote schepen. Dat is pure natuurkunde: een geladen vrachtschip kan niet snel uitwijken of stoppen, heeft de diepte van de vaargeul nodig en ziet een sloep vlak voor de boeg vaak niet. De dode hoek vóór de boeg kan honderden meters zijn. Wie daar vaart, is voor de schipper letterlijk onzichtbaar.",
+          "Tussen kleine schepen onderling wijkt een klein motorschip voor een klein zeilschip en voor schepen op spierkracht; een roeiboot of kano wijkt weer voor een zeilschip. Tussen twee zeilschepen hangt het af van de wind: over stuurboord gaat voor over bakboord, en loef wijkt voor lij. Wie voorrang heeft, moet koers en snelheid houden, zodat de ander kan inschatten wat hij gaat doen. Een klein vaarbewijs is nodig voor een motorboot langer dan vijftien meter of sneller dan twintig kilometer per uur. Op veel wateren gelden bovendien lokale snelheidsbeperkingen, vaak lager dan je op het eerste gezicht zou verwachten."
+        ],
+        "kader": {
+          "titel": "Vaarregels in het kort",
+          "punten": [
+            "Houd stuurboordwal; tegenliggers passeren bakboord op bakboord",
+            "Klein schip (korter dan 20 m) laat ruimte aan grote schepen",
+            "Klein motorschip wijkt voor zeil en spierkracht",
+            "Vaarbewijs nodig vanaf 15 m lengte of boven 20 km/h",
+            "Blijf uit de dode hoek vóór de boeg van grote schepen"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Rood, groen en geel-zwart",
+        "alineas": [
+          "Tonnen markeren de randen van het vaarwater. Europa gebruikt IALA-systeem A: vaar je van zee naar binnen of stroomopwaarts, dan houd je de rode tonnen aan bakboord en de groene aan stuurboord. De andere kant op is het precies omgekeerd. In Amerika en Japan geldt systeem B, met precies de omgekeerde kleuren. Rode tonnen zijn cilindrisch of stomp, groene spits, zodat je ook in de schemering aan de vorm ziet welke kant het is. Rood draagt even nummers, groen oneven, oplopend in de betonningsrichting. Kardinale tonnen, geel-zwart met twee kegeltjes als topteken, geven aan aan welke windstreek van een gevaar het veilige water ligt; de kegels wijzen die kant op.",
+          "Een noordkardinaal heeft twee kegels met de punten omhoog en betekent: het veilige water ligt ten noorden van deze ton. Een zuidkardinaal heeft beide punten omlaag. Daarnaast markeren zwart-rode gevaarpuntboeien met twee bollen een geïsoleerd gevaar met rondom bevaarbaar water, en geven scheidingstonnen aan waar een vaarwater zich splitst. Op de Nederlandse binnenwateren gebruikt het BPR hetzelfde kleurprincipe, aangevuld met borden langs de oever die bijvoorbeeld een ankerverbod, een snelheidslimiet of een marifoonblok aangeven. Wie de betonning leest als een verhaal over waar de diepte ligt, en niet als losse gekleurde stippen, raakt veel minder snel aan de grond."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Marifoon: luisteren is verplicht",
+        "alineas": [
+          "De marifoon werkt op VHF, rond 156 tot 162 megahertz, met een bereik dat ongeveer tot de horizon reikt: van schip tot schip orde tien tot twintig zeemijl, afhankelijk van de antennehoogte. Op zee is kanaal 16 het nood-, spoed- en aanroepkanaal; je roept iemand daar op en gaat dan naar een werkkanaal. Op de Nederlandse binnenwateren werkt het anders. Daar luister je het blokkanaal uit dat op borden langs de vaarweg staat, schip-schipverkeer gaat via kanaal 10 en bruggen en sluizen hebben eigen kanalen. Bij elke uitzending gaat automatisch een ATIS-identificatie mee. Bij nood roep je driemaal MAYDAY, gevolgd door naam, positie, aard van de nood, gevraagde hulp en aantal personen aan boord."
+        ],
+        "lesFoto": "marifoon-basis"
+      },
+      {
+        "tussenkop": "Schutten zonder pomp",
+        "alineas": [
+          "Een schutsluis bestaat uit een kolk met aan beide kanten deuren. De deuren aan jouw kant openen, je vaart in, ze sluiten, en via riolen of schuiven loopt water in of uit de kolk tot het peil gelijk is aan de andere kant. Er is geen pomp nodig: het hoogteverschil doet al het werk. Puntdeuren, twee deuren die in een hoek tegen elkaar staan met de punt naar het hoge water, worden door de waterdruk zelf dichtgedrukt. Ze kunnen pas open als het peil aan beide kanten gelijk is. Een sluiswachter kan ze dus niet per ongeluk tegen de druk in openen; de constructie zelf is de beveiliging, net als bij de spoorstroomkring van de trein.",
+          "Tijdens het vullen ontstaan sterke stromingen in de kolk. Leg daarom vast met lijnen die je kunt vieren of inhalen, en maak nooit een lijn vast aan een bolder bij een dalend peil: dan kom je aan de lijn te hangen en kan je boot kantelen. Een kleine boot ligt liefst niet direct achter de schroef van een groot schip dat straks gas geeft. De lichten bij een sluis zijn helder: rood betekent niet invaren, twee rode lichten betekenen dat de sluis buiten gebruik is, rood en groen samen dat hij wordt gereedgemaakt, en alleen groen betekent invaren. De zeesluis van IJmuiden uit 2022 behoort tot de grootste zeesluizen ter wereld."
+        ],
+        "foto": 5
+      }
+    ]
+  },
+  {
+    "id": "vervoer-06",
+    "kop": "Duizend onderdelen die elkaar tegenwerken: hoe een helikopter vliegt",
+    "intro": "Een helikopter is een vliegtuig waarvan de vleugels rondjes draaien, met alle complicaties van dien. Wie in de flightsim ooit een hover probeerde, weet hoe alles met alles samenhangt. Dit is de natuurkunde achter dat gevecht, van swashplate tot autorotatie.",
+    "hoofdstuk": "Helikopters",
+    "basis": [
+      "rotor-lift",
+      "collective",
+      "cyclic-swashplate",
+      "staartrotor-anti-torque",
+      "dissymmetry-flapping",
+      "translational-lift-grondeffect",
+      "autorotatie",
+      "vortex-ring-state",
+      "turboshaft",
+      "snelheidslimieten-heli"
+    ],
+    "fotos": [
+      {
+        "wiki": "Robinson R22",
+        "taal": "en",
+        "bijschrift": "Robinson R22: lichte lesheli met zuigermotor en tweebladige rotor"
+      },
+      {
+        "wiki": "Swashplate (aeronautics)",
+        "taal": "en",
+        "bijschrift": "Swashplate: stilstaande en meedraaiende ring vertalen stuurinput naar bladhoek"
+      },
+      {
+        "wiki": "Fenestron",
+        "taal": "en",
+        "bijschrift": "Fenestron: ommantelde staartrotor in de staartvin"
+      },
+      {
+        "wiki": "Sikorsky X2",
+        "taal": "en",
+        "bijschrift": "Sikorsky X2: coaxiale rotoren plus duwschroef om de snelheidsgrens te omzeilen"
+      },
+      {
+        "wiki": "Autorotation",
+        "taal": "en",
+        "bijschrift": "Autorotatie: de opstromende lucht drijft het binnenste deel van de bladen aan"
+      },
+      {
+        "wiki": "Vortex ring state",
+        "taal": "en",
+        "bijschrift": "Vortex ring state: de rotor pompt zijn eigen neerwaartse lucht rond"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Bij een vliegtuig komt de luchtsnelheid over de vleugel van de vooruitbeweging. Bij een helikopter komt hij van het draaien. De tip van een rotorblad beweegt met zo'n 200 meter per seconde, ruwweg Mach 0,6, terwijl het blad vlak bij de naaf maar een fractie daarvan haalt. Lift gaat met het kwadraat van de snelheid: halverwege het blad is de luchtsnelheid half zo groot en de lift per vierkante centimeter bij dezelfde invalshoek maar een kwart. Daarom zijn bladen getordeerd: bij de naaf een grotere bladhoek dan bij de tip, zodat de lift gelijkmatiger over het blad verdeeld is en de tip niet al het werk doet.",
+          "Het rotortoerental wordt binnen enkele procenten constant gehouden. Te laag betekent te weinig middelpuntvliedende kracht om de bladen gestrekt te houden en te weinig lift; te hoog belast de naaf en laat de tips richting geluidssnelheid gaan. Een rotor met een straal van vijf meter op 420 toeren heeft een tipsnelheid van ongeveer 220 meter per seconde. Grote helikopters draaien langzamer, omdat hun bladen langer zijn. Omdat het toerental vastligt, regel je lift niet met snelheid maar met bladhoek. De bladen zijn met scharnieren of flexibele elementen aan de naaf bevestigd, zodat ze op en neer kunnen flappen, soms ook voor- en achteruit kunnen bewegen in het rotorvlak, en om hun lengteas kunnen verdraaien."
+        ],
+        "vt": "vleugel"
+      },
+      {
+        "tussenkop": "De collective: alles tegelijk",
+        "alineas": [
+          "De collective is de hendel links van de piloot. Omhoog trekken vergroot de bladhoek van alle bladen evenveel, over de hele omwenteling: meer stuwkracht en de helikopter stijgt. Maar meer bladhoek betekent ook meer weerstand, en de rotor wil vertragen. Om het toerental vast te houden moet de motor dus meer vermogen leveren. Bij lichte zuigerhelikopters zit daarom een correlator die het gas meeopent met de collective, plus een gouverneur die het restant bijregelt; de draaigashendel zit op de collective zelf. Bij turbinehelikopters regelt de brandstofregeling, vaak volledig digitaal, dat automatisch. Het rotortoerental is het getal waar alles om draait.",
+          "Meer motorvermogen betekent meer koppel op de rotoras en dus een grotere neiging van de romp om de andere kant op te draaien. Elke beweging van de collective vraagt daarom een correctie met de pedalen. En omdat meer stuwkracht ook de stand van de helikopter beïnvloedt, moet de cyclic mee. Dat is waarom hoveren in het begin zo berucht is: elk bedieningsorgaan beïnvloedt de andere, en wie één correctie te groot maakt, zit binnen een paar seconden in een slingerende overcorrectie. Ervaren piloten beschrijven de hover vaak als drukken in plaats van bewegen: kleine, rustige drukjes op alle drie tegelijk."
+        ]
+      },
+      {
+        "tussenkop": "Cyclic en swashplate",
+        "alineas": [
+          "De swashplate bestaat uit twee ringen rond de rotoras. De onderste staat stil en is verbonden met de stuurorganen; de bovenste draait mee en is via pitch links met elk blad verbonden. De collective schuift de hele swashplate omhoog of omlaag. De cyclic kantelt hem. Bij een gekantelde swashplate krijgt elk blad tijdens één omwenteling een wisselende bladhoek: op het ene punt maximaal, 180 graden verder minimaal. Waar het blad meer lift heeft, flapt het omhoog, waar het minder heeft omlaag. Het tipvlak van de rotor kantelt mee, en daarmee de totale stuwkracht. Een voorwaarts gekantelde stuwkracht heeft een horizontale component, en de helikopter versnelt.",
+          "De grootste uitslag van het blad valt niet waar de bladhoek maximaal is, maar ongeveer negentig graden later in de draairichting. Dat wordt vaak gyroscopische precessie genoemd; aerodynamisch is het het resonantiegedrag van een flappend blad. Om de rotor naar voren te kantelen moet de maximale bladhoek dus aan de zijkant liggen. Ontwerpers bouwen dat in de koppeling in, zodat de piloot er niets van merkt: cyclic naar voren is rotor naar voren. In de sim merk je wel dat de cyclic een commando is voor de rotorkanteling, niet direct voor de rompstand. De romp hangt als een slinger onder de rotor en volgt met vertraging. Wie dat niet afwacht, overcorrigeert."
+        ],
+        "foto": 1,
+        "vt": "rotor"
+      },
+      {
+        "tussenkop": "Actie, reactie en de staartrotor",
+        "alineas": [
+          "Het koppel waarmee de motor de rotor aandrijft, werkt even groot terug op de romp. Zonder compensatie draait de romp tegen de rotor in. De staartrotor aan het eind van een lange staartboom levert een zijwaartse kracht; maal de arm tot de rotoras geeft dat het tegenkoppel. De pedalen veranderen de collectieve bladhoek van de staartrotor, en zo stuur je in de hover om de verticale as. De staartrotor draait via een as en tandwielkasten in vaste verhouding mee met de hoofdrotor en kost in de hover tien procent of meer van het vermogen. Draait de hoofdrotor van boven gezien tegen de klok in, zoals bij de meeste Amerikaanse ontwerpen, dan wil de neus naar rechts en heb je vooral linkerpedaal nodig.",
+          "Een bijeffect is dat de zijwaartse stuwkracht van de staartrotor de hele helikopter opzij duwt. Dat wordt gecompenseerd met wat cyclic of een licht scheef geplaatste rotormast, waardoor veel helikopters in de hover met één ski iets lager hangen. Er zijn alternatieven. De fenestron is een ommantelde staartrotor in de staartvin, stiller en beter beschermd. NOTAR blaast lucht door de staartboom en gebruikt het Coandă-effect plus een stuurbare straal. Tandemrotoren zoals bij de Chinook en coaxiale rotoren zoals bij Kamov draaien tegen elkaar in, waardoor hun koppels elkaar opheffen. Bij lage snelheid en ongunstige wind kan een gewone staartrotor zijn werking verliezen, met een snelle ongecommandeerde draai als gevolg."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Het blad dat terugloopt",
+        "alineas": [
+          "In de hover heeft elk blad overal dezelfde luchtsnelheid. Vlieg je met 100 knopen vooruit, dan krijgt het blad dat naar voren draait zijn tipsnelheid plus 100 knopen, en het blad dat terugdraait zijn tipsnelheid min 100 knopen. Met een tipsnelheid van 200 meter per seconde, zo'n 390 knopen, is dat 490 tegenover 290 knopen. Omdat lift met het kwadraat van de snelheid gaat, zou het voorwaartse blad bij gelijke bladhoek bijna drie keer zoveel lift leveren. Zonder compensatie rolt de helikopter hard naar de kant van het terugkerende blad. Dat heet dissymmetry of lift, en het was een van de problemen die de vroege rotorpioniers moesten oplossen.",
+          "De oplossing is flappen. Het voorwaartse blad krijgt meer lift en flapt omhoog; door die opwaartse beweging komt de relatieve luchtstroom meer van boven, de effectieve invalshoek daalt en de lift neemt af. Het terugkerende blad flapt omlaag, krijgt een grotere effectieve invalshoek en meer lift. Het systeem vindt vanzelf een evenwicht. Een bijeffect is blowback: door het flappen en de negentig graden faseverschuiving kantelt het rotorvlak naar achteren naarmate je sneller vliegt, en je hebt steeds meer voorwaartse cyclic nodig. Bij de naaf aan de terugkerende kant komt de lucht bij hoge snelheid zelfs van achteren op het blad: het reverse-flowgebied, dat met de snelheid groeit."
+        ]
+      },
+      {
+        "tussenkop": "Gratis lift: ETL en grondeffect",
+        "alineas": [
+          "In de hover zuigt de rotor zijn eigen, al naar beneden versnelde lucht aan, en rond de tips draaien wervels die lucht van onder weer naar boven laten circuleren. Hoveren buiten grondeffect is daardoor een van de duurste vluchtfasen. Zodra de helikopter vooruit gaat, stroomt er steeds verse lucht de rotor in. Rond 15 tot 25 knopen laat de rotor zijn eigen wervelsysteem achter zich: effective translational lift. Je voelt het als een korte trilling, gevolgd door een duidelijke toename van lift; de helikopter wil stijgen en de neus omhoog. Horizontale vlucht rond 60 tot 80 knopen kost daardoor vaak minder vermogen dan de hover zelf.",
+          "Grondeffect treedt op binnen ongeveer één rotordiameter van de grond en is het sterkst onder een halve. De grond remt de neerwaartse luchtstroom af en verkleint de tipwervels, waardoor de rotor bij dezelfde bladhoek meer lift geeft. Een zwaar beladen helikopter op een warme dag kan daarom vaak wel vlak boven de grond hoveren maar niet hoog. Prestatietabellen geven beide waarden: in en buiten grondeffect. Hoog gras, water of een helling verminderen het effect. Dat maakt een start vanaf een hoog gelegen landingsplaats op een warme middag zo kritisch: de piloot heeft vaak alleen genoeg vermogen om met een lage, versnellende start door ETL te komen."
+        ]
+      },
+      {
+        "tussenkop": "Autorotatie: zweefvliegen met een rotor",
+        "alineas": [
+          "Tussen motor en rotor zit een vrijloopkoppeling, zodat de rotor bij motoruitval vrij kan doordraaien. De eerste actie is altijd de collective omlaag. Doe je dat niet, dan vertraagt de rotor door de weerstand van de bladen in enkele seconden, en een rotor met te laag toerental is niet meer te herstellen. Met de collective omlaag daalt de helikopter en stroomt de lucht van onder naar boven door de rotor. Op het binnenste deel van elk blad kantelt de liftvector daardoor naar voren: dat deel drijft de rotor aan. Het buitenste deel remt, in het midden ligt een evenwicht, en vlak bij de naaf is een klein overtrokken gebied. De piloot regelt het toerental met de collective.",
+          "Met de cyclic vliegt hij de optimale snelheid, voor een lichte helikopter rond 60 tot 70 knopen, met een daalsnelheid van 1500 tot 2000 voet per minuut. Vlak boven de grond volgt de flare: cyclic naar achteren, de rotor kantelt achterover, vooruit- en daalsnelheid nemen af, en door de extra luchtstroom loopt het rotortoerental op. Dan zet de piloot de helikopter recht en trekt vlak boven de grond de collective omhoog. De opgeslagen draai-energie van de rotor wordt een laatste dosis lift voor een zachte landing. Dat kan maar één keer. Het hoogte-snelheidsdiagram toont de combinaties van lage hoogte en lage snelheid waarin daarvoor te weinig tijd of energie is."
+        ],
+        "foto": 4,
+        "citaat": "De opgeslagen draai-energie van de rotor wordt een laatste dosis lift voor een zachte landing. Dat kan maar één keer.",
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Collective = alle bladen tegelijk; cyclic = swashplate kantelen; pedalen = bladhoek staartrotor",
+            "Maximale flapuitslag ligt ongeveer 90° na de maximale bladhoek",
+            "ETL rond 15–25 knopen; grondeffect binnen ongeveer één rotordiameter",
+            "Motoruitval: direct collective omlaag om het rotortoerental te redden",
+            "Vortex ring state: weinig snelheid, daalsnelheid vanaf ca. 300 ft/min en vermogen erop"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Vallen in je eigen luchtstroom",
+        "alineas": [
+          "Daal je verticaal of heel steil met een daalsnelheid die vergelijkbaar is met de neerwaartse luchtsnelheid van de rotor, dan zak je in je eigen downwash. Rond de tips vormt zich een ringvormige wervel: lucht gaat buiten de rotor omlaag, langs de tips omhoog en weer door de rotor naar beneden. De rotor pompt dezelfde lucht rond. Een groot deel van de schijf levert dan nauwelijks lift, ondanks een hoge collective, en meer collective maakt het erger. De daalsnelheid kan oplopen tot duizenden voet per minuut, met sterke trillingen. De vuistregels voor deze vortex ring state zijn: weinig voorwaartse snelheid, een daalsnelheid vanaf ongeveer 300 voet per minuut, en vermogen erop.",
+          "Typische situaties zijn een steile nadering met wind in de rug, of eerst buiten grondeffect hoveren en dan langzaam laten zakken. Herstel betekent de helikopter uit zijn eigen luchtstroom halen. De klassieke methode is voorwaartse cyclic om snelheid te maken en zo schone lucht in te vliegen; de Vuichard-methode gebruikt zijwaartse cyclic met pedaal en meer collective, en kost doorgaans minder hoogte. Beide kosten hoogte, dus voorkomen is beter. In autorotatie treedt het verschijnsel overigens niet op, omdat de lucht dan van onder door de rotor stroomt. Zo hangen de verschijnselen in een helikopter steeds met elkaar samen."
+        ],
+        "foto": 5
+      },
+      {
+        "tussenkop": "De turbine die geen stuwkracht wil",
+        "alineas": [
+          "Een turboshaft heeft net als een straalmotor een compressor, verbrandingskamer en turbine: samen de gasgenerator. Daarachter zit een tweede, mechanisch losse turbine, de vrije arbeidsturbine. De hete gassen drijven die aan, en die as gaat via een reductiekast naar de rotor. Doordat beide los van elkaar draaien, kan het toerental van de arbeidsturbine, en dus van de rotor, constant blijven terwijl de gasgenerator sneller of langzamer draait naargelang het gevraagde vermogen. In de cockpit heten die twee meestal N1 en N2. Een turboshaft van een paar honderd kilo levert gemakkelijk 500 tot 1500 kilowatt, veel meer dan een zuigermotor van dat gewicht.",
+          "Nadelen zijn een hoger brandstofverbruik per kilowattuur, vooral bij deellast, en hoge aanschafkosten. Daarom vliegen lichte lesheli's nog op zuigermotoren. De belangrijkste grenzen in de cockpit zijn de turbinetemperatuur, het koppel in procenten en N1. Bij het starten is de temperatuur het spannendst. Komt er te veel brandstof bij een te laag toerental, dan stijgt de temperatuur in seconden boven de grens: een hot start, die de turbine kan beschadigen. Piloten houden bij elke start daarom een hand op de brandstofafsluiter, klaar om af te breken. Moderne digitale regelingen bewaken dat zelf, maar ook daar blijft de temperatuurmeter het eerste instrument waar je naar kijkt."
+        ],
+        "lesFoto": "turboshaft"
+      },
+      {
+        "tussenkop": "Waarom helikopters niet harder kunnen",
+        "alineas": [
+          "Naarmate de snelheid toeneemt, krijgt het terugkerende blad steeds minder luchtsnelheid en moet het een steeds grotere invalshoek maken om zijn deel van de lift te leveren. Ergens overschrijdt het buitenste deel van dat blad de kritische invalshoek en overtrekt het: retreating blade stall. Door de faseverschuiving merk je dat niet als een simpele rol, maar als trillingen, een neus die omhoog wil en een rol naar de kant van het terugkerende blad. Herstel: collective omlaag, snelheid terug met voorzichtig achterwaartse cyclic, en de belasting verminderen. Druk de neus nooit omlaag om te herstellen, want dan versnel je en maak je het erger.",
+          "Hoge massa, dunne lucht, laag rotortoerental, scherpe bochten en turbulentie laten het eerder optreden. Daarom daalt de maximumsnelheid van een helikopter met hoogte en temperatuur, en staat die in tabellen in het handboek of op een kaartje in de cockpit. Aan de andere kant naderen de tips van het voorwaartse blad de geluidssnelheid, met schokgolven, extra weerstand en lawaai. Tussen die twee grenzen zit een conventionele helikopter rond 150 tot 180 knopen klem. Ontwerpen met coaxiale rotoren en een duwschroef, of tiltrotors die hun rotoren naar voren kantelen, omzeilen dat. Het is het laatste bewijs dat een helikopter in de kern een compromis is tussen twee bladen die elk een andere wereld zien."
+        ],
+        "foto": 3,
+        "citaat": "Druk de neus nooit omlaag om te herstellen, want dan versnel je en maak je het erger."
+      }
+    ]
+  }
+]

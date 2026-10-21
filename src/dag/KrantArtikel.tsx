@@ -120,11 +120,13 @@ export default function KrantArtikel({
   extra,
   gelezen,
   onGelezen,
+  zonderAfvinken,
 }: {
   m: string
   units: Eenheid[]
   voorpagina?: boolean
   extra?: boolean
+  zonderAfvinken?: boolean
   gelezen?: boolean
   onGelezen: (aan: boolean) => void
 }) {
@@ -166,7 +168,7 @@ export default function KrantArtikel({
         </div>
       )}
 
-      {!ingeklapt && (
+      {!ingeklapt && !zonderAfvinken && (
         <div className="kr-afvinken">
           <button type="button" className={gelezen ? 'aan' : ''} onClick={() => onGelezen(!gelezen)} aria-pressed={!!gelezen}>
             <span className="kr-vinkje">{gelezen ? <Check size={16} strokeWidth={3} /> : null}</span>
@@ -221,4 +223,27 @@ function Deel({ eenheid }: { eenheid: Eenheid }) {
       <Kaders kaarten={rest} />
     </section>
   )
+}
+
+// Kop, intro, foto en leestijd voor een teaser op de voorpagina.
+export function samenvatting(m: string, units: Eenheid[]): { kop: string; intro: string; foto?: string; minuten: number } {
+  const kop = units.length === 1 ? units[0].naam : (KOPPEN[m] ?? ((u: Eenheid[]) => opsomming(namen(u))))(units)
+  let foto: string | undefined
+  let tekst = ''
+  let n = 0
+  for (const u of units)
+    for (const k of u.kaarten) {
+      if (!foto && k.beeld?.soort === 'img') foto = k.beeld.src
+      if (!foto && k.beeld?.soort === 'fotos') foto = k.beeld.fotos[0]?.src
+      for (const b of k.blokken) {
+        if (!foto && b.soort === 'beeld' && b.beeld.soort === 'fotos') foto = b.beeld.fotos[0]?.src
+        if (!foto && b.soort === 'beeld' && b.beeld.soort === 'img') foto = b.beeld.src
+        if (b.soort === 'tekst' || b.soort === 'regel' || b.soort === 'let') {
+          n += b.tekst.split(/\s+/).length
+          if (!tekst && b.soort === 'tekst') tekst = b.tekst
+        }
+      }
+    }
+  const intro = tekst.length > 220 ? `${tekst.slice(0, 210).replace(/\s+\S*$/, '')} …` : tekst
+  return { kop, intro, foto, minuten: Math.max(1, Math.round(n / 220)) }
 }

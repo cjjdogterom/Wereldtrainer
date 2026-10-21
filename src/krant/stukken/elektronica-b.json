@@ -1,0 +1,839 @@
+[
+  {
+    "id": "elektronica-07",
+    "kop": "Van stopcontact naar printplaat: waar de wisselstroom blijft",
+    "intro": "Tussen de 230 volt in de muur en de 5 volt op een print gebeurt meer dan je denkt. Stroom die nutteloos heen en weer pendelt, vier diodes die de sinus omklappen en condensatoren die het gat opvullen: wie dat doorziet, leest daarna elke voeding als een open boek.",
+    "hoofdstuk": "Voedingen en passieve componenten",
+    "basis": [
+      "blindvermogen-cosphi",
+      "gelijkrichten",
+      "weerstanden-kleurcode",
+      "condensatoren-soorten"
+    ],
+    "fotos": [
+      {
+        "wiki": "Electrolytic capacitor",
+        "taal": "en",
+        "bijschrift": "Elco’s in allerlei maten: de buffervaten van elke netvoeding"
+      },
+      {
+        "wiki": "Induction motor",
+        "taal": "en",
+        "bijschrift": "Inductiemotoren: de klassieke veroorzakers van blindvermogen"
+      },
+      {
+        "wiki": "Diode bridge",
+        "taal": "en",
+        "bijschrift": "Bruggelijkrichter: vier diodes in één blokje met vier aansluitingen"
+      },
+      {
+        "wiki": "Electronic color code",
+        "taal": "en",
+        "bijschrift": "Precisieweerstand met vijf kleurringen"
+      },
+      {
+        "wiki": "Surface-mount technology",
+        "taal": "en",
+        "bijschrift": "SMD-onderdelen: geen ringen meer, maar een cijfercode of helemaal niets"
+      },
+      {
+        "wiki": "Ceramic capacitor",
+        "taal": "en",
+        "bijschrift": "Keramische condensator, de standaard voor ontkoppeling"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Pak een goedkope LED-lamp of een telefoonlader en vraag je af wat er binnenin gebeurt. Aan de ene kant komt wisselspanning binnen die vijftig keer per seconde van plus naar min zwaait, met toppen van ruim 320 volt. Aan de andere kant komt een rustige gelijkspanning naar buiten waar een chip op kan draaien. Daartussen zitten maar een handvol onderdelen: diodes, een flinke condensator, wat weerstanden, en in moderne apparaten een schakelende regelaar. Elk van die onderdelen heeft zijn eigen eigenaardigheden, en bijna elke kapotte voeding die je ooit openschroeft, is gestorven aan één daarvan.",
+          "Dit artikel volgt die weg van net naar print. We beginnen bij een verschijnsel dat je op de energierekening niet terugziet maar dat netbeheerders wel degelijk bezighoudt: blindvermogen. Daarna klappen we de sinus om met een bruggelijkrichter, rekenen we uit hoe groot de afvlakcondensator moet zijn, en eindigen we bij de twee onderdelen die je op elke print duizenden keren tegenkomt: weerstanden en condensatoren. Niet de basis van de wet van Ohm, maar de praktijk: hoe je ze leest, kiest, meet en waarom ze stukgaan."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Stroom die alleen maar pendelt",
+        "alineas": [
+          "Bij een waterkoker lopen spanning en stroom keurig in de pas: ze gaan op hetzelfde moment door nul en bereiken tegelijk hun top. Bij een motor, een ouderwetse tl-ballast of een transformator is dat anders. Een spoel verzet zich tegen elke verandering van stroom, waardoor de stroom achterloopt op de spanning. Bij een condensator is het andersom: die loopt voor. Het tijdsverschil druk je uit als een hoek, φ (phi), waarbij een volledige periode 360 graden is. De cosinus van die hoek heet de arbeidsfactor, en die bepaalt welk deel van de stroom werkelijk arbeid verricht.",
+          "Een rekenvoorbeeld maakt het tastbaar. Een motor op 230 volt trekt 5 ampère bij een cos φ van 0,8. Vermenigvuldig je spanning en stroom, dan krijg je het schijnbaar vermogen S van 1150 voltampère (VA). Het werkelijke vermogen P, dat as en warmte oplevert, is 1150 × 0,8 = 920 watt. Het verschil zit in het blindvermogen Q. Omdat P en Q haaks op elkaar staan in de vermogensdriehoek, volgt Q uit Pythagoras: de wortel uit 1150² min 920², ofwel ongeveer 690 var (voltampère reactief). Die 690 var is energie die elke halve periode het magnetisch veld van de motor in gaat en er weer uit komt, zonder dat er iets mee gebeurt.",
+          "Waarom maakt dat uit, als het toch niets verbruikt? Omdat de stroom wel echt door de kabels loopt. Die motor trekt 5 ampère, terwijl hij bij cos φ = 1 voor hetzelfde werk maar 4 ampère nodig zou hebben. Kabelverlies groeit met het kwadraat van de stroom, dus 5 ampère geeft ruim anderhalf keer zoveel warmte in koper en transformatoren als 4 ampère. Een huishouden betaalt alleen voor kilowatturen werkelijke energie, maar bedrijven met veel motoren krijgen te maken met afspraken over hun arbeidsfactor. Zij plaatsen condensatorbatterijen die de voorlopende stroom leveren die de motoren nalopend vragen, zodat het net het verschil niet meer hoeft aan te voeren.",
+          "In het klein zie je hetzelfde in oude tl-armaturen. De smoorspoel die de buis stabiliseert, maakt van de lamp een flink inductieve belasting met een arbeidsfactor rond 0,5. Daarom zit er in veel armaturen een compensatiecondensator parallel aan de netaansluiting. Is die uitgedroogd, dan brandt de lamp gewoon, maar trekt het armatuur bijna twee keer zoveel stroom als nodig."
+        ],
+        "citaat": "Blindvermogen verricht geen arbeid, maar de stroom die het meebrengt verwarmt wel elke kabel onderweg.",
+        "lesFoto": "blindvermogen-cosphi"
+      },
+      {
+        "tussenkop": "De andere arbeidsfactor: vervorming",
+        "alineas": [
+          "Moderne elektronica heeft een eigen variant van het probleem, en die heeft niets met faseverschuiving te maken. Een eenvoudige voeding met een gelijkrichter en een afvlakcondensator laadt die condensator alleen bij in de korte momenten dat de netspanning hoger is dan de spanning op de condensator, dus vlak rond de top van de sinus. De rest van de tijd trekt hij niets. Het resultaat is een stroom die bestaat uit smalle, hoge pieken. Ook dat geeft een arbeidsfactor onder 1, omdat de effectieve stroom groter is dan voor het geleverde vermogen nodig zou zijn. Bij goedkope LED-lampen ligt de arbeidsfactor daardoor soms rond de 0,5.",
+          "Die piekstromen bevatten veel boventonen: veelvouden van 50 hertz, vooral 150, 250 en 350 hertz. In een driefase-installatie hebben die boventonen een vervelende eigenschap. De derde harmonische van de drie fasen valt in de nulgeleider niet tegen elkaar weg, zoals de grondtoon doet, maar telt juist op. Een kantoorgebouw vol computers kan zo een nulgeleider hebben die zwaarder belast is dan de fasen zelf. Daarom stelt de Europese norm voor apparaten boven ongeveer 75 watt grenzen aan die boventonen, en hebben pc-voedingen een actieve PFC-schakeling (power factor correction) die de stroom netjes sinusvormig laat lopen."
+        ]
+      },
+      {
+        "tussenkop": "Vier diodes die de sinus omklappen",
+        "alineas": [
+          "De bruggelijkrichter is het eerste onderdeel na de transformator of, bij een netvoeding zonder transformator, direct na de netingang. Vier diodes staan in een ruit. Tijdens de positieve halve periode geleiden twee diagonaal tegenover elkaar liggende diodes, tijdens de negatieve halve periode de andere twee. Aan de uitgang loopt de stroom daardoor altijd dezelfde kant op: de negatieve helften van de sinus zijn naar boven geklapt. Er komen dus honderd bulten per seconde uit, niet vijftig. Dat verdubbelde ritme is belangrijk, want het halveert de benodigde condensator ten opzichte van een enkele diode.",
+          "Omdat de stroom altijd door twee diodes in serie loopt, verlies je twee keer de doorlaatspanning: zo’n 1,4 volt bij gewone siliciumdiodes, en bij hogere stromen al snel 2 volt. Bij een 230-voltvoeding valt dat in het niet, maar bij een kleine transformator van 6 volt is het een flinke hap. Reken het na voor een transformator van 12 volt wisselspanning. De 12 volt is de effectieve waarde; de top ligt een factor √2 hoger, op ongeveer 17 volt. Min 1,4 volt voor de brug blijft er onbelast circa 15,6 volt gelijkspanning over op de condensator. Wie verwacht dat een 12-volttrafo 12 volt gelijkspanning geeft, schrikt dus van een meting.",
+          "Het wordt nog iets hoger. Kleine transformatoren zijn opgegeven bij volle belasting; onbelast geven ze vaak tien tot twintig procent meer. Een 12-volttrafo kan zo onbelast 13,5 volt leveren, en de gelijkgerichte spanning komt dan rond de 17,5 volt uit. Voor de condensator en een eventuele regelaar daarachter moet je met die hoogste waarde rekenen, niet met het getal op het typeplaatje. Een elco van 16 volt is in deze schakeling dus te krap, ook al staat er 12 volt op de trafo."
+        ],
+        "schema": "brug",
+        "foto": 2
+      },
+      {
+        "tussenkop": "Rimpel uitrekenen",
+        "alineas": [
+          "Tussen twee toppen in levert de condensator de stroom aan de belasting en zakt zijn spanning. Die zaagtand heet rimpel. Voor een dubbelzijdige gelijkrichter geldt een handige benadering: de rimpelspanning is ongeveer de belastingsstroom gedeeld door twee keer de netfrequentie maal de capaciteit, ΔU ≈ I ÷ (2 × f × C). Bij 1 ampère, 50 hertz en een elco van 4700 microfarad wordt dat 1 ÷ (100 × 0,0047), ongeveer 2,1 volt. Met een enkele diode in plaats van een brug zakt de spanning twee keer zo lang en verdubbelt de rimpel tot ruim 4 volt.",
+          "Die rimpel bepaalt wat er daarna kan. Een spanningsregelaar heeft een minimale spanning boven zijn uitgang nodig, de dropout. Zakt het dal van de rimpel daaronder, dan komt de rimpel als brom door op de uitgang. Bij een 7805 die ongeveer 2 volt dropout heeft, moet het laagste punt van de rimpel boven de 7 volt blijven. In het voorbeeld van 15,6 volt min 2,1 volt rimpel is er ruimte genoeg; bij een 9-volttrafo onder volle last wordt het al spannend.",
+          "Er is een prijs voor een grote condensator. Hoe groter de capaciteit, hoe korter het moment waarop de diodes geleiden en hoe hoger dus de piekstromen. Een voeding die gemiddeld 1 ampère levert, kan diodepieken van vijf tot tien ampère hebben, en de transformator wordt door die pieken warmer dan zijn gemiddelde stroom doet vermoeden. Een gangbare vuistregel is daarom een transformator te kiezen met zo’n anderhalf tot twee keer zoveel VA als het gelijkstroomvermogen dat je eruit wilt halen. Bij het inschakelen is de condensator bovendien leeg: de eerste milliseconden gedraagt hij zich als een kortsluiting, wat bij grote voedingen een inschakelstroombegrenzer nodig maakt."
+        ],
+        "kader": {
+          "titel": "Rekenvoorbeeld: een eenvoudige 12-voltvoeding",
+          "punten": [
+            "Trafo 12 V~ (effectief), onbelast ca. 13,5 V",
+            "Topspanning: 13,5 × 1,41 ≈ 19 V; min 1,4 V brug ≈ 17,6 V DC",
+            "Belasting 1 A, elco 4700 µF: rimpel ≈ 1 ÷ (100 × 0,0047) ≈ 2,1 V",
+            "Elco kiezen op minstens 25 V, liefst een 105 °C-type",
+            "Trafo minstens 20–25 VA voor 1 A gelijkstroom"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Weerstanden lezen zonder te gokken",
+        "alineas": [
+          "Van de spanning naar de onderdelen. Bedrade weerstanden dragen hun waarde in kleurringen. Bij vier ringen zijn de eerste twee cijfers, de derde de vermenigvuldiger en de vierde de tolerantie. Geel, violet, rood, goud betekent 4, 7 en twee nullen: 4700 ohm, met 5 procent tolerantie. In schema’s schrijf je dat als 4k7, waarbij de letter de plaats van de komma inneemt; zo kan een komma die bij het afdrukken wegvalt geen factor tien fout veroorzaken. Precisieweerstanden hebben vijf ringen: drie cijfers, een vermenigvuldiger en een tolerantie. Bruin, zwart, zwart, rood, bruin is 100 × 100 = 10 kilo-ohm met 1 procent.",
+          "Het lastigste is de leesrichting. Een paar houvasten helpen. De tolerantiering staat meestal iets apart van de rest. Goud en zilver kunnen nooit de eerste ring zijn. En de belangrijkste controle: de waarde moet in een standaardreeks passen. In de E12-reeks, die bij 10 procent hoort, bestaan alleen 10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68 en 82, maal een macht van tien. Lees je een weerstand achterstevoren en kom je uit op 74 of 29, dan weet je dat het fout is. Bij oude, verkleurde weerstanden zijn rood, oranje en bruin soms nauwelijks uit elkaar te houden; dan is meten sneller dan turen.",
+          "Op printen van na 2000 zie je vooral SMD-weerstanden, die op het oppervlak worden gesoldeerd. Grotere exemplaren dragen een cijfercode: 103 betekent 10 met drie nullen, dus 10 kilo-ohm, en 4R7 is 4,7 ohm. Bij precisie-SMD’s wordt een code van twee cijfers en een letter gebruikt die je in een tabel moet opzoeken, en de kleinste exemplaren hebben helemaal geen opdruk."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "De vergeten specificaties: vermogen en spanning",
+        "alineas": [
+          "Een weerstand heeft niet alleen een waarde, maar ook een maximaal vermogen. De gewone bedrade weerstand is ¼ of 0,6 watt, een SMD van het formaat 0805 ongeveer ⅛ watt. Dat maximum geldt bij een omgevingstemperatuur van rond 70 graden en betekent dat de weerstand dan zelf heel heet wordt. Ontwerp je op de helft van het opgegeven vermogen, dan blijft hij koel en gaat hij lang mee. Een voorbeeld uit de voeding hierboven: een ontlaadweerstand van 1 kilo-ohm over een elco van 17,6 volt dissipeert U² ÷ R = 310 ÷ 1000, ruim 0,3 watt. Een kwartwattweerstand is daar te klein; neem minimaal een halve watt, of liever 2,2 kilo-ohm.",
+          "Minder bekend is de maximale spanning. Een kleine bedrade weerstand kan vaak niet meer dan 200 à 250 volt over zich hebben, en SMD-formaten nog minder. Boven die spanning kan er een overslag ontstaan over het lichaam heen, los van het vermogen. Zie je in een netvoeding een rij van twee of drie gelijke weerstanden in serie, dan is dat precies de reden: samen verdelen ze de spanning. Vervang zo’n rij nooit door één weerstand van de totale waarde, ook al klopt de wet van Ohm prima."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Condensatoren: drie families, drie karakters",
+        "alineas": [
+          "Keramische condensatoren zijn klein, goedkoop en snel. Ze zijn er in twee smaken. De stabiele klasse, aangeduid met C0G of NP0, houdt zijn waarde over temperatuur en spanning, maar is alleen in kleine waarden te krijgen, tot enkele nanofarads. De andere klasse, met codes als X7R en X5R, haalt veel hogere waarden in een klein huisje, maar met een addertje: de capaciteit zakt naarmate er meer gelijkspanning op staat. Een keramische condensator van 10 microfarad en 6,3 volt kan bij zijn nominale spanning soms minder dan de helft van zijn opgegeven capaciteit overhouden. Wie dat niet weet, ontwerpt een filter dat op papier klopt en in de praktijk niet.",
+          "Elektrolytische condensatoren, elco’s, leveren veel capaciteit per kubieke centimeter, maar zijn gepolariseerd. De min is gemarkeerd met een streep op de mantel, en bij nieuwe exemplaren is het pluspootje langer. Verkeerd om aangesloten, of boven hun spanning, gaan ze gassen en kunnen ze met een knal openbarsten; de ingeperste kruisvorm in de bovenkant is daarom een breeknaad die het gas gecontroleerd laat ontsnappen. Een elco droogt met de jaren uit, en warmte versnelt dat sterk: als vuistregel halveert de levensduur bij elke tien graden warmer. Een bolle bovenkant of bruine korst aan de voet is een doodsoorzaak die je in kapotte voedingen, routers en televisies keer op keer terugziet.",
+          "Tantaalcondensatoren zijn compacter en stabieler dan elco’s, maar falen anders: vaak als kortsluiting, en bij een voeding die veel stroom kan leveren soms met vlammetjes. Daarom wordt hun spanning in de praktijk ruim genomen, bijvoorbeeld een 25-voltexemplaar op een 12-voltlijn. Foliecondensatoren tot slot vind je in netfilters, gemarkeerd als X- of Y-condensator. Een X-condensator staat tussen fase en nul; een Y-condensator tussen een netgeleider en aarde, en is zo gebouwd dat hij bij falen open gaat in plaats van kort. Die Y-condensatoren laten bewust een kleine stroom naar aarde lopen, wat later in deze reeks een rol speelt bij het zoeken naar een aardlekstoring."
+        ],
+        "citaat": "Een bolle elco is de meest voorkomende doodsoorzaak van een voeding die je ooit openschroeft."
+      },
+      {
+        "tussenkop": "Waarom elk IC zijn eigen 100 nanofarad krijgt",
+        "alineas": [
+          "Op vrijwel elke print staat naast elke chip een kleine keramische condensator van 100 nanofarad tussen voeding en massa. Die ontkoppelcondensator lijkt overbodig als de voeding al een grote elco heeft, maar het gaat om snelheid. Digitale chips schakelen in nanoseconden en trekken bij elke klokflank een korte stroompiek. Het koperspoor naar de voeding heeft een kleine zelfinductie, en een spoel verzet zich tegen snelle stroomveranderingen. Zonder lokale buffer zakt de voedingsspanning aan de pootjes van de chip bij elke piek even in, met haperende of onverklaarbare fouten als gevolg.",
+          "De condensator werkt alleen als hij dicht bij de voedingspennen staat, met korte sporen naar voeding en massa. Een ontkoppelcondensator die vijf centimeter verderop zit, voegt weer precies de inductie toe die je wilde vermijden. Een gangbare combinatie is per chip 100 nanofarad direct bij de pennen, plus één elco van 10 tot 100 microfarad per printdeel voor de langzamere schommelingen. Bouw je op een breadboard iets met een microcontroller of een 555-timer en doet het rare dingen, dan is een ontbrekende ontkoppelcondensator een van de eerste dingen om te controleren."
+        ],
+        "foto": 5
+      },
+      {
+        "tussenkop": "Meten en de klassieke fouten",
+        "alineas": [
+          "Veel multimeters hebben een capaciteitsbereik. Ontlaad de condensator altijd eerst; een geladen elco kan de meter beschadigen, en bij netvoedingen kan de bufferelco na het uittrekken van de stekker nog minutenlang ruim 300 volt vasthouden. Ontlaad hem via een weerstand van een paar kilo-ohm met een flink vermogen, niet met een schroevendraaier: de vonk vreet de aansluitingen aan en de piekstroom doet de elco zelf geen goed. Meet daarna bij voorkeur met de condensator los uit de schakeling, want parallelle onderdelen vertekenen de waarde.",
+          "Een capaciteitsmeting vertelt overigens niet alles. Een oude elco kan nog zijn volle capaciteit hebben, maar een veel te hoge inwendige serieweerstand, de ESR. Bij een schakelende voeding, waar de condensator tienduizenden keren per seconde laadt en ontlaadt, is juist die ESR bepalend: hij wordt warm, droogt sneller uit, en de voeding gaat fluiten of start niet meer. Een ESR-meter, of een eenvoudige componententester, laat dat zien. Bij twijfel is vervangen goedkoper dan zoeken: gebruik dezelfde capaciteit, minstens dezelfde spanning, een 105-gradentype en bij schakelende voedingen een uitvoering met lage ESR."
+        ],
+        "kader": {
+          "titel": "Veelgemaakte fouten",
+          "punten": [
+            "Uitgaan van 12 V DC uit een 12 V-trafo: het wordt eerder 16–18 V",
+            "Een elco kiezen op de nominale spanning zonder marge",
+            "Kleurringen achterstevoren lezen: check altijd de E-reeks",
+            "Vermogen van een weerstand vergeten uit te rekenen",
+            "Een rij serieweerstanden in een netvoeding vervangen door één exemplaar",
+            "Ontkoppelcondensator ver van de chip plaatsen"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronica-08",
+    "kop": "Van diode tot MOSFET: de kranen van de elektronica",
+    "intro": "Een microcontrollerpin levert hooguit een paar tientallen milliampère, maar je wilt een ledstrip van twee ampère schakelen. Daartussen staan halfgeleiders die stroom doorlaten, tegenhouden of versterken. Wie hun drempels en valkuilen kent, laat geen transistor meer in rook opgaan.",
+    "hoofdstuk": "Halfgeleiders",
+    "basis": [
+      "diode-zener",
+      "led-voorschakelweerstand",
+      "transistor-schakelaar",
+      "mosfet"
+    ],
+    "fotos": [
+      {
+        "wiki": "Bipolar junction transistor",
+        "taal": "en",
+        "bijschrift": "Transistors in verschillende behuizingen, van klein signaal tot vermogen"
+      },
+      {
+        "wiki": "Diode",
+        "taal": "en",
+        "bijschrift": "Close-up van een diode: de streep markeert de kathode"
+      },
+      {
+        "wiki": "Relay",
+        "taal": "en",
+        "bijschrift": "Relais op een print: een spoel die om een vrijloopdiode vraagt"
+      },
+      {
+        "wiki": "Zener diode",
+        "taal": "en",
+        "bijschrift": "Zenerdiode in glazen behuizing"
+      },
+      {
+        "wiki": "Power MOSFET",
+        "taal": "en",
+        "bijschrift": "Vermogens-MOSFET in D2PAK-behuizing voor montage op de print"
+      },
+      {
+        "wiki": "Insulated-gate bipolar transistor",
+        "taal": "en",
+        "bijschrift": "IGBT-module voor duizenden volts: familie van de MOSFET"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Het is een klassiek beginnersmoment. Een Arduino moet een ledstrip in de keuken aansturen, de strip werkt op 12 volt en trekt 2 ampère, en er ligt een transistor uit een oud setje klaar. Na een paar minuten ruikt het naar verbrande hars en is de transistor te heet om aan te raken. De strip brandt half. Er is niets mis met het idee, wel met de keuze en de aansturing. Een halfgeleider is een schakelaar met een eigen karakter: hij heeft een drempel, een spanningsval in geleidende toestand en een grens aan wat hij aan warmte kwijt kan.",
+          "Dit artikel loopt de vier halfgeleiders langs die je het vaakst tegenkomt. De diode, die stroom in één richting doorlaat. De zenerdiode, die een vaste spanning maakt. De LED, die licht geeft maar alleen met stroombegrenzing overleeft. En de twee soorten transistors waarmee een klein signaal een grote stroom schakelt: de bipolaire transistor en de MOSFET. Bij elk onderdeel rekenen we een praktijkgeval door en kijken we hoe je met de multimeter controleert of hij nog leeft."
+        ]
+      },
+      {
+        "tussenkop": "De diode: eenrichtingsverkeer met tol",
+        "alineas": [
+          "Een siliciumdiode begint te geleiden bij ongeveer 0,6 volt in de doorlaatrichting en houdt dan, ook bij flink oplopende stroom, een spanningsval van 0,7 tot 1 volt over zich. Die spanningsval is geen detail, want vermogen is spanning maal stroom. Een diode die 3 ampère doorlaat bij 1 volt, wordt 3 watt warm: genoeg om een klein plastic huisje te laten verkleuren. Schottkydiodes hebben een lagere drempel, zo’n 0,2 tot 0,4 volt, en zijn daarom populair in voedingen, maar ze lekken in sperrichting meer stroom en kunnen minder hoge spanningen aan.",
+          "In de bakjes van elke hobbyist liggen twee klassiekers. De 1N4148 is een kleine signaaldiode voor tientallen milliampère, snel en goedkoop. De 1N4007 is een gelijkrichtdiode voor 1 ampère en 1000 volt sperspanning, traag maar onverwoestbaar. Ze zien er bijna hetzelfde uit, maar zijn niet uitwisselbaar: de 1N4148 sneuvelt in een voeding, de 1N4007 is te traag voor snelle schakelingen. De streep op de behuizing geeft altijd de kathode aan, de kant waar de stroom naar buiten gaat.",
+          "Een diode in serie met de voedingsingang is de eenvoudigste beveiliging tegen het verkeerd om aansluiten van een accu. Het kost je wel die 0,7 volt, en bij hogere stromen het bijbehorende vermogen. In apparaten die veel stroom trekken zie je daarom vaak een MOSFET op die plek, waar we straks op terugkomen. Met de multimeter op de diodestand controleer je een diode in een paar seconden. In doorlaatrichting toont de meter de drempelspanning, voor een siliciumdiode zo’n 0,5 tot 0,7 volt. Omgekeerd hoort de meter OL te tonen. Geeft hij beide kanten bijna nul, dan is de diode doorgeslagen; beide kanten OL betekent dat hij open is."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "De vrijloopdiode: tegengif voor spoelen",
+        "alineas": [
+          "Een spoel, zoals de bekrachtiging van een relais of de wikkeling van een motortje, verzet zich tegen elke verandering in stroom. Zet je de stroom plotseling uit, dan probeert de spoel hem gaande te houden door een spanning op te bouwen. Hoe sneller de stroom wegvalt, hoe hoger die spanning, en die kan oplopen tot honderden volts. Een transistor die het relais uitschakelt, krijgt die piek vol over zich heen en sterft daar meestal niet in één keer aan, maar na een paar honderd schakelingen.",
+          "De oplossing is een diode parallel aan de spoel, in sperrichting ten opzichte van de voeding: de kathode aan de plus. In normaal bedrijf doet hij niets. Op het moment van uitschakelen geeft hij de spoelstroom een rondje om in uit te doven, en blijft de spanning beperkt tot de drempel van de diode. Er is één bijwerking: het relais valt iets langzamer af, omdat de stroom niet meer abrupt stopt. Voor de meeste toepassingen maakt dat niets uit. Vergeet je deze diode, dan is een sporadisch defecte transistor het typische gevolg, en dat is een van de lastigste fouten om terug te vinden."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De zener: doorslag als functie",
+        "alineas": [
+          "Elke diode slaat in sperrichting door als de spanning hoog genoeg wordt. Bij een gewone diode is dat het einde; bij een zenerdiode is het juist de bedoeling. De doorslagspanning is nauwkeurig vastgelegd, bijvoorbeeld op 5,1 volt, en zolang er een minimale stroom door loopt, blijft de spanning over de zener nagenoeg constant. Met een serieweerstand ervoor heb je een eenvoudige spanningsstabilisator.",
+          "Reken een geval door. Je wilt 5,1 volt maken uit 12 volt voor een sensor die 10 milliampère trekt, en de zener heeft minstens 5 milliampère nodig om stabiel te blijven. Door de weerstand moet dus 15 milliampère, en over de weerstand staat 12 min 5,1 is 6,9 volt. Dat geeft 6,9 ÷ 0,015 = 460 ohm, en de dichtstbijzijnde standaardwaarde is 470 ohm. Dan de controle die vaak wordt vergeten: wat als de sensor wordt losgekoppeld? Dan loopt de volle 14,7 milliampère door de zener, die dan 5,1 × 0,0147 ≈ 75 milliwatt verstookt. Voor een zener van een halve watt geen probleem, maar bij hogere stromen kan dat moment hem fataal worden.",
+          "Een zenerstabilisator is een verkwistende oplossing: de weerstand en de zener zetten het verschil continu om in warmte, ook als de belasting niets vraagt. De uitgangsspanning varieert ook nog iets met stroom en temperatuur. Zeners rond de 5 à 6 volt zijn het minst temperatuurgevoelig, omdat daar twee effecten elkaar ongeveer opheffen. Tegenwoordig gebruik je een zener vooral als bescherming: over een ingang geplaatst knipt hij pieken af boven zijn doorslagspanning, zodat een gevoelige chip erachter heel blijft."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "De LED: stuur de stroom, niet de spanning",
+        "alineas": [
+          "Een LED is ook een diode, en daarin zit het hele probleem. Boven de drempelspanning stijgt de stroom niet rustig mee, maar exponentieel: een paar tiende volt extra kan de stroom vertienvoudigen. Een LED aansluiten op een spanningsbron zonder begrenzing is daarom bijna altijd fataal. De drempel hangt af van de kleur. Rood zit rond 1,8 tot 2 volt, groen, blauw en wit rond 2,8 tot 3,3 volt. Zet je een rode LED zonder weerstand op een knoopcel, dan overleeft hij het alleen omdat de batterij zelf veel inwendige weerstand heeft.",
+          "De standaardoplossing is een serieweerstand: R = (U_voeding − U_led) ÷ I. Een witte LED van 3,1 volt op 12 volt bij 20 milliampère geeft 8,9 ÷ 0,02 = 445 ohm, afgerond naar 470 ohm. De stroom wordt dan 8,9 ÷ 470, ongeveer 19 milliampère, en de weerstand verstookt 8,9 × 0,019 ≈ 0,17 watt. Een kwartwattweerstand kan dat net, maar wordt warm; een halve watt is netter. Moderne LED’s zijn overigens zo efficiënt dat een indicatielampje op 2 tot 5 milliampère al prima zichtbaar is. Dan wordt de weerstand groter en het verlies een fractie.",
+          "Zuiniger is het om meerdere LED’s in serie te zetten, maar dan wordt de schakeling gevoelig voor de voedingsspanning. Drie witte LED’s van 3,1 volt op 12 volt laten 2,7 volt over voor de weerstand; met 150 ohm loopt er 18 milliampère. Zet je dezelfde schakeling in een auto of op een motor, dan staat er met draaiende motor 14,4 volt in plaats van 12. Over de weerstand staat dan 5,1 volt en de stroom springt naar 34 milliampère. Dat verklaart waarom zelfgebouwde verlichting in voertuigen vaak na een paar maanden de geest geeft. Hoe kleiner de spanning over de weerstand, hoe slechter hij de stroom stabiliseert; voor voertuigen en accu’s is een constantestroombron de betere keus.",
+          "Nog een veelgemaakte fout: meerdere LED’s parallel achter één gezamenlijke weerstand. Door kleine verschillen in drempelspanning neemt de LED met de laagste drempel het grootste deel van de stroom, wordt warmer, waardoor zijn drempel verder daalt, en trekt nog meer. Geef elke parallelle tak zijn eigen weerstand. Ledstrips doen precies dat: per segment van drie LED’s zit er een eigen weerstandje, en daarom mag je ze alleen op de aangegeven knippunten inkorten."
+        ],
+        "schema": "led",
+        "lesFoto": "led-voorschakelweerstand",
+        "citaat": "Een LED aansluiten op een spanningsbron zonder stroombegrenzing is bijna altijd fataal."
+      },
+      {
+        "tussenkop": "De bipolaire transistor: stroom stuurt stroom",
+        "alineas": [
+          "Een NPN-transistor heeft drie aansluitingen: basis, collector en emitter. Een kleine stroom van basis naar emitter laat een veel grotere stroom van collector naar emitter toe. De verhouding heet de stroomversterking, hFE, en ligt voor kleine transistors grofweg tussen 100 en 400, met grote spreiding tussen exemplaren van hetzelfde type. Als schakelaar wil je de transistor niet half open, maar helemaal: in verzadiging. Dan zakt de spanning tussen collector en emitter tot 0,1 à 0,3 volt en wordt hij nauwelijks warm.",
+          "Neem een relais van 12 volt dat 100 milliampère trekt, geschakeld vanuit een Arduino op 5 volt. Een BC547 kan maximaal 100 milliampère aan; dat is te krap. Een BC337 kan 800 milliampère en is een betere keus. Om zeker in verzadiging te komen reken je niet met de typische versterking, maar met een factor 10 tot 20: de basisstroom wordt 100 ÷ 10 = 10 milliampère. Over de basisweerstand staat 5 min 0,7 volt, dus R = 4,3 ÷ 0,01 = 430 ohm; 470 ohm is prima. De transistor verstookt dan 0,2 volt × 0,1 ampère = 20 milliwatt.",
+          "Laat je de transistor half geleiden, door een te grote basisweerstand of een te zwakke stuurpin, dan ziet het plaatje er heel anders uit. Stel dat er 6 volt over de transistor blijft staan bij 100 milliampère: dat is 0,6 watt, meer dan een klein TO-92-huisje lang verdraagt. Precies dat gebeurde bij de ledstrip uit de opening. Twee andere klassiekers: vergeten de massa van de Arduino te verbinden met de min van de 12-voltvoeding, waardoor de basisstroom geen weg terug heeft, en een zwevende basis tijdens het opstarten. Een weerstand van 10 kilo-ohm van basis naar emitter houdt hem dicht zolang de pin nog niets doet.",
+          "De NPN-transistor schakelt het makkelijkst aan de minkant van de belasting, als low-side switch: de belasting hangt aan de plus en de transistor verbindt de onderkant met massa. Wil je aan de pluskant schakelen, bijvoorbeeld omdat de belasting met één kant aan het chassis zit, dan heb je een PNP-transistor of P-MOSFET nodig, en meestal een extra trap om de stuurspanning goed te krijgen. Met de diodestand van de multimeter controleer je een bipolaire transistor als twee diodes: van basis naar emitter en van basis naar collector hoort de meter bij een NPN zo’n 0,6 volt te tonen, en tussen collector en emitter in beide richtingen OL."
+        ],
+        "schema": "transistor"
+      },
+      {
+        "tussenkop": "De MOSFET: spanning stuurt stroom",
+        "alineas": [
+          "Een MOSFET werkt anders. De gate, de stuuraansluiting, is met een flinterdun laagje oxide geïsoleerd van de rest. Er loopt in rust dus geen stroom in; een spanning tussen gate en source opent een geleidend kanaal tussen drain en source. Volledig open gedraagt een MOSFET zich niet als een spanningsval, zoals een bipolaire transistor, maar als een kleine weerstand: de R_DS(on). En die kan verbluffend laag zijn. Een gangbare logic-level MOSFET als de IRLZ44N heeft bij 5 volt gatespanning ongeveer 0,025 ohm.",
+          "Het verschil wordt duidelijk bij 5 ampère. De MOSFET verstookt I² × R = 25 × 0,025, ongeveer 0,6 watt; in een TO-220-behuizing zonder koelplaat is dat nog net te doen. Een darlingtontransistor als de TIP120, vroeger de standaardkeus voor dit werk, houdt bij die stroom zo’n 2 volt over zich: 10 watt, waarvoor een stevige koelplaat nodig is. Voor de ledstrip uit de opening is een geschikte MOSFET dus de logische keus. Er hoort alleen wel de juiste MOSFET bij."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "De valkuil van de drempelspanning",
+        "alineas": [
+          "In elke datasheet staat een drempelspanning, V_GS(th), en die wordt massaal verkeerd gelezen. Het is niet de spanning waarbij de MOSFET volledig open is, maar de spanning waarbij hij net een klein beetje begint te geleiden, vaak gemeten bij 250 microampère. De bekende IRF540 heeft een drempel van 2 tot 4 volt, maar zijn R_DS(on) is opgegeven bij 10 volt gatespanning. Stuur je hem met de 3,3 volt van een ESP32, dan staat hij hooguit op een kier, gedraagt hij zich als een flinke weerstand en wordt hij heet. Het is hetzelfde verhaal als de halfopen bipolaire transistor.",
+          "Kies daarom een logic-level MOSFET, en controleer dat in de datasheet de R_DS(on) is opgegeven bij de spanning die jij levert: 4,5 volt voor een 5-voltcontroller, 2,5 volt voor 3,3 volt. Typenamen met een L, zoals IRLZ44N, zijn vaak bedoeld voor logische niveaus, maar de datasheet is leidend, niet de naam. Kijk ook naar de grafiek met R_DS(on) tegen gatespanning: die laat in één oogopslag zien of jouw stuurspanning op het vlakke deel van de curve valt."
+        ]
+      },
+      {
+        "tussenkop": "De gate is een condensator",
+        "alineas": [
+          "Dat de gate geen stroom trekt, geldt alleen in rust. Elektrisch is de gate een condensator van honderden picofarads tot enkele nanofarads. Om de MOSFET snel te schakelen moet die condensator snel worden geladen en ontladen, en dat vraagt kortstondig een flinke piekstroom. Een weerstand van 100 tot 220 ohm in serie met de gate beschermt de stuurpin tegen die piek en dempt trillingen op de schakelflanken. Bij langzaam schakelen, zoals een lamp aan en uit, is dat ruim voldoende; bij snel PWM-dimmen van tientallen ampères gebruik je een speciale gatedriver.",
+          "Net zo belangrijk is een weerstand van ongeveer 10 kilo-ohm van gate naar source. Zonder die weerstand zweeft de gate zolang de microcontroller opstart of als een draadje losschiet, en een zwevende gate kan door lading of storing op een willekeurig halfopen punt blijven hangen. Dat is precies de toestand waarin een MOSFET heet wordt. Bedenk ook dat de dunne oxidelaag gevoelig is voor statische ontlading; een vonk van je vinger kan hem doorprikken, zonder dat je er iets van ziet. Over die bescherming gaat het volgende stuk in deze reeks.",
+          "Tot slot heeft elke vermogens-MOSFET een ingebouwde diode van source naar drain, de body diode. Daardoor geleidt een MOSFET in omgekeerde richting altijd, wat je bij het schakelen van motoren handig kunt gebruiken. Het is ook de basis van de slimme ompoolbeveiliging met een P-MOSFET in de pluslijn: bij goede polariteit gaat de MOSFET open en verdwijnt het diodeverlies vrijwel, bij verkeerde polariteit spert hij. Met de diodestand van je meter vind je die body diode terug als een drempel van ongeveer 0,5 volt van source naar drain; een MOSFET die tussen drain en source in beide richtingen bijna nul toont, is kapot."
+        ],
+        "foto": 5,
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Diode: ca. 0,7 V verlies, vermogen = U × I",
+            "Vrijloopdiode over elke relaisspoel, kathode aan de plus",
+            "Zener: controleer ook de situatie zonder belasting",
+            "LED: R = (U_voeding − U_led) ÷ I, elke parallelle tak eigen weerstand",
+            "Bipolair: basisstroom = collectorstroom ÷ 10 voor zekere verzadiging",
+            "MOSFET: kijk naar R_DS(on) bij jouw gatespanning, niet naar V_GS(th)",
+            "Gate: 100–220 Ω in serie, 10 kΩ naar source, gemeenschappelijke massa"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronica-09",
+    "kop": "Een timer, een regelaar en een minicomputer op het breadboard",
+    "intro": "Met de 555-timer, een spanningsregelaar en een microcontroller bouw je bijna elk hobbyproject. Toch gaan juist hier de meeste prototypes mis: een regelaar die kookt, een pin die 5 volt krijgt terwijl hij 3,3 verdraagt, een breadboardrail die halverwege ophoudt. Een rondgang langs de chips en de werkbank.",
+    "hoofdstuk": "Chips en prototypen",
+    "basis": [
+      "ic-555-timer",
+      "spanningsregelaar",
+      "microcontrollers",
+      "breadboard-prototype"
+    ],
+    "fotos": [
+      {
+        "wiki": "555 timer IC",
+        "taal": "en",
+        "bijschrift": "De NE555 van Signetics: een chip uit de jaren zeventig die nog overal zit"
+      },
+      {
+        "wiki": "LM317",
+        "taal": "en",
+        "bijschrift": "LM317-regelaar op een koelplaat: het spanningsverschil wordt warmte"
+      },
+      {
+        "wiki": "Switched-mode power supply",
+        "taal": "en",
+        "bijschrift": "Schakelende voeding: veel kleiner en koeler dan een lineaire"
+      },
+      {
+        "wiki": "ESP32",
+        "taal": "en",
+        "bijschrift": "ESP32-module met wifi en bluetooth, werkend op 3,3 volt"
+      },
+      {
+        "wiki": "Breadboard",
+        "taal": "en",
+        "bijschrift": "Breadboard: rijen van vijf verbonden gaatjes en voedingsrails"
+      },
+      {
+        "wiki": "Stripboard",
+        "taal": "en",
+        "bijschrift": "Stripboard: de volgende stap na het breadboard"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Sommige chips zijn zo goed ontworpen dat ze nooit verdwijnen. De 555-timer werd begin jaren zeventig door Hans Camenzind ontworpen voor het bedrijf Signetics en wordt nog altijd in enorme aantallen gemaakt. Hij knippert lampjes, maakt piepjes, vertraagt een trapverlichting en stuurt motortjes met pulsbreedtemodulatie. Een halve eeuw later ligt naast hem op de werkbank een microcontroller van een paar euro met meer rekenkracht dan een thuiscomputer uit de jaren tachtig. Beide hebben één ding nodig: een schone, stabiele voedingsspanning.",
+          "In dit artikel bouwen we een denkbeeldig project op: van timer naar regelaar naar microcontroller, en uiteindelijk van breadboard naar een blijvende print. Het vorige artikel ging over de halfgeleiders die grote stromen schakelen; hier gaat het over de chips die beslissen wanneer dat gebeurt en de voeding die ze in leven houdt. Overal geldt dezelfde les: de datasheet is je beste vriend, en de meeste problemen zitten niet in de chip, maar in wat eromheen ontbreekt."
+        ]
+      },
+      {
+        "tussenkop": "Wat een IC is, en hoe je het leest",
+        "alineas": [
+          "Een geïntegreerde schakeling, of IC, bundelt tientallen tot miljarden transistors, weerstanden en condensatoren op één stukje silicium in een behuizing met pootjes. Voor de hobbyist zijn twee behuizingen belangrijk. De DIP heeft twee rijen pootjes op 2,54 millimeter afstand en past precies in een breadboard. De SOIC is dezelfde chip in een kleiner huisje voor oppervlaktemontage. Pin 1 herken je aan een inkeping of stip; vanaf daar tel je, met de chip van bovenaf gezien, tegen de klok in.",
+          "Een datasheet heeft twee tabellen die vaak worden verward. De absolute maximum ratings zijn grenzen waarboven de chip schade oploopt; daar ontwerp je nooit tegenaan. De recommended operating conditions zijn het gebied waarin de chip doet wat de rest van de datasheet belooft. Een chip die tot 7 volt overleeft, maar is gespecificeerd tot 5,5 volt, hoort dus op 5 volt te draaien. Lees daarnaast altijd de applicatieschema’s achterin: daar staat welke condensatoren en weerstanden de fabrikant verplicht rond de chip heeft gezet."
+        ]
+      },
+      {
+        "tussenkop": "Binnenin de 555",
+        "alineas": [
+          "De 555 dankt zijn naam aan drie interne weerstanden van 5 kilo-ohm die de voedingsspanning in drie gelijke stukken verdelen. Twee comparators kijken naar die punten: de ene let op een derde van de voeding, de andere op twee derde. Ze zetten een geheugencel, een flipflop, om, die op zijn beurt de uitgang en een ontlaadtransistor stuurt. Zakt de spanning op de triggeringang (pin 2) onder een derde, dan gaat de uitgang hoog. Stijgt de spanning op de drempelingang (pin 6) boven twee derde, dan gaat de uitgang laag en ontlaadt pin 7 de timingcondensator.",
+          "De rest van de pinnen: 1 is massa, 3 de uitgang, 4 een resetingang die je aan de plus legt als je hem niet gebruikt, 5 de controle-ingang waarmee je de drempels kunt verschuiven, en 8 de voeding. Pin 5 krijg je het rustigst met een condensator van 10 nanofarad naar massa; zonder die condensator kan storing op de voeding de drempels laten dansen. De klassieke bipolaire 555 kan uit zijn uitgang zo’n 200 milliampère leveren, genoeg voor een klein relais, maar trekt bij elke omschakeling een korte stroompiek uit de voeding. Een ontkoppelcondensator van 100 nanofarad direct over pin 8 en 1 is daarom geen luxe."
+        ]
+      },
+      {
+        "tussenkop": "Eén puls, of eindeloos knipperen",
+        "alineas": [
+          "In de monostabiele schakeling geeft de 555 één puls per trigger. Een weerstand R laadt een condensator C op, en zodra die twee derde van de voeding bereikt, eindigt de puls. De pulsduur is t = 1,1 × R × C. Met 100 kilo-ohm en 100 microfarad wordt dat 1,1 × 100.000 × 0,0001 = 11 seconden. In de praktijk wijkt het af, en dat ligt vrijwel altijd aan de condensator: een elco heeft al snel 20 procent tolerantie en lekt een beetje stroom. Bij grote weerstanden, in de megaohms, kan die lekstroom zo groot worden dat de condensator nooit twee derde haalt en de puls nooit eindigt.",
+          "In de astabiele schakeling laadt de condensator via twee weerstanden R1 en R2 op en ontlaadt hij via R2 alleen. De uitgang is hoog gedurende 0,693 × (R1 + R2) × C en laag gedurende 0,693 × R2 × C. De frequentie is ongeveer 1,44 ÷ ((R1 + 2 × R2) × C). Met R1 = 1 kilo-ohm, R2 = 10 kilo-ohm en C = 10 microfarad kom je op 1,44 ÷ (21.000 × 0,00001), ongeveer 6,9 hertz: een vrolijk knipperlicht. Omdat de laadweg altijd langer is dan de ontlaadweg, is de uitgang in deze schakeling altijd meer dan de helft van de tijd hoog. Een diode parallel aan R2 omzeilt dat, zodat je ook korte pulsen kunt maken.",
+          "Wie op batterijen werkt, kiest de CMOS-versie, zoals de TLC555 of ICM7555. Die trekt in rust maar een fractie van de stroom van het origineel, schakelt zonder de grote stroompieken en werkt al vanaf een paar volt. Hij kan wel minder uitgangsstroom leveren; voor een relais zet je er dan een transistor achter, precies zoals in het vorige artikel."
+        ],
+        "schema": "rc"
+      },
+      {
+        "tussenkop": "De lineaire regelaar stookt het verschil weg",
+        "alineas": [
+          "Elke chip wil een vaste voedingsspanning, en de eenvoudigste manier om die te maken is een lineaire regelaar, zoals de 7805 voor 5 volt. Binnenin zit een transistor die precies zoveel spanning wegneemt als nodig is om de uitgang op 5 volt te houden. Dat wegnemen gebeurt door warmte te maken. Het vermogen is het spanningsverschil maal de stroom: P = (U_in − U_uit) × I. Van 12 naar 5 volt bij 0,5 ampère is 7 × 0,5 = 3,5 watt. De regelaar levert 2,5 watt nuttig vermogen en verstookt er 3,5. Het rendement is minder dan 42 procent.",
+          "Die 3,5 watt moet ergens heen. Een TO-220-behuizing zonder koelplaat heeft een thermische weerstand van grofweg 60 tot 65 graden per watt naar de lucht. Dat zou een temperatuurstijging van meer dan 200 graden betekenen; lang voordat het zover is schakelt de interne thermische beveiliging de regelaar af, en dan begint je schakeling te haperen. Met een koelplaat reken je terug. Mag de chip 125 graden worden en is het 25 graden in de kast, dan heb je 100 graden budget voor 3,5 watt: maximaal 28 graden per watt in totaal. Trek daar de weerstand binnen de chip en de koelpasta af, samen een paar graden per watt, en je hebt een koelplaat van hooguit zo’n 22 graden per watt nodig.",
+          "Een lineaire regelaar heeft ook een minimale spanning boven de uitgang nodig, de dropout. Bij de 7805 is dat ongeveer 2 volt, dus moet er minstens 7 volt aan de ingang staan, ook in het dal van de rimpel uit het artikel over gelijkrichten. Zogeheten LDO-regelaars (low dropout) werken al met een paar tiende volt marge, maar sommige zijn kieskeurig over de condensator op hun uitgang en gaan oscilleren als die een te lage of te hoge ESR heeft. De verstelbare LM317 houdt 1,25 volt tussen zijn uitgang en zijn regelaansluiting. Met R1 = 240 ohm en R2 = 720 ohm wordt de uitgang 1,25 × (1 + 720 ÷ 240) = 5 volt."
+        ],
+        "foto": 1,
+        "citaat": "Een lineaire regelaar maakt van elk overtollig volt gewoon warmte."
+      },
+      {
+        "tussenkop": "Schakelend: de efficiënte buurman",
+        "alineas": [
+          "Een schakelende regelaar, of buck-converter, doet het slimmer. Een transistor schakelt de ingangsspanning tienduizenden tot miljoenen keren per seconde aan en uit, en een spoel en condensator maken van die blokgolf weer een gladde gelijkspanning. Omdat de transistor steeds volledig open of dicht staat, verliest hij weinig. Een rendement van 85 tot 95 procent is normaal. Dezelfde 12 naar 5 volt bij 0,5 ampère kost bij 90 procent rendement nog maar 2,8 watt aan de ingang, waarvan 0,3 watt verlies. De ingangsstroom is ongeveer 0,23 ampère, minder dan de helft van de 0,5 ampère die een lineaire regelaar uit de bron trekt.",
+          "Gratis is het niet. Een schakelende regelaar geeft een beetje rimpel op hoge frequentie en kan storing uitzenden, wat bij audio en radio-ontvangers merkbaar is. Ook de opbouw luistert nauw; daarom gebruiken hobbyisten meestal kant-en-klare modules. De klassieke fout met de goedkope verstelbare exemplaren: ze komen uit de fabriek op een willekeurige uitgangsspanning, vaak de maximale. Draai de spanning met de multimeter op de uitgang in voordat je er een microcontroller aan hangt, anders gaat de eerste 3,3-voltchip direct de prullenbak in."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De microcontroller: let op het niveau",
+        "alineas": [
+          "Een microcontroller is een complete computer op één chip: processor, geheugen en een reeks pinnen die je als ingang of uitgang kunt programmeren. De Arduino Uno draait op een ATmega328P met 16 megahertz, 32 kilobyte programmageheugen en 2 kilobyte werkgeheugen, op 5 volt. De ESP32 is veel krachtiger, met twee kernen tot 240 megahertz, wifi en bluetooth, maar werkt op 3,3 volt. Dat verschil in spanningsniveau is de grootste valkuil wanneer je de twee werelden combineert.",
+          "Een 3,3-voltpin is niet bestand tegen 5 volt. Een sensor of module die 5 volt-signalen geeft, kan de ingang van een ESP32 op den duur beschadigen. Een eenvoudige oplossing is een spanningsdeler: 1 kilo-ohm in serie en 2 kilo-ohm naar massa maakt van 5 volt ongeveer 3,3 volt. Voor snelle of bidirectionele lijnen gebruik je een levelshifter. Andersom gaat het vaak goed, maar niet gegarandeerd: een 5-voltcontroller ziet een ingang als hoog vanaf ongeveer 0,6 keer de voeding, dus 3 volt. Een 3,3-voltsignaal komt daar maar net boven, en met wat ruis of een langere draad valt het er af en toe onder.",
+          "Een uitgangspin is geen voeding. De ATmega328P verdraagt absoluut maximaal 40 milliampère per pin, aanbevolen is 20, en de hele chip mag in totaal ook maar zo’n 200 milliampère leveren. Bij de ESP32 doe je er goed aan om onder de 20 milliampère te blijven. Alles wat meer vraagt, een relais, een motor, een ledstrip, stuur je via een transistor of MOSFET. Ingangen die nergens aan hangen, zweven en lezen willekeurig hoog of laag; een drukknop sluit je daarom aan tussen pin en massa, met de interne pull-upweerstand ingeschakeld. Een mechanische schakelaar dendert bovendien een paar milliseconden, wat je in de software wegfiltert.",
+          "Let ten slotte op de voeding van het bordje zelf. Een Arduino Uno kan via zijn voedingsingang 7 tot 12 volt aan, maar maakt daar met een lineaire regelaar 5 volt van. Hang je op 12 volt nog een paar sensoren en een display aan de 5-voltpin, dan ben je terug bij de rekensom van hierboven: de regelaar wordt heet en schakelt af. Een losse buck-module op 5 volt is dan de betere oplossing."
+        ],
+        "lesFoto": "microcontrollers",
+        "foto": 3
+      },
+      {
+        "tussenkop": "Het breadboard en zijn eigenaardigheden",
+        "alineas": [
+          "Op een breadboard zijn de gaatjes per rij van vijf met elkaar verbonden door een verend metalen strookje. In het midden loopt een gleuf die precies zo breed is als een DIP-chip, zodat elke pin zijn eigen rij krijgt. Langs de randen lopen de voedingsrails in de lengterichting. Bij veel lange breadboards zijn die rails halverwege onderbroken, vaak alleen herkenbaar aan een onderbroken rode of blauwe lijn. Wie dat niet weet, zoekt een uur naar een fout in een schakeling die gewoon geen voeding heeft op de rechterhelft.",
+          "Een breadboard heeft grenzen. De veercontacten hebben elk een kleine overgangsweerstand die met de jaren oploopt, en zijn niet bedoeld voor meer dan ongeveer een ampère. Naast elkaar liggende rijen vormen kleine condensatoren van enkele picofarads, wat bij hoge frequenties of gevoelige analoge schakelingen gaat meespelen. Lange losse draadjes werken als antennes. Houd verbindingen kort, gebruik consequent rood voor plus en zwart of blauw voor massa, en meet bij twijfelachtig gedrag met de multimeter of een verbinding echt verbonden is.",
+          "Doet een opbouw op het breadboard iets onverwachts, werk dan een vast rondje af. Voel eerst met een vingertop of er een chip warm wordt: een IC dat verkeerd om in het bord zit, krijgt zijn voeding op de verkeerde pinnen en wordt binnen seconden heet. Meet daarna de voedingsspanning direct op de pinnen van elke chip, niet op de rail, zodat je een slecht contact of een onderbroken rail meteen vindt. Controleer of alle massa’s echt met elkaar verbonden zijn, en of de ontkoppelcondensatoren er zitten. Pas als dat allemaal klopt, heeft het zin om aan je programma of je berekeningen te twijfelen."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Van proef naar blijvend",
+        "alineas": [
+          "Werkt de schakeling, dan is de volgende stap een gaatjesprint of stripboard. Op stripboard lopen koperbanen in één richting; onder een chip moet je de banen onderbreken, anders zijn tegenoverliggende pinnen kortgesloten. Dat vergeten is de meest gemaakte stripboardfout, en met een boortje van een paar millimeter of een speciaal snijgereedschap snel verholpen. Leg het ontwerp eerst op papier of in een gratis ontwerpprogramma vast, zodat je bij het solderen niet hoeft te improviseren.",
+          "Zet een nieuwe schakeling niet meteen op een stevige voeding. Een labvoeding met een instelbare stroombegrenzing, bijvoorbeeld op 100 milliampère, maakt van een kortsluiting een onschuldig verschijnsel: de spanning zakt in en er gebeurt niets. Bouw en test in stappen: eerst de voeding en controleer de spanning, dan de microcontroller, daarna pas de vermogensdelen. Zo weet je bij een probleem altijd welk blok het laatst is toegevoegd en waar je moet zoeken."
+        ],
+        "foto": 5,
+        "kader": {
+          "titel": "Formules voor op de werkbank",
+          "punten": [
+            "555 monostabiel: t = 1,1 × R × C",
+            "555 astabiel: f ≈ 1,44 ÷ ((R1 + 2 × R2) × C)",
+            "Lineaire regelaar: P = (U_in − U_uit) × I",
+            "LM317: U_uit = 1,25 × (1 + R2 ÷ R1)",
+            "Koelplaat: (T_max − T_omgeving) ÷ P = totale °C/W",
+            "5 V naar 3,3 V: deler van 1 kΩ en 2 kΩ"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronica-10",
+    "kop": "Een goede las en een eerlijke meting",
+    "intro": "Een koude soldeerverbinding kan jaren meegaan en dan op de slechtst denkbare dag loslaten. Een multimeter met de snoer in de verkeerde bus kan in een flits ontploffen. Over het ambacht van solderen, de onzichtbare dreiging van statische elektriciteit, en hoe je spanning en stroom meet zonder jezelf of je meter te verliezen.",
+    "hoofdstuk": "Solderen en meten",
+    "basis": [
+      "solderen-esd",
+      "multimeter-cat",
+      "spanning-meten",
+      "stroom-meten"
+    ],
+    "fotos": [
+      {
+        "wiki": "Solder",
+        "taal": "en",
+        "bijschrift": "Soldeertin op een rol, met vloeimiddel in de kern"
+      },
+      {
+        "wiki": "Flux (metallurgy)",
+        "taal": "en",
+        "bijschrift": "Colofonium: het vloeimiddel dat oxide wegneemt, en de dampen geeft"
+      },
+      {
+        "wiki": "Desoldering",
+        "taal": "en",
+        "bijschrift": "Een desoldeerpomp zuigt het gesmolten tin weg"
+      },
+      {
+        "wiki": "Antistatic device",
+        "taal": "en",
+        "bijschrift": "Antistatische polsband die lading via een weerstand afvoert"
+      },
+      {
+        "wiki": "Shunt (electrical)",
+        "taal": "en",
+        "bijschrift": "Shuntweerstand: zo meet een meter stroom, via een kleine spanningsval"
+      },
+      {
+        "wiki": "Current clamp",
+        "taal": "en",
+        "bijschrift": "Stroomtang: meten zonder de kring te onderbreken"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een motor die af en toe zomaar afslaat, een versterker die kraakt als je ertegen tikt, een lamp die soms wel en soms niet brandt. Heel vaak zit de oorzaak in één verbinding: een soldeerpunt dat op het oog in orde lijkt, maar waarin het tin nooit echt met het koper is versmolten. Bij elke trilling of temperatuurwisseling werkt het scheurtje verder, tot het contact soms verbreekt. Dit artikel gaat over twee vaardigheden die het verschil maken tussen knutselen en vakwerk: een verbinding maken die blijft zitten, en een meting doen die je kunt vertrouwen.",
+          "Eerst het solderen: wat er in een goede verbinding gebeurt, hoe je hem maakt en weer losmaakt, en waarom je gevoelige onderdelen moet beschermen tegen statische ontlading. Daarna de multimeter, met zijn veiligheidsklassen die zelden goed worden begrepen. En tot slot de twee basismetingen, spanning en stroom, met de trucs en valkuilen die in geen gebruiksaanwijzing duidelijk staan. Het bouwt voort op de schakelingen uit de vorige artikelen: wat je daar hebt gebouwd, ga je hier solderen en doormeten."
+        ]
+      },
+      {
+        "tussenkop": "Wat een soldeerverbinding eigenlijk is",
+        "alineas": [
+          "Solderen is geen lijmen. Bij een goede verbinding lost een dun laagje van het koper op in het gesmolten tin, en ontstaat er op het grensvlak een intermetallische laag die beide metalen echt verbindt. Dat lukt alleen als het tin het koper bevochtigt, zoals water een schone glasplaat nat maakt in plaats van te parelen. Oxide verhindert dat. Daarom zit er in soldeertin een kern van vloeimiddel, meestal op basis van hars, dat bij verhitting het oxide oplost en het oppervlak beschermt tot het tin het overneemt.",
+          "Het klassieke tin van 60 procent tin en 40 procent lood smelt rond 183 tot 190 graden; de variant 63/37 smelt precies bij 183 graden en stolt daardoor zonder brijfase. Loodvrij tin, verplicht in nieuwe consumentenelektronica, smelt rond 217 tot 220 graden en vloeit minder makkelijk. De punt van de bout staat in de praktijk een flink stuk hoger dan het smeltpunt, rond 320 tot 350 graden voor loodhoudend en 350 tot 380 graden voor loodvrij tin. Te heet is ook niet goed: het vloeimiddel verbrandt dan voordat het zijn werk heeft gedaan, en de koperbaan kan van de print loslaten."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "De techniek in vier tellen",
+        "alineas": [
+          "Begin met een schone, vertinde punt: veeg hem af aan messingwol of een vochtige spons, en geef hem een vers laagje tin, zodat de warmte goed overdraagt. Zet de punt zo neer dat hij tegelijk het koperen eilandje en het pootje van het onderdeel raakt. Tel tot één of twee. Voer dan het tin toe aan de verbinding zelf, aan de kant tegenover de bout, niet aan de bout. Het tin smelt omdat het werkstuk heet genoeg is, en vloeit dan vanzelf rond het pootje. Haal eerst het tin weg, dan de bout. Het hele proces duurt twee tot vier seconden.",
+          "Een goede verbinding heeft een holle, kegelvormige vorm, als een klein vulkaantje rond het pootje, en het tin loopt glad over in het koper. Bij loodhoudend tin glanst hij; loodvrij tin is van nature matter, dus een doffe verbinding is daar geen bewijs van een fout. Een koude verbinding herken je aan een bol druppeltje dat op het pootje ligt zonder het koper te bevochtigen, aan een korrelig grijs uiterlijk of aan een zichtbare ring rond het pootje. De oorzaak is bijna altijd te weinig warmte, of een onderdeel dat bewoog terwijl het tin stolde. De oplossing: opnieuw verwarmen met een beetje vers tin, zodat er weer actief vloeimiddel is.",
+          "Gebruik bij een grote koperbaan of een dikke draad een bredere punt, geen hogere temperatuur. Een brede punt brengt meer warmte over, terwijl een fijne punt op 400 graden het vloeimiddel verbrandt voordat de massa warm is. Laat bij het uitzetten een laagje tin op de punt staan; dat beschermt hem tegen oxidatie, zodat hij de volgende keer direct weer tin aanneemt. Een punt die zwart ziet en het tin laat parelen, is geoxideerd; die krijg je vaak weer bruikbaar met een tinpasta, maar schuren met schuurpapier vernielt de beschermlaag."
+        ],
+        "citaat": "Voer het tin toe aan de verbinding, niet aan de bout."
+      },
+      {
+        "tussenkop": "Losmaken zonder schade",
+        "alineas": [
+          "Desolderen is lastiger dan solderen. Een desoldeerpomp zuigt met een veer het gesmolten tin weg; desoldeerlint, een vlechtje van fijn koperdraad met vloeimiddel, zuigt het via capillaire werking op. Een handige truc is eerst juist vers tin toe te voegen. Dat klinkt tegenstrijdig, maar het oude tin is vaak oud en geoxideerd, of loodvrij met een hoog smeltpunt, en het verse tin met zijn vloeimiddel maakt het geheel beter smeltbaar en makkelijker te verwijderen.",
+          "Bij een onderdeel met veel pootjes, zoals een chip, krijg je nooit alle verbindingen tegelijk vloeibaar. Is het onderdeel toch al kapot, knip dan de pootjes door en haal ze er een voor een uit. Wees zuinig met warmte: bij langdurig verhitten laat de lijm onder de koperbaan los en komt het eilandje mee. Op dubbelzijdige printen zit er ook tin in het doorgemetalliseerde gat, en dat moet allemaal weg voordat een pootje vrijkomt."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Dampen en lood",
+        "alineas": [
+          "De rook die opstijgt bij het solderen is geen lood, maar verdampend vloeimiddel. Bij soldeertemperaturen verdampt lood nauwelijks. Toch is de rook niet onschuldig: dampen van harsvloeimiddel staan bekend als oorzaak van beroepsastma bij mensen die er dag in dag uit mee werken. Adem ze niet direct in, werk bij een open raam of met een afzuiger met koolstoffilter, en buig niet met je hoofd boven de verbinding. Het lood is vooral een risico via je handen: was ze na het solderen, en eet niet aan de werkbank."
+        ]
+      },
+      {
+        "tussenkop": "De vonk die je niet voelt",
+        "alineas": [
+          "Loop over vloerbedekking en je lichaam kan oplopen tot duizenden volts statische lading. Een ontlading voel je pas vanaf ongeveer 3000 volt; daaronder merk je er niets van. Veel halfgeleiders, met de MOSFET uit het vorige artikel voorop, kunnen al beschadigd raken bij enkele honderden volts. Dat maakt elektrostatische ontlading, ESD, verraderlijk: je weet niet dat het gebeurt. Nog lastiger is dat de schade soms latent is. Een onderdeel dat een tik heeft gehad, werkt eerst gewoon en faalt weken later.",
+          "De bescherming draait om één idee: zorg dat jij, het werkstuk en de onderdelen op hetzelfde potentiaal zitten. Een antistatische polsband verbindt je via een weerstand van ongeveer 1 megaohm met aarde. Die weerstand zorgt dat lading langzaam wegvloeit en, belangrijker, dat er nooit een gevaarlijke stroom door je lichaam kan lopen als je per ongeluk iets onder spanning aanraakt. Bewaar gevoelige onderdelen in de zakjes waarin ze geleverd zijn; de metaalachtige zakjes schermen af, de roze zakjes laden alleen zelf niet op. Heb je geen polsband, raak dan regelmatig een geaard metalen voorwerp aan voordat je onderdelen pakt. En werk nooit met een polsband aan een apparaat dat op het net is aangesloten."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "De multimeter is geen multimeter",
+        "alineas": [
+          "Twee multimeters die hetzelfde lijken, kunnen heel verschillend meten. Een belangrijk verschil zit in de wisselspanning. Eenvoudige meters meten de gemiddelde waarde en rekenen die om alsof het signaal een zuivere sinus is. Bij een echte sinus klopt dat, maar bij de stroom van een schakelende voeding, de uitgang van een dimmer of een frequentieregelaar kan de afwijking tientallen procenten zijn. Een meter met true RMS rekent de echte effectieve waarde uit, ongeacht de vorm. Voor huisinstallaties met veel elektronica is dat geen luxe meer.",
+          "Een tweede verschil is de ingangsweerstand. Een digitale meter heeft op de spanningsstand doorgaans 10 megaohm, waardoor hij de schakeling nauwelijks belast. Die gevoeligheid heeft een keerzijde: een losse draad die naast een draad onder spanning in dezelfde buis ligt, pikt via de capaciteit tussen beide een spanning op. De meter toont dan bijvoorbeeld 80 of 120 volt op een draad die nergens op is aangesloten, een zogeheten spookspanning. Duurdere meters hebben daarom een LoZ-stand, met een lage ingangsweerstand die zulke capacitieve spanning laat inzakken, terwijl een echte spanning blijft staan.",
+          "Het belangrijkste verschil zie je niet aan de buitenkant: de bescherming. De CAT-klasse geeft aan op welke plek in een installatie de meter mag worden gebruikt. CAT II is voor apparaten die met een stekker in het stopcontact gaan. CAT III is voor de vaste installatie: de groepenkast, vaste aansluitingen en de bekabeling daartussen. CAT IV is voor de oorsprong van de installatie: de aansluiting van de netbeheerder en de kWh-meter. Hoe dichter bij de bron, hoe meer energie een korte spanningspiek, bijvoorbeeld van blikseminslag in de buurt of een schakeling in het net, met zich meebrengt. Een meter van een hogere klasse is ontworpen om zo’n piek te doorstaan zonder dat er binnenin een boog ontstaat.",
+          "In de groepenkast hoort minimaal CAT III, voor de meter én de snoeren, want de snoeren zijn even zwak als hun zwakste schakel. Kijk niet alleen naar de opdruk. Een degelijke meter heeft keuringsmerken van een onafhankelijk testinstituut, een ruime behuizing met afstand tussen de sporen op de print, en in de stroomingangen grote keramische zekeringen met een hoog afschakelvermogen in plaats van een glazen buiszekeringetje. Goedkope meters met een CAT III-sticker zonder die kenmerken zijn helaas geen uitzondering."
+        ],
+        "lesFoto": "multimeter-cat",
+        "citaat": "Een meter van een hogere klasse is gebouwd om een spanningspiek te doorstaan zonder dat er binnenin een boog ontstaat."
+      },
+      {
+        "tussenkop": "Spanning meten: parallel en met verstand",
+        "alineas": [
+          "Spanning meet je altijd tussen twee punten, parallel over het onderdeel of de bron. De zwarte snoer gaat in COM, de rode in de V-bus. Bij gelijkspanning laat de meter een minteken zien als je de snoeren omgekeerd houdt, wat geen kwaad kan. Belangrijker is ten opzichte waarvan je meet. In een elektronicaschakeling is dat de massa: houd de zwarte pen daar vast en tik met de rode de punten af. Een accu in rust geeft zo’n 12,6 volt als hij vol is; met draaiende motor en werkende laadregeling hoort er 13,8 tot 14,4 volt te staan.",
+          "De krachtigste spanningsmeting is er een die bijna niemand doet: de spanningsval over een verbinding onder belasting. Een schakelaar, een stekker of een kabelschoen heeft idealiter vrijwel geen spanning over zich als er stroom loopt. Meet je bij een koplamp met 5 ampère een halve volt over de schakelaar, dan wordt daar 2,5 watt warmte ontwikkeld, en is het contact verbrand. Een ohmmeter ziet zo’n fout niet, omdat hij met een minieme stroom meet en een beschadigd contact bij die stroom prima geleidt. Meet daarom over elk deel van een circuit terwijl het belast is; de plek waar de spanning verdwijnt, is de plek van de fout.",
+          "Aan het net meet je in een wandcontactdoos drie combinaties: fase tegen nul geeft ongeveer 230 volt, fase tegen aarde ook, en nul tegen aarde hoort dicht bij nul te liggen, onbelast hooguit enkele volts. Staat er 230 volt tussen nul en aarde, dan is er iets ernstig mis, bijvoorbeeld een onderbroken nul. Zet de meter vóór het meten op de juiste stand, houd je vingers achter de randen van de meetpennen, en verplaats de pennen nooit met de draaischakelaar op een ander bereik."
+        ],
+        "schema": "meet-spanning"
+      },
+      {
+        "tussenkop": "Stroom meten: de kring moet open",
+        "alineas": [
+          "Stroom meet je in serie: je onderbreekt de kring en laat alle stroom door de meter lopen. Binnenin gaat die stroom door een shunt, een weerstand met een heel kleine, nauwkeurige waarde, en de meter meet de spanning daarover. Dat heeft een gevolg dat vaak wordt vergeten: de meter voegt zelf een spanningsval toe. Op een milliampèrebereik kan de shunt zo’n 10 ohm zijn; bij 20 milliampère staat er dan 0,2 volt over de meter. In een 3,3-voltschakeling die van een knoopcel draait, verandert dat de meting merkbaar.",
+          "Een praktijkvoorbeeld uit de garage: een motor- of autoaccu die na een week stilstaan leeg is. Maak de minkabel van de accu los en zet de meter, op het 10-ampèrebereik, tussen de minpool en de losgenomen kabel. Begin op het hoogste bereik, want bij het aansluiten worden regelmodules wakker en trekken ze kort een flinke stroom. Wacht daarna tot de elektronica in slaap valt, wat bij moderne voertuigen enkele minuten tot een half uur kan duren, en lees dan de ruststroom af. Enkele tientallen milliampère is gangbaar; meer dan dat betekent dat je zoekt door zekeringen één voor één te verwijderen tot de stroom wegvalt."
+        ],
+        "schema": "meet-stroom",
+        "foto": 4
+      },
+      {
+        "tussenkop": "De gevaarlijkste vergissing",
+        "alineas": [
+          "Na een stroommeting staat de rode snoer nog in de A-bus. Een uur later wil je de spanning in een stopcontact controleren. Op dat moment sluit je de netspanning kort via een shunt van een paar milliohm. Bij een goede meter smelt de keramische zekering in een fractie van een seconde en is de schade beperkt tot een nieuwe zekering. Bij een slechte meter, of een meter met een vervangen zekering van het verkeerde type, kan de shunt verdampen en de meter in je hand ontploffen. Maak er daarom een gewoonte van: na elke stroommeting gaat de rode snoer direct terug in de V-bus. Sommige meters piepen als de snoer in de A-bus zit terwijl de schakelaar niet op een stroombereik staat.",
+          "Het veiligere alternatief voor grotere stromen is de stroomtang. Die meet het magnetisch veld rond één geleider, zonder de kring te onderbreken. Belangrijk: om één geleider. Klem je de tang om een complete kabel met fase en nul, dan lopen er twee even grote stromen in tegengestelde richting en heffen hun velden elkaar op; de tang toont nul. Voor huisinstallaties is daarom een splitsingsadapter handig, die fase en nul uit elkaar trekt. Een goede stroomtang meet ook gelijkstroom, wat bij accu’s, zonnepanelen en voertuigen goud waard is."
+        ],
+        "foto": 5,
+        "kader": {
+          "titel": "Veelgemaakte fouten",
+          "punten": [
+            "Tin aan de bout voeren in plaats van aan de verbinding",
+            "Een onderdeel bewegen terwijl het tin stolt",
+            "Een polsband gebruiken aan een apparaat op het net",
+            "Een CAT II-meter of CAT II-snoeren in de groepenkast",
+            "De rode snoer na een stroommeting in de A-bus laten zitten",
+            "Een stroomtang om een kabel met fase én nul klemmen",
+            "Een spookspanning op een losse draad aanzien voor een echte spanning"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronica-11",
+    "kop": "Doormeten en tekeninglezen: de taal van ohms en symbolen",
+    "intro": "Een piepje van de multimeter zegt dat een draad heel is, maar niet dat hij stroom kan dragen. Een weerstand die je op de print meet, is zelden de weerstand die erop staat. Over meten zonder spanning, en over de schema’s die vertellen waar je moet zoeken.",
+    "hoofdstuk": "Weerstand, doorgang en schema’s",
+    "basis": [
+      "weerstand-meten",
+      "doorgang-kabelbreuk",
+      "schemasymbolen",
+      "eenlijnschema"
+    ],
+    "fotos": [
+      {
+        "wiki": "Ohmmeter",
+        "taal": "en",
+        "bijschrift": "Ohmmeter: meet weerstand met een eigen kleine stroombron"
+      },
+      {
+        "wiki": "Four-terminal sensing",
+        "taal": "en",
+        "bijschrift": "Vierdraadsmeting: zo meet je milliohms zonder snoerweerstand"
+      },
+      {
+        "wiki": "Continuity tester",
+        "taal": "en",
+        "bijschrift": "Kabeltester: controleert aders van begin tot eind"
+      },
+      {
+        "wiki": "Fuse (electrical)",
+        "taal": "en",
+        "bijschrift": "Zekering achter in een apparaat: snel te controleren met de piepstand"
+      },
+      {
+        "wiki": "Electronic symbol",
+        "taal": "en",
+        "bijschrift": "Overzicht van gangbare internationale schemasymbolen"
+      },
+      {
+        "wiki": "Circuit diagram",
+        "taal": "en",
+        "bijschrift": "Dezelfde schakeling als tekening en als schema"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een verlengsnoer dat het niet meer doet, een lamp aan het plafond die dood blijft, een kerstverlichting met één donkere tak. Voor dit soort klachten heb je geen spanning nodig, maar juist de afwezigheid ervan. De weerstandsstand en de doorgangstest van de multimeter zijn de gereedschappen waarmee je spanningsloos zoekt: veilig, snel en verrassend nauwkeurig, als je weet wat de meter eigenlijk doet. En als je weet waar je moet meten, en daarvoor heb je een schema nodig.",
+          "Dit artikel combineert die twee. Eerst de techniek van weerstand en doorgang meten, inclusief de manieren waarop de meter je om de tuin kan leiden. Daarna de taal van de tekeningen: schemasymbolen van de elektronica en het eenlijnschema van de groepenkast. Samen vormen ze de voorbereiding op het laatste artikel van deze reeks, over storingzoeken in de huisinstallatie. Wie de meetvaardigheden uit het vorige stuk beheerst, krijgt hier de andere helft van het gereedschap: meten zonder spanning, en weten wat je meting hoort te zijn."
+        ]
+      },
+      {
+        "tussenkop": "Hoe een meter ohms vindt",
+        "alineas": [
+          "Een multimeter heeft geen ohmsensor. Op de weerstandsstand stuurt hij zelf een kleine, bekende stroom door het onderdeel en meet hij de spanning die daarover ontstaat. De wet van Ohm doet de rest. De meetspanning is meestal laag, afhankelijk van het bereik enkele tienden van een volt tot een paar volt. Daaruit volgt de belangrijkste regel: meet weerstand alleen in een schakeling zonder spanning. Elke vreemde spanning telt op bij die van de meter en geeft een onzinnige uitkomst; netspanning op het ohmbereik kan een goedkope meter vernielen. Haal dus de stekker eruit of schakel de groep af, en ontlaad grote condensatoren voordat je gaat meten.",
+          "Op de print meten heeft een tweede valkuil: parallelle wegen. De meter stuurt zijn stroom niet alleen door de weerstand die je met de pennen raakt, maar door alles wat ertussen hangt. Zit er parallel aan een weerstand van 10 kilo-ohm nog een weg van 10 kilo-ohm via andere onderdelen, dan meet je 5 kilo-ohm, en denk je dat de weerstand afwijkt. Halfgeleiders spelen ook mee zodra de meetspanning hun drempel overschrijdt. En een elco in de buurt laadt langzaam op, waardoor de waarde op het display wegkruipt. Twijfel je, maak dan één pootje los. Dat is meer werk, maar het enige antwoord dat je kunt vertrouwen."
+        ]
+      },
+      {
+        "tussenkop": "Kleine weerstanden en lange kabels",
+        "alineas": [
+          "Bij kleine waarden speelt de meter zelf mee. Meetsnoeren en hun contacten hebben samen al snel 0,1 tot 0,3 ohm. Houd de pennen tegen elkaar voordat je meet; veel meters hebben een REL- of nulstand die die waarde aftrekt. Voor echt kleine weerstanden, in milliohms, gebruiken laboratoria en installateurs een vierdraadsmeting. Twee draden sturen de stroom, twee aparte draden meten de spanning direct over het onderdeel. Omdat door de meetdraden vrijwel geen stroom loopt, vallen hun weerstand en die van de contacten weg.",
+          "Hoe klein die waarden zijn, laat een rekensom zien. Koper heeft een soortelijke weerstand van ongeveer 0,0175 ohm per meter per vierkante millimeter. Een installatiedraad van 2,5 vierkante millimeter heeft dus zo’n 7 milliohm per meter. Een groep met 20 meter kabel heeft heen en terug 40 meter, ongeveer 0,28 ohm. Dat getal is niet alleen academisch. Een B16-automaat moet bij kortsluiting binnen een fractie van een seconde magnetisch uitschakelen, en dat lukt alleen als de kortsluitstroom hoger is dan vijf keer 16, dus 80 ampère. Bij 230 volt mag de hele lus, inclusief het net, dan niet meer dan ongeveer 2,9 ohm zijn. Installateurs meten die zogeheten lusimpedantie met een speciale meter."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Wat apparaten je vertellen",
+        "alineas": [
+          "Met de weerstandsstand kun je veel apparaten doormeten zonder ze open te maken. Een verwarmingselement heeft een weerstand die volgt uit het vermogen: R = U² ÷ P. Een waterkoker van 2200 watt op 230 volt hoort rond de 24 ohm te meten. Meet je tussen de pennen van de stekker oneindig, met de schakelaar aan, dan is het element of de thermische beveiliging onderbroken. Meet je bijna nul, dan is er sluiting. Een motor laat een lage weerstand zien over zijn wikkelingen, typisch enkele ohms tot tientallen ohms; oneindig betekent een onderbroken wikkeling of een versleten koolborstel.",
+          "Een leerzame meting is die aan een gloeilamp. Een lamp van 60 watt op 230 volt heeft brandend een weerstand van U² ÷ P = 52.900 ÷ 60, ongeveer 880 ohm. Koud meet je een fractie daarvan, typisch zo’n 60 tot 80 ohm. Wolfraam heeft een sterk positieve temperatuurcoëfficiënt: hoe heter, hoe hoger de weerstand. Op het moment van inschakelen trekt de lamp daardoor meer dan tien keer zijn nominale stroom, en dat is precies waarom gloeilampen vrijwel altijd doorbranden bij het aanzetten. Het is ook een goede waarschuwing: meet je een onderdeel koud, dan vertelt de waarde iets over de staat, niet per se over het gedrag in bedrijf."
+        ]
+      },
+      {
+        "tussenkop": "De piep die je kunt vertrouwen, en die je niet kunt vertrouwen",
+        "alineas": [
+          "De doorgangstest is de weerstandsmeting in zijn eenvoudigste vorm: onder een drempel, afhankelijk van de meter grofweg tussen de 10 en 50 ohm, piept hij. Je hoeft niet naar het display te kijken, en dat is precies het voordeel. Een zekering, een schakelaar, een draad van stekker tot apparaat: met één hand de pennen, met je ogen op het werk. Een slimme truc voor lange kabels waarvan je maar één eind tegelijk kunt bereiken: verbind aan de ene kant twee aders met elkaar, en meet aan de andere kant tussen diezelfde twee aders. Piept het, dan zijn beide heel; zo test je een kabel in de muur zonder een meetsnoer van twintig meter.",
+          "Kabelbreuk in een snoer zit bijna altijd vlak bij de stekker of bij de trekontlasting van het apparaat, waar het snoer telkens buigt. Zet de meter op doorgang, klem de pennen op een ader aan beide kanten en buig het snoer ter plaatse heen en weer. Een haperende piep wijst de breuk aan. Snelle meters zijn hier in het voordeel: een meter die een fractie van een seconde nodig heeft om te reageren, mist een kortstondige onderbreking.",
+          "Dezelfde techniek helpt bij een klus die elke hobbyklusser kent: in een lasdoos liggen vier bruine draden en je wilt weten welke naar welke schakelaar of lamp loopt. Schakel de groep uit, controleer dat er geen spanning meer staat en haal de draden in de doos uit hun lasklemmen, zodat ze los liggen. Verbind bij de lamp tijdelijk de schakeldraad met de nul. Meet in de doos met de doorgangstest tussen de nul en elk van de bruine draden, en bedien intussen de schakelaar. De draad die steeds piept, is de schakeldraad naar die lamp; de draad die meepiept in het ritme van de schakelaar, is de voedingsdraad naar die schakelaar. Haal de tijdelijke brug daarna weer weg.",
+          "Nu de valkuilen. Een piep betekent alleen dat er bij een paar milliampère een lage weerstand is. Een snoer waarvan nog één van de vijftig koperdraadjes heel is, piept net zo vrolijk als een gaaf snoer, maar wordt bij een stofzuiger van 1500 watt op die plek heet. Daar helpt alleen de spanningsvalmeting onder belasting uit het vorige artikel. Een tweede valkuil is een onbedoelde parallelle weg. Meet je tussen fase en nul van een groep terwijl er nog een lamp of apparaat op is aangesloten, dan meet je dwars door die verbruiker heen. Een gloeilamp geeft dan een lage weerstand die op een sluiting lijkt; een LED-driver juist niets. Haal daarom alle verbruikers los voordat je conclusies trekt."
+        ],
+        "foto": 2,
+        "citaat": "Een snoer met nog één heel koperdraadje piept net zo vrolijk als een gaaf snoer."
+      },
+      {
+        "tussenkop": "Zekeringen en schakelaars",
+        "alineas": [
+          "Zekeringen in apparaten controleer je altijd uit de houder. Een glazen zekering laat soms aan de binnenkant zien wat er gebeurde: een netjes doorgesmolten draadje wijst op overbelasting, een zwart beslagen of gespatterd glas op een flinke kortsluiting. In dat laatste geval heeft een nieuwe zekering weinig zin voordat de oorzaak is gevonden. Vervang een zekering altijd door hetzelfde type: dezelfde stroom, dezelfde snelheid (snel of traag) en hetzelfde afschakelvermogen. Een trage zekering op de plek van een snelle beschermt de elektronica erachter niet meer.",
+          "Schakelaars test je in beide standen: dicht hoort te piepen, open moet oneindig geven. Een schakelaar die dicht wel piept maar onder belasting toch warm wordt of een apparaat laat haperen, heeft verbrande contacten. Ook daar gaat het piepje niet over de werkelijke stroom. Meet bij twijfel opnieuw de spanningsval in bedrijf, of vervang de schakelaar. Bij wisselschakelaars en kruisschakelaars in de huisinstallatie helpt de doorgangstest ook om te bepalen welke klem de gemeenschappelijke is: dat is de klem die in beide standen met een andere klem verbonden is."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Symbolen: twee dialecten van één taal",
+        "alineas": [
+          "Een schema is de kaart van een schakeling, en de symbolen zijn de legenda. Er bestaan twee dialecten. In Europese schema’s volgens IEC is een weerstand een rechthoek; in Amerikaanse schema’s volgens ANSI een zigzaglijn. Ook spoelen verschillen: een gevulde rechthoek of een reeks boogjes. Wie veel schema’s van internet leest, raakt aan beide gewend. Een condensator is twee evenwijdige streepjes; een elco heeft een plusteken of één gebogen of gevulde plaat. Een diode is een driehoek met een streep: de driehoek wijst in de richting van de conventionele stroom, de streep is de kathode, net als op de behuizing.",
+          "Afgeleide symbolen bouwen daarop voort. Een LED is een diode met twee pijltjes naar buiten, een fotodiode met pijltjes naar binnen, een zener heeft een kathodestreep met omgebogen uiteinden. Bij een bipolaire transistor zit de pijl altijd op de emitter, en wijst hij in de stroomrichting: naar buiten bij een NPN, naar binnen bij een PNP. Een bekend ezelsbruggetje is dat de pijl bij een PNP ‘in het pootje prikt’. Voor massa bestaan meerdere symbolen: de aarde met drie afnemende streepjes, chassismassa met schuine streepjes en signaalmassa als een driehoekje. Ze betekenen niet altijd hetzelfde, en in apparaten met netspanning is dat verschil van belang.",
+          "Elk onderdeel krijgt een referentie: R voor weerstanden, C voor condensatoren, D voor diodes, Q of T voor transistors, U of IC voor chips, L voor spoelen, F voor zekeringen en K voor relais. Waarden worden geschreven met de letter op de plaats van de komma: 4k7, 2µ2, 4R7. Die notatie bestaat omdat een komma of punt op een vaag gekopieerde tekening makkelijk verdwijnt, en dan wordt 4,7 kilo-ohm ineens 47."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Een schema lezen als een kaart",
+        "alineas": [
+          "Een goed getekend schema heeft een richting. Signalen lopen van links naar rechts, de positieve voeding zit bovenaan en de massa onderaan. Draden die elkaar kruisen zonder stip zijn niet verbonden; een stip betekent wel een verbinding. Om verwarring te voorkomen tekent een zorgvuldige ontwerper geen vierwegkruisingen met stip, maar laat hij de verbindingen versprongen samenkomen. Verbindingen die ver uit elkaar liggen worden vaak niet doorgetrokken, maar krijgen een label met dezelfde naam, zoals VCC of SDA. Gelijke labels zijn verbonden, ook al zie je geen lijn.",
+          "Pak het transistorschema uit het artikel over halfgeleiders er nog eens bij en volg de stroom: van de plus door het relais, van collector naar emitter naar massa. Daarnaast de stuurstroom: van de uitgangspin door de basisweerstand naar de basis. Wie een schema zo leest, ziet direct waar hij moet meten. Op de basis hoort 0,7 volt te staan als de transistor aan is; op de collector bijna nul. Staat er op de collector 12 volt terwijl de basis wel 0,7 volt heeft, dan is de transistor of het relais stuk. Een schema vertelt dus niet alleen hoe iets werkt, maar ook wat elke meting hoort te geven."
+        ],
+        "foto": 5
+      },
+      {
+        "tussenkop": "Het eenlijnschema van je meterkast",
+        "alineas": [
+          "Voor de huisinstallatie bestaan andere tekeningen. De installatietekening is een plattegrond met symbolen voor contactdozen, schakelaars en lichtpunten. Het eenlijnschema is de kaart van de groepenkast, en daar begint elke storingzoektocht. Het heet zo omdat elke stroomkring met één lijn wordt getekend, in plaats van met aparte draden voor fase, nul en aarde. Schuine streepjes op de lijn geven het aantal geleiders aan: drie streepjes betekent fase, nul en beschermingsleiding.",
+          "Je leest het van boven naar beneden, in de richting van de stroom. Bovenaan staat de aansluiting met de hoofdzekering van de netbeheerder, bijvoorbeeld 3 × 25 ampère of 1 × 35 ampère, daaronder de kWh-meter en de hoofdschakelaar. Dan splitst het schema zich naar de aardlekschakelaars, elk met hun gevoeligheid en type, zoals 30 milliampère type A. Onder elke aardlekschakelaar hangen de groepen, met hun installatieautomaat, zoals B16. Bij elke groep hoort te staan op welke fase hij is aangesloten, welke kabeldoorsnede is gebruikt en wat hij voedt: groep 5, L3, B16, 3 × 2,5 vierkante millimeter, contactdozen keuken.",
+          "Bij een storing is dat goud waard. Het schema laat in één oogopslag zien welke groepen samen uitvallen als een aardlekschakelaar afschakelt, en dus waar je moet zoeken. Het laat ook zien hoe de groepen over de fasen zijn verdeeld. Hangen de wasmachine, de vaatwasser en de oven allemaal aan L1, dan is die fase overbelast terwijl L2 en L3 er rustig bij liggen. Een goed opgeleverde installatie heeft een actueel eenlijnschema in de meterkast. Ontbreekt het, of klopt het niet meer na een verbouwing, maak het dan zelf: schakel groep voor groep uit en noteer welke contactdozen en lampen spanningsloos worden. Een eenvoudige spanningstester of een lampje in een stopcontact maakt dat een klusje van een middag."
+        ],
+        "schema": "groepenkast",
+        "lesFoto": "eenlijnschema",
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Weerstand meten: altijd spanningsloos, bij twijfel één pootje los",
+            "Snoerweerstand aftrekken met de REL- of nulstand",
+            "Koper 2,5 mm²: ongeveer 7 milliohm per meter",
+            "Koude gloeilamp: ruim tien keer lagere weerstand dan warm",
+            "Een piep bewijst geen stroomdragend vermogen",
+            "Verbruikers loskoppelen voor je fase-nul doormeet",
+            "4k7 = 4,7 kΩ; letter op de plaats van de komma",
+            "Eenlijnschema: per groep fase, beveiliging, doorsnede en functie"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronica-12",
+    "kop": "Donker in huis: zo vind je de fout in de groepenkast",
+    "intro": "De aardlekschakelaar klapt eruit, of een groep valt telkens af. Wie dan blijft terugzetten, speelt met vuur. Met een vaste werkwijze, een eerlijke meter en een beetje begrip van wat de beveiliging eigenlijk ziet, vind je de oorzaak meestal binnen een kwartier, en weet je ook wanneer je moet stoppen.",
+    "hoofdstuk": "Storingzoeken",
+    "basis": [
+      "storing-aardlek",
+      "storing-automaat",
+      "isolatieweerstand",
+      "veilig-meten"
+    ],
+    "fotos": [
+      {
+        "wiki": "Circuit breaker",
+        "taal": "en",
+        "bijschrift": "Installatieautomaten: thermisch voor overbelasting, magnetisch voor kortsluiting"
+      },
+      {
+        "wiki": "Residual-current device",
+        "taal": "en",
+        "bijschrift": "Principe van de aardlekschakelaar: fase en nul door één ringkern"
+      },
+      {
+        "wiki": "Earth-leakage circuit breaker",
+        "taal": "en",
+        "bijschrift": "Aardlekbeveiliging met testknop"
+      },
+      {
+        "wiki": "Short circuit",
+        "taal": "en",
+        "bijschrift": "Kortsluiting: twee geleiders die elkaar raken"
+      },
+      {
+        "wiki": "Lockout–tagout",
+        "taal": "en",
+        "bijschrift": "Vergrendeling met hangslot: beveiligen tegen herinschakelen"
+      },
+      {
+        "wiki": "Arc flash",
+        "taal": "en",
+        "bijschrift": "Vlamboog: wat een kortsluiting dicht bij de bron kan aanrichten"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Zondagavond, half negen. Met een droge tik valt het licht in de keuken en de woonkamer uit, de koelkast zwijgt, de router knippert niet meer. In de meterkast staat één aardlekschakelaar omlaag. De eerste reflex is hem terugzetten, en vaak gaat dat goed. Valt hij binnen een minuut opnieuw, dan begint de echte vraag: wat lekt er, en waar? Of het is geen aardlekschakelaar, maar een enkele automaat die elke keer afslaat als de oven en de waterkoker samen aanstaan.",
+          "In dit laatste artikel van de reeks komt alles samen. De werking van de beveiligingen, het eenlijnschema, de multimeter en de weerstandsmeting uit de vorige artikelen worden gereedschap om storingen systematisch op te sporen. We kijken naar de klassieke patronen, naar de fouten die zich slim verstoppen, naar de isolatiemeting van de installateur, en we eindigen bij de vraag die boven alles staat: hoe weet je zeker dat er geen spanning meer op staat?"
+        ]
+      },
+      {
+        "tussenkop": "Wat de aardlekschakelaar eigenlijk ziet",
+        "alineas": [
+          "Een aardlekschakelaar meet geen stroom naar aarde. Hij meet een verschil. Fase en nul lopen samen door een ringkern van magnetisch materiaal. Zolang alle stroom die via de fase heen gaat, via de nul terugkomt, heffen hun magnetische velden elkaar op. Lekt er ergens stroom weg naar aarde, via een beschadigd element, vocht of een mens, dan komt er minder terug en ontstaat er een magnetisch veld in de kern. Een wikkeling om de kern vangt dat op en laat de schakelaar vallen.",
+          "Een aardlekschakelaar met een nominale gevoeligheid van 30 milliampère moet bij die waarde zeker afschakelen, maar mag dat al doen vanaf de helft, 15 milliampère. Hij reageert niet op overbelasting en niet op kortsluiting tussen fase en nul, want dan loopt er evenveel heen als terug. Dat is de taak van de automaten. De testknop maakt intern een bewuste lekweg; druk hem een paar keer per jaar in om te controleren of het mechaniek nog vrij beweegt. Gewone woningen gebruiken type A, die naast wisselstroom ook pulserende gelijkstroomlekken herkent. Laadpalen en sommige omvormers vragen aanvullende detectie van gladde gelijkstroom; daar hoort een installateur over te beslissen."
+        ],
+        "schema": "aardlek",
+        "foto": 1
+      },
+      {
+        "tussenkop": "Halveren tot de schuldige overblijft",
+        "alineas": [
+          "Bij een aardlekstoring helpt het eenlijnschema direct: het laat zien welke groepen achter de uitgevallen aardlekschakelaar hangen. Zet al die automaten uit en schakel de aardlekschakelaar in. Blijft hij erin, schakel dan de groepen één voor één in, met een paar seconden tussenpauze. Valt hij bij een bepaalde groep, dan zit de lekweg in die groep. Zet die groep weer uit, trek daar alle stekkers uit de contactdozen en probeer opnieuw. Blijft de aardlekschakelaar nu zitten, sluit dan de apparaten een voor een weer aan tot de schuldige zich meldt.",
+          "Het is een eenvoudige zoekmethode, maar hij werkt alleen als je geduldig bent en niet te veel tegelijk verandert. Noteer wat je doet. En houd er rekening mee dat sommige lekken tijd nodig hebben: een wasmachine lekt soms pas bij het opwarmen van het water, een vaatwasser pas bij het droogprogramma. Valt de storing pas na tien minuten, dan moet je per stap ook tien minuten wachten."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De gebruikelijke verdachten",
+        "alineas": [
+          "In de grote meerderheid van de gevallen ligt de oorzaak bij een apparaat, niet bij de vaste installatie. Verwarmingselementen staan bovenaan de lijst: waterkokers, wasmachines, vaatwassers, boilers en ovens. De buisvormige elementen daarin zijn gevuld met magnesiumoxide, een isolatiepoeder dat vocht uit de lucht kan opnemen. Een element dat lang ongebruikt is geweest, kan daardoor de eerste keer een lekstroom geven die verdwijnt zodra het warm en droog is. Een scheur in de mantel van een element laat juist blijvend water binnen.",
+          "Daarna komt alles wat buiten staat of hangt. Buitenverlichting, tuincontactdozen, vijverpompen en aangesloten schuren hebben het zwaar. Valt de aardlekschakelaar bij regen, mist of in de vroege ochtend, als er condens ontstaat, dan is dat een sterke aanwijzing voor vocht in buitenmateriaal. Kijk dan naar armaturen waarin water staat, naar een buitencontactdoos zonder klepje, of naar een kabel die onder de grond is beschadigd. Een tuinkabel die bij het spitten is geraakt, lekt vaak alleen als de grond nat is."
+        ]
+      },
+      {
+        "tussenkop": "Lekstromen die zich optellen",
+        "alineas": [
+          "Soms is er niets kapot en valt de aardlekschakelaar toch, schijnbaar willekeurig. Dan is het tijd om aan de Y-condensatoren uit het artikel over voedingen te denken. Elk apparaat met een netfilter, zoals een computer, televisie, omvormer of LED-driver, laat via die condensatoren bewust een kleine stroom naar aarde lopen. Per apparaat is dat meestal een fractie van een milliampère tot hooguit een paar milliampère. Maar op één aardlekschakelaar tellen ze op.",
+          "Een thuiskantoor met twee computers, schermen, een printer, een netwerkkast en een rij LED-verlichting kan zo samen al op een flink deel van de 15 milliampère uitkomen waar de aardlekschakelaar mag beginnen af te schakelen. Een kleine extra lekweg, of de korte piek bij het inschakelen van een apparaat, is dan genoeg. De oplossing is geen ongevoeliger aardlekschakelaar, maar spreiding: de verbruikers verdelen over meerdere aardlekschakelaars, of groepen voorzien van een eigen aardlekautomaat. Daarom schrijft de praktijk ook voor dat er niet te veel groepen achter één aardlekschakelaar hangen."
+        ]
+      },
+      {
+        "tussenkop": "De fout die zich verstopt in de nul",
+        "alineas": [
+          "Een lastig geval: de aardlekschakelaar valt ook als alle automaten erachter uit staan, of hij valt bij het inschakelen van een lamp op een heel andere groep dan waar je de fout verwacht. Dan is een nul-aardefout een sterke kandidaat: ergens raakt de nul de beschermingsleiding, bijvoorbeeld door een beschadigde kabel of een verkeerd aangesloten draad in een doos. Veel installatieautomaten schakelen alleen de fase. De nul van een uitgeschakelde groep blijft dus verbonden met de aardlekschakelaar, ook al staat de automaat uit.",
+          "Waarom gaat er dan stroom lopen, als de groep niets doet? Omdat de nul niet precies op aardpotentiaal zit. Door de stroom van andere verbruikers in huis staat er over de nulleiding naar de straat een spanningsval van enkele volts. Een sluiting tussen nul en aarde geeft die spanning een weg via de beschermingsleiding, buiten de ringkern van de aardlekschakelaar om. Bij een stevige sluiting is een paar volt genoeg voor tientallen milliampère: de aardlekschakelaar valt. Zo’n fout vind je alleen door per groep de nul los te nemen en te meten, en dat is werk in de kast achter de afdekplaat, waar een installateur thuishoort."
+        ],
+        "citaat": "Een nul-aardefout kan de aardlekschakelaar laten vallen terwijl alle automaten uit staan."
+      },
+      {
+        "tussenkop": "De automaat: het moment verraadt de oorzaak",
+        "alineas": [
+          "Een installatieautomaat heeft twee beveiligingen in één behuizing. Het thermische deel is een bimetaal dat langzaam opwarmt bij te hoge stroom; het magnetische deel is een spoel die bij een grote stroom direct een anker aantrekt. Bij een B-karakteristiek grijpt het magnetische deel in tussen drie en vijf keer de nominale stroom: voor een B16 tussen 48 en 80 ampère. Daaronder doet het thermische deel het werk, en dat kan lang duren. Bij 1,13 keer de nominale stroom mag de automaat een uur lang blijven zitten; bij 1,45 keer moet hij binnen een uur afschakelen.",
+          "Dat verklaart het klassieke keukenscenario. Een waterkoker van 2200 watt trekt ongeveer 9,6 ampère, een broodrooster van 1500 watt 6,5 ampère en een magnetron neemt aan de netkant al snel 5 ampère of meer. Samen is dat ruim 21 ampère op een groep van 16: ongeveer 1,3 keer de nominale stroom. De automaat valt niet meteen, maar na enkele minuten. Valt een groep pas na een tijdje uit en vooral als er veel tegelijk draait, dan is het overbelasting. De oplossing is de belasting verdelen of een extra groep laten aanleggen. Nooit een zwaardere automaat: die beschermt de kabel van 2,5 vierkante millimeter niet meer, en de kabel in de muur wordt het zwakke punt.",
+          "Valt de automaat direct, met een harde klap, op het moment dat je hem inschakelt of een apparaat aanzet, dan heeft het magnetische deel gereageerd: kortsluiting. Een gloeilamp die doorbrandt, kan heel kort een boog trekken die een B-automaat laat vallen. Ook een rij LED-lampen met hun drivers kan bij het inschakelen een korte, hoge piekstroom trekken, genoeg om op een B-automaat een enkele keer uitval te veroorzaken. Gebeurt het vaker, laat dan iemand kijken; een C-automaat is in een woning geen oplossing die je zelf even inzet."
+        ]
+      },
+      {
+        "tussenkop": "Kortsluiting opsporen, spanningsloos",
+        "alineas": [
+          "Bij een kortsluiting trek je eerst alle stekkers uit de groep en schakel je de automaat opnieuw in. Blijft hij zitten, dan zit de fout in een apparaat, en sluit je ze een voor een weer aan. Valt hij ook zonder enig aangesloten apparaat direct, dan zit de fout in de vaste installatie. Denk aan een recente klus: een schilderij opgehangen, een plankje geschroefd, een kabelgoot gezaagd. Een doorgeboorde leiding is de meest voorkomende oorzaak van een kortsluiting die er gisteren nog niet was.",
+          "Meet dan, met de groep uit en spanningsloos gecontroleerd, met de weerstands- of doorgangsstand tussen fase en nul, fase en aarde, en nul en aarde. Haal ook vaste verbruikers zoals lampen los, of draai ze uit hun fitting, zodat je niet door een verbruiker heen meet. In een gezonde groep toont de meter op alle drie combinaties OL. Een paar ohm of minder is een vaste sluiting. Door de groep vanaf de laatste doos terug te halveren, dozen te openen en draden tijdelijk los te nemen, vind je het stuk kabel waar de fout zit. Een spijker of schroef in een leiding verwijder je niet zomaar: de kabel is beschadigd en moet worden vervangen of vakkundig hersteld."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Waarom een installateur met 500 volt meet",
+        "alineas": [
+          "Sommige fouten vind je met een multimeter niet. Vocht in een doos, een vervuilde contactdoos of een beschadigde kabelmantel gedragen zich bij de paar volt van een ohmmeter als een perfecte isolatie, maar geleiden wel zodra er netspanning op staat. Daarom meet een installateur met een isolatieweerstandsmeter, in de wandeling een megger. Die legt bij installaties tot 500 volt een gelijkspanning van 500 volt aan en meet de stroom die dan nog door de isolatie lekt. De uitkomst is een weerstand in megaohms.",
+          "Gemeten wordt tussen de actieve geleiders, fase en nul samen, en de beschermingsleiding. De norm eist minimaal 1 megaohm; een gezonde installatie haalt in de praktijk vaak honderden megaohms of meer. Een waarde van een paar megaohm is formeel goed maar verdacht, zeker als een eerdere meting veel hoger lag: dat wijst op vocht of veroudering. Gevoelige verbruikers, dimmers, elektronische schakelaars en overspanningsbeveiligingen moeten voor de meting worden losgekoppeld, omdat 500 volt ze kan beschadigen of de meting vertekent. En omdat een lange kabel als condensator werkt, kan hij na de meting nog geladen zijn; goede meters ontladen hem automatisch, maar aanraken tijdens en direct na het meten is uit den boze."
+        ],
+        "lesFoto": "isolatieweerstand"
+      },
+      {
+        "tussenkop": "Test, meet, test",
+        "alineas": [
+          "Alles hierboven begint met één vraag: staat er echt geen spanning meer op? Het gevaarlijkste instrument in huis is een meter die nul aangeeft omdat hij kapot is, op de verkeerde stand staat, een doorgebrande zekering heeft of een lege batterij. Daarom werken vakmensen met test, meet, test. Controleer de meter op een bekende spanningsbron, bijvoorbeeld een werkend stopcontact. Meet dan het circuit waaraan je wilt werken. Controleer daarna opnieuw op de bekende bron. Pas als de meter voor en na correct werkt, betekent nul ook echt nul.",
+          "Gebruik daarvoor een tweepolige spanningstester of een multimeter, geen spanningzoekertje met één pen en een neonlampje. Zo’n schroevendraaier geeft alleen licht als er via je lichaam een kleine stroom naar aarde loopt, en of dat lukt, hangt af van je schoenen, de vloer en de batterij. Meet bij het spanningsloos controleren altijd alle combinaties: fase tegen nul, fase tegen aarde en nul tegen aarde. Een verwisselde aansluiting of een andere groep die via dezelfde doos loopt, verraadt zich alleen zo.",
+          "Vakmensen werken volgens vijf vaste veiligheidsregels: vrijschakelen, beveiligen tegen herinschakelen, spanningsloosheid vaststellen, waar nodig aarden en kortsluiten, en nabije delen onder spanning afschermen. Voor een hobbyklusser vertalen de eerste drie zich direct naar thuis. Schakel de juiste groep uit, voorkom dat een huisgenoot hem weer aanzet met een briefje of, beter, een vergrendeling op de automaat, en controleer met test, meet, test dat er niets meer op staat."
+        ],
+        "foto": 4,
+        "kader": {
+          "titel": "Stappenplan bij uitval",
+          "punten": [
+            "Noteer wat er uitviel en wat er net gebeurde",
+            "Aardlek: alle groepen erachter uit, daarna één voor één in",
+            "In de foute groep: alle stekkers eruit, apparaten één voor één terug",
+            "Automaat valt na minuten: overbelasting, belasting spreiden",
+            "Automaat valt direct: kortsluiting, niet blijven terugzetten",
+            "Vaste installatie verdacht: spanningsloos meten, test-meet-test",
+            "Valt de aardlek met alle groepen uit: installateur bellen"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Handen, pennen en de grens van de klusser",
+        "alineas": [
+          "Moet je toch onder spanning meten, bijvoorbeeld om te zien welke fase op welke groep zit, doe dat dan met een meter en snoeren van minstens CAT III, met pennen waarvan hooguit een paar millimeter blank metaal uitsteekt. Een lange blanke punt kan tussen twee railtjes glijden en een kortsluiting veroorzaken. Werk waar mogelijk met één hand en houd de andere weg van de kast; een stroom van hand naar hand loopt door de borst en het hart. Sluit de zwarte snoer als eerste aan op nul of aarde en neem hem als laatste weg. Doe ringen en horloges af en sta droog.",
+          "Er is ook een harde grens. Alles vóór de hoofdschakelaar, de aansluitkast met de hoofdzekeringen en de kWh-meter, is van de netbeheerder en hoort dicht te blijven. Daar is de kortsluitstroom het hoogst, omdat er alleen nog de kabel naar de transformator in de straat tussen zit. Een kortsluiting op die plek veroorzaakt een vlamboog van duizenden graden die metaal verdampt en ernstige brandwonden geeft. Wie de aanwijzingen in dit artikel volgt, kan de meeste storingen zelf lokaliseren. Wie bij een nul-aardefout, een lage isolatiewaarde of een aardlekschakelaar die zonder groepen valt uitkomt, heeft zijn werk goed gedaan door de installateur precies te kunnen vertellen waar hij moet zoeken."
+        ],
+        "foto": 5,
+        "citaat": "Pas als de meter voor en na correct werkt, betekent nul ook echt nul."
+      }
+    ]
+  }
+]

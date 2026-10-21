@@ -1,0 +1,1112 @@
+[
+  {
+    "id": "klaverjas-01",
+    "kop": "Waarom de boer de baas is: de rangorde van het klaverjassen",
+    "intro": "Wie voor het eerst aanschuift aan een klaverjastafel, ziet een boer een aas opeten en een negen een tien verslaan. Dat is geen willekeur maar een strak systeem van twee rangordes. Wie dat systeem eenmaal doorziet, begrijpt het halve spel.",
+    "hoofdstuk": "Kaarten en waarden",
+    "basis": [
+      "regel-4",
+      "regel-8",
+      "regel-9"
+    ],
+    "fotos": [
+      {
+        "wiki": "Klaberjass",
+        "taal": "en",
+        "bijschrift": "Een klaverjasstok: 32 kaarten, van zeven tot en met aas in vier kleuren"
+      },
+      {
+        "wiki": "Jack (playing card)",
+        "taal": "en",
+        "bijschrift": "Boeren: buiten troef 2 punten, als troef de jas van 20"
+      },
+      {
+        "wiki": "Trick-taking game",
+        "taal": "en",
+        "bijschrift": "Vier kaarten na elkaar op tafel vormen samen één slag"
+      },
+      {
+        "wiki": "Ace",
+        "taal": "en",
+        "bijschrift": "Vier azen: buiten troef de hoogste kaart, elk 11 punten"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een klaverjaspot begint altijd met hetzelfde ritueel. Iemand pakt een stok kaarten, haalt de tweeën tot en met de zessen eruit en houdt 32 kaarten over: per kleur de zeven, acht, negen, tien, boer, vrouw, heer en aas. Vier spelers, twee teams. Wie tegenover elkaar zit, is elkaars maat, het Nederlandse woord voor partner. Iedere speler krijgt acht kaarten, en dus bestaat elk spel uit precies acht slagen. Een slag is één ronde waarin iedere speler één kaart op tafel legt; wie de sterkste kaart speelt, pakt de vier kaarten en komt in de volgende slag als eerste uit.",
+          "Dat klinkt als elk ander slagenspel, zoals bridge of hartenjagen. Het verschil zit in één woord: troef. Per spel wordt één van de vier kleuren tot troefkleur gekozen. Elke troefkaart wint van elke kaart uit een andere kleur, hoe laag die troef ook is. Een schoppen zeven klopt een harten aas, als schoppen troef is. Maar het klaverjassen gaat nog een stap verder dan de meeste slagenspellen: binnen de troefkleur verandert ook de onderlinge rangorde van de kaarten én hun puntwaarde. Daar struikelen vrijwel alle beginners over."
+        ]
+      },
+      {
+        "tussenkop": "Twee ladders naast elkaar",
+        "alineas": [
+          "Begin bij de drie kleuren die géén troef zijn. Daar geldt van hoog naar laag: aas, tien, heer, vrouw, boer, negen, acht, zeven. Het opvallende is de tien, die tussen de aas en de heer in staat. Een harten tien wint dus van een harten heer. In punten is de volgorde gelijk: de aas telt 11, de tien 10, de heer 4, de vrouw 3 en de boer 2. De negen, acht en zeven zijn niets waard; aan tafel heten ze vaak lege kaarten of ‘lijken’.",
+          "In de troefkleur gaat alles op de schop. De boer springt van de vijfde naar de eerste plaats en heet voortaan de jas. Hij is de sterkste kaart van het hele spel en is 20 punten waard. Direct daarachter staat de troefnegen, de nel, goed voor 14 punten. Pas dan volgen aas (11), tien (10), heer (4), vrouw (3), acht en zeven. De volledige troefladder luidt dus: jas, nel, aas, tien, heer, vrouw, acht, zeven. Let op het venijnige detail onderaan: in troef staat de acht boven de vrouw qua sterkte, ook al is de vrouw drie punten waard en de acht niets."
+        ],
+        "kader": {
+          "titel": "De twee ladders",
+          "punten": [
+            "Niet-troef: A (11) – 10 (10) – H (4) – V (3) – B (2) – 9 – 8 – 7",
+            "Troef: B/jas (20) – 9/nel (14) – A (11) – 10 (10) – H (4) – V (3) – 8 – 7",
+            "Eén troefkleur bevat 62 punten, elke andere kleur 30",
+            "Alle kaarten samen: 152 punten, plus 10 voor de laatste slag = 162"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Waar de punten zitten",
+        "alineas": [
+          "Tel je alle kaartpunten bij elkaar op, dan kom je op 152. De troefkleur alleen bevat er 62, want 20 plus 14 plus 11 plus 10 plus 4 plus 3. Elk van de drie andere kleuren is 30 punten waard: 11 plus 10 plus 4 plus 3 plus 2. Dat is samen 90. Daar komt nog een bonus van 10 punten bij voor wie de achtste en laatste slag wint. Het totaal per spel is daarmee altijd 162, en dat getal ga je de rest van je klaverjasleven op scorekaarten tegenkomen.",
+          "Die verdeling verklaart waarom troef zo begeerd is. Ruim een derde van alle punten zit in één kleur, en die kleur is bovendien de enige die slagen kan stelen in andere kleuren. Een team dat de jas en de nel bezit, heeft al 34 punten in handen voordat er één kaart gespeeld is, en heeft bovendien de twee kaarten die elke andere troef kunnen opeten. Tegelijk zie je dat de tienen en azen buiten troef samen 84 punten opleveren. Een groot deel van het spel draait om de vraag wie die azen en tienen thuis weet te brengen."
+        ],
+        "citaat": "Ruim een derde van alle punten zit in één kleur, en die kleur kan bovendien slagen stelen."
+      },
+      {
+        "tussenkop": "Een hand op tafel",
+        "alineas": [
+          "Stel, je krijgt deze kaarten: ♣B ♣9 ♥A ♥10 ♠7 ♦H ♦V ♦8. Als klaveren troef wordt, heb je de jas en de nel in handen. Reken je de punten in je hand na, dan kom je op 20 plus 14 plus 11 plus 10 plus 0 plus 4 plus 3 plus 0, samen 62 punten. Dat is al bijna 40 procent van het totaal. Wordt in plaats daarvan ruiten troef, dan verandert de waarde drastisch: je klaverboer is dan nog maar 2 punten waard, je klavernegen niets, en je ruiten heer en vrouw blijven 4 en 3. Dezelfde acht kaarten zijn dan nog maar 30 punten waard.",
+          "Kijk ook naar wat je kaarten kunnen. Met klaveren als troef kan niemand je jas verslaan, en je nel valt alleen voor die jas, die jij zelf hebt. Twee troefslagen zijn dus zeker. Je harten aas is baas in harten, en zodra die gespeeld is, wordt je harten tien de hoogste harten. Je ruiten heer daarentegen is kwetsbaar: de ruiten aas en tien zitten ergens anders."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Wie wint de slag?",
+        "alineas": [
+          "De regel voor het winnen van een slag is eenvoudig, mits je de ladders kent. De eerste kaart van een slag bepaalt de gevraagde kleur. Ligt er geen troef op tafel, dan wint de hoogste kaart van de gevraagde kleur. Ligt er wel troef, dan wint de hoogste troef. Kaarten van een derde kleur, die iemand heeft bijgegooid omdat hij de gevraagde kleur niet had, tellen nooit mee voor de winst. Een ruiten aas die op een harten slag wordt gegooid, is dus waardeloos voor de speler, maar levert wel 11 punten op voor wie de slag pakt.",
+          "Een paar voorbeelden, met schoppen als troef. Noord speelt ♥A, Oost ♥10, Zuid ♥7, West ♥H. Er ligt geen troef, dus de aas wint en Noord krijgt 11 plus 10 plus 0 plus 4, oftewel 25 punten. Nu een variant: Noord speelt ♥A, maar Oost heeft geen harten en legt ♠7. Die kleine troef wint van alles wat in harten ligt. Derde voorbeeld: troef wordt gevraagd en op tafel komen ♠A, ♠9, ♠H en ♠10. Wie de negen speelde, wint, want de nel staat boven de aas. Precies dit soort slagen laat zien waarom je de troefladder blind moet kennen."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Bekennen gaat voor alles",
+        "alineas": [
+          "Eén regel staat boven alle andere: je moet bekennen. Bekennen betekent dat je de gevraagde kleur bijspeelt als je die in handen hebt. Komt iemand uit met ruiten en heb je één kleine ruiten, dan moet die op tafel, ook als je liever zou troeven of een andere kaart zou bijgooien. Wie wel kan bekennen maar het niet doet, verzaakt. Verzaken is in het klaverjassen geen kleine overtreding: in de gangbare regels kost het je team het hele spel, met alle punten en roem voor de tegenpartij. Pas als je de gevraagde kleur echt niet hebt, komen de troefregels in beeld, die in een volgend artikel uitgebreid aan bod komen.",
+          "Waarom zo streng? Omdat het hele spel draait op informatie. Als iedereen moet bekennen, vertelt elke kaart iets. Gooit een speler op een ruiten slag een klaveren bij, dan weet de hele tafel dat hij geen ruiten meer heeft. Dat heet in het jargon renonce zijn in een kleur. Verzaken vergiftigt die informatiestroom, en daarom wordt het zo zwaar bestraft."
+        ]
+      },
+      {
+        "tussenkop": "De lat ligt op 82",
+        "alineas": [
+          "Het team dat de troefkleur kiest, heet de spelende partij. Dat team moet na acht slagen meer dan de helft van de punten hebben. Van 162 is de helft 81; wie daarop strandt, heeft niet genoeg. De spelende partij moet dus minstens 82 punten halen, en als er roem gemaakt is, meer dan de helft van het totaal inclusief die roem. Lukt dat niet, dan gaat het team nat en krijgen de tegenstanders alles. Elke kaart die je pakt of weggeeft, telt richting die grens.",
+          "Wie de rangordes beheerst, ziet het spel ineens anders. Een tien is geen gewone kaart maar een kostbaar bezit van tien punten dat je veilig thuis wilt brengen. Een aas buiten troef is bijna altijd een slag, zolang niemand hem kan introeven. En een boer is in drie kleuren een armzalig plaatje van twee punten, maar in de vierde kleur de koning van de tafel. Leer de twee ladders uit je hoofd, oefen een paar avonden met het tellen van slagen, en je hebt het fundament waarop de rest van deze cursus voortbouwt."
+        ],
+        "foto": 3
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-02",
+    "kop": "Je móét kiezen: zo bepaal je troef met een matige hand",
+    "intro": "Bij Amsterdams verplicht is er geen ontsnappen: de speler naast de deler wijst troef aan, hoe beroerd zijn kaarten ook zijn. Dat maakt de troefkeuze tot de belangrijkste beslissing van het spel. Een vaste denkroute helpt je om ook met een rommelige hand de minst slechte kleur te vinden.",
+    "hoofdstuk": "Troef kiezen",
+    "basis": [
+      "regel-5",
+      "regel-9"
+    ],
+    "fotos": [
+      {
+        "wiki": "Card game",
+        "taal": "en",
+        "bijschrift": "Kaartspelers van Theodoor Rombouts: elk spel begint met een keuze"
+      },
+      {
+        "wiki": "Speelkaart",
+        "taal": "nl",
+        "bijschrift": "Bij het oppakken tel je per kleur de lengte en de topkaarten"
+      },
+      {
+        "wiki": "Playing card suit",
+        "taal": "en",
+        "bijschrift": "Vier kleuren, vier mogelijke troeven: welke kost het minst?"
+      },
+      {
+        "wiki": "Jass",
+        "taal": "en",
+        "bijschrift": "Zwitserse jaskaarten: het Jass is familie van het klaverjassen"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "De deler legt de laatste kaart neer, jij pakt je acht kaarten op en alle ogen draaien naar jou. Jij zit links van de deler, dus jij bepaalt troef. In de speelwijze die in Nederland ‘Amsterdams verplicht’ heet, is er geen pasronde: je kunt niet zeggen dat je hand te slecht is en de beurt doorschuiven. Je kiest een kleur, en vanaf dat moment zijn jij en je maat de spelende partij. Jullie moeten minstens 82 van de 162 punten halen, plus meer dan de helft van de eventuele roem. Lukt dat niet, dan gaan jullie nat en krijgt de tegenpartij alles.",
+          "Er bestaan ook andere speelwijzen. Bij ‘vrij’ spelen mag ieder om de beurt passen, en bij sommige groepen wordt een kaart van de stapel opgedraaid die een troefkleur voorstelt. Maar in de verplichte variant, die deze cursus volgt, komt het neer op een kale opdracht: kies de kleur waarmee jullie samen de meeste kans hebben. Omdat de troefkiezer bovendien zelf de eerste slag uitkomt, heb je ook nog een tempovoordeel. Je bepaalt niet alleen de spelregels van dit spel, je mag ook als eerste laten zien hoe je ze wilt gebruiken."
+        ]
+      },
+      {
+        "tussenkop": "Wat maakt een troefkleur sterk?",
+        "alineas": [
+          "Een goede troefkleur heeft twee eigenschappen: hoogte en lengte. Hoogte betekent dat je de topkaarten hebt, in de eerste plaats de jas en de nel. Met de jas in handen weet je zeker dat je minstens één troefslag maakt, en dat niemand jouw beste troef kan opeten. De nel is bijna net zo sterk, maar valt onder de jas als een tegenstander die heeft. Lengte betekent dat je veel kaarten in die kleur hebt. Drie troeven is redelijk, vier is sterk, vijf of meer is luxe. Met lengte kun je troef trekken tot de tegenstanders niets meer hebben, en daarna je azen veilig thuisbrengen.",
+          "Er zijn in totaal acht troeven. Heb jij er vier, dan verdelen de andere drie spelers samen de overige vier. Gemiddeld heeft je maat er dan ruwweg één of twee, en de tegenstanders samen twee à drie. Dat is een fijne uitgangspositie. Heb je er maar twee, dan zitten er zes buiten jouw hand, waarvan er waarschijnlijk vier bij de tegenpartij. Die vier troeven kunnen jouw azen en tienen afsnoepen. Daarom is een korte troefkleur met alleen een jas vaak minder sterk dan hij lijkt."
+        ],
+        "kader": {
+          "titel": "Snelle check bij het oppakken",
+          "punten": [
+            "Waar zit mijn jas, waar zit mijn nel?",
+            "Welke kleur heeft de meeste kaarten?",
+            "Hoeveel azen heb ik buiten die kleur?",
+            "Zit er een kale tien (tien zonder aas) die ik liever in troef heb?",
+            "Kies bij twijfel lengte met een hoge kaart boven één losse jas"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Drie handen, drie keuzes",
+        "alineas": [
+          "Eerst een makkelijke. Je hebt ♣B ♣9 ♣A ♣7 ♥A ♥8 ♠10 ♦V. Klaveren springt eruit: jas, nel en aas in één kleur, met een vierde troef erbij. Je hebt bovendien een harten aas als zekere bijslag. Met deze hand trek je straks troef en ga je ervan uit dat jullie ruim boven de 82 komen. De schoppen tien is een zorgenkind, want de schoppen aas zit elders, maar na het troeftrekken kun je hem misschien later nog veilig bijgooien in een slag van je maat.",
+          "Nu een lastigere. Je hebt ♠B ♠8 ♥9 ♥A ♥10 ♦A ♦7 ♣H. Schoppen geeft je de jas, maar slechts twee troeven. Harten geeft je de nel, de aas en de tien: drie troeven die samen 35 punten waard zijn. Het nadeel is dat de jas van harten bij iemand anders zit en een van je hoge troeven kan opslokken. Toch is harten hier meestal de betere keuze. Je hebt drie lange troeven in plaats van twee, je harten aas en tien zijn als troef niet meer af te troeven, en je houdt de ruiten aas als bijslag. Bij schoppen als troef zou je harten aas en tien juist kwetsbaar zijn voor elke tegenstander die geen harten heeft."
+        ],
+        "citaat": "Een korte troefkleur met alleen een jas is vaak minder sterk dan hij lijkt.",
+        "foto": 1
+      },
+      {
+        "alineas": [
+          "De derde is het soort hand waarvoor de verplichte variant berucht is: ♠9 ♠7 ♥V ♥8 ♦10 ♦8 ♣A ♣H. Geen jas, geen sterke kleur, geen lengte. Wat nu? Zoek naar de kleur waarin troef je het minst kost en het meest oplevert. Klaveren als troef maakt van je aas en heer twee middenmoters zonder jas of nel, en verspeelt bovendien je enige zekere bijslag. Schoppen geeft je de nel, de op één na hoogste troef, met een zeven als tweede kaart. Ruiten zou je kale tien beschermen, maar dan heb je slechts twee magere troeven. Schoppen is hier de minst slechte keuze: de nel kan een slag maken, en je klaveren aas blijft een aas."
+        ]
+      },
+      {
+        "tussenkop": "Rekenen met je maat",
+        "alineas": [
+          "Een beginnersfout is kiezen alsof je alleen speelt. Je bent met z'n tweeën, en je maat heeft acht kaarten die je niet kent. Statistisch heeft hij evenveel kans op de jas als elk van de tegenstanders, en bezit hij gemiddeld een paar azen. Daarom hoef je niet in je eentje 82 punten te kunnen maken. Een vuistregel die veel spelers hanteren: tel je zekere slagen, tel daar een redelijke bijdrage van je maat bij, en kijk of dat in de buurt van de helft komt. Zekere slagen zijn de jas, de nel als je ook de jas hebt, en azen buiten troef zolang die niet afgetroefd kunnen worden.",
+          "Er is wel een belangrijke asymmetrie. Je maat kan je helpen, maar de tegenpartij kan dat ook met elkaar. Zit de jas bij een tegenstander, dan zal die vroeg of laat een van jouw hoge troeven pakken. Zitten er vier troeven bij één tegenstander, dan kan die je op de lange termijn flink pijn doen. Die risico’s kun je bij het kiezen niet zien, en dus kies je liefst een kleur die tegen pech bestand is: liever vier middelmatige troeven dan twee hoge."
+        ]
+      },
+      {
+        "tussenkop": "Kleur kiezen om punten te redden",
+        "alineas": [
+          "Een subtiele overweging is wat er met je punten buiten troef gebeurt. Een tien zonder aas in dezelfde kleur noemen spelers een kale tien. Die is gevaarlijk, want als iemand anders de aas speelt, moet jij misschien bekennen met je tien, en dan schenk je 10 punten weg. Maak je juist die kleur troef, dan verandert het risico: de tien is dan een troef die alleen nog door jas, nel en aas te verslaan is. Hetzelfde geldt voor een heer en vrouw van dezelfde kleur. Als troef vormen die samen ook nog stuk, goed voor 20 roem, een begrip dat later in deze reeks uitgebreid aan bod komt.",
+          "Andersom kan het verstandig zijn om een sterke aas buiten troef te houden. Een aas in een niet-troefkleur is 11 punten en bijna altijd een slag, zeker als je hem vroeg speelt. Maak je die kleur troef, dan zakt de aas naar de derde plaats en kan hij door een jas of nel worden opgegeten. Kies je troef, kijk dan dus niet alleen naar wat je wint in de troefkleur, maar ook naar wat je verliest of beschermt in de andere drie kleuren."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Na de keuze: het plan",
+        "alineas": [
+          "Een troefkeuze is pas af als er een plan bij hoort. Heb je de jas en lengte, dan is het plan meestal: meteen troef trekken, zodat de tegenstanders hun troeven kwijtraken voordat ze jouw azen kunnen aftroeven. Heb je de troef gekozen om een slechte hand te redden, dan is het plan bescheidener: je maat zo veel mogelijk laten meedoen, je eigen azen vroeg verzilveren en hopen dat de jas goed zit. In de volgende afleveringen komen uitkomen en troef trekken uitgebreid aan bod; voor nu is het belangrijkste inzicht dat je bij het kiezen al vooruitdenkt over de eerste drie, vier slagen.",
+          "Neem er de tijd voor. Aan veel tafels wordt het niet gewaardeerd als je minutenlang nadenkt, maar een paar seconden om je kaarten op kleur te sorteren en je jas, nel en azen te tellen is volkomen normaal. Ervaren spelers doen dat bijna automatisch: ze tellen per kleur de lengte, zien in één oogopslag waar de hoge kaarten zitten en kiezen dan. Na een paar avonden heb jij die routine ook. En onthoud: een slechte hand die verstandig wordt gespeeld, gaat lang niet altijd nat."
+        ],
+        "foto": 3
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-03",
+    "kop": "Amsterdams of Rotterdams? Eén regel verandert het hele spel",
+    "intro": "Aan de ene tafel gooi je vrolijk een tien in de slag van je maat, aan de andere tafel ben je verplicht om erover te troeven. Het verschil tussen Amsterdams en Rotterdams klaverjassen zit in één regel. Maar die regel bepaalt hoe je speelt, rekent en samenwerkt.",
+    "hoofdstuk": "Amsterdams en Rotterdams",
+    "basis": [
+      "regel-0",
+      "regel-1",
+      "regel-2",
+      "regel-3",
+      "regel-4"
+    ],
+    "fotos": [
+      {
+        "wiki": "Klaverjas",
+        "taal": "en",
+        "bijschrift": "Pieter de Hooch schilderde soldaten aan het kaartspel"
+      },
+      {
+        "wiki": "Rotterdam",
+        "taal": "nl",
+        "bijschrift": "Rotterdam leende zijn naam aan de variant waarin troeven altijd moet"
+      },
+      {
+        "wiki": "Tavern",
+        "taal": "en",
+        "bijschrift": "Herbergscène van David Teniers II: kaarten als volksvermaak"
+      },
+      {
+        "wiki": "Amsterdam",
+        "taal": "nl",
+        "bijschrift": "Amsterdam: de variant met vrijheid naast je maat draagt de naam van de hoofdstad"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Wie klaverjast op een verjaardag, vraagt eerst: ‘Amsterdams of Rotterdams?’ Het klinkt als een plaatselijke rivaliteit, en dat is het ook een beetje, maar in de kern gaat het om een vraag die in elke slag terugkomt: wat moet je doen als je de gevraagde kleur niet hebt? In beide varianten gelden dezelfde kaartwaarden, dezelfde roem en dezelfde telling. Alleen de troefplicht verschilt. Omdat die situatie zich in bijna elk spel een paar keer voordoet, is het verschil in de praktijk groot. Deze cursus volgt de Amsterdamse regels, maar je moet beide kennen om aan elke tafel te kunnen aanschuiven.",
+          "Eerst een begrip dat in beide varianten centraal staat: aan slag zijn. Wie op dit moment de hoogste kaart van de lopende slag heeft gelegd, staat aan slag. Dat is niet per se de speler die is uitgekomen. Komt je maat uit met ♥H en speelt de tegenstander daarna ♥A, dan staat die tegenstander aan slag. Speelt de volgende speler vervolgens een troef, dan staat hij aan slag. Bij elke kaart die je legt, moet je dus kijken wie er op dat moment de slag heeft, want daar hangen jouw verplichtingen van af."
+        ]
+      },
+      {
+        "tussenkop": "De gemeenschappelijke basis",
+        "alineas": [
+          "Beide varianten beginnen bij dezelfde regel: bekennen gaat voor alles. Heb je de gevraagde kleur, dan speel je die. Of je die kleur wilt spelen, doet er niet toe, en ook als je liever zou troeven, mag dat niet. De tweede gedeelde regel geldt als troef wordt gevraagd. Dan moet je niet alleen troef bekennen, maar ook overtroeven als je dat kunt. Ligt er ♠10 en heb jij ♠A en ♠7, dan moet de aas erop. Heb je alleen lagere troeven, dan speel je daar een van, want bekennen blijft verplicht. Overtroeven betekent overigens alleen dat je hoger moet dan wat er ligt, niet per se je allerhoogste troef.",
+          "Dan de situatie dat je de gevraagde kleur niet hebt en een tegenstander aan slag staat. Ook hier zijn Amsterdammers en Rotterdammers het eens: je moet introeven. Heeft een tegenstander al getroefd, dan moet je overtroeven als je een hogere troef hebt. Heb je alleen lagere troeven, dan hoef je niet onder te troeven zolang je nog andere kaarten hebt; je mag dan een kaart uit een andere kleur bijgooien. Alleen als je uitsluitend troef in je hand hebt, moet je ondertroeven, simpelweg omdat je niets anders kunt spelen."
+        ],
+        "kader": {
+          "titel": "De volgorde van plichten",
+          "punten": [
+            "1. Bekennen als het kan (anders: verzaken)",
+            "2. Troef gevraagd? Overtroeven als het kan",
+            "3. Niet bekennen, tegenstander aan slag: introeven of overtroeven",
+            "4. Alleen lagere troef plus andere kaarten: vrij bijgooien",
+            "5. Alleen nog troef: ondertroeven",
+            "6. Maat aan slag: Amsterdams vrij, Rotterdams troeven"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Het verschil: je maat aan slag",
+        "alineas": [
+          "Nu de kern. Stel je maat staat aan slag en jij kunt de gevraagde kleur niet bekennen. Bij Amsterdams hoef je dan niet te troeven. Je maat heeft de slag al, dus waarom zou je een troef opofferen? Je mag vrij een kaart bijgooien, uit welke kleur dan ook. Troeven mag ook, maar het is niet verplicht. Bij Rotterdams is het anders: daar moet je altijd introeven als je niet kunt bekennen, ook als je maat aan slag staat. Heeft je maat zelf al getroefd, dan moet je er zelfs overheen als je een hogere troef hebt.",
+          "Een concreet voorbeeld. Schoppen is troef. Je maat komt uit met ♦A. De tegenstander na hem bekent met ♦7. Jij hebt geen ruiten, maar wel ♠8, ♥10, ♣V en nog wat kaarten. Bij Amsterdams leg je de ♥10 erbij: je maat pakt de slag en jullie team krijgt 11 plus 0 plus 10 plus wat de laatste speler legt. Dat bijgooien van punten in de slag van je maat heet smeren. Bij Rotterdams moet de ♠8 op tafel. Die troef is nul punten waard, en je harten tien blijft in je hand, waar hij later misschien wordt afgetroefd. In één slag scheelt dat al tien punten."
+        ],
+        "citaat": "Bij Amsterdams mag je smeren in de slag van je maat; bij Rotterdams moet je je troef opofferen.",
+        "foto": 1
+      },
+      {
+        "tussenkop": "Waarom dat zoveel uitmaakt",
+        "alineas": [
+          "Het verschil werkt door in het hele spel. Bij Amsterdams kan een team veel punten verzamelen door slim te smeren: zodra vaststaat dat je maat een slag wint, gooi je er een tien of een aas bij die anders verloren zou gaan. Daardoor zijn kale tienen minder rampzalig, want je kunt ze vaak kwijt in een slag van je maat. Ook kun je je troeven sparen voor de momenten dat een tegenstander aan slag staat. Bij Rotterdams verdwijnen de troeven sneller, worden er meer troeven tegen elkaar uitgespeeld en heb je minder controle over je punten.",
+          "Er is ook een strategisch effect voor de spelende partij. Bij Rotterdams moet de maat van de troefkiezer vaak meetroeven in slagen die al gewonnen zijn. Dat kan handig zijn, want daardoor raken de troeven sneller op en worden azen eerder veilig. Maar het kan ook pijnlijk zijn: als je maat met de jas aan slag staat en jij moet je nel er overheen leggen, verspil je een kaart die later een eigen slag had kunnen maken. Bij Amsterdams kies je zelf, en dus vraagt het meer inzicht, maar biedt het ook meer ruimte voor goed spel."
+        ]
+      },
+      {
+        "tussenkop": "Ondertroeven onder de loep",
+        "alineas": [
+          "De regel over ondertroeven verdient extra aandacht, omdat hij vaak verkeerd wordt toegepast. Ondertroeven is een troef spelen die lager is dan een troef die al op tafel ligt. Dat is zinloos voor het winnen van de slag, en daarom is het alleen verplicht als je echt niets anders hebt. Neem harten als troef. Een tegenstander komt uit met ♠A, de volgende speler troeft in met ♥10. Jij hebt geen schoppen, en je troeven zijn ♥8 en ♥7, naast ♣9 en ♦H. Je kunt niet overtroeven, want de 8 en 7 zijn lager dan de 10. Dus hoef je niet te troeven en gooi je de ♣9 bij.",
+          "Had je in dezelfde situatie alleen nog ♥8 en ♥7 over, dan moest je een van die troeven spelen. Je ondertroeft dan, puur omdat je moet. Ook bij troef gevraagd geldt een variant van deze logica: je moet bekennen, en dus speel je je lage troef als je niet over de liggende troef heen kunt. Het onderscheid is subtiel, maar belangrijk: bij een gevraagde andere kleur ben je met alleen lage troeven vrij, bij gevraagde troef nooit."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Afspreken voor je begint",
+        "alineas": [
+          "Omdat beide varianten naast elkaar bestaan, en er daarbinnen ook nog lokale afwijkingen voorkomen, is het verstandig om voor het eerste spel af te spreken wat er geldt. Spelen we Amsterdams of Rotterdams? Verplicht of vrij? Telt roem mee voor nat? Wat gebeurt er bij gelijke stand? Wie die vragen vooraf stelt, voorkomt discussies halverwege de avond, als het om veel punten gaat. In clubs en competities liggen de regels meestal vast in een reglement; aan de keukentafel is het een kwestie van even overleggen.",
+          "Voor jouw ontwikkeling als speler is Amsterdams de rijkere leerschool. Omdat je vaker vrij bent in je keuze, word je gedwongen na te denken over wie aan slag staat, wie er nog na jou komt en of de slag echt binnen is. Die vragen zijn het fundament van smeren en signaleren, twee onderwerpen die later in deze reeks aan bod komen. Wie Amsterdams goed beheerst, past zich bovendien moeiteloos aan aan Rotterdamse tafels: je hoeft dan alleen één vrijheid in te leveren."
+        ],
+        "foto": 3
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-04",
+    "kop": "Roem! Zo zie je de bonuspunten liggen die anderen missen",
+    "intro": "Een heer en een vrouw van troef in één slag, drie opeenvolgende harten, vier boeren tegelijk: wie het ziet en het roept, krijgt er punten voor. Roem kan een spel kantelen, maar alleen als je het herkent. Een rondgang langs alle combinaties, met de valkuilen erbij.",
+    "hoofdstuk": "Roem",
+    "basis": [
+      "regel-6",
+      "regel-7"
+    ],
+    "fotos": [
+      {
+        "wiki": "Queen (playing card)",
+        "taal": "en",
+        "bijschrift": "Vrouwen: vier in één slag leveren 100 roem op"
+      },
+      {
+        "wiki": "Playing card",
+        "taal": "en",
+        "bijschrift": "Opeenvolgende kaarten van één kleur: een driekaart of vierkaart"
+      },
+      {
+        "wiki": "Belote",
+        "taal": "en",
+        "bijschrift": "Heer en vrouw: in troef samen goed voor 20 roem, het stuk"
+      },
+      {
+        "wiki": "Bezique",
+        "taal": "en",
+        "bijschrift": "In verwante spellen worden combinaties openlijk op tafel gemeld"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Aan klaverjastafels hoor je het geregeld: iemand pakt een slag, kijkt er even naar en zegt droog ‘twintig’. De tegenstanders kijken mee, knikken of protesteren, en de schrijver zet een getal in de roemkolom. Roem zijn extra punten voor bepaalde combinaties van kaarten die samen in één slag op tafel liggen. Ze tellen los van de 162 kaartpunten, en ze kunnen behoorlijk oplopen. Een enkele slag met vier boeren levert 200 roem op, meer dan alle kaartpunten van het spel bij elkaar.",
+          "Het belangrijkste principe: roem gaat altijd naar het team dat de slag wint. Het maakt niet uit wie de kaarten heeft gelegd. Leg jij een harten heer en speelt je tegenstander de harten vrouw erbij terwijl harten troef is, dan is er stuk, en wie de slag pakt, krijgt die twintig punten. Dat kan dus ook de tegenpartij zijn. Roem is daarmee geen beloning voor een mooie hand, maar voor een slag die toevallig of bewust een combinatie bevat. Wie dat begrijpt, gaat anders kijken naar welke kaart hij bijlegt."
+        ]
+      },
+      {
+        "tussenkop": "Series: tellen in de gewone volgorde",
+        "alineas": [
+          "De meest voorkomende roem is een serie: opeenvolgende kaarten van dezelfde kleur. Drie op een rij heet een driekaart en is 20 roem waard. Vier op een rij, een vierkaart, levert 50 op. Langer kan niet, want een slag bestaat uit vier kaarten. Cruciaal is welke volgorde je hanteert. Voor roem gebruik je altijd de natuurlijke volgorde: zeven, acht, negen, tien, boer, vrouw, heer, aas. Dus niet de slagvolgorde met de tien boven de heer, en ook in troef niet de volgorde met de jas bovenaan. In de roemvolgorde liggen de tien en de boer gewoon naast elkaar, net als boer en vrouw.",
+          "Een paar voorbeelden. In een slag liggen ♥7, ♥8, ♥9 en ♣A: dat is een driekaart in harten, 20 roem. In een slag liggen ♦10, ♦B, ♦V en ♦H: een vierkaart, 50 roem, of ruiten nu troef is of niet. In een slag liggen ♣A, ♣H, ♣V en ♠7: weer een driekaart, 20. Maar ♠9, ♠10, ♠H en ♠A is geen serie van vier, want de boer en vrouw ontbreken; alleen ♠H en ♠A liggen naast elkaar en dat is te weinig. Een serie loopt ook niet rond: aas en zeven zijn geen buren, dus ♥H ♥A ♥7 levert niets op."
+        ],
+        "kader": {
+          "titel": "De roemtabel",
+          "punten": [
+            "Driekaart (3 op een rij, één kleur): 20",
+            "Vierkaart (4 op een rij, één kleur): 50",
+            "Stuk (heer + vrouw van troef): 20",
+            "Troef B-V-H (driekaart mét stuk): 40",
+            "Vier azen, heren, vrouwen of tienen: 100",
+            "Vier boeren: 200",
+            "Pit (alle acht slagen): 100",
+            "Roemvolgorde: 7-8-9-10-B-V-H-A, ook in troef"
+          ]
+        },
+        "foto": 1
+      },
+      {
+        "tussenkop": "Stuk: het koningspaar van troef",
+        "alineas": [
+          "Een aparte roem is het stuk: de heer en vrouw van troef samen in één slag. Dat levert 20 op, ook als er verder geen serie in de slag zit. Liggen er ♠H en ♠V terwijl schoppen troef is, dan is er stuk, ongeacht wat de andere twee kaarten zijn. Stuk combineert met series. Liggen ♠B, ♠V en ♠H samen op tafel bij schoppen als troef, dan is dat een driekaart van 20 plus stuk van 20, samen 40. Een vierkaart in troef met heer en vrouw erin, zoals ♠10 ♠B ♠V ♠H, levert 50 plus 20 op.",
+          "Stuk is bijzonder omdat het de enige roem is die alleen in troef bestaat. Een heer en vrouw van een andere kleur leveren niets op, tenzij ze deel zijn van een driekaart. Dat maakt het bezit van troefheer en troefvrouw interessant: heb je ze allebei, dan kun je ze bewaren voor een slag waarvan je zeker weet dat jouw team hem wint. Heb je er maar één, dan let je op of de ander valt. En als tegenstander probeer je te voorkomen dat jouw troefvrouw terechtkomt in een slag die de spelende partij wint naast hun troefheer."
+        ],
+        "citaat": "Roem gaat naar wie de slag wint, ongeacht wie de kaarten heeft gelegd.",
+        "foto": 2
+      },
+      {
+        "tussenkop": "Vier gelijke: de grote vangst",
+        "alineas": [
+          "De zeldzaamste en duurste roem bestaat uit vier gelijke kaarten in één slag. Vier azen, vier heren, vier vrouwen of vier tienen leveren elk 100 roem op. Vier boeren zijn het meest waard: 200. Vier negens, achten of zevens tellen in deze regels niet. Zulke slagen komen niet vaak voor, omdat ze alleen kunnen ontstaan als elke speler precies op dat moment een kaart van dezelfde rang legt, dus als er in vier verschillende kleuren wordt gespeeld en drie spelers moeten bijgooien. Toch gebeurt het, vooral in de laatste slagen, wanneer de kaarten die over zijn al vastliggen.",
+          "Het verraderlijke aan vier gelijke is dat je het vaak niet aan ziet komen. Stel, in de zevende slag komt iemand uit met ♣H, de volgende heeft geen klaveren en gooit ♦H bij, de derde gooit ♥H bij en de vierde, die evenmin klaveren heeft, legt ♠H. Een van die heren is per definitie troef, dus wie de troefheer legde, wint de slag. Honderd roem voor zijn team, terwijl niemand aan tafel er bewust op had aangestuurd. Daarom loont het om in de laatste slagen na te gaan welke kaarten er nog in het spel zijn."
+        ]
+      },
+      {
+        "tussenkop": "Melden: wie niet roept, krijgt niets",
+        "alineas": [
+          "Roem wordt niet automatisch geteld. De speler die de slag wint, of zijn maat, meldt de roem voordat de slag wordt weggelegd. Gebruikelijk is om het bedrag te noemen: ‘twintig’, ‘vijftig’, ‘stuk’. De tegenstanders kunnen dan meekijken en bevestigen. In veel clubs geldt dat roem die niet gemeld is voordat de volgende slag begint, vervalt. Aan de keukentafel is men vaak milder, maar het is een goede gewoonte om bij elke slag die je pakt heel even te controleren: zit er een serie in, ligt er stuk, liggen er vier gelijke?",
+          "Er zijn ook valkuilen. Tegenstanders hoeven jou niet te wijzen op roem die jij over het hoofd ziet. Wie roem claimt die er niet is, maakt zich onpopulair en moet het terugdraaien. En let op dubbeltellingen: een vierkaart is 50, niet 50 plus twee keer een driekaart. Combinaties tellen alleen op als ze verschillend van aard zijn, zoals een serie plus stuk. Een slag als ♥B ♥V ♥H ♥A met harten als troef levert dus 50 voor de vierkaart plus 20 voor stuk op, samen 70, en geen cent meer."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Roem als wapen en als risico",
+        "alineas": [
+          "Roem is niet alleen een kwestie van tellen, het is ook tactiek. Omdat de spelende partij meer dan de helft van alle punten inclusief roem nodig heeft, kan roem voor de tegenpartij een spel doen kantelen. Een team dat 90 kaartpunten haalt, is ruim binnen. Maar heeft de tegenpartij 72 kaartpunten en 50 roem, terwijl de spelende partij 20 roem heeft, dan staat het 110 tegen 122, en dan is de spelende partij nat. Hoe dat precies werkt, komt in het volgende deel aan bod.",
+          "In de praktijk betekent dit: geef geen roem weg. Leg geen ♥V op een slag van de tegenstander als daar al ♥B en ♥H liggen. Speel geen kaart die een driekaart afmaakt in een slag die je niet wint. En zoek omgekeerd naar kansen om roem te maken in slagen die je maat wint, bijvoorbeeld door een kaart bij te gooien die precies aansluit op wat er al ligt. Wie die reflex ontwikkelt, verdient per avond tientallen punten die anderen laten liggen."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-05",
+    "kop": "Nat en pit: de twee uitersten die een avond beslissen",
+    "intro": "Eén punt te weinig en je bent alles kwijt; alle slagen binnen en je krijgt honderd punten cadeau. Nat en pit zijn de grote schommels van het klaverjassen. Wie precies weet hoe ze werken, speelt aan het eind van elk spel scherper.",
+    "hoofdstuk": "Nat en pit",
+    "basis": [
+      "regel-6",
+      "regel-7",
+      "regel-9"
+    ],
+    "fotos": [
+      {
+        "wiki": "De kaartspelers (Cézanne)",
+        "taal": "nl",
+        "bijschrift": "Cézannes Kaartspelers: geconcentreerd tot de laatste slag"
+      },
+      {
+        "wiki": "Whist",
+        "taal": "en",
+        "bijschrift": "Een negentiende-eeuwse whist-teller: punten bijhouden is van alle tijden"
+      },
+      {
+        "wiki": "Pencil",
+        "taal": "en",
+        "bijschrift": "Met potlood op de scorekaart: na een nat spel staat er een nul"
+      },
+      {
+        "wiki": "Kaartenhuis",
+        "taal": "nl",
+        "bijschrift": "Eén verkeerde kaart en alles stort in, net als bij nat gaan"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Het is de laatste slag van het spel. Jullie hebben troef gemaakt, en de schrijver telt hardop mee: 72, 76, 79, 81. De laatste slag gaat naar de tegenpartij. Eenentachtig punten, precies de helft van 162. Aan de overkant breekt een grijns door. Jullie zijn nat, en dat betekent dat al jullie punten van dit spel naar de tegenstanders gaan. Op de scorekaart staat in jullie kolom een nul, in die van de tegenpartij 162. Eén slag anders, één tien op een andere plek, en het had er heel anders uitgezien.",
+          "Nat gaan is de kern van de spanning in het klaverjassen. Het is de straf voor de spelende partij die haar verplichting niet waarmaakt. Omdat bij Amsterdams verplicht de troefkiezer niet kan passen, ook niet met een slechte hand, gebeurt het regelmatig. Juist daarom loont het om de rekenregels tot in de puntjes te kennen. Wie weet hoeveel punten er nog in het spel zitten, kan in de laatste slagen precies inschatten wat er nodig is om binnen te blijven, of om de tegenpartij er nog net onder te duwen."
+        ]
+      },
+      {
+        "tussenkop": "De rekenregel",
+        "alineas": [
+          "De spelende partij moet meer punten halen dan de tegenpartij, waarbij kaartpunten en roem bij elkaar worden opgeteld. Zonder roem betekent dat minstens 82 van de 162 punten. Met roem wordt het totaal groter, en schuift de grens mee: de spelende partij heeft meer dan de helft van 162 plus alle roem nodig. Een gelijke stand is in de regels die deze cursus volgt niet genoeg: de spelende partij moet er echt boven zitten. Sommige tafels hanteren voor een gelijke stand een eigen afspraak, dus vraag dat na als je ergens nieuw aanschuift.",
+          "Een rekenvoorbeeld. De spelende partij haalt 95 kaartpunten en maakt een keer stuk, 20 roem. De tegenpartij haalt 67 kaartpunten en geen roem. Totaal: 115 tegen 67. De spelende partij is ruim binnen en beide teams schrijven hun eigen punten op. Nu een tweede spel. De spelende partij haalt 90 kaartpunten en 20 roem, samen 110. Maar de tegenpartij haalt 72 kaartpunten en wint een slag met een vierkaart, 50 roem: samen 122. Hoewel de spelende partij meer kaartpunten heeft, verliest ze op het totaal. Ze is nat."
+        ],
+        "kader": {
+          "titel": "Nat in drie regels",
+          "punten": [
+            "Spelende partij moet méér hebben dan de tegenpartij (kaartpunten + roem)",
+            "Zonder roem: minimaal 82 van de 162",
+            "Nat: de tegenpartij krijgt 162 plus álle roem van beide teams",
+            "Gelijk spel is in deze regels niet genoeg"
+          ]
+        },
+        "foto": 1
+      },
+      {
+        "tussenkop": "Wat nat kost",
+        "alineas": [
+          "Gaat de spelende partij nat, dan krijgt de tegenpartij alles: alle 162 kaartpunten en alle roem, ook de roem die de spelende partij zelf had gemaakt. In het tweede voorbeeld hierboven betekent dat 162 plus 20 plus 50 is 232 punten voor de tegenpartij, en nul voor de spelende partij. Vergelijk dat met het scenario waarin de spelende partij 110 en de tegenpartij 122 zou opschrijven. Het verschil tussen de teams is na een nat spel geen 12 punten, maar 232. Eén nat spel kan zo de voorsprong van een hele reeks gewone spellen wegvagen.",
+          "Daarom zie je bij ervaren spelers een verschuiving in hun manier van spelen zodra de grens in zicht komt. De spelende partij wordt voorzichtiger: ze neemt minder risico met haar tienen, ze speelt eerst haar zekere slagen en ze smeert alleen nog als de slag echt binnen is. De tegenpartij doet het omgekeerde. Die gaat agressiever spelen, want als de spelende partij nat gaat, valt alles in hun schoot. Elke tien die de tegenpartij weet te bemachtigen, telt dan dubbel: tien punten erbij voor henzelf en tien punten minder voor de spelers."
+        ],
+        "citaat": "Na een nat spel is het verschil tussen de teams geen paar punten, maar honderden."
+      },
+      {
+        "tussenkop": "Tellen naar de grens",
+        "alineas": [
+          "Om dit goed te kunnen doen, moet je tijdens het spel bijhouden hoeveel punten elk team heeft. Dat klinkt lastig, maar het hoeft niet precies. Begin met de grote brokken: elke aas is 11, elke tien 10, de jas 20, de nel 14. Heer, vrouw en boer zijn kleine getallen die je in een slag optelt. Na vijf slagen weet een geoefende speler ongeveer waar zijn team staat. Bedenk daarbij dat de laatste slag 10 punten extra oplevert; dat kan net het verschil maken. Een team dat op 74 staat en de laatste slag wint, zit met een lege slag al op 84.",
+          "Een voorbeeld uit de praktijk. Klaveren is troef, jullie zijn de spelende partij en hebben na zes slagen 68 punten. Uit je telling weet je dat alle troeven zijn gespeeld, op jouw ♣V na. Jij hebt nog ♥A en ♣V, je maat heeft ♥10 en een lege ruiten. Speel je de ♥A, dan kan niemand die aftroeven; je maat moet bekennen met zijn ♥10 en jullie staan op minstens 89. Daarna wint je ♣V als enige overgebleven troef ook de laatste slag, met de 10 extra punten erbij. Zonder telling had je misschien getwijfeld; mét telling weet je dat het spel binnen is voordat de kaarten liggen."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Pit: alle acht slagen",
+        "alineas": [
+          "Het andere uiterste heet pit, aan sommige tafels ook mars. Een team dat alle acht slagen wint, krijgt 100 roem extra bovenop de 162 kaartpunten en de roem die het al had. Met een stuk erbij kom je zo op 282 punten in één spel. Pit is het hoogst haalbare, en dat maakt het voor de spelende partij met een sterke hand tot een aantrekkelijk doel. Heb je de jas, de nel en nog twee troeven, plus twee azen, dan is pit realistisch, mits de verdeling meezit.",
+          "Voor de tegenpartij is het omgekeerd: één slag is genoeg om pit te voorkomen. Dat kan het waard zijn om een kaart te sparen, bijvoorbeeld een aas in een kleur die de spelers nog niet hebben getrokken, of een hoge troef die alleen door de jas kan worden verslagen. Ook als het in punten weinig uitmaakt, scheelt het de spelers honderd punten roem. Een slag van nul punten in de achtste ronde, met de 10 voor de laatste slag, kan zo meer waard zijn dan het lijkt."
+        ]
+      },
+      {
+        "tussenkop": "Nat voor de tegenpartij is geen pit",
+        "alineas": [
+          "Wat als de tegenpartij alle slagen wint? Dan is de spelende partij uiteraard nat, want ze heeft nul punten. De tegenpartij krijgt 162 plus alle roem. Of daar dan ook nog de 100 voor pit bij komt, verschilt per tafel. Ook hier geldt: spreek het af voordat je begint. Wat overal hetzelfde is: zo’n uitslag is een ramp voor de spelende partij, en hij ontstaat vrijwel altijd uit een troefkeuze met te weinig troeven, waarbij de tegenpartij de jas en nel had.",
+          "De les uit nat en pit is dat het klaverjassen geen spel van gemiddelden is. Een gewone uitslag van 95 tegen 67 en een rampzalige van 0 tegen 232 liggen soms maar één tien uit elkaar. Daarom zijn de kleine beslissingen in de laatste slagen zo belangrijk. Wie leert tellen, ziet die beslissingen aankomen. Over dat tellen, en het onthouden van welke kaarten al gevallen zijn, gaat het volgende deel van deze reeks."
+        ],
+        "foto": 3
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-06",
+    "kop": "Het geheugen van de kaarttafel: wat je moet tellen, en wat niet",
+    "intro": "Goede klaverjassers lijken alles te onthouden, maar dat is een misverstand. Ze tellen een handvol dingen, systematisch en in vaste volgorde. Wie leert wat de moeite waard is om bij te houden, speelt binnen een paar avonden merkbaar beter.",
+    "hoofdstuk": "Tellen en onthouden",
+    "basis": [
+      "regel-8",
+      "regel-9"
+    ],
+    "fotos": [
+      {
+        "wiki": "The Skat Players",
+        "taal": "en",
+        "bijschrift": "Otto Dix, De skatspelers (1920): ook daar telt men mee"
+      },
+      {
+        "wiki": "Card counting",
+        "taal": "en",
+        "bijschrift": "Kaarten tellen is geen casinotruc, maar gewoon goed opletten"
+      },
+      {
+        "wiki": "French-suited playing cards",
+        "taal": "en",
+        "bijschrift": "Een piketspel van 32 kaarten: dezelfde stok als bij klaverjassen"
+      },
+      {
+        "wiki": "Shuffling",
+        "taal": "en",
+        "bijschrift": "Thuis oefenen: schudden, kaarten wegleggen en raden wat er over is"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Iedereen kent het beeld: een oudere speler aan een café-tafel die na de vijfde slag droog opmerkt dat de schoppen tien nog in het spel zit en dat de jas bij jou moet zitten. Het lijkt een fotografisch geheugen, maar meestal is het iets eenvoudigers: een routine. Er zitten maar 32 kaarten in het spel, en daarvan zijn er maar een paar echt belangrijk. Wie die paar kaarten volgt en de rest negeert, weet aan het eind van het spel bijna net zo veel als de ‘rekenwonders’ aan tafel. Het geheim is weten wat je telt.",
+          "Tellen heeft twee doelen. Het eerste is weten welke kaarten nog baas zijn, oftewel welke kaart in een kleur op dit moment de hoogste is die nog in het spel zit. Is de harten aas gevallen, dan is de harten tien baas, en wie die tien heeft, kan er zonder risico een slag mee maken, tenzij er wordt afgetroefd. Het tweede doel is weten waar je staat ten opzichte van de 82 punten, de grens die bepaalt of de spelende partij binnen is. Beide doelen bereik je met een paar eenvoudige gewoontes."
+        ]
+      },
+      {
+        "tussenkop": "Stap één: de troeven",
+        "alineas": [
+          "Het allerbelangrijkste is troef tellen. Er zijn er acht. Elke keer als er troef wordt gespeeld, tel je mee: hoeveel zijn er nu gevallen en welke zijn dat? De jas en de nel verdienen speciale aandacht: zolang ze niet gevallen zijn, kan elke andere troef nog worden overgetroefd. Een handige truc is tellen per ronde. Wordt troef gevraagd en bekent iedereen, dan zijn er in één klap vier weg. Gooit iemand een andere kleur bij, dan weet je bovendien dat die speler geen troef meer heeft.",
+          "Combineer dat met je eigen hand. Heb je zelf drie troeven en zijn er drie gevallen, dan zitten er nog twee bij de andere drie spelers. Weet je dat één tegenstander troefloos is, dan zijn die twee dus verdeeld tussen je maat en de andere tegenstander. Die logica klinkt als een puzzel, maar in de praktijk is het een kwestie van de getallen 8, wat ik heb en wat er gevallen is naast elkaar leggen. Na een paar avonden doe je het zonder erbij na te denken."
+        ],
+        "kader": {
+          "titel": "Volgorde van tellen",
+          "punten": [
+            "1. Troeven: hoeveel zijn er gevallen, zijn jas en nel weg?",
+            "2. Azen en tienen: welke zijn er al gespeeld?",
+            "3. Renonces: wie heeft een kleur niet meer?",
+            "4. Punten: staan we boven of onder de 82?",
+            "Ga pas naar de volgende stap als de vorige automatisch gaat"
+          ]
+        },
+        "foto": 1
+      },
+      {
+        "tussenkop": "Stap twee: azen en tienen",
+        "alineas": [
+          "Na troef komen de azen en tienen. Samen zijn ze buiten troef 84 punten waard, en ze bepalen welke kaarten baas zijn. Houd per kleur bij of de aas en de tien gevallen zijn. Zodra de aas van een kleur weg is, promoveert de tien tot hoogste kaart. Heb je die tien zelf, dan weet je dat je hem kunt spelen zonder dat hij gevangen wordt, tenzij een tegenstander renonce is en introeft. Heb je hem niet, dan weet je dat iemand anders een tien van tien punten heeft die nog thuis moet komen, en dat is precies de kaart die jouw team wil onderscheppen.",
+          "Een voorbeeld. Ruiten is troef. In de eerste slagen zijn ♥A, ♣A en ♣10 gevallen. Je hebt zelf ♥10, ♥8 en ♠H. Dan weet je: jouw ♥10 is nu baas in harten. In schoppen zijn aas en tien nog onderweg, dus je ♠H is kwetsbaar. En in klaveren zijn de twee grote kaarten al weg; wie nog klaveren heeft, heeft alleen kleine kaarten. Met die drie feitjes weet je al welke kaart je straks het veiligst kunt spelen als je aan slag komt."
+        ]
+      },
+      {
+        "tussenkop": "Stap drie: renonces",
+        "alineas": [
+          "Een speler die een kleur niet kan bekennen, is renonce in die kleur. Dat is waardevolle informatie, want de speler heeft dan twee opties bij een volgende slag in die kleur: introeven of bijgooien. Voor jou betekent dat: speel je die kleur, dan kan hij troeven. Is die speler je maat, dan kan dat juist handig zijn. Is het een tegenstander, dan wil je die kleur liever niet spelen met een aas of tien erin. Onthoud renonces per speler, het liefst meteen bij de slag waarin het gebeurt.",
+          "Renonces vertellen je ook iets over de rest van de verdeling. Er zijn acht kaarten per kleur. Heb jij er drie, en gooit de linkertegenstander bij de eerste slag in die kleur al een andere kleur bij, dan zitten de overige vijf bij je maat en je rechtertegenstander, minus wat er al gevallen is. Zo wordt de verdeling langzaam zichtbaar. Ervaren spelers kunnen halverwege het spel vaak vrij nauwkeurig zeggen hoeveel kaarten iedereen nog heeft in welke kleur."
+        ],
+        "citaat": "Er zitten maar 32 kaarten in het spel, en daarvan zijn er maar een paar echt belangrijk.",
+        "foto": 2
+      },
+      {
+        "tussenkop": "Stap vier: de punten",
+        "alineas": [
+          "Het bijhouden van punten hoeft niet tot op de eenheid nauwkeurig. Werk met benaderingen. Een slag met een aas en een tien is ruwweg 20. Een slag met alleen kleine kaarten is bijna niets. De jas en de nel zijn samen 34. Na drie of vier slagen heb je een schatting die binnen een paar punten klopt, en dat is genoeg om te weten of het spel krap wordt. Vergeet de laatste slag niet: die is 10 punten extra waard, bovenop de kaarten erin. Wie in de laatste slag een troef overhoudt, heeft daarmee vaak al een flinke bonus binnen.",
+          "Een handige werkwijze is terugrekenen. In het hele spel zitten 162 punten. Weet je ongeveer wat jouw team heeft, en weet je welke grote kaarten er nog in het spel zijn, dan kun je uitrekenen wat de tegenpartij hooguit kan halen. Stel, jouw team heeft na zes slagen 75 punten, en er zijn nog twee slagen met daarin een aas, een tien en wat kleingoed, plus de 10 voor de laatste slag. Dan zitten er nog ruim dertig punten in de pot. Als jullie er daar zeven van pakken, zijn jullie binnen, ook als er geen roem in het spel zit."
+        ]
+      },
+      {
+        "tussenkop": "Trainen zonder druk",
+        "alineas": [
+          "Hoe leer je dit? Niet door alles tegelijk te willen. Begin met één ding: alleen troef tellen, een hele avond lang. Probeer na elke troefslag te weten hoeveel er nog zitten. Als dat na een paar avonden vanzelf gaat, voeg je de azen toe, dan de tienen, dan de renonces. Veel spelers merken dat het tellen hun spel rustiger maakt: ze hoeven niet meer te gokken, ze weten het. Je kunt ook thuis oefenen door een stok kaarten te schudden, een paar kaarten weg te leggen en te raden welke troeven er nog in de stapel zitten.",
+          "Er is ook een sociale kant. Aan tafel mag je in de meeste clubs alleen de laatst gespeelde slag nog bekijken; eerdere slagen liggen dicht. Wie het tellen dus niet in zijn hoofd doet, verliest de informatie. Bovendien praat je niet hardop over wat je telt, want daarmee geef je je maat informatie op een manier die niet is toegestaan. Het tellen is een stille, persoonlijke bezigheid, die zich pas laat zien in de kaart die je speelt. En juist die kaart is het onderwerp van het volgende deel: hoe je met je kaartkeuze je maat iets vertelt."
+        ],
+        "foto": 3
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-07",
+    "kop": "Praten zonder woorden: zo sein je naar je maat",
+    "intro": "Aan de klaverjastafel mag je niets zeggen over je kaarten, maar elke kaart die je legt, vertelt iets. Goede maten spreken een stille taal van hoge en lage kaarten, terugspelen en smeren. Wie die taal leert, speelt niet meer met één hand, maar met twee.",
+    "hoofdstuk": "Signaleren",
+    "basis": [
+      "regel-1",
+      "regel-0"
+    ],
+    "fotos": [
+      {
+        "wiki": "The Card Sharp with the Ace of Diamonds",
+        "taal": "en",
+        "bijschrift": "Georges de La Tour, De valsspeler met ruitenaas: geheime tekens zijn taboe"
+      },
+      {
+        "wiki": "Valentin de Boulogne",
+        "taal": "en",
+        "bijschrift": "Valentin de Boulogne schilderde soldaten bij kaart- en dobbelspel"
+      },
+      {
+        "wiki": "The Cardsharps",
+        "taal": "en",
+        "bijschrift": "Caravaggio: een handlanger kijkt mee in de kaarten van het slachtoffer"
+      },
+      {
+        "wiki": "Valsspelen",
+        "taal": "nl",
+        "bijschrift": "Jacob van Oost: kaartspelers die elkaar nauwlettend in de gaten houden"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "In de schilderkunst is de valsspeler een geliefd motief: een man die met een knipoog of een gebaar zijn kompaan laat weten welke kaarten hij heeft. Aan een eerlijke klaverjastafel is dat precies wat niet mag. Je maat iets laten weten door een woord, een blik, een zucht of een tik op tafel geldt als valsspelen. Maar dat betekent niet dat je zwijgend naast elkaar zit te gokken. De kaarten die je speelt, zijn openbaar, en de keuze welke kaart je speelt, mag wel degelijk informatie bevatten. Dat heet seinen of signaleren.",
+          "Het verschil tussen een sein en een geheim teken is eenvoudig: een sein zit in de kaart zelf, en iedereen aan tafel ziet dezelfde kaart. Ook de tegenstanders kunnen het sein lezen, als ze weten wat jullie afspraken zijn. Het is in clubverband dan ook fatsoenlijk om je afspraken desgevraagd uit te leggen. Wat niet mag, is informatie geven op een manier die de tegenstanders niet kunnen zien, of je maat helpen met hoe snel of nadrukkelijk je een kaart neerlegt. Seinen is dus geen trucje, maar een open taal."
+        ]
+      },
+      {
+        "tussenkop": "Smeren: de eerste les",
+        "alineas": [
+          "Het eenvoudigste en belangrijkste signaal is eigenlijk geen signaal maar een gewoonte: smeren. Wanneer je maat een slag wint en jij de gevraagde kleur niet hebt, gooi je er punten bij. Een tien, een aas, een heer: kaarten die anders misschien verloren zouden gaan. Bij Amsterdams mag dat, omdat je niet hoeft te troeven als je maat aan slag staat. Bij Rotterdams moet je juist troeven, dus daar is smeren veel beperkter. Smeren is de manier waarop teams punten verzamelen die ze anders zouden mislopen.",
+          "Het risico zit in het moment. Smeer alleen als de slag echt binnen is. Ben jij de laatste speler, dan zie je alle kaarten liggen en weet je het zeker. Ben je de derde speler, dan komt er nog een tegenstander na jou, en die kan misschien overtroeven of een hogere kaart leggen. Stel: harten is troef, je maat komt uit met ♠A, de tegenstander na hem bekent met ♠7 en jij hebt geen schoppen. Je kunt je ♦10 erbij gooien, maar als de laatste speler geen schoppen heeft, troeft hij in en pakt hij je tien. Als derde hand smeer je dus alleen als je zeker weet dat de vierde moet bekennen of geen troef heeft."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Hoog en laag bijgooien",
+        "alineas": [
+          "Een veelgebruikte afspraak gaat over welke kaart je bijgooit als je niet kunt bekennen en niet hoeft te troeven. De kaart die je weggooit, vertelt dan iets over je wensen. In een eenvoudig systeem dat veel spelers kennen, betekent een kleine kaart van een kleur: ik heb in deze kleur niets van waarde, speel hem liever niet. Een hogere kaart, zoals een vrouw of heer, betekent juist: ik heb hier iets, bijvoorbeeld de aas, speel deze kleur maar naar me toe. Je maat kan daar zijn volgende uitkomst op afstemmen.",
+          "Neem een voorbeeld. Schoppen is troef, de tegenpartij speelt, en je maat wint een slag in ruiten. Jij hebt geen ruiten meer, en je hand bestaat uit ♥A ♥V ♥9, ♣8 ♣7 en ♠7. Gooi je de ♣7 bij, dan zeg je: klaveren interesseert me niet. Gooi je de ♥V, dan zeg je: in harten zit iets. Je maat komt daarna uit en speelt een harten. Jouw aas pakt de slag. Belangrijk: zo’n afspraak werkt alleen als jullie hem allebei kennen en consequent toepassen. Seinen die maar af en toe kloppen, zijn erger dan geen seinen, omdat je maat dan op verkeerde informatie gaat bouwen."
+        ],
+        "kader": {
+          "titel": "Een simpel seinsysteem",
+          "punten": [
+            "Kleine kaart bijgooien: deze kleur niet spelen",
+            "Plaatje bijgooien: hier zit iets, speel hem naar me toe",
+            "Terugspelen: speel de kleur waarmee je maat uitkwam",
+            "Smeren alleen als de slag zeker binnen is",
+            "Spreek af vóór het spel en leg het desgevraagd uit"
+          ]
+        },
+        "citaat": "Seinen die maar af en toe kloppen, zijn erger dan geen seinen."
+      },
+      {
+        "tussenkop": "Terugspelen en uitkomen als sein",
+        "alineas": [
+          "Ook uitkomen is een vorm van praten. Komt je maat uit met een bepaalde kleur, dan heeft hij daar meestal een reden voor: hij heeft er de aas in, of hij wil dat jij die kleur straks naar hem terugspeelt. Een klassieke vuistregel luidt daarom: speel de kleur van je maat terug. Kom je aan slag en weet je niet goed wat je moet doen, dan is de kleur waarmee je maat de vorige keer uitkwam bijna altijd een redelijke keuze. Je maat kan zijn plan dan afmaken.",
+          "Speelt de troefmaker of zijn maat vroeg troef, dan vertelt dat iets anders: deze speler heeft troefkracht en wil de tegenpartij van hun troeven afhelpen. Als maat van de troefmaker lees je daaruit dat je je eigen hoge troeven kunt inzetten om hem te helpen. Als tegenstander leer je eruit dat je je azen snel moet verzilveren, want straks zijn de troeven op en worden de azen van de spelers onaantastbaar. Elke uitkomst is zo een stukje informatie, voor je maat en voor de rest van de tafel."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Lezen wat de ander zegt",
+        "alineas": [
+          "Seinen heeft alleen zin als iemand het leest. Daarom is goed opletten op de kaarten van je maat minstens zo belangrijk als zelf seinen. Vraag je bij elke kaart die hij legt af: waarom deze kaart? Als je maat bij een slag van de tegenpartij een ♦H weggooit terwijl hij ook een ♣7 had kunnen bijgooien, probeert hij je iets te vertellen. Als hij troeft terwijl het niet hoeft, wil hij misschien aan slag komen om zelf iets te spelen. Wie zo leert kijken, merkt dat de tafel vol informatie ligt.",
+          "Tegelijk moet je oppassen voor overinterpretatie. Niet elke kaart is een bewuste boodschap. Soms heeft je maat simpelweg niets anders, en dan is zijn bijgooi gedwongen. Een goed uitgangspunt is: alleen keuzes zijn signalen. Een speler die maar één kaart in een kleur heeft en moet bekennen, vertelt niets. Een speler die uit drie mogelijke kaarten de hoogste kiest, vertelt wel iets. Combineer dit met je telling uit de vorige aflevering: als je weet welke kaarten nog in het spel zijn, kun je beter inschatten welke keuze je maat had."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Spelen als een team",
+        "alineas": [
+          "Klaverjassen is in de kern een teamsport. Twee spelers die elkaars stille taal spreken, winnen op de lange termijn van twee sterkere individuele spelers die langs elkaar heen spelen. Daarom bespreken vaste koppels na een avond vaak een paar spellen: had je die tien niet kunnen smeren, waarom speelde je geen harten terug? Dat is geen kritiek, maar afstemming. Het maakt ook dat je elkaar steeds beter leert lezen, tot je aan een enkele weggegooide kaart ziet wat je maat bedoelt.",
+          "Begin klein. Spreek met je vaste maat één regel af, bijvoorbeeld de hoog-laag-afspraak bij bijgooien, en pas die een avond lang consequent toe. Let daarnaast op smeren in de slagen die je maat zeker wint, en speel zijn kleur terug als je twijfelt. Met die drie gewoontes speel je al als een team. In het volgende deel kijken we naar het moment waarop je zelf het initiatief hebt: het uitkomen, als je mag bepalen met welke kaart een slag begint."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-08",
+    "kop": "De eerste kaart: waarmee kom je uit, en waarom?",
+    "intro": "Wie uitkomt, kiest de kleur van de slag en dwingt de anderen om te reageren. Dat is een voorrecht, maar ook een risico: een verkeerde eerste kaart kan een tien kosten of de tegenpartij precies geven wat ze wil. Over azen, kale tienen, korte kleuren en het verschil tussen spelers en tegenspelers.",
+    "hoofdstuk": "Uitkomen",
+    "basis": [
+      "regel-5",
+      "regel-4",
+      "regel-0"
+    ],
+    "fotos": [
+      {
+        "wiki": "Hearts (card game)",
+        "taal": "en",
+        "bijschrift": "De hartenkleur: met welke kaart je uitkomt, bepaalt de slag"
+      },
+      {
+        "wiki": "Bid whist",
+        "taal": "en",
+        "bijschrift": "Een hand bij een slagenspel: waar zit de kracht, waar het gevaar?"
+      },
+      {
+        "wiki": "Kaartspel",
+        "taal": "nl",
+        "bijschrift": "Cézanne schilderde de kaartspelers in meerdere versies"
+      },
+      {
+        "wiki": "Piquet",
+        "taal": "en",
+        "bijschrift": "Een Frans piketspel: buiten troef staat de tien direct onder de aas"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Elke slag begint met één speler die een kaart op tafel legt. Bij de eerste slag van het spel is dat bij Amsterdams verplicht de troefkiezer zelf, de speler links van de deler. Daarna komt steeds de winnaar van de vorige slag uit. Uitkomen klinkt als iets wat je nu eenmaal moet doen, maar het is een van de krachtigste momenten in het spel. Jij bepaalt de kleur, en de andere drie moeten bekennen als ze kunnen. Daarmee stuur je de punten, de troeven en de informatie in een richting die jij kiest.",
+          "Het verschil tussen een goede en een slechte uitkomst is vaak pas slagen later zichtbaar. Een speler die met een kale tien uitkomt, ziet die tien misschien meteen sneuvelen onder een aas. Een speler die als tegenspeler troef speelt, helpt de spelende partij ongewild met haar plan. En een speler die zijn korte kleur speelt, maakt zichzelf misschien een paar slagen later renonce, zodat hij kan introeven op een aas van de tegenpartij. In dit artikel bekijken we uitkomen vanuit twee kanten: als spelende partij en als tegenpartij."
+        ]
+      },
+      {
+        "tussenkop": "Als spelende partij: het plan voorop",
+        "alineas": [
+          "De troefkiezer heeft zijn kleur met een reden gekozen, en de eerste uitkomst hoort bij dat plan. Heb je de jas en minstens drie troeven, dan is de klassieke opening: troef spelen, beginnend met de jas. Daarmee haal je bij de tegenstanders troeven weg, zonder dat jouw jas in gevaar komt. Hoe je dat troeftrekken verder aanpakt, is het onderwerp van het volgende deel. Voor nu volstaat het principe: wie troefkracht heeft, gebruikt die vroeg, zodat zijn azen later niet kunnen worden afgetroefd.",
+          "Heb je geen jas, dan ligt het anders. Een troefuitkomst met bijvoorbeeld de nel kan dan ongelukkig vallen, want als een tegenstander de jas legt, verlies je 14 punten aan je eigen nel. Veel spelers kiezen in die situatie eerst voor een aas buiten troef. Neem de hand ♥9 ♥A ♥10 ♥7, ♦A, ♠H ♠8 en ♣V, met harten als troef. Je kunt beginnen met ♦A: elf punten, en bijna altijd een slag, want in de eerste ronde van een kleur is de kans klein dat iemand al renonce is. Daarna kun je troef spelen, of wachten tot je maat aan slag komt en de jas misschien zelf heeft."
+        ],
+        "kader": {
+          "titel": "Vuistregels voor de spelers",
+          "punten": [
+            "Jas plus lengte: troef spelen, jas eerst",
+            "Geen jas: eerst een zekere aas buiten troef",
+            "Speel je maat aan in een kleur waar hij kracht heeft",
+            "Verzilver azen voordat de tegenpartij renonce wordt"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Als tegenpartij: azen en korte kleuren",
+        "alineas": [
+          "De tegenpartij zit in een andere positie. Zij heeft niet gekozen, en heeft vaak minder troeven. Haar belangrijkste wapen zijn haar azen en tienen buiten troef, en haar troeven om mee in te troeven. Een eerste vuistregel is daarom: speel je azen vroeg. Zolang de spelers nog niet renonce zijn, is een aas een slag. Wacht je te lang, dan heeft de spelende partij misschien troef getrokken en jouw kleur kunnen afgooien, en dan wordt je aas afgetroefd. Een aas die je in de eerste slagen speelt, is bijna altijd elf punten voor jullie.",
+          "Een tweede vuistregel: speel geen troef als tegenpartij, tenzij je daar een specifieke reden voor hebt. Troef spelen helpt de spelende partij om de troeven op te ruimen, en dat is precies wat zij wil. Een uitzondering is als je weet dat je maat sterke troeven heeft en jullie de spelers juist van hun troeven willen afhelpen, maar dat is gevorderd spel. Een derde vuistregel: speel een korte kleur. Heb je in een kleur maar één kaart, dan word je na één ronde renonce, en kun je de volgende keer dat die kleur gespeeld wordt introeven."
+        ],
+        "citaat": "Een aas die je in de eerste slagen speelt, is bijna altijd elf punten voor jullie.",
+        "foto": 1
+      },
+      {
+        "tussenkop": "Een tegenhand uitgewerkt",
+        "alineas": [
+          "Stel, schoppen is troef en de tegenpartij heeft gekozen. Na een eerste troefslag kom jij als tegenspeler aan slag. Je hebt nog: ♥A ♥10 ♥8, ♣7, ♦H ♦V en ♠7. Wat speel je? Er zijn drie kandidaten. De ♥A is een vrijwel zekere slag van elf punten. De ♣7 is je korte kleur: als je die speelt, ben je daarna renonce in klaveren en kun je met je ♠7 een klaveren aas van de spelers aftroeven. En de ruiten zijn twee middelmatige plaatjes zonder aas of tien, die je beter laat liggen.",
+          "Een sterke volgorde is hier: eerst de ♥A. Die slag is direct binnen. Daarna is je ♥10 baas in harten, maar speel je die meteen, dan loop je kans dat een speler al renonce is en introeft. Dus speel je daarna je ♣7, om je renonce te maken. Wint je maat die slag, dan kan hij je harten terugspelen of zijn eigen kleur aanspreken. Komt de tegenpartij aan slag en speelt ze klaveren, dan troef jij in. Elke kaart heeft zo een doel. Dat is het verschil tussen een speler die kaarten weggooit en een speler die een plan heeft."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De kale tien en andere valkuilen",
+        "alineas": [
+          "De bekendste valkuil is de kale tien: een tien zonder de aas van dezelfde kleur. Kom je ermee uit, dan pakt de speler met de aas hem gewoon, en die tien levert de tegenstander tien punten op. Speel je liever een kleine kaart uit die kleur, of laat de kleur helemaal liggen. Heb je de tien met één klein kaartje erbij, dan kun je soms wachten tot de aas gevallen is, waarna je tien baas wordt. Je maat kan je ook helpen door die kleur te spelen: als hij de aas heeft, komt jouw tien als smeer in zijn slag terecht.",
+          "Een tweede valkuil is uitkomen in een kleur waarin een tegenstander renonce is. Heb je in een eerdere slag gezien dat de speler links van je geen ruiten meer heeft, dan is het riskant om met de ruiten aas uit te komen: hij mag introeven. Een derde valkuil is roem weggeven. Kom je uit met ♦V terwijl je weet dat ♦B en ♦H nog in het spel zijn, dan kan er een driekaart ontstaan in een slag die je niet wint. Het tellen uit de vorige delen betaalt zich hier direct uit."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Uitkomen midden in het spel",
+        "alineas": [
+          "Na de eerste paar slagen verandert het uitkomen van karakter. Je weet dan meer: wie renonce is, welke azen gevallen zijn, welke kleur je maat heeft aangesproken. Een goede gewoonte is om voor elke uitkomst drie vragen te stellen. Wat wil ik dat er in deze slag gebeurt? Wie komt er na mij, en wat kan die doen? En wat vertelt deze kaart aan mijn maat? Speel je zijn kleur terug, dan help je hem. Speel je een kleur waarin hij renonce is, dan kan hij introeven, wat handig is als jullie de tegenpartij zijn.",
+          "Uitkomen is zo een vorm van regie. Je kunt het spel niet helemaal sturen, want de kaarten zijn verdeeld en de regels dwingen spelers tot bepaalde reacties. Maar met elke uitkomst bepaal je wel wie zijn troeven moet inzetten, welke kaarten vallen en welke informatie op tafel komt. Ervaren spelers denken daarbij altijd één of twee slagen vooruit. In het volgende deel gaan we dieper in op de belangrijkste uitkomst van de spelende partij: het trekken van troef."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-09",
+    "kop": "Troef trekken: de kunst van het ontwapenen",
+    "intro": "Zolang de tegenpartij troeven heeft, is geen enkele aas veilig. Daarom begint de spelende partij vaak met het trekken van troef. Maar hoeveel rondes? Met welke kaart eerst? En wanneer stop je? Over tellen, timing en de regel die iedereen dwingt mee te spelen.",
+    "hoofdstuk": "Troef trekken",
+    "basis": [
+      "regel-2",
+      "regel-0",
+      "regel-3"
+    ],
+    "fotos": [
+      {
+        "wiki": "Euchre",
+        "taal": "en",
+        "bijschrift": "Bij euchre zijn de boeren de hoogste troeven, net als de jas"
+      },
+      {
+        "wiki": "Skat (card game)",
+        "taal": "en",
+        "bijschrift": "In het Duitse skat zijn de boeren eveneens de sterkste troeven"
+      },
+      {
+        "wiki": "Schafkopf",
+        "taal": "en",
+        "bijschrift": "Schafkopf, een Beiers slagenspel waarin troef de dienst uitmaakt"
+      },
+      {
+        "wiki": "Doppelkopf",
+        "taal": "en",
+        "bijschrift": "Doppelkopfkaarten: een grote troefkleur tegenover drie andere kleuren"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Stel je voor dat je twee azen buiten troef hebt, elk goed voor elf punten. Als je ze speelt terwijl een tegenstander nog troef heeft en de kleur niet kan bekennen, dan troeft hij in. Volgens de Amsterdamse regels moet hij dat zelfs, want jij staat aan slag. Weg aas, en de tegenpartij strijkt de punten op. Troef trekken is de remedie: je speelt troef, zodat de tegenstanders gedwongen worden hun troeven te bekennen. Als ze geen troef meer hebben, kunnen ze jouw azen niet meer aftroeven. Je ontwapent ze, en daarna kun je veilig je slagen ophalen.",
+          "Het principe is eenvoudig, de uitvoering minder. Elke ronde troef kost jou ook een troef, en soms je maat. Trek je te lang, dan heb je zelf geen troef meer over om de laatste slag te winnen of een aas van de tegenpartij te onderscheppen. Trek je te kort, dan houdt een tegenstander één troef over die precies op het verkeerde moment toeslaat. Troef trekken is daarom altijd een rekensom, en die som begint bij het getal acht: zoveel troeven zitten er in het spel."
+        ]
+      },
+      {
+        "tussenkop": "De regel die je helpt",
+        "alineas": [
+          "Bij troef trekken werkt één regel in je voordeel: wie troef heeft, moet troef bekennen als troef wordt gevraagd. Een tegenstander kan zijn troeven dus niet achterhouden. Daarnaast moet hij overtroeven als dat kan, dus hoger spelen dan de hoogste troef op tafel. Speel jij de jas, dan kan niemand overtroeven, en mogen de anderen elke willekeurige troef bijspelen. Ze zullen dan meestal hun laagste geven en hun hoge troeven bewaren. Speel je een lage troef, dan dwing je iemand met een hogere troef om erover te gaan, maar hij mag zelf kiezen met welke.",
+          "Dat heeft gevolgen voor de volgorde. Heb je de jas en de nel, dan is de logische route eerst de jas, dan de nel. Bij de jas houden de tegenstanders hun hoge troeven nog vast, maar bij de nel kan alleen de jas nog over, en die heb je zelf al gespeeld. Na twee rondes zijn er dan in het gunstigste geval acht troeven gevallen, en zit er niets meer bij de tegenpartij. Heb je de jas maar niet de nel, dan ligt het lastiger: na de jas zit de nel nog ergens, en elke volgende troef van jou kan daaronder vallen."
+        ],
+        "kader": {
+          "titel": "Troef trekken in het kort",
+          "punten": [
+            "Tel: er zijn 8 troeven; ken je eigen aantal",
+            "Jas eerst: niemand kan erover, de rest moet bekennen",
+            "Gooit iemand bij op troef? Die is troefloos",
+            "Stop als de tegenpartij geen troef meer heeft",
+            "Houd liefst één troef over voor de controle"
+          ]
+        },
+        "foto": 1
+      },
+      {
+        "tussenkop": "Een voorbeeld, slag voor slag",
+        "alineas": [
+          "Klaveren is troef en jij hebt gekozen met ♣B ♣9 ♣10 ♣7, ♥A ♥H, ♦A en ♠8. Je hebt vier troeven; de andere vier zitten verspreid over drie spelers. Je komt uit met ♣B. Links bekent met ♣8, je maat met ♣V, rechts met ♣H. Iedereen had troef. Er zijn nu vier gevallen: je jas plus drie andere. Jij hebt er nog drie, dus er zit precies nog één troef buiten jouw hand: de ♣A. Waar die zit, weet je nog niet. Wel weet je dat jouw ♣9 hem verslaat.",
+          "Nu speel je ♣9. Wie de ♣A heeft, moet bekennen, want troef is gevraagd. Overtroeven kan hij niet, want de aas staat onder de nel. Dus valt de aas, en pak jij 14 plus 11 punten plus wat de anderen bijgooien. Vanaf nu heeft niemand anders nog troef. Je hebt ♣10 en ♣7 over, en je ♥A en ♦A zijn onaantastbaar. Je speelt ze een voor een, en je maat kan erop smeren. Je ♣10 en ♣7 houd je achter de hand: ze zijn de enige troeven in het spel en garanderen je later minstens nog twee slagen, waaronder misschien de laatste, goed voor tien extra punten."
+        ],
+        "citaat": "Troef trekken is altijd een rekensom, en die som begint bij het getal acht.",
+        "foto": 2
+      },
+      {
+        "tussenkop": "Wanneer stoppen",
+        "alineas": [
+          "Het moment om te stoppen is wanneer de tegenpartij geen troef meer heeft. Dat merk je aan bijgooien: als een tegenstander op een troefslag een andere kleur legt, is hij troefloos. Als beide tegenstanders dat gedaan hebben, of als je hebt geteld dat alle resterende troeven bij jou en je maat zitten, hoef je niet verder. Elke extra ronde zou dan alleen je eigen troeven en die van je maat opsouperen. En je maat heeft zijn troeven misschien nodig om later een kleur in te troeven waarin hij renonce is.",
+          "Soms is het verstandig om eerder te stoppen. Zit er nog één troef bij de tegenpartij, maar is die lager dan de jouwe en heb je zelf nog maar twee troeven, dan kost het jou een van die twee om hem te trekken. Soms is het beter hem te laten zitten en eerst je azen te spelen in kleuren waarin de tegenstander met de laatste troef nog moet bekennen. Ervaren spelers zeggen dan dat ze de laatste troef laten lopen. Het vergt dat je weet waar die troef zit, en dat brengt je terug bij het tellen uit eerdere afleveringen."
+        ]
+      },
+      {
+        "tussenkop": "Als maat van de troefkiezer",
+        "alineas": [
+          "Ook de maat van de troefkiezer speelt een rol. Komt hij aan slag terwijl de troeven nog niet getrokken zijn, dan is troef terugspelen naar de troefkiezer vaak een goede keuze. Die heeft immers gekozen omdat hij troefkracht heeft, en met een troef van zijn maat kan hij verder trekken zonder zelf een slag te verliezen. Veel spelers hanteren dat als vaste gewoonte. Een uitzondering: als de maat zelf een aas heeft in een kleur waarin nog niemand renonce is, kan hij die eerst verzilveren voordat de kans verkeken is.",
+          "Daarnaast moet de maat beseffen dat zijn troeven bij het trekken meedoen. Als de troefkiezer de jas speelt, gooit de maat zijn laagste troef bij, zodat zijn hogere troeven later nog een slag kunnen maken. Bij Rotterdams is er een extra complicatie: daar moet je ook overtroeven als je maat aan slag staat. Bij Amsterdams heb je meer vrijheid, maar bij troef gevraagd geldt in beide varianten dat je moet bekennen, en overtroeven als dat kan."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Als tegenpartij: overleven",
+        "alineas": [
+          "Voor de tegenpartij is troef trekken een vervelende fase. Je moet je troeven inleveren en kunt weinig terugdoen. Toch zijn er keuzes. Bekennen met je laagste troef is meestal verstandig, zodat je hogere troef langer leeft. Heb je ♣A ♣7 en wordt de jas gespeeld, leg dan de zeven. Als daarna de nel komt, moet je de aas bekennen, want je hebt geen andere troef meer. Maar als de troefkiezer na de jas stopt met trekken, heb je je aas nog, en die kan later een tien van de spelers onderscheppen.",
+          "De belangrijkste les voor de tegenpartij is timing. Jouw azen zijn alleen veilig zolang de spelers in jouw kleur nog kunnen bekennen. Hoe verder het spel vordert, hoe groter de kans dat een speler renonce is en met een van zijn overgebleven troeven jouw aas pakt. Daarom is het advies uit het vorige deel zo belangrijk: speel je azen vroeg. Zodra de spelende partij aan het troef trekken begint, is de klok gaan lopen. Het volgende deel kijkt naar het moment waarop die klok bijna is afgelopen: het eindspel."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-10",
+    "kop": "De laatste drie slagen: waar spellen gewonnen en verloren worden",
+    "intro": "Aan het eind van een spel zijn de kaarten bijna allemaal bekend, en dat maakt het eindspel tot een puzzel met een oplossing. Wie heeft geteld, ziet die oplossing. Over de laatste troef, de tien punten voor de laatste slag en de vraag wie er moet uitkomen.",
+    "hoofdstuk": "Eindspel",
+    "basis": [
+      "regel-8",
+      "regel-3",
+      "regel-6",
+      "regel-7"
+    ],
+    "fotos": [
+      {
+        "wiki": "Contract bridge",
+        "taal": "en",
+        "bijschrift": "Alle slagen binnen: bij bridge heet dat slem, bij klaverjassen pit"
+      },
+      {
+        "wiki": "Rummy",
+        "taal": "en",
+        "bijschrift": "Ook bij andere kaartspellen draait het slot om de laatste kaarten"
+      },
+      {
+        "wiki": "House of cards",
+        "taal": "en",
+        "bijschrift": "Speel de verkeerde kaart eerst en het bouwwerk stort in"
+      },
+      {
+        "wiki": "Spades (card game)",
+        "taal": "en",
+        "bijschrift": "In de laatste slagen is van bijna elke kaart bekend waar hij zit"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Na vijf slagen liggen er nog twaalf kaarten in de handen van de vier spelers. Wie zorgvuldig heeft geteld, weet op dat moment van bijna elke kaart waar hij zit, of kan het in elk geval sterk vermoeden. Het spel verandert dan van karakter. Waar het begin draaide om kansen en schattingen, gaat het eindspel om exacte berekening. Welke kaart moet ik nu spelen om de meeste punten te halen? Wie moet de volgende slag uitkomen? En is er nog een troef bij de tegenpartij die mijn plan kan dwarsbomen?",
+          "Het eindspel is ook het moment waarop de grens van 82 punten concreet wordt. In de eerste helft van het spel zijn de getallen nog vaag, maar met drie slagen te gaan weet een geoefende speler ongeveer hoe het ervoor staat. Dan kan elke kaart het verschil maken tussen binnen en nat, tussen een gewone uitslag en pit. Dat maakt de laatste drie slagen tot het spannendste deel van het spel, en tot het deel waarin je het meest kunt winnen met goed nadenken."
+        ]
+      },
+      {
+        "tussenkop": "De laatste slag is goud waard",
+        "alineas": [
+          "De achtste slag levert, naast de kaartpunten erin, tien extra punten op. Dat klinkt bescheiden, maar het is evenveel als een tien, en vaak meer dan de kaarten in die slag zelf waard zijn. Een team dat de laatste slag pakt met vier lege kaarten, krijgt toch tien punten. Daarom proberen ervaren spelers een troef te bewaren tot het eind. Een enkele troef die als laatste in het spel overblijft, garandeert de laatste slag, ongeacht wie er uitkomt, want wie de gevraagde kleur niet heeft, kan die troef inzetten.",
+          "Dat heeft gevolgen voor eerdere slagen. Stel, je hebt nog ♠7 als laatste troef van het hele spel, en er wordt een slag gespeeld met twee lege kaarten en een vrouw. Je kunt die slag pakken door in te troeven, maar dan levert hij drie punten op en verlies je de garantie op de laatste slag. Laat je de slag lopen, dan houd je de troef, en pak je straks de tien extra punten plus wat er in die laatste slag zit. Tenzij je verplicht bent om in te troeven, omdat een tegenstander aan slag staat. Dan bepalen de regels het voor je."
+        ],
+        "kader": {
+          "titel": "Checklist eindspel",
+          "punten": [
+            "Waar zitten de resterende troeven?",
+            "Welke kaarten zijn nog baas in hun kleur?",
+            "Wie komt er uit na deze slag?",
+            "Hoeveel punten hebben we, en wat zit er nog in de pot?",
+            "Laatste slag: 10 extra, bewaar zo mogelijk een troef"
+          ]
+        },
+        "foto": 1
+      },
+      {
+        "tussenkop": "Eerst de laatste troef eruit",
+        "alineas": [
+          "Een klassieke eindspelsituatie. Ruiten is troef, er zijn nog drie slagen te gaan, en jij staat aan slag. Je hebt ♦9, ♥A en ♠7. De jas is al gevallen, dus jouw nel is de hoogste troef. Uit je telling weet je dat er nog precies één andere troef in het spel is, de ♦10, en dat die bij je rechtertegenstander zit. Je weet ook dat hij geen harten meer heeft. Wat speel je? De verleiding is om eerst de ♥A te spelen, elf punten. Maar die tegenstander is renonce in harten en heeft troef. Hij moet introeven, want jij staat aan slag, en jouw aas is weg.",
+          "Speel je eerst de ♦9, dan moet hij bekennen met zijn ♦10. Overtroeven kan hij niet, want de tien staat onder de nel. Jij pakt 14 plus 10 punten plus wat de anderen bijleggen. Daarna is er geen troef meer bij de tegenpartij, en kan je ♥A veilig worden gespeeld. Het verschil tussen de twee volgordes is enorm: in de ene pakt de tegenpartij je aas en houd jij een nel die nog een slag maakt, in de andere haal jij alle grote punten binnen. Dit is de kern van eindspeltechniek: speel eerst de kaart die de dreiging wegneemt, dan de kaart die punten oplevert."
+        ],
+        "citaat": "Speel eerst de kaart die de dreiging wegneemt, dan de kaart die punten oplevert.",
+        "foto": 2
+      },
+      {
+        "tussenkop": "Wie moet er uitkomen?",
+        "alineas": [
+          "In het eindspel is uitkomen vaak een nadeel. De speler die uitkomt, moet als eerste kleur bekennen, en de anderen kunnen reageren op wat hij speelt. De laatste speler van een slag heeft het makkelijkst: hij ziet alles en kan kiezen tussen winnen, bijgooien of smeren. Daarom proberen sterke spelers in de laatste slagen de tegenpartij aan slag te brengen op een moment dat die alleen nog maar slechte keuzes heeft. Dat heet ook wel inspelen.",
+          "Een eenvoudig voorbeeld. Er zijn nog twee slagen te gaan, klaveren is troef en alle troeven zijn gespeeld. Jij staat aan slag met ♥10 en ♦7, en je weet dat de ♥A bij je linkertegenstander zit. Kom je uit met de tien, dan legt hij er zijn aas op en is je tien weg. Kom je uit met de ♦7, dan geef je de slag misschien uit handen, maar je tien leeft nog. Wint je maat die slag en speelt hij daarna een kleur die jij niet meer hebt, dan smeer je je ♥10 in zijn slag. Door zelf níét het initiatief te houden, red je tien punten."
+        ]
+      },
+      {
+        "tussenkop": "Rekenen op de grens",
+        "alineas": [
+          "Het eindspel is ook rekenwerk richting de 82. Stel, de spelende partij staat met nog twee slagen te gaan op 70 punten, en er zit nog een aas en wat kleingoed in het spel, plus de 10 voor de laatste slag. Als de spelers één slag winnen met daarin de aas, staan ze op 81 of meer, en als het de laatste slag is, op 91. Voor de tegenpartij is de opdracht dan helder: zorg dat de spelers niet die aas én de laatste slag krijgen. Elke beslissing richt zich op dat ene doel.",
+          "Andersom kan de spelende partij die al ruim binnen is, nog op pit jagen. Heeft ze alle slagen tot nu toe gewonnen, dan is de laatste slag ineens honderd punten roem waard bovenop de tien. Dat rechtvaardigt een andere afweging: liever een troef bewaren voor die laatste slag dan hem eerder gebruiken voor een paar punten. De tegenpartij moet op haar beurt alles doen om één slag te pakken. Een lage troef die de laatste slag kan winnen, is voor haar dan meer waard dan een aas die geen slag meer haalt."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "De rest is voor ons",
+        "alineas": [
+          "Aan veel tafels is het gebruikelijk dat een speler die zeker weet dat hij alle resterende slagen wint, zijn kaarten open op tafel legt en zegt dat de rest voor hem is. Dat scheelt tijd, maar het is ook een test van je telling. Klopt het niet, omdat er toch nog een troef bij de tegenpartij zit, dan moet het spel alsnog worden uitgespeeld, en aan sommige tafels kost een foute claim punten. Doe het dus alleen als je het echt zeker weet. Voor beginners is het verstandig om gewoon door te spelen tot de laatste kaart.",
+          "Het eindspel is het moment waarop alles uit de eerdere delen samenkomt: de waarden van de kaarten, de troefplicht, de roem, het tellen, het seinen en het plannen van je uitkomsten. Wie dat allemaal beheerst, maakt in de laatste slagen het verschil. Maar ook ervaren spelers maken fouten, en sommige fouten komen zo vaak voor dat ze een eigen naam verdienen. Daarover gaat het volgende deel."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-11",
+    "kop": "Zeven fouten die zelfs ervaren klaverjassers blijven maken",
+    "intro": "De meeste punten gaan niet verloren door pech, maar door kleine vergissingen die steeds terugkomen. Een tien op het verkeerde moment, een maat die overbodig wordt overgetroefd, een stuk dat niemand ziet. Wie de klassieke fouten herkent, wint ze terug.",
+    "hoofdstuk": "Veelgemaakte fouten",
+    "basis": [
+      "regel-4",
+      "regel-0",
+      "regel-1",
+      "regel-3"
+    ],
+    "fotos": [
+      {
+        "wiki": "The House of Cards",
+        "taal": "en",
+        "bijschrift": "Chardin, Het kaartenhuis: één onoplettend moment en het valt om"
+      },
+      {
+        "wiki": "King (playing card)",
+        "taal": "en",
+        "bijschrift": "Sorteer je kaarten op kleur, dan valt een verdwaalde kaart op"
+      },
+      {
+        "wiki": "Card game",
+        "taal": "en",
+        "bijschrift": "Ook geconcentreerde spelers, zoals bij Rombouts, maken fouten"
+      },
+      {
+        "wiki": "Queen (playing card)",
+        "taal": "en",
+        "bijschrift": "Een vrouw op het verkeerde moment geeft de tegenpartij stuk cadeau"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Na een avond klaverjassen zeggen verliezers vaak dat ze slechte kaarten hadden. Dat is soms waar, maar over zestien spellen middelt het geluk redelijk uit. Wat niet uitmiddelt, zijn fouten. Een speler die twee keer per avond een tien weggeeft, verliest zo twintig punten, en een speler die één keer verzaakt, verliest een heel spel. In dit voorlaatste deel van de reeks zetten we de fouten op een rij die aan tafels het vaakst worden gemaakt, niet alleen door beginners. Bij elke fout staat waarom hij zo hardnekkig is, en hoe je hem afleert.",
+          "De rode draad: bijna alle fouten ontstaan doordat een speler te snel een kaart legt. Hij kijkt naar zijn eigen hand, niet naar de tafel. Hij denkt aan de kaart die hij wil spelen, niet aan wie er na hem komt. Of hij vergeet even welke variant er wordt gespeeld. Wie zich aanleert om voor elke kaart heel kort te kijken wie er aan slag staat en wie er nog moet spelen, voorkomt de helft van onderstaande fouten al."
+        ]
+      },
+      {
+        "tussenkop": "1. Verzaken door onoplettendheid",
+        "alineas": [
+          "De duurste fout is verzaken: niet bekennen terwijl je de gevraagde kleur wel hebt. Bijna altijd gebeurt het per ongeluk, omdat een kaart tussen de verkeerde kleur in je hand zat. Een ♦8 die tussen je harten staat, valt niet op als je snel kijkt. Ook het niet introeven of niet overtroeven terwijl het verplicht is, wordt in de gangbare regels als verzaken gezien. De straf is zwaar: in de meeste reglementen gaat het hele spel met alle roem naar de tegenpartij. De remedie is simpel: sorteer je kaarten bij het oppakken netjes op kleur, en controleer bij elke slag even of je echt geen kaart van de gevraagde kleur hebt."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "2. Verkeerd inschatten wie er aan slag staat",
+        "alineas": [
+          "Bij Amsterdams hangt je troefplicht af van wie er aan slag staat. Een veelgemaakte fout: denken dat je maat aan slag staat, omdat hij is uitgekomen, terwijl een tegenstander er al overheen is gegaan. Voorbeeld: schoppen is troef, je maat komt uit met ♥H, de tegenstander na hem legt ♥A. Jij hebt geen harten. Wie nu vrij een kaart bijgooit, verzaakt, want de tegenstander staat aan slag en jij moet introeven. Kijk dus altijd naar de hoogste kaart op tafel, niet naar wie er begonnen is."
+        ]
+      },
+      {
+        "tussenkop": "3. Smeren voordat de slag binnen is",
+        "alineas": [
+          "Smeren is een van de sterkste wapens van een Amsterdams team, maar het gaat vaak mis op het moment. De klassieke fout is smeren als derde hand, terwijl de vierde speler nog kan introeven of overtroeven. Stel, klaveren is troef. Je maat speelt ♦A, de tegenstander bekent met ♦8, en jij gooit je ♥10 erbij. De vierde speler heeft geen ruiten en troeft in met ♣7. Hij pakt 11 plus 10 plus wat erin ligt. Had je gewacht, of een lage kaart bijgegooid, dan was je tien er nog. Smeer als derde hand alleen als je zeker weet dat de vierde speler moet bekennen of geen troef meer heeft."
+        ],
+        "kader": {
+          "titel": "De zeven fouten op een rij",
+          "punten": [
+            "Verzaken door slordig sorteren",
+            "Vergeten wie er écht aan slag staat",
+            "Smeren als derde hand",
+            "Je maat onnodig overtroeven",
+            "Uitkomen met een kale tien",
+            "Roem weggeven of vergeten te melden",
+            "Azen te lang vasthouden als tegenpartij"
+          ]
+        }
+      },
+      {
+        "tussenkop": "4. Je eigen maat overtroeven",
+        "alineas": [
+          "Bij Amsterdams hoef je niet te troeven als je maat aan slag staat. Toch zie je spelers het doen, bijvoorbeeld uit gewoonte omdat ze ook Rotterdams spelen, of omdat ze denken dat een troef extra veilig is. Het kost je een troef die je later hard nodig kunt hebben, bijvoorbeeld om een aas van de tegenpartij af te troeven of om de laatste slag te pakken. Ondertussen laat je een kans liggen om punten te smeren. Alleen als je maats kaart echt in gevaar is, omdat de vierde speler nog een hogere kaart kan leggen, kan troeven zinvol zijn. Ook ondertroeven terwijl het niet hoeft, is pure verspilling."
+        ],
+        "citaat": "Bijna alle fouten ontstaan doordat een speler te snel een kaart legt.",
+        "foto": 2
+      },
+      {
+        "tussenkop": "5. Uitkomen met een kale tien",
+        "alineas": [
+          "Een tien zonder bijbehorende aas is kwetsbaar. Toch komen spelers er vaak mee uit, omdat het een hoge kaart is en het voelt als een sterke zet. Maar als een tegenstander de aas heeft, pakt hij de tien, en schenk je de tegenpartij in één klap 21 punten of meer. Stel, harten is troef, en je hebt ♠10 ♠8 zonder de ♠A. Kom je uit met ♠10, dan legt de speler met de aas hem erop. Beter is het om te wachten. Speel je ♠8, of een andere kleur, dan kan je tien later baas worden of in een slag van je maat worden gesmeerd."
+        ]
+      },
+      {
+        "tussenkop": "6. Roem weggeven en roem vergeten",
+        "alineas": [
+          "Roem gaat naar wie de slag wint. Dat vergeten spelers geregeld als ze een kaart bijgooien in een slag van de tegenpartij. Ligt er ♣V en ♣H bij klaveren als troef, en wint de tegenpartij die slag, dan heb je hen twintig punten stuk gegeven. Ligt er ♥9 en ♥B, en gooi jij de ♥10 erbij in een slag die je verliest, dan heb je een driekaart weggegeven, bovenop je tien punten. Andersom vergeten spelers regelmatig hun eigen roem te melden. In veel clubs vervalt niet-gemelde roem, dus laat niets liggen: kijk bij elke slag die je pakt even naar series, stuk en gelijke kaarten."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "7. Azen te lang vasthouden",
+        "alineas": [
+          "De laatste fout zie je vooral bij de tegenpartij. Een speler heeft een aas en bewaart die voor later, uit een vaag gevoel dat hij hem op een beter moment kan inzetten. Maar elke slag die voorbijgaat, vergroot de kans dat een van de spelers renonce wordt en de aas kan aftroeven. Vroeg in het spel kunnen bijna alle spelers nog bekennen; later niet meer. Een aas die in de eerste of tweede ronde van zijn kleur wordt gespeeld, levert bijna altijd een slag op. Een aas die je bewaart tot slag zeven, is vaak al weg voor je het weet."
+        ]
+      },
+      {
+        "tussenkop": "Leren van je eigen fouten",
+        "alineas": [
+          "Hoe word je je eigen fouten de baas? De belangrijkste stap is ze herkennen. Na een spel dat misging, is het nuttig om even terug te denken: waar ging het mis? Was het de troefkeuze, een verkeerde uitkomst, een tien op het verkeerde moment? Vaste maten bespreken dat vaak samen, zonder verwijten. Het helpt ook om de fouten uit dit stuk één voor één aan te pakken. Neem een avond lang de gewoonte om voor elke kaart te kijken wie aan slag staat. De volgende keer let je bewust op het smeren als derde hand.",
+          "Daarnaast is het goed te beseffen dat fouten bij het spel horen. Ook spelers met jarenlange ervaring smeren af en toe te vroeg of vergeten een stuk. Wat hen onderscheidt, is dat ze het meteen zien en er de volgende keer rekening mee houden. Wie zo naar het spel kijkt, wordt beter met elke avond. En dat brengt ons bij het laatste deel van deze reeks: hoe gedraag je je aan tafel, en hoe ziet het klaverjassen eruit als je het in competitieverband gaat spelen?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "klaverjas-12",
+    "kop": "Van keukentafel naar klaverjasdrive: de ongeschreven regels",
+    "intro": "Wie de spelregels kent, kan meespelen. Wie ook de omgangsvormen kent, wordt overal met open armen ontvangen. Over schudden en afnemen, zwijgen over je kaarten, de scorekaart, en wat je kunt verwachten als je voor het eerst meedoet aan een drive in het café of buurthuis.",
+    "hoofdstuk": "Etiquette en competitie",
+    "basis": [
+      "regel-4",
+      "regel-5",
+      "regel-6"
+    ],
+    "fotos": [
+      {
+        "wiki": "Klaverjassen",
+        "taal": "nl",
+        "bijschrift": "Klaverjassen in het Vondelpark: het spel hoort bij de Nederlandse zomer"
+      },
+      {
+        "wiki": "Croupier",
+        "taal": "en",
+        "bijschrift": "Schudden en delen gaan volgens vaste gewoontes"
+      },
+      {
+        "wiki": "Tarot card games",
+        "taal": "en",
+        "bijschrift": "Hongaarse kaartpartij met toekijkers: meekijken mag, meepraten niet"
+      },
+      {
+        "wiki": "Bridge (kaartspel)",
+        "taal": "nl",
+        "bijschrift": "Bij bridge zijn wedstrijden strak georganiseerd; drives zijn vaak informeler"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Klaverjassen is in Nederland meer dan een spel. Het wordt gespeeld in bruine cafés en sportkantines, in buurthuizen en op verjaardagen, in treinen en in parken op warme zomeravonden. Overal waar het gespeeld wordt, gelden naast de officiële regels ook ongeschreven regels. Ze gaan over hoe je schudt, hoe je je kaarten vasthoudt, wat je wel en niet zegt, en hoe je met fouten omgaat. Voor een nieuwkomer zijn ze niet altijd vanzelfsprekend, maar wie ze kent, valt meteen in de groep. In dit laatste deel van de reeks lopen we ze langs.",
+          "Daarnaast is er de competitiewereld. Veel cafés, verenigingen en buurthuizen organiseren regelmatig een klaverjasdrive: een avond waarop een groep spelers in wisselende samenstellingen een aantal rondes speelt, waarna de punten worden opgeteld en er een winnaar is. Er zijn ook vaste competities en kampioenschappen, en tegenwoordig wordt er veel online gespeeld. De regels zijn dan meestal vastgelegd in een reglement, en dan blijkt hoe belangrijk de kleine afspraken zijn die aan de keukentafel vaak informeel blijven."
+        ]
+      },
+      {
+        "tussenkop": "Schudden, afnemen en delen",
+        "alineas": [
+          "Het spel begint bij de deler. Hij schudt de kaarten, en daarna mag de speler aan zijn rechterhand afnemen, ook wel couperen genoemd: een deel van de stapel van boven afnemen en onder leggen. Dat is een oude waarborg tegen valsspelen. Vervolgens deelt de deler met de klok mee, beginnend bij de speler links van hem, meestal in pakjes, bijvoorbeeld drie, twee en drie kaarten. Na elk spel schuift het delen een plaats op met de klok mee, zodat bij zestien spellen iedere speler vier keer deelt en ook vier keer als eerste troef bepaalt.",
+          "Een paar beleefdheden horen erbij. Pak je kaarten pas op als het delen klaar is. Houd ze zo vast dat niemand ze kan zien, ook je maat niet. Laat een kaart die per ongeluk omvalt tijdens het delen even zien, zodat iedereen weet wat er gebeurd is; aan veel tafels wordt dan opnieuw gedeeld. En schud niet eindeloos: een paar keer goed schudden is genoeg, en de anderen wachten."
+        ],
+        "kader": {
+          "titel": "Tafelmanieren in het kort",
+          "punten": [
+            "Rechts van de deler neemt af",
+            "Niets zeggen of laten merken over je kaarten",
+            "Speel in je eigen tempo, maar zonder te treuzelen",
+            "Alleen de laatst gespeelde slag mag je terugzien",
+            "Roem melden voordat de volgende slag begint",
+            "Spreek de variant af vóór het eerste spel"
+          ]
+        },
+        "foto": 1
+      },
+      {
+        "tussenkop": "Zwijgen over je kaarten",
+        "alineas": [
+          "De belangrijkste regel aan tafel is ongeschreven maar heilig: je zegt niets over je kaarten. Geen ‘ik heb niks’, geen zucht als troef wordt gekozen, geen opgetrokken wenkbrauw als je maat een kaart speelt. Alles wat je maat informatie geeft buiten de gespeelde kaarten om, geldt als valsspelen, ook als het onbewust gebeurt. Dat geldt ook voor tempo. Wie demonstratief lang nadenkt voordat hij een kaart bijgooit, vertelt zijn maat iets. Het is dus een kunst om in een gelijkmatig tempo te spelen, ook als je moet nadenken.",
+          "Wat wel mag, is praten over het spel als het voorbij is. Na het laatste spel van een potje is er vaak ruimte voor nabespreking: had je die tien niet moeten smeren, waarom speelde je geen harten terug? Ook tijdens het tellen van de punten wordt er gepraat. Maar tijdens het spelen zelf is de tafel stil, op de gebruikelijke opmerkingen na zoals het melden van roem. Wie dat respecteert, wordt overal graag aan tafel gezien."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De scorekaart",
+        "alineas": [
+          "Bij elk spel wordt de uitslag op een scorekaart genoteerd. Een gebruikelijke indeling heeft twee kolommen, vaak ‘wij’ en ‘zij’, met per spel een regel. De kaartpunten en de roem worden meestal apart genoteerd, zodat je aan het eind kunt controleren of alles klopt. De twee kaartpunten-getallen van een spel moeten samen altijd 162 zijn, en dat is een handige controle: klopt de som niet, dan is er ergens verkeerd geteld. Bij een nat spel krijgt de tegenpartij 162 plus alle roem, en staat er bij de spelende partij een nul, vaak met een aparte markering.",
+          "Wie de scorekaart bijhoudt, heeft een verantwoordelijke taak. Het is gebruikelijk dat een van de spelers de punten van zijn eigen team telt en de ander controleert. Bij twijfel worden de slagen nageteld. Aan het eind van een potje van zestien spellen worden de kolommen opgeteld, en het team met de meeste punten wint. In competitieverband worden die totalen vaak doorgegeven aan de organisatie, die de rangschikking van de avond of het seizoen bijhoudt."
+        ],
+        "citaat": "De kaartpunten van beide teams moeten samen altijd 162 zijn."
+      },
+      {
+        "tussenkop": "Fouten en geschillen",
+        "alineas": [
+          "Waar gespeeld wordt, worden fouten gemaakt, en sommige leiden tot discussie. De meest voorkomende is een vermoedelijke verzaking: een speler meent dat een tegenstander niet heeft bekend terwijl dat wel had gekund. In de meeste clubs mag alleen de laatst gespeelde slag worden teruggekeken, maar bij een claim van verzaking worden aan het eind van het spel de slagen vaak omgedraaid om het na te gaan. Is er echt verzaakt, dan gaat het spel met alle punten en roem naar de tegenpartij. Is er niet verzaakt, dan loopt het spel normaal af.",
+          "Bij twijfelgevallen is het goed om je te houden aan wat vooraf is afgesproken, of aan het reglement van de club. Aan de keukentafel is soepelheid vaak de beste keuze: het gaat om de gezelligheid, en een vergissing van een beginner is geen reden voor een conflict. In competitieverband zijn de regels strikter, en is er vaak een wedstrijdleider die beslist. Hoe het ook gaat: blijf vriendelijk. Een speler die bij elke discussie zijn gelijk wil halen, wordt minder snel uitgenodigd."
+        ]
+      },
+      {
+        "tussenkop": "Je eerste drive",
+        "alineas": [
+          "Wie na deze reeks zin heeft gekregen om het eens buiten de deur te proberen, kan zich aanmelden voor een drive. Zo’n avond verloopt meestal volgens een vast patroon. Je meldt je aan, alleen of met een vaste maat, en krijgt een tafel toegewezen. Daarna wordt er een aantal rondes gespeeld, vaak met wisselende tegenstanders. Na elke ronde worden de punten genoteerd, en aan het eind van de avond is er een uitslag, soms met een kleine prijs. Het niveau loopt sterk uiteen, van gezellige buurtavonden tot serieuze competities.",
+          "Vraag voordat je begint welke variant er gespeeld wordt en of er bijzondere afspraken zijn. Speel in een rustig tempo, tel mee, en wees niet bang om een vraag te stellen als je iets niet zeker weet. De meeste vaste spelers vinden het juist leuk als er nieuwe mensen bij komen. En onthoud dat je met de kennis uit deze reeks, van de kaartwaarden tot het eindspel, al meer weet dan veel spelers die het spel ooit gewoon aan de keukentafel hebben opgepikt. Schuif aan, en geniet van het spel."
+        ],
+        "foto": 3
+      }
+    ]
+  }
+]

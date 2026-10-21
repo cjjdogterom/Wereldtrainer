@@ -1,7 +1,7 @@
 // De dag bestaat uit twee delen:
 // 1. Stampen: elke dag Spaans (Poco a Poco) plus twee onderwerpen met
 //    leerkaarten, overhoring en slim herhalen.
-// 2. De krant: vier artikelen om rustig te lezen en af te vinken.
+// 2. De krant: vijf artikelen om rustig te lezen en af te vinken.
 // Sleutel = dag van de week zoals Date.getDay() (0 = zondag).
 
 export const STAMP_MODULES = ['topografie', 'bridge', 'seinen', 'rangen', 'knopen']
@@ -16,15 +16,16 @@ export const STAMP_ROOSTER: Record<number, string[]> = {
   0: ['topografie', 'seinen'],
 }
 
-// Het eerste onderwerp levert het hoofdartikel op de voorpagina.
+// Vijf artikelen per dag (±30 minuten lezen): het eerste onderwerp levert
+// het hoofdartikel op de voorpagina.
 export const KRANT_ROOSTER: Record<number, string[]> = {
-  1: ['elektronica', 'geschiedenis', 'vogels', 'weetjes'],
-  2: ['vervoer', 'europa', 'planten', 'geld'],
-  3: ['klussen', 'geschiedenis', 'kerk', 'klaverjas'],
-  4: ['elektronica', 'europa', 'vogels', 'voetbal'],
-  5: ['vervoer', 'geschiedenis', 'planten', 'weetjes'],
-  6: ['klussen', 'kerk', 'geld', 'voetbal'],
-  0: ['elektronica', 'geschiedenis', 'planten', 'klaverjas'],
+  1: ['elektronica', 'geschiedenis', 'vogels', 'weetjes', 'geld'],
+  2: ['vervoer', 'europa', 'planten', 'kerk', 'voetbal'],
+  3: ['klussen', 'geschiedenis', 'vogels', 'klaverjas', 'weetjes'],
+  4: ['elektronica', 'europa', 'planten', 'geld', 'voetbal'],
+  5: ['vervoer', 'geschiedenis', 'kerk', 'weetjes', 'klaverjas'],
+  6: ['klussen', 'planten', 'vogels', 'geld', 'europa'],
+  0: ['vervoer', 'geschiedenis', 'kerk', 'voetbal', 'klaverjas'],
 }
 
 export const KRANT = 'krant'

@@ -900,3 +900,181 @@
     font-size: 18px;
   }
 }
+
+/* ── Voorpagina met teasers ── */
+.kr-teaser {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--inkt);
+  text-decoration: none;
+  min-width: 0;
+}
+
+.kr-teaser-foto {
+  display: block;
+  overflow: hidden;
+  background: var(--papier-donker);
+}
+
+.kr-teaser-foto img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.kr-teaser:hover .kr-teaser-foto img {
+  transform: scale(1.03);
+}
+
+.kr-teaser-tekst {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kr-teaser-tekst .kr-rubriek {
+  margin: 0;
+}
+
+.kr-teaser-kop {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 23px;
+  line-height: 1.15;
+  font-variation-settings: 'opsz' 72;
+}
+
+.kr-teaser:hover .kr-teaser-kop {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.kr-teaser-intro {
+  font-family: var(--display);
+  font-size: 16.5px;
+  line-height: 1.5;
+  color: var(--inkt-zacht);
+}
+
+.kr-teaser-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--inkt);
+}
+
+.kr-teaser-gelezen {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #2f6b3a;
+}
+
+.kr-teaser.gelezen .kr-teaser-foto img {
+  filter: grayscale(0.8);
+  opacity: 0.7;
+}
+
+.kr-teaser.gelezen .kr-teaser-kop {
+  color: var(--inkt-zacht);
+}
+
+.kr-teaser.groot {
+  padding-bottom: 26px;
+  margin-bottom: 26px;
+  border-bottom: 4px double var(--inkt);
+}
+
+.kr-teaser.groot .kr-teaser-foto img {
+  aspect-ratio: 16 / 9;
+}
+
+.kr-teaser.groot .kr-teaser-kop {
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.04;
+  font-variation-settings: 'opsz' 144;
+}
+
+.kr-teaser.groot .kr-teaser-intro {
+  font-size: clamp(18px, 2.4vw, 22px);
+  color: var(--inkt);
+  max-width: 62ch;
+}
+
+.kr-teaser.kr-skelet {
+  min-height: 320px;
+}
+
+.kr-teasers {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.kr-teasers.extra {
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 4px double var(--inkt);
+}
+
+@media (min-width: 700px) {
+  .kr-teaser.groot {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .kr-teaser.groot .kr-teaser-tekst {
+    grid-column: 2;
+    grid-row: 1;
+    gap: 12px;
+  }
+
+  .kr-teaser.groot .kr-teaser-foto {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .kr-teasers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 0;
+  }
+
+  .kr-teasers > .kr-teaser {
+    padding: 0 22px;
+    border-left: 1px solid var(--lijn);
+  }
+
+  .kr-teasers > .kr-teaser:nth-child(2n + 1) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .kr-teasers > .kr-teaser:nth-child(2n) {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 699px) {
+  /* foto's van rand tot rand op de telefoon */
+  .kr-teaser-foto {
+    margin-inline: -16px;
+  }
+
+  .kr-teasers > .kr-teaser {
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--lijn);
+  }
+
+  .kr-teasers > .kr-teaser:last-child {
+    border-bottom: 0;
+  }
+}

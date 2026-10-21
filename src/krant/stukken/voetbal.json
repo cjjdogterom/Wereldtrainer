@@ -1,0 +1,1100 @@
+[
+  {
+    "id": "voetbal-01",
+    "kop": "Heren in knickerbockers: hoe het voetbal Nederland veroverde",
+    "intro": "Het eerste landskampioenschap werd beslist tussen clubs van studenten, kooplieden en notabelen uit Haarlem, Den Haag en Amsterdam. Wie wil begrijpen waarom Ajax, PSV en Feyenoord later zo groot werden, moet beginnen bij HFC, HVV en RAP.",
+    "hoofdstuk": "De pioniersjaren",
+    "basis": [
+      "eredivisie",
+      "knvb-beker"
+    ],
+    "fotos": [
+      {
+        "wiki": "Pim Mulier",
+        "taal": "nl",
+        "bijschrift": "Pim Mulier, de Haarlemse sportpionier die het voetbal in Nederland op gang hielp"
+      },
+      {
+        "wiki": "Koninklijke HFC",
+        "taal": "nl",
+        "bijschrift": "HFC uit Haarlem, de eerste officiële landskampioen (1889/90)"
+      },
+      {
+        "wiki": "Eddy de Neve",
+        "taal": "nl",
+        "bijschrift": "Het Nederlands elftal van 1905, het jaar van de eerste officiële interland"
+      },
+      {
+        "wiki": "Sparta Rotterdam",
+        "taal": "nl",
+        "bijschrift": "Het Kasteel in Spangen, sinds 1916 de thuishaven van Sparta"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Wie in de jaren tachtig van de negentiende eeuw over een Haarlems grasveld liep, kon er een merkwaardig schouwspel zien: jongemannen uit de betere kringen die achter een leren bal aan renden volgens regels die uit Engeland kwamen. Voetbal was in Nederland geen volkssport, maar een modieuze liefhebberij van gymnasiasten, studenten en jonge kooplieden die Engeland bewonderden. Engelse woorden als ‘goal’, ‘back’ en ‘corner’ hoorden er vanzelfsprekend bij. Het is een begin dat verklaart waarom de eerste kampioenen geen arbeidersclubs uit fabriekssteden waren, maar verenigingen uit Haarlem, Den Haag en Amsterdam, de steden waar de gegoede burgerij woonde en waar men tijd en geld had voor sport.",
+          "De centrale figuur in dat begin is Pim Mulier, een Haarlemse jongen met een tomeloze energie voor alles wat met sport te maken had. Hij richtte in 1879 de Haarlemsche Football Club op, het huidige Koninklijke HFC, de oudste nog bestaande voetbalclub van Nederland. In de beginjaren speelde men een mengvorm waarin de bal ook met de handen mocht worden gedragen, zoals bij rugby. Pas in de jaren tachtig koos de club definitief voor het ‘association football’, het spel waarbij alleen de doelman de bal met de handen mag spelen. Mulier was ook betrokken bij de oprichting van de voetbalbond in 1889, de organisatie die we nu als de KNVB kennen."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Een kampioen zonder competitie",
+        "alineas": [
+          "In de dataset staat als allereerste kampioen VV Concordia uit Rotterdam, met het seizoen 1888/89 en de nadrukkelijke aantekening ‘onofficieel’. Dat voorbehoud is veelzeggend. Er was toen nog geen bond die een officiële competitie organiseerde; clubs speelden onderling wedstrijden en de ploeg die de meeste won, kon zich kampioen noemen. Pas met de oprichting van de bond kwam er een geregelde competitie. Het eerste officiële kampioenschap, in 1889/90, ging volgens de dataset naar HFC uit Haarlem. Daarmee werd de oudste club ook de eerste echte landskampioen, een mooie historische rijm die de positie van Haarlem als bakermat van het Nederlandse voetbal onderstreept.",
+          "Daarna begon een tijdperk waarin drie clubs elkaar de titel toespeelden. HVV uit Den Haag pakte de kampioenschappen van 1891 en 1896, RAP uit Amsterdam die van 1892 en 1894, en HFC volgde opnieuw in 1893 en 1895. In de seizoenen eindigend in 1897, 1898 en 1899 was RAP de beste, al vermeldt de dataset bij 1897 dat het kampioenschap officieus was omdat Vitesse uit Arnhem sectiekampioen werd. Die aantekening verwijst naar een belangrijke verandering: het voetbal verspreidde zich buiten de Randstad, en er ontstonden regionale afdelingen. De landstitel werd voortaan bepaald in een kampioenscompetitie tussen de winnaars van die afdelingen."
+        ],
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "1879: oprichting van HFC in Haarlem, de oudste nog bestaande club",
+            "1889: oprichting van de voetbalbond, voorloper van de KNVB",
+            "1888/89: Concordia uit Rotterdam als onofficiële kampioen",
+            "1889/90: HFC eerste officiële landskampioen",
+            "1899: RAP wint als eerste club landstitel én beker in hetzelfde seizoen"
+          ]
+        }
+      },
+      {
+        "tussenkop": "De eerste dubbel",
+        "alineas": [
+          "In 1899 werd ook voor het eerst gestreden om een nationale beker, de voorloper van de huidige KNVB beker. De eerste winnaar was RAP, dat in datzelfde seizoen ook landskampioen werd. Daarmee won een Nederlandse club voor het eerst ‘de dubbel’: landstitel en beker in één seizoen. Het is een prestatie die in de rest van de twintigste eeuw een maatstaf zou worden voor de grootste ploegen van het land. RAP zelf is een mooi voorbeeld van hoe vergankelijk succes in die vroege jaren was. De club domineerde aan het eind van de jaren negentig, maar verdween daarna vrijwel geheel uit de erelijsten. Het voetbal groeide sneller dan de pioniers konden bijbenen.",
+          "De bekerlijst uit die jaren leest als een tocht door het oude Nederland. Na RAP wonnen Velocitas uit Breda in 1900, HBS Craeyenhout uit Den Haag in 1901, Haarlem in 1902 en HVV in 1903. Ook VOC uit Rotterdam won twee keer, in 1905 en 1907, en Quick Den Haag zette een reeks neer met drie bekers op rij in 1909, 1910 en 1911, gevolgd door nog een in 1916. Opvallend is dat het bekertoernooi in de beginjaren een open karakter had: de dataset laat zien dat het in sommige seizoenen niet gespeeld of niet uitgereikt werd. De beker was nog lang geen prestigieus toernooi, eerder een aanvulling op de competitie."
+        ]
+      },
+      {
+        "tussenkop": "De Haagse jaren",
+        "alineas": [
+          "Na de eeuwwisseling verschoof het zwaartepunt naar Den Haag. HVV, de Haagsche Voetbal Vereeniging, werd kampioen in 1900, 1901, 1902 en 1903, vier keer op rij, en daarna nog in 1905, 1907, 1910 en 1914. In totaal telt de dataset tien titels voor HVV, een aantal dat pas decennia later door Ajax werd overtroffen. Ook HBS won twee titels, in 1904 en 1906, en Quick Den Haag in 1908. De hofstad had dus een eigen voetbalaristocratie, gedragen door families met tijd, ruimte en connecties. Wie bij HVV speelde, kwam vaak uit hetzelfde milieu als de ambtenaren en diplomaten die de stad bevolkten.",
+          "Dat Den Haag zo sterk was, had ook praktische oorzaken. Voetbal vroeg in die tijd om velden, trainingstijd en geld voor reizen naar uitwedstrijden. Wie werkte in een fabriek met lange dagen en zes werkdagen per week, had daarvoor nauwelijks gelegenheid. Bovendien hield de bond streng vast aan het amateurisme: spelers mochten niet betaald worden. Dat ideaal klonk nobel, maar het betekende in de praktijk dat vooral jongemannen uit welgestelde gezinnen op hoog niveau konden spelen. De kampioenslijst van de eerste twintig jaar is daarom ook een sociologisch document: een lijst van de clubs van de burgerij."
+        ],
+        "foto": 2,
+        "citaat": "De kampioenslijst van de eerste twintig jaar is ook een sociologisch document: een lijst van de clubs van de burgerij."
+      },
+      {
+        "tussenkop": "Oranje en de opkomst van Rotterdam",
+        "alineas": [
+          "In 1905 speelde het Nederlands elftal zijn eerste officiële interland, in Antwerpen tegen België. Dat duel werd gewonnen en markeerde het begin van een rivaliteit die tientallen jaren een vast onderdeel van de voetbalkalender zou zijn. Bij de Olympische Spelen van 1908 en 1912 behaalde Nederland brons, in een tijd dat het olympisch voetbaltoernooi de belangrijkste internationale competitie was. Een WK bestond nog niet. Die vroege successen laten zien dat het Nederlandse voetbal, ondanks het kleine aantal spelers, op het niveau van de rest van het vasteland meekon.",
+          "Ondertussen meldde zich een nieuwe macht. Sparta uit Rotterdam, opgericht in 1888, werd kampioen in 1909, 1911, 1912 en 1913, en in 1915 nog eens, al tekent de dataset bij dat laatste jaar aan dat het om een onofficiële noodcompetitie ging. De Eerste Wereldoorlog hield Nederland buiten de strijd, maar de mobilisatie trok veel jonge mannen weg en ontregelde het normale competitieprogramma. Sparta speelde vanaf 1916 in Het Kasteel, het stadion met zijn opvallende torentjes in de wijk Spangen. Met Sparta verschoof het voetbalcentrum van de hofstad naar de havenstad, een voorbode van de rol die Rotterdam later met Feyenoord zou spelen."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Wat de pioniers nalieten",
+        "alineas": [
+          "Kijk je naar de eerste kwarteeuw van de dataset, dan valt op hoe weinig van die vroege kampioenen nog in de hoogste klasse spelen. HFC, HVV, RAP, HBS en Quick zijn amateurclubs gebleven of verdwenen. Alleen Sparta bleef als profclub overeind. Toch is hun invloed groot geweest. Zij legden de bond, de competitievorm en de cultuur van het Nederlandse voetbal vast. De strikte scheiding tussen amateur en beroeps die ze verdedigden, zou het Nederlandse voetbal tot in de jaren vijftig achtervolgen, zoals verderop in deze reeks zal blijken.",
+          "Het pioniersverhaal laat zich daarom lezen als het eerste hoofdstuk van een lange verschuiving: van de Randstedelijke burgerclub naar de volksclub uit de stad en de industrie. In het volgende artikel zien we hoe kampioenen uit Tilburg, Deventer, Groningen, Almelo, Enschede en Eindhoven zich bij de elite voegden. Het speelveld werd groter, de tribunes voller en het spel populairder. Maar de basis, het idee van een landelijke competitie met een kampioen en een bekerwinnaar, werd gelegd door een handjevol enthousiaste jongemannen uit Haarlem, Den Haag en Amsterdam die het voetbal uit Engeland mee naar huis namen."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "voetbal-02",
+    "kop": "Van Deventer tot Almelo: het voetbal trekt het land in",
+    "intro": "Tussen de Eerste Wereldoorlog en de bevrijding werd het voetbal een echte volkssport. Kampioenen kwamen ineens uit Tilburg, Groningen, Enschede en Eindhoven, terwijl Ajax en Feyenoord hun eerste titels pakten en de bezetting de competitie op de proef stelde.",
+    "hoofdstuk": "Interbellum en oorlog",
+    "basis": [
+      "eredivisie",
+      "knvb-beker",
+      "wk"
+    ],
+    "fotos": [
+      {
+        "wiki": "Olympisch Stadion (Amsterdam)",
+        "taal": "nl",
+        "bijschrift": "Het Olympisch Stadion in Amsterdam, gebouwd voor de Spelen van 1928"
+      },
+      {
+        "wiki": "De Adelaarshorst",
+        "taal": "nl",
+        "bijschrift": "De Adelaarshorst in Deventer, thuis van viervoudig kampioen Go Ahead Eagles"
+      },
+      {
+        "wiki": "Jack Reynolds",
+        "taal": "nl",
+        "bijschrift": "De Engelse trainer Jack Reynolds, architect van het vooroorlogse Ajax"
+      },
+      {
+        "wiki": "Stadion Feijenoord",
+        "taal": "nl",
+        "bijschrift": "De Kuip, in 1937 geopend als een van de modernste stadions van Europa"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "In 1916 gebeurde er iets wat de Haagse en Haarlemse heren nauwelijks voor mogelijk hadden gehouden: de landstitel ging naar Tilburg. Willem II, een club uit een stad van textielfabrieken en arbeiderswijken, werd kampioen van Nederland. Een jaar later volgde Go Ahead uit Deventer, in de dataset vermeld als Go Ahead Eagles. Het waren de eerste tekenen van een verschuiving die het interbellum zou bepalen. Voetbal werd een sport van de hele bevolking, met clubs in elke stad en dorpen die op zondag massaal naar het veld trokken. De kampioenslijst werd daardoor kleurrijker dan ooit, en dat had alles te maken met hoe de competitie was georganiseerd.",
+          "Nederland kende in deze periode geen landelijke divisie zoals de huidige Eredivisie. Clubs speelden in regionale afdelingen, zoals West, Oost, Zuid en Noord, waarbij West vanwege het grote aantal sterke clubs werd opgesplitst. Aan het eind van het seizoen speelden de afdelingskampioenen een kampioenscompetitie, een minicompetitie waarin in een paar weken de landstitel werd beslist. Dat systeem gaf ploegen uit de provincie een reële kans. Wie zijn eigen afdeling won, hoefde in de kampioenscompetitie maar een handvol goede wedstrijden te spelen. Een sterk seizoen van een middelgrote club kon zo eindigen in een landstitel, iets wat in een volle nationale competitie veel moeilijker is."
+        ]
+      },
+      {
+        "tussenkop": "Een kaart vol kampioenen",
+        "alineas": [
+          "De dataset laat zien hoe breed die titels verspreid raakten. Be Quick 1887 uit Groningen werd kampioen in 1920, NAC uit Breda in 1921, Go Ahead Eagles opnieuw in 1922, RCH uit Heemstede in 1923 en HBS in 1925. SC Enschede pakte de titel in 1926, Heracles uit Almelo in 1927, en in 1929 werd PSV voor het eerst kampioen. Achter die namen gaan verschillende werelden schuil. Heracles en SC Enschede waren clubs uit het Twentse textielgebied, waar fabrikanten het voetbal vaak stimuleerden. PSV was in 1913 opgericht als sportvereniging van Philips, het bedrijf dat Eindhoven van dorp tot industriestad maakte.",
+          "Go Ahead Eagles uit Deventer verdient een aparte vermelding. De club werd kampioen in 1917, 1922, 1930 en 1933, vier titels in zestien jaar. In het oosten van het land was de club een begrip, met een fanatieke aanhang en een rood-geel tenue dat nog altijd herkenbaar is. Dat zo’n provinciale club in het interbellum vaker kampioen werd dan bijvoorbeeld PSV of Feyenoord in die periode, laat zien hoe open het Nederlandse voetbal toen was. Geld speelde officieel geen rol, want spelers waren amateurs, en dus konden goede generaties van eigen bodem een club ver brengen."
+        ],
+        "foto": 1,
+        "kader": {
+          "titel": "Kampioenen 1916–1930",
+          "punten": [
+            "1916 Willem II, 1917 Go Ahead Eagles",
+            "1918 en 1919 Ajax, de eerste twee titels",
+            "1920 Be Quick 1887, 1921 NAC Breda",
+            "1924 en 1928 Feyenoord",
+            "1926 SC Enschede, 1927 Heracles Almelo",
+            "1929 PSV, 1930 Go Ahead Eagles"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Ajax en de Engelsman",
+        "alineas": [
+          "Ondertussen werd in Amsterdam aan een dynastie gebouwd. Ajax werd in 1918 en 1919 voor het eerst kampioen, en dat succes is nauw verbonden met de Engelse trainer Jack Reynolds. Hij kwam in 1915 naar Amsterdam en zou, met onderbrekingen, tot na de Tweede Wereldoorlog de club leiden. Reynolds legde de nadruk op techniek, op aanvallend spel en op een vaste speelwijze die door alle elftallen van de club werd gebruikt, van de jeugd tot het eerste. Dat laatste idee, een clubbrede voetbalfilosofie, zou later onder Rinus Michels en Johan Cruijff tot wereldfaam uitgroeien. In de dataset zijn de vruchten duidelijk zichtbaar.",
+          "In de jaren dertig werd Ajax de beste club van het land. Het won de titel in 1931, 1932, 1934, 1937 en 1939, vijf keer in negen jaar. Concurrent Feyenoord, dat in 1924 en 1928 zijn eerste titels had gewonnen, pakte er in dat decennium twee: 1936 en 1938. De kampioenslijsten van Ajax en Feyenoord wisselen elkaar dan al af, een ritme dat in de jaren zestig en zeventig zou terugkeren. De rivaliteit tussen Amsterdam en Rotterdam, tussen hoofdstad en havenstad, kreeg in deze jaren haar sportieve vorm. Wie de latere klassiekers wil begrijpen, vindt hier de wortels."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Stenen van ambitie",
+        "alineas": [
+          "Het groeiende publiek vroeg om grotere stadions. Voor de Olympische Spelen van 1928 bouwde Amsterdam het Olympisch Stadion, waar het voetbaltoernooi werd gewonnen door Uruguay. Dat land had ook het olympisch toernooi van 1924 gewonnen, en die successen waren een van de redenen waarom de FIFA besloot een eigen wereldkampioenschap te organiseren. Het eerste WK, in 1930, werd volgens de dataset in Uruguay gespeeld en door Uruguay gewonnen, met Argentinië als verliezend finalist. Nederland deed in 1934 en 1938 mee, maar sneuvelde beide keren in de eerste wedstrijd. Het grote internationale succes moest nog tientallen jaren wachten.",
+          "In Rotterdam opende Feyenoord in 1937 zijn nieuwe stadion, officieel Stadion Feijenoord maar al snel De Kuip genoemd. Het was een gedurfd ontwerp met twee ringen tribunes en een staalconstructie waardoor het publiek dicht op het veld zat. In een tijd dat de meeste clubs speelden op velden met houten tribunes en staanplaatsen langs de lijn, was De Kuip een statement van een club met grote ambities. Het stadion zou later het decor worden van Europese finales, bekerfinales en interlands. Feyenoord vierde de opening sportief met het kampioenschap van 1938."
+        ],
+        "foto": 3,
+        "citaat": "De rivaliteit tussen Amsterdam en Rotterdam kreeg in de jaren dertig haar sportieve vorm."
+      },
+      {
+        "tussenkop": "Voetbal onder bezetting",
+        "alineas": [
+          "Al vanaf de mobilisatie van 1939 speelde men een aangepaste competitie, omdat veel spelers onder de wapenen waren. De dataset vermeldt Feyenoord als kampioen van 1939/40, met de aantekening dat het een noodcompetitie betrof die onofficieel was. Na de Duitse inval van mei 1940 werd er tijdens de bezetting gewoon doorgevoetbald; de competitie bleef bestaan en gaf het dagelijks leven een schijn van normaliteit. Voor veel Nederlanders was de zondagse wedstrijd een uitlaatklep in een grauwe tijd. Tegelijk was het voetbal niet immuun voor de oorlog: Joodse spelers en leden werden uitgesloten van clubs, een beschamend hoofdstuk dat lang onderbelicht bleef.",
+          "De kampioenen van de oorlogsjaren zijn opnieuw verrassend. Heracles uit Almelo werd kampioen in 1941, ADO uit Den Haag in 1942 en 1943, en in 1944 won De Volewijckers uit Amsterdam-Noord, een club uit een volkswijk boven het IJ. Het was de enige landstitel in de geschiedenis van die club. Het seizoen 1944/45 werd niet gespeeld: in de Hongerwinter, met voedselgebrek, kou en razzia’s, was er voor voetbal geen ruimte. De dataset laat dat jaar leeg, met de korte aantekening dat het niet gespeeld werd wegens de Tweede Wereldoorlog."
+        ]
+      },
+      {
+        "tussenkop": "Een beker in de marge",
+        "alineas": [
+          "Ook het bekertoernooi weerspiegelt de onrust van deze periode. Ajax won de beker in 1917, RCH in 1918, CVV in 1920 en Schoten in 1921, waarna het toernooi drie seizoenen niet werd gespeeld. Daarna volgden winnaars als ZFC uit Zaandam, LONGA uit Lichtenvoorde, VUC uit Den Haag en Feyenoord in 1930 en 1935. In de oorlog vielen enkele jaargangen uit, maar Ajax won in 1943 en Willem II in 1944. De beker had nog lang niet het aanzien van de landstitel; amateurclubs uit kleine plaatsen konden hem winnen, wat de lijst een charmant provinciaal karakter geeft.",
+          "Na de bevrijding stond het Nederlandse voetbal op een kruispunt. De clubs waren populairder dan ooit, de stadions zaten vol, maar de spelers bleven amateurs die naast hun werk trainden. In het buitenland, vooral in Italië en Frankrijk, werden voetballers allang betaald. Die spanning tussen een moderne publiekssport en een ouderwets amateurideaal zou in het volgende decennium tot een uitbarsting komen. Het verhaal van het betaald voetbal, dat in 1954 eindelijk doorbrak, is het onderwerp van het volgende artikel in deze reeks."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "voetbal-03",
+    "kop": "1954: het jaar dat de Nederlandse voetballer loon kreeg",
+    "intro": "Na de oorlog vertrokken de beste Nederlandse voetballers naar Italië en Frankrijk, omdat ze thuis niets mochten verdienen. Een watersnoodramp, een benefietwedstrijd in Parijs en een rebelse profbond dwongen de KNVB uiteindelijk tot een omwenteling.",
+    "hoofdstuk": "Betaald voetbal",
+    "basis": [
+      "eredivisie",
+      "knvb-beker"
+    ],
+    "fotos": [
+      {
+        "wiki": "Watersnoodwedstrijd",
+        "taal": "nl",
+        "bijschrift": "De toss bij de Watersnoodwedstrijd in Parijs, maart 1953"
+      },
+      {
+        "wiki": "Faas Wilkes",
+        "taal": "nl",
+        "bijschrift": "Faas Wilkes, de dribbelaar die naar Italië vertrok en later voor Fortuna '54 tekende"
+      },
+      {
+        "wiki": "Abe Lenstra",
+        "taal": "nl",
+        "bijschrift": "Abe Lenstra, de Friese ster die trouw bleef aan Heerenveen"
+      },
+      {
+        "wiki": "Fortuna '54",
+        "taal": "nl",
+        "bijschrift": "Het elftal van Fortuna '54 in 1956, een van de eerste Nederlandse profclubs"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Op een avond in maart 1953 stond in het Parc des Princes in Parijs een Nederlands elftal op het veld dat officieel niet mocht bestaan. De spelers waren profs die in Frankrijk, Italië en België hun geld verdienden en daarom door de KNVB uit Oranje waren geweerd. Ze speelden tegen het Franse nationale elftal om geld in te zamelen voor de slachtoffers van de watersnoodramp die enkele weken eerder Zeeland en de Zuid-Hollandse eilanden had getroffen. De Nederlanders wonnen met 2-1. De wedstrijd werd een symbool. Wie had nog uit te leggen waarom deze spelers niet voor hun land mochten uitkomen, als ze in het buitenland zo goed waren?",
+          "Om die avond te begrijpen moet je terug naar het naoorlogse voetbal. De competitie was enorm populair, maar spelers kregen officieel niets, hooguit een onkostenvergoeding. In de praktijk circuleerden er onder de tafel allerlei gunsten, van baantjes bij supporters tot geld in een envelop, maar wie openlijk betaald werd, was uitgesloten. Buitenlandse clubs zagen kansen. Italiaanse en Franse clubs boden Nederlandse talenten salarissen waarvan een fabrieksarbeider alleen kon dromen. De KNVB reageerde streng: wie prof werd, werd geschorst en mocht niet meer voor Oranje spelen. Zo verloor het Nederlandse voetbal zijn beste spelers aan het buitenland en verzwakte het nationale elftal zichtbaar."
+        ]
+      },
+      {
+        "tussenkop": "De uittocht van de sterren",
+        "alineas": [
+          "De bekendste vertrekker was Faas Wilkes, een Rotterdamse dribbelaar van Xerxes die in 1949 naar Internazionale vertrok. Hij was technisch zijn tijd ver vooruit, een speler die tegenstanders met zijn schijnbewegingen tot wanhoop dreef. Ook Kees Rijvers en Bram Appel kozen voor Frankrijk, waar betaald voetbal al gewoon was. Anderen, zoals de Friese ster Abe Lenstra, bleven in Nederland. Lenstra speelde jarenlang voor Heerenveen en werd in het noorden een volksheld, mede doordat hij weigerde te vertrekken. Hun keuzes laten de spanning goed zien: een speler moest kiezen tussen een loopbaan als prof in het buitenland en een plek in het Nederlands elftal.",
+          "Thuis zag de kampioenslijst er intussen opvallend gevarieerd uit. In 1946 werd HFC Haarlem kampioen, in 1947 Ajax, in 1948 FC Den Bosch, in 1949 SVV uit Schiedam en in 1950 SV Limburgia uit Brunssum. Daarna volgden PSV in 1951, Willem II in 1952, RCH uit Heemstede in 1953 en FC Eindhoven in 1954. Tien jaar, tien verschillende kampioenen, een spreiding die je nooit meer zou zien. Dat kwam deels door het oude systeem van afdelingen en een kampioenscompetitie, maar ook doordat geld nog geen verschil maakte. Een goede generatie van eigen bodem kon elke club tot kampioen maken."
+        ],
+        "foto": 1,
+        "kader": {
+          "titel": "Tien jaar, tien kampioenen",
+          "punten": [
+            "1946 HFC Haarlem, 1947 Ajax, 1948 FC Den Bosch",
+            "1949 SVV, 1950 SV Limburgia, 1951 PSV",
+            "1952 Willem II, 1953 RCH, 1954 FC Eindhoven",
+            "1955 Willem II, 1956 Roda JC (toen nog Rapid JC)"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Een rebelse bond",
+        "alineas": [
+          "Na de Watersnoodwedstrijd ging het snel. In 1954 richtten ondernemers en clubbestuurders een eigen profbond op, de Nederlandse Beroepsvoetbal Bond, die een competitie buiten de KNVB om organiseerde. Nieuwe clubs als Fortuna ’54 uit Geleen en Holland Sport uit Den Haag trokken spelers aan met echte contracten. Fortuna ’54 haalde zelfs Faas Wilkes terug naar Nederland. Het publiek kwam massaal kijken naar de profwedstrijden, en de KNVB besefte dat een scheuring dreigde. Als de beste spelers en het grootste publiek naar een rivaliserende bond zouden gaan, verloor de KNVB zijn positie als hoeder van het Nederlandse voetbal.",
+          "Nog in hetzelfde jaar kwamen beide bonden tot een akkoord. Het betaald voetbal werd onder de vlag van de KNVB toegestaan, en de profclubs gingen op in een nieuwe competitiestructuur. Spelers mochten voortaan een contract tekenen en salaris ontvangen, al bleven de bedragen lange tijd bescheiden en hadden veel spelers er nog een baan naast. Het amateurisme verdween niet ineens uit de cultuur, maar de principiële muur was gevallen. Profs die in het buitenland speelden, konden weer voor Oranje uitkomen. In de dataset is 1954 het laatste jaar waarin de titel volgens het oude systeem werd vergeven, aan FC Eindhoven."
+        ],
+        "foto": 2,
+        "citaat": "Tien jaar, tien verschillende kampioenen: een spreiding die je nooit meer zou zien."
+      },
+      {
+        "tussenkop": "De geboorte van de Eredivisie",
+        "alineas": [
+          "De eerste profseizoenen waren een overgangsfase. De kampioenen van 1955 en 1956 waren Willem II en de Limburgse club die de dataset als Roda JC vermeldt; in die tijd heette die club nog Rapid JC, een fusieclub uit de Limburgse mijnstreek. Pas in het seizoen 1956/57 begon de Eredivisie, één landelijke hoogste divisie waarin alle topclubs elke week tegen elkaar speelden. De eerste kampioen van die nieuwe competitie was Ajax. Daarmee veranderde het karakter van de landstitel fundamenteel. Wie kampioen wilde worden, moest niet meer in een korte kampioenscompetitie pieken, maar een heel seizoen lang constant presteren tegen de beste tegenstanders.",
+          "De eerste jaren van de Eredivisie lieten nog enige spreiding zien. DOS uit Utrecht werd kampioen in 1958, Sparta in 1959 en Ajax opnieuw in 1960. DOS is later opgegaan in FC Utrecht, Sparta zou daarna nooit meer een landstitel winnen. In 1961 en 1962 was Feyenoord de beste, in 1963 PSV en in 1964 DWS uit Amsterdam. Na DWS duurde het tot 1981 voordat er weer een kampioen kwam die niet Ajax, Feyenoord of PSV heette. Dat zegt veel over hoe snel de grote drie de nieuwe profwereld naar hun hand zetten. Geld, publiek en stadions bundelden zich in de grootste steden.",
+          "Met de Eredivisie kwam ook een piramide van divisies. Onder de hoogste klasse werden een Eerste en een Tweede divisie ingericht, zodat clubs konden promoveren en degraderen. Dat systeem gaf het betaald voetbal een vaste structuur en maakte een einde aan de oude regionale indeling. Tegelijk ontstond er een duidelijke scheiding met het amateurvoetbal, dat in eigen competities bleef spelen. Voor veel traditionele clubs uit de pioniersjaren, zoals HVV, HBS en RAP, betekende dat een definitief afscheid van de landelijke top. Zij bleven trouw aan het amateurisme en kozen bewust niet voor een profafdeling."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "De beker keert terug",
+        "alineas": [
+          "Ook de KNVB beker werd na de invoering van het betaald voetbal nieuw leven ingeblazen. De dataset laat zien dat het toernooi tussen 1951 en 1956 niet werd gespeeld. In 1957 keerde de beker terug, en de eerste winnaar was, toepasselijk, Fortuna ’54, de club die als pionier van het profvoetbal was begonnen. Sparta won in 1958, VVV-Venlo in 1959 en Ajax in 1961. Fortuna ’54 won de beker in 1964 nog een keer. De club zou later fuseren tot het huidige Fortuna Sittard. Zo vormt de bekerlijst een direct spoor van de korte, maar beslissende rebellie van de profbond.",
+          "De invoering van het betaald voetbal was meer dan een administratieve wijziging. Zij maakte het mogelijk dat Nederlandse spelers zich volledig op hun sport richtten, dat clubs trainers en jeugdopleidingen professionaliseerden en dat er een basis ontstond voor Europees succes. Binnen vijftien jaar zouden Feyenoord en Ajax de Europacup I winnen. Zonder de stap van 1954 was dat ondenkbaar geweest. Het volgende artikel gaat over die Europese beker zelf, en over de club die hem in de eerste jaren zo overtuigend domineerde dat het bijna saai werd: Real Madrid."
+        ],
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Maart 1953: Watersnoodwedstrijd in Parijs met Nederlandse profs, gewonnen met 2-1",
+            "1954: profbond NBVB, daarna akkoord met de KNVB",
+            "1956/57: eerste Eredivisieseizoen, Ajax kampioen",
+            "1957: beker terug, eerste winnaar Fortuna ’54"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "voetbal-04",
+    "kop": "Vijf keer op rij: hoe Real Madrid de Europacup uitvond",
+    "intro": "Een Franse sportkrant bedacht in 1955 een toernooi voor de beste clubs van Europa. Real Madrid won de eerste vijf edities, waarna Benfica, de Milanese clubs, Celtic en Manchester United de beker veroverden. Het was de voorgeschiedenis van het grote Nederlandse decennium.",
+    "hoofdstuk": "Europacup I",
+    "basis": [
+      "champions-league",
+      "ek"
+    ],
+    "fotos": [
+      {
+        "wiki": "1956 European Cup final",
+        "taal": "en",
+        "bijschrift": "Het elftal van Real Madrid dat in 1956 de allereerste Europacup I won"
+      },
+      {
+        "wiki": "Alfredo Di Stéfano",
+        "taal": "nl",
+        "bijschrift": "Alfredo Di Stéfano, de alomtegenwoordige spelmaker van het Real van de jaren vijftig"
+      },
+      {
+        "wiki": "Ferenc Puskás",
+        "taal": "nl",
+        "bijschrift": "Ferenc Puskás, de Hongaarse spits die bij Real Madrid een tweede carrière begon"
+      },
+      {
+        "wiki": "Hampden Park",
+        "taal": "en",
+        "bijschrift": "Hampden Park in Glasgow, decor van de legendarische finale van 1960"
+      },
+      {
+        "wiki": "Lev Yashin",
+        "taal": "en",
+        "bijschrift": "Doelman Lev Jasjin, sterkhouder van de Sovjet-Unie die het eerste EK won"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Het idee kwam niet van een voetbalbond, maar van journalisten. Bij de Franse sportkrant L’Équipe ergerde men zich in 1954 aan Engelse kranten die Wolverhampton Wanderers na een paar overwinningen op Oost-Europese topclubs tot ‘kampioen van de wereld’ uitriepen. Dat moest dan maar bewezen worden, vonden de Fransen, onder wie de journalist Gabriel Hanot. Ze stelden een toernooi voor waarin de beste clubs van Europa het in thuis- en uitwedstrijden tegen elkaar zouden opnemen. De Europese voetbalbond UEFA, die net was opgericht, nam het plan over. In het seizoen 1955/56 werd de eerste Europacup voor landskampioenen gespeeld, de wedstrijd die nu de Champions League heet.",
+          "De dataset begint met dat seizoen, en de eerste regels zijn veelzeggend. In 1956, 1957, 1958, 1959 en 1960 staat er steeds dezelfde winnaar: Real Madrid. Vijf keer op rij, een prestatie die later in de Champions League nooit meer is geëvenaard. De eerste finale werd in Parijs gespeeld tegen het Franse Stade de Reims en eindigde in een 4-3-overwinning voor de Spanjaarden. Real had een ploeg vol aanvallende talenten en een president, Santiago Bernabéu, die begreep dat Europese glorie de club een uitstraling kon geven die ver boven Spanje uitsteeg. Het is geen toeval dat het stadion van de club zijn naam draagt."
+        ]
+      },
+      {
+        "tussenkop": "Di Stéfano, Puskás en Gento",
+        "alineas": [
+          "Het hart van die ploeg was Alfredo Di Stéfano, een Argentijn die in 1953 na een omstreden transferstrijd met Barcelona bij Real terechtkwam. Hij was een spits die overal op het veld opdook: hij haalde ballen op bij de eigen verdediging, verdeelde het spel op het middenveld en scoorde in vijf opeenvolgende Europacupfinales. Dat totale spel, waarin een speler niet aan één positie gebonden is, zou later in Nederland als totaalvoetbal worden geperfectioneerd. Op de linkervleugel stond de razendsnelle Francisco Gento, die met Real zes keer de Europacup zou winnen, een record dat lang stand hield.",
+          "Vanaf 1958 kreeg Real er nog een ster bij: de Hongaar Ferenc Puskás. Hij was de aanvoerder geweest van het Hongaarse elftal dat in het begin van de jaren vijftig als het beste van de wereld gold, maar dat in 1954 de WK-finale verloor van West-Duitsland, zoals ook de WK-dataset vermeldt. Na de Hongaarse opstand van 1956 bleef Puskás in het westen en vond hij na een periode van schorsing onderdak in Madrid. Met zijn linkervoet was hij een van de beste afmakers ooit. Samen met Di Stéfano vormde hij een duo dat in de finale van 1960 voor alle doelpunten van Real tekende."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "De mooiste finale",
+        "alineas": [
+          "Die finale van 1960 in Hampden Park, Glasgow, geldt als een van de mooiste wedstrijden uit de clubgeschiedenis. Real Madrid versloeg het Duitse Eintracht Frankfurt met 7-3. Puskás scoorde vier keer, Di Stéfano drie keer. Meer dan honderdduizend toeschouwers zagen een demonstratie van aanvallend voetbal die in Groot-Brittannië jarenlang werd nagepraat. Voor een generatie Britse en Europese voetballers was het een openbaring: zo kon het spel er dus ook uitzien. De finale werd op televisie uitgezonden, en daarmee droeg de Europacup bij aan de opkomst van het voetbal als massaal kijkspektakel, een ontwikkeling die het toernooi tot een economische macht zou maken.",
+          "Daarna was het tijd voor een nieuwe winnaar. Benfica uit Lissabon won in 1961 en 1962. De tweede finale werd gespeeld in het Olympisch Stadion in Amsterdam, waar Benfica Real Madrid met 5-3 versloeg. Bij de Portugezen stond de jonge Eusébio, een aanvaller uit Mozambique die in die wedstrijd twee keer scoorde en uitgroeide tot de grote ster van de jaren zestig. Voor Nederlandse voetballiefhebbers was die avond een eerste kennismaking van dichtbij met het hoogste Europese niveau. Het zou nog acht jaar duren voordat een Nederlandse club zelf de beker in handen kreeg."
+        ],
+        "foto": 2,
+        "citaat": "Puskás scoorde vier keer, Di Stéfano drie keer: zo kon het spel er dus ook uitzien."
+      },
+      {
+        "tussenkop": "Het Italiaanse slot",
+        "alineas": [
+          "In de jaren zestig verschoof de macht naar Milaan. AC Milan won in 1963, stadgenoot Internazionale in 1964 en 1965. Inter, onder de Argentijns-Franse trainer Helenio Herrera, werd het symbool van catenaccio, letterlijk ‘grendel’: een verdedigend systeem met een extra verdediger achter de verdedigingslinie, de libero, die gaten dichtliep en de bal opruimde. Inter scoorde vaak weinig, maar kreeg nog minder tegen, en won met snelle uitvallen. Het was het tegenovergestelde van het spel van Real, en het was buitengewoon effectief. Real Madrid won in 1966 nog één keer, met een grotendeels vernieuwde ploeg waarin alleen Gento nog een herinnering aan de gouden jaren was.",
+          "In 1967 brak het Britse tijdperk aan. Celtic uit Glasgow versloeg in Lissabon Inter en werd de eerste Britse winnaar. De ploeg kreeg de bijnaam de Lisbon Lions en bestond uit spelers die allemaal in de omgeving van Glasgow waren geboren, een gegeven dat in het moderne voetbal ondenkbaar is. Een jaar later won Manchester United op Wembley van Benfica. Dat was een emotionele overwinning: tien jaar eerder was een groot deel van het jonge United-team omgekomen bij de vliegtuigramp in München. Trainer Matt Busby, die de ramp zelf ternauwernood overleefde, had een nieuwe ploeg gebouwd met onder anderen Bobby Charlton en George Best."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Winnaars Europacup I, 1956–1969",
+          "punten": [
+            "1956–1960: Real Madrid, vijf keer op rij",
+            "1961 en 1962: Benfica",
+            "1963: AC Milan; 1964 en 1965: Internazionale",
+            "1966: Real Madrid; 1967: Celtic",
+            "1968: Manchester United; 1969: AC Milan"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Ook landen gaan Europees",
+        "alineas": [
+          "Parallel aan de clubbeker kwam er ook een Europees toernooi voor landen. In 1960 werd het eerste EK gespeeld, toen nog een klein eindtoernooi met vier landen. De dataset vermeldt Frankrijk als gastland en de Sovjet-Unie als winnaar, met Joegoslavië als verliezend finalist. De Sovjetploeg had in doelman Lev Jasjin een van de grootste keepers aller tijden. In 1964 won gastland Spanje, en in 1968 werd Italië op eigen bodem kampioen. Nederland speelde in deze jaren geen rol van betekenis: Oranje kwalificeerde zich in de jaren zestig voor geen enkel eindtoernooi. Het verschil met de clubs, die zich al snel opwerkten, was opvallend.",
+          "Naast de Europacup I ontstonden er al snel andere Europese clubtoernooien. De Jaarbeurssteden-beker, voor clubs uit steden met een handelsbeurs, werd later de UEFA Cup en nog later de Europa League. Vanaf 1960 bestond er ook een Europacup II voor bekerwinnaars. Voor Nederlandse clubs werden die toernooien belangrijk: Feyenoord won de UEFA Cup in 1974, PSV in 1978, en Ajax de Europacup II in 1987. Toch bleef de Europacup I het grote doel, omdat alleen landskampioenen mochten meedoen en de winnaar zich met recht de beste club van Europa mocht noemen. In de dataset staat alleen die hoofdprijs.",
+          "De laatste regel van dit tijdperk in de dataset is AC Milan, winnaar in 1969. De verliezende finalist in Madrid was een ploeg die op dat moment nog door weinigen serieus werd genomen: Ajax. Milan won overtuigend, maar wie goed keek, zag in de Amsterdamse ploeg iets nieuws. Een jaar later zou Feyenoord de beker naar Nederland halen, en daarna won Ajax hem drie keer achter elkaar. Hoe die revolutie ontstond, en waarom twee Nederlandse clubs ineens de beste van Europa waren, is het verhaal van het volgende artikel."
+        ],
+        "foto": 4
+      }
+    ]
+  },
+  {
+    "id": "voetbal-05",
+    "kop": "Totaalvoetbal: toen Rotterdam en Amsterdam Europa regeerden",
+    "intro": "Tussen 1970 en 1973 ging de belangrijkste clubprijs van Europa vier keer op rij naar Nederland. Feyenoord opende de reeks in Milaan, Ajax maakte haar af met een hattrick. Achter dat succes zat een speelwijze die de wereld zou veranderen.",
+    "hoofdstuk": "Totaalvoetbal",
+    "basis": [
+      "champions-league",
+      "eredivisie",
+      "knvb-beker"
+    ],
+    "fotos": [
+      {
+        "wiki": "Europacup I 1969/70",
+        "taal": "nl",
+        "bijschrift": "Feyenoord in 1970, het jaar van de eerste Nederlandse Europacup I"
+      },
+      {
+        "wiki": "Rinus Michels",
+        "taal": "nl",
+        "bijschrift": "Rinus Michels, de trainer die Ajax van degradatiekandidaat tot Europese topclub maakte"
+      },
+      {
+        "wiki": "Ernst Happel",
+        "taal": "nl",
+        "bijschrift": "De Oostenrijker Ernst Happel leidde Feyenoord in 1970 naar de Europese titel"
+      },
+      {
+        "wiki": "Europacup I 1970/71",
+        "taal": "nl",
+        "bijschrift": "Ajax tegen Panathinaikos op Wembley, de eerste Europese finalezege van Ajax"
+      },
+      {
+        "wiki": "1973 European Cup final",
+        "taal": "en",
+        "bijschrift": "Ajax tegen Juventus in Belgrado, 1973: de derde Europacup op rij"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Op 6 mei 1970 stond Feyenoord in het San Siro in Milaan tegenover Celtic, de Schotse ploeg die drie jaar eerder de Europacup had gewonnen. Weinig buitenlandse kenners gaven de Rotterdammers een kans. Maar Feyenoord was beter, fitter en tactisch slimmer. Na een gelijke stand in de reguliere speeltijd besliste de Zweedse spits Ove Kindvall de wedstrijd in de verlenging: 2-1. Voor het eerst won een Nederlandse club de Europacup I. In de dataset staat het als een droge regel: 1969/70, Feyenoord, Nederland. Maar het was een kantelpunt. Een land dat vijftien jaar eerder nog niet eens betaald voetbal kende, had de beste club van Europa.",
+          "Feyenoord werd getraind door de Oostenrijker Ernst Happel, een eigenzinnige, zwijgzame vakman met een scherp oog voor tactiek. Hij liet zijn ploeg compact spelen, met verdedigers die hoog stonden en tegenstanders vroeg onder druk zetten. Op het middenveld speelde Wim van Hanegem, een linksbenige regisseur met een fenomenale passing, en op de vleugel de ervaren Coen Moulijn. Aanvoerder Rinus Israël leidde de verdediging. Feyenoord won dat jaar later ook de wereldbeker voor clubs, de Intercontinental Cup, tegen het Argentijnse Estudiantes. Het team liet zien dat Nederlandse clubs met discipline en organisatie ook de grootste namen konden verslaan.",
+          "Feyenoord had die finale niet cadeau gekregen. Op weg naar Milaan had de ploeg onder meer titelhouder AC Milan uitgeschakeld, de club die een jaar eerder Ajax in de finale nog had overklast. Die overwinning op de Italianen gaf de Rotterdammers het zelfvertrouwen dat ze tegen Celtic nodig hadden. Feyenoord speelde in De Kuip voor een publiek dat de club als een volksclub zag, gedragen door havenarbeiders en Rotterdamse werklieden. De titel van 1970 werd daarom in Rotterdam niet alleen als een sportieve prestatie gevierd, maar ook als een bevestiging van de eigen identiteit tegenover de hoofdstad."
+        ]
+      },
+      {
+        "tussenkop": "Michels en de Amsterdamse revolutie",
+        "alineas": [
+          "In Amsterdam was ondertussen iets anders aan de hand. Toen Rinus Michels begin 1965 trainer van Ajax werd, stond de club onder in de Eredivisie. Michels, een oud-spits van de club en daarna gymleraar, voerde een regime in van harde trainingen, discipline en tactische scholing. Hij had het geluk dat er in de jeugd een uitzonderlijke generatie opgroeide, met als middelpunt Johan Cruijff, een tengere jongen uit Betondorp die het spel beter zag dan wie ook. Binnen een jaar was Ajax kampioen: de dataset vermeldt titels in 1966, 1967 en 1968. In 1967 won Ajax ook de beker, de eerste dubbel van de club.",
+          "Wat Michels en zijn spelers ontwikkelden, kreeg later de naam totaalvoetbal. Het idee was dat spelers niet vastzaten aan één positie. Als een verdediger naar voren stormde, nam een middenvelder zijn plek in, en als een vleugelspits naar binnen trok, schoof een back op. Iedereen moest kunnen aanvallen en verdedigen. Daarnaast speelde Ajax met een hoge verdedigingslinie en zette het tegenstanders onder druk zodra die de bal hadden, wat we nu ‘pressing’ noemen. Door het veld klein te maken als de tegenstander de bal had en groot als Ajax zelf de bal had, ontstond een ploeg die tegenstanders letterlijk de ruimte ontnam."
+        ],
+        "foto": 1,
+        "citaat": "Door het veld klein te maken bij balverlies en groot bij balbezit, ontnam Ajax tegenstanders letterlijk de ruimte."
+      },
+      {
+        "tussenkop": "Een ritme van twee clubs",
+        "alineas": [
+          "Kijk naar de Eredivisie in die jaren en je ziet een opvallend ritme. Ajax werd kampioen in 1966, 1967 en 1968, Feyenoord in 1969, Ajax in 1970, Feyenoord in 1971, Ajax in 1972 en 1973, en Feyenoord weer in 1974. Ook in de beker zie je beide namen: Feyenoord won de dubbel in 1965 en 1969, Ajax in 1967, 1970 en 1972. De rest van Nederland keek toe. De twee clubs dreven elkaar op naar een niveau dat in Europa ongekend was, en elke klassieker tussen Ajax en Feyenoord was een duel tussen twee van de beste ploegen van het continent. Het was de gouden tijd van het Nederlandse clubvoetbal."
+        ],
+        "foto": 2,
+        "kader": {
+          "titel": "De Nederlandse jaren in Europa",
+          "punten": [
+            "1969: Ajax verliest de finale van AC Milan",
+            "1970: Feyenoord wint van Celtic in Milaan (2-1 na verlenging)",
+            "1971: Ajax wint van Panathinaikos op Wembley (2-0)",
+            "1972: Ajax wint van Internazionale in Rotterdam (2-0)",
+            "1973: Ajax wint van Juventus in Belgrado (1-0)"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Wembley 1971",
+        "alineas": [
+          "In 1969 verloor Ajax nog de Europacupfinale van AC Milan, zoals in het vorige artikel bleek. Maar de ploeg leerde snel. In 1971 versloeg Ajax op Wembley het Griekse Panathinaikos met 2-0. Het was de laatste grote prijs van Michels bij Ajax, want hij vertrok daarna naar Barcelona. Zijn opvolger was de Roemeen Ștefan Kovács, een trainer met een rustiger karakter die de spelers meer vrijheid gaf. Velen dachten dat de ploeg zonder Michels zou terugvallen. Het tegendeel gebeurde: onder Kovács speelde Ajax misschien wel zijn mooiste voetbal.",
+          "Het Ajax van die jaren was grotendeels in eigen huis gevormd. Naast Cruijff speelden er Ruud Krol en Wim Suurbier als aanvallende backs, Barry Hulshoff als centrale verdediger, Johan Neeskens en Arie Haan op het middenveld en Piet Keizer als elegante linksbuiten. De meeste van hen waren in Amsterdam of de directe omgeving opgegroeid en hadden de jeugdelftallen van de club doorlopen. Dat gaf de ploeg een onderling begrip dat met aankopen nauwelijks te evenaren was. Spelers wisten blind waar een ploeggenoot zou staan, en precies dat maakte het voortdurend wisselen van posities mogelijk zonder dat het team uit balans raakte."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Drie keer op rij",
+        "alineas": [
+          "Het seizoen 1971/72 was het hoogtepunt. Ajax werd kampioen, won de beker en speelde de Europacupfinale in De Kuip in Rotterdam, het stadion van de grote rivaal. Tegenstander was Internazionale, de club van het verdedigende catenaccio. De wedstrijd werd een symbolische botsing tussen twee voetbalopvattingen, en het totaalvoetbal won overtuigend. Cruijff scoorde beide doelpunten: 2-0. Ajax pakte in die periode vrijwel alle prijzen die er te winnen waren, later ook de wereldbeker voor clubs. Voor buitenlandse journalisten werd Ajax hét voorbeeld van modern voetbal, en ‘Hollands voetbal’ werd een begrip.",
+          "Een jaar later, in 1973, volgde de derde Europacup op rij. In Belgrado versloeg Ajax Juventus met 1-0, dankzij een vroeg kopdoelpunt van Johnny Rep. Met drie titels op rij evenaarde Ajax nog niet het record van Real Madrid, maar het mocht de beker wel definitief houden, een traditie bij drie opeenvolgende overwinningen. Het team was op zijn top, maar ook op een breekpunt. Na het seizoen vertrok Cruijff naar Barcelona, waar hij opnieuw met Michels samenwerkte. Ajax verloor zijn leider, en de gouden ploeg viel in de jaren daarna langzaam uit elkaar."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "De erfenis",
+        "alineas": [
+          "Feyenoord pakte in 1974 nog de landstitel en won dat jaar de UEFA Cup, de tweede Europese clubbeker. Daarna verschoof de Europese macht naar Duitsland: Bayern München won de Europacup I in 1974, 1975 en 1976, met spelers als Franz Beckenbauer en Gerd Müller. Toch is de invloed van het Nederlandse totaalvoetbal nauwelijks te overschatten. Michels en Cruijff brachten het idee mee naar Barcelona, waar het via Cruijff als trainer en later Pep Guardiola uitgroeide tot de basis van het moderne positiespel. Wie vandaag een team ziet dat hoog druk zet en de bal laat rondgaan, kijkt naar een verre nazaat van Ajax en Feyenoord rond 1970.",
+          "Voor Nederland zelf had het succes ook een keerzijde. De generatie van Ajax en Feyenoord vormde de kern van het Nederlands elftal, en de verwachtingen voor het WK van 1974 waren torenhoog. Michels werd bondscoach, Cruijff aanvoerder, en Oranje speelde zich met totaalvoetbal naar de finale in München. Wat daar gebeurde, en vier jaar later in Buenos Aires, behoort tot de grote trauma’s van de Nederlandse sportgeschiedenis. Daarover gaat het volgende artikel."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "voetbal-06",
+    "kop": "München en Buenos Aires: de twee finales die Oranje verloor",
+    "intro": "In 1974 en 1978 stond Nederland in de WK-finale, en beide keren speelde het tegen het gastland. Het eerste duel begon met een penalty voordat de Duitsers de bal hadden geraakt, het tweede eindigde bijna met een Nederlands doelpunt in de laatste minuut.",
+    "hoofdstuk": "WK 1974 en 1978",
+    "basis": [
+      "wk",
+      "champions-league"
+    ],
+    "fotos": [
+      {
+        "wiki": "1974 FIFA World Cup final",
+        "taal": "en",
+        "bijschrift": "De WK-finale van 1974 in München tussen West-Duitsland en Nederland"
+      },
+      {
+        "wiki": "Johan Neeskens",
+        "taal": "nl",
+        "bijschrift": "Johan Neeskens, die in de tweede minuut van de finale van 1974 een strafschop benutte"
+      },
+      {
+        "wiki": "Franz Beckenbauer",
+        "taal": "nl",
+        "bijschrift": "Franz Beckenbauer, aanvoerder van West-Duitsland, in juni 1974"
+      },
+      {
+        "wiki": "Rob Rensenbrink",
+        "taal": "nl",
+        "bijschrift": "Rob Rensenbrink, wiens schot in 1978 in de slotminuut op de paal belandde"
+      },
+      {
+        "wiki": "1978 FIFA World Cup final",
+        "taal": "en",
+        "bijschrift": "Het Estadio Monumental in Buenos Aires tijdens het WK van 1978"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Op 7 juli 1974 stonden in het Olympiastadion van München de twee beste ploegen van het toernooi tegenover elkaar. Nederland trapte af en speelde de bal zo lang rond dat de Duitsers er niet aan te pas kwamen. Toen Johan Cruijff met de bal het strafschopgebied in dribbelde, werd hij neergehaald. Strafschop. Johan Neeskens schoot hard door het midden binnen. Er was nog geen twee minuten gespeeld en het stond 0-1, zonder dat een Duitser de bal had aangeraakt. Het leek het begin van een Nederlandse feestdag. In de dataset staat het WK van 1974 echter met een andere afloop: winnaar West-Duitsland, verliezend finalist Nederland.",
+          "Wat ging er mis? Na de vroege voorsprong leek Oranje de Duitsers te willen vernederen in plaats van de wedstrijd te beslissen. Het spel werd speels en zelfverzekerd, maar niet doelgericht. West-Duitsland, met aanvoerder Franz Beckenbauer, herstelde zich. Na ongeveer 25 minuten kregen ook de Duitsers een strafschop, die Paul Breitner benutte. Vlak voor rust draaide Gerd Müller zich in het strafschopgebied vrij en schoot raak: 2-1. In de tweede helft drukte Nederland, maar een gelijkmaker bleef uit. Na afloop was de teleurstelling enorm, juist omdat dit elftal door velen werd gezien als het beste van het toernooi."
+        ]
+      },
+      {
+        "tussenkop": "De weg naar München",
+        "alineas": [
+          "Het Nederland van 1974 was gebouwd op de spelers van Ajax en Feyenoord, de clubs die in de jaren daarvoor vier keer op rij de Europacup hadden gewonnen. Bondscoach Rinus Michels nam de speelwijze van Ajax over: hoge druk, een hoge verdedigingslinie met een agressieve buitenspelval en voortdurende positiewisselingen. In de eerste ronde werden Uruguay en Bulgarije verslagen, en tegen Zweden speelde Cruijff zijn beroemde draai, waarbij hij de bal met de binnenkant achter zijn standbeen langs trok en zijn verdediger in de verkeerde richting liet lopen. Die beweging heet sindsdien wereldwijd de ‘Cruyff turn’.",
+          "In de tweede ronde, die toen nog uit poules bestond, overtuigde Oranje volledig. Argentinië werd met 4-0 verslagen, de DDR met 2-0, en in de beslissende wedstrijd won Nederland met 2-0 van titelhouder Brazilië, met doelpunten van Neeskens en Cruijff. Dat Brazilië had het WK van 1970 gewonnen, zo staat het ook in de dataset, en gold als maatstaf van het wereldvoetbal. De overwinning op de Brazilianen werd gezien als de bevestiging dat het totaalvoetbal de toekomst was. Nederland ging als favoriet de finale in, en West-Duitsland, dat in de eerste ronde zelfs van de DDR had verloren, leek kwetsbaar.",
+          "Een opvallend detail van dat elftal was de doelman. Michels koos voor de ervaren Jan Jongbloed, die nauwelijks interlands had gespeeld maar goed met zijn voeten overweg kon. Omdat Oranje met een hoge verdedigingslinie speelde, lag er veel ruimte achter de verdediging, en Jongbloed kwam regelmatig ver uit zijn doel om ballen weg te werken. Hij fungeerde zo als een soort extra verdediger, een rol die later bij moderne keepers heel gewoon zou worden. De rugnummers waren bovendien grotendeels alfabetisch verdeeld, waardoor Jongbloed met nummer 8 speelde en Cruijff zijn vertrouwde 14 mocht houden."
+        ],
+        "foto": 1,
+        "kader": {
+          "titel": "Finale WK 1974",
+          "punten": [
+            "7 juli 1974, Olympiastadion München",
+            "West-Duitsland – Nederland 2-1",
+            "Doelpunten: Neeskens (strafschop), Breitner (strafschop), Müller",
+            "Bondscoaches: Helmut Schön en Rinus Michels"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Een Duits elftal van Bayern",
+        "alineas": [
+          "De Duitse ploeg die Nederland versloeg, was in feite een uitgebreid Bayern München. Doelman Sepp Maier, Beckenbauer, Breitner en Müller speelden bij de club die in mei 1974 de Europacup I had gewonnen, de eerste van drie op rij, zoals de dataset laat zien voor 1974, 1975 en 1976. Beckenbauer was de uitvinder van een moderne vorm van de libero, de vrije verdediger die vanuit de achterhoede opkwam om het spel te dirigeren. West-Duitsland had in 1972 ook al het EK gewonnen. Het was dus geen toevallige winnaar, maar een gerijpte ploeg die precies op het juiste moment piekte, nota bene in eigen land.",
+          "De nederlaag van 1974 kreeg in Nederland een betekenis die verder ging dan sport. Bij de oudere generatie speelden de herinneringen aan de Duitse bezetting mee, en de verloren finale werd een open wond die pas in 1988 enigszins werd gedicht. Tegelijk groeide in het buitenland de bewondering. Het Nederlands elftal van 1974 wordt in internationale lijstjes nog steeds genoemd als een van de beste ploegen die nooit wereldkampioen werden, samen met het Hongarije van 1954 dat in de dataset ook als verliezend finalist staat. Verliezen kan je soms onsterfelijk maken."
+        ],
+        "foto": 2,
+        "citaat": "Het Nederland van 1974 geldt nog altijd als een van de beste ploegen die nooit wereldkampioen werden."
+      },
+      {
+        "tussenkop": "Zonder Cruijff naar Argentinië",
+        "alineas": [
+          "Vier jaar later stond het WK in Argentinië op het programma, een land dat sinds 1976 door een militaire junta werd geregeerd. In Nederland werd gediscussieerd over een boycot vanwege de mensenrechtenschendingen, maar het elftal ging toch. Cruijff ging niet mee. Hij had zich na de kwalificatie teruggetrokken uit het Nederlands elftal, om redenen die hij pas veel later toelichtte. Bondscoach was de Oostenrijker Ernst Happel, die in 1970 met Feyenoord de Europacup had gewonnen. Zonder Cruijff was de ploeg minder sprankelend, maar nog altijd sterk, met spelers als Neeskens, Rep, Krol, Haan, Rensenbrink en de broers René en Willy van de Kerkhof.",
+          "De eerste ronde verliep moeizaam: winst op Iran, een gelijkspel tegen Peru en een nederlaag tegen Schotland. Toch plaatste Oranje zich voor de tweede ronde, opnieuw een poulefase. Daar won Nederland met 5-1 van Oostenrijk, speelde het 2-2 tegen West-Duitsland en versloeg het Italië met 2-1. Dat laatste doelpunt was een verwoestend afstandsschot van Arie Haan, een van de beroemdste goals uit de Nederlandse geschiedenis. Zo bereikte Oranje voor de tweede keer op rij de finale, opnieuw tegen het gastland, dat zich op omstreden wijze had geplaatst na een 6-0-overwinning op Peru."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Een paal in de laatste minuut",
+        "alineas": [
+          "De finale op 25 juni 1978 in het Estadio Monumental in Buenos Aires werd gespeeld voor een kolkend publiek in een sfeer van confetti en nationalisme. Mario Kempes zette Argentinië op voorsprong. Lang leek dat genoeg, maar acht minuten voor tijd kopte invaller Dick Nanninga de gelijkmaker binnen. In de laatste minuut van de reguliere speeltijd kwam Rob Rensenbrink aan de bal, vlak voor het doel. Zijn schot raakte de paal. Had die bal erin gegaan, dan was Nederland wereldkampioen geweest. Nu volgde een verlenging waarin Kempes opnieuw scoorde en Daniel Bertoni de eindstand op 3-1 bepaalde.",
+          "Zo staat 1978 in de dataset: winnaar Argentinië, gastland Argentinië, verliezend finalist Nederland. Twee finales, twee nederlagen tegen het gastland. Het zou niet de laatste verloren WK-finale zijn: in 2010 verloor Nederland ook van Spanje, waarmee Oranje het enige land is met drie verloren WK-finales en geen titel. Toch markeerden 1974 en 1978 vooral de doorbraak van Nederland als voetballand. Na decennia in de marge stond Oranje twee keer op rij in de finale van het grootste toernooi ter wereld. De echte titel zou tien jaar later komen, op Duitse bodem, in hetzelfde stadion als in 1974."
+        ],
+        "foto": 4
+      }
+    ]
+  },
+  {
+    "id": "voetbal-07",
+    "kop": "PSV 1988: Europacup gewonnen zonder één knock-outduel te winnen",
+    "intro": "Een jaar na de verkoop van Ruud Gullit won PSV alles: landstitel, beker en Europacup I. Toch won de ploeg vanaf de kwartfinale geen enkele wedstrijd. Het verhaal van een treble die gebouwd was op organisatie, geduld en een doelman met zenuwen van staal.",
+    "hoofdstuk": "PSV 1988",
+    "basis": [
+      "champions-league",
+      "eredivisie",
+      "knvb-beker"
+    ],
+    "fotos": [
+      {
+        "wiki": "Europacup I 1987/88",
+        "taal": "nl",
+        "bijschrift": "PSV komt met de Europacup I aan op het vliegveld van Eindhoven, mei 1988"
+      },
+      {
+        "wiki": "Willy van der Kuijlen",
+        "taal": "nl",
+        "bijschrift": "Willy van der Kuijlen, clubtopscorer en gezicht van het PSV van de jaren zeventig"
+      },
+      {
+        "wiki": "Philips Stadion",
+        "taal": "nl",
+        "bijschrift": "Het Philips Stadion in Eindhoven, thuishaven van PSV"
+      },
+      {
+        "wiki": "Guus Hiddink",
+        "taal": "nl",
+        "bijschrift": "Guus Hiddink, de trainer die PSV in 1988 naar de treble leidde"
+      },
+      {
+        "wiki": "Hans van Breukelen",
+        "taal": "nl",
+        "bijschrift": "Doelman Hans van Breukelen, held van de strafschoppenserie in Stuttgart"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Op 25 mei 1988 liep Hans van Breukelen in het Neckarstadion van Stuttgart naar zijn doel voor een strafschoppenserie. Na 120 minuten zonder doelpunten tussen PSV en Benfica moest de Europacup I vanaf elf meter worden beslist. Beide ploegen scoorden hun eerste vijf penalty’s. Bij de zesde Portugese strafschop dook Van Breukelen naar de goede hoek en stopte hij de inzet. PSV won met 6-5 en was de derde Nederlandse club die de belangrijkste Europese clubbeker veroverde. In de dataset staat het als 1987/88, PSV, Nederland. Achter die regel schuilt een van de merkwaardigste Europese titels uit de geschiedenis.",
+          "Merkwaardig, omdat PSV in de laatste drie rondes van het toernooi geen enkele wedstrijd won. In de kwartfinale werd tegen Girondins de Bordeaux twee keer gelijkgespeeld, en PSV ging door dankzij de uitdoelpuntenregel, waarbij bij een gelijke totaalstand de ploeg die vaker uit heeft gescoord doorgaat. In de halve finale tegen Real Madrid gebeurde hetzelfde: 1-1 in Madrid, 0-0 in Eindhoven. De finale eindigde in 0-0 en werd met strafschoppen gewonnen. Wie dat negatief vindt, mist het punt. PSV was een ploeg die precies wist hoe het een wedstrijd onder controle moest houden, en die sterk genoeg was om niet te verliezen."
+        ]
+      },
+      {
+        "tussenkop": "De lange aanloop",
+        "alineas": [
+          "PSV was geen nieuwkomer aan de top. De dataset laat titels zien in 1929, 1935, 1951 en 1963, maar de echte doorbraak kwam in de jaren zeventig. Onder trainer Kees Rijvers werd PSV kampioen in 1975, 1976 en 1978, en in 1978 won de club ook de UEFA Cup, de eerste Europese prijs. Het gezicht van dat PSV was Willy van der Kuijlen, een spits met een enorm schot die meer dan driehonderd doelpunten in de Eredivisie maakte, een record dat nog altijd staat. Dankzij de steun van Philips kon PSV zich een brede selectie permitteren, iets wat in het Nederlandse voetbal van die tijd allesbehalve vanzelfsprekend was.",
+          "Begin jaren tachtig lag het initiatief weer bij Ajax en Feyenoord. Ajax werd kampioen in 1980, 1982, 1983 en 1985, met een jonge Marco van Basten en de teruggekeerde Johan Cruijff. In 1984 stapte Cruijff over naar Feyenoord en won daar de dubbel. Daartussen stond in 1981 een opvallende kampioen: AZ, uit Alkmaar, dat ook de beker won en de finale van de UEFA Cup haalde. Maar vanaf 1986 begon in Eindhoven een tijdperk van overheersing. PSV werd kampioen in 1986, 1987, 1988 en 1989, vier keer op rij, en won ook de beker in 1988, 1989 en 1990."
+        ],
+        "foto": 1,
+        "kader": {
+          "titel": "PSV in de dataset, 1975–1992",
+          "punten": [
+            "Landstitels: 1975, 1976, 1978, 1986–1989, 1991, 1992",
+            "KNVB beker: 1974, 1976, 1988, 1989, 1990",
+            "Dubbel: 1976, 1988 en 1989",
+            "Europacup I: 1988, na strafschoppen tegen Benfica"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Gullit weg, geld erin",
+        "alineas": [
+          "Het beslissende moment in de bouw van het team kwam in de zomer van 1987. Ruud Gullit, de ster van PSV, vertrok naar AC Milan voor een bedrag dat toen als wereldrecord gold. PSV gebruikte dat geld slim. De club haalde de Deense middenvelder Søren Lerby, spits Wim Kieft uit Italië en had al eerder Gerald Vanenburg en Ronald Koeman uit Amsterdam overgenomen. Koeman was een verdediger met een uitzonderlijke trap, die vrije trappen en strafschoppen nam en vanuit de achterhoede het spel opende. Met de Belgische aanvoerder Eric Gerets op rechtsback had PSV een ervaren, fysiek sterke ploeg die zelden in paniek raakte.",
+          "Die ploeg werd geleid door Guus Hiddink, een Achterhoeker die eerder assistent was geweest en in 1987 hoofdtrainer werd. Hiddink stond bekend om zijn talent voor mensenmanagement. Hij liet sterke persoonlijkheden hun gang gaan zolang ze het teambelang dienden, en hij koos in Europa voor een voorzichtige aanpak: eerst niet verliezen, dan pas winnen. In de Eredivisie speelde PSV vaak aanvallend en scoorde het aan de lopende band, maar in Europa schakelde het over op geduld. Die tweeledige aanpak bleek perfect voor een toernooi waarin één fout tegen een topclub fataal kon zijn."
+        ],
+        "foto": 3,
+        "citaat": "Eerst niet verliezen, dan pas winnen: zo veroverde PSV Europa."
+      },
+      {
+        "tussenkop": "De treble",
+        "alineas": [
+          "Het seizoen 1987/88 eindigde met een prestatie die in Nederland maar één keer eerder was geleverd. PSV werd landskampioen, won de KNVB beker en de Europacup I. Zo’n treble had alleen Ajax in 1972 gehaald. Voor Eindhoven was het een historisch moment: de stad, die altijd in de schaduw van Amsterdam en Rotterdam had gestaan, had nu de beste club van Europa. Bij de terugkeer werden de spelers op het vliegveld en in de stad onthaald door tienduizenden supporters. De dataset bevestigt dat de dominantie bleef: ook in 1989 won PSV de dubbel, en in 1991 en 1992 werd het opnieuw kampioen.",
+          "Het jaar 1988 werd bovendien het grootste jaar uit de Nederlandse voetbalgeschiedenis. Een maand na Stuttgart won het Nederlands elftal het EK in West-Duitsland. Verschillende PSV-spelers speelden daar een hoofdrol: Van Breukelen stond in het doel, Koeman in de verdediging, Vanenburg en Kieft maakten deel uit van de selectie. De ervaring van Stuttgart, waar ze hadden geleerd dat een toernooi ook met discipline en geduld te winnen is, namen ze mee naar het nationale elftal. Het verhaal van dat EK is het onderwerp van het volgende artikel."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Wat de titel betekende",
+        "alineas": [
+          "Voor het Nederlandse clubvoetbal was de titel van PSV belangrijk, omdat ze liet zien dat ook buiten Amsterdam en Rotterdam een club de top van Europa kon halen, mits er een stevige financiële basis en een slimme sportieve leiding was. Het was ook een van de laatste grote Europese titels van het oude systeem, waarin alleen landskampioenen meededen. Een paar jaar later werd de Europacup omgevormd tot de Champions League, met groepsfases en veel meer geld. Daarmee werd het voor clubs uit kleinere competities steeds moeilijker om mee te doen om de hoofdprijs.",
+          "De Europese titel bracht ook verplichtingen mee. In december 1988 speelde PSV in Tokio om de wereldbeker voor clubs tegen het Uruguayaanse Nacional. Die wedstrijd werd na een gelijkspel en een verlenging met strafschoppen verloren. Ook de Europese Supercup, tegen de Belgische bekerwinnaar KV Mechelen, ging verloren. In de Europacup I van het seizoen daarna sneuvelde PSV als titelhouder in de kwartfinale tegen Real Madrid. Het waren tekenen dat het team op zijn hoogtepunt had gepiekt. Maar in Eindhoven deed dat weinig af aan de herinnering aan die ene avond in Stuttgart, die tot op heden de grootste uit de clubgeschiedenis is.",
+          "Naast de Europese titel maakte PSV in deze jaren ook een bijzondere reeks in eigen land. In het seizoen 1987/88 won de club de eerste zeventien competitiewedstrijden op rij, een record dat lang stand hield. Het elftal combineerde Nederlandse spelers met buitenlandse versterkingen uit Denemarken en België, een model dat later door veel Eredivisieclubs werd gekopieerd. In de jaren negentig kwamen er bij PSV nieuwe sterren, zoals Romário en Ronaldo, maar een tweede Europese hoofdprijs bleef uit. Daarmee blijft 1988 het jaar waarin Eindhoven de top van Europa bereikte."
+        ],
+        "foto": 2
+      }
+    ]
+  },
+  {
+    "id": "voetbal-08",
+    "kop": "EK 1988: de zomer waarin Oranje eindelijk won",
+    "intro": "Na de verloren WK-finales van 1974 en 1978 leek Nederland voorbestemd om mooi te verliezen. In juni 1988 veranderde dat, in hetzelfde Münchense stadion waar het trauma was begonnen. Het verhaal van een toernooi met een valse start, een revanche in Hamburg en een onmogelijke volley.",
+    "hoofdstuk": "EK 1988",
+    "basis": [
+      "ek",
+      "wk",
+      "champions-league"
+    ],
+    "fotos": [
+      {
+        "wiki": "Europees kampioenschap voetbal 1988",
+        "taal": "nl",
+        "bijschrift": "Het Olympiastadion in München, waar Oranje in 1974 verloor en in 1988 won"
+      },
+      {
+        "wiki": "Rinus Michels",
+        "taal": "nl",
+        "bijschrift": "Rinus Michels, bondscoach in 1974 én in 1988"
+      },
+      {
+        "wiki": "Marco van Basten",
+        "taal": "nl",
+        "bijschrift": "Marco van Basten, topscorer van het EK en maker van de beroemde volley"
+      },
+      {
+        "wiki": "Ronald Koeman",
+        "taal": "nl",
+        "bijschrift": "Ronald Koeman, die in Hamburg vanaf de stip de gelijkmaker maakte"
+      },
+      {
+        "wiki": "Ruud Gullit",
+        "taal": "nl",
+        "bijschrift": "Aanvoerder Ruud Gullit kopte in de finale de openingstreffer binnen"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Het EK van 1988 begon voor Nederland met een domper. Op 12 juni verloor Oranje in Keulen met 1-0 van de Sovjet-Unie, de ploeg van trainer Valeri Lobanovski die bekendstond om haar wetenschappelijk onderbouwde trainingen en haar fysieke kracht. Na die nederlaag moest Nederland in de twee resterende groepswedstrijden nog vier punten halen, want bij een eindtoernooi met acht landen gingen alleen de nummers één en twee van elke groep door naar de halve finale. Het is een detail dat vaak vergeten wordt, maar het toernooi dat eindigde in de grootste triomf uit de Nederlandse voetbalgeschiedenis, begon met een gevecht om te overleven.",
+          "Bondscoach was opnieuw Rinus Michels, de architect van het totaalvoetbal bij Ajax en van het Oranje van 1974. Hij beschikte over een bijzondere generatie. Ruud Gullit en Marco van Basten speelden bij AC Milan, Frank Rijkaard bij Real Zaragoza, en uit het PSV dat net de Europacup I had gewonnen kwamen Hans van Breukelen, Ronald Koeman, Gerald Vanenburg, Berry van Aerle en Wim Kieft. Van Basten was nog niet de vaste spits. Hij had een seizoen met een zware enkelblessure achter de rug en begon tegen de Sovjet-Unie op de bank. Pas na die eerste wedstrijd koos Michels resoluut voor hem.",
+          "Michels bouwde zijn ploeg anders dan in 1974. Frank Rijkaard speelde als centrale verdediger naast Ronald Koeman, en Jan Wouters vormde als controlerende middenvelder het schild voor de verdediging. De ervaren Arnold Mühren, toen al zevenendertig jaar, bracht rust en een uitstekende linkervoet in het spel. Voorin moesten Gullit en Van Basten het verschil maken. Het was een ploeg die minder uitging van voortdurende positiewisselingen dan het elftal van 1974, en meer van een stevige basis waarop de vedetten konden bouwen. Het was het werk van een trainer die schoonheid nastreefde, maar winnen belangrijker vond."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Hattrick en kopbal",
+        "alineas": [
+          "Op 15 juni in Düsseldorf toonde Van Basten waarom. Tegen Engeland scoorde hij alle drie de Nederlandse doelpunten, met een hattrick die getuigde van timing, techniek en koelbloedigheid. Nederland won met 3-1 en was weer in de race. Drie dagen later, in Gelsenkirchen tegen Ierland, volgde een stroeve wedstrijd. De Ieren van de Engelse trainer Jack Charlton speelden fysiek en direct, en Oranje kwam er nauwelijks doorheen. Acht minuten voor tijd kopte Wim Kieft een bal met een merkwaardige draai in het doel: 1-0. Het was genoeg voor de tweede plaats in de groep en een halve finale tegen gastland West-Duitsland.",
+          "Die tegenstander zorgde in Nederland voor spanning die verder ging dan voetbal. West-Duitsland was het land van München 1974, van de verloren finale die al veertien jaar als een open wond voelde. De Duitsers speelden in eigen land en hadden een ervaren ploeg met Lothar Matthäus, Rudi Völler en Jürgen Klinsmann. In de dataset staat West-Duitsland ook als Europees kampioen van 1972 en 1980, een land dat op toernooien vrijwel altijd ver kwam. Voor veel Nederlanders was de halve finale in het Hamburgse Volksparkstadion op 21 juni de echte finale van het toernooi."
+        ],
+        "foto": 2,
+        "kader": {
+          "titel": "Oranje op het EK 1988",
+          "punten": [
+            "12 juni, Keulen: Sovjet-Unie – Nederland 1-0",
+            "15 juni, Düsseldorf: Nederland – Engeland 3-1 (Van Basten 3x)",
+            "18 juni, Gelsenkirchen: Nederland – Ierland 1-0 (Kieft)",
+            "21 juni, Hamburg: West-Duitsland – Nederland 1-2",
+            "25 juni, München: Nederland – Sovjet-Unie 2-0"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Revanche in Hamburg",
+        "alineas": [
+          "De halve finale werd een zenuwslopende strijd. Kort na rust kreeg West-Duitsland een strafschop na een duel met Klinsmann, die Matthäus benutte. Kort daarna kreeg ook Nederland een strafschop, na een overtreding op Van Basten. Koeman schoot hem koelbloedig binnen. Met nog twee minuten op de klok gleed Van Basten in het strafschopgebied naar een lage pass van Jan Wouters en tikte de bal net langs de uitgestoken voet van een verdediger en de duikende doelman in de verre hoek: 1-2. Nederland stond in de finale, en in Nederland stroomden honderdduizenden mensen spontaan de straat op, in een feest dat door velen met de bevrijding van 1945 werd vergeleken.",
+          "De emotie rond die wedstrijd laat zien hoe diep de wond van 1974 zat. Het ging niet alleen om een plaats in de finale, maar om een gevoel van eerherstel. Na afloop kwamen enkele spelers in opspraak door gebaren richting het Duitse publiek, beelden die nog jaren besproken werden. Sportief gezien was de overwinning vooral een bevestiging van wat Michels had opgebouwd: een ploeg die technisch sterk was, maar ook kon lijden en vechten. Het totaalvoetbal van 1974 had een volwassen opvolger gekregen, met meer realisme en meer weerbaarheid."
+        ],
+        "foto": 3,
+        "citaat": "Het ging niet alleen om een plaats in de finale, maar om een gevoel van eerherstel."
+      },
+      {
+        "tussenkop": "Een volley voor de eeuwigheid",
+        "alineas": [
+          "De finale werd op 25 juni gespeeld in het Olympiastadion van München, hetzelfde stadion waar Oranje in 1974 de WK-finale had verloren. Tegenstander was opnieuw de Sovjet-Unie. Na ruim een halfuur kopte Gullit na een voorzet de 1-0 binnen. In de tweede helft volgde het moment dat elke Nederlander van die generatie kan navertellen. Van Basten kreeg een hoge voorzet van Arnold Mühren aan de rechterkant van het strafschopgebied, op een vrijwel onmogelijke hoek. Hij nam de bal direct op de slof en volleerde hem over doelman Rinat Dasajev heen in de verre bovenhoek. Het werd 2-0 en het was een van de mooiste doelpunten uit de toernooigeschiedenis.",
+          "De Sovjet-Unie kreeg nog een strafschop, maar Hans van Breukelen stopte de inzet van Igor Belanov, die twee jaar eerder de Ballon d’Or had gewonnen. Toen het laatste fluitsignaal klonk, was Nederland Europees kampioen. In de dataset staat het EK van 1988 met winnaar Nederland, gastland West-Duitsland en verliezend finalist Sovjet-Unie. Het is tot op vandaag de enige grote prijs voor het Nederlandse mannenelftal. Een dag later voeren de spelers in een rondvaartboot door de Amsterdamse grachten, langs oevers die zwart zagen van de mensen, en werden ze op het Museumplein gehuldigd."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Wat erna kwam",
+        "alineas": [
+          "Na 1988 zou Oranje nog vaak dichtbij komen, maar nooit meer winnen. Het EK van 1992 werd verrassend gewonnen door Denemarken, een land dat pas laat mocht deelnemen omdat Joegoslavië vanwege de oorlog was uitgesloten. Nederland sneuvelde daar in de halve finale tegen de Denen na strafschoppen. In 2000 organiseerde Nederland het EK samen met België; de dataset vermeldt Frankrijk als winnaar. Oranje verloor de halve finale tegen Italië opnieuw na strafschoppen. In 2004 won Griekenland als complete buitenstaander, en Spanje werd met titels in 1964, 2008, 2012 en 2024 recordkampioen.",
+          "Toch blijft 1988 een ijkpunt. De generatie van Gullit, Van Basten, Rijkaard en Koeman domineerde daarna ook het Europese clubvoetbal: het Milan van Gullit, Van Basten en Rijkaard won de Europacup I in 1989 en 1990, en Koeman won hem in 1992 met Barcelona. Van Basten won bovendien drie keer de Ballon d’Or, de prijs voor de beste voetballer van Europa. Over die prijs, en wat zij zegt over de geschiedenis van het spel, gaat een later artikel in deze reeks. Eerst kijken we naar de Champions League, de beker die het Europese voetbal na 1992 compleet veranderde."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "voetbal-09",
+    "kop": "Champions League: hoe geld de Europese top hertekende",
+    "intro": "In 1992 werd de Europacup I omgedoopt tot Champions League. Ajax won hem in 1995 nog met een elftal vol eigen talenten, maar een uitspraak van het Europese Hof en een stroom televisiegeld maakten het toernooi daarna tot het domein van een handvol superclubs.",
+    "hoofdstuk": "Champions League",
+    "basis": [
+      "champions-league",
+      "eredivisie"
+    ],
+    "fotos": [
+      {
+        "wiki": "Ernst-Happel-Stadion",
+        "taal": "en",
+        "bijschrift": "Het Ernst-Happel-Stadion in Wenen, waar Ajax in 1995 de Champions League won"
+      },
+      {
+        "wiki": "Louis van Gaal",
+        "taal": "nl",
+        "bijschrift": "Louis van Gaal, trainer van het Ajax dat in 1995 Europa veroverde"
+      },
+      {
+        "wiki": "Jean-Marc Bosman",
+        "taal": "en",
+        "bijschrift": "Jean-Marc Bosman, de Belgische middenvelder wiens rechtszaak de transfermarkt veranderde"
+      },
+      {
+        "wiki": "Clarence Seedorf",
+        "taal": "nl",
+        "bijschrift": "Clarence Seedorf won de Champions League met drie verschillende clubs"
+      },
+      {
+        "wiki": "Zinedine Zidane",
+        "taal": "en",
+        "bijschrift": "Zinedine Zidane, als speler en als trainer beslissend voor Real Madrid"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Op 24 mei 1995 kwam in het Ernst-Happel-Stadion in Wenen een achttienjarige invaller het veld op. Patrick Kluivert was een product van de Ajax-jeugdopleiding, net als het grootste deel van zijn ploeggenoten. Vijf minuten voor tijd kreeg hij de bal in het strafschopgebied van AC Milan, draaide zich tussen twee verdedigers door en tikte de bal binnen: 1-0. Ajax won de Champions League. Het was de vierde Europese hoofdprijs van de club, na de drie van 1971, 1972 en 1973. In de dataset staat het als 1994/95, Ajax, Nederland. Het zou de laatste keer zijn dat een Nederlandse club het belangrijkste Europese clubtoernooi won.",
+          "Om te begrijpen waarom die titel zo bijzonder was, moet je terug naar 1992. In dat jaar werd de Europacup I vervangen door de UEFA Champions League. De dataset markeert de overgang met een nieuw tijdperk vanaf het seizoen 1992/93. In plaats van alleen knock-outrondes kwamen er groepsfases, waardoor clubs meer wedstrijden speelden en de televisie-inkomsten sterk stegen. De eerste winnaar was Olympique Marseille, dat in München AC Milan versloeg. Kort daarna werd Marseille betrokken bij een omkopingsschandaal in de Franse competitie en verloor het zijn landstitel, maar de Europese beker mocht de club houden."
+        ]
+      },
+      {
+        "tussenkop": "Het Ajax van Van Gaal",
+        "alineas": [
+          "Het Ajax van 1995 was het werk van trainer Louis van Gaal, een voormalige leraar lichamelijke opvoeding met een uitgesproken visie op positiespel. Zijn ploeg speelde in een strak 3-4-3-systeem, waarin elke speler precies wist waar hij moest staan en wanneer hij moest doorschuiven. De selectie bestond voor een groot deel uit jongens uit de eigen opleiding: Edwin van der Sar, de broers Frank en Ronald de Boer, Clarence Seedorf, Edgar Davids, Marc Overmars en Kluivert, aangevuld met ervaren krachten als Frank Rijkaard, Danny Blind en de Fin Jari Litmanen. Ajax werd dat seizoen ongeslagen kampioen en verloor ook in Europa geen enkele wedstrijd.",
+          "Een jaar later stond Ajax opnieuw in de finale, nu tegen Juventus in Rome. Die wedstrijd werd na strafschoppen verloren, en Juventus staat dus in de dataset als winnaar van 1996. Het was het einde van een tijdperk, al besefte bijna niemand dat toen. De oorzaak lag niet op het veld, maar in een rechtszaal in Luxemburg. Daar deed het Hof van Justitie van de Europese Gemeenschappen in december 1995 een uitspraak die het Europese voetbal fundamenteel zou veranderen, en die voor clubs als Ajax desastreus uitpakte."
+        ],
+        "foto": 1,
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "1992/93: start van de Champions League, eerste winnaar Olympique Marseille",
+            "1995: Ajax wint in Wenen van AC Milan (1-0, Kluivert)",
+            "December 1995: het Bosman-arrest",
+            "Sinds 1995 won geen Nederlandse club meer de hoofdprijs"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Het Bosman-arrest",
+        "alineas": [
+          "Jean-Marc Bosman was een Belgische middenvelder die in 1990 wilde vertrekken van RFC Luik naar een Franse club. Zijn contract was afgelopen, maar zijn club eiste toch een transfersom, en toen die niet werd betaald, zat Bosman zonder club. Hij begon een rechtszaak die jaren duurde. Het Hof oordeelde uiteindelijk dat voetballers werknemers zijn die, net als andere Europeanen, vrij mogen bewegen binnen de Europese Unie. Clubs mochten geen transfersom meer vragen voor spelers met een afgelopen contract, en de beperkingen op het aantal buitenlandse EU-spelers per team werden onrechtmatig verklaard.",
+          "De gevolgen waren enorm. Rijke clubs uit Engeland, Spanje en Italië konden nu onbeperkt spelers uit andere EU-landen aantrekken, en talenten konden aan het eind van hun contract gratis vertrekken. Voor clubs als Ajax, die afhankelijk waren van het opleiden en duur verkopen van spelers, viel het verdienmodel weg. Binnen een paar jaar vertrokken Davids, Seedorf, Kluivert, Overmars, Reiziger en de broers De Boer. De Eredivisie werd een opleidingscompetitie voor de grote competities. Ajax haalde in 2019 nog de halve finale van de Champions League, maar het verschil in budget met de top bleef een bijna onoverbrugbare kloof."
+        ],
+        "foto": 2,
+        "citaat": "Voor clubs die leefden van het opleiden en verkopen van talent, viel het verdienmodel weg."
+      },
+      {
+        "tussenkop": "De koning van de beker",
+        "alineas": [
+          "De dataset laat zien wie wél profiteerde. Real Madrid won de Champions League in 1998, 2000 en 2002, de laatste keer dankzij een spectaculaire volley van Zinedine Zidane in Glasgow. Later volgden titels in 2014, 2016, 2017, 2018, 2022 en 2024. De drie op rij tussen 2016 en 2018 werden behaald onder trainer Zidane, en zijn de enige drie opeenvolgende titels in het Champions League-tijdperk. Samen met de vijf vroege titels en die van 1966 brengt dat Real in de dataset op vijftien Europese hoofdprijzen, ruim twee keer zoveel als de nummer twee, AC Milan met zeven.",
+          "Een Nederlandse speler die het Champions League-tijdperk symboliseert, is Clarence Seedorf. Hij won de beker met Ajax in 1995, met Real Madrid in 1998 en met AC Milan in 2003 en 2007, en is de enige speler die hem met drie verschillende clubs won. Ook als trainers drukten Nederlanders hun stempel. Frank Rijkaard won in 2006 met Barcelona, en het Barcelona dat in 2009, 2011 en 2015 won, speelde een vorm van positiespel die rechtstreeks afstamde van de ideeën die Cruijff vanuit Amsterdam naar Catalonië had gebracht."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Wonderen en nieuwe namen",
+        "alineas": [
+          "Het toernooi kende ook onvergetelijke verrassingen. FC Porto won in 2004 onder de jonge trainer José Mourinho, die in 2010 opnieuw won met Internazionale. Liverpool won in 2005 in Istanbul een finale waarin het bij rust met 3-0 achterstond tegen AC Milan, en na strafschoppen alsnog zegevierde. Chelsea won in 2012 en 2021, Bayern München in 2001, 2013 en 2020, het laatste jaar in een speciaal eindtoernooi in Lissabon vanwege de coronapandemie. Manchester City veroverde in 2023 zijn eerste titel. De nieuwste naam in de dataset is Paris Saint-Germain, dat in 2025 voor het eerst de beker won.",
+          "Voor Nederlandse clubs bleef het na 1995 bij incidentele uitschieters. PSV haalde in 2005 de halve finale, waarin het na twee spannende wedstrijden werd uitgeschakeld door AC Milan. Feyenoord won in 2002 in De Kuip de UEFA Cup, het tweede Europese toernooi, tegen Borussia Dortmund. En Ajax maakte in het seizoen 2018/19 een tocht die heel Europa verraste: met een jonge ploeg werden titelhouder Real Madrid en Juventus uitgeschakeld. In de halve finale tegen Tottenham Hotspur leek Ajax zeker van de finale, tot de Engelsen in de laatste seconden van de blessuretijd het beslissende doelpunt maakten.",
+          "Wie de lijst sinds 1993 bekijkt, ziet een opvallende concentratie. Vrijwel alle winnaars komen uit Engeland, Spanje, Italië en Duitsland, de vier competities met de hoogste televisie-inkomsten. Daarbuiten wonnen alleen de Franse clubs Marseille in 1993 en PSG in 2025, Ajax in 1995 en Porto in 2004. Het contrast met de jaren zeventig, toen Ajax, Feyenoord en later PSV met spelers uit eigen land Europa veroverden, kan nauwelijks groter zijn. De Champions League is het beste clubtoernooi ter wereld geworden, maar ook het minst toegankelijke voor clubs uit kleine landen."
+        ],
+        "foto": 4
+      }
+    ]
+  },
+  {
+    "id": "voetbal-10",
+    "kop": "Van Montevideo tot Lusail: de WK’s die geschiedenis schreven",
+    "intro": "Sinds 1930 is het wereldkampioenschap het grootste podium van de sport. Slechts acht landen wonnen het ooit. Een tocht langs de toernooien die het spel veranderden: van het Maracanã-drama tot de hand van God en de finale van Lusail.",
+    "hoofdstuk": "Grote WK’s",
+    "basis": [
+      "wk"
+    ],
+    "fotos": [
+      {
+        "wiki": "Maracanã Stadium",
+        "taal": "en",
+        "bijschrift": "Het Maracanã in Rio de Janeiro, decor van de beslissende wedstrijd van 1950"
+      },
+      {
+        "wiki": "Estadio Centenario",
+        "taal": "en",
+        "bijschrift": "Het Estadio Centenario in Montevideo, gebouwd voor het eerste WK in 1930"
+      },
+      {
+        "wiki": "Pelé",
+        "taal": "nl",
+        "bijschrift": "Pelé, die als tiener in 1958 wereldkampioen werd en de titel drie keer won"
+      },
+      {
+        "wiki": "Diego Maradona",
+        "taal": "nl",
+        "bijschrift": "Diego Maradona met de wereldbeker in Mexico, 1986"
+      },
+      {
+        "wiki": "Soccer City",
+        "taal": "en",
+        "bijschrift": "Soccer City in Johannesburg, waar Nederland in 2010 de WK-finale verloor"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Op 16 juli 1950 zaten er naar schatting bijna tweehonderdduizend mensen in het Maracanã in Rio de Janeiro. Brazilië hoefde tegen Uruguay maar gelijk te spelen om wereldkampioen te worden; het toernooi werd dat jaar beslist in een eindpoule zonder echte finale, en dit was de laatste wedstrijd. Brazilië kwam ook op voorsprong. Maar Uruguay draaide de wedstrijd om, en elf minuten voor tijd schoot Alcides Ghiggia de 1-2 binnen. In het stadion viel een stilte die in Brazilië de geschiedenis in ging als de Maracanazo. In de dataset staat het droog: 1950, winnaar Uruguay, gastland Brazilië, tweede Brazilië.",
+          "De WK-dataset telt sinds 1930 tweeëntwintig gespeelde toernooien tot en met 2022, met twee lege plekken in 1942 en 1946 vanwege de Tweede Wereldoorlog. Wie de lijst van winnaars bekijkt, ziet dat slechts acht landen ooit wereldkampioen werden: Brazilië vijf keer, Duitsland en Italië elk vier keer (met de drie West-Duitse titels meegeteld), Argentinië drie keer, Frankrijk en Uruguay twee keer, en Engeland en Spanje één keer. Het is een opvallend exclusieve club. Nederland is het enige land dat drie keer in de finale stond en nooit won."
+        ]
+      },
+      {
+        "tussenkop": "Het begin in Montevideo",
+        "alineas": [
+          "Het eerste WK werd in 1930 in Uruguay gespeeld, het land dat de olympische voetbaltoernooien van 1924 en 1928 had gewonnen en dat in 1930 het eeuwfeest van zijn eerste grondwet vierde. Voor het toernooi werd in Montevideo het Estadio Centenario gebouwd. Veel Europese landen zagen af van de lange bootreis, waardoor er maar dertien deelnemers waren. In de finale versloeg Uruguay buurland Argentinië. Italië won daarna in 1934 op eigen bodem en in 1938 in Frankrijk, in een tijd waarin het fascistische regime van Mussolini het voetbal nadrukkelijk als propagandamiddel inzette. De sport en de politiek waren vanaf het begin met elkaar verweven.",
+          "Na de oorlog volgden de twee grote verrassingen van de jaren vijftig. Na de Maracanazo van 1950 kwam in 1954 het Wunder von Bern. Hongarije, ongeslagen sinds jaren en met spelers als Ferenc Puskás, had West-Duitsland in de groepsfase nog met 8-3 verslagen. In de finale in Bern stond het na acht minuten 2-0 voor de Hongaren, maar de Duitsers wonnen met 3-2. Voor het naoorlogse West-Duitsland werd die overwinning een moment van nationaal herstel, dat in de Duitse geschiedschrijving een plaats kreeg die ver boven de sport uitsteeg."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Pelé en de gele shirts",
+        "alineas": [
+          "In 1958 in Zweden meldde zich een zeventienjarige Braziliaan bij de wereld. Pelé scoorde in de halve finale een hattrick tegen Frankrijk en twee keer in de finale tegen gastland Zweden. Brazilië won zijn eerste wereldtitel en prolongeerde die in 1962 in Chili. In 1966 won Engeland op Wembley na verlenging van West-Duitsland, met een hattrick van Geoff Hurst en een omstreden doelpunt waarvan nog altijd wordt betwist of de bal over de lijn was. In 1970 in Mexico won Brazilië opnieuw, met een elftal rond Pelé, Jairzinho, Tostão en Rivelino dat door velen als het beste WK-team ooit wordt beschouwd.",
+          "Dat toernooi van 1970 was ook het eerste WK dat op grote schaal in kleur werd uitgezonden, en de gele shirts van Brazilië werden wereldwijd een icoon. Met de derde titel mocht Brazilië de oorspronkelijke Jules Rimet-trofee houden; daarna werd de huidige wereldbeker ingevoerd. In de jaren zeventig volgden de Nederlandse finales van 1974 en 1978, beschreven in een eerder artikel. In 1982 won Italië in Spanje, gedragen door de zes doelpunten van Paolo Rossi, die kort daarvoor nog geschorst was geweest vanwege een gokschandaal."
+        ],
+        "foto": 2,
+        "kader": {
+          "titel": "Wereldkampioenen volgens de dataset",
+          "punten": [
+            "Brazilië: 1958, 1962, 1970, 1994, 2002",
+            "Italië: 1934, 1938, 1982, 2006",
+            "(West-)Duitsland: 1954, 1974, 1990, 2014",
+            "Argentinië: 1978, 1986, 2022",
+            "Uruguay: 1930, 1950; Frankrijk: 1998, 2018",
+            "Engeland: 1966; Spanje: 2010"
+          ]
+        }
+      },
+      {
+        "tussenkop": "De hand van God",
+        "alineas": [
+          "Het WK van 1986 in Mexico werd het toernooi van één speler. Diego Maradona leidde Argentinië vrijwel in zijn eentje naar de titel. In de kwartfinale tegen Engeland maakte hij binnen vier minuten twee doelpunten die samen zijn hele carrière samenvatten: eerst een goal met de hand, die de scheidsrechter niet zag en die hij later aan ‘de hand van God’ toeschreef, en daarna een solo waarbij hij vanaf de middellijn de halve Engelse ploeg passeerde. In de finale versloeg Argentinië West-Duitsland met 3-2. Vier jaar later troffen beide landen elkaar opnieuw in de finale in Rome, en toen won West-Duitsland met 1-0.",
+          "De jaren negentig brachten nieuwe gezichten. Het WK van 1994 in de Verenigde Staten eindigde in de eerste finale die met strafschoppen werd beslist: Brazilië won van Italië nadat Roberto Baggio over had geschoten. In 1998 won Frankrijk op eigen bodem, met twee kopbaldoelpunten van Zinedine Zidane in de finale tegen Brazilië. Brazilië nam in 2002 revanche in de eerste WK-finale in Azië, gespeeld in Japan, met twee doelpunten van Ronaldo tegen Duitsland. Vier jaar later won Italië in Duitsland na strafschoppen van Frankrijk, in een finale die vooral herinnerd wordt om de kopstoot van Zidane."
+        ],
+        "foto": 3,
+        "citaat": "Binnen vier minuten maakte Maradona twee doelpunten die samen zijn hele carrière samenvatten."
+      },
+      {
+        "tussenkop": "Johannesburg, Rio en Lusail",
+        "alineas": [
+          "Voor Nederland is 2010 het belangrijkste recente WK. In Zuid-Afrika bereikte Oranje onder bondscoach Bert van Marwijk de finale, met spelers als Wesley Sneijder, Arjen Robben en Robin van Persie. Tegenstander in Johannesburg was Spanje, Europees kampioen van 2008. Het werd een harde, zenuwachtige wedstrijd met veel gele kaarten. Robben miste in de tweede helft een grote kans oog in oog met doelman Iker Casillas, en in de verlenging scoorde Andrés Iniesta de enige treffer. Het was de derde verloren WK-finale voor Nederland, na 1974 en 1978, en de eerste wereldtitel voor Spanje.",
+          "Naast de drie verloren finales kende Oranje ook andere WK’s die in het geheugen bleven. In 1998 in Frankrijk verloor Nederland de halve finale tegen Brazilië na strafschoppen, na een kwartfinale die werd beslist door een beroemd doelpunt van Dennis Bergkamp tegen Argentinië. In 2014 in Brazilië begon het toernooi met een 5-1-overwinning op titelhouder Spanje, met een duikende kopbal van Robin van Persie. Ook toen strandde Oranje in de halve finale na strafschoppen, nu tegen Argentinië, maar het won de troostfinale van Brazilië. In 2022 was Argentinië opnieuw de eindhalte, in de kwartfinale, wederom na strafschoppen.",
+          "In 2014 won Duitsland in Brazilië, na een halve finale waarin het gastland met 7-1 werd vernederd, een uitslag die de Maracanazo van 1950 in de schaduw stelde. Frankrijk won in 2018 in Rusland van Kroatië. En in 2022 in Qatar speelde Argentinië in Lusail misschien wel de spectaculairste finale ooit: 3-3 na verlenging tegen Frankrijk, met een hattrick van Kylian Mbappé, waarna Argentinië de strafschoppenserie won. Lionel Messi kreeg zo eindelijk de prijs die in zijn verzameling ontbrak. Daarmee eindigt de dataset; het eerste WK met 48 landen, in 2026, staat er nog niet in."
+        ],
+        "foto": 4
+      }
+    ]
+  },
+  {
+    "id": "voetbal-11",
+    "kop": "De Gouden Bal: zeventig jaar strijd om de beste voetballer",
+    "intro": "Sinds 1956 kiest het Franse blad France Football elk jaar de beste voetballer. De lijst van winnaars vertelt een eigen geschiedenis van het spel: van Stanley Matthews via Cruijff en Van Basten tot het lange duel tussen Messi en Ronaldo.",
+    "hoofdstuk": "Ballon d’Or",
+    "basis": [
+      "champions-league",
+      "wk",
+      "ek"
+    ],
+    "fotos": [
+      {
+        "wiki": "Ballon d'Or",
+        "taal": "en",
+        "bijschrift": "De Ballon d’Or, de gouden bal van het Franse blad France Football"
+      },
+      {
+        "wiki": "Lev Yashin",
+        "taal": "en",
+        "bijschrift": "Lev Jasjin, in 1963 de enige doelman die de Ballon d’Or won"
+      },
+      {
+        "wiki": "Johan Cruyff",
+        "taal": "en",
+        "bijschrift": "Johan Cruijff in 1974, het jaar van zijn derde Ballon d’Or"
+      },
+      {
+        "wiki": "Marco van Basten",
+        "taal": "nl",
+        "bijschrift": "Marco van Basten, drievoudig winnaar in 1988, 1989 en 1992"
+      },
+      {
+        "wiki": "Lionel Messi",
+        "taal": "nl",
+        "bijschrift": "Lionel Messi, met acht gouden ballen de recordhouder"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Het idee kwam uit dezelfde Franse journalistieke hoek die ook de Europacup had bedacht. In 1956 vroeg het weekblad France Football, op initiatief van onder anderen Gabriel Hanot, een groep sportjournalisten uit Europese landen om de beste voetballer van het jaar te kiezen. De eerste winnaar was de Engelse vleugelspits Stanley Matthews, toen al ruim veertig jaar oud en speler van Blackpool. Hij kreeg een gouden bal, de Ballon d’Or, die zou uitgroeien tot de bekendste individuele prijs in het voetbal. Deze prijs staat niet in de datasets van de Wereldtrainer, maar de winnaars hangen er nauw mee samen: wie de Ballon d’Or wint, heeft vaak net de Champions League, een WK of een EK gewonnen.",
+          "In de eerste decennia mochten alleen Europese spelers die in Europa speelden worden gekozen. Dat verklaart waarom Pelé en Maradona in hun beste jaren nooit de prijs wonnen. De regels veranderden pas in 1995, toen ook niet-Europeanen bij Europese clubs in aanmerking kwamen. Meteen dat jaar won de Liberiaan George Weah van AC Milan, die later president van zijn land zou worden. Sinds 2007 kunnen alle spelers ter wereld winnen. Tussen 2010 en 2015 werd de prijs samengevoegd met de verkiezing van de wereldvoetbalbond FIFA, waarna beide prijzen weer uit elkaar gingen. In 2020 werd hij vanwege de coronapandemie niet uitgereikt."
+        ]
+      },
+      {
+        "tussenkop": "Real Madrid en de jaren zestig",
+        "alineas": [
+          "De vroege winnaars weerspiegelen de Europacup-geschiedenis uit de dataset. Alfredo Di Stéfano van Real Madrid won in 1957 en 1959, zijn Franse ploeggenoot Raymond Kopa in 1958. In 1963 kreeg de Sovjet-doelman Lev Jasjin de prijs, tot op heden de enige keeper die de Ballon d’Or won. Eusébio van Benfica won in 1965, Bobby Charlton van Manchester United in 1966, het jaar waarin Engeland wereldkampioen werd, en zijn ploeggenoot George Best in 1968, het jaar waarin United de Europacup won. De lijn is duidelijk: grote prijzen met club of land vertalen zich vrijwel altijd in individuele erkenning."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Cruijff, Beckenbauer en Platini",
+        "alineas": [
+          "In de jaren zeventig verschoof de aandacht naar Duitsland en Nederland. Gerd Müller won in 1970, Franz Beckenbauer in 1972 en 1976. Johan Cruijff werd de eerste speler die de prijs drie keer won: in 1971, 1973 en 1974. Die jaren vallen samen met de Europese titels van Ajax en het WK van 1974, en laten zien hoe dominant het Nederlandse voetbal toen was. Ook de Deen Allan Simonsen, die in de Bundesliga speelde, won in 1977, en de Engelsman Kevin Keegan in 1978 en 1979. Michel Platini van Juventus zou daarna als eerste de prijs drie jaar achter elkaar winnen, van 1983 tot en met 1985."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Het Nederlandse Milan",
+        "alineas": [
+          "Het hoogtepunt voor Nederland kwam eind jaren tachtig. In 1987 won Ruud Gullit, die dat jaar van PSV naar AC Milan was overgestapt. In 1988, het jaar van het EK, eindigden drie Nederlanders van AC Milan op de eerste drie plaatsen: Marco van Basten werd eerste, Gullit tweede en Frank Rijkaard derde. Van Basten won ook in 1989 en in 1992, het seizoen waarin Milan ongeslagen Italiaans kampioen werd. Daarmee kwam hij op hetzelfde aantal als Cruijff. Dat de beste voetballer van Europa vier keer in zes jaar een Nederlander was, is een prestatie die voor een land van deze omvang uitzonderlijk is.",
+          "Een opvallende naam in die periode is Igor Belanov van Dinamo Kiev, winnaar in 1986. Twee jaar later was hij de speler wiens strafschop in de EK-finale werd gestopt door Hans van Breukelen. Ook Lothar Matthäus, aanvoerder van het Duitse elftal dat in 1990 wereldkampioen werd, won dat jaar de prijs. In 1998 won Zinedine Zidane na zijn twee doelpunten in de WK-finale, en in 2006 de Italiaanse verdediger Fabio Cannavaro na de Italiaanse wereldtitel. Het is een zeldzaamheid dat een verdediger wint; spelers die doelpunten maken of voorbereiden hebben in de stemming bijna altijd een voorsprong."
+        ],
+        "foto": 3,
+        "citaat": "In 1988 eindigden drie Nederlanders van AC Milan op de eerste drie plaatsen."
+      },
+      {
+        "tussenkop": "Messi en Ronaldo",
+        "alineas": [
+          "Na 2007 begon een tijdperk dat in de geschiedenis van de prijs zijn weerga niet kent. Cristiano Ronaldo won in 2008, toen hij met Manchester United de Champions League won. Daarna won Lionel Messi vier keer op rij, van 2009 tot en met 2012, in de jaren dat Barcelona in de dataset als Europees kampioen staat in 2009 en 2011. Ronaldo won in 2013, 2014, 2016 en 2017, Messi in 2015, 2019, 2021 en 2023. In vijftien jaar wonnen die twee spelers dertien keer de prijs. Tot 2022 doorbrak alleen Luka Modrić die reeks, in 2018, na de WK-finale met Kroatië en een Champions League-titel met Real Madrid.",
+          "Messi staat met acht gouden ballen alleen aan de top, Ronaldo volgt met vijf. De laatste prijs van Messi, in 2023, kwam na de WK-titel van Argentinië in Qatar, de prijs die in zijn verzameling had ontbroken. Voor Nederland was 2019 een bijna-moment: Virgil van Dijk, die met Liverpool de Champions League won, eindigde als tweede achter Messi. Het verschil in punten was klein, en veel Nederlanders vonden dat de beste verdediger van de wereld die prijs had verdiend. Ook in 2010 voelde Nederland zich gepasseerd, toen Wesley Sneijder na de treble met Inter en de WK-finale niet bij de eerste drie eindigde."
+        ],
+        "foto": 4,
+        "kader": {
+          "titel": "Meervoudige winnaars",
+          "punten": [
+            "Lionel Messi: 8 (2009–2012, 2015, 2019, 2021, 2023)",
+            "Cristiano Ronaldo: 5 (2008, 2013, 2014, 2016, 2017)",
+            "Johan Cruijff: 3 (1971, 1973, 1974)",
+            "Michel Platini: 3 (1983–1985)",
+            "Marco van Basten: 3 (1988, 1989, 1992)"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Na de grote twee",
+        "alineas": [
+          "Na Messi en Ronaldo kwam er weer ruimte voor andere winnaars. Karim Benzema van Real Madrid won in 2022 na een seizoen waarin hij zijn club naar de Champions League-titel schoot, een titel die ook in de dataset staat. In 2024 won de Spaanse middenvelder Rodri van Manchester City, die dat jaar met Spanje Europees kampioen werd. In 2025 ging de prijs naar Ousmane Dembélé van Paris Saint-Germain, de club die dat jaar voor het eerst de Champions League won. Opnieuw dezelfde lijn: wie de grote toernooien wint, wint ook de gouden bal. Sinds 2018 bestaat er bovendien een Ballon d’Or voor vrouwen; de Noorse Ada Hegerberg was de eerste winnares.",
+          "De Ballon d’Or is een subjectieve prijs, gekozen door journalisten, en elk jaar is er discussie over de uitslag. Toch is de lijst een waardevolle bron. Hij laat zien welke spelers in hun tijd het meest bewonderd werden, en hij weerspiegelt de verschuivingen in het voetbal: van de Spaanse en Italiaanse clubs in de jaren vijftig en zestig, via het Nederlandse en Duitse totaalvoetbal, naar het tijdperk van de superclubs. Wie de winnaars naast de kampioenslijsten uit de datasets legt, ziet hoe nauw individuele glorie en collectief succes met elkaar verweven zijn."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "voetbal-12",
+    "kop": "Zeventig jaar Eredivisie: de kampioenen per decennium",
+    "intro": "Sinds 1957 ging de landstitel 63 keer naar Ajax, PSV of Feyenoord. Slechts zes keer won een andere club. Een tocht door de decennia laat zien hoe de machtsverhoudingen verschoven, en waarom AZ en FC Twente zulke uitzonderingen zijn.",
+    "hoofdstuk": "Eredivisie per decennium",
+    "basis": [
+      "eredivisie",
+      "knvb-beker"
+    ],
+    "fotos": [
+      {
+        "wiki": "Johan Cruijff ArenA",
+        "taal": "nl",
+        "bijschrift": "De Johan Cruijff ArenA, sinds 1996 het stadion van recordkampioen Ajax"
+      },
+      {
+        "wiki": "AFAS Stadion",
+        "taal": "nl",
+        "bijschrift": "Het AFAS Stadion in Alkmaar, thuis van AZ, kampioen in 1981 en 2009"
+      },
+      {
+        "wiki": "Steve McClaren",
+        "taal": "nl",
+        "bijschrift": "De Engelse trainer Steve McClaren, die FC Twente in 2010 naar de titel leidde"
+      },
+      {
+        "wiki": "Peter Bosz",
+        "taal": "nl",
+        "bijschrift": "Peter Bosz, trainer van PSV tijdens de titels van 2024 en 2025"
+      },
+      {
+        "wiki": "De Adelaarshorst",
+        "taal": "nl",
+        "bijschrift": "De Adelaarshorst in Deventer: Go Ahead Eagles won in 2025 voor het eerst de beker"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Wie de kampioenslijst van de Eredivisie naast elkaar legt, ziet al snel een patroon dat zich als een rode draad door de geschiedenis trekt. Sinds het eerste seizoen, 1956/57, zijn er tot en met 2025/26 zeventig seizoenen gespeeld. In één daarvan, 2019/20, werd geen kampioen aangewezen omdat de competitie vanwege de coronapandemie werd afgebroken. Van de 69 titels die wel werden vergeven, gingen er volgens de dataset 28 naar Ajax, 24 naar PSV en 11 naar Feyenoord. Samen is dat 63. De overige zes titels werden verdeeld over DOS, Sparta, DWS, AZ (twee keer) en FC Twente.",
+          "Die concentratie is geen toeval. Toen het betaald voetbal in 1954 werd ingevoerd, hadden de clubs uit de drie grootste steden, of in het geval van PSV de steun van een multinational, de meeste toeschouwers, de meeste sponsors en het grootste vermogen om spelers aan te trekken. Elk succes vergrootte dat voordeel: Europese wedstrijden brachten geld op, waarmee betere spelers werden gekocht, die weer meer successen opleverden. Economen noemen zoiets een zichzelf versterkend effect. In een kleine competitie als de Eredivisie werkt dat extra sterk, omdat de afstand tussen de top en de middenmoot snel groeit."
+        ]
+      },
+      {
+        "tussenkop": "De jaren zestig en zeventig",
+        "alineas": [
+          "In de kampioensjaren 1960 tot en met 1969 was de Eredivisie een tweestrijd. Ajax won vier keer (1960, 1966, 1967 en 1968), Feyenoord ook vier keer (1961, 1962, 1965 en 1969). Daartussen stonden PSV in 1963 en DWS uit Amsterdam in 1964. DWS was een kleinere Amsterdamse club die met een sterke generatie even de top bereikte, een jaar na zijn promotie naar de Eredivisie. Het was de laatste keer voor lange tijd dat een club van buiten de grote drie kampioen werd. Kort daarna begonnen Ajax en Feyenoord aan hun Europese successen, en vanaf dat moment was de kloof met de rest moeilijk nog te overbruggen.",
+          "De jaren zeventig, kampioensjaren 1970 tot en met 1979, laten een driestrijd zien. Ajax won vijf keer (1970, 1972, 1973, 1977 en 1979), Feyenoord twee keer (1971 en 1974) en PSV drie keer (1975, 1976 en 1978). De opkomst van PSV is de belangrijkste verandering van het decennium. Met de financiële steun van Philips bouwde de club een brede selectie, en na het vertrek van de sterren van Ajax en Feyenoord naar het buitenland greep PSV zijn kans. In de beker zie je in deze periode ook andere namen: NAC Breda in 1973, FC Den Haag in 1975 en FC Twente in 1977."
+        ],
+        "kader": {
+          "titel": "Titels per decennium (kampioensjaar)",
+          "punten": [
+            "1960–1969: Ajax 4, Feyenoord 4, PSV 1, DWS 1",
+            "1970–1979: Ajax 5, PSV 3, Feyenoord 2",
+            "1980–1989: Ajax 4, PSV 4, Feyenoord 1, AZ 1",
+            "1990–1999: Ajax 5, PSV 3, Feyenoord 2",
+            "2000–2009: PSV 7, Ajax 2, AZ 1",
+            "2010–2019: Ajax 5, PSV 3, Feyenoord 1, FC Twente 1",
+            "2020–2026: PSV 3, Ajax 2, Feyenoord 1 (2020 geen kampioen)"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Alkmaar breekt in",
+        "alineas": [
+          "In 1981 gebeurde wat zestien jaar lang niet was voorgekomen: een club van buiten de grote drie werd kampioen. AZ uit Alkmaar, in de bekerlijst nog vermeld als AZ’67, won de landstitel en de beker, en bereikte ook de finale van de UEFA Cup. De club werd gefinancierd door de broers Molenaar, ondernemers die veel geld in de ploeg staken. Het was een eerste voorbeeld van een model dat later vaker zou opduiken: een rijke geldschieter die een middelgrote club tijdelijk naar de top tilt. AZ won de beker ook in 1978 en 1982. In de rest van de jaren tachtig deelden Ajax en PSV met elk vier titels de lakens uit, met Feyenoord in 1984 als uitzondering.",
+          "In de jaren negentig bleef het patroon gelijk. Ajax won vijf keer, waaronder drie keer op rij van 1994 tot en met 1996 met de generatie die in 1995 de Champions League won. PSV werd kampioen in 1991, 1992 en 1997, Feyenoord in 1993 en 1999. Na het Bosman-arrest van 1995 vertrokken veel toptalenten echter steeds jonger naar het buitenland. De Nederlandse topclubs moesten zich aanpassen: ze werden opleidingsclubs die spelers lieten doorstromen naar grotere competities, en kochten zelf talent in uit Scandinavië, Oost-Europa, Zuid-Amerika en Afrika."
+        ],
+        "foto": 1,
+        "citaat": "Van de 69 titels sinds 1957 gingen er 63 naar Ajax, PSV of Feyenoord."
+      },
+      {
+        "tussenkop": "Het decennium van PSV",
+        "alineas": [
+          "Geen decennium werd zo door één club gedomineerd als de kampioensjaren 2000 tot en met 2009. PSV won zeven keer: in 2000, 2001, 2003, 2005, 2006, 2007 en 2008. Ajax won in 2002 en 2004. Onder trainer Guus Hiddink, die in 2002 terugkeerde in Eindhoven, haalde PSV in 2005 bovendien de halve finale van de Champions League. Pas in 2009 werd de reeks doorbroken, en opnieuw door AZ, nu onder Louis van Gaal. Een jaar later volgde de grootste verrassing van de moderne Eredivisie: FC Twente werd in 2010 kampioen onder de Engelse trainer Steve McClaren, de eerste landstitel in de clubgeschiedenis."
+        ],
+        "foto": 2,
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Eredivisie sinds 1956/57; 2019/20 zonder kampioen",
+            "Ajax 28, PSV 24, Feyenoord 11 titels sinds 1957",
+            "Buiten de grote drie: DOS 1958, Sparta 1959, DWS 1964, AZ 1981 en 2009, FC Twente 2010",
+            "Recordbekerwinnaar: Ajax met 20 bekers in de dataset"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Van De Boer tot Bosz",
+        "alineas": [
+          "Daarna herstelde Ajax zich. Onder Frank de Boer werd de club vier keer op rij kampioen, van 2011 tot en met 2014. PSV won in 2015, 2016 en 2018, en Feyenoord beëindigde in 2017 een wachttijd van achttien jaar. In 2019 won Ajax onder Erik ten Hag de dubbel en haalde het de halve finale van de Champions League. Het seizoen daarna werd in maart 2020 stilgelegd; de dataset laat dat jaar leeg. Ajax won opnieuw in 2021 en 2022, Feyenoord in 2023, en daarna volgde een nieuwe reeks van PSV met titels in 2024, 2025 en 2026, de eerste twee onder trainer Peter Bosz, een oud-international die als speler zelf nog bij Feyenoord had gespeeld."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "De beker als uitlaatklep",
+        "alineas": [
+          "Waar de landstitel bijna altijd naar de grote drie gaat, biedt de KNVB beker meer ruimte voor verrassingen. In de dataset staat Ajax met twintig bekers bovenaan, gevolgd door Feyenoord met veertien en PSV met elf. Maar de lijst van de afgelopen decennia bevat ook Roda JC (1997 en 2000), FC Utrecht (1985, 2003 en 2004), sc Heerenveen (2009), PEC Zwolle (2014), FC Groningen (2015) en Vitesse (2017). Voor die clubs was de beker vaak het hoogtepunt van hun geschiedenis. Het knock-outformat, waarin één goede avond genoeg is, geeft kleinere clubs een eerlijkere kans dan een competitie van vierendertig wedstrijden.",
+          "De meest recente verrassing in de dataset is Go Ahead Eagles. De club uit Deventer, viervoudig landskampioen in het amateurtijdperk, won in 2025 voor het eerst in haar geschiedenis de beker, nadat Feyenoord hem in 2024 had gewonnen. Het is een mooie rijm met het begin van deze reeks, waarin de Eagles in 1917 als een van de eerste provinciale clubs de Haagse en Haarlemse elite doorbraken. Zo laat de geschiedenis van het Nederlandse voetbal zich lezen als een voortdurende spanning tussen concentratie van macht en de verrassingen die het spel zo nu en dan nog altijd biedt."
+        ],
+        "foto": 4
+      }
+    ]
+  }
+]

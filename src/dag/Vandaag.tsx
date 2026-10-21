@@ -1,10 +1,14 @@
 import type { CSSProperties } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight, Check, Newspaper, Plus } from 'lucide-react'
 import TopBalk, { datumTekst } from '../ui/TopBalk'
 import { MODULE_BY_ID } from '../modules'
 import { dagSleutel, type Geheugen } from './geheugen'
-import KrantArtikel from './KrantArtikel'
+import { samenvatting } from './KrantArtikel'
+import { useKrantFotos } from '../krant/StukView'
+import { fotoVan, leestijd } from '../krant/stukken'
+import type { Foto } from '../ui/Fotos'
+import type { Artikel } from './geheugen'
 import { RUBRIEK, RUBRIEKEN, useKrant, voortgangRubriek } from './krant'
 import { DAGNAMEN, KRANT_ROOSTER, STAMP_MODULES, STAMP_ROOSTER, WEEKVOLGORDE, stampVoor } from './rooster'
 import { useGeheugen, useLesPlan, usePoco } from './useLeer'
@@ -23,6 +27,9 @@ export default function Vandaag() {
   const [hoofd, ...overig] = krant.artikelen.slice(0, krant.basis)
   const extraArt = krant.artikelen.slice(krant.basis)
   const extraStamp = STAMP_MODULES.filter((m) => !stamp.includes(m))
+  const fotos = useKrantFotos()
+  const navigate = useNavigate()
+  const minuten = krant.artikelen.slice(0, krant.basis).reduce((t, a) => t + (teaserVan(a, krant, fotos)?.minuten ?? 0), 0)
 
   return (
     <div className="kr">
@@ -61,53 +68,25 @@ export default function Vandaag() {
               ? 'De krant wordt gedrukt…'
               : krant.klaar
                 ? 'Alles gelezen. Morgen weer een nieuwe editie.'
-                : `${krant.artikelen.slice(0, krant.basis).filter((a) => a.gelezen).length} van ${krant.basis} artikelen gelezen`}
+                : `${krant.artikelen.slice(0, krant.basis).filter((x) => x.gelezen).length} van ${krant.basis} gelezen · ± ${minuten} minuten lezen`}
           </p>
         </div>
 
-        {hoofd && krant.lijnen[hoofd.m] && (
-          <KrantArtikel
-            key={`0-${hoofd.ids.join()}`}
-            m={hoofd.m}
-            units={hoofd.ids.map((id) => krant.lijnen[hoofd.m].find((e) => e.id === id)!).filter(Boolean)}
-            voorpagina
-            gelezen={hoofd.gelezen}
-            onGelezen={(aan) => krant.zetGelezen(0, aan)}
-          />
-        )}
+        {hoofd && <Teaser a={hoofd} i={0} krant={krant} fotos={fotos} groot />}
 
-        <div className="kr-kolommen">
-          {overig.map((a, j) => {
-            const lijn = krant.lijnen[a.m]
-            if (!lijn) return <div key={j} className="kr-art kr-skelet" />
-            return (
-              <KrantArtikel
-                key={`${j + 1}-${a.ids.join()}`}
-                m={a.m}
-                units={a.ids.map((id) => lijn.find((e) => e.id === id)!).filter(Boolean)}
-                gelezen={a.gelezen}
-                onGelezen={(aan) => krant.zetGelezen(j + 1, aan)}
-              />
-            )
-          })}
+        <div className="kr-teasers">
+          {overig.map((a, j) => (
+            <Teaser key={j} a={a} i={j + 1} krant={krant} fotos={fotos} />
+          ))}
         </div>
 
-        {extraArt.map((a, j) => {
-          const lijn = krant.lijnen[a.m]
-          const i = krant.basis + j
-          if (!lijn) return <div key={i} className="kr-art kr-skelet" />
-          return (
-            <KrantArtikel
-              key={`${i}-${a.ids.join()}`}
-              m={a.m}
-              units={a.ids.map((id) => lijn.find((e) => e.id === id)!).filter(Boolean)}
-              voorpagina
-              extra
-              gelezen={a.gelezen}
-              onGelezen={(aan) => krant.zetGelezen(i, aan)}
-            />
-          )
-        })}
+        {extraArt.length > 0 && (
+          <div className="kr-teasers extra">
+            {extraArt.map((a, j) => (
+              <Teaser key={j} a={a} i={krant.basis + j} krant={krant} fotos={fotos} extra />
+            ))}
+          </div>
+        )}
 
         <section className="kr-meer" aria-labelledby="meer-kop">
           <h2 id="meer-kop">Meer lezen</h2>
@@ -115,14 +94,14 @@ export default function Vandaag() {
           <div className="kr-meer-lijst">
             {RUBRIEKEN.map((m) => {
               const mod = MODULE_BY_ID[m]
-              const lijn = krant.lijnen[m]
-              const v = lijn ? voortgangRubriek(m, lijn, g.krant) : null
+              const bron = krant.bronnen[m]
+              const v = bron ? voortgangRubriek(m, bron, g.krant) : null
               return (
-                <button key={m} type="button" className="kr-meer-item" style={{ '--mk': mod?.accent } as CSSProperties} onClick={() => krant.extra(m)}>
+                <button key={m} type="button" className="kr-meer-item" style={{ '--mk': mod?.accent } as CSSProperties} onClick={() => krant.extra(m).then((nr) => nr !== null && navigate(`/vandaag/lees/${nr}`))}>
                   <span className="kr-meer-icoon">{mod?.icon}</span>
                   <span className="kr-meer-naam">
                     {RUBRIEK[m].naam}
-                    <small>{v ? `${v.gelezen}/${v.totaal} gelezen` : mod?.title}</small>
+                    <small>{v ? `${v.gelezen}/${v.totaal} ${v.soort} gelezen` : mod?.title}</small>
                   </span>
                   <Plus size={16} />
                 </button>
@@ -150,8 +129,56 @@ export default function Vandaag() {
         <Weekrooster g={g} vandaag={vandaag} />
       </main>
 
-      <footer className="vd-voet">Een dag telt mee voor je reeks als het stampwerk af is en de vier artikelen gelezen zijn.</footer>
+      <footer className="vd-voet">Een dag telt mee voor je reeks als het stampwerk af is en de vijf artikelen gelezen zijn.</footer>
     </div>
+  )
+}
+
+type Krant = ReturnType<typeof useKrant>
+
+function teaserVan(a: Artikel, krant: Krant, fotos: Record<string, Foto[]>) {
+  const inhoud = krant.inhoud(a)
+  if (!inhoud) return null
+  if (inhoud.stuk) {
+    const s = inhoud.stuk
+    return { kop: s.kop, intro: s.intro, hoofdstuk: s.hoofdstuk, foto: fotoVan(s, 0, fotos)?.src, minuten: leestijd(s) }
+  }
+  const units = inhoud.units ?? []
+  const hoofdstukken = [...new Set(units.map((u) => u.hoofdstuk))]
+  return { ...samenvatting(a.m, units), hoofdstuk: hoofdstukken.length === 1 ? hoofdstukken[0] : undefined }
+}
+
+function Teaser({ a, i, krant, fotos, groot, extra }: { a: Artikel; i: number; krant: Krant; fotos: Record<string, Foto[]>; groot?: boolean; extra?: boolean }) {
+  const t = teaserVan(a, krant, fotos)
+  if (!t) return <div className={`kr-teaser kr-skelet${groot ? ' groot' : ''}`} />
+  return (
+    <Link to={`/vandaag/lees/${i}`} className={`kr-teaser${groot ? ' groot' : ''}${a.gelezen ? ' gelezen' : ''}`}>
+      {t.foto && (
+        <span className="kr-teaser-foto">
+          <img src={t.foto} alt="" loading={groot ? 'eager' : 'lazy'} />
+        </span>
+      )}
+      <span className="kr-teaser-tekst">
+        <span className="kr-rubriek">
+          {extra && <span className="kr-extra-label">Extra</span>}
+          <span>{RUBRIEK[a.m]?.naam ?? a.m}</span>
+          {t.hoofdstuk && <span className="kr-hoofdstuk">{t.hoofdstuk}</span>}
+        </span>
+        <span className="kr-teaser-kop">{t.kop}</span>
+        {t.intro && <span className="kr-teaser-intro">{t.intro}</span>}
+        <span className="kr-teaser-meta">
+          {a.gelezen ? (
+            <span className="kr-teaser-gelezen">
+              <Check size={14} strokeWidth={3} /> Gelezen
+            </span>
+          ) : (
+            <>
+              ± {t.minuten} min lezen <ArrowRight size={14} />
+            </>
+          )}
+        </span>
+      </span>
+    </Link>
   )
 }
 

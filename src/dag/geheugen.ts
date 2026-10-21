@@ -17,12 +17,13 @@ export type DagLes = {
 export type ModuleStand = { items: Record<string, ItemStand>; les?: DagLes }
 
 // Een krantenartikel: een of meer eenheden uit één onderwerp.
-export type Artikel = { m: string; ids: string[]; gelezen?: boolean }
+export type Artikel = { m: string; ids: string[]; stuk?: string; gelezen?: boolean }
 
 export type KrantStand = {
   // `${module}|${eenheid}` → tijdstip waarop het gelezen is
   gelezen: Record<string, number>
   dag?: number
+  versie?: number
   artikelen?: Artikel[]
 }
 
@@ -97,17 +98,17 @@ function krantSamen(a: KrantStand | undefined, b: KrantStand | undefined): Krant
   if (!a || !b) return a ?? b
   const gelezen = { ...a.gelezen }
   for (const [k, t] of Object.entries(b.gelezen ?? {})) gelezen[k] = Math.max(gelezen[k] ?? 0, t)
-  if ((a.dag ?? 0) !== (b.dag ?? 0)) {
-    const nieuwst = (a.dag ?? 0) > (b.dag ?? 0) ? a : b
-    return { gelezen, dag: nieuwst.dag, artikelen: nieuwst.artikelen }
+  if ((a.dag ?? 0) !== (b.dag ?? 0) || (a.versie ?? 0) !== (b.versie ?? 0)) {
+    const nieuwst = (a.dag ?? 0) * 100 + (a.versie ?? 0) > (b.dag ?? 0) * 100 + (b.versie ?? 0) ? a : b
+    return { gelezen, dag: nieuwst.dag, versie: nieuwst.versie, artikelen: nieuwst.artikelen }
   }
   // zelfde dag: de langste lijst, en gelezen als het op één van beide apparaten gelezen is
   const [lang, kort] = (a.artikelen?.length ?? 0) >= (b.artikelen?.length ?? 0) ? [a, b] : [b, a]
   const artikelen = (lang.artikelen ?? []).map((x, i) => {
     const y = kort.artikelen?.[i]
-    return y && y.m === x.m && y.ids.join() === x.ids.join() ? { ...x, gelezen: x.gelezen || y.gelezen } : x
+    return y && y.m === x.m && y.stuk === x.stuk && y.ids.join() === x.ids.join() ? { ...x, gelezen: x.gelezen || y.gelezen } : x
   })
-  return { gelezen, dag: a.dag, artikelen }
+  return { gelezen, dag: a.dag, versie: a.versie, artikelen }
 }
 
 export async function laadGesynchroniseerd(): Promise<Geheugen | null> {

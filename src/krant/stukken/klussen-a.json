@@ -1,0 +1,783 @@
+[
+  {
+    "id": "klussen-01",
+    "kop": "Een plug houdt niet door de plug, maar door wat erachter zit",
+    "intro": "Wie al jaren boort en plugt, weet welke plug in welke muur hoort. Maar waarom houdt een bevestiging eigenlijk, en waar breekt ze als het misgaat? Wie dat begrijpt, kiest niet meer op gevoel maar op krachten, ondergrond en werkvolgorde.",
+    "hoofdstuk": "Bevestigen & gereedschap",
+    "basis": [
+      "bevestigen-tv-beugel",
+      "bevestigen-keukenkastjes-gipsplaat",
+      "bevestigen-chemisch-anker",
+      "bevestigen-zware-lamp-plafond",
+      "bevestigen-veilig-boren",
+      "bevestigen-hollewandplug",
+      "bevestigen-k-plug-nylon",
+      "bevestigen-k-plug-tuimel",
+      "bevestigen-k-plug-gasbeton",
+      "bevestigen-k-plug-chemisch",
+      "bevestigen-k-plug-betonschroef",
+      "bevestigen-k-schroef-gips",
+      "bevestigen-k-schroef-houtbouw",
+      "bevestigen-k-schroef-rvs",
+      "bevestigen-k-boor-sds",
+      "bevestigen-k-machine-combihamer",
+      "bevestigen-k-machine-slag",
+      "bevestigen-p-plug-te-groot-gat",
+      "bevestigen-p-gasbeton",
+      "bevestigen-p-schroefkop-dol",
+      "bevestigen-p-aardlek-boren"
+    ],
+    "fotos": [
+      {
+        "wiki": "Hammer drill",
+        "taal": "en",
+        "bijschrift": "Boorhamer: slagenergie in plaats van spierkracht"
+      },
+      {
+        "wiki": "Hollow-core slab",
+        "taal": "en",
+        "bijschrift": "Kanaalplaatvloer: hol van binnen, met voorspanstrengen in de ribben"
+      },
+      {
+        "wiki": "Autoclaved aerated concrete",
+        "taal": "en",
+        "bijschrift": "Cellenbeton: licht, zacht en vol luchtbellen"
+      },
+      {
+        "wiki": "Toggle bolt",
+        "taal": "en",
+        "bijschrift": "Tuimelpluggen: de vleugel klapt achter de plaat open"
+      },
+      {
+        "wiki": "Impact driver",
+        "taal": "en",
+        "bijschrift": "Slagschroevendraaier met bits voor lange schroeven"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een tv van 25 kilo aan een zwenkarm die een halve meter uit de muur steekt. Het voelt als een gewone klus: vier gaten, vier pluggen, klaar. Maar reken even mee. De arm werkt als een hefboom. Zitten de bovenste en onderste bevestigingsgaten van de muurplaat twintig centimeter uit elkaar, dan draait het hele geval om de onderrand van die plaat. De bovenste bouten moeten dan het gewicht maal de armlengte gedeeld door de gatafstand tegenhouden: 25 maal 50 gedeeld door 20, ruim zestig kilo trekkracht. Dat is meer dan het dubbele van het gewicht van de tv, en dat zonder dat iemand aan het scherm trekt om het naar de bank te draaien.",
+          "Dat is de kern van elk bevestigingsvraagstuk. Gewicht is zelden het probleem; de richting en de hefboom zijn dat wel. Een plug kan een kracht langs de wand, afschuiving genoemd, meestal goed hebben. Een kracht die hem recht uit het gat probeert te trekken, de trekbelasting, is veel lastiger. En juist die trekbelasting ontstaat bij alles wat uitsteekt: zwenkarmen, diepe hangkasten, wandplanken met boeken op de voorrand, een luifel. Wie dat ziet, gaat anders kiezen: meer gaten, gaten verder uit elkaar, een bredere muurplaat en een ankertype dat op trek is berekend."
+        ],
+        "citaat": "Gewicht is zelden het probleem; de richting en de hefboom zijn dat wel."
+      },
+      {
+        "tussenkop": "Drie manieren om vast te zitten",
+        "alineas": [
+          "Elke bevestiging in een wand werkt op een van drie principes, en het loont om ze uit elkaar te houden. Het eerste is wrijving door spreiding: een nylon plug wordt door de schroef uit elkaar gedrukt en klemt tegen de gatwand. Dat werkt alleen als die gatwand hard en heel is. Het tweede is vormsluiting: het anker wordt groter dan het gat, achter de plaat of in een holte, en kan er daardoor niet meer uit. Hollewandpluggen, tuimelpluggen en de mortelprop van een chemisch anker in holle steen werken zo. Het derde is draad tappen of hechten: een betonschroef snijdt zijn eigen schroefdraad in het beton, injectiemortel hecht aan de schone gatwand.",
+          "Dat onderscheid verklaart ook wat er misgaat. Een spreidplug duwt de steen uit elkaar. Zit hij dicht bij een rand, een voeg of in een dunne steenwand, dan splijt hij het materiaal in plaats van erin te klemmen. Daarom hebben fabrikanten minimale randafstanden en daarom houdt een plug vlak naast een kozijnhoek of in de bovenste rij van een gemetselde borstwering vaak slecht. Een betonschroef en een chemisch anker oefenen nauwelijks spreidkracht uit en mogen daardoor veel dichter bij een rand. Een vormsluitend anker hangt volledig af van wat erachter zit: twaalf en een halve millimeter gips is geen beton, hoe mooi de rozet ook openvouwt."
+        ]
+      },
+      {
+        "tussenkop": "Lees het boorstof",
+        "alineas": [
+          "Wie de ondergrond niet kent, kiest blind. Boor daarom eerst een proefgat op een plek die straks achter de beugel of kast verdwijnt en kijk naar wat eruit komt. Grijs, hard stof waar de boor moeizaam doorheen gaat: beton of kalkzandsteen. Rood stof: baksteen. Valt de boor na een paar centimeter ineens door, dan zit je in holle baksteen of in het kanaal van een kanaalplaatvloer. Wit, mul en licht stof, met een boor die als door boter gaat: cellenbeton, ook wel gasbeton genoemd. Wit poeder na negen tot twaalf millimeter en dan niets meer: gipsplaat. En houtsnippers verraden een balk of regel.",
+          "Let ook op de pleisterlaag. Oudere muren hebben soms twee centimeter kalk- of gipspleister op de steen. Een plug die met zijn bovenste helft in die zachte laag zit, spreidt alleen in het onderste deel en scheurt bij belasting de pleister weg. Boor daarom altijd zo diep dat de hele plug in de steen zit, tik hem in tot hij vlak ligt met het steenoppervlak en niet met de pleister, en kies een schroef die lang genoeg is voor pleisterlaag, pluglengte en objectdikte samen. Een plafond verdient extra wantrouwen: een kanaalplaatvloer heeft in de ribben tussen de kanalen voorgespannen staalstrengen, en die mag je nooit raken. Boor er kort en ondiep in, en nooit naast elkaar door dezelfde rib."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "De nylon plug, goed gedaan",
+        "alineas": [
+          "In massieve kalkzandsteen, beton of volle baksteen blijft de nylon spreidplug een uitstekende bevestiging, mits je de maatregels kent. De boordiameter is gelijk aan de plugmaat: een plug van acht millimeter gaat in een gat van acht. De schroef is ongeveer twee tot drie millimeter dunner dan de plug, dus vijf millimeter in een plug van acht, zes in een plug van tien. Een te dunne schroef spreidt de plug nauwelijks; een te dikke laat hem scheuren of krijg je niet ingedraaid. Boor het gat ongeveer tien millimeter dieper dan de plug lang is, zodat het boorstof ergens heen kan en de schroefpunt de plug tot onderin openduwt.",
+          "Dat laatste wordt vaak vergeten. Een nylon plug spreidt pas over zijn volle lengte als de schroef er helemaal doorheen is gedraaid en bij voorkeur nog een paar millimeter uitsteekt aan de onderkant. Draai je een schroef van veertig millimeter door een plank van achttien in een plug van vijftig, dan zit alleen de bovenste helft van de plug onder spanning. Zuig het gat ook altijd uit: boorstof tussen plug en steen werkt als kogellagertjes. In holle steen werkt een gewone spreidplug slecht. Daar bestaan universele pluggen die zich in een holte tot een knoop draaien, maar voor alles wat zwaar is of op trek wordt belast is een chemisch anker de betere keuze."
+        ]
+      },
+      {
+        "tussenkop": "Gipsplaat: de last moet naar de stijl",
+        "alineas": [
+          "Een metalen hollewandplug draagt in een enkele gipsplaat van 12,5 mm indicatief tien tot twintig kilo op afschuiving. Dat is genoeg voor een spiegel of gordijnrail, niet voor een volle bovenkast. Het geheim van de hollewandplug zit in de zettang: die trekt de pootjes gecontroleerd tot een rozet open terwijl de tandjes onder de kraag in het karton bijten. Draai je hem zonder tang met de schroef aan, dan draait de plug vaak mee en zet hij zich nooit. Let op het klembereik op de verpakking: een plug voor 3 tot 16 mm spreidt in een dubbel beplate wand van 25 mm binnen in de tweede plaat en verbrijzelt daar het gips.",
+          "Voor trek, zoals een lamp aan een gipsplafond, is een tuimelplug beter: de vleugel legt de last over een brede strook achter de plaat. Maar wie echt gewicht wil hangen, brengt de last naar de constructie. In een metal stud wand vind je de profielen met een sterke magneet, want de schroeven van de beplating zitten erin, meestal op 600 mm hart-op-hart. Een keukenrail schroef je met zelfborende schroeven door gips en profiel, met meerdere schroeven per profiel, want dun staal van 0,6 mm geeft een schroef weinig draad om in te grijpen. Tussen de profielen komen tuimelpluggen om de twintig tot dertig centimeter. Bouw je de wand zelf, dan zet je achterhout in de wand voordat de platen erop gaan."
+        ],
+        "lesFoto": "bevestigen-hollewandplug",
+        "foto": 3
+      },
+      {
+        "tussenkop": "Chemisch anker: een prop van kunsthars",
+        "alineas": [
+          "In holle baksteen en verweerd metselwerk is het chemisch anker de bevestiging waarop je een luifel, een zware buitenlamp met arm of een wandligger durft te hangen. Het principe: injectiemortel van vinylester of polyester wordt in een zeefhuls gespoten, perst door het gaas de kamers van de steen in en hardt daar uit tot een vormvaste prop met de draadstang erin. Vinylester is de zwaardere keuze en geschikt voor buiten. Er is geen spreidkracht, dus de dunne binnenwanden van de steen worden niet uit elkaar gedrukt. Boor daarom ook zonder klop: met klop breek je juist die binnenwanden die straks de prop moeten vasthouden.",
+          "Het meest onderschatte deel is het schoonmaken. De mortel hecht aan wat hij raakt; is dat een laagje boorstof, dan hecht hij aan stof. Vakmensen werken met de reeks twee keer uitblazen, twee keer borstelen, twee keer uitblazen. Zet daarna een nieuwe mengtuit op de koker en spuit de eerste strengen weg tot de kleur egaal is: pas dan klopt de verhouding tussen hars en harder. Vul de huls vanaf de bodem terwijl je de tuit langzaam terugtrekt, draai de draadstang er met een draaiende beweging in en blijf eraf. Bij twintig graden is de mortel vaak na drie kwartier tot anderhalf uur belastbaar, bij vijf graden pas na uren, en onder de minimumtemperatuur van de fabrikant werkt hij helemaal niet."
+        ],
+        "lesFoto": "bevestigen-chemisch-anker"
+      },
+      {
+        "tussenkop": "Beton en cellenbeton: twee uitersten",
+        "alineas": [
+          "Gewapend beton vraagt slagkracht. Een klopboormachine maakt haar klop met twee getande schijven die langs elkaar ratelen; dat geeft veel trillingen maar weinig energie per slag. Een combihamer met SDS-plus-opname slaat pneumatisch, met grofweg twee tot drie joule per slag bij doe-het-zelfmodellen, en boort in beton zonder dat je hoeft te duwen. Een boor met een kruisvormige hardmetalen kop, de zogenoemde vier-snijder, blijft minder hangen op wapening. Raak je toch staal, herkenbaar aan een boor die stopt en metaalkleurige spaantjes, stop dan en verplaats het gat. Doorboren met een steenboor gaat niet, en een doorgezaagde wapeningsstaaf in een vloer of balk is een constructieprobleem.",
+          "Voor zware, demonteerbare bevestigingen in beton is de betonschroef populair geworden. Hij tapt in een gat van bijvoorbeeld zes millimeter zijn eigen draad, zonder plug, en heeft door het ontbreken van spreidkracht weinig last van randafstanden. Draai hem in met een slagschroevendraaier of ratel en stop zodra de kop aanligt: doordraaien breekt de getapte draad uit en dan houdt hij weinig meer. Cellenbeton is het tegenovergestelde. Het is zacht en vol luchtbellen, en een klopboor slaat het gat te groot. Boor zonder klop en een of twee millimeter kleiner dan de plugmaat voor, en kies een gasbetonplug met brede spiraal- of lamellenvleugels die het materiaal samendrukt in plaats van verbrijzelt."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Boven je hoofd telt alleen trek",
+        "alineas": [
+          "Een plafond is de zwaarste test voor een bevestiging, omdat alles er op pure trek hangt. Er is geen wand die meedraagt en geen wrijving langs het oppervlak; de plug moet het hele gewicht recht naar beneden tegenhouden, en bij een hanglamp die iemand een zetje geeft komt daar nog een slingerende kracht bij. In massief beton werkt een nylon plug van acht of tien millimeter met een plafondhaak, of een betonschroef. In een kanaalplaatvloer heeft een spreidplug geen gatwand om tegen te klemmen; daar hoort een plafondanker dat in het kanaal openklapt. Onder houten balken draai je een lange schroefhaak direct in het hout.",
+          "Bij een gipsplafond is de vraag niet welke plug, maar waar de balk of het regelwerk zit. Een tuimelplug in alleen het gips is goed voor een lichte lamp, niet voor een kroonluchter. Voor een verlaagd plafond zelf geldt nog een extra eis: de hangers horen in beton met metalen plafondankers vast te zitten, niet met nylon pluggen. Kunststof wordt bij brand zacht, en een plafond dat op dat moment naar beneden komt, blokkeert precies de vluchtroute. En hoe goed de bevestiging ook is: het gewicht van de lamp hangt aan de haak of beugel, nooit aan het snoer of de klemmen."
+        ]
+      },
+      {
+        "tussenkop": "Schroeven en machines die bij elkaar passen",
+        "alineas": [
+          "Een schroef is geen schroef. Een gipsplaatschroef is gehard en daardoor bros: hij houdt de plaat tegen het profiel, maar breekt als je er een plank zijdelings aan hangt. Een spaanplaatschroef is taaier en heeft grove draad voor hout en plaatmateriaal. Voor constructief werk, zoals een werkbankframe of het regelwerk van een vlonder, gebruik je een houtbouwschroef met deeldraad: het gladde stuk onder de kop laat het bovenste deel vrij draaien, zodat de draad de twee delen strak tegen elkaar trekt. Buiten gaat roestvast staal erin, A2 voor normaal werk en A4 bij zout, chloor of looizuurrijk hout zoals eiken, waar verzinkte schroeven zwarte vlekken geven.",
+          "De schroefkop bepaalt hoeveel koppel je kwijt kunt. Pozidriv en Phillips lijken op elkaar, maar hun flanken hebben andere hoeken. Een Phillips-bit in een Pozidriv-kop raakt maar op een paar punten en springt eruit; de kop draait dol. Torx heeft verticale flanken en weinig uitdrijfkracht, en is daarom de standaard bij lange schroeven. Voor die lange schroeven en betonschroeven is een slagschroevendraaier het juiste gereedschap: tangentiële slagen leveren veel koppel zonder dat de machine in je pols terugslaat. Voor meubels en kleine schroeven juist niet, want een slagschroevendraaier heeft geen slipkoppeling en draait koppen of hout kapot."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Boren zonder iets te raken",
+        "alineas": [
+          "Het grootste risico bij elk gat zit niet in de plug, maar in wat er al in de muur zit. Nette installaties volgen vaste zones: verticaal boven en onder schakelaars, wandcontactdozen en lichtpunten, en horizontaal in banden van zo'n vijftien tot dertig centimeter onder het plafond en boven de vloer. Wie niet in die zones boort, ontloopt de meeste leidingen. Maar oudere en zelf aangelegde installaties lopen soms schuin, en een leidingzoeker ziet een diep liggende buis of een leiding in een natte muur niet altijd. Scan daarom kruislings rond elk boorpunt en markeer gevonden leidingen over hun hele lengte.",
+          "Valt tijdens het boren een deel van het huis uit en staat de aardlekschakelaar omlaag, dan heb je vrijwel zeker een fase-ader geraakt: de stroom liep via boor of muur naar aarde en de aardlek zag dat verschil. Laat de groep dan uit, trek de boor niet met blote handen uit het gat en laat de leiding herstellen tot een bereikbare doos; een las in de muur is geen oplossing. Kleine dingen voorkomen de rest. Een stukje schilderstape op tegels of glad stucwerk houdt de boorpunt op zijn plaats. Begin zonder klop tot er een kuiltje is en zet pas dan de klop aan. En houd de machine in beide richtingen haaks, want een schuin gat maakt elke plug zwakker."
+        ],
+        "kader": {
+          "titel": "Vuistregels voor elke bevestiging",
+          "punten": [
+            "Reken de hefboom uit: uitstekende lasten geven trek op de bovenste bevestiging.",
+            "Boor eerst een proefgat en lees het boorstof.",
+            "Nylon plug: boor = plugmaat, schroef 2–3 mm dunner, gat 10 mm dieper dan de plug.",
+            "Plug in de steen, niet in de pleisterlaag.",
+            "Holle steen en gasbeton: boren zonder klop.",
+            "Chemisch anker: 2× blazen, 2× borstelen, 2× blazen; eerste strengen wegspuiten.",
+            "Zware last aan gipsplaat: naar de stijl of het achterhout.",
+            "Wapening geraakt: stoppen en verplaatsen."
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "klussen-02",
+    "kop": "Een wand die niet trilt, niet scheurt en niets doorlaat",
+    "intro": "Een metal stud wand is in een weekend gezet. Dat hij na een jaar nog strak is, zonder scheur boven de deur en zonder de buren te horen, hangt af van details die je niet ziet zodra de platen erop zitten.",
+    "hoofdstuk": "Wanden & plafonds",
+    "basis": [
+      "wanden-metal-stud",
+      "wanden-houten-regelwerk",
+      "wanden-voorzetwand",
+      "wanden-deur-systeemwand",
+      "wanden-naden-afwerken",
+      "wanden-plafond-verlagen",
+      "wanden-k-profiel-scheidingswand",
+      "wanden-k-profiel-hoog-zwaar",
+      "wanden-k-profiel-deur",
+      "wanden-k-profiel-badkamer",
+      "wanden-k-profiel-voorzet",
+      "wanden-k-plaat-standaard",
+      "wanden-k-plaat-vochtwerend",
+      "wanden-k-plaat-brandwerend",
+      "wanden-k-plaat-hard",
+      "wanden-k-naad-papier",
+      "wanden-k-naad-gaas",
+      "wanden-k-naad-poeder",
+      "wanden-k-naad-pasta",
+      "wanden-k-naad-buitenhoek",
+      "wanden-p-naad-scheur",
+      "wanden-p-schroefkop",
+      "wanden-p-geluidslek",
+      "wanden-p-naden-tekenen",
+      "wanden-p-deurhoek-scheur",
+      "wanden-p-badkamer-plaat"
+    ],
+    "fotos": [
+      {
+        "wiki": "Drywall",
+        "taal": "en",
+        "bijschrift": "Gipsplaat met het gereedschap om hem te verwerken"
+      },
+      {
+        "wiki": "Mineral wool",
+        "taal": "en",
+        "bijschrift": "Minerale wol: dempt de spouw tussen de twee plaatlagen"
+      },
+      {
+        "wiki": "Laser level",
+        "taal": "en",
+        "bijschrift": "Een kruislijnlaser zet vloer, wand en plafond in één keer uit"
+      },
+      {
+        "wiki": "Joint compound",
+        "taal": "en",
+        "bijschrift": "Naden en schroefgaten dichtgezet met voegmiddel"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Het begint vaak met een haarscheur. Schuin vanuit de bovenhoek van de nieuwe deur loopt een dun lijntje omhoog, precies op de plek waar je de plaatnaad hebt gelegd. Of je merkt dat de hele wand een fractie meegeeft als de deur dichtvalt. Of je hoort de tv van de buurkamer het duidelijkst rond het stopcontact. Het zijn klassieke fouten in een wand die verder netjes is gebouwd, en ze hebben allemaal dezelfde oorzaak: een detail dat tijdens het bouwen onbelangrijk leek, omdat het na het beplaten toch niet meer te zien is.",
+          "Wie al eens een wandje heeft gezet, kent de basis: U-profielen op vloer en plafond, C-profielen ertussen, platen erop, naden dicht. Dit artikel gaat over het waarom achter de maten, zodat je weet welke regels hard zijn en welke rekbaar. Want een systeemwand is een samenspel van stijfheid, beweging en massa. Hij moet stijf genoeg zijn om niet te trillen, beweeglijk genoeg om de vervorming van het gebouw te volgen zonder te scheuren, en zwaar en ontkoppeld genoeg om geluid tegen te houden. Elk van die drie eisen vraagt om andere keuzes."
+        ]
+      },
+      {
+        "tussenkop": "Staal of hout",
+        "alineas": [
+          "Hout voelt vertrouwd: je schroeft overal in, het is in kleine hoeveelheden goedkoop en je hebt geen speciaal gereedschap nodig. Maar hout werkt. Bouwhout met een vochtgehalte boven de achttien procent krimpt in een verwarmd huis, en een krimpende regel trekt schroeven los, wat je ziet als bultjes en ringen in de verf en scheurtjes op de naden. Gebruik daarom geschaafd, droog vurenhout, laat het een paar dagen in de ruimte zelf acclimatiseren en sorteer kromme regels eruit. In een badkamer of tegen een vochtige buitenmuur hoort hout helemaal niet: daar kan het uitzetten en schimmelen achter de tegels.",
+          "Verzinkt stalen profiel werkt niet en rot niet. Het is ook maatvast: een C-profiel van 50 mm is over drie meter even recht. Daarnaast is een dun C-profiel akoestisch gunstiger dan een houten regel, omdat het slapper is en trillingen van de ene plaat minder sterk naar de andere doorgeeft. Het nadeel is dat je in 0,6 mm staal weinig kunt hangen. Daarom bestaat de wand uit staal, maar plan je hout in waar je later iets wilt bevestigen: een strook multiplex van 18 mm of een regel tussen de profielen op de hoogte van keukenkasten, beugels of een wandcloset. Maak er een foto van met een rolmaat in beeld voordat de platen erop gaan."
+        ]
+      },
+      {
+        "tussenkop": "Het frame: tien millimeter speling",
+        "alineas": [
+          "Zet de wand uit met een kruislijnlaser op vloer, plafond en aansluitende muren tegelijk. Reken de totale dikte mee: een C50 met aan beide zijden twee platen van 12,5 mm wordt 100 mm. Plak onder elk U-profiel en achter de buitenste C-profielen afdichtband van vilt of schuim. Dat band vult oneffenheden en ontkoppelt de wand akoestisch van vloer en plafond; zonder band lekt geluid via de kieren eronder. Bevestig de U-profielen ongeveer om de 600 mm, met de uiteinden binnen 100 mm van het eind, met slagpluggen of nylon pluggen van zes millimeter.",
+          "Knip de C-profielen ongeveer tien millimeter korter dan de vrije hoogte en draai ze in de U-profielen op hun plek, op 600 mm hart-op-hart, alle met de open kant dezelfde kant op. Die tien millimeter is geen slordigheid maar een functie. Een betonvloer boven je buigt door onder belasting en kruipt in de loop van jaren nog wat na. Staat het profiel klem, dan drukt die doorbuiging de wand in elkaar en gaat hij bollen of scheuren. Om dezelfde reden schroef je de C-profielen niet vast aan het bovenste U-profiel: ze moeten daarin kunnen schuiven. Zijn de profielen dezelfde kant op gezet, dan beplaat je bovendien steeds in dezelfde richting, waardoor de platen elkaar niet verdraaien."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Beplaten met verspringende naden",
+        "alineas": [
+          "Gebruik platen met afgeschuinde langskanten, aangeduid met AK, zodat er een ondiepe goot ontstaat waarin het naadband verzinkt. Zet ze staand, ongeveer tien millimeter vrij van de vloer en strak tegen het plafond; de kier onderaan kit je later af. Een plaat die op de vloer staat, trekt vocht op en wordt omhooggedrukt als de vloer werkt. Bij enkele beplating schroef je om de 250 mm, ongeveer tien millimeter uit de plaatrand. Bij dubbele beplating zet je de eerste laag alleen vast om de 750 mm en de tweede om de 250 mm, met langere schroeven die door beide lagen in het profiel grijpen.",
+          "Voor gipsplaat op metal stud gebruik je snelbouwschroeven met fijne draad, die zich in dun staal tappen; voor houten regels de variant met grove draad. Een schroefmachine met diepte-aanslag zet de kop net onder het karton zonder het te breken. Dat karton is wat de plaat sterk maakt. Is het rond de schroef gebroken, dan zit de schroef alleen nog in zacht gips en beweegt de plaat. Laat ten slotte de naden nooit op elkaar vallen: die van de tweede zijde verspringen een halve plaat ten opzichte van de eerste, en bij dubbele beplating verspringen ook laag één en laag twee. Anders ontstaat er een doorlopende zwakke lijn die scheurt en geluid doorlaat."
+        ]
+      },
+      {
+        "tussenkop": "Geluid: massa, veer, massa",
+        "alineas": [
+          "Een scheidingswand isoleert volgens het principe massa-veer-massa. De platen aan weerszijden zijn de massa's; de spouw ertussen is de veer. Geluid zet de eerste plaat in trilling, die trilling moet door de spouw naar de tweede plaat, en hoe zwaarder de platen en hoe slapper de koppeling, hoe minder er overblijft. Daarom werkt een dubbele beplating van 2 x 12,5 mm per zijde zoveel beter dan een enkele: twee keer zoveel massa, en de naden van de lagen dekken elkaar af. Minerale wol in de spouw dempt de resonantie van de luchtlaag. Zet de wol klemmend tussen de profielen, zonder kieren, voordat de tweede zijde dicht gaat.",
+          "Het zwakste punt bepaalt het resultaat, en dat is zelden de wand zelf. Twee inbouwdozen rug-aan-rug in hetzelfde vak vormen samen bijna een gat door de wand. Zet ze in verschillende vakken of gebruik akoestische dozen met een achterkap. Ook de aansluitingen lekken: een kier onder het U-profiel, een open naad tegen het plafond of een spouw die doorloopt boven een verlaagd plafond laat geluid om de wand heen lopen. Dat heet flankerende overdracht en het verklaart waarom een technisch perfecte wand in de praktijk soms tegenvalt. Kit daarom alle aansluitingen met een akoestische of acrylaatkit af."
+        ],
+        "foto": 1,
+        "citaat": "Het zwakste punt bepaalt het resultaat, en dat is zelden de wand zelf."
+      },
+      {
+        "tussenkop": "De deur is de vijand van je wand",
+        "alineas": [
+          "Een deur die dichtslaat geeft een klap op het kozijn, en dat kozijn hangt aan de profielen ernaast. Een gewoon C-profiel van 0,6 mm buigt daarbij telkens een fractie door. Je voelt dat als een wand die meetrilt, en de herhaalde beweging zoekt de zwakste plek in de beplating: de naad. Naast een deuropening hoort daarom een verstevigd UA-profiel van ongeveer twee millimeter dik, of een C-profiel met een strak passende houten regel erin. Beide lopen van vloer tot plafond en worden met hoekverbinders stevig aan vloer en plafond vastgezet, zodat ze niet alleen in de U-profielen staan.",
+          "Boven de opening komt een latei: een U-profiel van ongeveer 300 mm langer dan de opening, met ingeknipte en omgebogen flenzen zodat je hem over de deurstijlen kunt schroeven. Daarboven korte C-profielen op 600 mm. Dan het belangrijkste: de plaatindeling. Een naad in het verlengde van de deurstijl scheurt gegarandeerd vanuit de hoek, omdat daar de spanning samenkomt. Zaag een plaat L-vormig uit zodat hij in één stuk over de bovenhoek loopt, of laat de naad minimaal vijftien tot dertig centimeter naast de stijl op een tussenprofiel vallen. Het kost een extra plaat, maar het voorkomt een scheur die elk jaar terugkomt."
+        ],
+        "lesFoto": "wanden-deur-systeemwand"
+      },
+      {
+        "tussenkop": "Installaties in de spouw",
+        "alineas": [
+          "Het mooie van een holle wand is dat leidingen er onzichtbaar in verdwijnen zonder te frezen. De C-profielen hebben H-vormige uitsparingen in het lijf, en daar voer je installatiebuis of kabel doorheen. Doe dat nadat de eerste zijde beplaat is en voordat de wol erin gaat: dan zie je nog waar alles loopt. Leg de buizen net als in een stenen muur recht verticaal naar de dozen en houd de gangbare leidingzones aan. Wie later een schilderij ophangt, gaat ervan uit dat er niets schuin door de wand loopt. Bescherm buis die door een scherpe profielrand gaat met een doorvoertule, zodat trillingen de mantel niet doorschuren.",
+          "Plan ook de dozen voordat de tweede zijde dicht gaat. Een hollewanddoos hoort niet direct naast een profiel, want dan kunnen de klauwen niet achter de plaat grijpen en zaag je met de gatzaag van 68 mm in het staal. Houd minimaal enkele centimeters afstand. Moet een doos juist op een vaste plek komen, verschuif dan het tussenprofiel of zet er een extra profiel naast. Bij een wand met brand- of geluidseisen zijn er speciale dozen die de opening afsluiten. En leg bij een wand die elektra krijgt meteen een trekdraad of lege buis naar een plek waar je later misschien nog iets wilt; achteraf een draad door een gesloten wand vissen is een uur werk voor iets wat nu een minuut kost."
+        ]
+      },
+      {
+        "tussenkop": "Welke plaat waar",
+        "alineas": [
+          "De standaard gipsplaat is wit of grijs en goed voor droge ruimtes. Vochtwerende plaat, meestal herkenbaar aan groen karton en aangeduid als type H2, heeft een geïmpregneerde kern die minder vocht opneemt. Maar minder is niet niets: de plaat is niet waterdicht, en tegelvoegen zijn poreus. Wie in een douche groene plaat betegelt zonder een waterdichtingssysteem met hoekband eronder, vindt na een jaar zwarte voegen en een zachte plaat. Brandwerende plaat, vaak met rood karton en aangeduid als type DF, bevat glasvezels die de kern bij brand langer bijeenhouden. De brandwerendheid hoort wel bij het complete, geteste systeem van profielen, lagen en kit, niet bij de plaat alleen.",
+          "Voor gangen en kinderkamers is een harde, verdichte gipsplaat of gipsvezelplaat het overwegen waard. Het oppervlak deukt minder en lichte lasten kun je er volgens opgave van de fabrikant direct in schroeven. Hij is wel zwaarder, duurder en lastiger te snijden. Bij tegelwerk vraagt de fabrikant vaak een kleinere profielafstand van 400 mm of dubbele beplating, omdat tegels een stijve ondergrond nodig hebben: een plaat die tussen twee profielen een fractie doorbuigt, laat de tegellijm los of de voegen scheuren. Kijk bij een hoge wand boven ongeveer 3,5 meter altijd in de systeemtabel; daar kom je bij C75 of C100 terecht."
+        ]
+      },
+      {
+        "tussenkop": "Voorzetwand en plafond",
+        "alineas": [
+          "Een scheve of slechte muur strak maken kan op twee manieren. Heb je ruimte nodig voor leidingen, isolatie of een inbouwreservoir, dan bouw je een vrijstaande, enkelzijdige metal stud wand voor de muur. Gaat het alleen om een nieuw vlak, dan schroef je directbevestigers op de muur, ongeveer om de 1200 mm in de hoogte, en klem je daarin montageprofielen van 60 bij 27 mm. Zoek eerst met de laser het meest uitstekende punt van de oude muur; het nieuwe vlak ligt minimaal de profieldikte plus wat speling daarvoor. Bij een geïsoleerde buitenmuur komt aan de warme zijde een dampremmer zonder gaten, met overlappende en getapete naden, anders condenseert er vocht achter de plaat.",
+          "Een verlaagd plafond volgt dezelfde logica, maar hangt boven je hoofd. Randprofielen langs de wanden, hangers aan het oude plafond in rijen van ongeveer een meter, daaronder draagprofielen en haaks daarop montageprofielen op ongeveer 500 mm bij plaat van 12,5 mm. De platen gaan met de lange kant dwars op de montageprofielen. Leg je ze in de lengterichting, dan zakt de plaat op termijn tussen de profielen door en krijg je een golvend plafond. Gebruik in beton metalen plafondankers, en huur een plaatlift: platen boven je hoofd vastschroeven terwijl je ze met je kruin omhoog duwt, gaat op een gegeven moment mis."
+        ]
+      },
+      {
+        "tussenkop": "Naden: van Q2 naar Q4",
+        "alineas": [
+          "Hoe glad een wand moet worden, is in de vakwereld vastgelegd in afwerkingsniveaus. Q1 is alleen vullen, genoeg voor tegelwerk. Q2 is de standaard: naden met band en voegmiddel vlak afgewerkt, geschikt voor behang of structuurverf. Q3 betekent extra breed uitgezette naden en het dichtzetten van de poriën van het karton, nodig voor gladde muurverf. Q4 is een volledig over het vlak geplamuurde wand, voor glanzende verf of waar strijklicht van een groot raam langs de wand valt. Kies vooraf, want het verschil tussen Q2 en Q4 is een paar extra werkdagen en vooral veel schuurwerk.",
+          "De werkvolgorde is voor elk niveau gelijk. Eerste laag: gipsgebonden voegmiddel uit poeder, dat chemisch hardt en nauwelijks krimpt, met papieren naadband nat erin gedrukt. Papier is zeer treksterk en vormt één geheel met het voegmiddel. Zelfklevend gaasband is sneller, maar combineer het altijd met gipsgebonden voegmiddel en nooit met een drogende pasta; die combinatie scheurt. Na droging zet je de naad breder uit, tot twintig à vijfentwintig centimeter, en kopse naden zonder afschuining nog breder, tot veertig. Dan een dunne afwerklaag kant-en-klare pasta, schuren met P150 tot P180 onder strijklicht zonder in het karton te komen, en tot slot de hele wand voorstrijken. Plaat en voegmiddel zuigen verschillend; zonder voorstrijk tekenen de naden als glansbanen door de verf.",
+          "Hoeken vragen elk hun eigen aanpak. Een buitenhoek krijgt klappen van stofzuigers en schouders, en alleen voegmiddel brokkelt daar bij het eerste stootje af. Druk daarom een hoekprofiel van metaal of kunststof in een natte laag voegmiddel en werk het daarna in twee lagen breed uit; nieten of tackeren op het karton geeft een bolle, zwakke hoek. Een binnenhoek doe je met papieren naadband dat je langs de middenvouw vouwt en met een binnenhoekspaan inbedt. Gaasband is in een binnenhoek lastig te vouwen. Werk bij binnenhoeken één zijde tegelijk af en laat die drogen voor je de andere doet, anders trek je met de spaan de verse kant weer weg."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Maten om te onthouden",
+          "punten": [
+            "C-profiel ca. 10 mm korter dan de vrije hoogte; niet vastschroeven aan het bovenste U-profiel.",
+            "Profielen 600 mm h.o.h.; bij tegels of zware lasten vaak 400 mm.",
+            "Schroefafstand enkele beplating 250 mm; dubbel: eerste laag 750, tweede 250 mm.",
+            "Plaat ca. 10 mm vrij van de vloer, onderkant afkitten.",
+            "Naden verspringen: per zijde en per laag een halve plaat.",
+            "Deurstijl: UA-profiel of hout in het C-profiel; nooit een naad in het verlengde van de stijl.",
+            "Plafond: platen dwars op de montageprofielen, profielen ca. 500 mm bij 12,5 mm plaat."
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "klussen-03",
+    "kop": "Strijklicht liegt niet: zo maak je een muur die het verdraagt",
+    "intro": "Een muur die er overdag prima uitziet, kan 's avonds onder een wandlamp vol schaduwen, banen en kuiltjes zitten. Vlak plamuren, de ondergrond lezen en sauzen zonder aanzetten is geen kwestie van handigheid, maar van materiaalkennis en volgorde.",
+    "hoofdstuk": "Plamuren, stucen & sauzen",
+    "basis": [
+      "afwerken-gaten-vullen",
+      "afwerken-scheur-herstellen",
+      "afwerken-wand-plamuren",
+      "afwerken-voorstrijken",
+      "afwerken-sauzen-zonder-strepen",
+      "afwerken-plafond-sauzen",
+      "afwerken-k-vul-licht",
+      "afwerken-k-vul-gips",
+      "afwerken-k-vul-vlak",
+      "afwerken-k-vul-kit",
+      "afwerken-k-voor-fixeer",
+      "afwerken-k-voor-zuigend",
+      "afwerken-k-voor-hecht",
+      "afwerken-k-voor-isolerend",
+      "afwerken-k-roller-glad",
+      "afwerken-k-roller-structuur",
+      "afwerken-k-verf-badkamer",
+      "afwerken-k-verf-schrobvast",
+      "afwerken-p-rolbanen",
+      "afwerken-p-bladderen",
+      "afwerken-p-inzakken",
+      "afwerken-p-scheur-terug",
+      "afwerken-p-vlekken-doorkomen",
+      "afwerken-p-tape-rand"
+    ],
+    "fotos": [
+      {
+        "wiki": "Plasterwork",
+        "taal": "en",
+        "bijschrift": "Stukadoorsgereedschap: spanen, messen en een kalkbord"
+      },
+      {
+        "wiki": "Putty knife",
+        "taal": "en",
+        "bijschrift": "Plamuurmessen: smal om te vullen, breed om vlak te zetten"
+      },
+      {
+        "wiki": "Gypsum",
+        "taal": "en",
+        "bijschrift": "Gips: het mineraal waaruit plamuur en stucmortel zijn gemaakt"
+      },
+      {
+        "wiki": "Paint roller",
+        "taal": "en",
+        "bijschrift": "Muurroller: de poollengte bepaalt hoeveel verf hij meeneemt"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Zet 's avonds een bouwlamp op de vloer, schuin omhoog langs een pas geverfde muur, en kijk. Elk gevuld pluggat dat een fractie is ingezakt werpt een schaduw. Elke rolbaan tekent als een streep. De naad tussen twee platen verschijnt als een flauwe rug. Overdag, met licht dat recht op de muur valt, zag je er niets van. Dat licht dat scherend langs een oppervlak valt, heet strijklicht, en het is de strengste keurmeester die er bestaat. Een wand naast een groot raam of onder een wandlamp krijgt het elke dag.",
+          "De goede vakman gebruikt strijklicht daarom niet als eindkeuring, maar als gereedschap tijdens het werk. Hij zet een lamp langs de wand terwijl hij plamuurt, markeert elke schaduw met potlood en vult bij voordat hij gaat schuren. Wat je in dit stadium ziet, kost een minuut. Wat je na twee lagen muurverf ziet, kost een dag. Dit artikel loopt de keten door: de ondergrond beoordelen, de juiste vuller kiezen, vlak zetten, voorstrijken en sauzen. Bij elke stap geldt hetzelfde: de fout die je overslaat, komt in de volgende laag terug, meestal vergroot."
+        ]
+      },
+      {
+        "tussenkop": "Eerst de muur lezen",
+        "alineas": [
+          "Drie eenvoudige proeven vertellen je wat je voor je hebt. Wrijf met een donkere doek of je vlakke hand over de muur: komt er wit poeder af, dan krijt de oude laag en is de ondergrond poederend. Spat wat water tegen de muur: trekt het meteen in en wordt de plek donker, dan zuigt de muur sterk; blijft het als druppels staan, dan is hij gesloten, bijvoorbeeld door een oude glanzende verf. En plak een stuk tape stevig op de oude verf en trek het er met een ruk af: komt er verf mee, dan zit die laag los en moet hij eerst weg.",
+          "Die proeven bepalen alles wat volgt. Op een poederende muur hecht nieuwe verf niet aan de muur, maar aan het poeder. Als de nieuwe laag bij het drogen krimpt, trekt hij dat poeder mee en bladdert hij in plaatjes af, met wit stof op de achterkant. Op een sterk zuigende muur trekt de ondergrond het water zo snel uit plamuur of verf dat die niet goed kan uitharden of uitvloeien. Vakmensen noemen dat verbranden. En op een gesloten, gladde laag vindt een watergedragen verf geen poriën om zich in vast te grijpen. Elke situatie vraagt dus om een ander middel."
+        ]
+      },
+      {
+        "tussenkop": "Drogen of binden",
+        "alineas": [
+          "Vulmiddelen vallen in twee families uiteen, en het verschil verklaart waarom een gat de ene keer netjes blijft en de andere keer inzakt. Kant-en-klare vullers uit de pot zijn drogend: ze bevatten water, en als dat verdampt blijft het vaste materiaal over. Wat verdampt, neemt volume mee. Hoe dikker de laag, hoe meer krimp, en dus zakt een diep gat dat je in één keer hebt gevuld na een dag in tot een kuiltje. Lichtgewicht vullers zijn een uitzondering: ze bevatten holle microbolletjes, krimpen nauwelijks en kun je in kleine gaten in één keer overvullen. Ze zijn wel zacht en daarom ongeschikt voor grote vlakken of plekken die klappen krijgen.",
+          "Gipsgebonden vullers uit poeder zijn bindend. Je mengt ze met water en het gips kristalliseert chemisch, waarbij het water grotendeels wordt vastgelegd in plaats van te verdampen. Ze krimpen daardoor weinig en worden hard. Dat maakt ze geschikt voor diepe gaten, uitgebroken hoeken en sleuven van leidingen, in lagen van tien tot twintig millimeter. Hun verwerkingstijd is beperkt, vaak een half uur tot een uur: wat opstijft, gooi je weg en meng je niet opnieuw aan, want aangelengd gips dat al aan het binden was wordt nooit meer sterk. Voor houtwerk dat gelakt wordt gebruik je geen van beide, maar een 2K-plamuur die niet krimpt en geen vocht opneemt."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Het onzichtbare pluggat",
+        "alineas": [
+          "Het kleinste herstelwerk is ook het meest verraderlijke. Een oude plug die een millimeter uitsteekt, krijg je nooit vlak weggewerkt. Draai er een schroef half in en trek hem er met een tang uit, of druk hem dieper dan het oppervlak weg. Krab losse randjes weg, stof het gat uit en maak het bij een sterk zuigende muur licht vochtig. Vul een klein gat in één keer met lichtgewicht vuller en trek het mes kruislings over het gat, zodat het licht overvuld blijft. Dieper dan ongeveer een centimeter vul je eerst met gipsgebonden vuller, laat je dat opstijven en zet je daarna de bovenlaag.",
+          "Dan het deel dat bijna iedereen overslaat. Na droging schuur je de plek vlak met P120 en werk je hem na met P180, je stoft af en je strijkt het plekje voor. Wie alleen de vuller overschildert, ziet later een matte of juist glanzende vlek: de vuller zuigt anders dan de oude verf eromheen, waardoor de nieuwe verf daar anders droogt. Dat effect heet flashing, en het is dezelfde oorzaak als bij gipsplaatnaden die door de verf tekenen. Gebruik nooit kit om een gat te vullen. Kit is niet schuurbaar, blijft zacht en is na het verven vaak nog als een glanzend plekje te zien."
+        ]
+      },
+      {
+        "tussenkop": "Scheuren: dood of levend",
+        "alineas": [
+          "Voor je een scheur vult, moet je weten of hij dood is of werkt. Een dode scheur is ooit ontstaan, bijvoorbeeld door krimp van nieuw stucwerk, en beweegt niet meer. Die zet je met de punt van een driehoekschraper V-vormig open tot drie à vijf millimeter, stoft hem uit, strijkt hem voor zodat het vulmiddel niet verbrandt en vult hem met gipsgebonden vuller. Het openzetten is essentieel: een haarscheur die je alleen overstrijkt, krijgt een velletje vuller dat nergens in verankerd zit en bij de eerste beweging weer openbreekt. Is de scheur al eens teruggekomen, bed dan glasvezelgaas of renovatievlies in een dunne laag plamuur en zet breed uit, zodat de spanning over een groter vlak wordt verdeeld.",
+          "Een werkende scheur zit bijna altijd tussen twee bouwdelen die los van elkaar bewegen: wand en plafond, wand en kozijn, oud en nieuw metselwerk. Temperatuur, vocht en belasting laten die delen een fractie ten opzichte van elkaar verschuiven. Geen enkel hard vulmiddel overleeft dat; hij komt elk jaar terug. Daar hoort overschilderbare acrylaatkit, die elastisch genoeg is om mee te bewegen. Krab de oude vulling uit, spuit de kit erin en strijk hem glad met een natte vinger of kitspaan. Siliconenkit is geen alternatief, want daar hecht geen verf op. En let op: een diagonale scheur vanuit een deurhoek die steeds breder wordt, kan een constructief signaal zijn. Laat die eerst beoordelen."
+        ],
+        "citaat": "De fout die je overslaat, komt in de volgende laag terug, meestal vergroot."
+      },
+      {
+        "tussenkop": "Een hele wand vlak zetten",
+        "alineas": [
+          "Een wand vol oude pluggaten, deukjes en een golvend oppervlak maak je niet vlak door elk gaatje apart te vullen. Dan krijg je een wand vol kleine eilandjes met een andere structuur. Je plamuurt de hele wand dun over met een fijne renovatie- of vlakplamuur, in lagen van nul tot drie millimeter. Het gereedschap bepaalt het resultaat: met een mes van tien centimeter volg je elke golf van de muur, met een spaan van veertig tot zestig centimeter overbrug je die. De brede spaan rust op de hoge punten en laat plamuur achter in de lage. Je bouwt dus geen dikte op, je vult alleen de kuilen.",
+          "Zet de eerste laag in één richting, bijvoorbeeld verticaal, en trek hem af met de spaan bijna plat tegen de wand. Laat drogen. De tweede laag gaat haaks daarop, horizontaal. Door kruislings te werken vallen de ribbels en randjes van de eerste laag precies in de tweede weg. Controleer daarna met strijklicht, markeer schaduwen en vul bij. Pas dan schuur je: eerst met P120 om richels weg te nemen, dan met P180 om de krassen daarvan te verwijderen. Gebruik een schuurlat of een machine met een groot, hard schuurvlak, nooit een spons of losse hand: die volgt de kuilen en maakt ze dieper. Draag een FFP2-masker en zuig af, want plamuurstof is fijn en komt overal."
+        ],
+        "lesFoto": "afwerken-wand-plamuren",
+        "foto": 1
+      },
+      {
+        "tussenkop": "En stucen?",
+        "alineas": [
+          "Waar plamuren ophoudt, begint stucen. Een muur die centimeters uit het lood staat of waarvan de oude pleisterlaag hol klinkt, maak je niet met een paar millimeter plamuur goed. Gipspleister wordt in een laag van vaak vijf tot tien millimeter opgezet, met een rei, een lange rechte lat, vlak afgetrokken, en na het opstijven met de spaan gesloten en glad gezet. Het lastige zit in de timing: te vroeg spanen trekt de pleister open, te laat en hij is al te hard om nog glad te krijgen. Dat is precies waarom stukadoors een vak apart zijn, en waarom een hobbyist met een kleine wand en een emmer gipspleister vaak een golvend resultaat krijgt.",
+          "Voor de ervaren klusser is een tussenweg vaak verstandiger: losse delen eruit, gaten en sleuven vullen met gipsgebonden vuller, daarna de hele wand met vlakplamuur in twee kruislingse lagen dichtzetten. Dat haalt bijna hetzelfde resultaat met materiaal dat langer verwerkbaar is. Wel geldt voor nieuw stucwerk een harde regel: laat het volledig drogen voor je het voorstrijkt en sausst. Dat duurt bij een normale laag vaak enkele weken; je ziet het aan een egale, lichte kleur zonder donkere plekken. Verf je eerder, dan sluit je vocht in en krijg je vlekken, afbladderen of schimmel."
+        ]
+      },
+      {
+        "tussenkop": "Voorstrijken: het middel bij de ondergrond",
+        "alineas": [
+          "Voorstrijken is de stap die het vaakst wordt overgeslagen en die het meest bepaalt. Het middel regelt twee dingen: de zuiging en de hechting. Op nieuw stucwerk, gipsplaat of veel plamuurwerk gebruik je een voorstrijkmiddel dat de zuiging gelijkmaakt, zodat de sauslaag overal even snel droogt. Zonder voorstrijk droogt de verf op een plamuurplek anders dan ernaast, en zie je die plek als een matte of glanzende vlek door de verf heen. Op een poederende muur gebruik je fixeer, dat in het poeder dringt en het tot een stevige ondergrond bindt. Gebruik fixeer niet als voorstrijk voor alles: op een niet-zuigende muur vormt het een glad filmpje waar de verf slecht op hecht.",
+          "Op een gladde, gesloten ondergrond zoals oude hoogglanslak of tegels schuur je eerst licht op met P180 tot P240, ontvet je en zet je een hechtprimer. En waterkringen, roet, nicotine of viltstift isoleer je met een blokkerende primer. Doe je dat niet, dan lossen de vlekstoffen op in de watergedragen muurverf en migreren ze er bij het drogen weer doorheen, hoeveel lagen je ook zet. Los bij een waterkring natuurlijk eerst de lekkage op. Breng elk middel verzadigend aan, nat in nat, zonder plassen, en houd de droogtijd van de fabrikant aan, vaak vier tot twaalf uur."
+        ]
+      },
+      {
+        "tussenkop": "Sauzen zonder aanzetten",
+        "alineas": [
+          "Strepen en banen in muurverf ontstaan bijna altijd op dezelfde manier: je rolt over een rand die al aan het drogen is. Op die overlap ligt dan een dubbele laag met een andere glans, en strijklicht vindt hem feilloos. Alles in de werkwijze is erop gericht dat te voorkomen. Werk bij vijftien tot vijfentwintig graden, zonder tocht en zonder zon op de muur, want warmte en luchtstroming verkorten de open tijd. Zet de randen met de kwast pas vlak voordat je dat deel van de wand rolt, niet de hele kamer vooraf. Gebruik een polyamide roller van achttien tot vijfentwintig centimeter met een pool van negen tot dertien millimeter op een gladde muur.",
+          "Vul de roller tot hij verzadigd is maar niet druipt, zet een baan van ongeveer een meter breed op in een W-beweging, verdeel kruislings zonder bij te vullen en rol het vak tot slot zonder nieuwe verf in één richting af, van boven naar beneden, met weinig druk. Zet het volgende vak direct ernaast en rol terug in de natte rand. Stop nooit midden in een wand en ga nooit na een paar minuten terug om een plekje bij te werken. Een plafond rol je van het raam af in stroken, en het laatste uitrollen gebeurt in de richting van het invallende licht. Dan vallen de ribbeltjes van de roller in de lichtrichting en werpen ze geen schaduw.",
+          "De tweede laag is geen herhaling voor de zekerheid, maar een vast onderdeel. Eén laag muurverf dekt zelden volkomen egaal, zeker niet op een voorgestreken ondergrond met verschillen in kleur. Wacht de overschilderbaarheid af, vaak twee tot vier uur, en werk precies op dezelfde manier: nat in nat, van hoek tot hoek, uitrollen in dezelfde richting. Was een nieuwe roller vooraf uit of plak hem met tape af om losse pluisjes te verwijderen, anders zitten die straks in je muur. Een plafond doe je altijd in één sessie: een grens tussen gisteren en vandaag blijft zichtbaar, hoe zorgvuldig je ook aansluit."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Vingertest, watertest, tapetest: poederend, zuigend of los?",
+            "Drogende vuller krimpt; diep gat in lagen of met gipsgebonden vuller.",
+            "Werkende scheur: acrylaatkit. Dode scheur: openzetten en vullen.",
+            "Vlakplamuur: brede spaan, dun, twee lagen kruislings, schuren P120 en P180 met een lat.",
+            "Altijd voorstrijken na plamuren; vlekken isoleren.",
+            "Sauzen: nat in nat, uitrollen in één richting, plafond in de lichtrichting.",
+            "Schrobvast nodig? Kies EN 13300 klasse 1 of 2."
+          ]
+        }
+      },
+      {
+        "tussenkop": "Verf en tape",
+        "alineas": [
+          "Niet elke muurverf hoort op elke muur. In een gang, keuken of kinderkamer wordt de muur aangeraakt en afgenomen. Kies daar een verf met een hoge schrobvastheid volgens de Europese norm EN 13300: klasse 1 is het meest schrobvast, klasse 5 het minst. Een verf uit klasse 3 tot 5 wrijf je bij het afnemen van een vlek kapot of je krijgt er een glansplek. In de badkamer hoort een vochtbestendige, schimmelwerende verf, meestal zijdemat, en vooral goede ventilatie. Op een structuurwand gebruik je een roller met lange pool van achttien tot vijfentwintig millimeter, anders blijven er onbedekte puntjes in de diepte.",
+          "Tot slot de afplaktape, die op het laatste moment nog een rafelige rand kan veroorzaken. Laat je de tape zitten tot de verf volledig droog is, dan vormt de verf een doorlopend vlies over de rand van de tape heen en trek je dat vlies bij het verwijderen mee. Haal de tape weg als de laatste laag nog net nat is, onder een hoek van ongeveer vijfenveertig graden van het werk af. Ben je te laat, snijd de rand dan eerst met een scherp mes los. Het is een klein detail, maar het is het laatste dat je ziet als je een kamer binnenloopt."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "klussen-04",
+    "kop": "Spiegelglans op een deur: het geheim zit onder de laatste laag",
+    "intro": "Je hebt deuren gelakt die er netjes uitzagen, tot het licht erover viel. Wie een deur wil waarin een tl-buis als een strakke lijn spiegelt, moet een keten van stappen beheersen: ondergrond, voorlak, schuren, stof, gereedschap en verdunning. Eén zwakke schakel en de glans vergroot hem.",
+    "hoofdstuk": "Lakken tot spiegelglans",
+    "basis": [
+      "lakken-ondergrond-voorbereiden",
+      "lakken-stofvrij-werken",
+      "lakken-paneeldeur-kwast",
+      "lakken-vlakke-deur-roller",
+      "lakken-lagenopbouw-tussenschuren",
+      "lakken-spuiten-hvlp",
+      "lakken-mirror-finish",
+      "lakken-k-lak-acryl",
+      "lakken-k-lak-alkyd",
+      "lakken-k-lak-grond",
+      "lakken-k-lak-voorlak",
+      "lakken-k-lak-2k",
+      "lakken-k-kwast-synthetisch",
+      "lakken-k-kwast-varkenshaar",
+      "lakken-k-roller-vlak",
+      "lakken-k-kwast-profiel",
+      "lakken-k-korrel-kaal",
+      "lakken-k-korrel-oud",
+      "lakken-k-korrel-tussen",
+      "lakken-k-korrel-mirror",
+      "lakken-p-kwaststrepen",
+      "lakken-p-lopers",
+      "lakken-p-stof",
+      "lakken-p-kleverig",
+      "lakken-p-rimpelen",
+      "lakken-p-hechting",
+      "lakken-p-sinaasappelhuid",
+      "lakken-p-vergeling"
+    ],
+    "fotos": [
+      {
+        "wiki": "Piano",
+        "taal": "en",
+        "bijschrift": "Pianolak: de maatstaf voor een spiegelend lakoppervlak"
+      },
+      {
+        "wiki": "Sandpaper",
+        "taal": "en",
+        "bijschrift": "Schuurpapier in oplopende korrels: elke stap wist de vorige"
+      },
+      {
+        "wiki": "Paintbrush",
+        "taal": "en",
+        "bijschrift": "Lakkwasten: synthetisch voor acryl, varkenshaar of mix voor alkyd"
+      },
+      {
+        "wiki": "Spray painting",
+        "taal": "en",
+        "bijschrift": "Spuiten in een cabine: gelijke laagdikte zonder kwast- of rolspoor"
+      },
+      {
+        "wiki": "Random orbital sander",
+        "taal": "en",
+        "bijschrift": "Excentrische schuurmachine voor het grove vlakschuurwerk"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Leg een gelakte deur plat neer en kijk schuin naar het spiegelbeeld van een tl-buis of een raamkozijn. Op een echt strakke deur zie je een scherpe, rechte lijn. Op de meeste deuren zie je iets anders: een lijn die golft, die korrelig is als een sinaasappelschil, die bij elk stofje een knikje maakt en die over de hele lengte dunne ribbeltjes van de kwast laat zien. Maar spiegelglans is genadeloos, en wie hem wil, moet begrijpen waarom.",
+          "Een mat oppervlak verstrooit licht in alle richtingen. Daardoor zie je kleine hoogteverschillen nauwelijks: ze worden weggemoffeld in de diffuse reflectie. Een hoogglans oppervlak weerkaatst het licht als een spiegel, onder dezelfde hoek als waarmee het invalt. Elke golving van een paar honderdste millimeter buigt dat spiegelbeeld af en wordt daardoor direct zichtbaar. Dat is het paradoxale van hoogglans: hoe mooier het materiaal, hoe meer het elke fout in de ondergrond uitvergroot. Een spiegelende deur maak je daarom niet met de laatste laag lak. Je maakt hem met alles wat daaronder zit."
+        ],
+        "citaat": "Een spiegelende deur maak je niet met de laatste laag lak, maar met alles wat daaronder zit."
+      },
+      {
+        "tussenkop": "De ondergrond: ontvetten vóór schuren",
+        "alineas": [
+          "Een deur heeft rond de kruk jaren aan handvet en schoonmaakmiddel opgenomen. Was hem daarom eerst af met een ontvetter, of met ammoniak verdund met water in een verhouding van ongeveer één op tien, spoel na met schoon water en laat drogen. De volgorde is belangrijk: ontvet je pas na het schuren, dan heb je het vet al met het schuurpapier in de krassen gewreven. Vet dat in de ondergrond achterblijft, geeft kraters in de nieuwe laklaag, de zogenoemde vissenogen: de natte lak trekt zich terug van een plek waar hij niet kan bevochtigen, en laat een rond putje achter.",
+          "Test daarna of de oude lak nog goed vastzit. Maak met een scherp mes een klein ruitjespatroon in de lak, plak er tape op en trek die met een ruk weg. Komen er blokjes mee, dan moet de oude lak eraf; een nieuwe laag is nooit sterker dan de laag waar hij op staat. Weet je niet of er alkyd of acryl op zit, wrijf dan met een doekje met wat spiritus over een onopvallende plek. Wordt de lak zacht of kleurt het doekje, dan is het waarschijnlijk acryl. Gezonde oude lak schuur je met P180 tot P240 volledig mat, tot er nergens meer een glimmend plekje over is. Glans die blijft staan, is een plek waar de nieuwe lak zich niet mechanisch kan vastgrijpen."
+        ]
+      },
+      {
+        "tussenkop": "Vlak maken met plamuur en een controlelaag",
+        "alineas": [
+          "Deuken, schroefgaten van oud beslag en de overgangen van eerdere reparaties vul je met lakplamuur, of bij diepere schade met 2K-plamuur die chemisch uithardt en niet krimpt. Breng plamuur in dunne lagen aan en schuur hem vlak op een hard blokje met P180 tot P240. Gebruik daarbij nooit alleen je vlakke hand of een zachte spons: die volgen de vorm van de ondergrond en slijpen een flauwe kuil rond de reparatie. Een hard, recht blok rust op de hoge punten en neemt die weg, zodat het vlak echt vlak wordt in plaats van alleen glad.",
+          "Hoe weet je of het vlak is? Met een controlelaag, in de autospuiterij guide coat genoemd. Je stuift of wrijft een dun laagje zwart poeder of een waas zwarte spuitverf over de geschuurde ondergrond en schuurt opnieuw met het harde blok. De hoge delen worden meteen grijs, de lage blijven zwart. Waar zwart achterblijft, zit een kuil die je bijvult. Herhaal tot het hele vlak gelijkmatig grijs is. Juist die onzichtbare golven verschijnen straks in het spiegelbeeld."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Grondverf, voorlak, aflak",
+        "alineas": [
+          "Elke laag in een lakopbouw heeft een eigen taak, en dat is de reden dat je ze niet door elkaar kunt gebruiken. Grondverf dringt in kaal hout, zorgt voor hechting en sluit de poriën af. Behandel knoesten in vurenhout eerst met knoestenisolatie, anders komt er hars door alle lagen heen. Na het drogen schuur je de grondverf met P180 tot P240; daarbij verdwijnen ook de houtvezels die door het vocht zijn opgestaan. Pas nu zie je de oneffenheden echt goed, dus dit is het moment om nog eens dun bij te plamuren.",
+          "De voorlak is de onderschatte laag. Hij bevat meer vulstof dan aflak, vult kleine oneffenheden op en is veel beter schuurbaar. Schuur hem met P240 tot een egaal mat, vlak oppervlak zonder glimmende plekjes. Wie in plaats daarvan twee of drie lagen aflak opbouwt, heeft een zachtere en minder schuurbare ondergrond, en verliest juist het vlakke fundament waarop de glans moet rusten. De aflak zelf zorgt voor glans, hardheid en slijtvastheid. Twee lagen aflak met tussenschuren geven een vlakker en dieper resultaat dan één. Lak is na een dag stofdroog, maar pas na één tot drie weken volledig hard."
+        ]
+      },
+      {
+        "tussenkop": "Alkyd, acryl of 2K",
+        "alineas": [
+          "Voor een deur die je met de kwast zo glad mogelijk wilt krijgen, is hoogglans alkydlak op terpentinebasis nog altijd de vriendelijkste keuze. De open tijd, de tijd waarin de lak nog vloeibaar genoeg is om uit te vloeien, is ongeveer een kwartier tot een halfuur. In die tijd trekt de oppervlaktespanning kwaststrepen weer vlak. Alkyd droogt door oxidatie met zuurstof uit de lucht, en is na zestien tot vierentwintig uur overschilderbaar. Het nadeel: alkyd vergeelt in het donker. Een witte alkyddeur in een donkere gang of achter een kast kleurt in een jaar geel, terwijl dezelfde lak in de zon wit blijft.",
+          "Acryllak is watergedragen, vergeelt niet, ruikt weinig en is na vier tot zes uur overschilderbaar. Maar de open tijd is kort, vaak maar enkele minuten, en dat vraagt een snelle, zekere hand. Wie acryl blijft bijstrijken alsof het alkyd is, trekt de lak open en houdt strepen over. Voor een echte, gepolijste spiegelglans zijn ze allebei eigenlijk te zacht. Daarvoor gebruik je een 2K-polyurethaanlak, waarbij een harder chemisch reageert met de hars. Die lak wordt hard, heeft een hoog gehalte vaste stof en bouwt dus veel laagdikte op, precies wat je nodig hebt om er later in te kunnen schuren en polijsten zonder erdoorheen te gaan."
+        ]
+      },
+      {
+        "tussenkop": "Waarom elke korrel telt",
+        "alineas": [
+          "Hoe hoger het getal op schuurpapier, hoe fijner de korrel. Elke korrel laat krassen achter van een bepaalde diepte. Schuur je daarna met een fijnere korrel, dan moet die de krassen van de vorige volledig wegnemen voordat hij zijn eigen, ondiepere krassen achterlaat. Sla je een stap over, dan duurt dat veel langer of lukt het niet, en blijven diepe krassen onder de volgende lagen bestaan. Lak vult ze niet op, maar zakt erin en tekent ze af als dunne lijntjes in het spiegelbeeld. Een korrel van P80 als eindkorrel op een deur die je wilt aflakken, zie je dus altijd terug.",
+          "Tussen twee laklagen schuur je met P240 tot P320 of een fijn schuursponsje, en alleen tot alles egaal mat is; je wilt hechting, geen nieuwe vorm. Schuur liefst nat met water en een druppel afwasmiddel: dat geeft minder stof en het papier slibt minder dicht. Op randen en hoeken is de laag het dunst; daar schuur je met de hand en heel licht, want doorgeschuurde randen moet je opnieuw gronden."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Stof: de vijand die je niet ziet",
+        "alineas": [
+          "Stofpuntjes zijn de belangrijkste reden dat lakwerk bijna strak wordt in plaats van strak. Een lakklus begint daarom de dag ervoor. Schuur alles, zuig daarna de hele ruimte inclusief vensterbanken, plinten en radiatoren, en dweil de vloer nat. Lak nooit op dezelfde dag in dezelfde ruimte als waarin je hebt geschuurd: fijn schuurstof blijft uren in de lucht zweven. Vlak voor je begint, vernevel je met een plantenspuit wat water in de lucht en op de vloer, zodat zwevend stof neerslaat en blijft liggen. Draag katoen of een overall, geen fleece of wol, want pluisjes van je eigen kleding zijn een bekende bron.",
+          "Ga vlak voor het lakken met een kleefdoek licht over het oppervlak, zonder te drukken: een kleefdoek die je aandrukt, laat kleefresten achter waar de lak slecht op hecht. Werk bij vijftien tot tweeëntwintig graden en een relatieve luchtvochtigheid van ongeveer veertig tot zeventig procent. Kouder of vochtiger laat de lak trager drogen, waardoor er langer stof in kan vallen. Warmer droogt hem te snel en geeft strepen. Zet een lamp zo dat het licht scherend over de deur valt, zodat je ziet waar je dun of dik werkt. En als je klaar bent: deur dicht en de eerste uren niet meer binnenlopen."
+        ],
+        "lesFoto": "lakken-stofvrij-werken"
+      },
+      {
+        "tussenkop": "Met de kwast: volgorde en lef",
+        "alineas": [
+          "Hang de deur uit, haal het beslag eraf en leg hem horizontaal op bokken. Liggend vloeit de lak beter uit en kan hij niet lopen, zodat je een iets dikkere, beter vloeiende laag kunt geven. Draai in de onder- en bovenkant een paar schroeven als pootjes; dan kun je de kanten lakken en de deur later keren. Kies de kwast bij de lak: synthetisch voor acryl, want natuurhaar zwelt op in water en wordt slap; varkenshaar of een mix voor alkyd, omdat de gespleten haarpunten veel lak vasthouden en egaal uitstrijken.",
+          "Bij een paneeldeur volg je een vaste volgorde: eerst de profielen rond een paneel, dan het paneel zelf, daarna de tussenstijlen, dan de dorpels en als laatste de doorlopende buitenstijlen, tot slot de kanten. Zo loopt elke volgende sectie over de naad van de vorige en trek je de lak precies tot de houtnaad af. Per vlak zet je de lak in een paar klodders op, verdeel je hem dwars op de houtrichting en strijk je hem af in één lange haal in de lengte van het hout, met weinig druk en alleen de punt van de kwast. Loop wel de randen van de panelen na op tranen, opgehoopte lak die je met een bijna droge kwast wegstrijkt zolang hij nat is."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Met de roller: naspreiden",
+        "alineas": [
+          "Een vlakke deur lak je sneller en gelijkmatiger met een lakroller van tien centimeter, van velours, fijn floqué-schuim of microvezel met een pool van vier tot zes millimeter. Was een nieuwe roller eerst uit of plak hem af met tape om losse vezels te verwijderen. Rol de lak in banen van ongeveer een derde van de deurbreedte in de lengterichting op, met gelijkmatige druk, en verdeel kort dwars. Druk niet te hard, anders ontstaan er ribbels aan de rand van de roller. Geeft een schuimroller met acryl luchtbelletjes, stap dan over op velours of microvezel.",
+          "Een roller laat altijd een fijne structuur achter, een kleine sinaasappelhuid. Die haal je weg met naspreiden, in het vak ook tippen genoemd: direct na het rollen ga je met een vrijwel droge, brede lakkwast van vijftig tot zeventig millimeter of met een lege roller in één beweging over de hele lengte van de deur, licht, van rand tot rand. De structuur vloeit dan weg. Zet de volgende baan direct naast de vorige en spreid door in de natte baan. Bij acryl heb je daarvoor vaak maar vijf tot tien minuten, en wie te laat naspreidt, trekt de lak open. Juist hier kan een vloeiverbeteraar het verschil maken."
+        ]
+      },
+      {
+        "tussenkop": "Met de spuit: geen spoor",
+        "alineas": [
+          "Professionals spuiten deuren, omdat een spuit geen kwast- of rollerspoor achterlaat en een volkomen gelijke laagdikte aanbrengt. Voor de hobbyist is een HVLP-spuit de logische keuze: hoog volume lucht bij lage druk, met weinig nevelverlies en goede controle. Kies een nozzle van ongeveer 1,3 tot 1,5 mm voor dunne lakken en 1,7 tot 1,8 mm voor dikkere acryl of voorlak. Houd de spuit haaks op ongeveer vijftien tot twintig centimeter en beweeg vanuit je hele arm in een rechte lijn, niet vanuit je pols, want dan verandert de afstand.",
+          "Begin de beweging naast de deur, druk de trekker in, ga erover en laat los als je voorbij de rand bent. Zo krijg je geen dikke plekken aan begin en eind. Laat elke baan de vorige voor ongeveer de helft overlappen en spuit eerst de kanten, dan het vlak. Het doel is een laag die net nat glanst en vloeit; liever twee dunne lagen dan één dikke. Te dicht op het werk geeft lopers, te ver weg geeft droge, ruwe nevel die al aan het drogen is voor hij landt. Draag altijd een masker met A2P2-filter, ook bij acryl. En spuit 2K-lak met isocyanaten nooit met een filtermasker: daarvoor is adembescherming met verse luchttoevoer nodig."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Verdunnen: de vergeten knop",
+        "alineas": [
+          "Verdunnen regelt de viscositeit, de stroperigheid van de lak, en daarmee hoe hij zich verdeelt en uitvloeit. Een te dikke lak vloeit niet uit: kwaststrepen blijven staan, een roller laat structuur achter en een spuit vernevelt hem in te grove druppels die niet meer in elkaar vloeien. Dat laatste is de klassieke oorzaak van sinaasappelhuid bij spuitwerk. Maar verdunnen heeft een prijs. Elke procent verdunning is een procent minder vaste stof in je laag, dus een dunnere droge film, minder dekking en minder vulling. Te dun en de lak loopt op een staand vlak, of hij dekt na twee lagen nog steeds niet.",
+          "De vuistregels verschillen per techniek. Met kwast en roller verdun je meestal niet, of hooguit een paar procent volgens opgave, en alleen als de lak bij lage temperatuur te stroperig wordt. Een vloeiverbeteraar of open-tijdverlenger is daar de betere knop, omdat hij de lak langer vloeibaar houdt zonder de laagdikte te verlagen; houd je wel aan de maximale dosering. Voor spuiten verdun je in kleine stappen van ongeveer vijf tot vijftien procent en meet je de uitlooptijd met een viscositeitsbeker, bijvoorbeeld een DIN-beker met een opening van vier millimeter, tot je in het bereik van de fabrikant zit. Acryl verdun je met water, alkyd en 2K alleen met de verdunning die de fabrikant voorschrijft."
+        ],
+        "lesFoto": "lakken-p-sinaasappelhuid"
+      },
+      {
+        "tussenkop": "De laatste stap: schuren en polijsten",
+        "alineas": [
+          "Een echte spiegelglans, het pianolak-effect, haal je niet uit een kwast of spuit alleen. Er blijft altijd een minieme structuur of hier en daar een stofje achter. De vakman bouwt daarom met twee tot vier dunne hoogglanslagen bewust laagdikte op, met tussenschuren op P400 tot P600 nat, om daarna de bovenste laag vlak te schuren en te polijsten. Het belangrijkste is geduld. De lak moet volledig zijn uitgehard voordat je erin schuurt: bij 2K vaak één tot drie dagen, bij alkyd eerder één tot drie weken. Lak die nog zacht is, smeert onder het schuurpapier en wordt bij polijsten warm en dof.",
+          "Schuur nat op een hard blok met P800 tot alle structuur, stof en sinaasappelhuid weg is en het vlak egaal mat is. Ga daarna naar P1500 en P2000, eventueel P3000, en schuur bij elke stap tot de krassen van de vorige korrel verdwenen zijn. Randen en kanten schuur je bijna niet, want daar ben je er zo doorheen. Polijst dan met een harde pad en grof polijstmiddel op laag tot middelhoog toerental, telkens een vak van ongeveer veertig bij veertig centimeter, met de pad plat en steeds in beweging, tot de glans terugkomt. Een zachte pad met fijn polijstmiddel verwijdert daarna de hologrammen, de fijne draaicirkeltjes van de eerste ronde. Laat de deur nog een paar dagen rusten voor je hem ophangt."
+        ],
+        "lesFoto": "lakken-mirror-finish",
+        "kader": {
+          "titel": "Korrels en tijden op een rij",
+          "punten": [
+            "Kaal hout: P120–P150, afwerken P180.",
+            "Oude lak opruwen: P180–P240, na het ontvetten.",
+            "Grondverf en voorlak: P240.",
+            "Tussenschuren aflak: P240–P320 of fijn sponsje, nat.",
+            "Spiegelglans: P800 → P1500 → P2000 (→ P3000), nat op een blok.",
+            "Overschilderbaar: acryl ca. 4–6 uur, alkyd 16–24 uur.",
+            "Uitgehard voor polijsten: 2K ca. 1–3 dagen, alkyd 1–3 weken.",
+            "Klimaat: 15–22 °C, RV 40–70%, geen tocht."
+          ]
+        }
+      },
+      {
+        "tussenkop": "Wat je ziet, en wat het was",
+        "alineas": [
+          "De meeste fouten herstel je op dezelfde manier: laten uitharden, vlak schuren met P240 tot P320 en opnieuw lakken, dunner en sneller. Dat is frustrerend, maar het is de les van dit vak. Spiegelglans is geen talent dat je hebt of niet. Het is een keten van ontvetten, vlak maken, de juiste laag op de juiste plek, de juiste korrels, stofvrij werken en de juiste viscositeit. Wie die keten één deur lang volhoudt, ziet in het spiegelbeeld van de tl-buis eindelijk een rechte lijn."
+        ],
+        "kader": {
+          "titel": "Wat je ziet, en wat het was",
+          "punten": [
+            "Kwaststrepen in acryl: doorgestreken terwijl de lak al aantrok.",
+            "Druipers onder profielen: te dikke laag op een staand vlak.",
+            "Rimpelig vel in alkyd: te dikke laag; bovenkant vormt een vel, onderkant krimpt.",
+            "Alkyd plakt na twee dagen: te koud en te vochtig, oxidatie loopt stil.",
+            "Puntjes en pluisjes: stof in de lucht of niet afgestoft.",
+            "Sinaasappelhuid bij spuiten: te dik of te ver weg.",
+            "Acryl laat los van oude alkyd: niet ontvet of niet matgeschuurd.",
+            "Witte alkyd vergeeld: alkyd vergeelt in het donker."
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "klussen-05",
+    "kop": "Spanningsloos is iets wat je meet, niet iets wat je aanneemt",
+    "intro": "Een wandcontactdoos bijzetten of een lichtpunt verleggen lijkt na een paar keer routine. Juist dan sluipen de fouten erin die je niet ziet: een geschakelde nul, een ader met isolatie onder de klem, een nul van de verkeerde groep. Over leidingen trekken, dozen zetten en aansluiten zoals een installateur het doet.",
+    "hoofdstuk": "Elektra aanleggen",
+    "basis": [
+      "elektra-spanningsloos-werken",
+      "elektra-sleuven-buis",
+      "elektra-draad-trekken",
+      "elektra-inbouwdoos-plaatsen",
+      "elektra-wcd-aansluiten",
+      "elektra-schakelaar-lichtpunt",
+      "elektra-k-kabel-wcd",
+      "elektra-k-kabel-schakel",
+      "elektra-k-kabel-grond",
+      "elektra-k-kabel-opbouw",
+      "elektra-k-doos-steen",
+      "elektra-k-doos-hollewand",
+      "elektra-k-doos-diep",
+      "elektra-k-doos-centraal",
+      "elektra-k-verbinding-insteek",
+      "elektra-k-verbinding-hendel",
+      "elektra-k-verbinding-verlengen",
+      "elektra-k-verbinding-doorlus",
+      "elektra-k-uitvoering-badkamer-zone",
+      "elektra-k-uitvoering-badkamer-wcd",
+      "elektra-k-uitvoering-buiten-wcd",
+      "elektra-k-uitvoering-grondspot",
+      "elektra-p-aardlek-gedeelde-nul",
+      "elektra-p-wcd-warm",
+      "elektra-p-schakelaar-nul",
+      "elektra-p-draad-vast",
+      "elektra-p-doos-te-diep",
+      "elektra-p-overbelasting"
+    ],
+    "fotos": [
+      {
+        "wiki": "Circuit breaker",
+        "taal": "en",
+        "bijschrift": "Installatieautomaat: bewaakt de leiding tegen overbelasting en kortsluiting"
+      },
+      {
+        "wiki": "Residual-current device",
+        "taal": "en",
+        "bijschrift": "Principe van de aardlekschakelaar: heen- en teruggaande stroom vergeleken"
+      },
+      {
+        "wiki": "Electrical conduit",
+        "taal": "en",
+        "bijschrift": "Installatiebuis: de draad moet er later nog doorheen te trekken zijn"
+      },
+      {
+        "wiki": "Twist-on wire connector",
+        "taal": "en",
+        "bijschrift": "Lasdoppen: ook een verbinding moet bereikbaar en controleerbaar blijven"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Je zet de lichtschakelaar uit, draait de oude lamp los en voelt een tik in je vingers. Niet hard, maar genoeg om te schrikken. De lamp was uit, dus hoe kan dat? Het antwoord zit in een schakelaar die iemand ooit in de nul heeft gezet in plaats van in de fase. De lamp gaat uit omdat de stroomkring onderbroken is, maar de fase staat nog gewoon op de fitting. Wie dat niet weet, vertrouwt op wat hij ziet. En bij elektra is wat je ziet zelden een betrouwbare aanwijzing.",
+          "Dat maakt elektra anders dan andere klussen. Een scheef geplaatste plug zie je, een slechte klemverbinding niet. Die werkt maandenlang prima, tot er een waterkoker en een kachel tegelijk aan staan en het afdekraam van de wandcontactdoos begint te verkleuren. Dit artikel gaat over de praktijk van het aanleggen: spanningsloos werken, sleuven en buizen, draad trekken, dozen plaatsen en aansluiten. De theorie over fase, nul, aarde en wat stroom met een geleider doet, staat in de module Elektronica. Hier gaat het om het waarom achter de handgrepen, zodat je fouten niet maakt die pas later zichtbaar worden."
+        ]
+      },
+      {
+        "tussenkop": "Meten, niet aannemen",
+        "alineas": [
+          "Uitschakelen is niet hetzelfde als spanningsloos. Schakel de juiste groep uit in de meterkast, en twijfel je welke het is of hangt de lamp aan meerdere groepen, schakel dan de hoofdschakelaar uit. Plak tape met een briefje over de automaat en waarschuw huisgenoten. Vertrouw ook niet op het kaartje met de groepenindeling: dat klopt in veel huizen al lang niet meer. Meet daarna met een tweepolige spanningstester volgens de norm EN 61243-3. Een fasezoeker, de schroevendraaier met een lampje in het handvat, is geen meetinstrument. Hij reageert op een klein stroompje via je lichaam, kan bij slecht contact niets aangeven en meet niet tussen twee aders.",
+          "Professionals werken met een vaste reeks: testen, meten, testen. Controleer de tester eerst op een wandcontactdoos waarvan je weet dat er spanning op staat. Meet dan op de werkplek tussen fase en nul, fase en aarde en nul en aarde; alle drie moeten nul volt geven. Controleer de tester daarna opnieuw op de bekende contactdoos. Zo sluit je uit dat hij halverwege kapotging en je een geruststellende, maar valse nul las. Meet ook alle aders in een doos, niet alleen die van jouw onderdeel. In oudere installaties loopt soms een nul of fase van een andere groep mee door dezelfde doos."
+        ],
+        "citaat": "Uitschakelen is niet hetzelfde als spanningsloos."
+      },
+      {
+        "tussenkop": "Wat de automaat en de aardlek bewaken",
+        "alineas": [
+          "In de meterkast zitten twee soorten beveiliging die vaak door elkaar worden gehaald. De installatieautomaat beschermt de leiding. Hij schakelt af bij kortsluiting en, met een vertraging, bij overbelasting, zodat de draad in de muur niet te heet wordt. Een wandcontactdoosgroep heeft in Nederland gangbaar een automaat van 16 ampère en is aangelegd met 2,5 mm² draad. Bij 230 volt is dat zo'n 3680 watt per groep. Een waterkoker van 2200 watt en een elektrische kachel van 2000 watt samen gaan daar overheen, en dan slaat de automaat terecht af. Leg je 1,5 mm² op zo'n groep, dan kan die draad bij volle belasting te warm worden voordat de automaat ingrijpt.",
+          "De aardlekschakelaar beschermt mensen. Hij vergelijkt de stroom die via de fase heen gaat met de stroom die via de nul terugkomt. Is er een verschil van ongeveer dertig milliampère, dan lekt er ergens stroom weg, mogelijk door een lichaam naar aarde, en schakelt hij binnen een fractie van een seconde af. Dat verklaart een klassieke fout bij het aanleggen. Gebruik je de nul van een andere groep, dan gaat de stroom via de ene aardlekschakelaar heen en komt hij via de andere terug. Beide zien een verschil en slaan af zodra je de lamp aanzet. Neem fase en nul daarom altijd uit dezelfde groep en controleer dat met de groepen uit."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "De route: recht, ondiep en met afzuiging",
+        "alineas": [
+          "Iedereen die na jou in de muur boort, gaat ervan uit dat leidingen recht boven of onder een doos lopen, en horizontaal in een band vlak onder het plafond of boven de vloer. Teken een nieuwe route daarom alleen verticaal en horizontaal uit, vanaf een bestaande doos of vanaf het plafond, en nooit schuin. Een diagonale leiding is een val voor de volgende klusser, die dat ben jij misschien zelf over tien jaar. Respecteer ook de constructie. Frees niet in kolommen, lateien of betonnen dragende wanden zonder overleg met een constructeur, en houd sleuven in dragend metselwerk zo ondiep mogelijk, met zo weinig mogelijk horizontale stukken.",
+          "Een muursleuvenfrees zaagt met twee diamantschijven tegelijk twee evenwijdige sneden; de steen ertussen beitel je eruit. Maak de sleuf ongeveer vijf millimeter breder dan de buis en zo diep dat de buis zo'n tien millimeter onder het oppervlak komt te liggen. Ligt hij hoger, dan scheurt het vulmiddel erboven. Gebruik altijd een bouwstofzuiger van stofklasse M en een FFP2- of FFP3-masker. Zagen in steen en beton maakt kwartsstof vrij, en dat fijne stof is schadelijk voor je longen, ook als je het niet ziet. Een haakse slijper met een diamantschijf kan ook, maar alleen met een afzuigkap."
+        ],
+        "lesFoto": "elektra-sleuven-buis"
+      },
+      {
+        "tussenkop": "Buis leggen: denk aan de draad van morgen",
+        "alineas": [
+          "Installatiebuis van 16 of 19 millimeter, flexibel of hard, is er niet om de draad te beschermen tijdens het inmetselen alleen. Hij maakt het ook mogelijk om later draad te vervangen of bij te trekken zonder de muur open te breken. Dat werkt alleen als de buis trekbaar blijft. Elke bocht verhoogt de wrijving, en die wrijving stapelt zich op: met drie of meer haakse bochten tussen twee dozen is trekken vaak onmogelijk. Houd daarom maximaal twee à drie bochten van negentig graden aan, gebruik liever ruime bochten dan scherpe hoekstukken, en plaats bij een lange route een tussendoos als trekpunt.",
+          "Zet de buis vast met clips of klodders gips en laat hem ongeveer een centimeter de doos in steken, via de uitbreekopening. Dan trek je de aders later niet over een scherpe rand. Let ook op de vulling. Als vuistregel past in een buis van 16 mm maximaal ongeveer drie aders van 2,5 mm² of vier van 1,5 mm²; in een buis van 19 mm ongeveer vier tot vijf aders van 2,5 mm². Een volle buis is moeilijk te trekken, beschadigt bij het trekken de isolatie en geeft de warmte van de aders slecht af. Op zolder of in de schuur, waar je op het oppervlak werkt, gebruik je mantelkabel of draad in opbouwbuis. Losse installatiedraad met alleen zijn eigen isolatie mag nooit zonder buis liggen."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Draad trekken en kleuren",
+        "alineas": [
+          "De kleuren zijn geen suggestie maar een taal die elke volgende monteur leest. Bruin is fase, blauw is nul, groen-geel is aarde, en een schakeldraad, de draad die van de schakelaar naar de lamp terugloopt, is zwart of grijs. Groen-geel gebruik je nooit voor iets anders dan aarde, en blauw gebruik je niet als schakeldraad. Wie dat doet, maakt een installatie die er voor de volgende persoon veilig uitziet terwijl hij dat niet is. Voor wandcontactdozen gebruik je 2,5 mm²; voor schakeldraden en verlichting is 1,5 mm² gangbaar, mits beveiliging en lengte dat toelaten. Bij twijfel neem je overal 2,5 mm².",
+          "Duw de trekveer van de ene doos naar de andere. Lukt dat niet, probeer het van de andere kant. Strip de aders aan het eind ongeveer drie centimeter, haak ze door het oog van de veer, vouw ze terug en tape het geheel strak af. Laat de aders iets verspringen in lengte, zodat er geen dikke knobbel ontstaat die in een bocht blijft hangen. Trek bij voorkeur met z'n tweeën: één persoon voert de aders gelijkmatig en zonder lussen in, de ander trekt rustig en constant. Glijmiddel voor installatiedraad helpt bij lange trajecten. Laat in elke doos ongeveer vijftien centimeter draad over; te kort is niet te herstellen zonder opnieuw te trekken."
+        ]
+      },
+      {
+        "tussenkop": "Dozen: de afgewerkte wand is de maat",
+        "alineas": [
+          "Een wandcontactdoos zit gangbaar ongeveer dertig centimeter boven de vloer, of zo'n twintig à dertig centimeter boven een werkblad. Een schakelaar zit rond de 105 centimeter, naast de deur aan de krukzijde. Houd de lijn van bestaande dozen aan. Voor een dubbele combinatie koppel je dozen met koppelstukjes op 71 mm hart-op-hart en teken je af met een mal, zodat de afdekramen straks passen. In steen boor je met een dozenboor van 68 mm tot de doosdiepte plus een paar millimeter voor gips. Maak het gat vochtig, zet de doos in een bed van gips en lijn hem uit met de waterpas.",
+          "De belangrijkste maat is niet de ruwe muur, maar het afgewerkte vlak. De voorkant van de doos moet precies vlak liggen met de wand zoals die er straks uitziet, inclusief stuc of tegels. Lijn je een doos uit op de ruwe muur en komt er tien tot vijftien millimeter tegelwerk op, dan verdwijnt het binnenwerk deels in de tegels en grijpen de schroeven nauwelijks. Een verhogingsring redt de situatie, maar het is beter om vooraf te rekenen. Kies een diepe doos van ongeveer 60 mm waar je klemmen of doorlusverbindingen kwijt moet. In gipsplaat gebruik je een hollewanddoos met klauwen, nooit een steendoos: die heeft niets om achter te klemmen en trekt los bij de eerste stekker."
+        ]
+      },
+      {
+        "tussenkop": "De verbinding: warmte is het signaal",
+        "alineas": [
+          "Een slechte verbinding is het grootste verborgen risico in een installatie. Op het punt waar twee geleiders elkaar raken, is er altijd een kleine overgangsweerstand. Bij een goede klem is die verwaarloosbaar. Zit er isolatie onder een schroef, is de klem niet goed aangedraaid of is een soepele ader in een klem gedrukt die alleen voor massieve draad is gemaakt, dan wordt die weerstand groter. Het vermogen dat daar in warmte omzet, groeit met het kwadraat van de stroom. Bij een kleine belasting merk je niets; bij een kachel op vol vermogen wordt de klem heet, verkleurt het kunststof en kan het uiteindelijk verkolen.",
+          "Strip daarom precies de lengte die op de klem is aangegeven, vaak ongeveer acht tot elf millimeter. Er mag geen blank koper buiten de klem uitsteken en geen isolatie onder de klem zitten. Gebruik insteekklemmen voor massieve installatiedraad en hendelklemmen waar een soepele ader, zoals een lampsnoer, op massief draad aansluit. Zet nooit twee aders onder één schroef die voor één ader bedoeld is. Doe na elke verbinding een trektest: trek stevig aan elke ader, hij mag er niet uit komen. En verbindingen horen altijd in een bereikbare doos. Een met tape verlengde draad die in de buis of muur verdwijnt, kan niemand ooit nog controleren."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Contactdoos en schakelaar",
+        "alineas": [
+          "Elke wandcontactdoos in een woning heeft randaarde, en die aarde moet ook echt zijn aangesloten. Een apparaat werkt zonder aarde gewoon, en daarom wordt hij soms vergeten. Maar bij een isolatiefout staat dan de metalen behuizing onder spanning, en is er niets wat die spanning wegvoert of de aardlek laat afslaan. Fase en nul gaan in de klemmen voor de contactpennen, groen-geel op de aardklem. Wil je doorlussen naar een volgende contactdoos, gebruik dan de dubbele klemmen van de doos of een verbindingsklem, en lus de aarde altijd door met een ader, niet via de metalen montageplaat.",
+          "Bij een lichtpunt geldt één principe: de schakelaar onderbreekt de fase. Vanuit de centraaldoos gaat de fase naar de schakelaar en komt er een zwarte of grijze schakeldraad terug naar de lamp; nul en aarde gaan rechtstreeks naar het lichtpunt. Op de schakelaar komt de fase op de ingang, vaak gemarkeerd met L of P, en de schakeldraad op de uitgang. Bij een wisselschakeling, waarbij je één lamp vanaf twee plekken bedient, gaat de fase naar het middencontact van de eerste wisselschakelaar, verbinden twee draden de beide schakelaars, en gaat de schakeldraad vanaf het middencontact van de tweede naar de lamp. Meet na afloop met de schakelaar uit dat er geen fase op de lamp staat. Hang een lamp ten slotte aan een haak, nooit aan de draden."
+        ],
+        "lesFoto": "elektra-schakelaar-lichtpunt"
+      },
+      {
+        "tussenkop": "Badkamer, buiten en de grond in",
+        "alineas": [
+          "Waar water is, gelden strengere regels. De NEN 1010, de Nederlandse norm voor laagspanningsinstallaties, deelt de badkamer in zones in. Zone 0 is het bad of de douchebak zelf, zone 1 ligt daarboven tot 2,25 meter hoogte, zone 2 is een strook van zestig centimeter daaromheen. Een armatuur in zone 1 moet minimaal IPX4 zijn, spatwaterdicht, en IPX5 waar met een waterstraal wordt gereinigd. Het eerste cijfer van de IP-code staat voor bescherming tegen vaste deeltjes en stof, het tweede voor water. Een wandcontactdoos voor de föhn is spatwaterdicht, IP44, met randaarde, en zit buiten de zones. De hele badkamer hangt achter een aardlekschakelaar van dertig milliampère.",
+          "Buiten aan de gevel hoort een opbouwcontactdoos van IP44 met klapdeksel, met de kabelinvoer aan de onderkant zodat water niet langs de kabel naar binnen loopt, ook weer achter een aardlek. Naar een tuinhuis graaf je grondkabel in, zoals YMvK, op ongeveer zestig centimeter diepte met een waarschuwingslint erboven, en kies je bij een lange afstand een grotere doorsnede vanwege spanningsverlies. Een verlengsnoer of installatiedraad in een buis in de grond is daar niet voor gemaakt. Grondspots moeten tijdelijk onder water kunnen staan, dus IP67 of IP68, met waterdichte verbinders en liefst op twaalf volt via een geschikte transformator, zodat een doorgestoken kabel geen gevaar oplevert."
+        ],
+        "lesFoto": "elektra-k-uitvoering-badkamer-zone",
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Testen, meten, testen: tester eerst en daarna op een bekende spanningsbron controleren.",
+            "Meet fase-nul, fase-aarde en nul-aarde; alle aders in de doos.",
+            "Wcd-groep: 2,5 mm² op 16 A, ca. 3680 W per groep.",
+            "Fase en nul altijd uit dezelfde groep.",
+            "Routes alleen verticaal en horizontaal; max. 2–3 bochten tussen twee dozen.",
+            "Kleuren: bruin fase, blauw nul, groen-geel aarde, zwart/grijs schakeldraad.",
+            "Doos vlak met de afgewerkte wand; gat 68 mm, koppelmaat 71 mm.",
+            "Striplengte volgens klem, geen isolatie onder de klem, trektest.",
+            "Schakelaar in de fase, nooit in de nul.",
+            "Badkamer en buiten: aardlek 30 mA, IP44 of hoger."
+          ]
+        }
+      },
+      {
+        "tussenkop": "Grenzen van de klusser",
+        "alineas": [
+          "Een ervaren klusser kan veel zelf aan een installatie doen, mits het werk voldoet aan de NEN 1010. Er is wel een grens die verstandig is om te respecteren. Een nieuwe groep in de meterkast bijplaatsen, een aardlekschakelaar vervangen of aan de aansluiting van de netbeheerder werken, laat je over aan een erkend installateur. Daar werk je vlak bij delen die ook met de hoofdschakelaar uit nog spanning kunnen voeren, en waarvoor geen enkele automaat in de meterkast je beschermt. Wat je wel zelf kunt, is het voorwerk: sleuven frezen, buizen leggen, dozen zetten en draden trekken, zodat de installateur alleen nog hoeft aan te sluiten en te keuren.",
+          "Sluit elk werk af met een controle die verder gaat dan het licht gaat aan. Test elke contactdoos met een tester die ook controleert of de aarde is aangesloten en of fase en nul niet verwisseld zijn. Test de aardlekschakelaar met de testknop. Kijk na een paar dagen gebruik nog eens of een afdekraam warm aanvoelt of verkleurt. En schrijf op welke groep wat voedt, met een nieuw kaartje in de meterkast. De volgende die aan deze installatie werkt, misschien jijzelf over tien jaar, gaat ervan uit dat het klopt. Zorg dat dat ook zo is."
+        ]
+      }
+    ]
+  }
+]

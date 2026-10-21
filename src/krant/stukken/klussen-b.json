@@ -1,0 +1,615 @@
+[
+  {
+    "id": "klussen-06",
+    "kop": "Hout werkt altijd, en wie dat snapt, maakt werk dat dicht blijft",
+    "intro": "Een plank die in augustus perfect paste, heeft in januari een kier. Dat is geen pech maar natuurkunde. Wie begrijpt hoe hout krimpt, zwelt en rot, zaagt, schroeft en lijmt anders – en hangt een deur af die over tien jaar nog vanzelf blijft staan.",
+    "hoofdstuk": "Houtbewerking",
+    "basis": [
+      "hout-schroeven-voorboren",
+      "hout-plaat-zagen-invalzaag",
+      "hout-plinten-verstek",
+      "hout-deur-afhangen",
+      "hout-cilinder-vervangen",
+      "hout-houtrot-2k",
+      "hout-kast-deuvels",
+      "hout-plaat-kastbinnenwerk",
+      "hout-plaat-spuitwerk",
+      "hout-plaat-badkamer",
+      "hout-plaat-buiten",
+      "hout-plaat-ondervloer",
+      "hout-soort-regelwerk",
+      "hout-soort-kozijn",
+      "hout-soort-gevel",
+      "hout-soort-grondcontact",
+      "hout-zaag-afkorten",
+      "hout-zaag-rond",
+      "hout-zaag-plaat",
+      "hout-zaag-fijn",
+      "hout-probleem-splinters-cirkelzaag",
+      "hout-probleem-lat-splijt",
+      "hout-probleem-deur-klemt",
+      "hout-probleem-verstek-open",
+      "hout-probleem-lijmnaad-buiten",
+      "hout-probleem-houtrot-terug"
+    ],
+    "fotos": [
+      {
+        "wiki": "Wood",
+        "taal": "en",
+        "bijschrift": "Zestien houtsoorten naast elkaar: elk met een eigen nerf, hardheid en duurzaamheid"
+      },
+      {
+        "wiki": "Quarter sawing",
+        "taal": "en",
+        "bijschrift": "Zaagpatronen uit één stam: de stand van de jaarringen bepaalt hoe een plank werkt"
+      },
+      {
+        "wiki": "Plunge saw",
+        "taal": "en",
+        "bijschrift": "Invalzaag op een geleiderail: de splinterlip houdt de bovenkant van de plaat schoon"
+      },
+      {
+        "wiki": "Biscuit joiner",
+        "taal": "en",
+        "bijschrift": "Lamellofrees: freest sleuven voor platte houten koekjes in een kopse verbinding"
+      },
+      {
+        "wiki": "Hinge",
+        "taal": "en",
+        "bijschrift": "Een scharnier draagt de deur als een hefboom: het bovenste scharnier wordt op trek belast"
+      },
+      {
+        "wiki": "Dry rot",
+        "taal": "en",
+        "bijschrift": "Rot in een balk: het hout is bruin, brokkelig en in blokjes gescheurd"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een eiken vensterbank die je in een vochtige augustusmaand strak tussen twee neggekanten hebt gepast, heeft in januari aan één kant een kier van twee, drie millimeter. Je hebt niet slordig gemeten. De verwarming staat aan, de lucht in huis is droog geworden en het hout heeft water afgestaan. Daarbij is het smaller geworden. Timmerlieden vatten dat samen in twee woorden: hout werkt. Het is het belangrijkste gegeven van het hele vak, en bijna elke regel uit deze les is er een antwoord op: de keuze voor plaatmateriaal, het voorboren, het schulpen van een plintenhoek, de speling rond een deur en zelfs de manier waarop je rot repareert.",
+          "In de vorige afleveringen was hout vooral ondergrond. Nu wordt het het materiaal dat je zelf vormgeeft. We beginnen in de houtcel, gaan via plaatmateriaal naar zagen, schroeven en lijmen, en eindigen bij de klussen die vakwerk verraden: plinten met dichte hoeken, een deur die goed hangt, een slot dat inbrekers ophoudt en een kozijn waarin de rot niet terugkomt."
+        ]
+      },
+      {
+        "tussenkop": "Wat er in de vezel gebeurt",
+        "alineas": [
+          "Hout bestaat uit lange, holle cellen die in de lengterichting van de stam lopen: de vezels. Water zit er op twee manieren in. Vrij water vult de holtes van de cellen, gebonden water zit in de celwanden zelf. Als vers gezaagd hout droogt, verdwijnt eerst het vrije water. Dat verandert de maat niet. Pas als de holtes leeg zijn, bij ongeveer 28 tot 30 procent houtvocht (het vezelverzadigingspunt), gaan de celwanden water afstaan en krimpen ze. Vanaf dat punt beweegt hout mee met de luchtvochtigheid om zich heen. In een verwarmd huis zakt het houtvocht in de winter naar ongeveer 8 procent en loopt het in een vochtige zomer op naar 12 procent.",
+          "Die beweging is niet in alle richtingen gelijk. In de lengte van de vezel krimpt hout vrijwel niets, een paar tienden van een procent. Dwars op de vezel krimpt het wel, en ook dat ongelijk: in de richting van de jaarringen (tangentieel) ongeveer twee keer zoveel als haaks op de jaarringen (radiaal). Een plank waarvan je op de kopse kant de jaarringen als liggende boogjes ziet, een dosse plank, trekt daardoor hol, met de bolle kant naar het hart van de stam. Een kwartiers gezaagde plank, met staande jaarringen, blijft veel vlakker. Daarom is kwartiers eiken duurder.",
+          "Koop voor binnenwerk daarom kunstmatig gedroogd hout (kd, kiln dried) en laat het een week liggen in de ruimte waar het komt, zodat het zijn evenwichtsvocht vindt voordat je het op maat maakt. En zet een brede massieve plank nooit rondom vast. Een massief tafelblad schroef je met sleufgaten of klosjes op het onderstel, zodat het in de breedte kan schuiven. Wie het vastlijmt, krijgt in de eerste stookwinter een scheur over het blad."
+        ],
+        "foto": 1,
+        "kader": {
+          "titel": "Om te onthouden: hoe hout werkt",
+          "punten": [
+            "Krimp begint pas onder ±28–30% houtvocht (vezelverzadigingspunt)",
+            "Houtvocht binnen: ±8% in de winter, ±12% in een vochtige zomer",
+            "Lengterichting: vrijwel geen krimp; tangentieel ≈ 2× radiaal",
+            "Dosse plank trekt hol, kwartiers gezaagd blijft vlakker",
+            "Hout een week laten acclimatiseren en brede delen nooit rondom vastzetten"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Plaatmateriaal: de werking weggelijmd",
+        "alineas": [
+          "Plaatmateriaal is het industriële antwoord op werkend hout. Multiplex bestaat uit dunne fineerlagen die telkens kruislings op elkaar zijn gelijmd, altijd in een oneven aantal zodat de opbouw symmetrisch is. Elke laag wil in de breedte bewegen, maar wordt tegengehouden door de buurlaag, die in die richting in zijn lengte ligt en dus niet krimpt. Het resultaat is een plaat die vrijwel maatvast is. De lijm bepaalt waar je hem mag gebruiken: binnenmultiplex voor droge ruimtes, watervast verlijmd multiplex voor de badkamer en betonplex, met een harde bruine fenolfilm, voor buiten en bekisting. Bij lakwerk tekent de nerf wel door.",
+          "MDF is gemaakt van houtvezels die met lijm tot een homogene plaat zijn geperst. Er is geen nerf, geen knoest en geen richting, en daarom is MDF het favoriete materiaal voor gefreesde en strak gelakte kastdeuren. Zijn zwakke punt is de kopse kant, die verf opzuigt als een spons en extra gronden of plamuren nodig heeft. Vochtbestendig MDF herken je aan de groene kern, maar ‘vochtbestendig’ is niet waterdicht: ook die kopse kanten moet je afwerken. Gemelamineerd spaanplaat is goedkoop en direct afgewerkt, ideaal voor kastbinnenwerk in een droge kamer, maar zwelt bij water onherstelbaar op.",
+          "Voor een ondervloer neem je OSB/3 met tand-en-groef: 18 mm bij een balkafstand van ongeveer 40 cm, 22 mm bij 60 cm. Bij legplanken speelt een ander effect. Spaanplaat is weinig stijf en ‘kruipt’: onder een blijvende last zoals boeken buigt het in de loop van maanden steeds verder door. Houd een legplank van 18 mm spaanplaat daarom onder ongeveer 70 tot 80 cm overspanning. Wil je langer, lijm dan een lat van een paar centimeter hoog onder de voorkant. De stijfheid van een balk groeit met de derde macht van zijn hoogte, dus een klein randje hoogte maakt een groot verschil."
+        ],
+        "lesFoto": "hout-plaat-badkamer"
+      },
+      {
+        "tussenkop": "Zagen: waar de tand eruit komt, scheurt het",
+        "alineas": [
+          "Elk zaagblad laat aan één kant een schone snede achter en scheurt aan de andere kant. De regel is simpel: het oppervlak scheurt waar de tand het materiaal verlaat. Een handcirkelzaag draait zo dat de tanden onderaan de plaat ingaan en bovenaan naar buiten komen. Met de mooie kant boven breekt het melamine dus langs de hele snede uit. Bij de meeste decoupeerzaagbladen geldt hetzelfde, omdat ze op de opgaande slag zagen. Bij een afkortzaag en een tafelzaag komt de tand juist van boven, dus daar ligt de zichtkant boven. De invalzaag op een geleiderail is de uitzondering: de rubberen splinterlip van de rail drukt de bovenste vezels aan, waardoor ook daar de bovenkant schoon blijft.",
+          "Het blad doet de rest. Voor plaatmateriaal neem je bij een blad van 160 tot 165 mm zo’n 48 tot 60 tanden, op een afkortzaag voor lijstwerk 60 tot 80 tanden. Hoe meer tanden, hoe kleiner het hapje per tand en hoe schoner de snede. Een bot blad of een blad met harsaanslag gaat branden: zwarte strepen op de snede en brokkelend melamine. Stel de zaagdiepte in op de plaatdikte plus 3 tot 5 mm. Dan steekt er zo weinig mogelijk blad uit en is de kans op terugslag kleiner.",
+          "Leg je een plaat tussen twee schragen, dan zakt hij door, knelt de snede het blad vast en scheurt het laatste stuk uit als het afgezaagde deel valt. Leg hem plat op een oude isolatieplaat of op vier balken. Snijd een nieuwe rail eerst één keer in, zodat de splinterlip precies op jouw blad is afgesteld, en leg de rail aan de kant van het deel dat je bewaart: de zaagsnede is 2 tot 2,5 mm breed."
+        ],
+        "foto": 2,
+        "citaat": "Het oppervlak scheurt altijd daar waar de tand het materiaal verlaat."
+      },
+      {
+        "tussenkop": "Schroeven: trekken, niet duwen",
+        "alineas": [
+          "Een schroef moet twee delen naar elkaar toe trekken, en dat lukt alleen als de draad uitsluitend in het onderste deel pakt. Boor daarom in het bovenste deel een spelingsgat ter dikte van de schroef. De kop drukt dan het bovenste deel omlaag, terwijl de draad zich in het onderste deel vastbijt. Pakt de draad in beide delen, dan draaien ze met dezelfde snelheid omlaag en houdt de schroef ze juist op afstand. Je herkent dat aan een kier die niet dicht wil, hoe hard je ook doordraait.",
+          "In het onderste deel boor je een kerngat. Een schroef verdringt hout. In zacht vurenhout verdwijnt dat in de vezels, maar eiken of meranti kan niet wijken en splijt langs de vezel, vooral dicht bij een kopse kant. Houd zonder voorboren minstens vijf keer de schroefdiameter afstand tot het einde van een plank. Als vuistregel boor je voor een schroef van 4 mm ongeveer 2,5 mm voor in vuren en 3 mm in eiken. In hardhout trekt de kop zichzelf ook niet in, dus verzink je het gat vooraf. Draai in met een lage koppelstand en neem een bit die past: een PH-bit in een PZ-kop of een te kleine maat laat de kop rondgaan.",
+          "Het materiaal van de schroef telt ook. Eiken en red cedar bevatten looizuur, dat met ijzer reageert tot zwarte strepen rond verzinkte schroeven. Buiten en in die houtsoorten gebruik je daarom roestvast staal (RVS A2, aan zee A4). In de kopse kant van MDF of spaanplaat werkt een schroef zonder voorboren als een wig: de plaat zwelt op en scheurt. Voor een kast die strak en onzichtbaar verbonden moet zijn, is lijm met deuvels daarom vaak de betere keuze."
+        ],
+        "lesFoto": "hout-schroeven-voorboren"
+      },
+      {
+        "tussenkop": "Lijm en deuvels: vlak op vlak houdt, kops niet",
+        "alineas": [
+          "Witte houtlijm (PVAc) dringt in de poriën van het hout en hardt uit doordat hij water afgeeft. Op twee langsvlakken is zo’n naad sterker dan het hout zelf. Op een kopse kant werkt het anders. Daar liggen de open uiteinden van de vezels, die de lijm als rietjes wegzuigen. De naad ‘verhongert’ en houdt nauwelijks. Een kopse verbinding heeft daarom altijd iets mechanisch nodig dat over de naad heen grijpt: een deuvel, een lamello-koekje of een pen in een gat. Die bieden het langsvlak waar lijm wel op pakt.",
+          "Voor een kast van 18 mm plaat is een deuvel van 8 mm de vuistregel: een derde tot de helft van de plaatdikte. Een deuvel van 8×40 mm laat je ongeveer 21 mm per kant insteken. Zet de eerste op zo’n 50 mm van de rand en de volgende om de 150 tot 200 mm. Boor met een mal en een diepteaanslag en zet alles eerst droog in elkaar. Pas daarna lijm je, in de gaten en dun op de vlakken. PVAc-lijm heeft een open tijd van ongeveer 5 tot 10 minuten, dus leg vooraf genoeg klemmen klaar. Te weinig klemmen geeft een dikke, zwakke lijmnaad.",
+          "Lijm wordt ingedeeld naar vochtbestendigheid (EN 204). D2 is voor binnen met hooguit af en toe vocht, D3 voor keuken, badkamer en beschut buiten, D4 voor buiten in weer en wind. De plantenbak die na één winter bij de naden uit elkaar valt terwijl het hout nog gaaf is, is bijna altijd met D2 gelijmd. Buiten neem je D4, PU-lijm of epoxy, met RVS-schroeven erbij. Zet de kast na het klemmen haaks: zijn de diagonalen ongelijk, duw dan met een klem schuin over de lange diagonaal tot ze gelijk zijn."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Lijmklassen en deuvelmaten",
+          "punten": [
+            "D2: binnen, droog — D3: keuken, badkamer, beschut buiten — D4: buiten in weer en wind",
+            "Deuvel ≈ 1/3 tot 1/2 van de plaatdikte: 8 mm in 18 mm plaat",
+            "8×40 deuvel: ±21 mm per kant, eerste op ±50 mm van de rand, daarna om de ±150–200 mm",
+            "Open tijd PVAc: ±5–10 minuten — altijd eerst droog passen",
+            "Belast een lijmverbinding pas na ±24 uur volledig"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Plinten: schulpen, want muren liegen",
+        "alineas": [
+          "Een binnenhoek in een gestuct huis is zelden precies 90 graden. Zaag je twee plinten op 45 graden, dan wijkt de naad aan de voorkant een paar millimeter open. Bij buitenhoeken meet en halveer je: 92 graden betekent twee keer 46 graden zagen. In een binnenhoek blijft een verstek riskant. Hout krimpt in de breedte, dus in de hoogte van de plint, niet in de lengte. Daardoor verandert de hoek van een verstek een fractie, en na de eerste stookwinter staat de naad toch open.",
+          "De vakman lost dat op met schulpen. Plaats de eerste plint met een rechte kop tot in de hoek. Zaag de tweede plint eerst in verstek, alsof het een binnenhoek wordt. Op de voorkant verschijnt nu de profiellijn als een scherpe rand. Zaag met een figuurzaag of decoupeerzaag precies langs die lijn, iets schuin naar achteren. Het overgebleven profiel past nu als een mal over de eerste plint. Krimpt het hout of wijkt de muur, dan schuift het ene profiel over het andere en blijft de naad dicht. Bij een zwevende vloer zet je de plint alleen aan de muur vast, nooit aan de vloer, en in de bovennaad hoort overschilderbare acrylaatkit, geen siliconen."
+        ],
+        "lesFoto": "hout-plinten-verstek"
+      },
+      {
+        "tussenkop": "Een deur afhangen: hefboom op drie scharnieren",
+        "alineas": [
+          "Een deur hangt als een hefboom aan zijn scharnieren. Het gewicht zit in het midden van het deurblad, ver van de scharnierkant, en probeert de deur te laten kantelen. Het bovenste scharnier wordt daardoor op trek belast, het onderste op druk. Daarom krijgt een zware deur drie scharnieren, het bovenste op 11 tot 15 cm van de bovenkant. Geeft het bovenste scharnier mee, dan zie je een vast patroon: de deur schuurt bovenaan aan de slotkant tegen het kozijn en onderaan aan de scharnierkant wordt de kier groter. Langere schroeven van 4×50 mm, tot in het achterliggende hout, verhelpen dat meestal.",
+          "Bij een stompe deur meet je eerst de dagmaat op drie hoogtes en controleer je of het kozijn te lood staat. De deur krijgt rondom ongeveer 2 tot 3 mm speling en onderaan 5 tot 10 mm, of meer als de ventilatie via een overstroomspleet onder de deur moet lopen. Schaaf altijd van de hoeken naar binnen, anders breek je de stijlen uit. Een opdekdeur maak je niet kleiner: die is op de kozijnmaat gemaakt.",
+          "Frees de scharnierbladen precies zo diep in als het blad dik is, meestal 2,5 tot 3 mm. Te diep en de bladen raken elkaar voordat de deur dicht is. Dan ontstaat scharnierbinding: de deur veert terug open. Hang de deur op wiggen, zet eerst één schroef per blad en controleer de naden voordat je de rest plaatst. Grond tot slot direct alle zaagsneden en de onderkant. Een onbehandelde kopse kant neemt vocht op, en dan doet het hout waar deze les mee begon: het gaat werken, en de deur trekt krom."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Het slot: de zwakste schakel zit buiten",
+        "alineas": [
+          "Bij een voordeur is de cilinder vaak het zwakke punt. Bij kerntrekken draait een inbreker een schroef in de cilinder en trekt de kern eruit. Een cilinder met SKG-keurmerk met drie sterren heeft kerntrekbeveiliging, maar dat helpt alleen als het geheel klopt. In een dun, los beslag wordt het beslag de zwakke plek; zonder beveiligde cilinder hoort er veiligheidsbeslag met een afdekplaat voor. Meet de oude cilinder vanaf het midden van de bevestigingsschroef naar beide kanten, bijvoorbeeld 30/35 mm: buiten mag hij hooguit ongeveer 3 mm uit het beslag steken. Zet de nieuwe cilinderschroef vast zonder te forceren, anders draait de cilinder stroef, en smeer met grafiet of slotspray, nooit met olie: olie trekt stof aan en laat de stiftjes vastlopen."
+        ],
+        "lesFoto": "hout-cilinder-vervangen"
+      },
+      {
+        "tussenkop": "Houtrot: water is de oorzaak, schimmel de uitvoerder",
+        "alineas": [
+          "Rot is het werk van schimmels die de celwanden van hout afbreken. Bruinrot laat bruin, in blokjes gescheurd hout achter, witrot maakt hout licht en vezelig. Beide hebben langdurig vochtig hout nodig, grofweg boven de 20 procent houtvocht. Daarom zit rot vrijwel altijd waar water blijft staan: in onderdorpels, in de hoekverbindingen van kozijnen en achter een kapotte kitnaad. Hoe goed een houtsoort daartegen bestand is, staat in de duurzaamheidsklasse (EN 350), van 1 voor zeer duurzaam tot 5 voor niet duurzaam. Vuren is klasse 4: prima voor regelwerk binnen, maar buiten in de grond binnen enkele jaren verrot.",
+          "Voor kozijnen kies je meranti of acetylhout, voor onbehandelde gevelbekleding red cedar, larix of douglas, en voor palen in de grond hardhout van klasse 1 tot 2 zoals azobé. Let bij eiken op het lichte spinthout: het kernhout is duurzaam, het spint rot snel. Voor een plaatselijke rotplek in een kozijn is 2K-houtreparatie de aangewezen weg, zolang de aantasting kleiner is dan ongeveer een derde van de doorsnede. Is het meer, dan zet je een nieuw stuk hout in.",
+          "Begin met de priktest: waar een priem makkelijk wegzakt, is het hout rot, vaak verder dan de verf doet vermoeden. Hak of frees alles weg tot je overal op hard, gezond hout zit en laat het drogen tot onder ongeveer 18 procent houtvocht. Strijk een consolidant in, vul in lagen, schuur en schilder snel. Komt de rot na een jaar toch terug aan de rand van de reparatie, dan is er bijna altijd rot of vocht achtergebleven. Een dichte epoxylaag sluit dat op, en de schimmel werkt rustig door. Los daarom ook de oorzaak op: een open verbinding, een kapotte kitnaad of een dorpel zonder afschot. Water is ook de vijand in de volgende les: tegelen."
+        ],
+        "foto": 5,
+        "citaat": "Een dichte reparatie op nat hout sluit de rot niet buiten, maar op."
+      }
+    ]
+  },
+  {
+    "id": "klussen-07",
+    "kop": "De tegel houdt het water niet tegen – wat eronder zit wel",
+    "intro": "Een badkamer kan er perfect uitzien en toch lekken. Tegels en voegen zijn een slijtlaag, geen waterkering. Wie dat begrijpt, tegelt in een andere volgorde: eerst afdichten, dan lijmen met volledig contact, en kitten waar de constructie beweegt.",
+    "hoofdstuk": "Tegelen & kitten",
+    "basis": [
+      "tegelen-douche-waterdicht",
+      "tegelen-wand-uitzetten-lijmen",
+      "tegelen-vloer-grote-tegels",
+      "tegelen-voegen",
+      "tegelen-kitvoeg-vervangen",
+      "tegelen-gat-boren",
+      "tegelen-lijm-pasta",
+      "tegelen-lijm-vloerverwarming",
+      "tegelen-lijm-oude-tegels",
+      "tegelen-lijm-hout",
+      "tegelen-kit-douche",
+      "tegelen-kit-schilderen",
+      "tegelen-kit-natuursteen",
+      "tegelen-kit-vochtige-ondergrond",
+      "tegelen-snijden-recht",
+      "tegelen-snijden-porcellanato",
+      "tegelen-snijden-uitsparing",
+      "tegelen-snijden-gat",
+      "tegelen-probleem-hol",
+      "tegelen-probleem-hoekvoeg",
+      "tegelen-probleem-kit-scheurt",
+      "tegelen-probleem-lekkage-douche",
+      "tegelen-probleem-kit-schimmel",
+      "tegelen-probleem-cementsluier"
+    ],
+    "fotos": [
+      {
+        "wiki": "Grout",
+        "taal": "en",
+        "bijschrift": "Voegmortel wordt met een rubberen spaan diagonaal over de tegels ingewerkt"
+      },
+      {
+        "wiki": "Underfloor heating",
+        "taal": "en",
+        "bijschrift": "Vloerverwarmingsbuizen: de vloer zet uit en krimpt, dus de lijm moet vervormbaar zijn"
+      },
+      {
+        "wiki": "Core drill",
+        "taal": "en",
+        "bijschrift": "Een kroonboor zaagt een rond gat langs de rand in plaats van het materiaal te verpulveren"
+      },
+      {
+        "wiki": "Caulk",
+        "taal": "en",
+        "bijschrift": "Een kitvoeg vangt de beweging op tussen sanitair en tegelwerk"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Op het plafond van de woonkamer verschijnt een bruine kring, recht onder de douche. Boven is niets te zien: de tegels liggen strak, de voegen zijn heel, de kitnaden zitten nog vast en de leidingen zijn droog. Toch is dit een van de meest voorkomende badkamerlekkages, en de oorzaak zit onder de tegels. Een cementgebonden voeg is poreus. Water dat er dagelijks overheen loopt, trekt erdoorheen, net als door veel tegels zelf. Wat daaronder ligt, moet het tegenhouden en naar de put leiden. Ontbreekt die laag of sluit hij niet aan op de put, dan vindt het water zijn weg naar beneden.",
+          "In de vorige les zagen we dat hout altijd werkt. Tegelwerk heeft hetzelfde probleem, alleen kan een tegel zelf niet meegeven: hij is hard en bros. Alles in deze les draait daarom om drie vragen. Hoe houd je water tegen, als de tegel dat niet doet? Hoe zorg je dat de tegel overal hecht, zodat hij niet hol klinkt of breekt? En waar laat je beweging toe, zodat er niets scheurt? De antwoorden heten afdichting, lijmbed en kitvoeg."
+        ]
+      },
+      {
+        "tussenkop": "De afdichting doet het echte werk",
+        "alineas": [
+          "Het begint bij de ondergrond. In de douchezone hoort een cementgebonden wand of een vochtbestendige bouwplaat, geen gewone gipsplaat: zelfs met afdichting erop is die te kwetsbaar als er ooit een druppel achter komt. De vloer heeft al afschot naar de put of goot, ongeveer 1 tot 2 procent, voordat er een tegel ligt. Afschot maak je in de dekvloer, niet in de lijm. Strijk daarna alles voor met de primer van het afdichtingssysteem. Die zorgt dat de ondergrond het afdichtingsmiddel niet leegzuigt, waardoor er een gesloten film ontstaat die goed hecht.",
+          "Dan volgen de zwakke plekken, en die zitten waar de constructie werkt: binnenhoeken wand-wand en wand-vloer, plaatnaden en de rand van de put. Een vloeibare afdichting zonder versterking scheurt daar als eerste, met een haarscheur die je nooit ziet. Daarom zet je in een eerste natte laag afdichtband in alle hoeken en naden, met voorgevormde hoekstukken. Rond elke leiding komt een manchet en rond de put een flens of afdichtmanchet die op de afdichting aansluit. Een gat rond een kraanaansluiting is een gegarandeerde lekkage, en een put waar de afdichting niet op aansluit, laat het water er gewoon onderdoor lopen.",
+          "Breng daarna twee volle lagen aan, de tweede haaks op de eerste zodra die droog is, vaak na 2 tot 4 uur. Door kruislings te werken ontstaan geen dunne plekken. De droge laagdikte is meestal ongeveer een millimeter, volgens opgave van de fabrikant. In de douche ga je tot zeker 2 meter hoog of tot het plafond, op de vloer over het hele natte deel en 10 tot 15 cm tegen de wanden op. Gebruik alle onderdelen van één systeem: primer, band, manchetten en lijm zijn op elkaar getest. Wie merken mengt, weet niet of de lagen op elkaar hechten."
+        ],
+        "lesFoto": "tegelen-douche-waterdicht",
+        "kader": {
+          "titel": "Checklist afdichting douche",
+          "punten": [
+            "Ondergrond: cementgebonden of vochtbestendige bouwplaat, afschot ±1–2% al in de dekvloer",
+            "Primer van hetzelfde systeem over alles",
+            "Band in alle binnenhoeken en plaatnaden, voorgevormde hoekstukken",
+            "Manchet rond elke leiding, flens of manchet rond de put",
+            "Twee lagen kruislings, ±1 mm droog, tot ±2 m hoog; vloer 10–15 cm opzetten"
+          ]
+        },
+        "citaat": "Tegels en voegen zijn een slijtlaag. De waterkering ligt eronder."
+      },
+      {
+        "tussenkop": "Lijm: de codes op de zak",
+        "alineas": [
+          "Tegellijm wordt ingedeeld volgens EN 12004, en de code op de zak vertelt precies wat de lijm kan. De letter geeft het type: C voor cementgebonden poederlijm, D voor dispersielijm uit de pot (pastalijm), R voor reactieharslijm zoals epoxy. Het cijfer erachter is de hechtsterkte: 1 is normaal, 2 is verhoogd. Dan volgen eventueel F voor snel uithardend, T voor weinig afglijden aan de wand en E voor een verlengde open tijd. S1 en S2 geven de vervormbaarheid aan: S1 buigt minstens 2,5 mm mee in de proef, S2 minstens 5 mm. Een C2TE S1 is dus een cementlijm met verhoogde hechting, weinig afglijden, lange open tijd en flexibiliteit.",
+          "Welke je nodig hebt, volgt uit tegel en ondergrond. Moderne porcellanato is zo dicht gebakken dat hij vrijwel niets opzuigt. Een lijm kan zich er niet in vastzetten en moet het van chemische hechting hebben: dat is C2. Op een vloer met vloerverwarming zet de dekvloer bij elke stookcyclus een fractie uit, dus heb je S1 nodig. Op een houten balklaag, die doorbuigt als je erover loopt, ga je een stap verder met een ontkoppelingsmat of een extra stijve plaat en S2-lijm. Over oude, vastzittende tegels zet je eerst een hechtprimer, omdat glazuur niets opzuigt. Hol klinkende oude tegels gaan er eerst uit.",
+          "Pastalijm is handig: niet mengen, ruime correctietijd. Voor kleine wandtegels, tot ongeveer 30×30 cm op een droge, vlakke wand in een toilet of keuken, volstaat hij. Maar pastalijm droogt door verdamping. Onder een grote, dichte tegel kan het water nergens heen, en de lijm blijft lang zacht. Op vloeren, in de douche, bij grote tegels en bij vloerverwarming gebruik je daarom cementgebonden lijm, die hardt uit door een chemische reactie met water, onafhankelijk van verdamping."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Uitzetten: de wand begint op de tweede rij",
+        "alineas": [
+          "Het verschil tussen een strak en een rommelig tegelwerk zie je aan de randen. Smalle reepjes van twee centimeter in een hoek of boven een bad verraden dat er niet is uitgezet. Maak daarom eerst een tegelplan: leg een rij tegels met voegen op de vloer of reken het uit, zodat de snijstukken links en rechts gelijk zijn en minstens een halve tegel breed. Kies een as die het oog vangt, zoals het midden van de wand, een spiegel of de kraan, en laat daar een voeg of het midden van een tegel op vallen. Bepaal ook de hoogte: een voeg precies op de bovenkant van het bad of een hele tegel tegen het plafond.",
+          "Daarna begin je niet onderaan. Vloeren en badranden zijn zelden waterpas, en een fout van twee millimeter in de eerste rij loopt de hele wand mee omhoog. Schroef op de hoogte van de tweede rij een rechte lat of een aluminium profiel precies waterpas tegen de wand en tegel daarop verder naar boven. Als de lijm is uitgehard, haal je de lat weg en plaats je de onderste, gesneden rij als laatste. Elke afwijking van vloer of bad verdwijnt dan in die snijstukken, en niet in je voegen."
+        ],
+        "lesFoto": "tegelen-wand-uitzetten-lijmen"
+      },
+      {
+        "tussenkop": "Het lijmbed: contact is alles",
+        "alineas": [
+          "Meng poederlijm met de voorgeschreven hoeveelheid water op laag toerental, laat hem 3 tot 5 minuten rijpen en meng opnieuw. In die rusttijd lossen de toevoegingen op. Zet eerst een dun schraaplaagje met de gladde kant van de lijmkam en kam daarna met de vertande kant in één richting op, onder 45 tot 60 graden. Het schraaplaagje drukt de lijm in de poriën van de ondergrond, de ribbels geven het volume. Kam niet meer dan ongeveer een vierkante meter tegelijk op. Lijm die te lang open ligt, krijgt een huid, en daarop hecht een tegel niet. Tik met een vinger op de lijm: blijft er niets aan plakken, dan is het te laat.",
+          "Druk de tegel aan met een kleine schuifbeweging haaks op de kamrichting. Zo vallen de ribbels om en vloeien ze samen tot een gesloten bed. Haal regelmatig een tegel terug om te kijken. Op een droge wand is ongeveer 65 tot 70 procent contact voldoende, in de douche en op de vloer moet het nagenoeg volledig zijn. Een vloertegel die op losse richels ligt, klinkt een paar weken later hol. Erger: bij een puntlast, een gevallen pan of een stoelpoot, breekt hij in de hoek, omdat de tegel daar als een brug over een holte ligt. Verwijder ook lijm uit de voegen voordat die uithardt, zodat er diepte overblijft voor de voegmortel."
+        ]
+      },
+      {
+        "tussenkop": "Grote tegels: lijm aan twee kanten",
+        "alineas": [
+          "Tegels van 60×60 cm en groter vragen meer. Leg eerst een rei van 2 meter op de vloer: de afwijking mag maximaal enkele millimeters zijn, als vuistregel 2 tot 3 mm. Is het slechter, dan eerst egaliseren. Levelling clips trekken alleen de randen van twee buurtegels gelijk; een scheve ondergrond rechttrekken kunnen ze niet. Zet een randisolatiestrook langs de wanden, zodat de vloer kan werken zonder tegen de muur te drukken, en zet het tegelwerk uit vanuit het midden met twee haakse lijnen, met een laser of de 3-4-5-methode. Verschuif die lijnen zo dat je bij de deur een hele of grote tegel hebt.",
+          "Leg dan met buttering-floating. Je kamt de lijm op de vloer met een kam van 10 tot 12 mm (floating) en smeert met de gladde kant een dun laagje op de achterkant van de tegel (buttering). Dat tweede laagje vult de oneffenheden aan de achterkant en zorgt dat de ribbels overal contact maken. Kam in rechte, evenwijdige banen, niet in rondjes: bij het aanschuiven moet de lucht ergens heen kunnen. Leg grote rechthoekige tegels niet in halfsteensverband. Ze zijn bij het bakken vaak licht bol, en bij 50 procent verspringing komt de hoge middenkant naast een lage rand. Houd hooguit een derde verspringing aan."
+        ]
+      },
+      {
+        "tussenkop": "Snijden en boren zonder barsten",
+        "alineas": [
+          "Een gewone wandtegel snijd je met een handtegelsnijder: één keer krassen in één beweging en breken langs de kras. Twee keer over dezelfde lijn gaan maakt de kras rafelig en de breuk loopt weg. Harde porcellanato van 10 mm dik breekt met een lichte snijder vaak grillig; daar is een natte tegelzaag met een diamantblad met doorlopende rand de betere keuze. Een L-vormige uitsparing rond een kozijnhoek zaag je met de haakse slijper en een tegelschijf. Zaag tot net in de hoek en maak die af vanaf de achterkant, zodat de zaagsnede niet zichtbaar in de voorkant doorloopt.",
+          "Voor een rond gat neem je een diamantkroonboor, die langs de rand slijpt in plaats van het materiaal te verpulveren. Zet de klopfunctie altijd uit: klop laat glazuur barsten. Begin schuin, zodat een klein deel van de kroon een groef slijpt, en kantel dan langzaam naar haaks. Koel een natte kroonboor met water; een droge diamantboor koel je door hem cirkelend te bewegen. Droog boren met een natte boor verbrandt de diamantlaag in seconden. Wil je iets ophangen, boor dan eerst door de tegel en daarna met klop de muur in, en steek de plug zo diep dat hij achter de tegel spreidt. Een plug die in de tegel spreidt, laat hem barsten."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Voegen: het moment van de spons",
+        "alineas": [
+          "Voeg pas als de lijm voldoende is uitgehard, vaak na 24 uur. Krab de voegen schoon tot minstens twee derde van de tegeldikte vrij is en laat de binnenhoeken en aansluitingen op bad, douchebak en kozijnen open: die worden gekit. Meng de voegmortel met exact de voorgeschreven hoeveelheid water. Te veel water maakt de mortel makkelijker te verwerken, maar bij het drogen krimpt hij, worden de voegen poreus en ontstaan gaatjes en kleurverschillen. Gebruik op vloeren en bij vloerverwarming een flexibele voegmortel (CG2). Werk hem met de rubberen voegspaan diagonaal over de voegen in, zodat de spaan niet in de voeg zakt, en trek het overschot diagonaal af.",
+          "Daarna komt het moment dat het resultaat bepaalt. Wacht tot de voeg mat wordt, vaak na 10 tot 20 minuten, en spons dan diagonaal af met een goed uitgeknepen spons. Te vroeg sponzen trekt de mortel uit de voeg, die wordt hol. Te laat sponzen laat een cementsluier achter die met water niet meer weggaat. Werk met twee emmers en spoel de spons vaak uit. Een lichte sluier verwijder je na 7 tot 10 dagen met cementsluierverwijderaar: voegen eerst nat maken, inwerken en goed naspoelen. Die verwijderaar is een zuur. Op marmer, travertin of kalksteen etst hij het oppervlak dof, dus daar is hij taboe."
+        ],
+        "lesFoto": "tegelen-voegen"
+      },
+      {
+        "tussenkop": "Kitten: de voeg die mag bewegen",
+        "alineas": [
+          "In een binnenhoek komen twee wanden samen die elk op hun eigen manier bewegen door temperatuur, vocht en zetting. Een stijve cementvoeg kan dat niet volgen. Het resultaat is een haarscheur van boven tot onder, precies in de hoek, die water naar de afdichting voert. Daarom kit je alle binnenhoeken, de aansluiting van wand op vloer, de randen van bad en douchebak en de dilatatievoegen. Voegmortel hoort alleen in de vlakke naden tussen tegels. Gebruik in de natte zone schimmelwerende sanitairkit op siliconenbasis. Acrylaatkit is overschilderbaar en prima voor een plint, maar verdraagt geen staand water.",
+          "Een kitvoeg die in het midden over de hele lengte scheurt terwijl hij aan beide kanten goed vastzit, heeft driezijdige hechting. De kit zit ook vast op de bodem van de voeg. Rekt de voeg bij beweging, dan kan alleen het dunne middengedeelte meegeven, en daar scheurt hij. Kit moet alleen aan de twee flanken hechten, zodat hij over zijn hele breedte kan rekken. Druk daarom bij voegen dieper dan ongeveer 6 mm een ronde rugvulling van PE-schuim in, 20 tot 25 procent dikker dan de voeg breed is, of plak bij een ondiepe voeg een stukje PE-tape op de bodem. Houd breedte tot diepte ongeveer twee op één aan.",
+          "Bij het vervangen moet de oude kit er volledig uit: nieuwe siliconen hecht niet op oude, en schimmel onder de oude kit groeit door de nieuwe heen. Snijd los, verwijder resten met kitverwijderaar, ontvet met spiritus en laat een nacht drogen. Vul een bad eerst met water, zodat het doorzakt zoals bij gebruik en de kit in die stand uithardt. Spuit in één beweging, duw de kit voor de tuit uit de voeg in, nevel zeepsop en strijk in één haal af. Siliconen hardt ongeveer 2 mm per 24 uur uit, dus de douche blijft een dag droog. Op natuursteen gebruik je speciale natuursteenkit, omdat gewone siliconen olie in de steen laat trekken. In de volgende les volgen we het water verder: de leidingen achter de tegels."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Welke kit waar?",
+          "punten": [
+            "Douche, bad, binnenhoeken nat: schimmelwerende sanitairsiliconen",
+            "Plint, kozijn binnen, overschilderen: acrylaatkit",
+            "Natuursteen in de douche: speciale natuursteenkit, steen vooraf impregneren",
+            "Buiten, kozijn-metselwerk, overschilderbaar en elastisch: MS-polymeerkit",
+            "Rugvulling bij voegen dieper dan ±6 mm; breedte:diepte ±2:1"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "klussen-08",
+    "kop": "Twee soorten water: waarom de loodgieter in druk en in lucht denkt",
+    "intro": "Achter de tegels lopen twee totaal verschillende systemen. De waterleiding staat dag en nacht op druk, de afvoer werkt alleen met zwaartekracht en lucht. Wie die twee logica’s uit elkaar houdt, knelt, soldeert en legt afschot zonder lekkage, stank of gorgelende putjes.",
+    "hoofdstuk": "Loodgieterswerk",
+    "basis": [
+      "loodgieter-knelkoppeling",
+      "loodgieter-solderen",
+      "loodgieter-pvc-afvoer",
+      "loodgieter-kraan-vervangen",
+      "loodgieter-cv-bijvullen-ontluchten",
+      "loodgieter-sifon-ontstoppen",
+      "loodgieter-leiding-koper",
+      "loodgieter-leiding-meerlaag",
+      "loodgieter-leiding-pex",
+      "loodgieter-leiding-druk",
+      "loodgieter-verbinding-knel",
+      "loodgieter-verbinding-pers",
+      "loodgieter-verbinding-solderen",
+      "loodgieter-verbinding-pvc",
+      "loodgieter-afvoer-wastafel",
+      "loodgieter-afvoer-douche",
+      "loodgieter-afvoer-wasmachine",
+      "loodgieter-afvoer-wc",
+      "loodgieter-probleem-knel-lekt",
+      "loodgieter-probleem-soldeer-loopt-niet",
+      "loodgieter-probleem-gorgelen",
+      "loodgieter-probleem-cv-druk",
+      "loodgieter-probleem-wc-loopt-door",
+      "loodgieter-probleem-radiator-koud"
+    ],
+    "fotos": [
+      {
+        "wiki": "Copper tubing",
+        "taal": "en",
+        "bijschrift": "Koperbuis en pijpsnijder: haaks snijden is het begin van elke dichte verbinding"
+      },
+      {
+        "wiki": "Compression fitting",
+        "taal": "en",
+        "bijschrift": "Knelkoppeling: de knelring wordt tussen moer, fitting en buis vervormd"
+      },
+      {
+        "wiki": "Blowtorch",
+        "taal": "en",
+        "bijschrift": "Gasbrander: verwarm de fitting rondom, het soldeer vloeit naar de warmste plek"
+      },
+      {
+        "wiki": "Trap (plumbing)",
+        "taal": "en",
+        "bijschrift": "Een sifon houdt een waterslot vast dat rioollucht tegenhoudt"
+      },
+      {
+        "wiki": "Expansion tank",
+        "taal": "en",
+        "bijschrift": "Expansievat: een luchtkussen achter een membraan vangt het uitzetten van cv-water op"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Je trekt de wc door en een paar tellen later borrelt de wastafel ernaast. Even later ruik je riool. Niets lekt, niets is verstopt, en toch klopt er iets niet. Het antwoord heeft te maken met lucht, niet met water. Dat is meteen de belangrijkste les van het loodgieterswerk: in een huis lopen twee systemen die volgens totaal verschillende regels werken. De waterleiding staat permanent onder druk en moet op elke verbinding dicht zijn. De afvoer staat niet onder druk, werkt alleen dankzij zwaartekracht en is net zo afhankelijk van lucht als van afschot.",
+          "In de vorige les bleef het water netjes boven de afdichting onder de tegels. Nu kijken we naar de leidingen erachter. Eerst de drukkant: welke buis, en hoe verbind je die met knellen, solderen of persen. Dan de afvoerkant: afschot, diameter, waterslot en ontluchting. We eindigen bij de cv-installatie, een derde systeem: een gesloten kring met zijn eigen drukhuishouding, waar de meeste vragen over bijvullen en koude radiatoren over gaan."
+        ]
+      },
+      {
+        "tussenkop": "De drukkant: buis en druk kiezen",
+        "alineas": [
+          "Na de watermeter staat de leiding normaal op ongeveer 2 tot 4 bar. In sommige wijken ligt de druk hoger, en dan hoor je kranen bonken en druppelt het overstortventiel van de boiler. Een reduceerventiel direct na de watermeter brengt de druk terug naar ongeveer 3 bar. De hoofdkraan half dichtzetten helpt niet: dat vermindert alleen de doorstroming. Zodra alle kranen dicht zijn, staat de volle rustdruk weer op de leiding. Een warmwatertoestel sluit je altijd aan via een inlaatcombinatie met overstort, zodat het uitzettende water bij het opwarmen ergens heen kan.",
+          "Voor de buis zelf zijn er drie gangbare keuzes. Koper, 15 mm naar tappunten en 22 mm als hoofdleiding, is stijf en mooi in het zicht, bijvoorbeeld in de meterkast. Meerlagenbuis, ook wel alupex, heeft een laag aluminium tussen twee lagen kunststof. Je buigt hem met de hand of een buigveer en hij houdt de vorm vast, omdat het aluminium niet terugveert. Hij is zuurstofdicht en vraagt weinig verbindingen: ideaal voor een badkamerrenovatie. PEX, een flexibele kunststofbuis, trek je door een mantelbuis van de verdeler direct naar elk tappunt, zonder tussenverbindingen. Via de mantel kun je hem later zelfs vervangen zonder te hakken.",
+          "Die laatste eigenschap is belangrijker dan ze lijkt. Een verbinding is altijd een potentieel lek, en een lek in een dichtgestorte vloer is een ramp. Daarom de regel: wat ingesloten wordt, moet een verbinding zijn die daarvoor geschikt is, of er zit helemaal geen verbinding. Een knelkoppeling mag nooit onbereikbaar in een muur of vloer verdwijnen. Een geperste of gesoldeerde verbinding wel. En kunststofbuis in een dekvloer gaat altijd in een mantelbuis of met isolatie eromheen, zodat hij kan uitzetten en krimpen zonder vast te zitten."
+        ],
+        "kader": {
+          "titel": "Verbinden: wat mag waar?",
+          "punten": [
+            "Knelkoppeling: losneembaar, zonder vuur — alleen bereikbaar, nooit ingesloten",
+            "Persfitting: snel, zonder vuur, mag ingesloten — juiste persprofiel (V, M, TH …) gebruiken",
+            "Zachtsolderen: compact en goedkoop, mag ingesloten — loodvrij soldeer voor drinkwater",
+            "PVC-afvoer: lijmen met reiniger en PVC-lijm, nooit kit of universele lijm",
+            "Gasleiding: altijd voor de erkend installateur"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Knellen: metaal op metaal",
+        "alineas": [
+          "Een knelkoppeling dicht af zonder tape, zonder kit en zonder rubber. Bij het aandraaien duwt de moer een messing knelring in de conische opening van het fittinglichaam. De ring wordt daarbij rondom samengeknepen, bijt in de buis en sluit tegelijk tegen de conus af. Dat werkt alleen als de druk rondom gelijk is. Een buis die met een ijzerzaag scheef is afgezaagd, een braam op de buitenkant of een buis die niet tot de aanslag in de fitting zit, laat de ring scheef aanliggen. Dan krijg je een druppel die blijft komen, hoe ver je ook nadraait: verder aandraaien vervormt de scheve ring alleen nog meer.",
+          "De werkwijze volgt daaruit. Water dicht, druk eraf via een laaggelegen kraan, buis haaks afsnijden met een pijpsnijder en binnen en buiten ontbramen. Een binnenbraam geeft geruis, een buitenbraam beschadigt de knelring. Schuif eerst de moer, dan de ring op de buis. Bij zacht koper en bij kunststofbuis komt er een steunhuls in, anders drukt de ring de buis in. Steek de buis tot de aanslag, draai handvast en daarna met de sleutel driekwart tot één slag verder, terwijl een tweede sleutel het fittinglichaam tegenhoudt. Lekt hij toch, zaag dan het stuk met de oude ring eraf en begin opnieuw met een nieuwe ring."
+        ],
+        "foto": 1,
+        "citaat": "Meer kracht maakt een knelkoppeling niet dichter, alleen schever."
+      },
+      {
+        "tussenkop": "Solderen: het soldeer zoekt de warmte",
+        "alineas": [
+          "Een capillaire soldeerfitting past met een spleet van slechts een paar tienden van een millimeter om de buis. In zo’n smalle spleet trekt vloeibaar soldeer zichzelf naar binnen, net zoals water in een dun buisje omhoog kruipt. Twee voorwaarden: het koper moet blank zijn, zodat het soldeer het oppervlak kan bevochtigen, en de hele verbinding moet op soldeertemperatuur zijn. Loodvrij soldeer voor drinkwater, zoals tin-koper Sn97Cu3, smelt rond 230 tot 250 °C. Soldeer stroomt naar de warmste plek. Verwarm daarom de fitting rondom, niet het soldeer, en bied het soldeer aan aan de kant tegenover de vlam.",
+          "Het klassieke falen: soldeer dat als bolletjes op de buis blijft liggen en niet in de naad loopt. Bijna altijd staat er nog water in de leiding, dat de warmte wegvoert, of het koper was niet blank. Tap de leiding volledig af. Een propje brood houdt een nadruppelende leiding even droog en lost later op bij het doorspoelen. Maak buis en fitting blank met schuurvlies, breng dun vloeimiddel aan op de buis en niet in de fitting, en verhit tot het vloeimiddel sist en helder wordt. Wordt het zwart, dan is het verbrand en loopt het soldeer niet meer: schoonmaken en opnieuw. Werk met een hittemat en houd water bij de hand, want hout achter een wand kan nog lang nagloeien."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Persen, en daarna altijd testen",
+        "alineas": [
+          "Professionele installateurs persen tegenwoordig het meeste. In een persfitting zit een O-ring. Een elektrische persmachine knijpt de fitting met een persbek rondom vast op de buis, en in een paar seconden is de verbinding klaar, zonder vuur. Persfittings mogen ingesloten worden, en goede systemen hebben een lekindicatie: een niet-geperste fitting lekt zichtbaar bij de druktest, zodat je hem niet over het hoofd ziet. Het risico zit in de persbek. Elk systeem heeft zijn eigen profiel, zoals V, M of TH, en een verkeerd profiel geeft een verbinding die lijkt te houden maar dat niet doet. Markeer de insteekdiepte en meng geen fittings van verschillende systemen. Persmachines zijn te huur.",
+          "Welke methode je ook kiest, niets verdwijnt achter een wand voordat het getest is. Zet de nieuwe leiding langzaam onder druk door de hoofdkraan rustig open te draaien, en ontlucht via de hoogste kraan. Loop daarna elke verbinding af met een droge tissue: een natte plek op papier zie je eerder dan een druppel op koper. Laat de leiding een tijd onder druk staan en kijk dan nog eens, want een kleine lekkage begint soms pas na een uur te zweten. Pas als alles droog blijft, gaat de voorzetwand dicht of wordt er gestort. Een lek dat je nu vindt, kost een kwartslag; hetzelfde lek over een jaar kost een badkamer."
+        ],
+        "lesFoto": "loodgieter-verbinding-pers"
+      },
+      {
+        "tussenkop": "De afvoerkant: afschot en diameter",
+        "alineas": [
+          "Aan de afvoerkant is er geen druk die het werk doet. Het water loopt omdat de buis afloopt, en dat moet in de juiste mate. De vuistregel is minstens 1 cm verval per meter (1:100), liefst 1 tot 2 cm. Te weinig afschot laat vuil achter dat zich ophoopt. Te veel is ook niet goed, vooral bij een wc-leiding: het water schiet weg en laat de vaste delen liggen. De diameter hangt af van wat er doorheen moet. Een wastafel krijgt 32 mm, bij een leiding langer dan ongeveer 3 meter 40 mm. Een douche krijgt 40 of 50 mm, een regendouche 50 mm. Wasmachine en vaatwasser pompen veel water in korte tijd weg en krijgen 40 tot 50 mm. Een wc gaat op 110 mm.",
+          "Twee regels voorkomen de meeste verstoppingen. Verloop in stroomrichting nooit naar een kleinere diameter. En gebruik in liggende leidingen geen bochten van 90 graden, maar twee bochten van 45 graden: in een scherpe bocht verliest het water snelheid en blijft vuil hangen. PVC-afvoer verbind je door te lijmen, maar die lijm plakt niet echt. Hij lost de oppervlakken van mof en spie aan, zodat ze samensmelten. Zaag haaks, schuin de spie licht af zodat je de lijm niet uit de mof schuift, reinig beide delen met PVC-reiniger en lijm de mof dun en de spie iets dikker. Steek direct en recht tot de aanslag in en houd een paar seconden vast.",
+          "Een afvoer die vastzit, moet ook kunnen bewegen. PVC zet bij warm water merkbaar uit, en een lange rechte leiding die tussen twee vaste punten klemt, gaat kraken of trekt aan zijn verbindingen. Zet beugels op ongeveer tien keer de buisdiameter uit elkaar, met speling voor uitzetting, en neem in een lange rechte leiding een expansiemof op. Laat de lijm daarna uitharden volgens de fabrikant, vaak enkele uren. Test door een volle wasbak in één keer te laten leeglopen en controleer alle verbindingen. Dat is de zwaarste belasting die de leiding in de praktijk krijgt."
+        ],
+        "lesFoto": "loodgieter-pvc-afvoer"
+      },
+      {
+        "tussenkop": "Het waterslot en de lucht die erbij hoort",
+        "alineas": [
+          "Elke afvoer van een toestel heeft een sifon, ook wel stankafsluiter. In de bocht blijft een waterslot van ongeveer 5 cm staan, dat rioollucht tegenhoudt. Dat slot is kwetsbaar. Een grote plens water uit een wc vult de afvoer over de hele doorsnede en werkt als een zuiger: erachter ontstaat onderdruk. Kan er geen lucht bijkomen, dan wordt die lucht door de andere sifons aangezogen. Het waterslot van de wastafel verdwijnt met een gorgelend geluid, en vanaf dat moment kan rioollucht vrij naar binnen. Precies de situatie uit de opening van deze les.",
+          "Daarom heeft de standleiding een ontluchting boven het dak. Zit die dicht door bladeren of een vogelnest, of hangt er een lange zijtak zonder eigen luchttoevoer aan, dan plaats je een beluchter: een luchttoelaatventiel op het hoogste punt van de aftakking dat bij onderdruk opent en lucht toelaat, maar geen rioollucht naar buiten laat. Ook een lange 32 mm-leiding van een wastafel kan zichzelf leegzuigen als hij helemaal volloopt. Bij een wasmachine hoort een sifon en een slang met een beugel boven het waterniveau in de machine. Een slang die los in een open buis hangt, geeft stank en kan water terughevelen."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Ontstoppen en een kraan wisselen",
+        "alineas": [
+          "Een trage afvoer zit meestal dicht bij het putje of in de sifon. Begin bovenaan: haal haar en vet uit het rooster of de waste. Gebruik dan een plopper, maar sluit eerst de overloop van de wastafel af met een natte doek, anders ontsnapt de druk daar. Helpt dat niet, draai dan de sifon los boven een emmer, maak hem schoon en controleer de rubbers. Zit het verder, voer dan een ontstoppingsveer draaiend in via de muuraansluiting. Spoel na met heet maar niet kokend water: kokend water vervormt PVC. Chemische ontstopper werkt slecht op haar, tast rubbers aan en is gevaarlijk als je daarna alsnog moet demonteren. Komt een verstopping steeds terug, kijk dan naar afschot, diameter of ontluchting.",
+          "Een mengkraan vervangen is een overzichtelijke klus, mits je de volgorde kent. Draai de stopkranen dicht en houd ze met een tweede sleutel tegen bij het losdraaien. Een oude stopkraan die jaren niet bewogen heeft, gaat vaak lekken na het dichtdraaien: vervang hem dan meteen. Draai de flexibele slangen met de hand in de nieuwe kraan voordat je de kraan op het blad zet, want onder de wastafel kom je er later nauwelijks bij. Sluit warm links en koud rechts aan, zonder tape op wartels met een rubber afdichting. Schroef de perlator los en spoel door, zodat vuil uit de leiding de nieuwe cartouche niet blokkeert."
+        ],
+        "lesFoto": "loodgieter-sifon-ontstoppen"
+      },
+      {
+        "tussenkop": "De cv: een gesloten kring met een luchtkussen",
+        "alineas": [
+          "De cv-installatie is een gesloten systeem: hetzelfde water gaat jarenlang rond. Koud hoort de druk ongeveer 1,5 tot 2 bar te zijn. Water zet bij opwarmen een paar procent uit, en dat moet ergens heen. Daarvoor dient het expansievat, een rode of grijze ketel met een membraan. Aan de ene kant zit cv-water, aan de andere kant een luchtkussen op voordruk. Het uitzettende water drukt het kussen in. Is die voordruk weg of het membraan kapot, dan kan het water nergens heen. De druk schiet bij opwarmen naar 3 bar, het overstortventiel gaat open en loost water. Afgekoeld staat de druk dan onder de 1 bar. Wie dan alleen bijvult, bestrijdt het symptoom.",
+          "Lucht in de installatie verzamelt zich op het hoogste punt: bovenin de radiatoren, vooral op de bovenste verdieping. Een radiator die onder warm en boven koud is, zit vol lucht. Zet de pomp een kwartier uit, zodat de lucht kan stijgen, en ontlucht van laag naar hoog tot er alleen water komt. Ontluchten kost water, dus vul daarna bij. Vul de vulslang eerst helemaal met water, anders pomp je lucht het systeem in, en ontkoppel hem na het vullen: cv-water mag nooit terugstromen in het drinkwater. Moet je vaker dan een paar keer per jaar bijvullen, laat dan het expansievat en de installatie controleren. Vers water brengt zuurstof en kalk mee, en die geven corrosie.",
+          "Een wc-reservoir dat blijft nalopen, kun je wel zelf oplossen. Stroomt het water over de overloopbuis, dan sluit de vulkraan te laat: stel de vlotter lager af, tot ongeveer 2 cm onder de bovenkant van de overloop. Staat het niveau juist onder de overloop en loopt het toch, dan is de afvoerklep lek. In de volgende les komt het water van buitenaf: vocht, damp en condens. Dan blijkt ook waarom je na het isoleren van een kruipruimte de leidingen daar apart moet isoleren."
+        ],
+        "foto": 4,
+        "citaat": "Wie bij een cv-installatie alleen bijvult, bestrijdt het symptoom."
+      }
+    ]
+  },
+  {
+    "id": "klussen-09",
+    "kop": "Isoleren verplaatst het koude punt, en het vocht verhuist mee",
+    "intro": "Isolatie houdt warmte binnen, maar verandert ook waar het in je huis koud is. Precies daar zoekt waterdamp een plek om te condenseren. Wie isoleert zonder aan damp, luchtdichtheid en ventilatie te denken, ruilt een hoge energierekening in voor rot en schimmel.",
+    "hoofdstuk": "Isoleren & vocht",
+    "basis": [
+      "isoleren-dak-binnenzijde",
+      "isoleren-kieren-dichten",
+      "isoleren-kruipruimte",
+      "isoleren-binnenzijde-gevel",
+      "isoleren-schimmel-behandelen",
+      "isoleren-ventilatie-op-orde",
+      "isoleren-materiaal-dak",
+      "isoleren-materiaal-vloer",
+      "isoleren-materiaal-spouw",
+      "isoleren-materiaal-houtvezel",
+      "isoleren-folie-dak-binnen",
+      "isoleren-folie-dak-buiten",
+      "isoleren-folie-vochtvariabel",
+      "isoleren-folie-binnenwand",
+      "isoleren-kier-raam",
+      "isoleren-kier-kozijn",
+      "isoleren-kier-plint",
+      "isoleren-kier-folie",
+      "isoleren-probleem-schimmel-kast",
+      "isoleren-probleem-druppels-dak",
+      "isoleren-probleem-condens-ramen",
+      "isoleren-probleem-condens-buiten",
+      "isoleren-probleem-opstijgend-vocht",
+      "isoleren-probleem-pur-kozijn"
+    ],
+    "fotos": [
+      {
+        "wiki": "Thermography",
+        "taal": "en",
+        "bijschrift": "Een warmtebeeld maakt zichtbaar waar een huis warmte lekt"
+      },
+      {
+        "wiki": "Mineral wool",
+        "taal": "en",
+        "bijschrift": "Minerale wol klemt tussen onregelmatige sporen en is onbrandbaar"
+      },
+      {
+        "wiki": "Vapor barrier",
+        "taal": "en",
+        "bijschrift": "Een dampremmende folie hoort aan de warme kant van de isolatie"
+      },
+      {
+        "wiki": "Crawl space",
+        "taal": "en",
+        "bijschrift": "Een kruipruimte moet geventileerd blijven, ook na het isoleren"
+      },
+      {
+        "wiki": "Efflorescence",
+        "taal": "en",
+        "bijschrift": "Witte zoutuitbloei: zouten blijven achter waar vocht uit het steenwerk verdampt"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Het is een klus waar je trots op bent: de zolder van binnen geïsoleerd met glaswol, netjes afgewerkt met gipsplaat. De eerste winter is het er heerlijk. In de tweede winter verschijnen er vochtplekken op het plafond. Je schroeft een plaat los en schrikt: de isolatie is nat en het hout van het dakbeschot is zwart. Er lekt geen pan. Het water kwam van binnen, uit de lucht van je eigen huis, en het is gecondenseerd op een plek die door jouw isolatie koud is geworden. Dat is de kern van deze les: isoleren houdt niet alleen warmte binnen, het verplaatst ook het koude punt in de constructie. En vocht gaat altijd naar het koudste punt.",
+          "Deze les sluit de reeks af en raakt aan alles wat eraan voorafging. Houtrot ontstaat waar hout lang nat blijft, tegelwerk faalt waar water ergens heen kan, en leidingen in een koude kruipruimte bevriezen. We beginnen bij de getallen achter isolatie, gaan dan naar damp en luchtdichtheid, de echte bron van de meeste schade, en daarna naar de klussen zelf: dak, gevel, kruipruimte en kieren. We eindigen bij ventilatie, de onmisbare tegenhanger van elke isolatiestap."
+        ]
+      },
+      {
+        "tussenkop": "Lambda en Rc: de rekensom",
+        "alineas": [
+          "De isolerende kwaliteit van een materiaal heet de lambdawaarde (λ), uitgedrukt in W/mK: hoe lager, hoe beter. Glaswol zit rond 0,032 tot 0,040, PIR-platen rond 0,022 tot 0,026, houtvezel rond 0,038 tot 0,046. De isolatiewaarde van een laag, de Rc, reken je uit door de dikte in meters te delen door de lambda. Glaswol van 140 mm met λ 0,035 geeft 0,14 / 0,035 = een Rc van ongeveer 4,0. Voor dezelfde Rc heb je van PIR maar zo’n 90 mm nodig. Daarom is PIR de keuze waar ruimte schaars is, zoals tegen de onderkant van een vloer in een lage kruipruimte.",
+          "Die rekensom geldt alleen voor isolatie die intact en zonder kieren ligt. Isolatie werkt doordat ze lucht stilzet. Druk je minerale wol samen, dan wordt hij dunner en minder isolerend. Laat je een kier langs een spoor, dan stroomt er koude of warme lucht langs, en die luchtstroom voert veel meer warmte af dan de wol tegenhoudt. Daarom klemt minerale wol zo goed tussen onregelmatige dakbalken: hij past zich aan. Harde PIR-platen tussen scheve sporen geven juist kieren langs de rand. Houtvezel isoleert iets minder per centimeter, maar heeft veel massa. De zomerzon komt daardoor uren later binnen, wat een zolderkamer merkbaar koeler houdt.",
+          "Een lege spouwmuur in een huis uit de jaren dertig tot zeventig is een apart geval. Die laat je na-isoleren door een gespecialiseerd bedrijf, dat EPS-parels of glaswolvlokken door gaatjes in de voegen inblaast. Zo’n bedrijf scant eerst of de spouw breed, schoon en droog genoeg is, vaak minstens 4 tot 5 cm. Zelf PUR-schuim in de spouw spuiten is een slecht idee: het verloopt ongelijk, laat holtes over en kan het buitenblad wegdrukken. Let na het vullen op de kruipruimte: die wordt soms via de spouw geventileerd, en die route mag niet dichtraken."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Damp: waarom de folie aan de warme kant hoort",
+        "alineas": [
+          "Lucht bevat waterdamp, en warme lucht kan veel meer damp bevatten dan koude. Koel je lucht af zonder dat er damp verdwijnt, dan stijgt de relatieve vochtigheid. Bij een bepaalde temperatuur, het dauwpunt, is de lucht verzadigd en slaat het water neer als condens. Kamerlucht van 20 °C met 60 procent relatieve vochtigheid heeft een dauwpunt rond de 12 °C. Elk oppervlak dat kouder is dan dat, wordt nat. In een ongeïsoleerd dak is het dakbeschot redelijk warm, omdat er warmte doorheen lekt. Na het isoleren ligt de warmte binnen, en is het dakbeschot in de winter bijna zo koud als buiten. Komt er warme binnenlucht bij, dan condenseert die er direct op.",
+          "Daarom komt er een dampremmer aan de warme kant van de isolatie, dus aan de binnenkant. De gouden regel: een constructie moet aan de binnenkant ongeveer vijf tot tien keer dampdichter zijn dan aan de buitenkant. Damp die er toch in komt, kan dan naar buiten ontsnappen. Aan de buitenkant hoort dus een dampopen laag, zoals een waterkerende onderdakfolie die regen tegenhoudt maar damp doorlaat. Twee dampdichte lagen, of een dichte folie aan de koude kant, sluiten het vocht op en zijn daarom fout. In een binnenwand tussen twee verwarmde kamers is geen dampremmer nodig: daar is geen temperatuurverschil en dus geen dauwpunt.",
+          "Bij renovatie is de buitenkant vaak niet echt dampopen, of je weet het niet zeker. Dan biedt een vochtvariabele dampremmer uitkomst. In de winter, met droge binnenlucht, is hij dampremmend. In de zomer, als de lucht vochtiger is, wordt hij opener, zodat vocht dat toch in de constructie kwam naar binnen kan uitdrogen. Zijn dampdichtheid varieert, uitgedrukt als Sd-waarde, ruwweg van een paar decimeter tot enkele meters. Bij twijfel over de opbouw is bouwfysisch advies geen luxe."
+        ],
+        "foto": 2,
+        "kader": {
+          "titel": "Om te onthouden: damp",
+          "punten": [
+            "Dampremmer aan de warme kant, dampopen laag aan de koude kant",
+            "Binnen ±5–10× dampdichter dan buiten",
+            "Onderdakfolie: Sd ≤ ±0,1 m (zeer dampopen)",
+            "Twee dampdichte lagen = vocht opgesloten",
+            "Binnenwand tussen verwarmde ruimtes: geen dampremmer nodig"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Luchtdicht is belangrijker dan dampdicht",
+        "alineas": [
+          "Damp kan op twee manieren een constructie in. Door diffusie, langzaam door het materiaal heen, en door convectie, meegevoerd met lucht die door een kier stroomt. Dat tweede is veel gevaarlijker. Een gat van een millimeter in een folie laat via luchtstroming vele malen meer vocht door dan via diffusie door de hele folie. De dampremmer werkt dus pas als hij ook luchtdicht is. Overlappen van ongeveer 10 cm plak je af met luchtdichte tape, nooit met ducttape of schilderstape, die na een paar maanden loslaten. Op metselwerk en beton sluit je de folie aan met een rups aansluitkit van ongeveer 8 mm, met een losse lus in de folie, zodat de aansluiting beweging kan opvangen.",
+          "Elke leiding, kabel en buis die door de folie gaat, krijgt een manchet. Inbouwspots zijn een bekende valkuil: elke spot zonder luchtdichte inbouwdoos is een gat in de schil. De elegante oplossing is een installatiezone. Zet over de folie heen regels van bijvoorbeeld 22×50 mm en werk daarop af met gipsplaat. In die ruimte van een paar centimeter leg je kabels en dozen zonder ooit door de folie te boren. Wie elektra al eens in een wand heeft weggewerkt, ziet de logica: je scheidt de laag die dicht moet blijven van de laag waarin je installeert."
+        ],
+        "lesFoto": "isoleren-kier-folie",
+        "citaat": "Een gat van een millimeter in de folie doet meer kwaad dan de hele folie tegenhoudt."
+      },
+      {
+        "tussenkop": "Het dak van binnen",
+        "alineas": [
+          "Controleer eerst het dak zelf. Zit er een dampopen onderdakfolie of dakbeschot onder de pannen, is alles droog en kan er ventilatie onder de pannen blijven? Een lekkend dak repareer je eerst. Bereken dan de dikte. Zijn de sporen te ondiep voor de gewenste Rc, breid ze dan uit met extra regels. Snijd klemvaste wol 1 tot 2 cm breder dan de ruimte tussen de sporen, zodat hij zonder bevestiging blijft zitten, en werk naadloos door langs gordingen, hoeken en de knieschotten. Draag een FFP2-masker, handschoenen en een bril: de vezels prikken. Tacker daarna de dampremmer over het hele vlak, plak hem luchtdicht af, zet de installatieregels en schroef de gipsplaat.",
+          "Bepaal vooraf waar de warme schil precies loopt, want daar moet de folie ononderbroken langs. Op een zolder met knieschotten kun je kiezen. Isoleer je het dakvlak door tot op de muurplaat, dan valt de ruimte achter het knieschot binnen de schil en loopt de folie daar mee naar beneden. Isoleer je het knieschot en de vloer erachter, dan ligt die ruimte buiten en wordt hij koud: berg er dan niets op dat niet tegen vocht kan. Fout is een mengvorm, waarbij de folie halverwege stopt. Op die naad stroomt warme lucht de koude hoek in, en daar verschijnt de eerste schimmel. Teken de schil daarom eerst op een doorsnede."
+        ],
+        "lesFoto": "isoleren-dak-binnenzijde"
+      },
+      {
+        "tussenkop": "Een massieve muur: de lastigste klus",
+        "alineas": [
+          "Een buitenmuur zonder spouw aan de binnenkant isoleren met een voorzetwand is bouwfysisch het riskantst. De oude muur krijgt na het isoleren nauwelijks nog warmte van binnen en wordt in de winter koud en vochtig. Dat kan gaan, maar alleen als hij droog is en blijft. Controleer eerst op lekkende voegen, slagregen die doorslaat en opstijgend vocht. Dat laatste herken je aan vochtige muren tot ongeveer 80 cm hoogte, bladderende verf en witte zoutuitbloei in een horizontale lijn. Bakstenen zuigen water op uit de grond als er geen horizontale waterkering is. Het herstel is meestal een injectie in de lintvoeg, en daarna moet de muur maanden drogen. Isoleer pas daarna.",
+          "Let ook op de plekken waar de isolatie stopt. Waar een binnenmuur of vloer tegen de gevel aansluit, loopt de isolatie niet door en ontstaat een koudebrug. Isoleer daarom bij voorkeur zo’n 50 cm langs die wanden en het plafond terug. Klem de isolatie volledig tegen de muur, zonder luchtruimte erachter, en kies hier vaak een vochtvariabele dampremmer, zodat de muur in de zomer naar binnen kan uitdrogen. Isoleer niet extreem dik zonder advies: hoe dikker, hoe kouder het metselwerk, met kans op vorstschade. Balkkoppen die in de gevel liggen, worden kouder en natter en kunnen gaan rotten. Dat is precies het rotmechanisme uit de houtles."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "De kruipruimte: isoleren en blijven ventileren",
+        "alineas": [
+          "Vloerisolatie geeft warmere voeten en minder vocht in huis, maar alleen in een droge kruipruimte. Staat er water, los dan eerst de oorzaak op. Tegen een betonvloer zet je PIR-platen met aluminium cachering vast met isolatiepluggen, ongeveer vijf per plaat, en de naden werk je af met tape of PUR. Tegen een houten vloer kun je tussen de balken isoleren. Snijd strak, want een kier langs de funderingsmuur laat koude lucht om de platen heen stromen, en dan is veel van het nut weg. Hoe krap het daar ook is: werk die randen netjes af.",
+          "De ventilatieroosters in de gevel blijven open, wat de verleiding ook is. Een geventileerde kruipruimte voert vocht af en houdt houten balken droog. Wie de roosters dichtmaakt om het warmer te krijgen, krijgt een vochtige kruipruimte en rottende balken. Er is nog een effect. Na het isoleren komt er geen warmte meer uit de woning naar beneden, en de kruipruimte wordt kouder. Waterleidingen die daar lopen, kunnen bij vorst gaan bevriezen. Isoleer ze daarom apart. Tocht onder de plinten van een houten vloer komt uit diezelfde kruipruimte, via de naad tussen vloer en muur. Die dicht je met acrylaatkit, niet door de kruipruimte af te sluiten."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Kieren: goedkoop, en toch vaak verkeerd",
+        "alineas": [
+          "Kierdichting levert per euro het meeste op. Zoek de lekken op een winderige dag, met de afzuiging aan, met een rookpen of een wierookstokje langs kozijnen, deuren, plinten en doorvoeren. Een draaiend raam krijgt een tochtstrip van EPDM of siliconen op de plek waar het bij het sluiten tegen de sponning drukt. Meet de kierdikte met een stukje klei tussen raam en sponning en kies daarop het profiel. Een te dik profiel laat het raam niet sluiten, een te dun dicht niets. Een vaste naad van 1 tot 3 cm tussen kozijn en muur vul je met laag-expansief, flexibel PUR. Bevochtig de naad licht en spuit hem maar half tot tweederde vol: het schuim zet nog uit.",
+          "Hoog-expansief schuim of een volgespoten naad duwt met grote kracht tegen het kozijn, dat zonder steun naar binnen buigt, en daarna klemt de deur. PUR zelf is bovendien niet volledig luchtdicht en verweert onder uv-licht. Snijd het na uitharding af en werk de binnenkant af met luchtdichte tape of kit. Wat je nooit dicht, zijn ventilatieroosters en de spleet onder binnendeuren. En wie een open haard of een gaskachel zonder afvoer heeft, moet verbrandingslucht garanderen: in een luchtdichte ruimte dreigt koolmonoxide."
+        ],
+        "lesFoto": "isoleren-kieren-dichten"
+      },
+      {
+        "tussenkop": "Ventileren: de andere helft van isoleren",
+        "alineas": [
+          "Een lek huis ventileert vanzelf. Na kierdichting, nieuw glas en isolatie moet ventilatie bewust geregeld worden, anders volgt het bekende patroon: beslagen ramen in de ochtend, een muffe lucht en schimmel in de badkamer. Het principe is eenvoudig. Verse lucht komt binnen in de verblijfsruimten, via roosters boven de ramen, en wordt afgevoerd in keuken, badkamer en wc. Daartussen stroomt de lucht door het huis via een spleet van ongeveer 1,5 tot 2 cm onder de binnendeuren. Bij mechanische afzuiging liggen de richtwaarden rond 21 dm³/s in de keuken, 14 in de badkamer en 7 in de wc. Een tissue tegen een afzuigventiel hoort te blijven plakken.",
+          "Meten helpt. Een hygrometer laat zien of de relatieve vochtigheid binnen tussen ongeveer 40 en 60 procent blijft. Schimmel groeit al als een oppervlak lang boven de 70 tot 80 procent zit, ook zonder zichtbare druppels. Dat verklaart de zwarte plek achter een kledingkast tegen de buitenmuur: daar komt geen warme lucht, het oppervlak koelt af en de relatieve vochtigheid aan de muur stijgt. Zet kasten 5 tot 10 cm van buitenmuren en verwarm ook slaapkamers licht. Een CO₂-meter in de slaapkamer is een goede tweede controle: boven ongeveer 1200 ppm is er ’s nachts te weinig verse lucht. Schimmel zelf verwijder je nat, nooit droog borstelen, en altijd samen met de oorzaak.",
+          "Niet elke condens is slecht nieuws. Druppels aan de buitenkant van nieuw HR++-glas op een koude ochtend betekenen juist dat het glas goed isoleert: het buitenblad krijgt nauwelijks warmte van binnen en koelt onder het dauwpunt van de buitenlucht af. Condens tussen de glasbladen is wel een probleem, want dan is de randafdichting kapot. Wie zijn huis echt luchtdicht maakt, kan aan balansventilatie met warmteterugwinning denken, die een groot deel van de warmte uit de afgevoerde lucht terugwint. Daarmee is de cirkel van deze reeks rond: hout werkt door vocht, tegels moeten water weren, leidingen moeten dicht zijn, en een huis moet ademen zonder te lekken."
+        ],
+        "lesFoto": "isoleren-probleem-condens-ramen",
+        "citaat": "Isoleren en ventileren zijn geen twee klussen, maar één."
+      }
+    ]
+  }
+]

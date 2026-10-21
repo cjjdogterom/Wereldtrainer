@@ -1,0 +1,894 @@
+[
+  {
+    "id": "elektronica-01",
+    "kop": "Van straatkabel tot groepenkast: zo komt de stroom je huis in",
+    "intro": "Achter het deurtje van de meterkast zit meer techniek dan de meeste bewoners denken. Wie snapt waar de netbeheerder ophoudt, wat een fase is en waarom 3×25 A iets anders betekent dan 75 A, plant een warmtepomp of laadpaal met open ogen.",
+    "hoofdstuk": "Aansluiting en groepenkast",
+    "basis": [
+      "de-aansluiting",
+      "groepenkast-opbouw",
+      "een-fase-drie-fase",
+      "groepen-verdelen"
+    ],
+    "fotos": [
+      {
+        "wiki": "Groepenkast",
+        "taal": "nl",
+        "bijschrift": "Een groepenkast: hoofdschakelaar, aardlekschakelaars en automaten op een rail"
+      },
+      {
+        "wiki": "Hoogspanningsnet",
+        "taal": "nl",
+        "bijschrift": "Het hoogspanningsnet: het begin van de reis naar jouw wandcontactdoos"
+      },
+      {
+        "wiki": "Inductiekookplaat",
+        "taal": "nl",
+        "bijschrift": "Een inductiekookplaat vraagt al snel twee groepen op twee fasen"
+      },
+      {
+        "wiki": "Laadpaal",
+        "taal": "nl",
+        "bijschrift": "Een laadpaal kan één of drie fasen gebruiken: 3,7 of 11 kW"
+      },
+      {
+        "wiki": "Heat pump",
+        "taal": "en",
+        "bijschrift": "Buitenunit van een warmtepomp: een zware, vaste verbruiker met een eigen groep"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Open de meterkast van een gemiddeld Nederlands rijtjeshuis en je kijkt naar een kruispunt van twee werelden. Links of onderin zit een grijze kast met verzegelde schroeven, daarboven een slimme meter met een knipperend lampje, en daarnaast een witte kast vol schakelaars met handgeschreven etiketjes als ‘keuken’ en ‘boven licht’. Die grens tussen verzegeld en vrij toegankelijk is niet zomaar een kwestie van esthetiek. Het is de grens tussen het openbare net en jouw eigen installatie, tussen de verantwoordelijkheid van de netbeheerder en die van jou. Wie daar eenmaal goed naar heeft gekeken, begrijpt waarom de ene klus wel een zaterdagmiddag is en de andere nooit.",
+          "In dit eerste deel van de reeks volgen we de stroom vanaf de straat tot aan de groepen. We kijken naar wat de hoofdzekering eigenlijk begrenst, hoe de groepenkast is opgebouwd, waarom er drie fasen bestaan en hoe je groepen slim verdeelt. Dat is geen theorie voor de theorie: vrijwel elke verduurzamingsstap in huis, van inductie koken tot een warmtepomp of een laadpaal, loopt vroeg of laat vast op precies deze vragen. Wie ze kan beantwoorden, voert een veel beter gesprek met de installateur en ziet zelf wanneer een offerte niet klopt."
+        ]
+      },
+      {
+        "tussenkop": "Waar het net ophoudt",
+        "alineas": [
+          "Een woning hangt via een ondergrondse kabel aan het laagspanningsnet van de netbeheerder, in Nederland meestal Liander, Stedin of Enexis. Die kabel loopt de meterkast in en eindigt in de aansluitkast, waar de hoofdzekering of hoofdzekeringen zitten. Daarna volgt de kWh-meter, tegenwoordig vrijwel altijd een slimme meter. Kabel, hoofdzekering en meter zijn eigendom van de netbeheerder en voorzien van zegels. De energieleverancier is een heel andere partij: die koopt en verkoopt alleen de energie en komt nooit aan je meterkast. Bel je bij een storing in de aansluiting dus je leverancier, dan word je doorverwezen; de netbeheerder is wie je nodig hebt.",
+          "Het belangrijkste praktische gevolg van die grens: alles vóór de hoofdschakelaar van je groepenkast blijft onder spanning, ook als je die hoofdschakelaar omzet. Dat geldt voor de hoofdzekering, de meter en de kabels tussen meter en groepenkast, en zelfs voor de aansluitklemmen aan de bovenkant van de hoofdschakelaar zelf. Wie de groepenkast vervangt of uitbreidt, werkt daardoor letterlijk centimeters van een geleider die niet uit te schakelen is zonder de netbeheerder. Het verbreken van zegels is bovendien niet toegestaan. Werk aan dat deel is daarom voorbehouden aan de netbeheerder, en dat is een regel waar een ervaren klusser ook gewoon voor gaat staan."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Wat de hoofdzekering echt begrenst",
+        "alineas": [
+          "De hoofdzekering bepaalt de capaciteit van de aansluiting. Veel oudere woningen hebben 1×35 A: één fase met een zekering van 35 ampère. Het maximale schijnbare vermogen is dan 230 V × 35 A, ongeveer 8 kVA. Nieuwbouw krijgt standaard 3×25 A: drie fasen van elk 25 A, samen 3 × 230 × 25 ≈ 17 kVA. De eenheid kVA in plaats van kW is geen pietluttigheid. VA, voltampère, is spanning maal stroom, ongeacht of die stroom nuttig werk doet. Voor een waterkoker of kachel is VA gelijk aan W, voor motoren en elektronica kan het werkelijke vermogen lager liggen. De zekering kijkt alleen naar stroom.",
+          "Een rekenvoorbeeld laat zien waarom 1×35 A krap wordt. Stel: een hybride warmtepomp neemt in de winter zo’n 2 kW, een inductiekookplaat op vol vermogen ruim 7 kW en een laadpaal op één fase 3,7 kW. Samen is dat bijna 13 kW, terwijl de aansluiting maar 8 kVA levert. In de praktijk staan niet alle apparaten tegelijk op vol, en een kookplaat begrenst zichzelf vaak, maar een koude winteravond waarop iemand kookt terwijl de auto laadt is precies het moment waarop de hoofdzekering kan doorsmelten. Dat herstellen kan alleen de netbeheerder, en tot die er is zit je in het donker.",
+          "Het goede nieuws: de vaste netbeheerkosten hangen af van de capaciteitscategorie, en alles van 1×10 A tot en met 3×25 A valt in hetzelfde tarief. Van 1×35 A naar 3×25 A gaan kost dus eenmalig aansluitkosten, maar niet jaarlijks meer netbeheerkosten. Pas boven 3×25 A, bijvoorbeeld 3×35 A, wordt het structureel duurder. Een verzwaring vraag je aan bij de netbeheerder; in delen van het land kan de wachttijd door netcongestie oplopen. Wie een warmtepomp of laadpaal plant, doet er dus goed aan om die aanvraag niet tot het laatste moment te bewaren."
+        ]
+      },
+      {
+        "tussenkop": "De slimme meter als meetinstrument",
+        "alineas": [
+          "De slimme meter registreert levering en teruglevering apart, per tarief, en stuurt standen op afstand door. Interessanter voor de technisch nieuwsgierige bewoner is de P1-poort: een RJ12-aansluiting waarop je zelf een uitleesmodule kunt prikken. Die geeft elke paar seconden het actuele vermogen door, bij een 3-fase meter vaak zelfs per fase. Daarmee zie je direct wat de waterkoker doet, hoe hoog de sluipverbruiker ’s nachts is, en of één fase structureel zwaarder belast wordt dan de andere twee. Ook laadpalen gebruiken dit signaal voor zogeheten load balancing: ze knijpen hun laadstroom terug zodra het huis zelf veel vraagt, zodat de hoofdzekering heel blijft."
+        ]
+      },
+      {
+        "tussenkop": "De opbouw van de groepenkast",
+        "alineas": [
+          "Na de meter loopt de stroom naar de hoofdschakelaar. Dat is een lastscheider: een schakelaar die onder belasting veilig kan openen, maar die zelf nergens tegen beveiligt. Hij is er om de hele installatie in één handeling vrij te schakelen. Vanaf de hoofdschakelaar verdelen koperen kamrails de stroom over de aardlekschakelaars, en daarachter zitten de installatieautomaten van de afzonderlijke groepen. Een groep is één stroomkring met een eigen beveiliging: de wandcontactdozen van de woonkamer, de verlichting boven, of alleen de vaatwasser. In het volgende artikel duiken we in de werking van aardlekschakelaar en automaat; nu gaat het om de structuur.",
+          "Die structuur heeft een logica. De installatieautomaat beschermt de kabel van zijn groep tegen te grote stroom, de aardlekschakelaar beschermt mensen tegen een schok. Omdat een aardlekschakelaar bij een lekstoring alles erachter uitschakelt, wil je er niet te veel groepen achter hangen. Een veelgebruikte regel is maximaal vier groepen per aardlekschakelaar. In moderne kasten zie je steeds vaker aardlekautomaten: een aardlekschakelaar en installatieautomaat in één module, zodat een lekfout precies één groep uitschakelt en niet de halve benedenverdieping. Dat is duurder per groep, maar maakt storingzoeken veel eenvoudiger.",
+          "Een detail dat in oude en zelf uitgebreide kasten vaak misgaat: elke groep heeft een eigen nul. De nul van de keukengroep mag dus niet aan dezelfde klem hangen als die van de woonkamergroep. Gebeurt dat toch, en zitten die groepen achter verschillende aardlekschakelaars, dan loopt de terugstroom deels via de ‘verkeerde’ aardlekschakelaar. Die ziet dan een verschil tussen heen- en terugstroom en schakelt af, terwijl er nergens iets lekt. Het klassieke symptoom: de aardlek valt alleen als twee bepaalde apparaten tegelijk aanstaan. Wie dat ziet, zoekt niet naar een kapot apparaat maar naar een gedeelde of verwisselde nul."
+        ],
+        "schema": "groepenkast",
+        "kader": {
+          "titel": "De route door de meterkast",
+          "punten": [
+            "Aansluitkabel en hoofdzekering: netbeheerder, verzegeld",
+            "kWh-meter (slimme meter): netbeheerder, verzegeld",
+            "Hoofdschakelaar: lastscheider, schakelt alles vrij maar beveiligt niet",
+            "Aardlekschakelaars: persoonsbescherming, liefst maximaal vier groepen erachter",
+            "Installatieautomaten: beschermen de kabel van elke groep",
+            "Elke groep heeft een eigen nul; nullen nooit delen"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Drie fasen, één elegante truc",
+        "alineas": [
+          "Het openbare net levert drie fasen, L1, L2 en L3. Op elke fase staat een sinusvormige spanning van 230 V ten opzichte van de nul, maar de drie sinussen lopen een derde periode achter elkaar aan: 120 graden verschoven. Dat komt rechtstreeks uit de generator in de centrale, die drie spoelen heeft die op 120 graden van elkaar rond de as liggen. Het gevolg is dat de spanning tussen twee fasen geen 460 V is, maar 230 × √3 ≈ 400 V. Op het moment dat L1 op zijn top staat, is L2 niet ook op zijn top maar ergens onderweg, dus het verschil is kleiner dan de som.",
+          "Een gewone wandcontactdoos gebruikt één fase en de nul en krijgt 230 V. Bij een 3-fase aansluiting worden de groepen over de drie fasen verdeeld, zodat het huis eigenlijk drie kleine 1-fase installaties naast elkaar heeft. Een 3-fase apparaat zoals een laadpaal of een grote warmtepomp gebruikt alle drie de fasen tegelijk. Belangrijk om te onthouden: in een kast met 3-fase groepen staat tussen sommige draden 400 V. Wie gewend is aan ‘maar’ 230 V, onderschat hoe hard dat aankomt. Ga er nooit van uit dat twee bruine of zwarte draden in dezelfde doos op dezelfde fase zitten.",
+          "Waarom willen zware apparaten meer fasen? Omdat de stroom per fase begrensd is door kabel en beveiliging, bijvoorbeeld 16 A. Op één fase levert dat 230 × 16 ≈ 3,7 kW. Een laadpaal op 3 × 16 A haalt 3 × 230 × 16 ≈ 11 kW, en op 3 × 32 A zelfs ongeveer 22 kW, al laden de meeste auto’s via wisselstroom niet sneller dan 11 kW. Een inductiekookplaat van 7,4 kW zou op één fase ruim 32 A trekken. Daarom gaat hij op twee groepen van 16 A op twee verschillende fasen, traditioneel via een perilex-contactdoos of tegenwoordig vaak via een vaste aansluiting."
+        ],
+        "schema": "driefase",
+        "foto": 3,
+        "citaat": "Tussen twee fasen staat geen 460 maar 400 volt, omdat hun toppen nooit tegelijk vallen."
+      },
+      {
+        "tussenkop": "De nul die verdwijnt",
+        "alineas": [
+          "Er is een bijzondere eigenschap van drie fasen die de hele elektriciteitsvoorziening goedkoper maakt. Belast je de drie fasen precies even zwaar, dan tellen de drie stromen in de nul op tot nul: op elk moment is de som van drie gelijke sinussen die 120 graden verschoven zijn precies nul. De nul van een symmetrisch belaste 3-fase verbruiker voert dus geen stroom. Bij ongelijke belasting loopt alleen het verschil via de nul terug. Daarom kan één nulgeleider drie fasen bedienen, en daarom zie je in de straat kabels met vier geleiders en niet met zes.",
+          "Diezelfde eigenschap verklaart een minder bekend gevaar, waar we in een later deel op terugkomen: als in een 3-fase installatie de gemeenschappelijke nul onderbroken raakt, bijvoorbeeld door een losgetrilde klem, zweeft het sterpunt. Apparaten op verschillende fasen komen dan in serie over 400 V te staan, en het apparaat met de hoogste weerstand krijgt het grootste deel van die spanning. Een radio op L1 kan zo ineens 300 V krijgen terwijl de waterkoker op L2 nauwelijks warm wordt. Een goed aangedraaide nul is in een 3-fase kast dus geen detail, maar een veiligheidskwestie."
+        ]
+      },
+      {
+        "tussenkop": "Groepen verdelen over de fasen",
+        "alineas": [
+          "Een 3×25 A-aansluiting betekent 25 A per fase, geen pot van 75 A die je vrij kunt verdelen. Zet je wasmachine, droger en vaatwasser alle drie op L1, dan kan die fase overbelast raken terwijl L2 en L3 bijna niets doen. Elke fase heeft zijn eigen hoofdzekering, en de eerste die doorslaat bepaalt het einde van je avond. Het doel bij het indelen is dus niet alleen dat het totaal past, maar dat geen enkele fase structureel zwaarder belast wordt dan de rest. Zware verbruikers spreid je bewust: wasmachine op L1, droger op L2, vaatwasser op L3, en de twee kookplaatgroepen op twee fasen waar die drie niet op zitten.",
+          "Er speelt nog een modern argument mee: zonnepanelen. Een 1-fase omvormer zet zijn hele productie op één fase. Op een zonnige middag in een straat vol panelen kan de spanning op die fase oplopen, en een omvormer moet afschakelen als de spanning boven de grens van 253 V komt, 230 V plus tien procent. Wie de omvormer op een fase zet waarop overdag ook verbruikers draaien, zoals de vaatwasser met uitgestelde start, verbruikt een deel van zijn eigen stroom direct en drukt de spanning op die fase iets. Een wondermiddel is het niet, want de spanning wordt vooral door de hele straat bepaald, maar het helpt om er bij het indelen even bij stil te staan.",
+          "Ook de verdeling over aardlekschakelaars verdient aandacht. Leg de groepen van één ruimte niet allemaal achter dezelfde aardlek. Als de verlichting van de woonkamer achter aardlek 1 zit en de wandcontactdozen achter aardlek 2, heb je bij een lekstoring in de ene groep nog licht of stroom in die ruimte. Dat is niet alleen prettig, het is ook veiliger: wie in het donker met een zaklamp naar de meterkast moet om een storing te zoeken, maakt sneller fouten. Bij een kast met aardlekautomaten speelt dit minder, omdat elke groep dan zijn eigen lekbeveiliging heeft."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Hoeveel punten op een groep?",
+        "alineas": [
+          "Voor het aantal aansluitpunten per groep geldt in de praktijk een vuistregel van ongeveer tien punten, waarbij een lichtpunt en een enkele of dubbele wandcontactdoos elk als punt tellen. Die regel is een hulpmiddel, geen natuurwet. Wat telt, is het werkelijke gebruik. Een slaapkamergroep met tien wandcontactdozen voor een wekkerradio en een telefoonlader komt nooit in de buurt van 16 A. Een keukengroep met drie wandcontactdozen kan dat met een waterkoker van 2200 W, een airfryer van 1500 W en een koffiezetapparaat wel: samen ruim 5 kW, dus ruim 22 A. Daarom krijgt het aanrecht vaak twee groepen, verdeeld over de wandcontactdozen.",
+          "Zware vaste apparaten krijgen standaard een eigen groep: wasmachine, droger, vaatwasser, oven, combimagnetron, kookplaat, warmtepomp en laadpaal. Een eigen groep betekent hier echt een eigen automaat met een eigen kabel naar één wandcontactdoos of één vaste aansluiting, zonder andere punten. Het aantal groepen dat een woning minimaal moet hebben, hangt in NEN 1010 af van onder meer de woninggrootte; in de praktijk heeft een moderne eengezinswoning er al snel tien of meer. Laat bij een nieuwe kast altijd vrije ruimte op de rail over. De volgende verbouwing komt, en een kast zonder plek voor een extra groep betekent dan meteen een nieuwe kast."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Veelgemaakte fouten",
+        "alineas": [
+          "De meest voorkomende fout bij uitbreidingen is ‘even een groep erbij prikken’ op een bestaande kabel. Een extra wandcontactdoos in de schuur wordt doorgelust vanaf de dichtstbijzijnde contactdoos in de bijkeuken, die toevallig op de groep van de wasmachine zit. Het werkt, totdat iemand in de schuur een elektrische kachel aanzet terwijl de wasmachine verwarmt. Een tweede klassieker is een groepenverklaring die niet meer klopt. NEN 1010 vraagt een actueel overzicht in de kast, en dat is geen bureaucratie: wie de verkeerde automaat uitzet en met een niet-geteste spanningzoeker gaat werken, staat aan een groep die gewoon onder spanning staat.",
+          "De derde fout zit in het hoofd: denken dat een zwaardere hoofdzekering of een extra fase het probleem oplost terwijl het eigenlijk in de groepen zit. Een keukengroep die steeds uitvalt, heeft geen 3×25 A nodig maar een tweede groep. Omgekeerd lost een nieuwe groepenkast niets op als de aansluiting zelf te klein is voor de warmtepomp en de laadpaal samen. Begin dus altijd met een eenvoudige rekensom: welke apparaten kunnen tegelijk draaien, op welke fase zitten ze, en hoeveel ampère is dat per fase? Met de P1-poort kun je die som zelfs controleren aan de werkelijkheid, in plaats van te vertrouwen op typeplaatjes."
+        ],
+        "kader": {
+          "titel": "Rekenen aan je aansluiting",
+          "punten": [
+            "1-fase: S = 230 V × I, dus 1×35 A ≈ 8 kVA",
+            "3-fase: S = 3 × 230 V × I, dus 3×25 A ≈ 17 kVA",
+            "1 × 16 A ≈ 3,7 kW; 3 × 16 A ≈ 11 kW; 3 × 32 A ≈ 22 kW",
+            "Fase–fase: 230 × √3 ≈ 400 V",
+            "Grens telt per fase: 3×25 A is geen 75 A op één fase"
+          ]
+        },
+        "citaat": "Een keukengroep die steeds uitvalt, heeft geen zwaardere aansluiting nodig maar een tweede groep."
+      },
+      {
+        "tussenkop": "Wat je meeneemt naar het volgende deel",
+        "alineas": [
+          "Met dit overzicht heb je de plattegrond van de meterkast in je hoofd: een verzegeld deel van de netbeheerder, een hoofdschakelaar die alleen schakelt, aardlekschakelaars die mensen beschermen, en installatieautomaten die kabels beschermen. Daaronder ligt het principe van drie fasen die elkaar in evenwicht houden. In het volgende artikel openen we de modules op de rail zelf. Hoe ‘ziet’ een aardlekschakelaar een lekstroom van een paar milliampère tussen ampères aan bedrijfsstroom? Waarom schakelt een automaat bij 20 A pas na minuten af en bij kortsluiting binnen een honderdste seconde? En wat heeft de geel/groene draad daarmee te maken?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "elektronica-02",
+    "kop": "Aardlek, automaat en aarde: de drie bewakers van je installatie",
+    "intro": "Een aardlekschakelaar die om middernacht uitvalt, een automaat die pas na minuten reageert, een geel/groene draad die nooit stroom voert: ze lijken los van elkaar te staan. Toch vormen ze samen één beveiligingsketen, en die werkt alleen als de kabel erachter klopt.",
+    "hoofdstuk": "Beveiliging en bekabeling",
+    "basis": [
+      "aardlekschakelaar",
+      "installatieautomaat",
+      "aarding-vereffening",
+      "kabels-kleuren-doorsnede"
+    ],
+    "fotos": [
+      {
+        "wiki": "Aardlekschakelaar",
+        "taal": "nl",
+        "bijschrift": "Aardlekschakelaar: de testknop maakt bewust een klein lek"
+      },
+      {
+        "wiki": "Residual-current device",
+        "taal": "en",
+        "bijschrift": "Principe: fase en nul samen door één ringkern met een meetwikkeling"
+      },
+      {
+        "wiki": "Bimetallic strip",
+        "taal": "en",
+        "bijschrift": "Een bimetaal kromt bij verwarming: het thermische hart van de automaat"
+      },
+      {
+        "wiki": "Ground (electricity)",
+        "taal": "en",
+        "bijschrift": "Aardpen met aardkabel, zoals bij een TT-stelsel"
+      },
+      {
+        "wiki": "Ground and neutral",
+        "taal": "en",
+        "bijschrift": "Nul- en aardrail naast elkaar in een verdeelkast"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Iedereen die een tijd in hetzelfde huis woont, kent het moment. Je zit op de bank, er klinkt een droge klik uit de gang, en de helft van het huis is donker. Meestal is de oorzaak onschuldig: een lampje dat doorbrandt, een vochtige buitencontactdoos, een oude waterkoker. Maar die klik is het resultaat van een beveiligingsketen die in een fractie van een seconde een beslissing nam. Om die beslissing te begrijpen, moet je weten wat de drie bewakers in je installatie precies meten. Want de aardlekschakelaar, de installatieautomaat en de aarding kijken alle drie naar iets anders, en geen van de drie kan het werk van de andere overnemen.",
+          "In het vorige deel zagen we de structuur van de groepenkast. Nu gaan we de modules zelf open. We beginnen bij de aardlekschakelaar, die mensen beschermt. Daarna de installatieautomaat, die kabels beschermt. Vervolgens de aarding, die ervoor zorgt dat een fout überhaupt een meetbare stroom oplevert. En we eindigen bij de kabel zelf, want elke beveiliging is gekozen op de draad erachter. Wie dat verband snapt, ziet ook waarom ‘een zwaardere automaat erin zetten’ een van de gevaarlijkste klusserstips is die er rondgaan."
+        ]
+      },
+      {
+        "tussenkop": "Een weegschaal voor stroom",
+        "alineas": [
+          "Een aardlekschakelaar is in wezen een weegschaal. Normaal gaat alle stroom die via de fase een groep in gaat, via de nul weer terug. In de aardlekschakelaar lopen fase en nul samen door een ringkern van magnetisch materiaal, de sommatiestroomtransformator. Om die kern zit een meetwikkeling. Zolang heen- en terugstroom even groot zijn, heffen hun magneetvelden elkaar precies op en wordt er in de meetwikkeling niets opgewekt. Of er nu 0,1 A of 15 A door de groep gaat, maakt niet uit: de schakelaar ziet alleen het verschil. Dat verklaart zijn gevoeligheid. Hij hoeft geen milliampères te vinden tussen ampères, hij vergelijkt twee bijna gelijke grootheden.",
+          "Lekt er stroom weg via een andere weg, via de beschermingsleiding of via een mens naar aarde, dan is de terugstroom door de nul kleiner. Het verschil magnetiseert de kern, de meetwikkeling levert een kleine spanning en een gevoelig relais laat het schakelmechanisme los. In woningen ligt de nominale verschilstroom, IΔn, op 30 mA. De norm eist dat de schakelaar bij die 30 mA binnen 300 milliseconden afschakelt en bij vijf keer die waarde binnen 40 milliseconden. In de praktijk zijn de meeste exemplaren een stuk sneller. Het doel is dat een stroom door je lichaam stopt voordat het hart uit zijn ritme kan raken."
+        ],
+        "schema": "aardlek",
+        "foto": 1
+      },
+      {
+        "tussenkop": "Wat hij niet ziet",
+        "alineas": [
+          "Juist omdat hij alleen verschil meet, heeft de aardlekschakelaar blinde vlekken. Pak je fase en nul tegelijk vast terwijl je op een droge, isolerende vloer staat, dan loopt de stroom heen door je ene hand en terug door je andere. Er lekt niets naar aarde, dus de weegschaal blijft in evenwicht en de schakelaar doet niets. Ook overbelasting ziet hij niet: twintig ampère in de fase en twintig in de nul is voor hem een perfecte balans. En hij beschermt evenmin tegen kortsluiting tussen fase en nul. Een aardlekschakelaar maakt werken onder spanning dus nooit veilig; hij is een vangnet voor fouten naar aarde, geen vrijbrief.",
+          "Er is ook een subtielere grens. De norm staat toe dat een 30 mA-schakelaar al afschakelt vanaf de helft van die waarde: ergens tussen 15 en 30 mA. Veel apparaten lekken in normaal bedrijf een klein beetje stroom naar aarde, via ontstoringscondensatoren in hun netfilter. Per apparaat is dat meestal hooguit in de orde van een milliampère, maar computers, televisies, een warmtepomp en een paar laders achter dezelfde aardlek tellen op. Valt een aardlekschakelaar sporadisch uit zonder duidelijke oorzaak, dan is dat vaak de som van al die kleine lekjes plus een vochtige buitencontactdoos. Ook dat is een reden om niet te veel groepen achter één aardlek te hangen."
+        ]
+      },
+      {
+        "tussenkop": "Type A, type B en de testknop",
+        "alineas": [
+          "In woningen is type A de standaard. Die detecteert lekstroom die als wisselstroom of als pulserende gelijkstroom optreedt, zoals achter een eenvoudige gelijkrichter. Moderne vermogenselektronica kan echter ook een vlakke gelijkstroom laten lekken, bijvoorbeeld in laadpalen, omvormers en frequentiegeregelde motoren. Zo’n gelijkstroom magnetiseert de ringkern blijvend en kan een type A ‘verblinden’, waardoor hij bij een echte fout niet meer goed reageert. Daarom vraagt een laadpaal een type B aardlek, tenzij de laadpaal zelf een detectie van 6 mA gelijkstroom heeft ingebouwd. Kijk dus bij een laadpaal altijd in de handleiding wat er in de kast nodig is.",
+          "De testknop op de voorkant maakt intern een klein, kunstmatig verschil tussen fase en nul. Druk je erop en schakelt de aardlek af, dan weet je dat meetkern, relais en mechaniek werken. De fabrikanten adviseren regelmatig testen, vaak elk halfjaar of vaker. Het mechaniek is een klein veermechanisme dat jarenlang stil kan staan, en wie nooit test, ontdekt pas bij een echte fout of het nog loskomt. Weet wel dat de testknop niet bewijst dat je aarding in orde is; daarvoor is een installatietester nodig die ook de aardverbinding en de afschakeltijd meet."
+        ],
+        "kader": {
+          "titel": "De aardlekschakelaar in getallen",
+          "punten": [
+            "Woningen: IΔn = 30 mA",
+            "Afschakelen toegestaan vanaf 15 mA, verplicht bij 30 mA",
+            "Bij IΔn binnen 300 ms, bij 5 × IΔn binnen 40 ms",
+            "Type A: wisselstroom en pulserende gelijkstroom",
+            "Type B: ook vlakke gelijkstroom (laadpaal zonder eigen DC-detectie)",
+            "Testknop regelmatig gebruiken, bijvoorbeeld elk halfjaar"
+          ]
+        }
+      },
+      {
+        "tussenkop": "De automaat: twee mechanismen in één",
+        "alineas": [
+          "De installatieautomaat heeft een heel andere taak: hij beschermt de kabel tegen te veel stroom. Daarvoor zitten er twee mechanismen in één behuizing. Het eerste is thermisch: een bimetaal, twee aan elkaar gewalste metaalstrips die verschillend uitzetten bij verwarming. De stroom warmt het bimetaal op, dat daardoor krom trekt en bij een bepaalde doorbuiging het slot van de schakelaar losduwt. Omdat opwarmen tijd kost, reageert dit deel traag. Bij 1,13 keer de nominale stroom mag de automaat binnen een uur niet afschakelen, bij 1,45 keer moet hij dat binnen een uur wel. Een B16 die 20 A voert, valt dus pas na geruime tijd af.",
+          "Die traagheid is geen gebrek maar ontwerp. Een kabel warmt zelf ook langzaam op; een korte piek boven 16 A, zoals bij het aanslaan van een stofzuiger, beschadigt de isolatie niet. Het bimetaal bootst als het ware de opwarming van de kabel na. Het tweede mechanisme is magnetisch: een spoel die bij een zeer grote stroom een ijzeren anker aantrekt, binnen ongeveer tien milliseconden. Dat is voor kortsluiting, waarbij de stroom honderden of zelfs duizenden ampère kan bereiken. Op dat moment wil je niet wachten tot er iets opwarmt. Het uitschakelvermogen, in woningen typisch 6 of 10 kA, geeft aan hoeveel kortsluitstroom de automaat nog veilig kan onderbreken."
+        ],
+        "foto": 2,
+        "lesFoto": "installatieautomaat"
+      },
+      {
+        "tussenkop": "B, C en de lusimpedantie",
+        "alineas": [
+          "De letter voor het getal, zoals in B16, is de karakteristiek. Die bepaalt bij welk veelvoud van de nominale stroom het magnetische deel aanspreekt. Een B-automaat reageert tussen 3 en 5 keer In, een C-automaat tussen 5 en 10 keer, een D-automaat tussen 10 en 20 keer. In woningen is B16 de norm. Een C-karakteristiek wordt gekozen bij apparaten met een hoge inschakelstroom, zoals motoren, transformatoren of een groep met veel LED-drivers, die bij inschakelen samen een korte piek trekken. Let op: C16 mag continu niet meer dan B16. Het verschil zit alleen in de tolerantie voor korte pieken.",
+          "Hier wordt het interessant voor wie wil rekenen. Wil een B16 bij kortsluiting magnetisch en dus snel afschakelen, dan moet de kortsluitstroom minstens 5 × 16 = 80 A zijn. Die stroom wordt begrensd door de weerstand van de hele kring: de transformator in de wijk, de straatkabel, je eigen kabel heen en terug. Die totale weerstand heet de lusimpedantie. Met de wet van Ohm volgt de grens: 230 V ÷ 80 A ≈ 2,9 Ω. Is de lusimpedantie hoger, bijvoorbeeld door een heel lange of dunne kabel, dan wordt de kortsluitstroom te klein voor het magnetische deel en moet het trage bimetaal het opknappen. Een installateur meet dit daarom bij een oplevering."
+        ],
+        "citaat": "Een automaat beschermt niet het apparaat en niet de bewoner, maar de kabel."
+      },
+      {
+        "tussenkop": "De gevaarlijkste klusserstip",
+        "alineas": [
+          "De nominale stroom van een automaat wordt gekozen op de kabel, niet op het apparaat. Een 2,5 mm²-leiding in een wand verdraagt onder normale omstandigheden 16 A zonder dat de isolatie te warm wordt. Valt die groep steeds uit, en vervangt iemand de B16 door een B20 of B25, dan is het probleem schijnbaar opgelost. In werkelijkheid mag de kabel nu langdurig 20 tot 25 A voeren. De warmteontwikkeling in een kabel gaat met het kwadraat van de stroom, dus bij 25 A wordt er bijna 2,5 keer zoveel warmte ontwikkeld als bij 16 A. In een geïsoleerde wand, met de leiding gebundeld in een buis, is dat precies het recept voor verkoolde isolatie. De oplossing voor een groep die steeds uitvalt is een extra groep, nooit een zwaardere automaat."
+        ]
+      },
+      {
+        "tussenkop": "Waarom de geel/groene draad er is",
+        "alineas": [
+          "Een aardlekschakelaar kan alleen een lek vinden als er een weg is waarlangs het lek kan lopen. Metalen behuizingen van klasse I-apparaten, zoals een wasmachine, oven of koelkast, zijn daarom via de geel/groene beschermingsleiding verbonden met de aardrail in de meterkast. Raakt door een defect de fase de behuizing, dan stroomt er direct een foutstroom via die beschermingsleiding. Is die stroom groot, dan schakelt de automaat af; is hij kleiner, dan doet de aardlekschakelaar het. In beide gevallen is de fout weg voordat iemand de behuizing aanraakt. Zonder beschermingsleiding zou de behuizing gewoon onder spanning blijven staan, wachtend op de eerste hand.",
+          "De aarde komt op twee manieren het huis in. Bij een groot deel van de Nederlandse aansluitingen levert de netbeheerder een aardklem die in het net verbonden is met de nul. Dit heet een TN-C-S-stelsel: de nul en de aarde zijn in het net gecombineerd en splitsen bij jouw aansluiting. De lusimpedantie is dan laag en een kortsluiting naar de behuizing geeft een grote stroom. Bij een TT-stelsel heeft de woning een eigen aardelektrode, een koperen of verkoperde pen die meters diep in de grond is geslagen. De aardverspreidingsweerstand daarvan is al snel tientallen ohm, waardoor een fout maar een paar ampère oplevert. Te weinig voor de automaat, en dus is de aardlekschakelaar in een TT-stelsel onmisbaar."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Vereffening: geen verschil, geen schok",
+        "alineas": [
+          "Aarding gaat over een veilige weg voor foutstroom; vereffening gaat over iets anders: zorgen dat je tussen twee dingen die je tegelijk kunt aanraken geen spanningsverschil voelt. Een schok ontstaat immers niet door spanning op één voorwerp, maar door een verschil tussen twee punten waar jij tussenin staat. De hoofdpotentiaalvereffening verbindt metalen leidingen die het huis binnenkomen, zoals water- en gasleiding en de cv-installatie, met een koperen draad van minimaal 6 mm² aan de hoofdaardrail. Daardoor kan er tussen een kraan en de behuizing van een geaarde wasmachine geen gevaarlijk verschil ontstaan, ook niet als er ergens buiten het huis een fout op het net zit.",
+          "In badkamers werd vroeger standaard een aanvullende vereffening aangebracht, een draad die alle metalen delen zoals bad, leidingen en radiator onderling verbond. In de huidige NEN 1010 mag die onder voorwaarden vervallen, onder meer als alle groepen in de badkamer achter een 30 mA aardlek zitten. In bestaande woningen kom je hem nog vaak tegen. Verbreek zo’n verbinding nooit zonder te weten waarom die er zit. Een loszittende vereffeningsdraad onder het bad lijkt overbodig, maar kan net het verschil zijn tussen een tintelende kraan en een veilige."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "De kabel bepaalt alles",
+        "alineas": [
+          "In een moderne Nederlandse installatie is bruin de fase, blauw de nul en geel/groen de beschermingsleiding. Bij 3-fase komen zwart en grijs erbij voor L2 en L3, en zwart of grijs wordt ook gebruikt als schakeldraad tussen schakelaar en lamp. Blauw en geel/groen zijn heilig: die mag je nooit als fase gebruiken, ook niet ‘even’ met een stukje tape eromheen. Iemand die over twintig jaar aan jouw installatie werkt, vertrouwt erop dat geel/groen veilig is. In oudere woningen kom je andere kleuren tegen, met een andere betekenis. Ga daar nooit uit van de kleur, maar meet altijd met een tweepolige spanningstester welke draad wat doet.",
+          "De doorsnede bepaalt hoeveel stroom een draad kan voeren zonder te warm te worden. Gangbaar is 1,5 mm² voor verlichtingsgroepen en 2,5 mm² voor wandcontactdoosgroepen op 16 A. Of 1,5 mm² op 16 A mag, hangt af van legwijze, bundeling en omgevingstemperatuur: drie draden in een buis in een geïsoleerde wand koelen veel slechter dan één kabel op een open muur. NEN 1010 werkt daarom met correctiefactoren die de toelaatbare stroom verlagen naarmate een kabel warmer ligt. Een kookgroep van 2 × 16 A gaat in 2,5 mm², een laadpaal of warmtepomp met een lange kabel vaak in 4 of 6 mm².",
+          "Naast warmte telt spanningsverlies. Een rekenvoorbeeld: een tuinhuis op 30 meter van de meterkast, gevoed met 2,5 mm² koper, belast met 16 A. De stroom gaat heen én terug, dus 60 meter draad. De weerstand is 0,0175 × 60 ÷ 2,5 ≈ 0,42 Ω. Bij 16 A valt er dan 16 × 0,42 ≈ 6,7 V over de kabel weg, bijna 3 procent van 230 V. Dat is acceptabel. Maar voed een 1-fase laadpaal op 50 meter met 2,5 mm², en het wordt 100 meter draad, 0,7 Ω en ruim 11 V verlies bij 16 A: bijna 5 procent, de grens die vaak wordt aangehouden, en dat urenlang achter elkaar. Bovendien stijgt de lusimpedantie, wat we eerder zagen: dikker koper is dan geen luxe maar noodzaak."
+        ],
+        "lesFoto": "kabels-kleuren-doorsnede",
+        "kader": {
+          "titel": "Kleuren en doorsneden",
+          "punten": [
+            "Bruin = L1, zwart = L2, grijs = L3",
+            "Blauw = nul, geel/groen = aarde; nooit voor iets anders",
+            "1,5 mm²: verlichting; 2,5 mm²: wandcontactdozen 16 A",
+            "4–6 mm²: laadpaal, warmtepomp, lange of zware groepen",
+            "Spanningsverlies: heen + terug rekenen, richtlijn maximaal ongeveer 5%"
+          ]
+        }
+      },
+      {
+        "tussenkop": "De keten als geheel",
+        "alineas": [
+          "Zet de drie bewakers naast elkaar en je ziet een keten. De kabel bepaalt welke automaat erbij hoort. De automaat schakelt alleen snel af als de lusimpedantie laag genoeg is. De aarding zorgt dat een fout naar de behuizing überhaupt een stroom geeft. En de aardlekschakelaar vangt alles op wat te klein is voor de automaat, inclusief de stroom door een mens. Haal één schakel weg, en de rest werkt niet meer zoals bedoeld. Een randaardecontactdoos zonder aangesloten aarde, een zwaardere automaat op een oude kabel, een verwisselde nul tussen twee groepen: het zijn allemaal fouten die jarenlang onopgemerkt blijven, tot de dag dat de keten moet werken. In het volgende deel gaan we naar de plekken waar je die keten in huis aanraakt: schakelaars en wandcontactdozen."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "elektronica-03",
+    "kop": "Schakelaar, wissel, kruis: de logica achter elk lichtknopje",
+    "intro": "Een lamp aan- en uitzetten lijkt het simpelste wat er is. Toch zit er in elke schakeldoos een keuze over veiligheid, en in elk trappenhuis een stukje logica dat je met twee draden kunt narekenen. We eindigen in de natste kamer van het huis, waar de regels het strengst zijn.",
+    "hoofdstuk": "Schakelingen en wandcontactdozen",
+    "basis": [
+      "enkelpolige-schakeling",
+      "wisselschakeling",
+      "kruisschakeling",
+      "wandcontactdozen-badkamer"
+    ],
+    "fotos": [
+      {
+        "wiki": "Light switch",
+        "taal": "en",
+        "bijschrift": "Een geopende lichtschakelaar: twee klemmen, één onderbreking in de fase"
+      },
+      {
+        "wiki": "Teleruptor",
+        "taal": "nl",
+        "bijschrift": "Een impulsrelais: elke puls van een drukknop zet het contact om"
+      },
+      {
+        "wiki": "Schuko",
+        "taal": "en",
+        "bijschrift": "Wandcontactdoos met randaarde: de aardlippen maken als eerste contact"
+      },
+      {
+        "wiki": "Badkamer",
+        "taal": "nl",
+        "bijschrift": "In de badkamer bepalen zones rond bad en douche wat waar mag"
+      },
+      {
+        "wiki": "Douche",
+        "taal": "nl",
+        "bijschrift": "Bij een inloopdouche telt zone 1 vanaf de vaste douchekop"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Wie ooit een lichtschakelaar heeft vervangen, weet hoe weinig er in zo’n inbouwdoos zit. Twee draden, soms drie, een paar schroefjes of insteekklemmen, en een wipje dat een contact opent of sluit. Toch is de manier waarop die draden zijn aangesloten allesbehalve willekeurig. Of een lamp na het uitschakelen veilig is om te vervangen, of een LED-lamp ’s nachts zachtjes blijft gloeien, of een trap vanaf boven en beneden te bedienen is: het hangt allemaal af van welke draad waar zit. En omdat schakelaars de plekken zijn waar je installatie het vaakst wordt aangeraakt, zijn ze ook de plekken waar klusfouten het snelst gevolgen hebben.",
+          "In dit derde deel bouwen we de verlichtingsschakelingen op, van de eenvoudigste tot de schakeling voor een lange gang met vier bedieningsplekken. Daarna kijken we naar dimmers, naar slimme schakelaars die in een oude doos niet willen werken, en naar de wandcontactdoos zelf. We eindigen in de badkamer, waar NEN 1010 de ruimte opdeelt in zones. De voorkennis uit de vorige delen komt daarbij steeds terug: de fase is de draad die gevaarlijk is, de nul is de terugweg, en geel/groen is de beschermingsleiding die nooit stroom hoort te voeren."
+        ]
+      },
+      {
+        "tussenkop": "Waarom de schakelaar in de fase zit",
+        "alineas": [
+          "De eenvoudigste schakeling is de enkelpolige: één lamp, bediend vanaf één plek. De fase gaat van de groepenkast naar de schakelaar. Vanaf de schakelaar loopt een schakeldraad, meestal zwart, naar het lichtpunt. De nul gaat rechtstreeks van de kast naar de lamp, zonder langs de schakelaar te komen, en de beschermingsleiding gaat eveneens naar het lichtpunt voor een eventuele metalen armatuur. In de schakeldoos zitten dus normaal alleen bruin en zwart. Kom je daar ook een blauwe draad tegen, dan is er iets bijzonders aan de hand: een doorgelust punt, een wandcontactdoos in dezelfde doos, of een slimme schakelaar.",
+          "Waarom juist de fase onderbreken? Als je de nul zou onderbreken, gaat de lamp ook uit, want er kan geen stroom meer rondlopen. Maar de fitting staat dan nog altijd op 230 V ten opzichte van aarde, via de gloeidraad of de driver van de lamp. Wie in die situatie een lamp verwisselt en met een vinger het contact in de fitting raakt, terwijl hij met de andere hand een geaarde radiator vasthoudt, krijgt een schok. Met de fase onderbroken is de fitting na uitschakelen spanningsloos ten opzichte van aarde. Dit is een klassieke fout bij zelf aangelegde verlichting, en hij blijft onzichtbaar zolang niemand er last van heeft.",
+          "Belangrijk is wel dat ‘de schakelaar uit’ niet hetzelfde is als ‘de groep spanningsloos’. In de schakeldoos staat de aanvoerende fase gewoon onder spanning, en in een doos waar meerdere groepen samenkomen kan ook een draad van een andere groep lopen. Wie een lichtpunt of schakelaar vervangt, schakelt daarom altijd de automaat uit en meet daarna met een tweepolige tester. Dat geldt dubbel bij de schakelingen die we hierna bespreken: bij een wisselschakeling kan een draad spanning voeren of niet, afhankelijk van de stand van een schakelaar op een heel andere verdieping."
+        ],
+        "schema": "enkelpolig"
+      },
+      {
+        "tussenkop": "Dimmers en de nagloeiende LED",
+        "alineas": [
+          "Een gewone dimmer regelt de helderheid door van elke halve sinus een stukje weg te snijden. Bij fase-aansnijding, ook wel een RL-dimmer genoemd, blijft de stroom aan het begin van elke halve periode even uit en wordt hij halverwege ingeschakeld. Dat werkt goed met gloeilampen en met gewikkelde transformatoren voor halogeen. Bij fase-afsnijding, de RC-dimmer, begint de stroom direct en wordt hij halverwege afgekapt. Elektronische drivers en dimbare LED-lampen hebben daar meestal minder last van: minder zoem, minder flikkering. Vervang je een oude halogeendimmer door LED-lampen, dan is de dimmer vaak de oorzaak van knipperen of brommen.",
+          "Daarbij komen twee eigenschappen van LED. Ten eerste moeten LED-lampen expliciet als dimbaar zijn aangeduid; een niet-dimbare driver raakt in de war van een afgesneden sinus. Ten tweede heeft een dimmer vaak een minimale belasting nodig, omdat zijn eigen elektronica een klein beetje stroom via de lamp trekt om te kunnen werken. Een oude dimmer met een minimum van 40 W ziet aan drie LED-lampjes van 5 W eigenlijk niets. Het gevolg is knipperen of nagloeien: de lamp blijft zwak branden als hij uit staat. Hetzelfde effect zie je bij lange schakeldraden naast een fase in dezelfde buis, waarbij een kleine capacitieve stroom genoeg is om een zuinige LED zichtbaar te laten oplichten."
+        ]
+      },
+      {
+        "tussenkop": "Slimme schakelaars en de ontbrekende nul",
+        "alineas": [
+          "Steeds meer mensen willen hun verlichting via een app of spraakassistent bedienen, en kopen daarvoor een slimme schakelaar of een inbouwmodule. Dan stuit je op een praktisch probleem dat direct uit de enkelpolige schakeling volgt: in de schakeldoos zit geen nul. Een slimme module heeft zelf voeding nodig voor zijn radio en processor, en die voeding vraagt fase én nul. Modules die ‘zonder nul’ werken, halen hun voeding door een klein stroompje via de lamp te laten lopen, ook als die uit staat. Bij gloeilampen merkte je daar niets van, bij een zuinige LED zie je het als nagloeien of knipperen. Fabrikanten leveren daarom vaak een bypass, een component die parallel aan de lamp wordt gezet om dat lekstroompje op te vangen.",
+          "De nette oplossing is een nul naar de schakeldoos trekken. In een installatie met buizen in de wand kan dat meestal door een blauwe draad bij te trekken, zolang de buis niet al vol zit. Let daarbij op dat het de nul van dezelfde groep is, niet van een groep die toevallig in de buurt loopt. We zagen in het eerste deel waarom: een nul van een andere groep laat de terugstroom via de verkeerde aardlekschakelaar lopen, met onverklaarbare uitval als gevolg. Een alternatief is de module niet in de schakeldoos maar bij het lichtpunt te plaatsen, waar fase en nul wel allebei aanwezig zijn."
+        ]
+      },
+      {
+        "tussenkop": "Wisselschakeling: één lamp, twee plekken",
+        "alineas": [
+          "Voor een trap of een lange gang wil je de lamp op twee plekken kunnen bedienen. Daarvoor gebruik je twee wisselschakelaars. Een wisselschakelaar is geen aan-uitschakelaar maar een omschakelaar: hij heeft drie klemmen, een gemeenschappelijk contact, vaak gemarkeerd met L of P, en twee wisselcontacten. Het gemeenschappelijke contact is altijd met een van beide verbonden. De fase gaat naar het gemeenschappelijke contact van schakelaar 1. De twee wisselcontacten van schakelaar 1 zijn met twee draden, de correspondentiedraden, verbonden met de wisselcontacten van schakelaar 2. En van het gemeenschappelijke contact van schakelaar 2 loopt de schakeldraad naar de lamp.",
+          "De logica is elegant. De lamp brandt als beide schakelaars ‘dezelfde’ correspondentiedraad kiezen, want dan loopt er een doorgaand pad van fase naar lamp. Zet je een van de twee om, dan kiezen ze verschillende draden en is het pad onderbroken. Zet je daarna de andere om, dan kiezen ze weer dezelfde. Wie in logische termen denkt, herkent een XOR-functie: de toestand van de lamp wisselt bij elke omzetting, ongeacht wie er schakelt. Het gevolg voor de veiligheid: welke van de correspondentiedraden spanning voert, hangt af van de stand van schakelaar 1. Wie bij schakelaar 2 aan het werk is en ‘zijn’ schakelaar uitzet, weet daarmee nog niets."
+        ],
+        "schema": "wissel"
+      },
+      {
+        "tussenkop": "Kruisschakeling en impulsrelais",
+        "alineas": [
+          "Moet de lamp vanaf drie of meer plekken bediend worden, dan plaats je een of meer kruisschakelaars in de correspondentiedraden tussen de twee wisselschakelaars. Een kruisschakelaar heeft vier klemmen: twee ingangen en twee uitgangen. In de ene stand verbindt hij ze recht door, in de andere stand kruist hij ze. Door dat kruisen wisselt de fase van correspondentiedraad, en dat heeft hetzelfde effect als het omzetten van een wisselschakelaar: de lamp verandert van toestand. Je kunt zoveel kruisschakelaars achter elkaar zetten als je wilt. Voor n bedieningsplaatsen heb je altijd twee wisselschakelaars aan de uiteinden en n − 2 kruisschakelaars daartussen.",
+          "In de praktijk wordt bij veel bedieningsplekken vaak gekozen voor een impulsschakelaar, ook wel teleruptor genoemd. Dat is een relais dat bij elke stroompuls omschakelt en in die stand blijft staan. Alle drukknoppen staan parallel en geven alleen een korte puls naar de spoel van het relais. Het voordeel is aanzienlijk: in plaats van twee correspondentiedraden die de hele gang door moeten, heb je één draad per drukknop, en je kunt een extra bedieningspunt toevoegen door simpelweg een drukknop parallel bij te zetten. Het relais zit meestal in de groepenkast op de rail. Een verwante oplossing is de trappenhuisautomaat, die het licht na een ingestelde tijd vanzelf weer uitschakelt."
+        ],
+        "schema": "kruis",
+        "foto": 1,
+        "kader": {
+          "titel": "Schakelingen op een rij",
+          "punten": [
+            "Enkelpolig: fase naar schakelaar, schakeldraad naar lamp, nul direct naar lamp",
+            "Wissel: 3 klemmen per schakelaar, 2 correspondentiedraden ertussen",
+            "Kruis: 4 klemmen, verbindt recht of gekruist",
+            "n plekken = 2 wisselschakelaars + (n − 2) kruisschakelaars",
+            "Impulsrelais: drukknoppen parallel, één relais in de kast",
+            "Dimbare LED: meestal fase-afsnijding (RC)"
+          ]
+        }
+      },
+      {
+        "tussenkop": "De wandcontactdoos van dichtbij",
+        "alineas": [
+          "In Nederland is de wandcontactdoos met randaarde, type F of Schuko, de standaard. De aardcontacten zitten als metalen lippen aan de zijkant. Steek je een stekker in, dan raken die lippen de aardstrips van de stekker al voordat de pennen contact maken met fase en nul. Een geaard apparaat is dus al verbonden met de beschermingsleiding op het moment dat er spanning op komt. Zit er een fout in, bijvoorbeeld een fase die tegen de behuizing ligt, dan loopt de foutstroom direct weg en grijpt de beveiliging in, in plaats van dat de behuizing een fractie van een seconde onder spanning staat terwijl je hem vasthoudt.",
+          "Een fout die je in oudere huizen regelmatig tegenkomt, is een randaardecontactdoos zonder aangesloten aarde. Er is ooit een oude contactdoos vervangen door een moderne, maar in de leiding liep geen beschermingsleiding mee. Het ziet er veilig uit en het voelt veilig, maar het is gevaarlijker dan een ouderwetse contactdoos zonder aarde: wie een klasse I-apparaat insteekt, gaat ervan uit dat de behuizing geaard is. Een eenvoudige stekkertester met drie lampjes laat zien of fase, nul en aarde op hun plek zitten. Voor wandcontactdozen in een nieuwe installatie geldt bovendien dat ze met kinderbeveiliging, de zogeheten shutters, steeds gangbaarder worden."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Hoogte, doorlussen en dubbele dozen",
+        "alineas": [
+          "Er bestaat geen wettelijke hoogte voor een wandcontactdoos in een woonkamer. Ongeveer 30 cm boven de vloer is gebruikelijk, boven een aanrecht ligt de gangbare hoogte rond 105 tot 120 cm, zodat er net een tegelrij boven het werkblad overblijft. Wel moeten wandcontactdozen goed bereikbaar zijn en niet zo laag zitten dat ze bij het dweilen nat worden. Wie kiest voor een contactdoos in een plint of vloer, kiest een uitvoering die daarvoor bedoeld is. Voor rolstoelgebruikers of ouderen wordt soms bewust hoger gemonteerd, rond 90 cm, om bukken te voorkomen.",
+          "Wandcontactdozen worden meestal doorgelust: de groepskabel komt binnen in de eerste doos en gaat via de klemmen van die contactdoos door naar de volgende. Dat is toegestaan, maar betekent wel dat de volle groepsstroom door de klemmen van de eerste contactdozen loopt. Een losse of slecht aangedraaide klem is daar het zwakke punt. In het volgende deel rekenen we uit wat een overgangsweerstand van een tiende ohm bij 16 A doet: een paar tientallen watt warmte in een klem van een paar millimeter. Verkleurde contactdozen of een brandlucht bij een doos zijn daarom altijd een reden om de groep uit te zetten en de verbindingen te controleren."
+        ],
+        "lesFoto": "kruisschakeling"
+      },
+      {
+        "tussenkop": "De badkamer en haar zones",
+        "alineas": [
+          "Water en 230 V zijn de klassieke dodelijke combinatie. Nat is de huid veel beter geleidend dan droog, en in een bad of douche sta je vaak in direct contact met geaarde leidingen. Daarom deelt NEN 1010 de badkamer in zones rond bad en douche. Zone 0 is de binnenkant van het bad of de douchebak zelf. Zone 1 is het gebied daarboven, van de vloer tot 2,25 m hoogte. Zone 2 is een strook van 60 cm breed rondom zone 1. Hoe dichter bij het water, hoe strenger de eisen. In zone 0 mag alleen zeer lage veiligheidsspanning, maximaal 12 V wisselspanning. In zone 1 alleen vast aangesloten toestellen die daarvoor bedoeld zijn, zoals een elektrische boiler of een afzuigventilator, met hoge spatwaterdichtheid.",
+          "Bij een inloopdouche zonder bak is er geen rand die zone 0 en 1 afbakent. De norm rekent zone 1 dan vanaf het vaste wateruitlaatpunt, de douchekop of de muurkraan, met een straal van ongeveer 1,20 m. Een moderne inloopdouche met een regendouche in het midden kan dus een flink stuk van de badkamer tot zone 1 maken. Wie een badkamer verbouwt, tekent daarom eerst de zones op de plattegrond, en pas daarna de contactdozen, het spiegelverlichtingspunt en de vloerverwarmingsthermostaat. Een veelgemaakte fout is een wandcontactdoos ‘netjes naast de wastafel’, die bij een herinrichting ineens binnen zone 2 van de nieuwe douche blijkt te vallen."
+        ],
+        "foto": 3,
+        "citaat": "Pas na het tekenen van de zones komen de contactdozen op de plattegrond."
+      },
+      {
+        "tussenkop": "Wat wel mag",
+        "alineas": [
+          "Wandcontactdozen horen in de badkamer buiten zone 0, 1 en 2, en altijd achter een 30 mA aardlekschakelaar. Een bekende uitzondering is het scheerstopcontact met ingebouwde scheidingstransformator. Daarin is de uitgaande kring galvanisch gescheiden van het net: er is geen directe verbinding tussen de contacten en de aarde, dus een aanraking van één contact plus een geaarde kraan geeft geen stroomkring. Kies voor alles in de badkamer spatwaterdichte uitvoeringen, minimaal IPX4. De X betekent dat de stofdichtheid niet is getest, het cijfer 4 staat voor bescherming tegen spatwater uit alle richtingen.",
+          "Komt er straalwater bij, zoals bij een stevige handdouche, dan is IPX5 verstandig. En wat nooit hoort: een verlengsnoer of stekkerdoos op de vloer bij het bad voor een föhn of verwarmingskacheltje. Hoe tijdelijk ook bedoeld, het is precies de situatie waarvoor al deze regels bestaan. Ook een elektrische handdoekradiator of spiegelverwarming hoort vast aangesloten te zijn, op een plek en met een IP-klasse die bij de zone past, en niet met een stekker in een contactdoos die daar eigenlijk niet had mogen zitten."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Naar de natuurkunde",
+        "alineas": [
+          "Met dit deel hebben we de huisinstallatie van meter tot contactdoos doorlopen. De volgende stap is een stap terug, naar de vraag die onder alles ligt: wat ís spanning eigenlijk, waarom loopt er stroom, en waarom doet een stroom door je lichaam pijn terwijl dezelfde spanning in een droge hand niets lijkt te doen? In het vierde deel beginnen we met de belangrijkste les van allemaal, veilig werken, en bouwen we daarna de basis op van lading, stroom, spanning en weerstand. Want wie de wet van Ohm echt snapt, ziet ineens waarom een opgerolde kabelhaspel kan smelten en waarom een losse klem brand kan veroorzaken."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "elektronica-04",
+    "kop": "Spanningsloos, en dan pas rekenen: de basis onder elke klus",
+    "intro": "Voordat je één formule nodig hebt, moet je weten dat er echt geen spanning meer op de draad staat. Daarna blijkt de natuurkunde verrassend praktisch: met lading, spanning en de wet van Ohm verklaar je waarom een opgerolde haspel smelt en een losse klem brand veroorzaakt.",
+    "hoofdstuk": "Veiligheid en basistheorie",
+    "basis": [
+      "veilig-werken",
+      "lading-stroom-spanning",
+      "wet-van-ohm",
+      "soortelijke-weerstand"
+    ],
+    "fotos": [
+      {
+        "wiki": "Multimeter",
+        "taal": "nl",
+        "bijschrift": "Een digitale multimeter: het belangrijkste meetinstrument van de klusser"
+      },
+      {
+        "wiki": "Test light",
+        "taal": "en",
+        "bijschrift": "Een tweepolige spanningstester meet echt tussen twee punten"
+      },
+      {
+        "wiki": "Alessandro Volta",
+        "taal": "en",
+        "bijschrift": "Alessandro Volta, naar wie de eenheid van spanning is genoemd"
+      },
+      {
+        "wiki": "Georg Ohm",
+        "taal": "en",
+        "bijschrift": "Georg Simon Ohm vond het verband tussen spanning en stroom"
+      },
+      {
+        "wiki": "Electron",
+        "taal": "en",
+        "bijschrift": "Elektronen rond een atoomkern: in koper zijn sommige vrij beweeglijk"
+      },
+      {
+        "wiki": "Kabelhaspel",
+        "taal": "nl",
+        "bijschrift": "Een kabelhaspel: opgerold mag er minder vermogen door dan afgerold"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Elektriciteit is een van de weinige gevaren in huis die je niet ziet, niet hoort en niet ruikt. Een draad onder spanning ziet er precies zo uit als een draad zonder spanning. Dat maakt werken aan een installatie fundamenteel anders dan timmeren of tegelen, waar je ziet wat je doet. De enige manier om zeker te weten dat een draad veilig is, is meten, en dan nog op de juiste manier. Daarom begint dit vierde deel niet bij formules, maar bij de procedure die elektriciens in hun opleiding er zo vaak in gestampt krijgen dat het een reflex wordt: vrijschakelen, beveiligen, spanningsloos vaststellen.",
+          "Pas daarna stappen we over naar de theorie. Die is minder abstract dan ze op school leek. Lading, stroom en spanning zijn geen vage begrippen maar meetbare grootheden met eenheden die rechtstreeks uit de praktijk komen. En de wet van Ohm, die voor velen een driehoekje met U, I en R op een spiekbriefje was, blijkt de sleutel tot bijna elke storing en elk brandrisico in huis. We sluiten af met de weerstand van koperdraad zelf, waarmee we de rekensommen uit het tweede deel over spanningsverlies eindelijk van onderen opbouwen."
+        ]
+      },
+      {
+        "tussenkop": "Vijf regels, drie voor thuis",
+        "alineas": [
+          "De vijf veiligheidsregels staan in NEN 3140 en de Europese NEN-EN 50110. Ze zijn: vrijschakelen, beveiligen tegen herinschakelen, spanningsloosheid vaststellen, aarden en kortsluiten, en afschermen van naastgelegen delen die onder spanning staan. Voor een woning zijn de eerste drie onmisbaar. Aarden en kortsluiten is vooral relevant bij hogere spanningen en lange leidingen, waar een vergeten verbinding of een opgewekte spanning gevaarlijk kan worden. Afschermen speelt thuis vooral in de groepenkast, waar je vlak naast de klemmen van de hoofdschakelaar werkt die, zoals we in het eerste deel zagen, nooit spanningsloos te krijgen zijn.",
+          "Vrijschakelen doe je met de juiste automaat of met de hoofdschakelaar. Hier gaat het al vaak mis: de groepenverklaring klopt niet, of een lichtpunt wordt gevoed vanuit twee groepen. Beveiligen tegen herinschakelen klinkt voor een woning overdreven, maar wie de meterkast in de gang heeft en huisgenoten die thuiskomen en ‘de stroom weer even aanzetten’, weet beter. Een briefje op de kast, de kast op slot, of een vergrendelclip op de automaat is genoeg. Daarna komt de stap die het verschil maakt: met een tweepolige spanningstester vaststellen dat er werkelijk geen spanning is, tussen fase en nul, fase en aarde, en nul en aarde."
+        ],
+        "kader": {
+          "titel": "De vijf veiligheidsregels",
+          "punten": [
+            "1. Vrijschakelen",
+            "2. Beveiligen tegen herinschakelen",
+            "3. Spanningsloosheid vaststellen, tweepolig, op alle combinaties",
+            "4. Aarden en kortsluiten",
+            "5. Afschermen van naastgelegen delen onder spanning",
+            "Test de tester vóór en na de meting op een bekende spanningsbron"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Waarom de spanningzoeker liegt",
+        "alineas": [
+          "De meest verkochte ‘tester’ in de bouwmarkt is een schroevendraaier met een glimlampje in het heft. Je houdt hem tegen een draad, legt je duim op het kapje, en als het lampje brandt staat er spanning op. Het principe: er loopt een heel klein stroompje van de draad door het lampje en een hoogohmige weerstand via jouw lichaam naar aarde. Daarin zit meteen de zwakte. Of het lampje oplicht, hangt af van je schoenen, de vloer, de vochtigheid en de capaciteit van je lichaam. Op een houten zoldervloer met rubberen zolen kan hij niets aangeven bij een draad die wel degelijk 230 V voert. Een éénpolige spanningzoeker kan dus ‘geen spanning’ zeggen terwijl die er wel is. Dat is precies de fout die je niet wilt maken.",
+          "Een tweepolige spanningstester heeft twee meetpennen en meet echt tussen twee punten. Hij heeft geen lichaam als terugweg nodig. Goede testers geven met LEDs of een display de spanning aan en hebben een eigen voeding om ook te piepen bij doorgang. Wat ze niet doen, is zichzelf controleren. Daarom gebruiken elektriciens de driestappenmethode: test de tester op een punt waarvan je zeker weet dat er spanning staat, meet daarna je werkpunt, en test de tester opnieuw op de bekende bron. Pas als die laatste meting weer spanning laat zien, weet je dat de ‘nul volt’ op het werkpunt geen kapotte tester was."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Wat stroom met je lichaam doet",
+        "alineas": [
+          "Waarom is 230 V gevaarlijk en een 9 V-batterij op je tong alleen vervelend? Het antwoord is de wet van Ohm, waar we zo op terugkomen, en de weerstand van het menselijk lichaam. Van hand tot hand ligt die bij netspanning ruwweg in de orde van duizend tot enkele duizenden ohm, sterk afhankelijk van vochtigheid en contactoppervlak. Bij 230 V en 1000 Ω loopt er 230 mA. Een stroom van ongeveer een halve milliampère voel je, rond de tien milliampère kunnen veel mensen een vastgepakte draad niet meer loslaten omdat de spieren verkrampen, en boven enkele tientallen milliampère kan het hart bij voldoende duur in fibrillatie raken. Daarom ligt de grens van een aardlekschakelaar op 30 mA.",
+          "De conclusie is ontnuchterend. De aardlekschakelaar beperkt niet de stroom door je lichaam, hij beperkt de tijd. Bij een volle aanraking kan er gedurende enkele tientallen milliseconden een stroom lopen die vele malen groter is dan 30 mA. Dat overleven gezonde mensen meestal, maar niet altijd, en zeker niet als de aanraking zo is dat de aardlek niets ziet, zoals bij fase en nul tegelijk. Spanningsloos werken is daarom geen extra voorzichtigheid voor wie het niet zeker weet. Het is de enige werkwijze. Als particulier mag je in Nederland werken aan je eigen installatie achter de meter, maar je bent er wel verantwoordelijk voor dat het resultaat aan NEN 1010 voldoet."
+        ],
+        "citaat": "De aardlekschakelaar beperkt niet de stroom door je lichaam, hij beperkt de tijd."
+      },
+      {
+        "tussenkop": "Lading: tellen in coulomb",
+        "alineas": [
+          "Alles in de elektrotechniek begint bij lading. De eenheid is de coulomb, en één elektron draagt een lading van 1,6 × 10⁻¹⁹ coulomb. Eén coulomb is dus ongeveer 6,24 × 10¹⁸ elektronen: zes miljoen biljoen. In metalen als koper zit per atoom een elektron dat niet aan zijn atoom vastzit, maar vrij door het rooster kan bewegen. Die vrije elektronen maken geleiding mogelijk. In een isolator zoals pvc zitten alle elektronen vast, en daar kan dus geen stroom lopen. Het verschil tussen geleider en isolator is daarmee geen kwestie van gradatie, maar van een ander soort binding.",
+          "Stroom is de hoeveelheid lading die per seconde door een doorsnede van de draad gaat. Eén ampère is één coulomb per seconde. Een accu van 60 ampère-uur, zoals in een auto, kan dus 60 A gedurende een uur leveren, of 60 × 3600 = 216.000 coulomb aan lading verplaatsen. Hier volgt een verrassende rekensom. Hoe hard gaan die elektronen eigenlijk? In koper zitten ongeveer 8,5 × 10²⁸ vrije elektronen per kubieke meter. Bij 16 A door een draad van 2,5 mm² volgt daaruit een driftsnelheid van ongeveer een halve millimeter per seconde. Een elektron doet er dus uren over om van de meterkast naar je keuken te kruipen."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Waarom de lamp toch meteen aangaat",
+        "alineas": [
+          "Als elektronen zo langzaam gaan, waarom gaat een lamp dan direct aan als je de schakelaar omzet? Omdat de draad al vol elektronen zit. Zodra het contact sluit, plant het elektrische veld dat ze aanduwt zich bijna met de lichtsnelheid door de draad voort, en alle vrije elektronen in de hele kring gaan vrijwel tegelijk bewegen. Vergelijk het met een tuinslang die al vol water staat: draai je de kraan open, dan komt er direct water uit het eind, hoewel het water uit de kraan pas veel later aankomt. Bij wisselstroom is het nog vreemder: de elektronen schuiven vijftig keer per seconde een minuscuul stukje heen en weer en komen eigenlijk nergens.",
+          "Een historisch detail dat nog altijd voor verwarring zorgt, is de stroomrichting. Lang voordat het elektron was ontdekt, is afgesproken dat stroom van plus naar min loopt. Later bleek dat de elektronen in een metaal juist de andere kant op gaan, van min naar plus. De afspraak is nooit veranderd. In schema’s, formules en de pijltjes op een diode gebruik je altijd de conventionele richting, van plus naar min. Voor alle berekeningen maakt het niets uit, zolang je consequent bent. Alleen wie de fysica op atomair niveau beschrijft, moet weten dat de werkelijke deeltjes andersom stromen."
+        ]
+      },
+      {
+        "tussenkop": "Spanning: energie per lading",
+        "alineas": [
+          "Spanning is het potentiaalverschil tussen twee punten: de energie die elke coulomb lading meekrijgt of afgeeft als hij van het ene naar het andere punt gaat. Eén volt is één joule per coulomb. Een 12 V-accu geeft elke coulomb die erdoorheen gaat 12 joule mee. Combineer je dat met de 216.000 coulomb van daarnet, dan bevat een volle 60 Ah-accu ongeveer 12 × 216.000 ≈ 2,6 miljoen joule, of zo’n 0,7 kWh. Dat is ongeveer evenveel energie als een stofzuiger in drie kwartier gebruikt. Zo wordt een abstracte eenheid ineens tastbaar, en zie je waarom een auto-accu geen huis kan verwarmen.",
+          "Het woord ‘tussen’ is daarbij essentieel. Spanning bestaat altijd tussen twee punten. Als iemand zegt dat er ‘230 V op de draad staat’, bedoelt hij eigenlijk 230 V ten opzichte van de nul of de aarde. Een vogel op een hoogspanningslijn overleeft het omdat beide pootjes op dezelfde draad staan: er is geen spanning tussen zijn poten, dus er loopt geen stroom door zijn lijf. Een monteur die tegelijk de draad en de geaarde mast raakt, overleeft het niet. Precies dat principe ligt ook onder de potentiaalvereffening uit het tweede deel: zorgen dat je tussen twee aanraakbare punten nooit een verschil kunt overbruggen."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De wet van Ohm in het echt",
+        "alineas": [
+          "Weerstand is de mate waarin een materiaal of component de stroom tegenwerkt, gemeten in ohm. Bij een vaste weerstand is de stroom evenredig met de spanning: verdubbel de spanning en de stroom verdubbelt. Dat is de wet van Ohm, U = I × R, ontdekt door Georg Simon Ohm in de jaren twintig van de negentiende eeuw. De formule werkt in drie richtingen. Een verwarmingselement dat 5 A trekt op 230 V heeft een weerstand van 230 ÷ 5 = 46 Ω. Een weerstand van 2,2 kΩ waar 5 mA doorheen gaat, heeft 11 V over zich. Handig: volt, milliampère en kilo-ohm passen precies op elkaar, zodat je in de elektronica de machten van tien kunt overslaan.",
+          "Niet alles gedraagt zich volgens Ohm. Een gloeilamp van 60 W heeft warm een weerstand van ongeveer 230² ÷ 60 ≈ 880 Ω. Koud is dat ongeveer een tiende, zo’n 90 Ω. Op het moment van inschakelen loopt er dus kortstondig een stroom van zo’n 2,5 A, tien keer de normale stroom. Daarom gingen gloeilampen vrijwel altijd kapot op het moment dat je ze aanzette. Diodes en LEDs volgen de wet helemaal niet: boven hun drempelspanning stijgt de stroom zo steil dat een paar tiende volt het verschil maakt tussen zacht gloeien en doorbranden. Voor die componenten gebruik je Ohm alleen voor de weerstand die ervoor staat."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Ook koper heeft weerstand",
+        "alineas": [
+          "Elk materiaal heeft een soortelijke weerstand, aangeduid met de Griekse letter rho: de weerstand van een draad van één meter lang met een doorsnede van één vierkante millimeter. Voor koper is dat ongeveer 0,0175 Ω·mm²/m, voor aluminium ongeveer 0,028. De weerstand van een draad volgt dan uit R = ρ × l ÷ A: hoe langer, hoe meer weerstand; hoe dikker, hoe minder. Honderd meter koperdraad van 1,5 mm² heeft 0,0175 × 100 ÷ 1,5 ≈ 1,17 Ω. Dat lijkt verwaarloosbaar, maar in de huisinstallatie lopen stromen van vele ampères, en dan wordt ‘bijna niets’ ineens een paar volt en een paar tientallen watt.",
+          "Belangrijk bij installatiewerk is dat je de totale draadlengte neemt. De stroom gaat heen via de fase en terug via de nul. Een wandcontactdoos op 20 meter kabellengte van de kast heeft dus 40 meter koper in de stroomkring. Bij 2,5 mm² is dat 0,28 Ω. Bij 16 A valt er 16 × 0,28 ≈ 4,5 V weg over de kabel, ongeveer 2 procent van 230 V. Daar komt nog bij dat de weerstand van koper met de temperatuur stijgt, ongeveer 0,4 procent per graad. Een kabel die van 20 naar 70 °C opwarmt, heeft zo’n 20 procent meer weerstand, en ontwikkelt dus nog meer warmte. Dat is een zichzelf versterkend effect."
+        ],
+        "lesFoto": "soortelijke-weerstand"
+      },
+      {
+        "tussenkop": "De haspel en de losse klem",
+        "alineas": [
+          "Nu de rekensom die elke klusser zou moeten kennen. Een kabelhaspel van 25 meter met aders van 1,5 mm² heeft heen en terug 50 meter koper: 0,0175 × 50 ÷ 1,5 ≈ 0,58 Ω. Sluit je er een bouwkachel van 3500 W op aan, ongeveer 15 A, dan wordt er in de haspel 15² × 0,58 ≈ 130 W aan warmte ontwikkeld. Afgerold is dat verspreid over 25 meter kabel in de buitenlucht, en dat is geen probleem. Opgerold zit al die warmte in een dicht pakket windingen die elkaar opwarmen, en kan de isolatie zacht worden en smelten. Op veel haspels staat daarom een lager toegestaan vermogen voor opgerold gebruik dan voor afgerold. Dat getal is geen marketing maar natuurkunde.",
+          "Hetzelfde principe zit achter de meeste elektrische branden in woningen: niet de kabel zelf, maar een verbinding. Een slecht aangedraaide schroefklem of een half ingestoken draad in een insteekklem heeft een overgangsweerstand. Stel dat die maar 0,1 Ω is. Bij 16 A is het vermogen in die ene klem 16² × 0,1 ≈ 26 W, geconcentreerd op een paar vierkante millimeter, ingesloten in een inbouwdoos. Dat is meer dan de soldeerbout op je werkbank. De klem oxideert door de warmte, de overgangsweerstand stijgt, de warmte neemt verder toe. Verkleurd kunststof bij een contactdoos is daarom nooit cosmetisch: het is een klem die al een tijd te heet wordt."
+        ],
+        "foto": 5,
+        "kader": {
+          "titel": "Formules uit dit deel",
+          "punten": [
+            "I = Q ÷ t: 1 ampère = 1 coulomb per seconde",
+            "U = W ÷ Q: 1 volt = 1 joule per coulomb",
+            "U = I × R, I = U ÷ R, R = U ÷ I",
+            "R = ρ × l ÷ A, met ρ koper ≈ 0,0175 Ω·mm²/m",
+            "Kabellengte bij 1-fase: heen + terug, dus × 2",
+            "Warmte in een weerstand: P = I² × R"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Op weg naar vermogen",
+        "alineas": [
+          "In dit deel kwam de formule P = I² × R al een paar keer voorbij, zonder dat we haar netjes hebben afgeleid. Dat doen we in het volgende deel, waarin vermogen en energie centraal staan. Daar zien we waarom een verdubbelde stroom vier keer zoveel warmte geeft, hoe je van watts naar de euro’s op je energierekening komt, en wat er gebeurt als je weerstanden in serie of parallel zet. Dat laatste is geen schoolse oefening: alle apparaten in je huis staan parallel, en het is juist dat parallel schakelen dat ervoor zorgt dat een groep met allemaal kleine verbruikers samen toch overbelast kan raken."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "elektronica-05",
+    "kop": "Watt, kilowattuur en de kunst van het schakelen",
+    "intro": "Waarom kookt een waterkoker op een zwakke groep merkbaar langzamer? Waarom kan een gebroken nul je radio opblazen? En hoe meet een microcontroller een accu van 12 volt zonder zelf kapot te gaan? Het antwoord zit in vermogen, en in de vraag of iets in serie of parallel staat.",
+    "hoofdstuk": "Vermogen en schakelingen",
+    "basis": [
+      "vermogen-energie",
+      "serieschakeling",
+      "parallelschakeling",
+      "spanningsdeler"
+    ],
+    "fotos": [
+      {
+        "wiki": "Waterkoker",
+        "taal": "nl",
+        "bijschrift": "De waterkoker: een zuivere weerstand van ruwweg 26 ohm"
+      },
+      {
+        "wiki": "James Prescott Joule",
+        "taal": "en",
+        "bijschrift": "James Prescott Joule onderzocht de warmte die stroom in een draad ontwikkelt"
+      },
+      {
+        "wiki": "Christmas lights",
+        "taal": "en",
+        "bijschrift": "Lichtsnoeren: het schoolvoorbeeld van een serieschakeling"
+      },
+      {
+        "wiki": "Gustav Kirchhoff",
+        "taal": "en",
+        "bijschrift": "Gustav Kirchhoff formuleerde de wetten voor stroom en spanning in netwerken"
+      },
+      {
+        "wiki": "Thermistor",
+        "taal": "en",
+        "bijschrift": "Een NTC: weerstand die daalt als hij warmer wordt"
+      },
+      {
+        "wiki": "Photoresistor",
+        "taal": "en",
+        "bijschrift": "Een LDR: weerstand die daalt als er meer licht op valt"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Op het typeplaatje van elk apparaat staat een getal in watt, en op de energierekening een getal in kilowattuur. Tussen die twee ligt een wereld die de meeste mensen met een vaag gevoel overbruggen: ‘een waterkoker gebruikt veel’, ‘led is zuinig’, ‘die oude vriezer kost een vermogen’. Wie het verband tussen vermogen, stroom en weerstand echt doorziet, kan zulke uitspraken in een minuut narekenen. En belangrijker: hij ziet ook wat er gebeurt in de kabel, in de klem en in de groep, waar dezelfde formules bepalen of iets warm wordt of niet.",
+          "In het vorige deel bouwden we de wet van Ohm op en zagen we dat koper zelf ook weerstand heeft. Nu combineren we dat met vermogen en energie. Daarna kijken we naar de twee manieren waarop je componenten kunt verbinden: in serie, achter elkaar, en parallel, naast elkaar. Dat klinkt als een les uit de derde klas, maar het verklaart waarom een gebroken nul in een 3-fase installatie zo verwoestend is en waarom een groep met alleen kleine verbruikers toch kan uitvallen. We eindigen bij de spanningsdeler, de eenvoudigste schakeling uit de elektronica en de brug naar de wereld van sensoren en microcontrollers."
+        ]
+      },
+      {
+        "tussenkop": "Drie gezichten van vermogen",
+        "alineas": [
+          "Elektrisch vermogen is de hoeveelheid energie per seconde, gemeten in watt. Voor een weerstand of een verwarmingselement geldt simpelweg P = U × I: spanning maal stroom. Vul je daarin de wet van Ohm in, dan krijg je twee andere vormen. Vervang U door I × R en je krijgt P = I² × R. Vervang I door U ÷ R en je krijgt P = U² ÷ R. Het zijn geen drie verschillende natuurwetten, maar één wet in drie gedaanten. Welke je gebruikt, hangt af van wat je kent. Voor verlies in een kabel ken je de stroom, dus I² × R. Voor een element op het net ken je de spanning, dus U² ÷ R.",
+          "Neem een waterkoker van 2000 W op 230 V. De stroom is 2000 ÷ 230 ≈ 8,7 A. De weerstand van het element is 230² ÷ 2000 ≈ 26 Ω. Dat element is een gewone weerstand: het vermogen dat erin wordt omgezet, is volledig warmte. Hier zit een praktische les in. De netspanning mag volgens de norm tien procent afwijken, dus tussen ongeveer 207 en 253 V liggen. Daalt de spanning aan het eind van een lange, zwaar belaste groep naar 207 V, dan wordt het vermogen 207² ÷ 26 ≈ 1650 W. Tien procent minder spanning betekent bijna twintig procent minder vermogen. Het water kookt merkbaar later, en dat is geen inbeelding."
+        ]
+      },
+      {
+        "tussenkop": "Het kwadraat dat kabels doet smelten",
+        "alineas": [
+          "De vorm P = I² × R verdient een eigen moment, omdat ze het belangrijkste mechanisme achter oververhitting beschrijft. De warmte in een geleider groeit met het kwadraat van de stroom. Verdubbel je de stroom door een kabel van 8 naar 16 A, dan wordt het warmteverlies niet twee maar vier keer zo groot. Gaat de stroom van 16 naar 25 A, dan is dat bijna een factor tweeënhalf. Dit is waarom de keuze voor een automaat zo nauw luistert, zoals we in het tweede deel zagen, en waarom een kabel die bij 16 A lauw aanvoelt, bij 25 A in een geïsoleerde wand te heet kan worden.",
+          "Het effect is genoemd naar James Prescott Joule, die in de negentiende eeuw nauwkeurig mat hoeveel warmte een stroom in een draad ontwikkelt. Hij legde daarmee ook de basis voor de eenheid van energie, de joule. Dezelfde I²R-wet verklaart ook waarom elektriciteitsnetten op hoge spanning werken, iets waar we in het volgende deel uitgebreid op terugkomen. Wie hetzelfde vermogen met tien keer zoveel spanning transporteert, heeft maar een tiende van de stroom nodig, en dus maar een honderdste van het verlies in de kabel. Het kwadraat werkt dus in beide richtingen: het kan je kabel laten smelten, maar het maakt ook grootschalig transport van elektriciteit mogelijk."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Van watt naar euro",
+        "alineas": [
+          "Energie is vermogen maal tijd. De officiële eenheid is de joule, één watt gedurende één seconde, maar op de energierekening staat de kilowattuur: één kilowatt gedurende één uur, gelijk aan 3,6 miljoen joule. Een waterkoker van 2000 W die drie minuten aanstaat, verbruikt 2 kW × 0,05 h = 0,1 kWh. Bij een prijs van rond de 30 cent per kWh is dat 3 cent. Een elektrische bijverwarming van 1500 W die een avond lang vier uur draait, gebruikt 6 kWh, en kost dan ongeveer 1,80 euro. Zo zie je meteen waarom elektrisch stoken met een weerstandskachel duur is, en waarom een warmtepomp die met dezelfde kilowattuur meerdere keren zoveel warmte levert zo’n verschil maakt.",
+          "Interessant zijn juist de kleine verbruikers die altijd aanstaan. Een apparaat dat in stand-by 5 W gebruikt, staat 8760 uur per jaar aan en verbruikt dus ongeveer 44 kWh per jaar. Tien van zulke apparaten, en je zit op een paar honderd kilowattuur: een merkbaar deel van het gemiddelde Nederlandse huishoudverbruik van ongeveer 2500 tot 3000 kWh per jaar. Met de P1-poort van de slimme meter, besproken in het eerste deel, is dat sluipverbruik ’s nachts direct af te lezen. Een oude vriezer die je op 200 W ziet aanslaan, kan zo in een week worden ontmaskerd als grootverbruiker, of juist worden vrijgesproken."
+        ],
+        "lesFoto": "vermogen-energie",
+        "kader": {
+          "titel": "Vermogen en energie",
+          "punten": [
+            "P = U × I = I² × R = U² ÷ R",
+            "E = P × t; 1 kWh = 3,6 MJ",
+            "Dubbele stroom: vier keer zoveel warmte in dezelfde weerstand",
+            "10% minder spanning op een element: ongeveer 19% minder vermogen",
+            "5 W stand-by, het hele jaar: ongeveer 44 kWh"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Serie: één pad, één stroom",
+        "alineas": [
+          "Bij een serieschakeling liggen componenten achter elkaar in één stroomkring. Er is maar één pad, dus door elke component loopt precies dezelfde stroom. De weerstanden tellen op: twee weerstanden van 1 kΩ en 2 kΩ in serie gedragen zich als één weerstand van 3 kΩ. De spanning van de bron verdeelt zich over de componenten, en wel naar verhouding van hun weerstand. Op 12 V loopt er door 3 kΩ een stroom van 4 mA. Over de 1 kΩ staat dan 4 V, over de 2 kΩ 8 V. Over de grootste weerstand staat de grootste spanning, omdat de stroom overal gelijk is en U = I × R.",
+          "Dat de deelspanningen precies optellen tot de bronspanning, is de spanningswet van Gustav Kirchhoff: in elke gesloten kring is de som van alle spanningen nul. Het nadeel van serie ken je van de kerstverlichting van vroeger. Alle lampjes stonden achter elkaar op 230 V, elk met een eigen spanning van ruwweg tien tot vijftien volt. Ging er één kapot, dan was de kring onderbroken en bleef de hele slinger donker, en mocht je met een reservelampje de rij langs om de schuldige te vinden. Moderne lampjes hebben vaak een ingebouwde overbrugging die bij een doorgebrande gloeidraad sluit, zodat de rest blijft branden."
+        ],
+        "schema": "serie",
+        "foto": 2
+      },
+      {
+        "tussenkop": "Waarom een gebroken nul zo verwoestend is",
+        "alineas": [
+          "Serie zit ook op plekken waar je het niet verwacht. Een schakelaar en de lamp die hij bedient, staan in serie: open schakelaar, geen stroom. En een draad met een slechte verbinding is een kleine weerstand in serie met het apparaat erachter. Maar het meest dramatische voorbeeld is de gebroken nul in een 3-fase installatie, waar we in het eerste deel al naar verwezen. Zolang de nul intact is, krijgt elk apparaat zijn 230 V tussen fase en nul. Valt de nul weg, dan hebben de apparaten op verschillende fasen geen gemeenschappelijk referentiepunt meer en komen ze via de nulrail in serie te staan, tussen twee fasen, over 400 V.",
+          "Reken het na. Op L1 brandt een lamp van 100 W, warm zo’n 530 Ω. Op L2 staat een waterkoker van 2000 W, 26 Ω. De nul breekt. Nu staan lamp en waterkoker in serie over 400 V, samen 556 Ω, en er loopt 400 ÷ 556 ≈ 0,72 A. Over de waterkoker staat 0,72 × 26 ≈ 19 V: die doet niets meer. Over de lamp staat 0,72 × 530 ≈ 380 V: die brandt fel op en gaat kapot. Vervang de lamp door een televisie of een router en je begrijpt waarom een nulbreuk in een straat soms een rij kapotte apparaten oplevert. De verbruiker met de hoogste weerstand, vaak het kleinste en kwetsbaarste apparaat, krijgt de meeste spanning."
+        ],
+        "citaat": "Bij een gebroken nul krijgt het kleinste apparaat de grootste spanning."
+      },
+      {
+        "tussenkop": "Parallel: zo hangt je huis in elkaar",
+        "alineas": [
+          "Bij een parallelschakeling zijn componenten tussen dezelfde twee punten aangesloten. Elke tak krijgt de volle spanning. Zo zijn alle apparaten in huis aangesloten: elke wandcontactdoos krijgt 230 V, onafhankelijk van wat er op de andere zit, en het uitschakelen van de televisie heeft geen invloed op de koelkast. De totale stroom is de som van de takstromen. Dat is de stroomwet van Kirchhoff: wat een knooppunt in gaat, gaat er ook weer uit. Een waterkoker van 8,7 A en een broodrooster van 4 A op dezelfde groep geven samen 12,7 A door de groepskabel en door de automaat.",
+          "Elke extra tak voegt een pad toe, waardoor de vervangingsweerstand daalt. Die bereken je met 1 ÷ Rv = 1 ÷ R1 + 1 ÷ R2 + …, of voor twee weerstanden sneller met ‘product gedeeld door som’. Waterkoker en broodrooster hebben 26 Ω en ongeveer 57 Ω. Parallel is dat 26 × 57 ÷ 83 ≈ 18 Ω, en 230 ÷ 18 ≈ 12,7 A: dezelfde uitkomst langs een andere weg. De vervangingsweerstand van een parallelschakeling is altijd kleiner dan de kleinste tak. Voor de installatie is dat de kern: hoe meer je aanzet, hoe lager de totale weerstand, hoe hoger de stroom door die ene gemeenschappelijke kabel."
+        ],
+        "schema": "parallel"
+      },
+      {
+        "tussenkop": "Serie en parallel tegelijk",
+        "alineas": [
+          "Een echte groep is een combinatie. De apparaten staan parallel ten opzichte van elkaar, maar het hele pakket staat in serie met de weerstand van de kabel. In het vorige deel rekenden we uit dat een contactdoos op 20 meter een kabelweerstand van ongeveer 0,28 Ω heeft. Zet je daar een stofzuiger aan die bij het aanslaan kortstondig 30 A trekt, dan valt er heel even 30 × 0,28 ≈ 8 V over de kabel weg. De lamp op dezelfde groep krijgt dat moment 8 V minder, en je ziet hem een fractie dimmen. Dat knipperen is dus geen spookverschijnsel, maar de wet van Ohm in serie met Kirchhoff in parallel.",
+          "Een veelgemaakte fout volgt hier direct uit: de stekkerdoos aan de stekkerdoos. Elke stekkerdoos staat parallel, dus alle stromen van alle apparaten erop lopen samen door die ene stekker en dat ene snoer naar de wandcontactdoos. Een stekkerdoos is meestal geschikt voor maximaal 16 A, ofwel 3680 W, en dat geldt ook voor de hele boom die eraan hangt. Een elektrische kachel, een waterkoker en een paar kleinere apparaten op een cascade van stekkerdozen achter één contactdoos is een klassieke oorzaak van smeltende stekkers. De automaat in de kast beschermt dat snoer niet altijd: als hij 16 A toelaat, wordt een dun snoer met een hogere weerstand eerder heet dan de vaste installatie."
+        ]
+      },
+      {
+        "tussenkop": "De spanningsdeler: twee weerstanden, veel toepassingen",
+        "alineas": [
+          "Zet twee weerstanden in serie tussen een voeding en massa, en op het knooppunt ertussen staat een spanning die afhangt van hun verhouding. Dat is de spanningsdeler: Uuit = Uin × R2 ÷ (R1 + R2), waarbij R2 de onderste weerstand is, tussen de uitgang en massa. Twee gelijke weerstanden geven precies de helft. Met 10 kΩ boven en 20 kΩ onder op 12 V krijg je 12 × 20 ÷ 30 = 8 V. Een potmeter, de draaiknop van een ouderwetse volumeregelaar, is niets anders dan een spanningsdeler waarvan je de verhouding met een sleepcontact kunt verschuiven.",
+          "Een typische toepassing: je wilt met een microcontroller zoals een Arduino de spanning van een auto- of bootaccu meten. De analoge ingang verdraagt maar 5 V, of 3,3 V bij nieuwere borden, terwijl een accu tijdens het laden tot ruim 14 V kan oplopen. Met R1 = 39 kΩ en R2 = 10 kΩ wordt 14,4 V teruggebracht tot 14,4 × 10 ÷ 49 ≈ 2,9 V: veilig binnen het bereik. De deler trekt 14,4 ÷ 49 kΩ ≈ 0,3 mA. Dat is per dag zo’n 7 mAh, verwaarloosbaar voor een accu van 60 Ah. Hoge weerstanden kiezen spaart de accu, maar maakt de meting wel gevoeliger voor storing en voor de belasting van de ingang."
+        ],
+        "schema": "spanningsdeler",
+        "foto": 3
+      },
+      {
+        "tussenkop": "Sensoren en de belastingsfout",
+        "alineas": [
+          "Veel sensoren zijn eigenlijk weerstanden die veranderen. Een NTC, een thermistor met een negatieve temperatuurcoëfficiënt, krijgt een lagere weerstand naarmate hij warmer wordt. Een LDR, een lichtgevoelige weerstand, krijgt een lagere weerstand bij meer licht. Een microcontroller kan geen weerstand meten, wel een spanning. Zet je zo’n sensor als R1 of R2 in een spanningsdeler, dan verandert een veranderende weerstand in een veranderende spanning. De temperatuursensor in een cv-ketel, de schemerschakelaar van een buitenlamp en de thermostaat in een koelkast werken vaak volgens dit principe, met een vaste weerstand als tweede helft van de deler.",
+          "De formule geldt echter alleen onbelast. Sluit je op de uitgang iets aan, dan staat die belasting parallel aan R2 en daalt de uitgangsspanning. Vuistregel: de belasting moet minstens tien keer zo hoog zijn als R2. Dat geldt zelfs voor je multimeter. Een digitale multimeter heeft op het voltbereik meestal een ingangsweerstand van 10 MΩ. Meet je een deler van twee keer 1 MΩ op 10 V, dan zie je niet 5 V maar ongeveer 4,8 V, omdat de meter zelf parallel aan R2 staat. En daarom is een spanningsdeler nooit een voeding: een motortje of ledstrip met wisselende stroom verandert voortdurend de deelverhouding. Voor voeden gebruik je een spanningsregelaar."
+        ],
+        "foto": 4,
+        "kader": {
+          "titel": "Serie, parallel, deler",
+          "punten": [
+            "Serie: stroom gelijk, Rv = R1 + R2, spanningen tellen op",
+            "Parallel: spanning gelijk, stromen tellen op, Rv kleiner dan kleinste tak",
+            "Twee weerstanden parallel: (R1 × R2) ÷ (R1 + R2)",
+            "Deler: Uuit = Uin × R2 ÷ (R1 + R2)",
+            "Belasting op de deler minstens 10 × R2",
+            "Stekkerdoos met alles erachter: samen maximaal 16 A"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Licht, temperatuur en de volgende stap",
+        "alineas": [
+          "Een LDR in een spanningsdeler is ook een mooi bruggetje naar het volgende deel. Tot nu toe hebben we gerekend alsof spanningen constant zijn: 12 V van een accu, 230 V uit het stopcontact. Maar die 230 V is helemaal niet constant. Ze wisselt vijftig keer per seconde van richting, en de werkelijke piek ligt ruim boven de 300 volt. In het zesde en laatste deel van deze reeks over de basis kijken we naar wisselspanning, en naar de twee componenten die zich heel anders gedragen dan een weerstand: de condensator, die spanning vasthoudt, en de spoel, die zich tegen elke verandering van stroom verzet. Samen leveren ze de transformator op, het apparaat dat het hele elektriciteitsnet mogelijk maakt."
+        ],
+        "foto": 5
+      }
+    ]
+  },
+  {
+    "id": "elektronica-06",
+    "kop": "Vijftig keer per seconde: wisselspanning, spoel en transformator",
+    "intro": "De 230 volt uit je stopcontact is een gemiddelde, geen vaste waarde: de piek ligt ruim boven de 300 volt. Wie dat begrijpt, snapt waarom een condensator na het uittrekken van de stekker nog gevaarlijk kan zijn, waarom een bobine vonken trekt en waarom het hele net op transformatoren draait.",
+    "hoofdstuk": "Wisselspanning en magnetisme",
+    "basis": [
+      "wisselspanning",
+      "condensator-rc",
+      "spoel-magnetisme",
+      "transformator"
+    ],
+    "fotos": [
+      {
+        "wiki": "Electric power transmission",
+        "taal": "en",
+        "bijschrift": "Hoogspanningslijnen: hoge spanning, lage stroom, weinig verlies"
+      },
+      {
+        "wiki": "War of the currents",
+        "taal": "en",
+        "bijschrift": "Thomas Edison verloor de strijd tussen gelijk- en wisselstroom"
+      },
+      {
+        "wiki": "Electromagnet",
+        "taal": "en",
+        "bijschrift": "Een spoel om een ijzeren kern met een batterij: een eenvoudige elektromagneet"
+      },
+      {
+        "wiki": "Ignition coil",
+        "taal": "en",
+        "bijschrift": "Een bobine: de spanningspiek van een onderbroken spoel als nuttige vonk"
+      },
+      {
+        "wiki": "Michael Faraday",
+        "taal": "en",
+        "bijschrift": "Michael Faraday ontdekte in 1831 de elektromagnetische inductie"
+      },
+      {
+        "wiki": "Toroidal inductors and transformers",
+        "taal": "en",
+        "bijschrift": "Een ringkerntransformator: compact, maar met een flinke inschakelstroom"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Tot nu toe rekenden we alsof spanning een vast getal is. Een accu levert 12 V, het stopcontact 230 V, en met de wet van Ohm reken je de stroom uit. Voor gelijkspanning klopt dat. Maar het stopcontact levert iets heel anders: een spanning die vijftig keer per seconde van richting wisselt, die honderd keer per seconde door nul gaat, en die op haar hoogtepunt ruim 320 volt bereikt. Dat de lampen in huis niet zichtbaar flikkeren en dat een waterkoker gewoon kookt, komt doordat die wisselingen zo snel gaan. Voor elektronica, voor veiligheid en voor het hele elektriciteitsnet maakt het wel alles uit.",
+          "In dit afsluitende deel van de reeks over de basis kijken we eerst naar die wisselspanning zelf: wat betekent ‘230 V’ eigenlijk als de spanning voortdurend verandert? Daarna komen twee componenten die zich heel anders gedragen dan de weerstanden uit het vorige deel. De condensator houdt lading vast en laat wisselstroom door, de spoel verzet zich tegen elke verandering van stroom. Combineer je twee spoelen op één ijzeren kern, dan krijg je de transformator, het apparaat dat verklaart waarom de strijd tussen gelijk- en wisselstroom ruim een eeuw geleden door wisselstroom is gewonnen."
+        ]
+      },
+      {
+        "tussenkop": "Een sinus van vijftig hertz",
+        "alineas": [
+          "Het Europese net levert een sinusvormige wisselspanning met een frequentie van 50 hertz. Eén volledige periode, van nul via de positieve top, weer door nul naar de negatieve top en terug, duurt 1 ÷ 50 = 20 milliseconden. Die sinusvorm is geen keuze van een ingenieur maar een gevolg van de manier waarop de spanning wordt opgewekt: in een generator draait een magneetveld rond langs spoelen, en de spanning die daardoor ontstaat volgt precies de hoek van de rotor. De drie fasen uit het eerste deel komen uit drie spoelen die op 120 graden van elkaar rond dezelfde as liggen.",
+          "Waarom wisselspanning en geen gelijkspanning? Aan het eind van de negentiende eeuw was dat de inzet van een felle strijd, de ‘oorlog der stromen’. Thomas Edison bouwde gelijkstroomnetten, George Westinghouse en Nikola Tesla zetten in op wisselstroom. Wisselstroom won om één reden: met een transformator kun je wisselspanning eenvoudig en met weinig verlies omhoog en omlaag brengen. Daardoor kon stroom over grote afstanden op hoge spanning worden vervoerd en pas vlak bij de klant worden teruggebracht naar een veilig niveau. Met moderne vermogenselektronica is gelijkstroom voor zeer lange verbindingen inmiddels weer terug, zoals in onderzeese kabels, maar het distributienet in je straat is wissel gebleven."
+        ],
+        "schema": "sinus",
+        "foto": 1
+      },
+      {
+        "tussenkop": "Wat ‘230 volt’ eigenlijk betekent",
+        "alineas": [
+          "Als de spanning steeds verandert, welk getal zet je dan op het typeplaatje? Het antwoord is de effectieve waarde, ook wel RMS genoemd, naar het Engelse root mean square. Dat is de gelijkspanning die in een weerstand precies hetzelfde gemiddelde vermogen zou ontwikkelen. 230 V wissel verwarmt de waterkoker uit het vorige deel dus even hard als 230 V gelijk zou doen. Omdat vermogen met het kwadraat van de spanning gaat, is de effectieve waarde niet het gewone gemiddelde, want dat is bij een sinus nul. Je neemt het gemiddelde van het kwadraat en daar de wortel uit. Voor een zuivere sinus komt dat neer op de topwaarde gedeeld door √2.",
+          "Omgekeerd betekent dat: de werkelijke piek van de netspanning is 230 × √2 ≈ 325 V. Van de positieve naar de negatieve top is het zelfs ongeveer 650 V. Dat is geen theoretische curiositeit. Isolatie, schakelaars en componenten moeten die topspanning verdragen, niet alleen de 230. En de netspanning mag volgens de norm tien procent afwijken, dus tussen ongeveer 207 en 253 V effectief liggen. Bij 253 V is de piek ruim 357 V. Een simpele multimeter rekent de effectieve waarde uit door aan te nemen dat het signaal een zuivere sinus is. Bij vervormde signalen, zoals de stroom van LED-drivers of een dimmer, zit zo’n meter ernaast. Een True RMS-meter rekent het echt uit."
+        ],
+        "kader": {
+          "titel": "Wisselspanning in getallen",
+          "punten": [
+            "Frequentie 50 Hz, periode 20 ms",
+            "Ueff = 230 V, Utop ≈ 325 V, top-top ≈ 650 V",
+            "Utop = Ueff × √2, alleen voor een zuivere sinus",
+            "Toegestaan: 230 V ± 10%, dus ongeveer 207–253 V",
+            "True RMS-meter: correct bij vervormde signalen"
+          ]
+        }
+      },
+      {
+        "tussenkop": "De condensator: een emmer voor lading",
+        "alineas": [
+          "Een condensator bestaat uit twee geleidende platen, gescheiden door een isolator, het diëlektricum. Zet je er spanning op, dan hopen zich op de ene plaat elektronen op en op de andere ontstaat een tekort. De platen raken elkaar niet, dus er loopt geen stroom dwars door de condensator, maar er staat wel lading op. Hoeveel lading er per volt in past, is de capaciteit C, gemeten in farad: Q = C × U. Een farad is enorm. In de praktijk werk je met picofarad, nanofarad en microfarad, en één microfarad is duizend nanofarad of een miljoen picofarad. De energie in een geladen condensator is ½ × C × U².",
+          "Gelijkstroom houdt op zodra de condensator vol is. Wisselstroom gaat er wel ‘doorheen’, omdat de platen bij elke halve periode om en om worden geladen en ontladen. Hoe hoger de frequentie, hoe makkelijker dat gaat. De wisselstroomweerstand, de reactantie, is 1 ÷ (2π × f × C). Een condensator van 100 nF heeft bij 50 Hz een reactantie van ongeveer 32 kΩ. Op 230 V laat hij dus ongeveer 7 mA wisselstroom door, zonder dat er warmte ontstaat. Dat verklaart twee raadsels uit eerdere delen. De ontstoringscondensatoren in apparaten laten een klein stroompje naar aarde lopen, dat bij de aardlekschakelaar optelt. En de capaciteit tussen twee lange draden in één buis is genoeg om een zuinige LED te laten nagloeien."
+        ],
+        "lesFoto": "condensator-rc"
+      },
+      {
+        "tussenkop": "Opladen met een tijdconstante",
+        "alineas": [
+          "Laad je een condensator op via een weerstand, dan stijgt de spanning eerst snel en daarna steeds langzamer. Hoe voller hij is, hoe kleiner het spanningsverschil over de weerstand, en hoe kleiner dus de laadstroom. Het tempo wordt bepaald door de tijdconstante τ, de Griekse letter tau, die gelijk is aan R × C. Na één tijdconstante is de condensator voor ongeveer 63 procent geladen, na vijf tijdconstanten voor meer dan 99 procent: in de praktijk vol. Met 10 kΩ en 100 µF is τ precies één seconde. Ontladen gaat in hetzelfde tempo omgekeerd: na één τ is er nog 37 procent over, na vijf τ vrijwel niets.",
+          "Dit principe zit in talloze schakelingen. Een vertraging voor een ventilator die nog even nadraait, het onderdrukken van denderen bij een drukknop die bij het indrukken een paar keer stuitert, een filter dat snelle storingen wegvangt maar langzame veranderingen doorlaat. Het zit ook in de voeding van bijna elk elektronisch apparaat. Daar wordt de netspanning gelijkgericht en afgevlakt met een elco, een elektrolytische condensator met een grote capaciteit. Die laadt op tot de topwaarde van de netspanning, niet tot de effectieve waarde. Achter een direct gelijkgerichte netspanning staat in zo’n voeding dus ruim 320 V gelijkspanning."
+        ],
+        "schema": "rc"
+      },
+      {
+        "tussenkop": "Het verborgen gevaar in een voeding",
+        "alineas": [
+          "Een elco van 470 µF op 325 V bevat ½ × 0,00047 × 325² ≈ 25 joule. Dat klinkt weinig, maar het is opgeslagen in een component die het in een fractie van een seconde kan afgeven, via jouw vingers. Goede voedingen hebben een ontlaadweerstand die de elco na uitschakelen langzaam leeg laat lopen. Met 470 µF en een ontlaadweerstand van 470 kΩ is τ ongeveer 220 seconden, en duurt het dus bijna twintig minuten voordat hij in de praktijk leeg is. Is die weerstand er niet of is hij defect, dan kan de spanning veel langer blijven staan.",
+          "Wie een voeding of magnetron openschroeft, ontlaadt de grote condensatoren eerst via een weerstand van enkele kilo-ohms en meet daarna of ze echt leeg zijn. Kortsluiten met een schroevendraaier is geen goed idee: de piekstroom kan de condensator en de punt van je schroevendraaier beschadigen. En vergeet niet dat een multimeter op een condensator die je net hebt ontladen soms na een tijdje weer een paar volt laat zien: het diëlektricum geeft nog wat opgesloten lading vrij."
+        ],
+        "citaat": "Een condensator onthoudt de piek, niet het gemiddelde."
+      },
+      {
+        "tussenkop": "De spoel: traagheid voor stroom",
+        "alineas": [
+          "Elke stroomvoerende draad is omgeven door een magnetisch veld. Wikkel je de draad tot een spoel, dan tellen de velden van alle windingen op, en met een ijzeren kern wordt het veld nog veel sterker. Zo werken elektromagneten, de relais waarmee een klein stuurstroompje een groot vermogen schakelt, en de magnetische uitschakeling van de installatieautomaat uit het tweede deel. Het omgekeerde ontdekte Michael Faraday in 1831: een veranderend magnetisch veld in een spoel wekt daarin een spanning op. Dat is inductie, en het is misschien wel de belangrijkste ontdekking in de geschiedenis van de elektrotechniek.",
+          "Omdat de stroom door een spoel zelf een veld maakt, en een veranderend veld een spanning opwekt, verzet een spoel zich tegen elke verandering van haar eigen stroom. Dat heet zelfinductie, gemeten in henry. De opgewekte spanning is U = L × ΔI ÷ Δt: de zelfinductie maal de snelheid waarmee de stroom verandert. Een spoel gedraagt zich daarmee als een vliegwiel voor stroom. Een constante gelijkstroom laat hij zonder moeite door, maar een snelle verandering wordt afgeremd. Voor wisselstroom heeft hij daarom een reactantie die met de frequentie stijgt: 2π × f × L, precies het spiegelbeeld van de condensator."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De bobine en de vrijloopdiode",
+        "alineas": [
+          "Wat gebeurt er als je de stroom door een spoel plotseling onderbreekt? De stroom wil doorlopen, en omdat Δt bijna nul is, wordt de opgewekte spanning enorm. Een relaisspoel van 0,1 henry met 50 mA erdoor, onderbroken in een microseconde, zou volgens de formule een piek van duizenden volts geven. In werkelijkheid ontlaadt die energie zich via een vonk of via het component dat de stroom onderbrak, en dat is vaak een transistor die daar kapot van gaat. Daarom staat over elke relaisspoel in een elektronische schakeling een vrijloopdiode, in sperrichting. Bij uitschakelen kan de stroom via die diode rustig uitdoven, en blijft de spanningspiek beperkt tot een volt.",
+          "Wie met motoren werkt, kent het nuttige gebruik van precies dit effect: de bobine. In een klassiek ontstekingssysteem loopt een stroom door de primaire spoel van de bobine, die bij het juiste moment abrupt wordt onderbroken, vroeger door de contactpunten en later elektronisch. De ineenstortende magnetische flux wekt in de secundaire spoel, met veel meer windingen, een spanning van vele duizenden volts op, genoeg om over de elektroden van de bougie te vonken. De condensator die vroeger naast de contactpunten zat, had een vergelijkbare taak als de vrijloopdiode: voorkomen dat de energie via een vonk tussen de contactpunten zelf verdween en die verbrandde."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Motor en generator",
+        "alineas": [
+          "Een elektromotor gebruikt de kracht die een stroomvoerende draad ondervindt in een magnetisch veld, de lorentzkracht. Wikkelingen op een rotor die in een magneetveld liggen, krijgen een draaiend moment, en met een slimme schakeling of met de draaiende velden van drie fasen blijft dat moment steeds dezelfde kant op werken. Een generator doet het omgekeerde: draai je een spoel rond in een magneetveld, dan ziet ze een voortdurend veranderende flux en wordt er een wisselspanning opgewekt. Elektriciteitscentrales, windturbines en de dynamo op een fiets zijn in de kern allemaal dezelfde machine, alleen op een andere schaal.",
+          "Motoren en spoelen hebben een eigenschap die we in het tweede deel al tegenkwamen: een hoge inschakelstroom. Op het moment van inschakelen draait een motor nog niet en wekt hij nog geen tegenspanning op, waardoor de stroom kortstondig vele malen hoger is dan normaal. Een ringkerntransformator, zoals in sommige versterkers en halogeenverlichting, kan bij inschakelen eveneens een flinke piek trekken, afhankelijk van het moment op de sinus waarop je hem aanzet. Valt een B16 af precies bij het aanzetten van zo’n apparaat, en verder nooit, dan is dat geen overbelasting maar het magnetische deel van de automaat dat op die piek reageert. In zo’n geval kan een C-karakteristiek de oplossing zijn, mits de installatie dat toelaat."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "De transformator: twee spoelen, één kern",
+        "alineas": [
+          "Zet twee spoelen op een gemeenschappelijke ijzeren kern en je hebt een transformator. De wisselstroom in de primaire spoel maakt een wisselend magnetisch veld in de kern, en dat veld wekt in de secundaire spoel een spanning op. De spanningen verhouden zich als de aantallen windingen: U1 ÷ U2 = N1 ÷ N2. Een transformator met 1150 primaire en 60 secundaire windingen maakt van 230 V dus 230 × 60 ÷ 1150 = 12 V. Het vermogen blijft daarbij, afgezien van verliezen, gelijk: U1 × I1 ≈ U2 × I2. Wat je aan spanning verliest, win je aan stroom. Levert die trafo secundair 2 A, dan neemt hij primair ongeveer 0,1 A op.",
+          "Een transformator werkt alleen op wisselspanning, omdat hij een veranderend veld nodig heeft. Sluit je hem op gelijkspanning aan, dan is er na het inschakelen geen inductie meer en is de primaire spoel niets anders dan een stuk koperdraad met een lage weerstand. De stroom loopt op tot de draad doorbrandt of de beveiliging ingrijpt. Een transformator heeft ook verliezen. Koperverlies ontstaat door de weerstand van de wikkelingen, volgens de bekende I² × R. IJzerverlies ontstaat in de kern, onder meer door wervelstromen: kleine kringstromen die het wisselende veld in het ijzer zelf opwekt. Daarom is de kern opgebouwd uit dunne, van elkaar geïsoleerde plaatjes in plaats van uit massief ijzer."
+        ],
+        "lesFoto": "transformator"
+      },
+      {
+        "tussenkop": "Het zoemen van de wijktrafo",
+        "alineas": [
+          "Ga eens naast een transformatorhuisje in de wijk staan en je hoort een laag gebrom. Dat is geen 50 Hz maar 100 Hz: de kern zet bij elke magnetisering een minuscuul beetje uit en krimpt weer, en dat gebeurt twee keer per periode, bij de positieve en bij de negatieve top. Dat effect heet magnetostrictie. Hetzelfde gebrom hoor je, kleiner, bij een oude beltransformator in de meterkast of bij een halogeentrafo. Moderne netadapters zoemen nauwelijks, omdat ze de netspanning eerst gelijkrichten en dan met tienduizenden hertz schakelen. Bij die hoge frequentie volstaat een veel kleinere kern, en daarom is een laptoplader van nu een fractie van het gewicht van een ouderwetse trafo-adapter.",
+          "De transformator heeft ook een veiligheidsfunctie die we in het derde deel tegenkwamen: galvanische scheiding. Primair en secundair zijn alleen magnetisch gekoppeld, er is geen elektrische verbinding tussen beide. In een scheerstopcontact in de badkamer zit een scheidingstransformator met een verhouding van één op één. De uitgang levert 230 V, maar heeft geen verbinding met de aarde. Raak je één contact aan terwijl je met je andere hand een geaarde kraan vasthoudt, dan is er geen gesloten kring en loopt er geen stroom. Dat beschermt alleen zolang er één apparaat op is aangesloten en de scheiding intact is, en daarom zijn zulke stopcontacten bewust beperkt in vermogen."
+        ],
+        "foto": 5
+      },
+      {
+        "tussenkop": "Waarom het net op hoogspanning draait",
+        "alineas": [
+          "Hier komt alles uit deze reeks samen. Het verlies in een kabel is I² × R. Wil je 10 kW vervoeren, dan heb je op 230 V een stroom van ruim 43 A nodig, op 10.000 V nog geen 1 A. Bij gelijke kabel is het verlies in het tweede geval meer dan duizend keer kleiner. Daarom wordt elektriciteit getransporteerd op 380 kV en 220 kV over het landelijke hoogspanningsnet, verdeeld via 150 en 110 kV, en in de regio via middenspanning van ongeveer 10 tot 20 kV. In het transformatorhuisje in je wijk zet een distributietransformator die middenspanning om naar de 400/230 V van het laagspanningsnet waar je huis aan hangt.",
+          "Daarmee is de cirkel rond. In het eerste deel begonnen we bij de kabel die je meterkast in komt. Nu weten we waar die vandaan komt: uit een transformator die, met twee spoelen en een kern van gelamineerd ijzer, gebruikmaakt van het principe dat Faraday bijna twee eeuwen geleden ontdekte. En we weten wat er in een draad, een weerstand, een condensator en een spoel gebeurt. In de volgende reeks stappen we over naar de componenten van de elektronica zelf: gelijkrichters, diodes, LEDs en transistors."
+        ],
+        "kader": {
+          "titel": "Condensator, spoel, transformator",
+          "punten": [
+            "Q = C × U; energie ½ × C × U²; τ = R × C",
+            "Na 1τ: 63% geladen; na 5τ: vol",
+            "Reactantie condensator 1 ÷ (2πfC), spoel 2πfL",
+            "U = L × ΔI ÷ Δt: snel onderbreken geeft een hoge piek",
+            "Transformator: U1 ÷ U2 = N1 ÷ N2 en U1 × I1 ≈ U2 × I2",
+            "Tien keer hogere spanning: honderd keer minder kabelverlies"
+          ]
+        }
+      }
+    ]
+  }
+]

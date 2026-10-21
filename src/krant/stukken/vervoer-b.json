@@ -1,0 +1,837 @@
+[
+  {
+    "id": "vervoer-07",
+    "kop": "Waarom een vliegtuig vliegt – en waarom het soms ineens niet meer wil",
+    "intro": "In de sim trek je aan de stick en het vliegtuig gaat omhoog. Tot het op een dag in de bocht naar final ineens over een vleugel wegvalt. Wie begrijpt wat lift, invalshoek, flaps, zwaartepunt en motor écht doen, vliegt rustiger, landt mooier en herkent het gevaar voordat het toeslaat.",
+    "hoofdstuk": "Aerodynamica en motoren",
+    "basis": [
+      "lift-en-vleugelprofiel",
+      "overtrek-stall",
+      "vier-krachten-klimmen-glijden",
+      "stuurvlakken-en-trim",
+      "flaps-en-slats",
+      "stabiliteit-zwaartepunt",
+      "zuigermotor-luchtvaart",
+      "straalmotor-turbofan"
+    ],
+    "fotos": [
+      {
+        "wiki": "Cessna 172",
+        "taal": "en",
+        "bijschrift": "De Cessna 172: het lesvliegtuig waarin de meeste piloten – en simmers – beginnen"
+      },
+      {
+        "wiki": "Flap (aeronautics)",
+        "taal": "en",
+        "bijschrift": "Voorrandslat en achterrandflap uitgeschoven: de vleugel wordt boller en groter"
+      },
+      {
+        "wiki": "Spin (aerodynamics)",
+        "taal": "en",
+        "bijschrift": "Een tolvlucht begint met een overtrek waarbij één vleugel eerder wegvalt dan de andere"
+      },
+      {
+        "wiki": "Aircraft flight control system",
+        "taal": "en",
+        "bijschrift": "Rolroer, hoogteroer en richtingsroer: drie stuurvlakken voor drie assen"
+      },
+      {
+        "wiki": "Lycoming O-360",
+        "taal": "en",
+        "bijschrift": "Een luchtgekoelde Lycoming-boxermotor, het hart van talloze sportvliegtuigen"
+      },
+      {
+        "wiki": "CFM International LEAP",
+        "taal": "en",
+        "bijschrift": "De LEAP-turbofan: het grootste deel van de lucht gaat om de kern heen"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Zet in je flightsim een Cessna 172 op de drempel van baan 23 in Lelystad, geef vol gas en kijk naar de snelheidsmeter. Rond de 55 knopen trek je zachtjes aan het stuur, de neus komt omhoog en het toestel komt los van de grond. Het lijkt vanzelfsprekend, maar op dat moment gebeurt er iets wat de meeste mensen verkeerd uitleggen. Een vliegtuig wordt niet door ‘de motor’ omhoog getrokken en ook niet door een mysterieuze zuigkracht. Het blijft in de lucht omdat de vleugel elke seconde een flinke hoeveelheid lucht naar beneden duwt. En wie dat mechanisme snapt, begrijpt meteen waarom een vliegtuig ook kan ophouden met vliegen."
+        ]
+      },
+      {
+        "tussenkop": "De vleugel als luchtbuiger",
+        "alineas": [
+          "Een vleugelprofiel is aan de bovenkant boller dan aan de onderkant en staat onder een kleine hoek ten opzichte van de lucht die erop af komt. Die hoek heet de invalshoek (angle of attack): de hoek tussen de koorde, de denkbeeldige rechte lijn van voorrand naar achterrand, en de relatieve wind. Let op: dat is iets anders dan de standhoek of pitch, de hoek tussen de neus en de horizon. In een daling kan de neus omlaag wijzen terwijl de vleugel toch een flinke invalshoek heeft, omdat de lucht dan schuin van onderen aanstroomt.",
+          "Er zijn twee juiste manieren om lift te beschrijven, en ze zijn twee kanten van dezelfde munt. Volgens Bernoulli stroomt de lucht boven de vleugel sneller en is de druk daar lager dan eronder, dus wordt de vleugel omhoog gedrukt. Volgens Newton buigt de vleugel de luchtstroom naar beneden, de zogeheten downwash, en duwt de reactiekracht de vleugel omhoog. De populaire schoolboekuitleg dat de lucht over de bovenkant ‘tegelijk achteraan moet zijn’ met de lucht eronder, klopt niet: de bovenstroom komt zelfs eerder bij de achterrand aan.",
+          "De liftformule L = ½ · ρ · v² · S · C_L laat zien aan welke knoppen je kunt draaien. ρ is de luchtdichtheid, v de snelheid, S het vleugeloppervlak en C_L de liftcoëfficiënt, die vooral afhangt van de invalshoek en van de flapstand. Omdat de snelheid in het kwadraat staat, levert twee keer zo snel vliegen vier keer zoveel lift op. Halveer je de snelheid, dan blijft maar een kwart van de lift over.",
+          "In rechte horizontale vlucht is lift precies gelijk aan het gewicht. Vlieg je langzamer, dan moet de invalshoek groter worden; vlieg je sneller, dan duw je de neus iets omlaag. Zo bekeken is de invalshoek de echte ‘snelheidsknop’ van de vleugel: bij elke invalshoek hoort, voor een bepaald gewicht, één snelheid. Dat verklaart ook waarom op grote hoogte, in ijle lucht, de ware snelheid veel hoger moet zijn voor dezelfde lift."
+        ],
+        "vt": "vleugel"
+      },
+      {
+        "tussenkop": "Overtrek: een kwestie van hoek, niet van snelheid",
+        "alineas": [
+          "Maak je de invalshoek steeds groter, dan neemt de lift eerst netjes toe. Maar boven de kritieke invalshoek, bij gewone profielen ongeveer 15 tot 18 graden, kan de lucht de bolle bovenkant niet meer volgen. De stroming laat los, boven de vleugel ontstaat een kolkende, turbulente laag en de lift zakt plotseling in, terwijl de weerstand juist sterk toeneemt. Dat is een overtrek of stall. Overtrekt één vleugel eerder dan de andere, dan rolt het toestel af en kan het in een tolvlucht (spin) raken.",
+          "Het belangrijkste inzicht is dat een stall een invalshoekprobleem is, geen snelheidsprobleem. De overtreksnelheid in het handboek geldt alleen voor rechtuit en horizontaal vliegen bij een bepaald gewicht. In een bocht moet de vleugel meer lift leveren, omdat een deel van de lift opzij wijst. De belastingsfactor n is in een horizontale bocht 1 gedeeld door de cosinus van de hellingshoek: bij 60 graden helling is n = 2. De overtreksnelheid stijgt met de wortel daarvan. Overtrek je rechtuit bij 50 knopen, dan in een bocht van 60 graden al bij ongeveer 71.",
+          "Precies daar zit het klassieke dodelijke ongevalspatroon, en je kunt het in de sim perfect naspelen. Je bent op base, iets te laat met draaien, en schiet door de verlengde middellijn heen. Instinctief geef je meer helling en meer voetenstuur om de baan terug te pakken. De neus wil zakken, dus trek je aan het stuur om niet te laag te komen. Lage snelheid, grote helling, veel trekken: de binnenste vleugel overtrekt eerst en het toestel rolt de bocht in, op een hoogte waar herstel niet meer lukt. Dan liever een ruime bocht of een doorstart.",
+          "Herstel draait daarom altijd om één ding: de invalshoek verkleinen. Stuur naar voren tot de vleugel weer ‘vliegt’, pas daarna de vleugels horizontaal met het rolroer, en dan vermogen erbij en voorzichtig optrekken. Wie het stuur naar achteren trekt om ‘omhoog te komen’, maakt het erger. Een vliegtuig waarschuwt meestal op drie manieren: de stall warner, een klepje of gaatje op de voorrand dat net vóór de kritieke hoek een toeter laat afgaan; buffeting, het trillen van losgelaten lucht die tegen het staartvlak slaat; en slappe, weinig effectieve roeren."
+        ],
+        "foto": 2,
+        "kader": {
+          "titel": "Overtrek in getallen",
+          "punten": [
+            "Kritieke invalshoek gangbare profielen: ongeveer 15–18°",
+            "Belastingsfactor in een horizontale bocht: n = 1 / cos(helling)",
+            "Overtreksnelheid in de bocht: Vs × √n (60° helling: ruim 40% hoger)",
+            "Zwaarder toestel: hogere overtreksnelheid, zelfde kritieke invalshoek",
+            "Spin-herstel (PARE): gas dicht, rolroer neutraal, vol richtingsroer tegen de draai, stuur naar voren"
+          ]
+        },
+        "citaat": "Je kunt met elke snelheid en in elke stand overtrekken; alleen de invalshoek liegt nooit."
+      },
+      {
+        "tussenkop": "Vier krachten en de mythe van de extra lift",
+        "alineas": [
+          "Op een vliegtuig werken vier krachten: lift, loodrecht op de luchtstroom; gewicht, naar het middelpunt van de aarde; stuwkracht, naar voren; en weerstand, naar achteren. In een gelijkmatige vlucht zijn ze in evenwicht, en dat geldt ook voor een gelijkmatige klim of daling. Er is dan geen versnelling. Een veelgemaakte denkfout is dat je klimt door meer lift te maken. In een gestage klim is de lift zelfs iets kleiner dan het gewicht, omdat een deel van het gewicht nu langs de vliegrichting werkt en door de stuwkracht wordt gedragen.",
+          "Klimvermogen komt dus uit het overschot aan stuwkracht en vermogen boven wat nodig is om de weerstand te overwinnen. Daarom klim je slecht met een volle cabine, op een warme dag of op grote hoogte: in al die gevallen krimpt dat overschot. Parasitaire weerstand, door vorm, wrijving en uitsteeksels, groeit met het kwadraat van de snelheid. Geïnduceerde weerstand is de prijs van lift maken en wordt juist groter naarmate je langzamer vliegt met een grotere invalshoek. Waar de som van beide het kleinst is, ligt de snelheid voor de beste glijvlucht.",
+          "Valt de motor stil, dan wordt je toestel een zweefvliegtuig. Het glijgetal, de verhouding tussen lift en weerstand, zegt hoeveel meter je vooruit komt per meter hoogteverlies. Een Cessna 172 haalt ongeveer 9 op 1, een verkeersvliegtuig rond 17 op 1, een wedstrijdzwever 40 tot 60 op 1. Vanaf 3000 voet glijdt een 172 bij windstilte dus zo’n 27.000 voet ver, ruim vier zeemijl. Opvallend: gewicht verandert het glijgetal niet, alleen de snelheid waarbij je het beste glijdt. Een zwaar toestel glijdt even ver, maar sneller. Probeer het in de sim boven de Flevopolder: motor uit, best glide, en kijk welke velden binnen bereik liggen."
+        ]
+      },
+      {
+        "tussenkop": "Roeren, coördinatie en trim",
+        "alineas": [
+          "Een vliegtuig draait om drie assen door zijn zwaartepunt. Het rolroer (aileron) aan de vleugeltips laat het toestel om de lengteas rollen: het ene rolroer gaat omhoog, het andere omlaag. Het hoogteroer (elevator) aan het horizontale staartvlak beweegt de neus op en neer om de dwarsas. Het richtingsroer (rudder) aan het verticale staartvlak draait de neus links of rechts om de topas. Je maakt een bocht dus niet met het richtingsroer, zoals een boot, maar door te rollen: je kantelt de liftvector, waarna het horizontale deel van de lift je de bocht door trekt.",
+          "Omdat het verticale deel van de lift in een bocht kleiner wordt, moet je wat aan het hoogteroer trekken om hoogte te houden. En er is nog een bijwerking. Het rolroer dat omlaag gaat, levert meer lift maar ook meer geïnduceerde weerstand. Daardoor trekt de opgaande vleugel de neus eerst de verkeerde kant op: adverse yaw. Dat corrigeer je met het richtingsroer de bocht in. Het balletje in de turn coordinator vertelt of je gecoördineerd vliegt; de oude vliegersregel is ‘step on the ball’, trap op de kant waar het balletje naartoe is geschoven.",
+          "Zonder pedalen staat in de sim vaak ‘auto-rudder’ aan en merk je van adverse yaw niets. Trim is het tweede onderschatte stuk gereedschap. Een trimvlakje of verstelbaar staartvlak zet de stuurkracht op nul voor een bepaalde snelheid. De juiste volgorde: eerst de gewenste stand en snelheid met het stuur vasthouden, dan trimmen tot je het stuur kunt loslaten. Trim is daarmee in feite een snelheidsinstelling. Verander je daarna het vermogen, dan zoekt het toestel ongeveer dezelfde snelheid op en gaat het vanzelf klimmen of dalen."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Flaps en slats: langzaam kunnen vliegen",
+        "alineas": [
+          "Voor starten en landen wil je zo langzaam mogelijk kunnen vliegen. Flaps aan de achterrand maken het profiel boller, en sommige typen, zoals Fowler-flaps, schuiven ook nog naar achteren zodat het vleugeloppervlak groeit. Beide verhogen de liftcoëfficiënt, waardoor de overtreksnelheid daalt. Maar flaps geven ook weerstand. Een kleine stand van 10 tot 15 graden levert vooral extra lift en is ideaal voor de start. Een volle stand van 30 tot 40 graden levert vooral veel weerstand: perfect om steil te naderen zonder snelheid op te bouwen, maar funest voor het klimvermogen.",
+          "Slats aan de voorrand werken anders. Ze openen een spleet waardoor snelle lucht van onder de vleugel over de bovenkant blaast, zodat de stroming langer aanliggend blijft. Daardoor schuift de kritieke invalshoek op, tot boven de 20 graden. Verkeersvliegtuigen combineren slats met meerdelige flaps; dat is waarom een 737 of A320 met een naderingssnelheid onder de 140 knopen kan landen. Op de snelheidsmeter van een klein toestel zie je het flapgebied als witte boog: van VS0, de overtreksnelheid met volle flaps, tot VFE, de hoogste snelheid waarbij je flaps mag uitschuiven zonder ze te beschadigen.",
+          "Bij het uitschuiven van flaps wil de neus van veel toestellen eerst omhoog (ballooning), dus houd je het stuur even vast en trim je bij. En bij een doorstart haal je de flaps nooit in één keer in: met volle flaps weg verliest het toestel plotseling lift terwijl het vermogen nog opbouwt. In stappen intrekken, telkens bij voldoende snelheid, is de enige goede manier."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Het zwaartepunt: de onzichtbare hendel",
+        "alineas": [
+          "Een stabiel vliegtuig keert na een verstoring vanzelf terug naar zijn oude stand. Voor de stabiliteit om de dwarsas is de ligging van het zwaartepunt (centre of gravity, CG) cruciaal. Normaal ligt het vóór het drukpunt van de vleugel, zodat het toestel licht neuszwaar is. Het horizontale staartvlak drukt een beetje naar beneden om dat te compenseren, als een wip met een klein gewicht achteraan.",
+          "Ligt het zwaartepunt te ver naar voren, dan is het toestel heel stabiel maar log. Het staartvlak moet harder omlaag drukken, wat werkt als extra gewicht: de overtreksnelheid stijgt. Bij de landing heb je mogelijk niet genoeg hoogteroer meer om de neus voor de flare op te tillen. Ligt het zwaartepunt te ver naar achteren, dan wordt het gevaarlijker: het toestel reageert overgevoelig, wordt instabiel en kan na een overtrek in een vlakke spin raken waar je niet meer uitkomt.",
+          "De berekening is gelukkig eenvoudig. Een moment is massa maal arm, waarbij de arm de afstand is tot een vast referentiepunt, het datum. Tel alle massa’s en momenten op – lege toestel, piloot, passagiers, bagage, brandstof – en deel het totale moment door de totale massa. Dan heb je de positie van het zwaartepunt, die binnen de grenzen van het handboek moet vallen. Omdat brandstof tijdens de vlucht verdwijnt, verschuift het zwaartepunt; controleer dus zowel begin als eind. Zet in het payload-menu van de sim eens 100 kilo bagage achterin een 172 en voel hoe nerveus de pitch wordt."
+        ],
+        "lesFoto": "stabiliteit-zwaartepunt"
+      },
+      {
+        "tussenkop": "De zuigermotor: twee van alles",
+        "alineas": [
+          "Kleine vliegtuigen vliegen meestal op een luchtgekoelde boxermotor van Lycoming of Continental, met vier of zes liggende cilinders. Het principe is de viertakt van de auto, met extra veiligheid. Elke cilinder heeft twee bougies, gevoed door twee onafhankelijke magneten. Een magneet wekt zijn eigen stroom op uit de draaiende motor, dus de motor loopt door als accu of dynamo uitvallen. Vóór de start doe je daarom een magneetcheck: op één magneet zakt het toerental een beetje. Zakt het helemaal niet, dan is mogelijk een massadraad los en kan de motor ‘heet’ blijven, ook met de sleutel uit.",
+          "De rode hendel is het mengsel. Hoe hoger je vliegt, hoe ijler de lucht; zonder te verarmen (leaning) wordt het mengsel te rijk, verbruik je te veel en loopt de motor ruw. Je verarmt tot het toerental of de uitlaatgastemperatuur een piek bereikt en zet dan iets rijker. Bij start, landing en klim met veel vermogen zet je volrijk, omdat extra brandstof de cilinders koelt. Wie in de sim op een hooggelegen bergveld vertrekt zonder te leanen, krijgt een motor die nauwelijks trekt.",
+          "Het verraderlijkste fenomeen is carburateurijs. In de venturi van de carburateur zet de lucht uit en koelt ze af, en verdampende brandstof onttrekt nog meer warmte. De temperatuur kan zo 20 tot 30 graden dalen, waardoor zelfs bij 15 tot 20 graden buiten in vochtige lucht ijs in de inlaat groeit – typisch Nederlands weer dus. Signaal: het toerental zakt langzaam. Remedie: carburettor heat aan. Het toerental zakt dan eerst nog verder, omdat warme lucht ijler is en er smeltwater door de motor gaat, en stijgt daarna boven de oude waarde. Dat patroon bewijst dat er ijs zat."
+        ],
+        "vt": "viertakt",
+        "foto": 4
+      },
+      {
+        "tussenkop": "Propeller en turbofan",
+        "alineas": [
+          "Een propeller is een draaiende vleugel, met per blad een eigen invalshoek. Een vaste-spoed propeller is een compromis tussen klimmen en kruisen. Een constant-speed propeller, bediend met de blauwe hendel, verstelt de bladhoek automatisch zodat het gekozen toerental gelijk blijft; de zwarte gashendel regelt dan de inlaatdruk (manifold pressure). Daaruit volgt de vaste volgorde. Vermogen erbij: eerst mengsel rijk, dan propeller naar voren, dan gas. Vermogen eraf: eerst gas terug, dan propeller.",
+          "Een straalmotor werkt volgens het rijmpje ‘suck, squeeze, bang, blow’: inlaat, compressor, verbrandingskamer, turbine en uitlaat. De turbine haalt energie uit de hete gassen om compressor en fan aan te drijven, en alles gebeurt continu in plaats van in slagen. Een moderne turbofan blaast met de grote fan voorin het grootste deel van de lucht om de kern heen. De verhouding tussen die omgeleide lucht en de lucht door de kern heet de bypassverhouding, bij moderne motoren 5 tot ruim 10 op 1. Veel lucht een beetje versnellen is zuiniger en stiller dan weinig lucht heel hard; de fan levert zo’n 80 procent van de stuwkracht.",
+          "In de cockpit kijk je naar drie getallen. N1 is het toerental van de lagedrukas met de fan, in procenten, en bij veel motoren de belangrijkste stuwkrachtindicatie. N2 is de hogedrukas in de kern, die je bij het starten als eerste laat draaien. EGT, de uitlaatgastemperatuur, is de harde grens: te heet betekent schade aan de turbinebladen, en bij het starten let je op een ‘hot start’. Een turbofan reageert traag; van stationair naar vol vermogen duurt enkele seconden. Na de landing remmen de thrust reversers mee, die je rond 60 tot 80 knopen weer naar idle zet."
+        ],
+        "foto": 5,
+        "kader": {
+          "titel": "Hendels en meters",
+          "punten": [
+            "Zwart = gas, blauw = propeller, rood = mengsel",
+            "Vermogen erbij: mengsel – propeller – gas; eraf: gas – propeller",
+            "Carburateurijs: kans het grootst tussen ca. −10 en +30 °C bij vochtige lucht",
+            "N1 = fan/lagedrukas, N2 = hogedrukas, EGT = temperatuurgrens",
+            "Avgas 100LL is blauw, Jet A-1 kleurloos tot strokleurig"
+          ]
+        }
+      },
+      {
+        "tussenkop": "En de helikopter?",
+        "alineas": [
+          "Wie na een middag Cessna overstapt op een helikopter in de sim, merkt dat alles anders voelt, maar de natuurkunde is dezelfde. Een rotorblad is gewoon een lange, smalle vleugel die rondjes draait in plaats van rechtdoor te vliegen. De lift ontstaat ook hier doordat het blad lucht naar beneden buigt, en ook hier bepaalt de invalshoek hoeveel. Met de collective verander je de bladhoek van alle bladen tegelijk, met de cyclic per blad tijdens de omwenteling, zodat de rotorschijf kantelt."
+        ],
+        "vt": "rotor"
+      }
+    ]
+  },
+  {
+    "id": "vervoer-08",
+    "kop": "Van six pack tot klasse A: je instrumenten en het luchtruim",
+    "intro": "Je snelheidsmeter kan liegen, je kompas draait de verkeerde kant op en boven Hoofddorp ligt luchtruim waar je als VFR-vlieger niets te zoeken hebt. Wie weet hoe de instrumenten werken en hoe het luchtruim boven Nederland is ingedeeld, vliegt in de sim niet langer op gevoel.",
+    "hoofdstuk": "Instrumenten en luchtruim",
+    "basis": [
+      "pitot-statische-instrumenten",
+      "gyro-instrumenten",
+      "glass-cockpit-autopilot",
+      "v-snelheden",
+      "fir-en-luchtruimindeling",
+      "luchtruimklassen",
+      "vfr-ifr-vmc-minima",
+      "hoogteregels-kruishoogte"
+    ],
+    "fotos": [
+      {
+        "wiki": "Primary flight display",
+        "taal": "en",
+        "bijschrift": "Het primary flight display van een Boeing 737: zes instrumenten op één scherm"
+      },
+      {
+        "wiki": "Pitotbuis",
+        "taal": "nl",
+        "bijschrift": "De pitotbuis vangt de stuwdruk van de aanstromende lucht"
+      },
+      {
+        "wiki": "Kunstmatige horizon",
+        "taal": "nl",
+        "bijschrift": "De kunstmatige horizon: blauw boven, bruin onder, en een starre tol erachter"
+      },
+      {
+        "wiki": "Garmin G1000",
+        "taal": "en",
+        "bijschrift": "Een Garmin G1000 in een Diamond DA42: glass cockpit voor de kleine luchtvaart"
+      },
+      {
+        "wiki": "Luchtverkeersleiding Nederland",
+        "taal": "nl",
+        "bijschrift": "Luchtverkeersleiding Nederland regelt het civiele verkeer in het lagere luchtruim"
+      },
+      {
+        "wiki": "Controlled airspace",
+        "taal": "en",
+        "bijschrift": "Gecontroleerd luchtruim stapelt zich als een omgekeerde bruidstaart rond een vliegveld"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Op 1 juni 2009 vloog een Airbus A330 van Air France ’s nachts boven de Atlantische Oceaan door een gebied met ijskristallen. De pitotbuizen raakten even verstopt, de snelheidsaanwijzing werd onbetrouwbaar en de autopilot schakelde uit. Wat volgde was geen motorstoring en geen structureel probleem, maar een bemanning die de instrumenten niet meer vertrouwde en het toestel uiteindelijk overtrok. De ramp van vlucht 447 laat zien hoe belangrijk het is te begrijpen waar je cijfers vandaan komen. Wie weet hoe een instrument werkt, kan ook voorspellen hoe het faalt.",
+          "Dat is de eerste helft van dit artikel: de drukinstrumenten, de gyro’s, de glass cockpit met autopilot en de snelheden die je op de meter moet kennen. De tweede helft gaat over de ruimte waarin je vliegt. Want boven Nederland is de lucht strak verdeeld in blokken met elk hun eigen regels, van de Amsterdam FIR tot de klasse-A-luchtruimen rond Schiphol, en welke regels gelden hangt af van het weer, je hoogte en de vraag of je VFR of IFR vliegt."
+        ]
+      },
+      {
+        "tussenkop": "Pitot en statisch: drie meters aan één slang",
+        "alineas": [
+          "De snelheidsmeter, de hoogtemeter en de variometer werken allemaal op luchtdruk. De pitotbuis steekt naar voren uit de vleugel of de neus en vangt de totale druk: de gewone omgevingsdruk plus de stuwdruk door de snelheid. De statische poort zit vlak tegen de romp en meet alleen de omgevingsdruk. De snelheidsmeter meet het verschil tussen die twee, de dynamische druk, en die hangt af van luchtdichtheid en snelheid. Hoogtemeter en variometer gebruiken alleen de statische druk.",
+          "De snelheidsmeter toont de indicated airspeed (IAS). Die is precies wat de vleugel ‘voelt’, en daarom staan overtreksnelheden en limieten in IAS. De werkelijke snelheid door de lucht, de true airspeed (TAS), is op hoogte groter, omdat de ijlere lucht minder druk geeft: vuistregel ongeveer 2 procent per 1000 voet. Een jet die op FL350 met 280 knopen IAS vliegt, gaat al zo’n 470 knopen door de lucht. Tel je daar de wind bij op of trek je hem eraf, dan heb je de grondsnelheid, het getal dat je GPS laat zien.",
+          "De hoogtemeter is een barometer: een aneroïde doosje zet uit als de druk daalt, en een mechaniekje vertaalt dat naar voeten. Met de instelknop zet je in het Kollsman-venster de referentiedruk, zoals de QNH. De variometer meet hoe snel de druk verandert, via een klein lekgaatje, en toont stijgen of dalen in voet per minuut, altijd met een kleine vertraging.",
+          "Omdat je de bouw kent, kun je verstoppingen voorspellen. Is de pitotbuis dicht, bijvoorbeeld door ijs, terwijl ook het afvoergaatje dicht zit, dan zit er een vaste hoeveelheid lucht in de leiding en gedraagt de snelheidsmeter zich als een hoogtemeter: bij klimmen loopt de snelheid op, bij dalen zakt hij. Is de statische poort dicht, dan bevriest de hoogtemeter, staat de variometer op nul en toont de snelheidsmeter bij klimmen te weinig. Pitot heat voorkomt ijs in de buis; met de alternate static source in de cabine schakel je over op een reservedrukbron, die door de lagere cabinedruk iets te hoge waarden geeft."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Gyro’s: de tol die niet meedraait",
+        "alineas": [
+          "Het klassieke paneel heet de six pack: zes instrumenten in een vaste T-opstelling. Bovenaan de snelheidsmeter, de kunstmatige horizon en de hoogtemeter; onderaan de turn coordinator, de koersindicator en de variometer. De horizon staat in het midden omdat je daar bij instrumentvliegen het vaakst naar kijkt. Je ogen maken een radial scan: steeds terug naar de horizon, dan even naar een ander instrument, en weer terug.",
+          "Drie van de zes zijn gyro-instrumenten, gebouwd rond een snel draaiende tol. Zo’n tol heeft twee eigenschappen. Starheid in de ruimte (rigidity) zorgt dat hij zijn stand houdt terwijl het vliegtuig eromheen beweegt; daar werken de kunstmatige horizon en de koersindicator mee. Precessie betekent dat een kracht op de tol pas 90 graden verderop in de draairichting uitwerkt; daarmee meet de turn coordinator hoe snel je draait. Vaak draaien horizon en koersindicator op een vacuümpomp en de turn coordinator elektrisch, zodat je bij uitval van één systeem nog een gyro overhoudt.",
+          "De koersindicator is stabiel maar drift langzaam weg, door wrijving en door de draaiing van de aarde. Daarom zet je hem ongeveer elk kwartier gelijk met het magnetisch kompas, en dan alleen in rechte, horizontale vlucht. Het kompas zelf is in bochten en bij versnellen onbetrouwbaar. Op het noordelijk halfrond geeft versnellen op een oostelijke of westelijke koers een schijnbare draai naar het noorden; het geheugensteuntje is ANDS, accelerate north, decelerate south.",
+          "De turn coordinator heeft een markering voor de standaardbocht (rate one): 3 graden per seconde, een volle cirkel in twee minuten. De benodigde helling schat je met TAS gedeeld door tien plus zeven; bij 100 knopen is dat zo’n 17 graden. Wachtpatronen en procedurebochten zijn op die standaardbocht gebaseerd. En nog één waarschuwing die in de sim niet voelbaar is: in een wolk raakt je evenwichtsorgaan binnen een minuut in de war. Je voelt een bocht die er niet is, of mist er een die er wel is. Daarom is de regel bij instrumentvliegen hard: vertrouw de instrumenten, niet je lijf."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Glass cockpit en de vraag: wat doet de autopilot nú?",
+        "alineas": [
+          "In een glass cockpit, of het nu een Garmin G1000 in een Cessna is of het paneel van een Airbus, zijn de zes instrumenten samengevoegd op het primary flight display (PFD). In het midden de kunstmatige horizon, links een verticale snelheidsband, rechts een hoogteband met daarnaast de variometer en onderaan een koersroos. De gegevens komen niet meer van draaiende tollen maar van een elektronische eenheid met solid-state gyro’s en een air data computer, in de G1000 AHRS genoemd. Daarnaast staat het navigation display of multi-function display met route, waypoints, weerradar en verkeer.",
+          "Bovenin het PFD van een verkeersvliegtuig staat de flight mode annunciator (FMA). Die zegt wat de autopilot en de autothrottle op dit moment echt doen. Lateraal zijn de belangrijkste modi HDG (een gekozen koers volgen), NAV of LNAV (een route of VOR volgen) en LOC (een localizer). Verticaal zijn er ALT (hoogte vasthouden), VS (een vaste klim- of daalsnelheid), FLCH of LVL CHG (klimmen of dalen op een vaste snelheid met vast vermogen), VNAV (het verticale profiel van de computer) en G/S (het glijpad). Een mode kan armed zijn, wachtend, of active, aan het werk.",
+          "Het grootste risico heet mode confusion: je denkt dat het toestel iets doet wat het niet doet. De gouden regel is elke modekeuze hardop benoemen en op de FMA controleren. Een klassieke val: je klimt in VS-mode met 1500 voet per minuut, het vermogen is niet genoeg en de autopilot houdt braaf de klimsnelheid vast terwijl de snelheid wegzakt richting overtrek. In FLCH zou het toestel juist de snelheid beschermen en de klim laten afnemen. Een andere simklassieker is LOC selecteren in plaats van APP: het toestel blijft keurig op de middellijn, maar daalt niet. Bij twijfel geldt: when in doubt, take it out, en vlieg met de hand."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "V-speeds: de getallen op je snelheidsmeter",
+        "alineas": [
+          "V-snelheden zijn vaste referentiepunten. Een deel staat als kleurboog op de snelheidsmeter. VS0 is de overtreksnelheid in landingsconfiguratie, de onderkant van de witte boog; VS1 die in een andere configuratie, meestal clean, de onderkant van de groene boog. VFE is de hoogste snelheid met flaps uit, VNO de grens voor normaal gebruik waar de gele boog begint, en de rode streep is VNE, never exceed. VA, de manoeuvreersnelheid, is de snelheid waaronder volle stuuruitslag het toestel niet kan beschadigen, omdat de vleugel eerder overtrekt dan dat hij breekt. VA daalt met het gewicht: een licht toestel moet in turbulentie juist iets langzamer.",
+          "Voor het klimmen ken je er twee. VX geeft de beste klimhoek, de meeste hoogte per afgelegde afstand, en gebruik je om over obstakels aan het eind van een korte baan te komen. VY geeft de beste klimsnelheid, de meeste hoogte per minuut, en is de normale klimsnelheid. VY ligt altijd hoger dan VX. Bij verkeersvliegtuigen rekent de bemanning voor elke start drie snelheden uit. V1 is de beslissnelheid: daarvoor kun je nog afbreken en binnen de baan stoppen, daarna ga je hoe dan ook de lucht in. VR is het moment om te roteren, en V2 de veilige snelheid die je met één motor uit op 35 voet boven de baan moet hebben.",
+          "Voor de landing is VREF de referentiesnelheid over de drempel, klassiek 1,3 keer VS0. Daar tel je windcorrecties bij op, vaak de helft van de tegenwindcomponent plus de volledige vlaag, met een maximum. Zo krijg je VAPP, de naderingssnelheid. Wie in de sim een 737 aan de Kaagbaan zet bij harde zuidwestenwind, merkt hoeveel rustiger de nadering wordt met die paar extra knopen marge."
+        ],
+        "kader": {
+          "titel": "De belangrijkste V-snelheden",
+          "punten": [
+            "VS0: overtrek met volle flaps (onderkant wit) · VS1: overtrek clean (onderkant groen)",
+            "VFE: max met flaps · VNO: begin geel · VNE: rode streep",
+            "VA: manoeuvreersnelheid, lager bij lager gewicht",
+            "VX: beste klimhoek · VY: beste klimsnelheid (VY > VX)",
+            "Start: V1 ≤ VR < V2 · Landing: VREF ≈ 1,3 × VS0"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Een bruidstaart boven Nederland",
+        "alineas": [
+          "De hele wereld is verdeeld in flight information regions (FIR). Nederland valt in de Amsterdam FIR, code EHAA, en daarom beginnen alle Nederlandse vliegvelden met EH: EHAM voor Schiphol, EHRD voor Rotterdam, EHLE voor Lelystad, EHGG voor Groningen Eelde. In een FIR krijg je altijd minstens vluchtinformatie en alarmering. Voor VFR-verkeer doet ‘Amsterdam Information’ dat: je kunt er verkeersinformatie vragen en ze weten dat je onderweg bent.",
+          "Binnen de FIR ligt gecontroleerd luchtruim. Een CTR (control zone) begint op de grond en beschermt de vertrekken en aankomsten rond een vliegveld met een verkeerstoren. Daarboven en daaromheen liggen TMA’s (terminal control areas), met een ondergrens boven de grond, zodat naderingen op grotere afstand beschermd zijn. Samen vormen ze een omgekeerde bruidstaart: smal en laag rond het veld, breder naarmate je hoger komt. CTA’s en luchtwegen verbinden die gebieden langs routes. Op de kaart staan de grenzen als bijvoorbeeld ‘FL095 / 1500 ft’: bovengrens en ondergrens.",
+          "Wie regelt wat? Het hogere luchtruim, boven ongeveer FL245, wordt geleid vanuit het Eurocontrol-centrum in Maastricht (MUAC). Daaronder regelt Luchtverkeersleiding Nederland het civiele verkeer en de luchtmacht het militaire. De officiële bron voor alle grenzen, frequenties en procedures is de AIP, de Aeronautical Information Publication; tijdelijke wijzigingen staan in NOTAM’s. Gebruik in de sim dus niet een kaart van jaren geleden, want grenzen en procedures veranderen regelmatig."
+        ],
+        "foto": 5
+      },
+      {
+        "tussenkop": "Klassen A tot en met G",
+        "alineas": [
+          "De klasse van een stuk luchtruim bepaalt of VFR is toegestaan, of je een klaring nodig hebt en wie van wie wordt gescheiden. Klasse A is alleen voor IFR en alles wordt gescheiden. In klasse B mogen IFR en VFR en wordt iedereen van iedereen gescheiden. In klasse C heb je als VFR-vlieger een klaring nodig; IFR wordt gescheiden van IFR en VFR, en VFR krijgt verkeersinformatie over andere VFR. In klasse D is ook een klaring nodig, maar wordt alleen IFR van IFR gescheiden. Klasse E is gecontroleerd voor IFR, terwijl VFR er zonder klaring in mag. F is adviserend en zeldzaam, G is ongecontroleerd: zien en uitwijken.",
+          "In Nederland kom je vooral A, C, D en G tegen. Grote delen van de TMA’s rond Schiphol zijn klasse A en dus voor VFR verboden terrein; wie in de sim met een Cessna van Lelystad naar Texel vliegt, moet onder die blokken door blijven of eromheen. De regionale velden zoals EHRD en EHGG hebben een CTR waar je als VFR-vlieger altijd toestemming moet vragen en die je via vaste meldpunten binnenvliegt. Laag boven het land, buiten die blokken, is het meestal klasse G. Daarnaast bestaan zones met eigen eisen: een RMZ verplicht radiocontact, een TMZ een werkende transponder, ook in verder ongecontroleerd luchtruim. Onder FL100 geldt in de klassen C tot en met G voor VFR bovendien een snelheidslimiet van 250 knopen IAS."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "VMC, IMC en het plafond van 1500 voet",
+        "alineas": [
+          "VFR betekent dat je navigeert en ander verkeer ontwijkt op zicht; IFR dat je op instrumenten vliegt volgens vaste procedures, met een vliegplan en klaringen. Het weer wordt daarom ingedeeld in VMC (visual meteorological conditions) en IMC (instrument meteorological conditions). Een VFR-vlieger moet in VMC blijven. De minima zijn er zodat je ander verkeer op tijd ziet, ook het IFR-toestel dat net uit een wolk komt zakken. In de meeste klassen geldt onder FL100: minimaal 5 kilometer zicht, 1500 meter horizontaal en 1000 voet verticaal van wolken. Boven FL100 is 8 kilometer zicht nodig.",
+          "Laag in klasse G, op of onder 3000 voet boven zeeniveau of 1000 voet boven het terrein, zijn de eisen lichter: 5 kilometer zicht, vrij van wolken en met zicht op de grond. Strenger is het juist in een CTR. Om daar VFR op te stijgen, te landen of in het circuit te vliegen, moet het wolkenplafond minstens 1500 voet zijn en het grondzicht minstens 5 kilometer. Is het slechter, dan kun je bij de toren special VFR aanvragen: minimaal 1500 meter zicht en een plafond van 600 voet, alleen met klaring en buiten de wolken. Vliegen van VFR in IMC hoort bij de grootste doodsoorzaken in de kleine luchtvaart."
+        ]
+      },
+      {
+        "tussenkop": "Hoe laag mag je, en op welke hoogte kruis je?",
+        "alineas": [
+          "De Europese regels, samengevat als SERA, geven minimumhoogtes voor VFR, behalve bij opstijgen en landen. Boven dichtbebouwd gebied of een mensenmenigte vlieg je minstens 1000 voet boven het hoogste obstakel binnen 600 meter rond je toestel. Elders minstens 500 voet boven grond of water. En altijd hoog genoeg om bij motoruitval veilig te kunnen landen zonder mensen op de grond in gevaar te brengen. Voor IFR geldt 1000 voet boven het hoogste obstakel binnen 8 kilometer; kaarten geven daarvoor minimum sector altitudes.",
+          "Om botsingen op kruishoogte te voorkomen, geldt de semicircular rule, gebaseerd op je magnetische track. Vlieg je tussen 000 en 179 graden, dus ruwweg oostwaarts, dan kies je oneven duizendtallen; tussen 180 en 359 graden even duizendtallen. IFR vliegt op de hele waarden, VFR telt er 500 voet bij op. Oostwaarts dus IFR op FL70 en VFR op FL75, westwaarts IFR op FL80 en VFR op FL85. Voor VFR geldt de regel pas boven 3000 voet boven grond of water.",
+          "In Nederland zit je als VFR-vlieger meestal ver onder die 3000 voet, omdat de TMA’s van Schiphol en de regionale velden ondergrenzen van 1500 of 2500 voet hebben. Precies daar ligt een van de meest gemelde voorvallen in de kleine luchtvaart: per ongeluk een TMA invliegen, een airspace infringement. Het is daarom een goede gewoonte om in de sim met de luchtvaartkaart naast je te vliegen, bij elke grens de ondergrens te checken en een buffer van een paar honderd voet aan te houden."
+        ],
+        "citaat": "Wie weet hoe een instrument werkt, kan ook voorspellen hoe het faalt."
+      }
+    ]
+  },
+  {
+    "id": "vervoer-09",
+    "kop": "Van 1013 tot stop bar: de spelregels die je in de sim overslaat",
+    "intro": "Een vergeten QNH, een squawk die per ongeluk langs 7500 draait, een stop bar die je ‘wel even’ passeert: in de sim kost het niets, in het echt soms alles. Een rondgang langs de regels die het luchtverkeer voorspelbaar maken – van flight levels en noodcodes tot de taal van strepen en lampen op de baan.",
+    "hoofdstuk": "Regels, codes en de baan",
+    "basis": [
+      "transitiehoogte-flight-levels",
+      "transponder-squawk",
+      "voorrangsregels-lucht",
+      "noodprocedures-radio-uitval",
+      "vliegplan",
+      "beperkte-gebieden-drones",
+      "baannummers-markeringen",
+      "baanverlichting"
+    ],
+    "fotos": [
+      {
+        "wiki": "Polderbaan",
+        "taal": "nl",
+        "bijschrift": "De Polderbaan van Schiphol, 18R/36L, vanuit de lucht"
+      },
+      {
+        "wiki": "Flight level",
+        "taal": "en",
+        "bijschrift": "Hoogte op QNH versus flight level op standaarddruk: hetzelfde toestel, een ander getal"
+      },
+      {
+        "wiki": "Transponder (aeronautics)",
+        "taal": "en",
+        "bijschrift": "Een klassieke transponder: vier cijfers van 0 tot en met 7"
+      },
+      {
+        "wiki": "Aviation light signals",
+        "taal": "en",
+        "bijschrift": "Het lichtpistool van de toren: groen, rood of wit als de radio zwijgt"
+      },
+      {
+        "wiki": "Flight plan",
+        "taal": "en",
+        "bijschrift": "Het ICAO-vliegplanformulier: wie, wat, waarheen en hoe lang"
+      },
+      {
+        "wiki": "Approach lighting system",
+        "taal": "en",
+        "bijschrift": "Naderingsverlichting leidt je in slecht zicht naar de drempel"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Je daalt in de sim met een A320 vanuit het zuiden naar Schiphol. De naderingsleider geeft ‘descend to altitude 3000 feet, QNH 998’. Je draait de hoogteselector naar 3000, maar vergeet de hoogtemeter van 1013 naar 998 te zetten. Vijftien hectopascal verschil, maal ongeveer 30 voet: je zit straks zo’n 450 voet lager dan je denkt. In de sim merkt niemand het, behalve de verkeersleider van VATSIM die zich afvraagt waarom je zo laag bij de Kaagbaan hangt. In het echt is precies dit soort fout de reden dat de luchtvaart vol harde afspraken zit.",
+          "Dit artikel loopt die afspraken door in de volgorde van een vlucht: welke drukinstelling je wanneer gebruikt, hoe de transponder je zichtbaar maakt, wie voorrang heeft als twee toestellen elkaar naderen, wat je doet als het misgaat, waarom een vliegplan een verzekering is, welke gebieden je moet mijden en tot slot de taal van de baan zelf, in strepen, nummers en lampen."
+        ]
+      },
+      {
+        "tussenkop": "Altitude of flight level",
+        "alineas": [
+          "Twee toestellen zijn alleen goed van elkaar gescheiden als hun hoogtemeters op dezelfde referentiedruk staan. Laag bij de grond wil je de echte hoogte boven zeeniveau weten, omdat het terrein en de obstakels op de kaart in die referentie staan. Dan gebruik je de QNH en spreek je over altitude: ‘2000 feet’. Hoger in de lucht is het terrein niet meer relevant, maar het verschil tussen een hogedrukgebied boven Duitsland en een lagedrukgebied boven de Noordzee wel. Daarom zet daar iedereen de standaarddruk van 1013,25 hectopascal in en vlieg je op flight levels.",
+          "Het omschakelpunt bij het klimmen heet de transitiehoogte (transition altitude). In Nederland is die 3000 voet. Bij het dalen schakel je om op het transition level, het laagste bruikbare flight level boven de transitiehoogte. Dat verschilt met de luchtdruk en staat in de ATIS: bij hoge druk bijvoorbeeld FL040, bij lage druk FL050 of FL055. De ruimte daartussen heet de transition layer, en daarin vlieg je niet op kruishoogte. De praktische regel is eenvoudig: klimmend zet je 1013 bij het passeren van 3000 voet, dalend zet je de QNH bij het passeren van het transition level of zodra je een klaring naar een altitude krijgt.",
+          "Een flight level is gewoon de drukhoogte in honderden voeten: FL080 is 8000 voet op standaarddruk. In landen met een hoge transitiehoogte, zoals de Verenigde Staten met 18.000 voet, beginnen flight levels pas veel hoger. Wie in de sim gewend is aan Amerikaanse velden, moet in Europa dus veel eerder aan de knop draaien. Een mooi detail op Schiphol: het veld ligt ongeveer 11 voet onder zeeniveau. Met de juiste QNH toont je hoogtemeter op het platform dus een klein minteken."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Squawk: vier cijfers die je zichtbaar maken",
+        "alineas": [
+          "Secundaire radar zendt een vraag uit en de transponder in het vliegtuig antwoordt. Zo ziet de verkeersleider niet alleen een stip, maar ook een code en een hoogte. De code bestaat uit vier cijfers van 0 tot en met 7, want het systeem is octaal; een 8 of 9 bestaat niet, en er zijn dus 4096 combinaties. ‘Squawk 4521’ betekent: stel 4521 in. Mode A geeft alleen de code, mode C voegt de drukhoogte toe, altijd gemeten op 1013 ongeacht je hoogtemeterinstelling. Mode S geeft elk toestel een uniek adres en stuurt extra gegevens mee zoals de callsign, en maakt ADS-B mogelijk, waarbij het toestel zijn GPS-positie uitzendt.",
+          "Een paar codes zijn wereldwijd gereserveerd. In Europa is 7000 de standaardcode voor VFR-verkeer zonder toegewezen code; in de VS is dat 1200. 2000 gebruik je als IFR-toestel zonder code. Drie codes zijn voor noodgevallen: 7500 voor kaping, 7600 voor radio-uitval en 7700 voor algemene nood. Het Engelse ezelsbruggetje ‘seventy-five taken alive, seventy-six radio fix, seventy-seven going to heaven’ blijft hangen. Wissel je van code met een draaiknopje, vermijd dan dat je onderweg langs een noodcode komt; dat zet bij de verkeersleiding meteen alarmbellen in werking.",
+          "Vraagt de verkeersleider ‘squawk ident’, dan druk je kort op de IDENT-knop en licht je doel op zijn scherm op. Op de grond staat de transponder vaak op standby; op moderne velden zoals Schiphol zet je hem bij het taxiën al op ALT, zodat ook rijdend verkeer op het grondradarbeeld verschijnt. TCAS, het botsingswaarschuwingssysteem van verkeersvliegtuigen, werkt op basis van die transponderantwoorden: zonder werkende transponder ben je voor TCAS onzichtbaar.",
+          "Die koppeling met TCAS heeft een belangrijke regel opgeleverd. Geeft TCAS een resolution advisory, een dwingend ‘climb, climb’ of ‘descend, descend’, dan volg je dat advies meteen, ook als de verkeersleider iets anders zegt. Het systeem in beide toestellen stemt de adviezen op elkaar af: de een klimt, de ander daalt. Gaat één bemanning de instructie van de grond volgen en de ander die van TCAS, dan kunnen beide dezelfde kant op manoeuvreren. Die les is in 2002 boven Überlingen, aan het Bodenmeer, op de hardst denkbare manier geleerd. Na de manoeuvre meld je de verkeersleider kort dat je een TCAS RA volgt."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Voorrang in drie dimensies",
+        "alineas": [
+          "In de lucht geldt eerst en vooral: zien en uitwijken, see and avoid, ook in gecontroleerd luchtruim bij goed zicht. De voorrangsregels zorgen dat beide vliegers voorspelbaar handelen. Bij kruisende koersen op ongeveer gelijke hoogte wijkt het toestel uit dat de ander rechts van zich ziet – dezelfde logica als ‘rechts heeft voorrang’ op de weg. Vliegen twee toestellen frontaal op elkaar af, dan wijken beide naar rechts. Bij inhalen stuurt de inhaler naar rechts en passeert hij het andere toestel dus aan diens rechterkant; de ingehaalde heeft voorrang.",
+          "Minder wendbare luchtvaartuigen gaan voor. Gemotoriseerde vliegtuigen wijken voor luchtschepen, zweefvliegtuigen en ballonnen; zweefvliegtuigen wijken voor ballonnen. Een toestel dat een zweefvliegtuig of reclamebanier sleept, heeft voorrang op ander gemotoriseerd verkeer, en een toestel in nood op alles. Bij het landen heeft het toestel in de eindnadering voorrang, en van twee naderende toestellen het lagere – zonder dat het misbruik mag maken door onder een ander in te snijden.",
+          "’s Nachts helpt de navigatieverlichting: rood links, groen rechts, wit achter. Zie je het rode licht van een ander toestel op een vrijwel constante peiling, dan nadert het van rechts en moet jij uitwijken. Die ‘constante peiling’ is de gouden aanwijzing in het algemeen: een toestel dat steeds op dezelfde plek in je voorruit staat en groter wordt, zit op ramkoers. Juist zo’n toestel valt het minst op, omdat het niet beweegt in je gezichtsveld."
+        ]
+      },
+      {
+        "tussenkop": "Als het misgaat: vliegen, navigeren, praten",
+        "alineas": [
+          "De prioriteiten bij elke storing zijn altijd dezelfde: aviate, navigate, communicate. Eerst het vliegtuig onder controle houden, dan bepalen waar je heen gaat en pas dan praten. Veel ongevallen begonnen ermee dat iedereen met een storing bezig was en niemand meer vloog. Een noodmelding begint met ‘Mayday, Mayday, Mayday’ bij ernstig en direct gevaar, zoals brand of motoruitval boven onlandbaar terrein. ‘Pan-pan’, ook drie keer, is een urgentiemelding: er is een probleem maar geen direct gevaar, zoals een zieke passagier of een onzekere positie.",
+          "Na de aanhef volgen je callsign, de aard van het probleem, je intenties, positie, hoogte en het aantal personen aan boord. Je blijft op de frequentie waarop je al zat; heb je geen contact, dan is 121,5 MHz de internationale noodfrequentie. Squawk 7700, tenzij de verkeersleider je al een code heeft gegeven. Valt je radio uit, dan squawk je 7600. Als VFR-vlieger in goed weer blijf je in VMC, land je op het dichtstbijzijnde geschikte vliegveld en meld je je daar. Vaak werkt de ontvanger nog, dus blijf luisteren en reageer met ident als de verkeersleider daarom vraagt.",
+          "Zonder radio praat de toren met een lichtpistool. In de lucht betekent continu groen: je mag landen; knipperend groen: keer terug voor de landing; continu rood: geef voorrang en blijf rondcirkelen; knipperend rood: vliegveld onveilig, niet landen; knipperend wit: land hier en rij naar het platform. Op de grond is continu groen startklaar, knipperend groen taxiën, continu rood stoppen, knipperend rood weg van de baan en knipperend wit terug naar het beginpunt. In de lucht bevestig je door met de vleugels te wiebelen."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Noodkaart",
+          "punten": [
+            "Aviate – navigate – communicate",
+            "Mayday = direct gevaar · Pan-pan = urgentie",
+            "7500 kaping · 7600 radio-uitval · 7700 nood",
+            "Noodfrequentie: 121,5 MHz",
+            "Lichtsignaal lucht: continu groen = landen, continu rood = rondcirkelen"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Het vliegplan als verzekering",
+        "alineas": [
+          "Een ICAO-vliegplan is verplicht voor elke IFR-vlucht, en voor VFR onder meer bij het overschrijden van een landsgrens. Ook als het niet moet, is een VFR-vliegplan verstandig boven zee of dunbevolkt gebied: het zet de alarmeringsdienst in werking. In het formulier staan onder meer de callsign, de vliegregels (V voor VFR, I voor IFR, Y voor eerst IFR en dan VFR, Z voor andersom), het type toestel met de wake turbulence-categorie (L, M, H of J voor de A380), de uitrusting, het vertrekveld, de geplande vertrektijd, snelheid, hoogte, route, bestemming, uitwijkvelden, endurance en het aantal personen aan boord.",
+          "Je dient het meestal minstens 60 minuten voor vertrek in. Een VFR-vliegplan wordt bij vertrek geactiveerd en moet je bij aankomst sluiten. Gebeurt dat niet, dan start ongeveer een half uur na de verwachte aankomsttijd de alarmering, die kan uitmonden in een zoekactie. Alle tijden zijn in UTC, ook wel Zulu: in de Nederlandse winter is dat lokale tijd min één uur, in de zomer min twee. Een verkeerd omgerekende tijd is een klassieke oorzaak van vliegplannen die te vroeg of te laat vervallen. Online sim-netwerken werken met dezelfde velden; wie daar een vliegplan invult, oefent dus het echte formulier.",
+          "Voor IFR in Europa gaat het vliegplan naar het netwerkcentrum van Eurocontrol, dat het controleert op route, hoogtes en beperkingen en het doorstuurt naar elke verkeersleidingseenheid onderweg. Is het luchtruim ergens langs je route vol, dan krijg je een slot: een berekende starttijd, de CTOT, waarbinnen je moet vertrekken. Daarom hoor je verkeersvliegers op Schiphol soms al bij de start-up-aanvraag over hun slot praten. Een VFR-vlieger in een Cessna heeft daar zelden mee te maken, maar het principe blijft hetzelfde: de verkeersleiding wil vooraf weten wie er komt, zodat niemand onverwacht in een druk stuk luchtruim opduikt."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "Waar je niet mag komen",
+        "alineas": [
+          "Op de luchtvaartkaart staan gebieden met een letter. Een P-gebied (prohibited) is permanent verboden. Een R-gebied (restricted) mag je alleen onder voorwaarden of op bepaalde tijden in. Een D-gebied (danger) waarschuwt voor gevaarlijke activiteiten, zoals schietoefeningen; formeel mag je er soms in, maar dat is zelden verstandig. Ze hebben codes met het landprefix ervoor, zoals EHR of EHD gevolgd door een nummer. Daarnaast zijn er TRA’s en TSA’s: luchtruim dat op bepaalde tijden gereserveerd is voor militair gebruik, bijvoorbeeld voor oefenende jachtvliegtuigen boven de Noordzee of rond de vliegbases.",
+          "Of zo’n gebied actief is, staat in de NOTAM’s of hoor je van de informatiedienst. Ook tijdelijke beperkingen, rond grote evenementen, bosbranden of staatsbezoeken, verschijnen altijd via NOTAM. In de vluchtvoorbereiding controleer je daarom naast het weer ook de NOTAM’s langs je route. En onthoud dat je onder de 500 voet drones kunt tegenkomen, zeker rond steden: in de open categorie mogen die tot 120 meter hoog vliegen, binnen zicht van de bestuurder."
+        ]
+      },
+      {
+        "tussenkop": "De baan leest als een boek",
+        "alineas": [
+          "Een baannummer is de magnetische richting gedeeld door tien, afgerond. De Kaagbaan op Schiphol ligt ongeveer op 240 graden en heet aan die kant 24; aan de andere kant 180 graden verder heet hij 06. De twee nummers verschillen altijd 18. Bij parallelle banen komt er een L, C of R achter, gezien vanuit de naderingsrichting: Schiphol heeft 18R/36L, de Polderbaan, naast 18C/36C, de Zwanenburgbaan, en 18L/36R, de Aalsmeerbaan. Omdat het magnetisch noorden langzaam verschuift, worden banen soms hernummerd.",
+          "Op de drempel liggen witte ‘pianotoetsen’: het aantal strepen geeft de baanbreedte aan, twaalf voor een baan van 45 meter. Daarna volgt het nummer. Witte pijlen ervoor betekenen een verplaatste drempel: dat stuk mag je gebruiken voor de start en het uitrollen, maar niet om op te landen. Verder de baan op liggen de touchdown zone markings, paren strepen op vaste afstanden, en de aiming point markings: twee dikke witte balken, op lange banen ongeveer 400 meter na de drempel. Daarop mik je visueel, en daar komt het ILS-glijpad ook ongeveer uit.",
+          "Op de taxibaan vóór de baan ligt de holding position marking: twee doorgetrokken en twee onderbroken gele lijnen. Vanaf de doorgetrokken kant mag je er nooit overheen zonder klaring; vanaf de onderbroken kant mag je eroverheen om de baan te verlaten. Ernaast staan rode borden met witte tekst, zoals ‘24-06’: verplichte borden. Gele borden geven locatie of richting. Runway incursions, zonder klaring een baan op rijden, horen bij de grootste risico’s op de grond. Stop in de sim dus altijd bij de holding position tot je ‘line up’ of ‘cross’ hebt gehoord."
+        ],
+        "vt": "baan"
+      },
+      {
+        "tussenkop": "Groen, wit, rood en blauw",
+        "alineas": [
+          "Ook de verlichting is een taal. Vóór de baan staat de naderingsverlichting (approach lighting system): een lange rij lampen in het verlengde van de middellijn met dwarsbalken, bij een CAT I-precisienadering tot 900 meter lang, vaak met flitslichten die als een ‘konijn’ naar de baan toe lopen. Voor IFR-vliegers is het zien van die lampen op de beslishoogte vaak het teken om door te gaan. De drempel zelf is een rij groene lampen, het baaneinde is rood. De randen zijn wit en worden op instrumentbanen op de laatste 600 meter geel.",
+          "De middellijnverlichting is wit, maar wisselt op 900 meter voor het einde naar afwisselend rood en wit, en is de laatste 300 meter helemaal rood. Zo weet je ook in dichte mist hoeveel baan je nog hebt. Op de grond zijn taxibaanranden blauw en taxibaanmiddellijnen groen; waar een taxibaan door het gevoelige gebied van het ILS loopt, wisselen de middellijnlampen groen en geel. En dan de belangrijkste: de stop bar, een rij rode lampen dwars over de taxibaan bij de baan. Zolang die brandt, rijd je niet door – ook niet als je een klaring hebt gekregen."
+        ],
+        "foto": 5,
+        "citaat": "Zolang de stop bar brandt, rijd je niet door – ook niet met een klaring."
+      }
+    ]
+  },
+  {
+    "id": "vervoer-10",
+    "kop": "‘Cleared ILS 24’: van circuit en checklist tot de lampen naast de baan",
+    "intro": "Een goede landing begint niet op final, maar bij de checklist op het platform, de ATIS-letter in je oor en de klaring die je woord voor woord terugleest. Dit is het praktische draaiboek van een vlucht, van het rondje om de baan in Lelystad tot een ILS-nadering op Rotterdam.",
+    "hoofdstuk": "Procedures en naderingen",
+    "basis": [
+      "platzcircuit",
+      "checklists-en-flows",
+      "atc-fraseologie",
+      "readback-klaringen",
+      "atis",
+      "sid-star",
+      "papi",
+      "ils-nadering"
+    ],
+    "fotos": [
+      {
+        "wiki": "Groningen Airport Eelde",
+        "taal": "nl",
+        "bijschrift": "Groningen Airport Eelde (EHGG) van boven: banen, taxibanen en platform"
+      },
+      {
+        "wiki": "Vliegveld Teuge",
+        "taal": "nl",
+        "bijschrift": "Teuge: een klein veld waar het circuit nog met de hand en het oog wordt gevlogen"
+      },
+      {
+        "wiki": "Verkeerstoren",
+        "taal": "nl",
+        "bijschrift": "De verkeerstoren van Schiphol"
+      },
+      {
+        "wiki": "Tenerife airport disaster",
+        "taal": "en",
+        "bijschrift": "Het wrak van de KLM-747 op Tenerife, 1977: aanleiding voor strengere fraseologie"
+      },
+      {
+        "wiki": "Precision approach path indicator",
+        "taal": "en",
+        "bijschrift": "PAPI naast de baan: twee wit en twee rood betekent precies op het glijpad"
+      },
+      {
+        "wiki": "Instrument approach",
+        "taal": "en",
+        "bijschrift": "Een ILS-naderingskaart: frequentie, koers, hoogtes en de missed approach"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Het verschil tussen een simmer en een piloot zit zelden in de stuurmanskunst. Iedereen leert na een paar avonden een toestel recht op de baan te zetten. Het verschil zit in de structuur eromheen: een vaste route rond het vliegveld, een checklist die niet wordt overgeslagen, een radiobericht dat in tien woorden alles zegt, en een nadering die al op twintig mijl van de baan is voorbereid. Die structuur is geen bureaucratie. Ze zorgt dat iedereen in de lucht en op de grond weet wat de ander gaat doen.",
+          "In dit artikel bouwen we zo’n vlucht op. Eerst het circuit, het rondje om de baan dat elke lesvlieger honderden keren vliegt. Dan de checklists en flows, de radiotaal, klaringen en readback, de ATIS en de vaste vertrek- en aankomstroutes. En tot slot de twee hulpmiddelen die je naar de drempel brengen: de PAPI-lampen naast de baan en het instrument landing system."
+        ]
+      },
+      {
+        "tussenkop": "Het circuit: een rechthoek die iedereen kent",
+        "alineas": [
+          "Op elk vliegveld, gecontroleerd of niet, vlieg je rond de baan een vast patroon. Na de start vlieg je eerst rechtuit: upwind of departure leg. Op veilige hoogte draai je 90 graden naar crosswind, dan nog eens 90 graden naar downwind, evenwijdig aan de baan maar tegen de landingsrichting in. Daarna volgen base leg en final, de eindnadering in het verlengde van de baan. Standaard maak je alle bochten naar links, zodat de piloot, die links zit, de baan steeds kan zien. Een rechterhandcircuit staat op de kaart of in de AIP, bijvoorbeeld om geluidsoverlast boven een dorp te beperken.",
+          "De circuithoogte is vaak rond 1000 voet boven het veld; op kleine Nederlandse velden soms lager. Zoek het daarom altijd per veld op. Op downwind doe je de landingschecks en meld je je: ‘PH-ABC, downwind runway 23, full stop’. Het moment voor de bocht naar base kies je als de drempel ongeveer 45 graden schuin achter je ligt. Op base begin je te dalen en zet je flaps, en final vlieg je gestabiliseerd: op de lijn, op het glijpad, op snelheid.",
+          "Aansluiten gebeurt meestal onder 45 graden op het midden van downwind, of via een overhead join boven het veld. Op een ongecontroleerd veld meld je je intenties op de veldfrequentie. Ga nooit recht op een lange final binnen zonder te weten wat er in het circuit vliegt: precies daar, waar een toestel van base op final draait en een ander recht van achteren komt, gebeuren botsingen. Oefen in de sim eens tien circuits achter elkaar in Lelystad of Teuge; je merkt hoe snel het patroon je hoofd vrijmaakt voor de rest."
+        ],
+        "vt": "circuit",
+        "foto": 1
+      },
+      {
+        "tussenkop": "Checklists: eerst doen, dan controleren",
+        "alineas": [
+          "Een checklist is geen kookboek maar een vangnet. Professionele bemanningen werken met flows: een vaste route met ogen en handen langs het paneel, waarbij ze alles uit het hoofd instellen. Daarna lezen ze de checklist om te bevestigen dat de belangrijkste items kloppen. Dat heet do-verify. Bij storingen gebruik je vaak read-do: voorlezen en meteen uitvoeren, omdat je die situatie niet dagelijks traint. Met twee vliegers gaat het challenge-response: de ene leest ‘flaps’, de ander kijkt en antwoordt met de werkelijke stand, ‘fifteen, set’. Niet ‘check’, want dat antwoord kun je geven zonder te kijken.",
+          "Een before take-off check in een klein toestel omvat onder meer: roeren vrij en de goede kant op, brandstofkraan en hoeveelheid, trim op start, flaps op startstand, magneetcheck en carburateurvoorverwarming, instrumenten en radio’s, transponder op ALT, lichten aan, deuren en riemen dicht. Voor de landing gebruiken veel vliegers het geheugensteuntje GUMPS: Gas (brandstof op de juiste tank, pomp aan), Undercarriage (wielen uit, drie groen), Mixture (rijk), Propeller (hoog toerental) en Switches en Seatbelts. Ook in een toestel met vast landingsgestel loop je het af, zodat het een gewoonte wordt.",
+          "Veel grote ongevallen, zoals starts zonder uitgeschoven flaps, begonnen met een overgeslagen of half gelezen checklist. In de sim heeft overslaan geen gevolgen, en juist daardoor is het de ideale plek om de gewoonte in te slijpen. Print de checklist van je favoriete toestel en leg hem naast het toetsenbord. Werk hem af op vaste momenten: voor het starten van de motor, voor het taxiën, bij het holding point, na de start, voor de daling en voor de landing. Na een paar weken voelt het vreemd om het níet te doen, en dat is precies het gevoel dat je wilt."
+        ]
+      },
+      {
+        "tussenkop": "De radio: Engels, maar dan anders",
+        "alineas": [
+          "De taal van de luchtvaart is Engels, en in Nederland spreekt de verkeersleiding vrijwel overal Engels. Het doel is niet beleefdheid maar eenduidigheid: vaste woorden met één betekenis, kort en voorspelbaar. Een bericht begint met wie je roept en wie je bent: ‘Rotterdam Tower, PH-ABC’. Letters spreek je uit met het NATO-alfabet, dus PH-ABC wordt ‘Papa Hotel Alfa Bravo Charlie’. Pas als de verkeersleider je callsign afkort tot ‘Papa Bravo Charlie’, mag jij dat ook.",
+          "Getallen hebben een eigen uitspraak: ‘tree’ voor 3, ‘fower’ voor 4, ‘fife’ voor 5, ‘niner’ voor 9 en ‘tousand’ voor duizend. Je spreekt cijfer voor cijfer: koers 270 is ‘heading two seven zero’. Uitzonderingen zijn ronde hoogtes, ‘two thousand five hundred feet’, en flight levels, ‘flight level one two zero’. Frequenties krijgen ‘decimal’: 118,7 is ‘one one eight decimal seven’. En dan de woorden die vaak fout gaan. ‘Roger’ betekent alleen ‘ontvangen’, geen ja. ‘Wilco’ is ‘ontvangen en ik voer het uit’. ‘Affirm’ is ja, ‘negative’ is nee. ‘Say again’ vraagt om herhaling; ‘repeat’ gebruik je niet, omdat het militair iets anders betekent.",
+          "Wie op een online netwerk als VATSIM of IVAO vliegt, hoort meteen het verschil tussen iemand die deze taal beheerst en iemand die improviseert. Begin met luisteren naar een drukke frequentie en schrijf de berichten mee; de structuur wordt dan vanzelf voorspelbaar. Je merkt dat bijna elk bericht dezelfde opbouw heeft: wie, waar, wat je wilt. Een goede eerste oproep bij een Nederlandse toren is daarom zoiets als ‘Rotterdam Tower, PH-ABC, Cessna 172, ten miles north-east, 1500 feet, information Bravo, inbound for landing’. Kort, compleet en zonder ‘ehm’."
+        ],
+        "kader": {
+          "titel": "Radiowoorden",
+          "punten": [
+            "Roger = ontvangen (géén ja) · Wilco = ontvangen en zal uitvoeren",
+            "Affirm = ja · Negative = nee · Unable = kan ik niet",
+            "Say again = herhaal · Standby = wacht",
+            "Uitspraak: tree, fower, fife, niner, tousand",
+            "Callsign pas verkorten nadat ATC dat heeft gedaan"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Readback: zeggen wat je gehoord hebt",
+        "alineas": [
+          "Een readback is het letterlijk terugzeggen van een instructie, zodat de verkeersleider hoort of je het goed hebt begrepen. Verplicht terug te lezen zijn alles wat met een baan te maken heeft (line up, take off, land, cross, hold short), routeklaringen, hoogtes en flight levels, koersen en snelheden, squawkcodes, hoogtemeterinstellingen, frequentiewissels en het type nadering. Je sluit af met je callsign. Een voorbeeld: ‘PH-ABC, climb to altitude 3000 feet, QNH 1018’. Readback: ‘Climb to altitude 3000 feet, QNH 1018, PH-ABC’. Weer- en verkeersinformatie hoef je niet terug te lezen; ‘roger’ of ‘traffic in sight’ volstaat.",
+          "Het belangrijkste onderscheid op de grond is dat tussen ‘line up and wait’ en ‘cleared for take-off’. Bij ‘line up and wait’ rijd je de baan op en wacht je; je mag niet starten. Alleen ‘cleared for take-off’ geeft startklaring, en het woord ‘take-off’ valt alleen bij die klaring en bij het intrekken ervan. In andere zinnen zegt men ‘departure’. Die strikte regel is een les uit de ramp op Tenerife in 1977, waar een onduidelijke radio-uitwisseling in mist ertoe leidde dat een KLM-747 zonder klaring startte en op een Pan Am-747 botste die nog op de baan stond.",
+          "Bij een conditional clearance – ‘behind the landing Fokker, line up and wait behind’ – herhaal je ook de voorwaarde. En als je iets niet zeker weet, vraag je het: ‘say again’ of ‘confirm cleared to land runway 24’. Een veronderstelde klaring is altijd gevaarlijker dan één extra radiobericht. Op een druk veld voelt het misschien ongemakkelijk om de frequentie nog eens te bezetten, maar elke verkeersleider hoort liever een vraag dan dat hij een toestel ongevraagd de baan op ziet rijden."
+        ],
+        "foto": 3,
+        "citaat": "Een veronderstelde klaring is altijd gevaarlijker dan één extra radiobericht."
+      },
+      {
+        "tussenkop": "ATIS: het weer in een letter",
+        "alineas": [
+          "Op een druk veld zou de verkeersleider steeds dezelfde informatie moeten opdreunen. Daarom is er de ATIS (automatic terminal information service), een doorlopende uitzending op een eigen frequentie. Daarin staan de baan in gebruik, wind, zicht, weer, wolken, temperatuur en dauwpunt, QNH, het transition level en bijzonderheden zoals werkzaamheden of vogels. Elk bericht krijgt een letter: ‘information Alpha’, dan ‘Bravo’, enzovoort. Bij een nieuwe weerwaarneming of een belangrijke wijziging volgt een nieuwe letter. Schiphol heeft aparte ATIS-berichten voor aankomend en vertrekkend verkeer.",
+          "Bij het eerste contact noem je de letter: ‘Schiphol Delivery, KLM123, information Kilo, request start-up’. Dan weet de verkeersleider dat je de actuele gegevens hebt. Let op één subtiel verschil: de wind in de ATIS en van de toren is ten opzichte van het magnetische noorden, zodat je hem direct met het baannummer kunt vergelijken. De wind in een METAR is ten opzichte van het ware noorden. In Nederland scheelt dat maar een paar graden, maar op sommige plekken op aarde is het verschil groot."
+        ]
+      },
+      {
+        "tussenkop": "SID en STAR: de snelwegopritten van de lucht",
+        "alineas": [
+          "Op drukke velden zou het onwerkbaar zijn om elk IFR-toestel een eigen route te geven. Daarom zijn er gepubliceerde procedures. Een SID (standard instrument departure) beschrijft precies hoe je na de start klimt en draait: koersen, waypoints, hoogtebeperkingen en soms snelheden, tot een punt waar je het routenetwerk op gaat. De vertrekklaring van Delivery bevat daarom alles in één keer. Het geheugensteuntje is CRAFT: Clearance limit, Route, Altitude, Frequency, Transponder. Je leest de hele klaring terug.",
+          "Een STAR (standard terminal arrival route) is het omgekeerde: van een punt op de route naar een initial approach fix, waar de nadering begint. Op Schiphol eindigen STAR’s bij punten als ARTIP, RIVER en SUGOL. Daarvandaan krijg je radar vectors – koersen van de naderingsleider – of vlieg je een gepubliceerde transitie naar het ILS. SID’s en STAR’s hebben namen als ‘ANDIK 2E’: het waypoint waar de procedure eindigt of begint, een versienummer en een letter voor de variant. In de sim laad je ze in de FMS, maar controleer altijd de hoogtebeperkingen op de kaart. Een streep onder een hoogte betekent ‘at or above’, een streep erboven ‘at or below’."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "PAPI: vier lampen, één glijpad",
+        "alineas": [
+          "PAPI staat voor precision approach path indicator. Naast de baan, meestal links ter hoogte van het aiming point, staat een rij van vier lampen. Elke lamp straalt een bundel uit die boven een bepaalde hoek wit en eronder rood is, en elke lamp is op een iets andere hoek afgesteld rond het nominale glijpad van meestal 3 graden. Bij een standaardinstelling liggen de overgangen rond 2°30’, 2°50’, 3°10’ en 3°30’. Twee wit en twee rood: je zit op het glijpad. Drie wit: iets te hoog, vier wit: te hoog. Drie rood: iets te laag, vier rood: te laag, en dat is gevaarlijk, want onder het glijpad krimpt de marge tot obstakels.",
+          "Het overgangsgebied is klein, dus kleine correcties zijn genoeg. In de sim zie je vaak het omgekeerde: grote neusbewegingen bij elke kleurwissel, waardoor je snelheid alle kanten op schiet. Beter is de snelheid met de neus vast te houden en het glijpad met kleine vermogensaanpassingen of een licht andere daalsnelheid te corrigeren. De PAPI valt samen met het ILS-glijpad, dus bij een ILS-nadering heb je er een visuele controle bij. De oudere variant, de VASI, heeft twee rijen lampen achter elkaar: rood boven wit is goed, wit boven wit te hoog, en rood boven rood te laag – ‘red over red, you’re dead’."
+        ],
+        "vt": "papi",
+        "foto": 4
+      },
+      {
+        "tussenkop": "De ILS-nadering stap voor stap",
+        "alineas": [
+          "Het instrument landing system bestaat uit twee zenders. De localizer staat voorbij het einde van de baan en vertelt of je links of rechts van de verlengde middellijn zit. De glideslope staat naast de baan bij het touchdown-gebied en vertelt of je boven of onder het glijpad van meestal 3 graden zit. Op je instrument zie je twee naalden of balkjes: verticaal voor de localizer, horizontaal voor het glijpad. Twee vuistregels maken het rekenwerk eenvoudig: op 3 graden daal je ongeveer 300 voet per zeemijl, en je daalsnelheid is ongeveer je grondsnelheid maal vijf. Bij 140 knopen is dat zo’n 700 voet per minuut.",
+          "Neem een ILS op baan 24 in Rotterdam. Je stelt de ILS-frequentie in, identificeert de morsecode en zet de inbound course van ongeveer 240 graden op de koersroos of in de FMS. De naderingsleider stuurt je met vectors naar de verlengde middellijn, onder een hoek van maximaal ongeveer 30 graden, en klaart je voor de ILS. Eerst vang je de localizer; je draait in op de middellijn en houdt de hoogte vast. Daarna vang je het glijpad van onderaf. Waarom van onderaf? Boven het echte glijpad bestaan valse glijpaden op 6 en 9 graden, en die kun je oppikken als je van boven komt.",
+          "Met de autopilot arm je daarvoor de APP-mode, die LOC en G/S tegelijk koppelt. Kies je alleen LOC, dan blijft het toestel netjes op de lijn maar daalt het niet. Hoe dichter bij de baan, hoe gevoeliger de naalden: kleine correcties dus. Op 3 mijl zit je ongeveer 900 tot 1000 voet boven de drempel, en tegen die tijd ben je volledig geconfigureerd en op snelheid. Afstand kreeg je vroeger van markers, met de blauwe outer marker op een mijl of vier; tegenwoordig lees je DME of GPS-afstand af.",
+          "De nadering eindigt op de beslishoogte. Voor CAT I is dat 200 voet met ongeveer 550 meter RVR, voor CAT II 100 voet met 300 meter, en CAT III gaat lager of zonder beslishoogte, met autoland. Op de beslishoogte moet je voldoende visuele referentie hebben, zoals de naderingsverlichting of de baan zelf. Zo niet, dan start je direct door. De DA is een barometrische hoogte op QNH; de DH is een radiohoogte boven de grond. Vlieg in de sim eens een ILS met de hand, met live weer en laag zicht: pas dan voel je hoe weinig ruimte er op die laatste 200 voet is."
+        ],
+        "vt": "ils",
+        "foto": 5,
+        "kader": {
+          "titel": "ILS-rekenregels",
+          "punten": [
+            "Hoogte boven drempel ≈ afstand (NM) × 300 ft",
+            "Daalsnelheid ≈ grondsnelheid (kt) × 5 ft/min",
+            "Localizer eerst, glijpad van onderaf (valse glijpaden boven)",
+            "CAT I: DH 200 ft · CAT II: 100 ft · CAT III: lager of geen",
+            "Autopilot: APP armen, niet alleen LOC"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "vervoer-11",
+    "kop": "EHRD 200655Z 0300 FG: zo ontcijfer je METAR, TAF en minima",
+    "intro": "Een nadering zonder ILS, een doorstart op 200 voet, een hoogtemeter die 450 voet liegt en een weerbericht dat eruitziet als een wachtwoord. Wie METAR en TAF vloeiend leest en weet wat QNH en dichtheidshoogte met je toestel doen, beslist al op de grond of een vlucht verstandig is.",
+    "hoofdstuk": "Minima, hoogtemeter en weerberichten",
+    "basis": [
+      "non-precisie-naderingen",
+      "go-around",
+      "hoogtemeter-qnh-qfe",
+      "metar-opbouw",
+      "metar-zicht-weer",
+      "metar-wolken-cavok",
+      "taf-verwachting",
+      "dichtheidshoogte-prestaties"
+    ],
+    "fotos": [
+      {
+        "wiki": "Runway visual range",
+        "taal": "en",
+        "bijschrift": "Baanverlichting: de RVR meet hoe ver je ze langs de baan kunt zien"
+      },
+      {
+        "wiki": "European Geostationary Navigation Overlay Service",
+        "taal": "en",
+        "bijschrift": "EGNOS-dekking: de Europese satellietcorrectie die LPV-naderingen mogelijk maakt"
+      },
+      {
+        "wiki": "Altimeter",
+        "taal": "en",
+        "bijschrift": "De hoogtemeter is een barometer: zonder juiste instelling wijst hij verkeerd"
+      },
+      {
+        "wiki": "Koninklijk Nederlands Meteorologisch Instituut",
+        "taal": "nl",
+        "bijschrift": "Het KNMI in De Bilt levert de luchtvaartmeteorologie voor Nederland"
+      },
+      {
+        "wiki": "Ceilometer",
+        "taal": "en",
+        "bijschrift": "Een ceilometer meet met een laserbundel de hoogte van de wolkenbasis"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Het is zes uur ’s ochtends en je wilt in de sim van Groningen naar Rotterdam. Je zet het weer op ‘live’ en tikt de METAR van Rotterdam op: EHRD 200655Z 18004KT 0300 R24/0550N FG VV001 08/08 Q1024. Voor wie de code kent, staat hier een compleet verhaal. Dichte mist, de lucht onzichtbaar, temperatuur en dauwpunt gelijk. Op baan 24 zie je 550 meter aan baanlichten. Een CAT I-ILS heeft ongeveer 550 meter RVR nodig, dus het zit precies op het randje, en een vlieger in een Cessna zonder instrumentbevoegdheid hoeft niet eens te beginnen.",
+          "Dit artikel gaat over dat soort beslissingen. Eerst de naderingen zonder glijpad en het moment waarop je stopt met naderen: de doorstart. Dan de hoogtemeter, het instrument dat je bij een verkeerde instelling stilletjes de verkeerde kant op stuurt. En daarna het weer in code: METAR en TAF, regel voor regel uitgelegd, met als slot de vraag waarom een warme zomerdag je toestel lui maakt."
+        ]
+      },
+      {
+        "tussenkop": "Naderen zonder glijpad",
+        "alineas": [
+          "Niet elke baan heeft een ILS. Bij een non-precisie nadering krijg je alleen zijdelingse geleiding, van een VOR, een NDB, alleen een localizer of GPS met zogeheten LNAV-minima. De verticale planning doe je zelf aan de hand van de hoogtes en afstanden op de naderingskaart. Die kaart geeft vaak step-down fixes: punten waarna je pas verder mag dalen. Het laagste niveau is de MDA, de minimum descent altitude. Daaronder mag je alleen als je de baan of de naderingsverlichting duidelijk ziet. Zie je die niet op het missed approach point, dan start je door.",
+          "Vroeger dook men snel naar de MDA en vloog daar vlak verder tot de baan in zicht kwam: ‘dive and drive’. Dat betekende lang laag vliegen boven onbekend terrein, en het leidde tot ongevallen van het type CFIT: controlled flight into terrain, een volledig bestuurbaar toestel dat tegen de grond vliegt. Tegenwoordig is de voorkeur de continuous descent final approach (CDFA): een gelijkmatige daling alsof er een glijpad is, met de MDA behandeld als beslishoogte. Je rekent uit welke daalsnelheid bij je grondsnelheid hoort en controleert onderweg met de hoogte-afstandstabel op de kaart.",
+          "Moderne RNAV-naderingen kunnen ook verticale geleiding geven: LNAV/VNAV, op basis van barometrische hoogte, of LPV, met satellietcorrectie. In Europa komt die correctie van EGNOS, een systeem van geostationaire satellieten dat GPS-fouten corrigeert en de betrouwbaarheid bewaakt. Een LPV-nadering voelt in de cockpit bijna als een ILS, met naalden voor links-rechts en op-neer en een decision altitude die tot 200 voet kan gaan. Samen heten ze APV, approach with vertical guidance. Voor kleinere Nederlandse velden zonder ILS is dat een uitkomst, omdat er geen dure zenders naast de baan nodig zijn."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Doorstarten is geen falen",
+        "alineas": [
+          "Een go-around is een veiligheidsbeslissing, geen nederlaag. De redenen zijn talrijk: de nadering is niet gestabiliseerd, er staat iets op de baan, de verkeersleider vraagt erom, je ziet de baan niet op de minima, er is windschering of je dreigt te ver of te snel te landen. Veel maatschappijen hanteren een harde regel: wie op 1000 voet in wolken of op 500 voet in zicht niet gestabiliseerd is, start door. Gestabiliseerd betekent op de lijn en op het glijpad, met de juiste snelheid en configuratie, een daalsnelheid van niet meer dan ongeveer 1000 voet per minuut en passend vermogen. Alleen kleine correcties zijn dan nog nodig.",
+          "In een klein toestel is de volgorde: vol gas, carburateurvoorverwarming uit, neus naar de klimstand, één stap flaps in zodra je positief klimt en de rest in fasen bij veilige snelheid. In een jet druk je TOGA, roept ‘go-around, flaps’, zet de neus op ongeveer 15 graden en na ‘positive climb’ volgt ‘gear up’. Daarna vlieg je de gepubliceerde missed approach of de instructies van de verkeersleider, en meld je kort: ‘PH-ABC, going around’. Vermogen, stand, configuratie, en pas dan praten.",
+          "De grootste valkuil is de neus. De trim stond voor de langzame nadering, en met vol vermogen wil de neus sterk omhoog. Duw dus stevig en trim bij, anders vlieg je jezelf in een overtrek. Ook alle flaps in één keer intrekken laat het toestel zakken op het moment dat je juist hoogte nodig hebt. Neem in de sim bij elke nadering vooraf de doorstart hardop door: hoogte, koers, wanneer je flaps intrekt. Dan is het op het moment zelf geen verrassing."
+        ],
+        "citaat": "Een go-around is een veiligheidsbeslissing, geen nederlaag."
+      },
+      {
+        "tussenkop": "QNH, QFE en 1013",
+        "alineas": [
+          "Een hoogtemeter meet luchtdruk en rekent die om naar hoogte. Omdat de druk per dag en per plek verschilt, moet je hem vertellen welke druk ‘nul’ is. Dat doe je met drie Q-codes. QNH is de luchtdruk herleid naar zeeniveau: op de grond toont de meter dan de hoogte van het vliegveld boven zee, en alle hoogtes op kaarten gaan van die referentie uit. Op Schiphol, dat onder zeeniveau ligt, toont hij dus een paar voet onder nul. QFE is de druk op het veld zelf: op de grond staat de meter op nul en in het circuit zie je je hoogte boven de baan. Sommige zweefvliegclubs en militaire velden gebruiken dat nog. En 1013,25 hectopascal is de standaard voor flight levels.",
+          "De vuistregel: 1 hectopascal is op lage hoogte ongeveer 27 tot 30 voet. Vlieg je van hoge naar lage druk zonder bij te stellen, dan wijst de meter te hoog en zit je lager dan je denkt: ‘from high to low, look out below’. Rekenvoorbeeld: je hebt 1020 ingesteld, maar de echte QNH is 1005. Het verschil is 15 hectopascal maal 30 voet, dus 450 voet. De meter toont 2000 voet, maar je zit maar ongeveer 1550 voet boven zee. Hetzelfde geldt voor temperatuur: in heel koude lucht zit je ook lager dan de meter aangeeft. Boven de Nederlandse polder is dat lastig, boven de Ardennen in de wolken levensgevaarlijk.",
+          "In de praktijk krijg je de QNH op drie manieren: uit de ATIS, van de verkeersleider bij elke klaring naar een altitude, en uit de METAR. Maak er een gewoonte van hem hardop te herhalen en direct in te draaien, en controleer op de grond of je hoogtemeter ongeveer de veldhoogte aangeeft. Wijkt hij meer dan een paar tientallen voet af, dan klopt er iets niet. In een glass cockpit staat de ingestelde waarde onder de hoogteband; staat daar nog STD terwijl je onder het transition level daalt, dan weet je dat je iets vergeten bent."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De METAR van links naar rechts",
+        "alineas": [
+          "Een METAR is een gecodeerde weerwaarneming van een vliegveld, meestal elk half uur of elk uur. De volgorde is altijd dezelfde, dus je leest hem van links naar rechts. Neem EHAM 201225Z 24015G25KT 9999 FEW020 SCT035 14/08 Q1013 NOSIG. EHAM is Schiphol. 201225Z betekent de twintigste van de maand om 12:25 UTC; de Z staat voor Zulu, de luchtvaartnaam voor UTC. 24015G25KT is wind uit 240 graden, 15 knopen, met vlagen tot 25 knopen. Belangrijk: METAR-wind is ten opzichte van het ware noorden.",
+          "9999 is het zicht in meters en betekent 10 kilometer of meer. FEW020 SCT035 zijn de wolken: weinig op 2000 voet, verspreid op 3500 voet, altijd in honderden voeten boven het vliegveld. 14/08 is temperatuur en dauwpunt in graden Celsius, Q1013 de QNH. NOSIG is de trend voor de komende twee uur: no significant change. Andere trends zijn BECMG (wordt) en TEMPO (tijdelijk). Ontbreekt een groep, zoals het weer, dan is er niets bijzonders. AUTO betekent een volledig automatische waarneming en COR een correctie op een eerdere METAR."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Zicht, RVR en weercodes",
+        "alineas": [
+          "Terug naar de mistige ochtend in Rotterdam: EHRD 200655Z 18004KT 0300 R24/0550N FG VV001 08/08 Q1024 BECMG 1500 BR. Het zicht is 0300, dus 300 meter. R24/0550N is de runway visual range: langs baan 24 zie je 550 meter aan baanlichten, en de N betekent ‘no change’; een U is stijgend, een D dalend. Die RVR, gemeten door instrumenten langs de baan, is beslissend voor de minima van een nadering. FG is mist, VV001 een verticaal zicht van 100 voet: de lucht is niet te zien. 08/08 zegt dat de lucht verzadigd is. BECMG 1500 BR: het wordt 1500 meter in nevel.",
+          "Weercodes bestaan uit een intensiteit, een beschrijving en een verschijnsel. Een min is licht, geen teken matig, een plus zwaar; VC betekent in de omgeving. Beschrijvingen zijn onder meer SH voor buien, TS voor onweer, FZ voor onderkoeld, BC voor flarden en MI voor ondiep. Verschijnselen zijn onder meer RA regen, DZ motregen, SN sneeuw, GR hagel, FG mist (zicht onder 1000 meter), BR nevel (1000 tot 5000 meter) en HZ heiigheid. Zo is +SHRA een zware regenbui, TSRA onweer met regen en VCSH buien in de omgeving.",
+          "De gevaarlijkste combinatie in dit rijtje is FZRA, onderkoelde regen: water dat onder nul vloeibaar blijft en bevriest zodra het je toestel raakt. Een FZRA-melding of een VV-groep is in het echt voor de kleine luchtvaart een reden om niet te vertrekken. Ook de wind kan anders gemeld worden: 00000KT is windstil, VRB03KT variabel met 3 knopen, en 27015KT 240V300 betekent dat de richting schommelt tussen 240 en 300 graden. Bij een baan als de Kaagbaan, 06/24, maakt dat flink uit voor je zijwind."
+        ],
+        "kader": {
+          "titel": "METAR-spiekbriefje",
+          "punten": [
+            "Volgorde: station – tijd Z – wind – zicht – RVR – weer – wolken – temp/dauwpunt – QNH – trend",
+            "9999 = 10 km of meer · FG < 1000 m · BR 1000–5000 m",
+            "– licht · + zwaar · VC in de omgeving · SH buien · TS onweer · FZ onderkoeld",
+            "FEW 1–2 · SCT 3–4 · BKN 5–7 · OVC 8 okta; plafond = laagste BKN/OVC",
+            "M03 = −3 °C · VV001 = verticaal zicht 100 ft"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Wolken, plafond en CAVOK",
+        "alineas": [
+          "Bewolking wordt gemeld in achtsten van de hemel, okta’s. FEW is 1 tot 2 okta, SCT (scattered) 3 tot 4, BKN (broken) 5 tot 7 en OVC (overcast) helemaal dicht. Daarachter volgt de hoogte van de basis in honderden voeten boven het veld: BKN012 is een gebroken laag op 1200 voet. Het plafond (ceiling) is de laagste laag die BKN of OVC is; FEW en SCT tellen niet mee. Staat er CB of TCU achter een laag, bijvoorbeeld BKN014CB, dan zijn er onweersbuien of hoog opgroeiende stapelwolken.",
+          "Neem EHBK 201155Z 23012KT 7000 −RA FEW008 BKN012 OVC025 03/01 Q1002, Maastricht Aachen Airport. Zicht 7 kilometer in lichte regen, wat losse wolken op 800 voet, een gebroken laag op 1200 voet – het plafond – en een gesloten laag op 2500 voet. Voor VFR in de CTR is dit onvoldoende: daar moet het plafond minstens 1500 voet zijn. Het mooiste woord in een METAR is CAVOK, ceiling and visibility OK. Het vervangt zicht, weer en wolken als het zicht 10 kilometer of meer is, er geen wolken onder 5000 voet zijn, geen CB of TCU en geen significant weer. Een negatieve temperatuur krijgt een M: M03/M05 is min 3 met een dauwpunt van min 5."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "De TAF: wat er komt",
+        "alineas": [
+          "Een METAR beschrijft het nu, een TAF (terminal aerodrome forecast) de verwachting. Lange TAF’s van 24 of 30 uur verschijnen elke zes uur, korte van 9 uur elke drie uur. Een voorbeeld: TAF EHAM 201100Z 2012/2118 23012KT 9999 SCT030 BECMG 2015/2017 27020G32KT TEMPO 2017/2022 4000 SHRA BKN012 PROB30 TEMPO 2018/2021 TSRA BKN010CB. De groep 2012/2118 is de geldigheid: van de twintigste om 12 uur UTC tot de eenentwintigste om 18 uur. Daarna volgt het basisweer, in dezelfde code als een METAR maar zonder temperatuur en QNH.",
+          "BECMG 2015/2017 betekent dat het weer tussen 15 en 17 uur geleidelijk en blijvend verandert, hier naar wind uit 270 graden met 20 knopen en vlagen tot 32. TEMPO 2017/2022 beschrijft tijdelijke schommelingen, telkens korter dan een uur en in totaal minder dan de helft van de periode: 4000 meter zicht in regenbuien met een plafond op 1200 voet. FM gevolgd door een tijd is een abrupte, blijvende verandering. PROB30 TEMPO 2018/2021 TSRA zegt: 30 procent kans op tijdelijk onweer tussen 18 en 21 uur. Voor je planning ga je uit van het slechtste weer dat in je aankomstperiode in de TAF staat, zeker bij het kiezen van een uitwijkveld.",
+          "Maak er in de sim een vast ritueel van. Plan je van Groningen naar Rotterdam met aankomst rond 19 uur UTC, dan lees je niet alleen de METAR van EHRD, maar vooral de TAF voor het tijdvak 18 tot 20 uur. Staat daar een TEMPO met mist of een PROB40 met onweer, dan kies je een uitwijkveld waarvan de TAF in diezelfde periode wél ruim boven de minima blijft, bijvoorbeeld Schiphol of Eindhoven, en neem je brandstof mee om daar te komen. Met live weer kun je achteraf precies zien of de verwachting uitkwam, en zo leer je de taal van de meteorologen ook interpreteren."
+        ]
+      },
+      {
+        "tussenkop": "Waarom je toestel in de zomer lui wordt",
+        "alineas": [
+          "De standaardatmosfeer (ISA) is op zeeniveau 15 graden en 1013,25 hectopascal, met een temperatuurdaling van ongeveer 2 graden per 1000 voet. Echte dagen wijken daarvan af. De drukhoogte is de hoogte die je hoogtemeter op 1013 zou aangeven. De dichtheidshoogte is die drukhoogte gecorrigeerd voor temperatuur: de hoogte in de standaardatmosfeer met dezelfde luchtdichtheid. Simpel gezegd: hoe hoog het voor je vliegtuig voelt. Hoge dichtheidshoogte betekent ijle lucht, en dat raakt alles tegelijk. De vleugel heeft meer ware snelheid nodig, de propeller trekt minder en een motor zonder turbo levert minder vermogen.",
+          "Het resultaat is een langere startrol en een slappere klim; vuistregel is ongeveer 10 procent langere startrol per 1000 voet dichtheidshoogte. De drie oorzaken zijn hoge temperatuur, hoge veldhoogte en lage luchtdruk, met vochtige lucht als kleine extra. Een rekenvoorbeeld: veld op 1000 voet, QNH 1003, 30 graden. Drukhoogte is 1000 plus 10 maal 30, dus 1300 voet. ISA op die hoogte is ongeveer 12 graden; het is dus 18 graden warmer. Dichtheidshoogte is ongeveer 1300 plus 120 maal 18, ruim 3400 voet. In Nederland, op zeeniveau, merk je het vooral op een tropische zomerdag met een volle Cessna. Op een hooggelegen veld in de Alpen kan het in de sim het verschil zijn tussen loskomen en het hek raken."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vervoer-12",
+    "kop": "Zijwind, buienlijnen en VOR: navigeren door Hollands weer",
+    "intro": "De wind staat schuin op de baan, achter de horizon groeit een buienlijn en de grond verdwijnt in nevel. Dit laatste deel van de reeks gaat over het weer dat je onderweg tegenkomt en over de middelen om toch precies te weten waar je bent: kompas, windcorrectie, VOR, NDB, DME en GPS.",
+    "hoofdstuk": "Weer onderweg en navigatie",
+    "basis": [
+      "wind-zijwind-windschering",
+      "wolken-fronten-ijs",
+      "zicht-en-mist",
+      "koers-variatie-windcorrectie",
+      "vor-navigatie",
+      "ndb-dme",
+      "gps-rnav-kaarten"
+    ],
+    "fotos": [
+      {
+        "wiki": "Cumulonimbus cloud",
+        "taal": "en",
+        "bijschrift": "Een cumulonimbus met aambeeld: voor elk vliegtuig een gebied om ruim te mijden"
+      },
+      {
+        "wiki": "Crosswind landing",
+        "taal": "en",
+        "bijschrift": "Een KLM-747 landt met flinke zijwind, de neus schuin in de wind"
+      },
+      {
+        "wiki": "Downburst",
+        "taal": "en",
+        "bijschrift": "Een valwind onder een bui waaiert naar alle kanten uit over de grond"
+      },
+      {
+        "wiki": "Mist",
+        "taal": "nl",
+        "bijschrift": "Ochtendmist boven de Hollandse velden: stralingsmist na een heldere nacht"
+      },
+      {
+        "wiki": "VHF omnidirectional range",
+        "taal": "en",
+        "bijschrift": "Een Doppler-VOR-baken: radialen in alle richtingen"
+      },
+      {
+        "wiki": "Aeronautical chart",
+        "taal": "en",
+        "bijschrift": "Een VFR-luchtvaartkaart met luchtruimgrenzen, velden en obstakels"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Nederland is een vliegland met een bijzonder weerprofiel. Er zijn geen bergen, maar wel veel wind, veel vocht en een zee die het weer met de seizoenen een eigen karakter geeft. In het najaar ligt er ’s ochtends mist op de polders, in het voorjaar kruipt zeemist over de kust, en in de zomer trekken buienlijnen met onweer over het land. Wie in de sim met live weer vliegt, komt dat allemaal tegen. En omdat het landschap zo vlak en gelijkvormig is, is navigeren op zicht lastiger dan je zou denken: elke polder lijkt op de vorige.",
+          "In dit afsluitende artikel van de reeks gaat het eerst om het weer onderweg: wind en zijwind, windschering, wolken en fronten, onweer en ijsvorming, en zicht en mist. Daarna volgt de navigatie, van de oude kunst van kompaskoers en windcorrectie, via de radiobakens VOR, NDB en DME, tot de satellietnavigatie en de kaarten waarop alles samenkomt. Het bouwt voort op de METAR- en TAF-kennis uit het vorige deel: daar las je het weer in code, hier zie je het buiten het raam."
+        ]
+      },
+      {
+        "tussenkop": "Zijwind uitrekenen in je hoofd",
+        "alineas": [
+          "Je start en landt tegen de wind in: dat verkort de afstand en geeft meer controle. Staat de wind schuin op de baan, dan splits je hem in twee delen. De zijwindcomponent is de windsnelheid maal de sinus van de hoek tussen wind en baan, de tegenwindcomponent de windsnelheid maal de cosinus. In de cockpit gebruik je een vuistregel: bij 30 graden is de zijwind de helft van de wind, bij 45 graden ongeveer 70 procent, bij 60 graden ongeveer 90 procent en bij 90 graden de volle wind.",
+          "Een voorbeeld. Je wilt in Lelystad landen op baan 23 en de toren meldt wind uit 290 graden met 15 knopen. Het verschil is 60 graden, dus de zijwind is ongeveer 13 knopen. Het handboek van een Cessna 172 noemt een maximum demonstrated crosswind van 15 knopen. Dat is geen harde grens, maar de waarde die bij de certificering is getest, en een verstandige limiet voor je eigen kunnen. Je zit er dus vlak onder. Let ook op de bron: de wind van toren en ATIS is magnetisch, die in de METAR ten opzichte van het ware noorden. In Nederland scheelt dat maar een paar graden.",
+          "Bij harde of vlagerige wind tel je iets op bij je naderingssnelheid, vaak de helft van het vlaagverschil. Dicht bij de grond neemt de wind af en draait hij door wrijving, vaak tegen de klok in. Achter gebouwen, bomen en hangars ontstaat turbulentie, iets wat je op kleine velden met bomenrijen langs de baan goed merkt in de laatste meters. In de sim zie je het effect vooral aan het eind van de nadering: de snelheid schommelt en de neus wil heen en weer. Kleine correcties, iets meer snelheid en een stevige hand aan het stuur zijn het antwoord."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Windschering en de microburst",
+        "alineas": [
+          "Windschering is een plotselinge verandering van windrichting of windsnelheid over een korte afstand. De gevaarlijkste vorm is een microburst onder een onweersbui: een kolom koude lucht die naar beneden valt en op de grond naar alle kanten uitwaaiert. Wie erdoorheen naar de baan vliegt, krijgt eerst extra tegenwind en ziet zijn snelheid stijgen. De reflex is vermogen terug en neus omlaag. Dan volgt de valwind van boven, en daarna een plotselinge staartwind waardoor de snelheid wegvalt. Op dat moment heb je net vermogen weggenomen en zit je laag. Wegblijven van onweersbuien is de enige echte bescherming; verkeersvliegtuigen hebben daarnaast waarschuwingssystemen en een vaste ontsnappingsmanoeuvre met vol vermogen.",
+          "Ook zonder onweer kom je windschering tegen. Bij een sterke wind boven een stille, koude grondlaag – na een heldere nacht bijvoorbeeld – kan de wind in een paar honderd voet tientallen knopen in sterkte toenemen. Op final merk je dat als een plotselinge snelheidswisseling precies op het moment dat je door die grens zakt. Op grote velden waarschuwt de ATIS soms voor windschering op de nadering. Neem zo’n melding serieus: houd wat extra snelheid aan, wees klaar om door te starten en kijk of je naderingssnelheid en daalsnelheid stabiel blijven."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Fronten, buien en ijs",
+        "alineas": [
+          "Wolken ontstaan als lucht afkoelt tot het dauwpunt, meestal doordat ze opstijgt. Gelaagde wolken (stratus) ontstaan bij rustig, breed opstijgen; stapelwolken (cumulus) bij onstabiele lucht die in bellen opstijgt. Een cumulonimbus is een cumulus die tot hoog in de troposfeer doorgroeit: de onweersbui. De basis van stapelwolken kun je schatten met het verschil tussen temperatuur en dauwpunt maal 400 voet. Is het 18 graden met een dauwpunt van 10, dan ligt de basis rond 3200 voet.",
+          "Een warmtefront, waarbij warme lucht over koude schuift, kondigt zich ruim van tevoren aan: eerst cirrus hoog in de lucht, dan cirrostratus en altostratus, en daarna nimbostratus met langdurige regen, lage wolken en slecht zicht over een brede zone. Een koufront, waarbij koude lucht als een wig onder de warme schuift, is smaller en heftiger: buien, onweer, windstoten, een plotselinge winddraaiing en daarna helder, koeler weer met prachtig zicht. Voor een VFR-vlieger is het warmtefront een reden om thuis te blijven; achter een koufront ligt vaak de mooiste vliegdag.",
+          "Een cumulonimbus is voor alle luchtvaart gevaarlijk: zware turbulentie, hagel, bliksem, windschering en ijsvorming. Houd minstens 10 tot 20 zeemijl afstand en vlieg er nooit onderdoor. In een METAR herken je ze aan CB of TS. IJsvorming op het toestel ontstaat in zichtbaar vocht, in wolken of regen, vooral tussen 0 en min 15 graden, waar water onderkoeld vloeibaar blijft en bij contact bevriest. Grote druppels geven clear ice, helder en zwaar; kleine druppels rime ice, wit en ruw. IJs maakt het toestel zwaarder, verpest het vleugelprofiel en verhoogt de overtreksnelheid."
+        ],
+        "kader": {
+          "titel": "Weer in vuistregels",
+          "punten": [
+            "Zijwind: 30° → ½ · 45° → 0,7 · 60° → 0,9 · 90° → volle wind",
+            "Microburst: eerst tegenwind (snelheid omhoog), dan staartwind (snelheid omlaag)",
+            "Wolkenbasis cumulus ≈ (T − dauwpunt) × 400 ft",
+            "CB: 10–20 NM afstand, nooit eronder door",
+            "IJsvorming: zichtbaar vocht tussen 0 en −15 °C"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Mist: de spreiding als alarmbel",
+        "alineas": [
+          "Het dauwpunt is de temperatuur waarbij de lucht verzadigd raakt. Het verschil tussen temperatuur en dauwpunt heet de spreiding. Is die klein, 2 tot 3 graden of minder, dan is de lucht bijna verzadigd en kan bij een lichte afkoeling mist of lage bewolking ontstaan. Stralingsmist ontstaat in heldere, windstille nachten: de grond straalt warmte uit en de lucht erboven koelt af tot het dauwpunt. Hij is ’s ochtends het dikst en lost meestal op als de zon de grond opwarmt. In het Nederlandse najaar is dat een vertrouwd beeld. Advectiemist ontstaat als warme, vochtige lucht over een koud oppervlak stroomt, zoals zeemist langs de kust in het voorjaar; die kan ook met wind dagen blijven hangen.",
+          "Zicht in de lucht is iets anders dan zicht op de grond. In nevel of heiigheid kun je recht naar beneden prima kijken, maar schuin vooruit nauwelijks, en tegen de zon in is het nog erger. Een nadering die bij 3 kilometer gemeld zicht er goed uitziet, kan op final een witte muur zijn. Het grootste gevaar voor VFR-vliegers is daarom het geleidelijk slechter wordende zicht: je merkt het te laat en zit ineens in de wolken, zonder instrumentvaardigheid. Plan altijd een uitweg – terugdraaien of een uitwijkveld – en een persoonlijke ondergrens die hoger ligt dan het wettelijke minimum."
+        ],
+        "foto": 3,
+        "citaat": "Plan altijd een uitweg en een persoonlijke ondergrens die hoger ligt dan de wet."
+      },
+      {
+        "tussenkop": "Van kaartkoers naar kompaskoers",
+        "alineas": [
+          "Op de kaart meet je de ware koers ten opzichte van de meridianen, dus het geografische noorden. Het kompas wijst echter naar het magnetische noorden. Het verschil heet variatie of declinatie en verschilt per plaats; in Nederland is die op dit moment enkele graden oost. Daarnaast verstoren metaal en elektronica in het toestel het kompas zelf: de deviatie, die op een kaartje bij het kompas staat. De volgorde is True, Variation, Magnetic, Deviation, Compass. Het ezelsbruggetje is ‘east is least, west is best’: oostelijke variatie trek je af, westelijke tel je op. Een ware koers van 090 met 3 graden oost wordt magnetisch 087.",
+          "Dan de wind. De track is de werkelijke weg over de grond, de heading de richting waarin je neus wijst. Om op je track te blijven, stuur je iets de wind in: de windcorrectiehoek. Vuistregel: zijwindcomponent gedeeld door TAS, maal zestig. Met 15 knopen zijwind en 90 knopen TAS is dat ongeveer 10 graden. De regel van zestig is in de navigatie overal bruikbaar: 1 graad afwijking is op 60 zeemijl afstand 1 zeemijl naast je track. Ben je na 30 mijl 2 mijl uit koers, dan zit je 4 graden ernaast. Om op je bestemming uit te komen, corrigeer je die 4 graden plus de hoek die nodig is om het resterende stuk terug te komen."
+        ],
+        "lesFoto": "koers-variatie-windcorrectie"
+      },
+      {
+        "tussenkop": "De VOR: radialen als spaken van een wiel",
+        "alineas": [
+          "Een VOR (VHF omnidirectional range) is een grondstation tussen 108,0 en 117,95 megahertz dat een signaal uitzendt waarmee je ontvanger bepaalt op welke radiaal je staat. Een radiaal is een magnetische richting vanaf het station: radiaal 090 loopt vanaf het baken recht naar het oosten. Stel je een wiel voor met 360 spaken. Na het instellen van de frequentie identificeer je het station altijd aan de morsecode, zodat je zeker weet dat je het goede baken hebt. In Nederland staan VOR’s als Pampus (PAM) en Spijkerboor (SPY), bekende ankerpunten in het netwerk rond Schiphol.",
+          "Met de OBS-knop (omni bearing selector) kies je een koers. De CDI-naald laat zien of die koers links of rechts van je ligt; je vliegt naar de naald toe. Elke stip is 2 graden, volle uitslag 10 graden of meer. De TO/FROM-vlag zegt of de gekozen koers je naar het station toe of ervan af brengt, en bij het passeren van het station klapt hij om. Sta je op radiaal 090, ten oosten van het station, en wil je erheen, dan zet je 270 in de OBS; de vlag toont TO. Wil je juist wegvliegen op radiaal 090, dan zet je 090 met FROM. Zorg dat de gekozen koers ongeveer klopt met je heading, anders werkt de naald omgekeerd: reverse sensing.",
+          "Een VOR werkt op zichtlijn. Het bereik in zeemijl is ongeveer 1,23 maal de wortel van je hoogte in voet: op 3000 voet zo’n 67 mijl. Vlak boven het station ligt een ‘cone of confusion’ waarin de naald onrustig wordt. Een HSI combineert koersroos en CDI in één instrument, wat reverse sensing voorkomt. Steeds meer VOR’s worden uitgefaseerd ten gunste van satellietnavigatie, maar ze blijven een belangrijke reserve. Oefen in de sim eens een vlucht van Lelystad naar Rotterdam puur op VOR, met de GPS uit: je leert er meer over oriëntatie dan in tien vluchten op de magenta lijn."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "NDB en DME",
+        "alineas": [
+          "Een NDB (non-directional beacon) is een eenvoudig baken op lange of middengolf, ongeveer tussen 190 en 1750 kilohertz. In het vliegtuig wijst de naald van de ADF (automatic direction finder) gewoon naar het baken. Op een vaste koersroos lees je de relatieve peiling af: de hoek tussen je neus en het baken. Om naar het baken te vliegen, tel je op: magnetische heading plus relatieve peiling is de magnetische peiling naar het baken, de QDM. Vlieg je heading 030 en wijst de naald 090 relatief, dus rechts van je, dan ligt het baken op 120 graden magnetisch. Een RMI draait de roos mee, zodat je die peiling direct afleest.",
+          "NDB’s zijn gevoelig voor storingen: ’s nachts door weerkaatsing in de ionosfeer, bij onweer (de naald wijst naar de bliksem), langs de kust door kustrefractie en in de bergen. Daarom verdwijnen NDB-naderingen en worden ze vervangen door RNAV. De DME (distance measuring equipment) meet de looptijd van een radiosignaal naar een grondstation en terug, en toont de afstand in zeemijl. Dat is schuine afstand: recht boven een DME op 6000 voet lees je ongeveer 1 mijl. Vaak is een DME gekoppeld aan een VOR of een ILS, zodat je je positie kent uit radiaal plus afstand."
+        ]
+      },
+      {
+        "tussenkop": "GPS, RNAV en de kaart",
+        "alineas": [
+          "Met GNSS, de verzamelnaam voor GPS, Galileo, GLONASS en BeiDou, ken je je positie tot op enkele meters. RNAV (area navigation) betekent dat je vliegt tussen willekeurige punten in plaats van van baken naar baken. Waypoints in IFR-routes hebben vaak namen van vijf letters, zoals SUGOL, ARTIP en RIVER rond Schiphol. Een RNP-specificatie zegt hoe nauwkeurig je navigatie moet zijn en dat het systeem dat zelf bewaakt. GPS controleert zijn eigen betrouwbaarheid met RAIM, dat waarschuwt als de satellietgeometrie onvoldoende is. GPS-storingen (jamming) en vervalsing (spoofing) komen in delen van Europa steeds vaker voor; daarom blijven VOR en DME als reserve belangrijk.",
+          "Voor VFR in Nederland gebruik je de ICAO-luchtvaartkaart op schaal 1:500.000, waarop 1 centimeter 5 kilometer is. Daarop staan luchtruimgrenzen met boven- en ondergrenzen, vliegvelden, frequenties, obstakels als windmolens en masten, P-, R- en D-gebieden en VFR-meldpunten, waar je je meldt bij het naderen van een CTR. IFR-vliegers gebruiken en-routekaarten met luchtwegen en minimumhoogtes, SID- en STAR-kaarten en een naderingskaart per procedure. In de sim zijn de kaarten uit de AIP of van een abonnementsdienst de basis.",
+          "En daarmee is de cirkel van deze reeks rond. Een goede vlucht begint niet met de GPS, maar met de kaart, de METAR en de TAF, de NOTAM’s en een plan voor als het tegenvalt. De GPS weet waar je bent, maar niet wat de verkeersleiding van je verwacht, waar de TMA-ondergrens ligt of dat de mist over een uur komt opzetten. Dat weet alleen de vlieger die het allemaal leerde lezen. Wie dat beheerst, kan in de sim elke vlucht tot een echte vlucht maken – en ook in de echte cockpit weet je dan wat je doet."
+        ],
+        "foto": 5
+      }
+    ]
+  }
+]

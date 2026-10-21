@@ -1,0 +1,1166 @@
+[
+  {
+    "id": "weetjes-01",
+    "kop": "Het hart van een horloge klopt op 270 graden",
+    "intro": "Een mechanisch horloge is een trillende veer die twintigduizend keer per uur moet beslissen hoe laat het is. Waarom een uurwerkmaker naar graden en milliseconden kijkt in plaats van naar de wijzers, en waarom één koelkastmagneet een oud horloge uren laat voorlopen.",
+    "hoofdstuk": "Mechanische horloges",
+    "basis": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "fotos": [
+      {
+        "wiki": "Balance wheel",
+        "taal": "en",
+        "bijschrift": "Het balanswiel met spiraalveer: de eigenlijke klok in elk mechanisch horloge"
+      },
+      {
+        "wiki": "Lever escapement",
+        "taal": "en",
+        "bijschrift": "Het Zwitserse ankerechappement verdeelt de veerkracht in kleine tikjes"
+      },
+      {
+        "wiki": "Balance spring",
+        "taal": "en",
+        "bijschrift": "Balans met spiraalveer: samen bepalen ze de trilfrequentie en dus de gang"
+      },
+      {
+        "wiki": "Tourbillon",
+        "taal": "nl",
+        "bijschrift": "Een tourbillon laat de hele gangregelaar ronddraaien tegen standafwijkingen"
+      },
+      {
+        "wiki": "Watch timing machine",
+        "taal": "en",
+        "bijschrift": "Een timegrapher luistert naar het tikken en rekent gang, amplitude en beat error uit"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Leg een mechanisch horloge op een timegrapher, het meetapparaat van iedere uurwerkmaker, en je krijgt geen tijd te zien maar drie getallen: de dagafwijking in seconden, de amplitude in graden en de beat error in milliseconden. Een leek kijkt alleen naar het eerste getal. Een vakman kijkt eerst naar de andere twee, want die vertellen waaróm een horloge voor- of achterloopt. Ze beschrijven de gezondheid van het balanswiel, het kleine vliegwieltje dat met een spiraalveer heen en weer slingert en zo de tijd in gelijke porties hakt.",
+          "Het principe is dat van een slinger. Het balanswiel draait een eind de ene kant op, de spiraalveer remt het af en trekt het terug, het schiet door naar de andere kant, en zo verder. Een modern horloge doet dat acht keer per seconde, wat 28.800 halve trillingen per uur oplevert. De opwindveer levert de energie, maar die mag de balans niet direct aandrijven. Daarvoor zit het echappement ertussen: een anker dat bij elke slag heel even een tandje van het ankerrad doorlaat en de balans daarbij een klein zetje geeft."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Waarom 270 graden",
+        "alineas": [
+          "De amplitude is de grootste uitslag van het balanswiel vanuit de ruststand. Bij een goed lopend horloge met een volle veer ligt die rond de 270 graden, dus driekwart rondje naar elke kant. Dat getal is geen toeval. In dat gebied werkt het ankerechappement het gunstigst en is de slingertijd het minst afhankelijk van hoe hard de balans wordt aangestoten. Die eigenschap heet isochronie: een ideale slinger doet er even lang over, of hij nu grote of kleine uitslagen maakt. In de praktijk benadert een horloge dat alleen binnen een bepaald bereik.",
+          "Isochronie is precies wat je nodig hebt, want de opwindveer levert niet constant kracht. Vlak na het opwinden duwt ze hard, aan het eind van de dag veel zwakker. Als de balans bij elke krachtverandering anders zou slingeren, zou het horloge 's ochtends een andere gang hebben dan 's avonds. Daalt de amplitude ver onder de 200 graden, dan is dat meestal een teken van vervuilde of opgedroogde olie, slijtage of een vermoeide veer. Het horloge wordt dan grillig, en het eerste wat een uurwerkmaker doet is het uurwerk reinigen in plaats van aan de regelaar te draaien."
+        ]
+      },
+      {
+        "tussenkop": "Te veel is ook fout",
+        "alineas": [
+          "Opvallender is wat er gebeurt als de amplitude té hoog wordt, bijvoorbeeld door een te sterke opwindveer of een verkeerd vervangen onderdeel. Boven ongeveer 300 tot 310 graden draait de balans zo ver door dat de impulssteen op de balansas aan de verkeerde kant tegen de ankervork slaat. Dat heet overbanking of knocking, en het is soms als een dubbel tikje te horen. De balans krijgt op een verkeerd moment een klap, keert eerder om dan de bedoeling was en de trilling wordt korter. Het resultaat is contra-intuïtief: het horloge krijgt meer energie en loopt daardoor ineens flink vóór.",
+          "Daarom regelt een uurwerkmaker niet op maximale amplitude, maar op een gezonde marge. Rond 270 graden met volle veer betekent dat er nog ruimte is naar boven, als het horloge bijvoorbeeld net is opgewonden en plat ligt, en naar beneden, als de veer na een dag dragen bijna leeg is. Zo blijft de balans in beide gevallen binnen het gebied waar de gang stabiel is."
+        ]
+      },
+      {
+        "tussenkop": "De beat error: een scheve tik",
+        "alineas": [
+          "Het tweede getal, de beat error, meet of de tik naar links even lang duurt als de tik naar rechts. In ruststand hoort de impulssteen precies in het midden tussen de hoorns van de ankervork te staan. Staat de spiraalveer een fractie verdraaid op de as, dan krijgt de balans in de ene richting zijn zetje eerder dan in de andere. De timegrapher meet dat verschil in milliseconden. Onder de 0,5 milliseconde geldt als goed, boven de 1 milliseconde wordt het slordig. Je hoort het zelfs met een goed oor: het tik-tak wordt een hinkend tik-tak.",
+          "Een scheve tik is meer dan een cosmetisch probleem. Als de impuls niet symmetrisch wordt afgegeven, verschilt de amplitude per halve slag en wordt het horloge gevoeliger voor alles wat de amplitude verandert. De oplossing is mechanisch eenvoudig maar precisiewerk: de spiraalrol, het ringetje waarmee de veer op de balansas zit, wordt een paar graden verdraaid tot de ruststand weer in het midden valt."
+        ],
+        "kader": {
+          "titel": "De drie getallen van een timegrapher",
+          "punten": [
+            "Gang: afwijking in seconden per dag",
+            "Amplitude: uitslag van de balans, gezond rond 270° bij volle veer",
+            "Beat error: verschil tussen tik en tak, liefst onder 0,5 ms",
+            "Lage amplitude wijst vaak op vuile olie of slijtage, niet op een verkeerde afstelling",
+            "Te hoge amplitude (boven ±300°) geeft overbanking en vóórlopen"
+          ]
+        },
+        "foto": 4
+      },
+      {
+        "tussenkop": "Liggend of staand",
+        "alineas": [
+          "Wie een horloge 's nachts op de wijzerplaat legt en het de volgende dag ziet afwijken van wat het om de pols deed, ziet het effect van de standen. Geen balanswiel is perfect uitgebalanceerd; er zit altijd een minuscuul overgewicht aan één kant. Ligt het horloge plat, dan werkt de zwaartekracht langs de as en doet dat onbalansje niets. Staat het horloge rechtop, dan trekt de zwaartekracht het overgewicht naar beneden, waardoor de balans in de ene halve slag iets wordt geholpen en in de andere wordt afgeremd. Daarbij komt dat de balansas in verticale stand op de zijkant van zijn lagers rust, met meer wrijving en dus een lagere amplitude.",
+          "Daarom worden goede horloges in meerdere standen geregeld, en worden de balanswielen dynamisch uitgewogen door piepkleine hoeveelheden materiaal weg te boren of stelschroefjes te verdraaien. De tourbillon, in 1801 door Abraham-Louis Breguet gepatenteerd, pakt het radicaler aan: de hele gangregelaar zit in een kooitje dat meestal één keer per minuut ronddraait, zodat de afwijkingen van de verticale standen elkaar uitmiddelen. Voor een zakhorloge dat altijd rechtop in een vestzak hing was dat zinvol; in een polshorloge dat voortdurend van stand wisselt is het vooral een staaltje vakmanschap."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Een veer die geen warmte voelt",
+        "alineas": [
+          "De spiraalveer bepaalt samen met de traagheid van de balans de trilfrequentie. Bij een gewone stalen veer zit daar een venijnig probleem in: de stijfheid van staal, de elasticiteitsmodulus, neemt af als het warmer wordt. Een warmere veer is slapper, de balans slingert trager en het horloge loopt achter. Eeuwenlang compenseerden uurwerkmakers dat met bimetalen balanswielen die bij warmte een beetje naar binnen bogen. Begin twintigste eeuw vond de Zwitserse natuurkundige Charles-Édouard Guillaume legeringen van ijzer en nikkel waarvan de stijfheid nauwelijks met de temperatuur verandert, waarvoor hij in 1920 de Nobelprijs voor natuurkunde kreeg.",
+          "Daaruit kwam elinvar voort, en later Nivarox, de legering waar het grootste deel van de Zwitserse spiraalveren van gemaakt wordt. Door de samenstelling van ijzer, nikkel en toevoegingen als chroom, titaan en beryllium is de temperatuurcoëfficiënt van de elasticiteitsmodulus bijna nul. De veer compenseert zichzelf, waardoor een eenvoudige massieve balans volstaat. Een prettige bijkomstigheid is dat zo'n legering veel minder magnetisch is dan gewoon staal."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De magneet in je tas",
+        "alineas": [
+          "Dat laatste is belangrijker dan het klinkt. Een oud horloge met een stalen spiraal dat te dicht bij een luidspreker, een tassluiting of een tabletcover komt, kan daarna ineens minuten of zelfs uren per dag voorlopen. De stalen windingen houden een restmagnetisme vast en gaan zich gedragen als kleine magneetjes die elkaar aantrekken. Tijdens het ademen van de veer plakken ze even aan elkaar. Daardoor trilt er effectief een korter stuk veer mee, en een kortere veer is stijver en trilt sneller.",
+          "Kapot is het horloge niet. Een uurwerkmaker haalt het magnetisme eruit met een demagnetiseerapparaat: een wisselend magnetisch veld dat langzaam zwakker wordt, of waar het horloge langzaam uit wordt weggetrokken, zodat de magnetische domeinen in het staal willekeurig achterblijven. Moderne fabrikanten gaan nog een stap verder met spiraalveren van silicium, dat helemaal niet magnetisch is, lichter is en geen olie nodig heeft. Zo verschuift de strijd om de seconde van de werkbank naar de chipfabriek."
+        ],
+        "citaat": "Het horloge krijgt meer energie en loopt daardoor ineens flink vóór."
+      }
+    ]
+  },
+  {
+    "id": "weetjes-02",
+    "kop": "Hard, taai of bros: de verborgen geschiedenis in elk stuk staal",
+    "intro": "Twee stukken staal met exact dezelfde samenstelling kunnen zich gedragen als glas of als een veer. Het verschil zit in hoe ze zijn verhit, afgekoeld en belast. Over martensiet, ontlaatkleuren, vierkante vliegtuigramen en bouten die maanden na montage uit zichzelf knappen.",
+    "hoofdstuk": "Metallurgie",
+    "basis": [
+      "135",
+      "136",
+      "144",
+      "150",
+      "137"
+    ],
+    "fotos": [
+      {
+        "wiki": "Blacksmith",
+        "taal": "en",
+        "bijschrift": "Een smid aan het werk: harden en ontlaten is eeuwenoud vakmanschap"
+      },
+      {
+        "wiki": "Heat treating",
+        "taal": "en",
+        "bijschrift": "Een oven voor warmtebehandeling: hier wordt staal verhit tot austeniet"
+      },
+      {
+        "wiki": "Tempering (metallurgy)",
+        "taal": "en",
+        "bijschrift": "Ontlaatkleuren verraden de temperatuur waarop het staal is nagewarmd"
+      },
+      {
+        "wiki": "BOAC Flight 781",
+        "taal": "en",
+        "bijschrift": "De uitsparingen in het dak van Comet G-ALYP, waar de fatale scheur begon"
+      },
+      {
+        "wiki": "Shot peening",
+        "taal": "en",
+        "bijschrift": "Kogelstralen perst drukspanning in het oppervlak van veren en tandwielen"
+      },
+      {
+        "wiki": "Hydrogen embrittlement",
+        "taal": "en",
+        "bijschrift": "Door waterstof veroorzaakte scheurtjes in staal"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een smid die een beitel smeedt, doet aan het eind iets wat er magisch uitziet. Hij verhit de punt tot hij oranje gloeit, dompelt hem sissend in water, poetst hem blank en verwarmt hem daarna opnieuw, maar nu voorzichtig, terwijl hij kijkt hoe er kleurtjes over het metaal kruipen: strogeel, bruin, paars, blauw. Op het juiste moment schrikt hij opnieuw af. Wat hij doet is twee keer een kristalstructuur manipuleren, en het verschil tussen een beitel die snijdt en een beitel die als glas in stukken springt, zit in die paar minuten.",
+          "Om dat te begrijpen moet je weten dat staal ijzer is met een beetje koolstof, meestal minder dan één procent. Ijzeratomen ordenen zich in een kristalrooster, en welk rooster dat is hangt van de temperatuur af. Boven ongeveer 727 tot 900 graden, afhankelijk van het koolstofgehalte, staat het ijzer in een vorm die austeniet heet. Dat rooster heeft relatief grote holtes waarin de kleine koolstofatomen comfortabel opgelost kunnen zitten."
+        ]
+      },
+      {
+        "tussenkop": "Gevangen koolstof",
+        "alineas": [
+          "Laat je austeniet langzaam afkoelen, dan klapt het rooster om naar een vorm met kleinere holtes. De koolstof past daar niet meer in en diffundeert naar buiten, waar ze samen met ijzer plaatjes ijzercarbide vormt. Je krijgt een zachte, taaie mix van ferriet en perliet: prima voor een balk, waardeloos voor een snijkant. Schrik je het staal daarentegen zo snel af dat de koolstof geen tijd heeft om weg te komen, dan gebeurt er iets anders. Het rooster klapt toch om, maar zonder diffusie, in één ruk, en de koolstof zit gevangen op plekken waar ze eigenlijk niet past.",
+          "Dat geforceerde rooster heet martensiet. Het is niet kubisch maar een uitgerekte, tetragonale variant, vol inwendige spanning. In een metaal gebeurt vervorming doordat roosterfouten, dislocaties, door het kristal wandelen. In martensiet zitten die dislocaties vast tussen de verwrongen atomen, en daarom is het extreem hard. Maar wat niet kan vervormen, kan alleen breken. Vers gehard staal is zo bros dat een val op een betonvloer genoeg kan zijn om een vijl in tweeën te laten springen."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Ontlaten: hardheid inruilen voor taaiheid",
+        "alineas": [
+          "Daarom volgt na het harden altijd het ontlaten, in het Engels tempering. Je verwarmt het staal opnieuw, maar ver onder de omzettingstemperatuur, ergens tussen 150 en 650 graden. Bij die temperaturen kan een deel van de opgesloten koolstof zich alsnog bewegen en als minuscule carbidedeeltjes uitscheiden, terwijl de inwendige spanning gedeeltelijk ontspant. Je levert hardheid in, maar je wint taaiheid: het vermogen om energie op te nemen zonder te breken. Hoe hoger de ontlaattemperatuur, hoe zachter en taaier het resultaat.",
+          "De kleuren die de smid ziet zijn geen gloeikleuren maar een interferentie-effect in een flinterdun oxidelaagje dat op het blanke oppervlak groeit. Hoe heter, hoe dikker het laagje en hoe verder de kleur verschuift. Strogeel, rond 220 graden, past bij scheermessen en beitels die hard moeten blijven. Blauw, rond 300 graden, past bij veren en zagen die moeten kunnen buigen. Een industriële oven doet het tegenwoordig met thermokoppels, maar het principe is identiek: de ontlaattemperatuur is de draaiknop tussen hard en taai."
+        ],
+        "foto": 2,
+        "kader": {
+          "titel": "Van gloeiend tot gereed",
+          "punten": [
+            "Austenitiseren: verhitten tot de koolstof in het rooster oplost",
+            "Afschrikken in water, olie of lucht: martensiet, keihard en bros",
+            "Ontlaten op 150–650 °C: spanning eruit, taaiheid erbij",
+            "Langzaam afkoelen (gloeien) geeft juist zacht, bewerkbaar staal",
+            "Ontlaatkleuren zijn een dun oxidelaagje, geen gloeikleuren"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Breken zonder overbelasting",
+        "alineas": [
+          "Een goed gehard en ontlaten onderdeel kan nog steeds bezwijken terwijl het nooit zwaarder belast is dan waar het voor ontworpen is. Dat is vermoeiing, en het is verantwoordelijk voor een groot deel van alle mechanische breuken. Bij elke belastingswisseling vervormt het metaal op een plek waar de spanning zich ophoopt, zoals een scherpe hoek, een boorgat of een kras, een heel klein beetje plastisch. Na genoeg cycli ontstaat daar een microscheurtje. Dat groeit bij elke volgende cyclus een fractie van een micrometer verder, tot het overgebleven materiaal de last niet meer kan dragen en het onderdeel plotseling afbreekt.",
+          "Op het breukvlak is die geschiedenis af te lezen. Je ziet een glad gedeelte met halvemaanvormige rimpels, de rustlijnen, die als jaarringen de groei van de scheur markeren, en daarnaast een ruw, korrelig stuk waar de laatste breuk in één keer gebeurde. Een schadeonderzoeker kan aan de verhouding tussen die twee zien of het onderdeel licht belast was met veel cycli, of zwaar met weinig."
+        ]
+      },
+      {
+        "tussenkop": "De les van de Comet",
+        "alineas": [
+          "De bekendste les kwam uit de luchtvaart. De De Havilland Comet was in 1952 het eerste straalverkeersvliegtuig met een drukcabine die op grote hoogte vloog. In 1954 brak twee keer binnen enkele maanden een Comet in de lucht uiteen. Om de oorzaak te vinden zetten Britse onderzoekers een complete romp in een watertank en pompten die duizenden keren op en leeg, net als bij echte vluchten. De romp scheurde, en de scheur begon bij een hoek van een venster of uitsparing.",
+          "Elke vlucht was één belastingscyclus: opstijgen, de cabine op druk, landen, de druk eraf. In de hoeken van de bijna rechthoekige openingen liep de spanning plaatselijk veel hoger op dan in de rest van de huid, en daar groeiden vermoeiingsscheuren. De gevolgen zie je nog in elk vliegtuig waarin je zit: ronde of sterk afgeronde ramen, ruim berekende spanningsconcentraties en inspectieschema's die uitgaan van de aanname dat er scheurtjes zíjn en dat je ze moet vinden voordat ze kritisch worden."
+        ],
+        "foto": 3,
+        "citaat": "Elke vlucht was één belastingscyclus."
+      },
+      {
+        "tussenkop": "Kogeltjes als harnas",
+        "alineas": [
+          "Omdat vermoeiingsscheuren vrijwel altijd aan het oppervlak beginnen en alleen onder trekspanning groeien, kun je ze een stap voor zijn. Bij kogelstralen, shot peening, wordt een onderdeel beschoten met miljoenen kleine stalen of keramische bolletjes. Elke inslag deukt de buitenste laag een beetje in en rekt die op. Het materiaal eronder doet niet mee en houdt de opgerekte huid in bedwang. Het gevolg is een blijvende drukspanning in een laagje van enkele tienden van een millimeter dik. Wil een scheur daar openen, dan moet de belasting eerst die ingebouwde druk overwinnen.",
+          "Kleppenveren, tandwielen, krukassen en de voetjes waarmee turbinebladen in hun schijf zitten worden zo behandeld. Het is een van de weinige bewerkingen waarbij je een onderdeel opzettelijk beschadigt om het sterker te maken. Het effect is bovendien meetbaar: de intensiteit wordt gecontroleerd met dunne stalen proefstrookjes, Almen-strips, die met het onderdeel mee worden gestraald. Hoe sterker het strookje daarna krom staat, hoe dieper de drukspanning in het materiaal zit. Te hard stralen is overigens ook mis, want dan ontstaan er juist weer microscheurtjes aan het oppervlak."
+        ],
+        "foto": 4
+      },
+      {
+        "tussenkop": "De bout die later knapt",
+        "alineas": [
+          "Het venijnigste faalmechanisme komt soms met vertraging. Hoogvaste bouten die verzinkt of gebeitst zijn, kunnen tijdens dat proces waterstof opnemen. Waterstofatomen zijn zo klein dat ze door het staalrooster zwerven. Ze verzamelen zich waar de trekspanning het hoogst is, zoals in de kern van de schroefdraad, en verzwakken daar de samenhang van het metaal. Onder blijvende voorspanning groeit een scheurtje langzaam, zonder zichtbare vervorming, tot de bout dagen, weken of maanden na montage met een tik afbreekt.",
+          "Juist de sterkste staalsoorten zijn hier gevoelig voor, omdat ze weinig plastische reserve hebben om een scheurtip af te stompen. Een gewone bout van sterkteklasse 8.8 heeft daar weinig last van; bij klasse 12.9 en hoger wordt het een serieus risico. Daarom worden hoogvaste, galvanisch behandelde bevestigers vlak na het verzinken enkele uren uitgebakken bij ongeveer 200 graden, zodat de waterstof eruit diffundeert voordat hij kwaad kan doen. Voor de klusser is de les eenvoudig: een verzinkte hoogvaste bout die zonder aanwijsbare reden is gebroken, is geen pech maar een materiaalkwestie."
+        ],
+        "foto": 5
+      }
+    ]
+  },
+  {
+    "id": "weetjes-03",
+    "kop": "Beton onder spanning: waarom een vloer soms zonder waarschuwing valt",
+    "intro": "Beton kan bijna alles dragen, zolang je het maar niet uitrekt. Ingenieurs hebben slimme trucs bedacht om die zwakte te omzeilen, maar elke truc brengt een eigen manier van bezwijken mee. Over voorspanning, doorponsen en het pannenkoekeffect.",
+    "hoofdstuk": "Bouwkunde",
+    "basis": [
+      "152",
+      "160",
+      "153",
+      "154",
+      "163"
+    ],
+    "fotos": [
+      {
+        "wiki": "Prestressed concrete",
+        "taal": "en",
+        "bijschrift": "Voorgespannen beton: staalkabels houden het beton permanent samengedrukt"
+      },
+      {
+        "wiki": "Rebar",
+        "taal": "en",
+        "bijschrift": "Betonstaal in een bekisting: het staal neemt de trek op, het beton de druk"
+      },
+      {
+        "wiki": "Sampoong Department Store collapse",
+        "taal": "en",
+        "bijschrift": "Hulpverleners bij de ruïne van het Sampoong-warenhuis in Seoul"
+      },
+      {
+        "wiki": "Ronan Point",
+        "taal": "en",
+        "bijschrift": "Ronan Point in Londen: één weggeblazen paneel liet een hele hoek instorten"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Wie ooit een betonnen stoeptegel heeft laten vallen, weet dat beton niet zo sterk is als het eruitziet. Toch draagt hetzelfde materiaal flatgebouwen en bruggen. Het geheim is dat beton twee totaal verschillende sterktes heeft. Op druk is gewoon constructiebeton enorm sterk: een kubus van tien bij tien centimeter kan het gewicht van een volgeladen vrachtwagen dragen. Op trek is het ongeveer tien keer zo zwak, en bij de kleinste rek ontstaat een scheur. Een ligger die doorbuigt wordt aan de bovenkant samengedrukt en aan de onderkant uitgerekt, en aan die onderkant zou ongewapend beton meteen opensplijten.",
+          "De klassieke oplossing ken je van elke bouwplaats: wapeningsstaal. Stalen staven aan de trekzijde nemen de trekkrachten over die het beton niet aankan. Dat dit samenwerken überhaupt mogelijk is, berust op een gelukkig toeval. Staal en beton zetten bij temperatuurwisselingen vrijwel even veel uit, ongeveer een honderdste millimeter per meter per graad. Zou dat sterk verschillen, dan zouden de staven bij elke zomer en winter in het beton schuiven en loslaten. Nu blijven ze aan elkaar gehecht, en beschermt het basische beton het staal bovendien tegen roest."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Eerst knijpen, dan belasten",
+        "alineas": [
+          "Gewapend beton heeft een nadeel: het staal gaat pas werken als het beton al een beetje is uitgerekt, en dus al haarscheurtjes vertoont. Voor lange overspanningen is dat onhandig, want scheurtjes laten water binnen en maken een ligger slapper. Voorgespannen beton draait de logica om. Hoogvaste staalkabels worden strakgetrokken met hydraulische vijzels en hun spanning wordt op het beton overgedragen. De hele betondoorsnede staat dan permanent onder druk, nog voordat er iets op ligt.",
+          "Komt er later een belasting op die trek zou veroorzaken, dan moet die eerst de ingebouwde voordruk opheffen. Pas daarna zou het beton echt trek voelen, en bij een goed ontwerp gebeurt dat in de gebruiksfase nooit. Je kunt het vergelijken met een rij boeken die je tussen je handen klemt en optilt: zolang je hard genoeg knijpt, gedraagt de rij zich als één stijve balk. Zo zijn slanke viaducten, lange vloeroverspanningen en de bekende kanaalplaten mogelijk geworden.",
+          "Er zijn twee varianten. Bij voorspannen met aanhechting worden de kabels in een fabriek strakgezet, wordt het beton eromheen gestort en worden de kabels na uitharding losgelaten, zodat ze zich via hun hechting in het beton vastbijten. Bij nagespannen beton, post-tensioning, liggen de kabels in buizen in het verse beton en worden ze pas na uitharding aangetrokken en met ankers aan de vloerranden vastgezet. Die tweede methode is populair voor parkeergarages en kantoorvloeren, omdat de kabels in een gebogen lijn kunnen lopen die de krachten precies volgt."
+        ]
+      },
+      {
+        "tussenkop": "Eén kabel, hele vloer",
+        "alineas": [
+          "Juist die geconcentreerde kracht maakt nagespannen vloeren kwetsbaar op een manier die gewoon gewapend beton niet kent. Een enkele streng kan honderden kilonewtons trekkracht vasthouden, verankerd in één anker aan de rand. Als zo'n streng doorroest, bijvoorbeeld omdat strooizout via een lekkende voeg de buis heeft bereikt, of als een anker bezwijkt, valt zijn bijdrage in één klap weg. De buren moeten de last overnemen, worden zwaarder belast dan waarvoor ze ontworpen zijn, en kunnen op hun beurt bezwijken.",
+          "Hoe erg dat is, hangt af van de vraag of de kabel aan het beton gehecht is. Bij gehechte voorspanning is de buis na het spannen volgestort met mortel; breekt de streng ergens, dan houdt de hechting hem een paar meter verderop alweer vast en blijft hij over de rest van zijn lengte werken. Bij ongehechte strengen, die in een vettige kunststof mantel liggen en veel worden gebruikt in Amerikaanse parkeergarages, is er geen hechting. Breekt zo'n streng, dan verliest hij over zijn volle lengte in één keer al zijn kracht, van anker tot anker.",
+          "Bij breuk komt bovendien de elastische energie van de opgespannen kabel ineens vrij. Een gebroken streng kan als een zweep uit de vloerrand schieten. Daarom wordt in nagespannen constructies veel aandacht besteed bij gehechte systemen aan het volledig injecteren van de buizen met mortel, zodat er geen holtes overblijven waar vocht kan staan, en aan inspectie van de ankerzones, die het eerst te lijden hebben van lekkage."
+        ]
+      },
+      {
+        "tussenkop": "Doorponsen",
+        "alineas": [
+          "Een ander bezwijkmechanisme hoort bij vlakke betonvloeren die zonder balken rechtstreeks op kolommen rusten. Architecten houden daarvan: geen balken betekent een strak plafond en lagere verdiepingshoogtes. Maar de hele vloerlast moet dan door een klein vlak rond de kolomkop naar beneden. Daar ontstaat een enorme concentratie van dwarskracht. Als die te groot wordt, scheurt de vloer langs een kegelvormig vlak rond de kolom, ongeveer onder 45 graden, en zakt de vloer als een plaat over de kolom heen. Dat heet doorponsen, of punching shear.",
+          "Het gemene aan doorponsen is dat het bros gebeurt. Een overbelaste balk buigt eerst zichtbaar door en vertoont scheuren; een vloer die doorponst geeft nauwelijks waarschuwing. Ontwerpers voorkomen het met een verdikte plaat of paddenstoelkop rond de kolom, met extra schuifwapening of met stalen deuvelstrips. Bij het Sampoong-warenhuis in Seoul, dat in 1995 instortte en meer dan vijfhonderd mensen het leven kostte, waren de kolommen dunner uitgevoerd dan gepland, was er een verdieping bijgebouwd en stonden zware koelinstallaties op het dak. Eén kolomkop ponste door, waarna de vloeren elkaar meesleurden."
+        ],
+        "foto": 2,
+        "kader": {
+          "titel": "Drie manieren waarop beton bezwijkt",
+          "punten": [
+            "Buiging: de trekzijde scheurt, meestal met zichtbare waarschuwing",
+            "Doorponsen: een vlakke vloer zakt bros rond een kolom",
+            "Kabelbreuk: een voorspanstreng valt weg en de buren raken overbelast",
+            "Progressieve instorting: één element faalt, de rest volgt"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Het pannenkoekeffect",
+        "alineas": [
+          "Sampoong laat het laatste en grootste gevaar zien: progressieve instorting. Een goed gebouw kan één element verliezen zonder om te vallen, omdat de last een andere weg naar beneden vindt. Een gebouw zonder zulke alternatieve lastpaden niet. Als een kolom of dragende wand wegvalt, valt de vloer erboven naar beneden en raakt de volgende vloer met een stootbelasting die vele malen groter is dan zijn eigen gewicht. Die vloer houdt het niet, en zo stapelen de verdiepingen zich op als pannenkoeken.",
+          "Het schoolvoorbeeld is Ronan Point, een flat van 22 verdiepingen in Oost-Londen. In mei 1968, kort na de oplevering, veroorzaakte een gaslek een explosie in een keuken op de achttiende verdieping. Die blies een prefab gevelpaneel weg dat ook een dragende functie had. De verdiepingen erboven verloren hun steun en stortten op de lager gelegen vloeren, waardoor de hele hoek van het gebouw tot op de grond instortte. Vier mensen kwamen om; dat het er niet meer waren, kwam doordat het vroeg in de ochtend gebeurde.",
+          "De nasleep veranderde de bouwregels in Groot-Brittannië en daarbuiten. Constructies moeten sindsdien robuust zijn: elementen worden met trekbanden aan elkaar verbonden, zodat een vloer die zijn steun verliest kan blijven hangen aan de rest, en ontwerpers moeten aantonen dat het wegvallen van één element niet tot een onevenredig grote instorting leidt. Een gebouw hoeft een ramp dus niet ongeschonden te doorstaan, maar het mag niet als een kaartenhuis reageren."
+        ],
+        "foto": 3,
+        "citaat": "Een gebouw hoeft een ramp niet ongeschonden te doorstaan, maar het mag niet als een kaartenhuis reageren."
+      }
+    ]
+  },
+  {
+    "id": "weetjes-04",
+    "kop": "Een trein stuurt zichzelf, en dat is precies het probleem",
+    "intro": "Een trein heeft geen stuur, maar wel een ingenieus geometrisch trucje dat hem in het spoor houdt. Datzelfde trucje maakt hem boven een bepaalde snelheid instabiel. En op het moment dat hij moet stoppen, blijkt staal op staal verrassend glad. Over kegelvormige wielen, schuine rails en vallende bladeren.",
+    "hoofdstuk": "Trein en spoor",
+    "basis": [
+      "43",
+      "44",
+      "45",
+      "50",
+      "51"
+    ],
+    "fotos": [
+      {
+        "wiki": "Wheelset (rail transport)",
+        "taal": "en",
+        "bijschrift": "Een wielstel: twee wielen star op één as, met licht kegelvormige loopvlakken"
+      },
+      {
+        "wiki": "Hunting oscillation",
+        "taal": "en",
+        "bijschrift": "Hunting: de wielset gaat zigzaggen tussen de spoorstaven"
+      },
+      {
+        "wiki": "Kantelbaktrein",
+        "taal": "nl",
+        "bijschrift": "Een kantelbaktrein helt in de bocht en kan zo een groter verkantingstekort aan"
+      },
+      {
+        "wiki": "Slippery rail",
+        "taal": "en",
+        "bijschrift": "Platgewalst blad op een spoorstaaf: een spekgladde laag"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een auto heeft een differentieel nodig, omdat het buitenste wiel in een bocht een langere weg aflegt dan het binnenste en dus sneller moet draaien. Een trein heeft dat niet. Zijn twee wielen zitten star op één as en draaien altijd precies even snel. Toch rijdt een trein soepel door bochten zonder dat de wielen gaan slippen of over de rails gaan schuren. Hoe kan dat?",
+          "Het antwoord zit in een detail dat je pas ziet als je goed kijkt: het loopvlak van een treinwiel is niet cilindrisch maar licht kegelvormig. Het wiel wordt naar buiten toe smaller in diameter, met een helling van ongeveer 1 op 20 of 1 op 40. De flens, de opstaande rand aan de binnenkant, is vooral een laatste vangnet. Bij normaal rijden raakt die de spoorstaaf idealiter niet eens."
+        ]
+      },
+      {
+        "tussenkop": "De kegel als stuur",
+        "alineas": [
+          "Stel dat de wielset een paar millimeter naar links schuift. Het linkerwiel rolt dan op een dikker deel van zijn kegel, het rechterwiel op een dunner deel. Omdat beide wielen even snel ronddraaien, legt het linkerwiel per omwenteling meer afstand af dan het rechter. De as gaat daardoor vanzelf naar rechts draaien, terug naar het midden. In een bocht werkt hetzelfde principe in je voordeel: de middelpuntvliedende kracht duwt de wielset naar buiten, het buitenste wiel rolt op een grotere diameter en neemt zo vanzelf de langere buitenbaan voor zijn rekening.",
+          "Het is een fraai voorbeeld van besturing zonder stuur. Geen sensor, geen actuator, alleen geometrie. Maar het is ook een terugkoppelingssysteem, en terugkoppelingssystemen hebben de neiging om door te schieten. De wielset schiet over het midden heen, ziet zich nu naar rechts verplaatst, stuurt terug naar links, en zo verder. Al in de negentiende eeuw beschreef de Duitse ingenieur Klingel die golvende beweging wiskundig: de as volgt een sinusvormig pad door het spoor, met een golflengte die afhangt van de kegelhelling en de wielmaat."
+        ]
+      },
+      {
+        "tussenkop": "Hunting: als het zichzelf versterkt",
+        "alineas": [
+          "Bij lage snelheid is die golfbeweging zacht en sterft ze uit. Maar boven een kritische snelheid verandert het karakter. De wrijvingskrachten tussen wiel en rail, die eerst dempen, gaan de beweging juist voeden. De slingering versterkt zichzelf, tot de flenzen links en rechts hard tegen de spoorstaven slaan. Dit heet hunting, letterlijk jagen, en wie ooit in een oude goederenwagen op hoge snelheid heeft gezeten kent het als een onrustig, ratelend heen en weer gestuiter. Het geeft slijtage aan wielen en rails, schade aan de lading en in het ergste geval ontsporingsgevaar.",
+          "Daarom is het ontwerp van een hogesnelheidsdraaistel een zorgvuldige afweging. Een steilere kegel stuurt krachtiger in bochten, maar verlaagt de kritische snelheid. Een vlakkere kegel is stabieler op rechte stukken, maar stuurt slechter in bochten. Ingenieurs schuiven de grens op met de stijfheid waarmee de wielsets in het draaistel zijn opgehangen en vooral met hydraulische slingerdempers die tussen draaistel en bak zitten. Die remmen de draaibeweging van het draaistel af en houden de trein ook bij driehonderd kilometer per uur rustig."
+        ],
+        "foto": 1,
+        "citaat": "Geen sensor, geen actuator, alleen geometrie."
+      },
+      {
+        "tussenkop": "Scheef in de bocht",
+        "alineas": [
+          "Ook in het spoor zelf zit geometrie. In een boog ligt de buitenste spoorstaaf hoger dan de binnenste. Dat heet verkanting, in het Engels cant. De trein helt daardoor naar binnen, zodat een deel van zijn gewicht de middelpuntzoekende kracht levert die hem door de bocht dwingt. Bij precies de juiste snelheid, de evenwichtssnelheid, voelt een reiziger helemaal geen zijwaartse kracht: een kopje koffie blijft in het midden van het schoteltje staan en de rails worden aan beide kanten gelijk belast.",
+          "Het probleem is dat over hetzelfde spoor snelle intercity's en langzame goederentreinen rijden. Een goederentrein die bij een hoge verkanting langzaam door de boog rijdt, drukt met zijn gewicht te zwaar op de binnenste staaf. Spoorbouwers kiezen daarom een compromis en accepteren dat snelle treinen meer verkanting nodig zouden hebben dan er ligt. Dat tekort heet het verkantingstekort, cant deficiency. Het wordt begrensd op een waarde waarbij de resterende zijwaartse versnelling nog comfortabel en veilig is. Kantelbaktreinen laten hun rijtuigen actief in de bocht hellen, zodat ze een groter tekort aankunnen zonder dat de reiziger het voelt."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Staal op staal is glad",
+        "alineas": [
+          "Die harde, gladde stalen wielen hebben een groot voordeel: de rolweerstand is extreem laag. Een trein gebruikt per ton per kilometer maar een fractie van de energie van een vrachtwagen. De keerzijde is dat de grip gering is. De wrijvingscoëfficiënt tussen wiel en rail, de adhesie, ligt onder droge omstandigheden rond 0,2 tot 0,3, en bij nat weer al snel rond 0,1. Rubber op droog asfalt haalt waarden rond 0,8 tot 1. Een trein kan zijn wielen dus maar heel beperkt laten remmen voordat ze gaan glijden.",
+          "Dat verklaart waarom een trein niet op zicht kan stoppen. Met een vertraging van ongeveer één meter per seconde per seconde, wat voor een reizigerstrein normaal is, heeft een trein van 140 kilometer per uur ongeveer achthonderd meter nodig om tot stilstand te komen. Een zware goederentrein heeft er nog veel meer nodig. Het hele seinstelsel is daarop gebouwd: een machinist krijgt ruim van tevoren te zien wat er verderop gebeurt, zodat hij kan afremmen lang voordat hij het obstakel zelf zou kunnen zien."
+        ],
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Kegelvormige wielen sturen de as vanzelf naar het spoormidden",
+            "Boven een kritische snelheid wordt die zelfsturing instabiel: hunting",
+            "Slingerdempers en wielprofiel bepalen de maximale stabiele snelheid",
+            "Verkanting is een compromis tussen snelle en langzame treinen",
+            "Adhesie staal-op-staal: ongeveer 0,1 tot 0,3"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Vallend blad",
+        "alineas": [
+          "In de herfst wordt het nog erger. Bladeren die op de spoorstaven vallen, worden door de enorme druk in het contactvlak, een plekje van ongeveer een vierkante centimeter dat enkele tonnen draagt, platgewalst tot een dunne, harde en spekgladde laag. Op die laag kan de adhesie zakken tot ver onder 0,05. Treinen schieten dan door bij perrons of blijven met slippende wielen hangen op een helling. In Nederland en het Verenigd Koninkrijk is dit jaarlijks een bekend probleem met eigen dienstregelingsaanpassingen.",
+          "Het oudste hulpmiddel is zand. Vlak voor de wielen zitten zandstrooiers die bij slippen of glijden een straaltje droog zand tussen wiel en spoorstaaf blazen. De harde korrels worden in het contactvlak verbrijzeld, breken door de bladlaag heen en geven het staal weer iets om zich aan vast te bijten. Moderne treinen doen dit automatisch zodra het antislipsysteem ingrijpt. Daarnaast rijden er in het najaar speciale treinen die de spoorstaven met waterstralen onder hoge druk schoonspuiten en soms een gel met zand aanbrengen.",
+          "Wat begon als een wiel zonder stuur, eindigt zo bij een kwestie van wrijving. Het spoor is een systeem waarin geometrie de trein leidt en waarin de natuurkunde van een contactvlak van ongeveer een vierkante centimeter bepaalt hoe snel hij kan optrekken en hoe ver vooruit hij moet kijken om te kunnen stoppen. Dezelfde lage wrijving die een trein zo zuinig maakt, maakt hem ook afhankelijk van seinen, zandbakken en schone spoorstaven. Elk voordeel van staal op staal heeft zijn prijs, en het vak van de spoorwegingenieur bestaat grotendeels uit het slim betalen van die prijs."
+        ],
+        "foto": 3
+      }
+    ]
+  },
+  {
+    "id": "weetjes-05",
+    "kop": "Water dat koud kookt en een schip dat zichzelf omlaag zuigt",
+    "intro": "Een scheepsschroef kan water laten koken zonder het te verwarmen, een bol onder de boeg kan een golf uitdoven, en een zeeschip kan in ondiep water een meter dieper gaan liggen alleen doordat het harder vaart. Allemaal het gevolg van één natuurkundige wet: waar water snel stroomt, daalt de druk.",
+    "hoofdstuk": "Scheepvaart",
+    "basis": [
+      "55",
+      "56",
+      "57",
+      "58",
+      "63"
+    ],
+    "fotos": [
+      {
+        "wiki": "Bulbous bow",
+        "taal": "en",
+        "bijschrift": "Een bulbsteven: de bol onder de waterlijn maakt een eigen golf"
+      },
+      {
+        "wiki": "Cavitation",
+        "taal": "en",
+        "bijschrift": "Cavitatieschade: imploderende dampbellen hebben putjes in het brons gevreten"
+      },
+      {
+        "wiki": "Propeller",
+        "taal": "en",
+        "bijschrift": "Een grote scheepsschroef, elk blad een vleugelprofiel dat door water snijdt"
+      },
+      {
+        "wiki": "Squat effect",
+        "taal": "en",
+        "bijschrift": "Squat: in ondiep water wordt een varend schip naar de bodem gezogen"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een scheepsschroef is in wezen een ronddraaiende vleugel. Elk blad heeft een profiel met een drukzijde en een zuigzijde, en net als bij een vliegtuigvleugel ontstaat de stuwkracht doordat het water aan de ene kant sneller stroomt dan aan de andere. Volgens de wet van Bernoulli daalt de druk waar de stroming versnelt. Aan de zuigzijde van een snel draaiend blad kan die druk zo laag worden dat er iets vreemds gebeurt: het water gaat koken, terwijl het gewoon zeewatertemperatuur heeft.",
+          "Koken is namelijk geen kwestie van temperatuur alleen, maar van temperatuur in verhouding tot druk. Op de top van een hoge berg kookt water al onder de honderd graden omdat de luchtdruk lager is. Bij zeewater van vijftien graden ligt de dampspanning rond de 1,7 kilopascal, bijna zestig keer lager dan de atmosferische druk. Haalt de stroming de lokale druk daaronder, dan vormen zich in een oogwenk dampbellen op het blad. Dat verschijnsel heet cavitatie."
+        ]
+      },
+      {
+        "tussenkop": "Imploderende bellen",
+        "alineas": [
+          "De bellen zelf zijn niet het probleem. Het probleem ontstaat een fractie van een seconde later, als ze met de stroming meegevoerd worden naar een gebied waar de druk weer hoger is. Daar condenseert de damp in één klap en klapt de bel in elkaar. Dat gebeurt zelden netjes bolvormig. Vlak bij een oppervlak stort de bel asymmetrisch in, waarbij een microscopisch straaltje water met grote snelheid tegen het metaal slaat. De lokale drukpiek is enorm, al duurt hij maar even.",
+          "Eén zo'n inslag doet niets. Miljoenen per seconde, jarenlang, wel. Het metaal vermoeit en brokkelt in kleine korreltjes af. Cavitatieschade herken je aan een sponsachtig, putjesrijk oppervlak, alsof het blad door een zandstraler is aangevreten. Je vindt het niet alleen op scheepsschroeven, maar ook op pompwaaiers, waterturbines in stuwdammen en roerbladen die vlak achter de schroef hangen. Daarnaast kost cavitatie rendement, omdat de dampbellen de stroming over het blad verstoren, en maakt het een karakteristiek knetterend lawaai."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Stille schroeven",
+        "alineas": [
+          "Dat lawaai is voor een marineschip het grootste probleem. Onderwatergeluid draagt kilometers ver, en de hydrofoons van een onderzeeboot kunnen aan het geluidsbeeld zelfs het type schroef herkennen. Daarom zien marineschroeven er anders uit dan die van een vrachtschip. Ze hebben vaak zeven bladen of meer, en die bladen zijn sterk naar achteren gebogen, als sikkels. Dat heet skew. Wie zo'n schroef ziet, herkent hem meteen aan de elegante, bijna bloemachtige vorm; marines houden de exacte geometrie dan ook vaak geheim, en schroeven van onderzeeboten worden in het droogdok niet zelden met zeilen afgeschermd.",
+          "Beide maatregelen hebben een duidelijke reden. Meer bladen verdelen de totale stuwkracht over een groter oppervlak, waardoor de belasting per blad en dus de onderdruk aan de zuigzijde afneemt. Cavitatie begint dan pas bij een hogere snelheid. De sikkelvorm helpt op een subtielere manier. Het water achter een scheepsromp stroomt ongelijkmatig: bovenin, in de schaduw van de romp, trager dan onderin. Een recht blad gaat in één keer door zo'n zone heen en krijgt een harde klap. Een gebogen blad snijdt er geleidelijk doorheen, van de wortel naar de tip, zodat de drukwisselingen worden uitgesmeerd en het geheel minder trilt.",
+          "Het resultaat is een schroef die bij kruissnelheid nauwelijks caviteert. Voor een onderzeeboot is de snelheid waarbij cavitatie begint een van de belangrijkste ontwerpgetallen, omdat daaronder het schip veel moeilijker te horen is. Voor koopvaardijschepen wordt cavitatie juist belangrijk voor comfort: de drukpulsen van een caviterende schroef worden via de romp naar de accommodatie geleid en zijn daar als dreun voelbaar."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Een golf tegen een golf",
+        "alineas": [
+          "Een schip dat door het water gaat, duwt het water voor zich uit en maakt daarmee een boeggolf. Het opbouwen van die golf kost energie, en bij hogere snelheden is die golfweerstand een flink deel van de totale weerstand. Wie onder de boeg van een groot containerschip of tanker kijkt, ziet vaak een dikke bol die net onder de waterlijn naar voren steekt. Dat is de bulbsteven, en hij is er om een tweede golf te maken.",
+          "De bol duwt het water iets vóór de eigenlijke boeg al omhoog en wekt zo een eigen golfpatroon op. Als de afmetingen en positie kloppen, ligt het golfdal van de bulb precies waar de boeg zijn golftop maakt. De twee golven doven elkaar dan gedeeltelijk uit, net zoals een koptelefoon met ruisonderdrukking een tegengeluid maakt. De boeggolf wordt lager, en er gaat minder brandstof op aan het rondduwen van water.",
+          "Het werkt alleen in een beperkt gebied. De golflengte van een boeggolf hangt af van de snelheid, dus een bulb die ontworpen is voor twintig knopen, kan bij twaalf knopen averechts werken en weerstand toevoegen. Toen containerrederijen na 2008 massaal langzamer gingen varen om brandstof te sparen, slow steaming, lieten sommigen de bulbsteven van hun schepen ombouwen of zelfs vervangen door een vorm die beter paste bij de nieuwe kruissnelheid."
+        ],
+        "citaat": "De twee golven doven elkaar gedeeltelijk uit, net zoals een koptelefoon met ruisonderdrukking een tegengeluid maakt."
+      },
+      {
+        "tussenkop": "Squat: naar de bodem gezogen",
+        "alineas": [
+          "Bernoulli speelt ook onder de romp een rol. Een schip in diep water verdringt het water gelijkmatig naar alle kanten. In ondiep water, zoals een vaargeul of een kanaal, moet dat water door een smalle spleet onder en naast de romp. Het stroomt daar sneller, de druk daalt, en het schip wordt als geheel naar beneden gezogen. Meestal zakt de boeg daarbij iets meer dan de achtersteven. Dit verschijnsel heet squat, en het groeit ongeveer met het kwadraat van de snelheid: twee keer zo snel varen betekent ongeveer vier keer zo veel inzinking.",
+          "Voor een groot schip met weinig water onder de kiel kan squat al gauw een meter of meer bedragen. Een kapitein die op de kaart ziet dat er anderhalve meter ruimte is en gewoon doorvaart, kan zo aan de grond lopen. Daarom gelden in vaargeulen en havens snelheidsbeperkingen, en houden loodsen bij hun berekening van de benodigde kielspeling expliciet rekening met de inzinking bij de geplande vaart."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Cavitatie: water kookt door drukdaling, niet door verwarming",
+            "Schade ontstaat bij het imploderen van de dampbellen",
+            "Meer en sikkelvormige bladen houden een schroef stil",
+            "Een bulbsteven werkt alleen rond zijn ontwerpsnelheid",
+            "Squat groeit ongeveer kwadratisch met de snelheid"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Waarom vaart minderen niet altijd helpt",
+        "alineas": [
+          "Squat stelt de bemanning voor een dilemma, want een schip heeft snelheid nodig om te sturen. Het roer werkt alleen als er water langs stroomt, en het krachtigste water dat er langs stroomt is de schroefstroom zelf. Zet je de machine stil, dan glijdt het schip nog lang door, maar het roer heeft dan alleen de trage stroming langs de romp en reageert nauwelijks. Daarom geeft een stuurman in een krappe situatie vaak juist kort hard gas met het roer uit: een stoot schroefwater langs het roerblad draait de achtersteven om, nog voordat het schip merkbaar vaart maakt.",
+          "Moderne schepen omzeilen dat probleem steeds vaker met boegschroeven en met draaibare schroefgondels, azipods, die de elektromotor en de schroef in één gondel onder de romp hebben en de stuwkracht in elke richting kunnen richten. Een apart roer is dan overbodig. Maar het principe blijft overeind, of het nu om een klassiek roer of een draaiende gondel gaat: stromend water is de bron van stuwkracht, van stuurkracht én van de gevaren die de scheepsontwerper probeert te temmen. Wie Bernoulli begrijpt, begrijpt een groot deel van het schip."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "weetjes-06",
+    "kop": "Pingelen, gloeien en LSPI: als de verbranding niet op de vonk wacht",
+    "intro": "Een benzinemotor leeft van een gecontroleerde brand die precies op het juiste moment begint. Gaat het mengsel op eigen houtje ontbranden, dan kan een zuiger binnen een paar omwentelingen een gat krijgen. Waarom moderne kleine turbomotoren daar extra gevoelig voor zijn, en wat de wastegate ermee te maken heeft.",
+    "hoofdstuk": "Automotoren",
+    "basis": [
+      "67",
+      "68",
+      "69",
+      "74",
+      "75"
+    ],
+    "fotos": [
+      {
+        "wiki": "Engine knocking",
+        "taal": "en",
+        "bijschrift": "Klopschade: de zuigerbodem is aangevreten door detonatiedrukgolven"
+      },
+      {
+        "wiki": "Spark plug",
+        "taal": "en",
+        "bijschrift": "De bougie hoort de enige ontstekingsbron in de cilinder te zijn"
+      },
+      {
+        "wiki": "Intercooler",
+        "taal": "en",
+        "bijschrift": "Een intercooler koelt de door de turbo verhitte inlaatlucht"
+      },
+      {
+        "wiki": "Turbocharger",
+        "taal": "en",
+        "bijschrift": "Uitlaatgas drijft de turbine aan; het overschot moet via de wastegate eromheen"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "In een benzinemotor ontsteekt de bougie het mengsel net voordat de zuiger zijn bovenste punt bereikt. Vanaf de vonk loopt een vlamfront als een uitdijende bel door de verbrandingskamer, met een snelheid van enkele tientallen meters per seconde. Dat klinkt snel, maar het is een beheerste verbranding, geen explosie. De druk stijgt geleidelijk, bereikt zijn hoogtepunt kort na het bovenste dode punt en duwt de zuiger soepel omlaag. Het ontstekingstijdstip wordt zo gekozen dat die piek precies op het gunstigste moment valt.",
+          "Het gaat mis als een deel van het mengsel niet wacht tot het vlamfront het bereikt. Dat kan op twee manieren: ná de vonk en vóór de vonk. Die twee lijken op elkaar, maar ze verschillen fundamenteel in oorzaak, in gevaar en in de manier waarop een motor zich ertegen kan verdedigen. Wie het verschil kent, begrijpt ook waarom een moderne kleine turbomotor andere eisen stelt aan brandstof en olie dan de atmosferische motoren van een generatie geleden, en waarom een tuner niet straffeloos aan de laaddruk kan draaien."
+        ]
+      },
+      {
+        "tussenkop": "Klop: de laatste gassen ontploffen",
+        "alineas": [
+          "Terwijl het vlamfront door de cilinder trekt, wordt het nog onverbrande mengsel aan de randen, het eindgas, steeds verder samengeperst en verhit. Het brandende deel zet uit en drukt de rest in een hoek. Als die druk en temperatuur hoog genoeg worden, ontbrandt het eindgas spontaan en vrijwel in één keer, voordat de vlam er is. Dat is detonatie, of klop. De bijna gelijktijdige verbranding veroorzaakt drukgolven die met hoge frequentie door de cilinder kaatsen. Je hoort ze als een metalig getik, het bekende pingelen bij optrekken in een te hoge versnelling.",
+          "Lichte klop is vooral hinderlijk, zware klop is destructief. De drukgolven verstoren het dunne laagje relatief koel gas dat normaal tegen de zuigerbodem en de cilinderkop ligt en het metaal tegen de vlam beschermt. Zonder die isolerende grenslaag stroomt de warmte veel sneller in de zuiger. Het resultaat zie je bij een revisie: aangevreten zuigerranden, beschadigde zuigerveren en in extreme gevallen een gesmolten gat in de zuigerbodem.",
+          "Het octaangetal van benzine is een maat voor hoe goed de brandstof die zelfontbranding weerstaat. Daarnaast heeft elke moderne motor klopsensoren: kleine piëzo-elektrische microfoons op het motorblok die op de typische klopfrequentie zijn afgestemd. Horen ze klop, dan verlaat de motorregeling de ontsteking een paar graden. Het vlamfront begint dan later, de piekdruk daalt en het eindgas krijgt minder tijd om op te warmen. Je levert wat vermogen in, maar de motor overleeft."
+        ]
+      },
+      {
+        "tussenkop": "Pre-ignition: het mengsel wacht niet",
+        "alineas": [
+          "Pre-ignition, voorontsteking, is een ander beest. Hier begint de verbranding al vóór de vonk, omdat iets in de cilinder zo heet is geworden dat het als een tweede bougie werkt. Dat kan een oververhitte uitlaatklep zijn, een gloeiend stukje koolaanslag, een scherpe rand van een pakking of een bougie met een te hoge warmtewaarde. De verbranding begint dan terwijl de zuiger nog omhoog komt en het mengsel aan het samenpersen is. De motor perst als het ware tegen zijn eigen explosie in, en de piekdruk wordt extreem hoog.",
+          "Het gevaarlijke is dat pre-ignition zichzelf versterkt. De te vroege verbranding maakt alles in de cilinder heter, waardoor het gloeiende punt nog heter wordt en de ontsteking de volgende cyclus nog eerder begint. Binnen enkele omwentelingen kan dit uitmonden in een gesmolten zuiger. En de klopregeling kan er weinig aan doen: de ontsteking later zetten helpt niet als het mengsel helemaal niet op de vonk wacht. Pre-ignition veroorzaakt vaak wel zware klop als bijverschijnsel, maar de oorzaak ligt ergens anders."
+        ],
+        "foto": 1,
+        "citaat": "De ontsteking later zetten helpt niet als het mengsel helemaal niet op de vonk wacht."
+      },
+      {
+        "tussenkop": "Het probleem van de kleine turbomotor",
+        "alineas": [
+          "Rond 2010 dook een nieuwe variant op, toen fabrikanten massaal overstapten op kleine turbomotoren met directe inspuiting. Een driecilinder van één liter die dankzij een turbo het koppel levert van een oude tweeliter, draait vaak op lage toeren met een hoge laaddruk. Precies in die situatie, bij lage toerentallen en veel gas, meldden fabrikanten zeldzame maar heftige incidenten: één enkele cyclus met een extreem hoge drukpiek die een zuiger of drijfstang kon breken. Het kreeg een eigen naam: low-speed pre-ignition, LSPI.",
+          "Onderzoek wees een verrassende boosdoener aan: de motorolie. Kleine druppeltjes olie, vermengd met brandstof die tegen de cilinderwand is gespoten, kunnen uit de spleet boven de bovenste zuigerveer losraken en als gloeiende deeltjes het mengsel ontsteken. Bepaalde additieven in de olie, vooral calciumverbindingen die als reinigingsmiddel dienen, bleken de kans op LSPI te vergroten. Daarom zijn er nieuwe oliespecificaties gekomen, zoals API SP en ILSAC GF-6, die expliciet op LSPI-bestendigheid worden getest. Wie een moderne turbomotor heeft, doet er dus goed aan precies de voorgeschreven olie te gebruiken."
+        ],
+        "kader": {
+          "titel": "Klop of voorontsteking?",
+          "punten": [
+            "Klop: ná de vonk, eindgas ontbrandt spontaan; klopsensor verlaat de ontsteking",
+            "Pre-ignition: vóór de vonk, door een gloeiend punt; zichzelf versterkend",
+            "LSPI: oliedruppels als ontstekingsbron, bij lage toeren en hoge laaddruk",
+            "Remedies: hoger octaan, goede koeling, juiste bougie en de voorgeschreven olie"
+          ]
+        }
+      },
+      {
+        "tussenkop": "De turbo als dubbelzijdig zwaard",
+        "alineas": [
+          "Dat LSPI juist bij turbomotoren optreedt, is geen toeval. Een turbo perst meer lucht in de cilinder, waardoor er meer brandstof kan worden verbrand en het vermogen stijgt. Maar meer vulling betekent ook hogere druk en temperatuur tijdens de compressie, precies de omstandigheden waarin klop en voorontsteking gedijen. Daarom hebben turbomotoren vrijwel altijd een intercooler die de door de compressor opgewarmde lucht weer afkoelt, en een lagere geometrische compressieverhouding dan een vergelijkbare atmosferische motor.",
+          "De turbo zelf wordt aangedreven door de uitlaatgassen, die een turbinewiel laten draaien dat via een gemeenschappelijke as het compressorwiel aandrijft. Daar zit de oorsprong van turbolag. Geef je plotseling gas, dan moeten de uitlaatgassen eerst de rotor op toeren brengen, en die kan meer dan honderdduizend toeren per minuut draaien. Bij lage motortoerentallen is er weinig uitlaatgas, dus duurt het even voordat de laaddruk er is. Lichtere rotoren, kleinere turbo's, variabele schoepen in het turbinehuis en elektrisch ondersteunde turbo's verkleinen die vertraging."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "De wastegate als veiligheidsklep",
+        "alineas": [
+          "Het omgekeerde probleem doet zich voor bij hoge toerentallen. Dan is er zo veel uitlaatgas dat de turbo steeds harder zou gaan draaien en steeds meer druk zou opbouwen, tot de motor erdoor beschadigd raakt. Een wastegate voorkomt dat. Het is een klep in het uitlaatspruitstuk of turbinehuis die een deel van het uitlaatgas om de turbine heen laat stromen. De turbine krijgt dan minder energie en versnelt niet verder, waardoor de laaddruk op een vast maximum blijft.",
+          "Bij oudere turbomotoren werd de wastegate geopend door een membraan dat direct op de laaddruk reageerde. Moderne motoren sturen hem elektronisch aan, op basis van onder andere de gemeten laaddruk, de inlaattemperatuur en de signalen van de klopsensoren. Zo komt het verhaal rond: de motorregeling stuurt ontsteking en laaddruk samen, met als doel zo dicht mogelijk bij de klopgrens te werken zonder eroverheen te gaan. Wie bij een tuningbedrijf meer laaddruk laat programmeren, schuift die grens dus ook op, en moet zich afvragen of octaan, koeling en olie dat bijhouden."
+        ],
+        "foto": 3
+      }
+    ]
+  },
+  {
+    "id": "weetjes-07",
+    "kop": "N1, N2 en de knal uit de inlaat: wat er in een straalmotor misgaat",
+    "intro": "Wie in een flightsim een airliner opstart, ziet eerst N2 oplopen, dan de EGT, en pas veel later N1. Achter die volgorde zit een machine die voortdurend op het randje van overtrekken balanceert. Over twee assen, schoepen die meedraaien en kleppen die lucht weggooien.",
+    "hoofdstuk": "Straalmotoren",
+    "basis": [
+      "14",
+      "15",
+      "16",
+      "17",
+      "25"
+    ],
+    "fotos": [
+      {
+        "wiki": "CFM International CFM56",
+        "taal": "en",
+        "bijschrift": "Een CFM56, de turbofan onder de Boeing 737 en de Airbus A320"
+      },
+      {
+        "wiki": "Turbofan",
+        "taal": "en",
+        "bijschrift": "Doorsnede van een turbofan: de fan en de kern draaien op aparte assen"
+      },
+      {
+        "wiki": "Axial compressor",
+        "taal": "en",
+        "bijschrift": "Een axiale compressor: rijen draaiende rotorschoepen met stilstaande stators ertussen"
+      },
+      {
+        "wiki": "Compressor stall",
+        "taal": "en",
+        "bijschrift": "Normale en verstoorde instroming: bij een scheve aanstroming raken de schoepen in stall"
+      },
+      {
+        "wiki": "Turbine blade",
+        "taal": "en",
+        "bijschrift": "Een turbineblad werkt in gassen die heter zijn dan zijn eigen smeltpunt"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een straalmotor ziet er eenvoudig uit: lucht erin, samenpersen, brandstof erbij, verbranden, en de hete gassen drijven achterin een turbine aan die de compressor voorin laat draaien. Maar de compressor is het lastigste onderdeel van het hele ding. Hij bestaat uit een reeks rijen kleine schoepen, en elke schoep is in feite een vleugeltje. En net als een vleugel kan een compressorschoep overtrekken als de lucht er onder een te grote hoek op valt. Bijna alles wat er in de cockpit aan motorbediening en -bewaking zit, is erop gericht om dat te voorkomen.",
+          "Een moderne turbofan, zoals de CFM56 onder de Boeing 737 en Airbus A320, heeft daarom niet één maar twee assen die in elkaar zitten. De buitenste, snellere as heet de hogedrukspoel. Die verbindt de hogedrukcompressor met de hogedrukturbine, vlak achter de verbrandingskamer. De binnenste as, de lagedrukspoel, loopt door die eerste heen en verbindt de grote fan voorin en de eerste compressortrappen met de lagedrukturbine helemaal achterin. Mechanisch zijn de twee niet gekoppeld: ze draaien elk op hun eigen toerental."
+        ]
+      },
+      {
+        "tussenkop": "Waarom twee toerentellers",
+        "alineas": [
+          "Die toerentallen zie je in de cockpit als N1 en N2, uitgedrukt in procenten van een referentietoerental. N1 is de lagedrukspoel met de fan, en omdat de fan bij een moderne turbofan het overgrote deel van de stuwkracht levert, is N1 de belangrijkste maat voor de stuwkracht. Bij veel Boeing-toestellen zet je het vermogen dan ook op een N1-waarde. N2 is de hogedrukspoel, het hart van de motor. Daar begint het opstarten mee: de starter, aangedreven door perslucht van de APU, draait de hogedrukspoel rond, en pas als de kern loopt, gaat de fan door de luchtstroom vanzelf mee.",
+          "De reden voor die splitsing is aerodynamisch. Een fan met een doorsnee van ruim anderhalve meter moet relatief langzaam draaien, anders worden de bladtips supersoon en verliezen ze rendement. De kleine schoepen achter in de hogedrukcompressor hebben juist een hoge omtreksnelheid nodig om de lucht effectief samen te persen. Met één as zou je een slecht compromis moeten kiezen. Met twee vrij draaiende assen vindt elke spoel zijn eigen optimale toerental, en kunnen ze zich ook onafhankelijk aanpassen als de vliegomstandigheden veranderen."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Stall en surge",
+        "alineas": [
+          "Toch blijft de compressor kwetsbaar. Een compressorschoep kijkt naar een aanstroomhoek die afhangt van twee snelheden: hoe snel de schoep rondgaat en hoe snel de lucht axiaal, van voor naar achter, door de motor stroomt. Daalt die axiale snelheid ten opzichte van de rotatie, bijvoorbeeld omdat de druk achterin te hoog oploopt, dan wordt de hoek te groot en laat de stroming los. Begint dat bij een paar schoepen, dan ontstaat een cel van haperende lucht die met de rotor mee rondtrekt: rotating stall. De motor verliest wat rendement en gaat soms trillen.",
+          "Erger is een surge. Dan stort de drukopbouw in de hele compressor tegelijk in, en de hogedruklucht achterin, die nergens anders heen kan, slaat terug naar voren. Dat gaat gepaard met een harde knal, soms een vlammenstoot uit de inlaat of de uitlaat, een sprong in de EGT en een daling van de toerentallen. Daarna herstelt de stroming zich vaak, bouwt de druk weer op en kan de cyclus zich herhalen, met een reeks knallen, tot de brandstoftoevoer wordt teruggebracht. Passagiers die het meemaken, denken vaak aan een explosie; de motor zelf overleeft het meestal zonder grote schade."
+        ],
+        "foto": 3,
+        "citaat": "Net als een vleugel kan een compressorschoep overtrekken als de lucht er onder een te grote hoek op valt."
+      },
+      {
+        "tussenkop": "Schoepen die meedraaien",
+        "alineas": [
+          "Het gevaarlijkste moment voor de compressor is bij lage toerentallen, zoals tijdens het starten en stationair. De compressor is ontworpen voor kruisvermogen, waarbij elke trap precies past bij de luchtstroom die de vorige trap aflevert. Bij lage toeren klopt die afstemming niet meer. De voorste trappen persen te weinig samen, waardoor de lucht achterin te veel volume heeft om door de kleine achterste trappen te passen. Die stuwt op, de axiale snelheid voorin daalt en de voorste schoepen komen in de buurt van hun stallhoek.",
+          "Een eerste oplossing zijn verstelbare statorschoepen, variable stator vanes. De stators zijn de stilstaande schoepen tussen de rotortrappen die de lucht onder de juiste hoek op de volgende rotor richten. Bij een modern ontwerp zijn de voorste stators draaibaar, aangestuurd door hydraulische actuators en een ringmechanisme rond het compressorhuis. Bij lage toeren draaien ze dicht, zodat ze de lucht al een draai meegeven in de draairichting van de rotor. Daardoor valt de lucht onder een kleinere hoek op de rotorschoepen. Bij hogere toeren draaien ze weer open voor maximale doorstroming."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Lucht weggooien om lucht te sparen",
+        "alineas": [
+          "De tweede oplossing is bijna paradoxaal: lucht weggooien. Halverwege de compressor zitten aftapkleppen, bleed valves, die bij het opstarten en bij lage toeren openstaan. Een deel van de lucht die de voorste trappen al met moeite hebben samengeperst, wordt daar naar buiten of naar de bypassstroom geblazen. Dat lijkt verspilling, maar het verlaagt de tegendruk voor de voorste trappen, waardoor de lucht daar sneller doorstroomt en de schoepen uit hun stallgebied blijven. Zodra de toerentallen stijgen en de trappen weer bij elkaar passen, gaan de kleppen dicht.",
+          "Variabele stators en aftapkleppen worden door de FADEC aangestuurd, de digitale motorregeling, op basis van onder meer het toerental en de inlaattemperatuur. De piloot ziet er niets van, tenzij er iets misgaat. De twee-assige opbouw zelf is overigens de derde, en de belangrijkste, maatregel tegen stall: doordat de spoelen elk hun eigen toerental kiezen, past de motor zich deels zelf aan."
+        ],
+        "kader": {
+          "titel": "Opstartvolgorde van een turbofan",
+          "punten": [
+            "Startklep open: APU-perslucht draait de starter en daarmee N2",
+            "Bij voldoende N2 (vaak rond 20–25%): brandstof aan en ontsteking",
+            "Lightoff: de EGT stijgt snel, bewaak de startlimiet",
+            "N1 begint mee te draaien; de starter wordt rond 55% N2 uitgeschakeld",
+            "Stabiliseren op stationair; aftapkleppen en stators naar loopstand"
+          ]
+        }
+      },
+      {
+        "tussenkop": "EGT: het getal dat je niet uit het oog verliest",
+        "alineas": [
+          "Bij het starten is er nog een getal dat alle aandacht vraagt: de EGT, de uitlaatgastemperatuur. Eigenlijk wil je de temperatuur weten vlak vóór de turbine, waar de gassen uit de verbrandingskamer komen. Die is te heet om betrouwbaar te meten, dus meet je verderop in de motor en leid je de rest af. De turbinebladen werken in gassen die heter zijn dan het smeltpunt van hun eigen nikkellegering. Ze overleven alleen dankzij inwendige koelkanaaltjes, een keramische hittewerende laag en een continue stroom koellucht uit de compressor.",
+          "Tijdens het starten draait de motor nog langzaam en is die koelluchtstroom klein. Als er dan te veel brandstof bij te weinig lucht wordt verbrand, schiet de EGT door: een hot start. Gebeurt dat, dan breekt de bemanning of de FADEC de start af door de brandstof af te sluiten en de motor met de starter droog te laten doordraaien om hem uit te blazen. Ook een hung start, waarbij de motor wel ontsteekt maar onder stationair blijft hangen, gaat vaak met een oplopende EGT gepaard, omdat de motor te weinig lucht verplaatst voor de brandstof die hij krijgt. Een overschrijding van de EGT-limiet betekent bijna altijd een inspectie van de hete sectie."
+        ],
+        "foto": 4
+      }
+    ]
+  },
+  {
+    "id": "weetjes-08",
+    "kop": "Waar een vleugel het eerst loslaat, bepaalt of je het navertelt",
+    "intro": "Een vleugel overtrekt nooit overal tegelijk. De vraag is wáár het begint, en ontwerpers doen veel moeite om dat te sturen: met een lijstje van een paar centimeter, rijen vinnetjes en een vleugel die getordeerd is. Bij hoge snelheid wacht vervolgens een heel ander gevaar.",
+    "hoofdstuk": "Aerodynamica",
+    "basis": [
+      "34",
+      "35",
+      "31",
+      "40",
+      "36"
+    ],
+    "fotos": [
+      {
+        "wiki": "Boeing 707",
+        "taal": "en",
+        "bijschrift": "De Boeing 707 met zijn sterk gepijlde vleugel, typisch voor de vroege straaltijd"
+      },
+      {
+        "wiki": "Washout (aeronautics)",
+        "taal": "en",
+        "bijschrift": "Washout: de tip staat onder een kleinere invalshoek dan de wortel en overtrekt later"
+      },
+      {
+        "wiki": "Stall strips",
+        "taal": "en",
+        "bijschrift": "Een stall strip op de voorrand dwingt de vleugelwortel om het eerst te overtrekken"
+      },
+      {
+        "wiki": "Vortex generator",
+        "taal": "en",
+        "bijschrift": "Een rij vortexgeneratoren blaast energie in de trage grenslaag"
+      },
+      {
+        "wiki": "Mach tuck",
+        "taal": "en",
+        "bijschrift": "Stromingspatronen bij naderende geluidssnelheid: schokgolven op de vleugel"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een vleugel overtrekt als de invalshoek, de hoek tussen de vleugel en de aanstromende lucht, te groot wordt. De luchtstroom over de bovenkant kan de bocht dan niet meer volgen en laat los. De lift zakt in en de weerstand schiet omhoog. Dat weet elke flightsimmer. Minder bekend is dat dit nooit over de hele spanwijdte tegelijk gebeurt. Er is altijd een plek waar het begint, en of je dan een rustige, voorspelbare stall krijgt of een vliegtuig dat plotseling over een vleugel wegrolt, hangt helemaal af van die plek.",
+          "De gouden regel van de vleugelontwerper is daarom: de wortel moet eerst. Als het binnenste deel van de vleugel als eerste overtrekt, blijven de buitenste delen nog netjes aangestroomd. Daar zitten de rolroeren, en die houden het toestel horizontaal. De loslatende lucht bij de wortel waait bovendien over de staart en veroorzaakt trillingen, buffet, die de piloot voelt als een natuurlijke waarschuwing. Overtrekt daarentegen een tip als eerste, dan verlies je de rolbesturing op het moment dat je hem het hardst nodig hebt, en zakt die vleugel weg."
+        ]
+      },
+      {
+        "tussenkop": "Het probleem van de pijlvleugel",
+        "alineas": [
+          "Bij een rechte vleugel is het al werk om de wortel eerst te laten gaan. Bij een pijlvleugel, de naar achteren geveegde vleugel van vrijwel elk straalverkeersvliegtuig, werkt de geometrie actief tegen. De lucht die op een gepijlde vleugel valt, heeft een component die langs de vleugel naar buiten loopt, richting tip. De trage luchtlaag vlak boven het oppervlak, de grenslaag, wordt zo naar buiten geveegd en hoopt zich op bij de tips. Een dikkere, energiearme grenslaag laat eerder los. Bovendien is een pijlvleugel vaak taps, en de smalle tips worden relatief zwaar belast. Het gevolg: een pijlvleugel heeft de neiging om aan de tips te beginnen met overtrekken.",
+          "Er komt nog een venijnig effect bij. Omdat de tips van een pijlvleugel achter het zwaartepunt liggen, verschuift het liftzwaartepunt naar voren als juist daar de lift wegvalt. Het vliegtuig krijgt dan een neus-omhoogmoment: het steigert. Dat vergroot de invalshoek nog verder, waardoor de stall zich verdiept. Dit pitch-up-gedrag plaagde verschillende vroege straaljagers en bommenwerpers en is de reden dat de oudere generatie pijlvleugels vol hulpmiddeltjes zit."
+        ],
+        "citaat": "De gouden regel van de vleugelontwerper is daarom: de wortel moet eerst.",
+        "foto": 1
+      },
+      {
+        "tussenkop": "Getordeerd en gestript",
+        "alineas": [
+          "Het eerste hulpmiddel zit in de vleugelvorm zelf. Bij washout is de vleugel licht getordeerd: de tip staat onder een paar graden kleinere invalshoek dan de wortel. Als de neus omhoog gaat, bereikt de wortel zijn kritische hoek dus eerder dan de tip. Daarnaast gebruiken ontwerpers bij de tips vaak een ander profiel, dat pas bij een grotere hoek overtrekt. Op veel pijlvleugels zie je ook vleugelhekjes, wing fences: opstaande schotjes op de bovenkant die verhinderen dat de grenslaag ongestoord naar de tip wegloopt.",
+          "Het meest eenvoudige hulpmiddel is de stall strip. Dat is een klein lijstje met een driehoekige doorsnede, een paar centimeter breed, dat op de voorrand vlak bij de wortel zit. Bij kleine invalshoeken doet het niets. Bij een grote invalshoek komt de scherpe rand pal in de aanstroming te staan en dwingt hij de luchtstroom daar los te laten. Zo overtrekt dat stuk vleugel net iets eerder dan de rest. Op veel kleine sportvliegtuigen en zakenvliegtuigen zitten ze, en ze worden tijdens de testvliegerij soms centimeter voor centimeter verschoven tot het overtrekgedrag precies goed is."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Vinnetjes die wervels maken",
+        "alineas": [
+          "Waar een stall strip het loslaten bewust vervroegt, doet een vortexgenerator het omgekeerde. Het is een vinnetje van een paar centimeter hoog dat onder een hoek op het vleugeloppervlak staat, meestal in een rij. Elk vinnetje werkt als een miniatuurvleugel en laat aan zijn tip een kleine wervel los. Die wervel draait in de stromingsrichting mee en mengt snelle, energierijke lucht van buiten de grenslaag naar beneden, het trage laagje in.",
+          "Een grenslaag met meer energie kan beter tegen de drukstijging naar de achterrand op, en laat dus later los. Vortexgeneratoren kosten een beetje extra weerstand in kruisvlucht, maar ze houden de stroming over een kritisch deel van de vleugel langer vast. Je ziet ze vaak vlak vóór de rolroeren, zodat die bij hoge invalshoeken effectief blijven, en op staartvlakken en motorgondels. Veel kleinere vliegtuigen krijgen ze achteraf als ombouwset, wat de overtreksnelheid een paar knopen kan verlagen."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Gereedschap tegen tipstall",
+          "punten": [
+            "Washout: tip onder kleinere invalshoek dan de wortel",
+            "Ander profiel bij de tip, dat later overtrekt",
+            "Wing fences: houden de grenslaag op zijn plek",
+            "Stall strips: laten de wortel bewust eerder loslaten",
+            "Vortexgeneratoren: stellen het loslaten uit waar het kritisch is"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Rolroer op het randje",
+        "alineas": [
+          "Waarom is het behoud van de rolroeren zo belangrijk? Omdat juist rond de overtrek het gebruik ervan verraderlijk wordt. Een rolroer werkt door de welving van een stuk vleugel te veranderen. Gaat het rechterrolroer omlaag om de rechtervleugel op te tillen, dan krijgt dat vleugeldeel meer lift, maar ook meer geïnduceerde weerstand. Die extra weerstand trekt de rechtervleugel naar achteren, zodat de neus naar rechts gaat terwijl je naar links wilt rollen. Dat heet adverse yaw, tegengesteld gieren, en het is de reden dat je in een bocht met wat richtingsroer meestuurt.",
+          "Vlak bij de overtrek wordt het nog erger. Een omlaag gezet rolroer vergroot plaatselijk de effectieve invalshoek. Staat dat stuk vleugel al op het randje, dan kan juist het rolroer het laatste zetje geven, zodat die vleugel overtrekt en wegzakt in plaats van omhoog te komen. Daarom leren vliegers bij het naderen van de overtrek een afhangende vleugel met het richtingsroer op te vangen en niet met de stuurknuppel, en daarom willen ontwerpers de tips zo lang mogelijk gezond houden."
+        ]
+      },
+      {
+        "tussenkop": "Snel vliegen: Mach tuck",
+        "alineas": [
+          "Een pijlvleugel is er natuurlijk niet om lastig te zijn bij lage snelheid, maar om snel te kunnen vliegen. De lucht over de gewelfde bovenkant van een vleugel stroomt sneller dan het toestel zelf vliegt. Bij een kruissnelheid van Mach 0,8 kan die lucht plaatselijk al sneller dan het geluid gaan, en daar ontstaat een schokgolf op de vleugel. De pijlstelling zorgt ervoor dat de vleugel effectief een langzamere luchtstroom ziet, waardoor die schokgolven pas bij een hogere vliegsnelheid opduiken.",
+          "Ga je toch te hard, dan wacht Mach tuck. Achter een schokgolf raakt de grenslaag los, en naarmate de snelheid stijgt, schuift de schokgolf over de vleugel naar achteren. Het drukpunt van de lift verplaatst mee naar achteren. Bij een pijlvleugel verliezen bovendien de wortelstukken vaak eerst lift, waardoor de neerwaartse stroming over het stabilo verandert. Het netto-effect is een neus-omlaagmoment: het toestel gaat uit zichzelf duiken. En duiken betekent sneller vliegen, waardoor het effect versterkt.",
+          "Bij sommige vroege straaljagers was dit een dodelijke spiraal, temeer omdat de hoogteroeren in de schokgolven aan werking verloren. Moderne verkeersvliegtuigen hebben een Mach-trimsysteem dat bij hoge Machgetallen automatisch wat neus-omhoogtrim geeft, en een maximumsnelheid, de MMO, die ruim onder het gevaarlijke gebied ligt. Wie in de sim een volle duik met een airliner probeert en de overspeedwaarschuwing negeert, krijgt precies dit gedrag te zien: een neus die steeds zwaarder naar beneden wil."
+        ],
+        "foto": 4
+      }
+    ]
+  },
+  {
+    "id": "weetjes-09",
+    "kop": "Binnen in de onweersbui: hagel als ui, bliksem die omhoog schiet",
+    "intro": "Een onweerswolk is een machine van tien kilometer hoog met liften die omhoog en omlaag razen. Wie haar ontleedt, begrijpt waarom een hagelsteen laagjes heeft, waarom de flits eigenlijk van onder naar boven gaat, waarom donder rommelt, en waarom piloten één bepaald stukje van zo'n bui meer vrezen dan de bliksem.",
+    "hoofdstuk": "Meteorologie",
+    "basis": [
+      "280",
+      "281",
+      "283",
+      "285"
+    ],
+    "fotos": [
+      {
+        "wiki": "Cumulonimbus cloud",
+        "taal": "en",
+        "bijschrift": "Een cumulonimbus met aambeeld: de motor van onweer, hagel en windstoten"
+      },
+      {
+        "wiki": "Hail",
+        "taal": "en",
+        "bijschrift": "Hagelstenen: elk exemplaar is meerdere keren door de bui op en neer gegaan"
+      },
+      {
+        "wiki": "Lightning",
+        "taal": "en",
+        "bijschrift": "Bliksem boven zee: de felle flits is de retourslag van grond naar wolk"
+      },
+      {
+        "wiki": "Downburst",
+        "taal": "en",
+        "bijschrift": "Een valwind: neerstortende lucht spat bij de grond in alle richtingen uiteen"
+      },
+      {
+        "wiki": "Delta Air Lines Flight 191",
+        "taal": "en",
+        "bijschrift": "Een Lockheed TriStar van Delta, hetzelfde type als vlucht 191"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een volgroeide onweersbui, een cumulonimbus, is van binnen allesbehalve een rustige wolk. In de kern stijgt warme, vochtige lucht met snelheden die bij zware buien tientallen meters per seconde kunnen bereiken, tot ver boven de tien kilometer. Daar, tegen de tropopauze, kan ze niet verder en waaiert ze uit tot het bekende aambeeld. Ernaast stort koude lucht, beladen met regen en ijs, weer naar beneden. Bijna alle gevaarlijke verschijnselen van onweer komen voort uit die combinatie van stijgstromen, dalstromen en water in alle drie zijn vormen.",
+          "Een belangrijk ingrediënt is onderkoeld water. In de wolk komen grote hoeveelheden waterdruppels voor die kouder zijn dan nul graden en toch vloeibaar blijven, omdat ze geen kern hebben om op te bevriezen. Pas bij ongeveer min veertig graden bevriezen ze spontaan. Raakt zo'n druppel een ijsdeeltje, dan bevriest hij er in één keer op vast. Dat proces, aangroei door aanvriezing, is de basis van hagel en speelt ook een sleutelrol in het ontstaan van elektrische lading."
+        ]
+      },
+      {
+        "tussenkop": "De ui van ijs",
+        "alineas": [
+          "Een hagelsteen begint als een klein ijsbolletje of bevroren druppel. De krachtige stijgstroom houdt hem omhoog en voert hem door gebieden met onderkoelde druppels, die op hem aanvriezen. Hoe het ijs eruitziet, hangt af van de omstandigheden. In een relatief warm deel van de wolk met veel water bevriest het aangroeiende water langzaam. Het heeft tijd om uit te vloeien en luchtbelletjes te laten ontsnappen, en vormt helder, glazig ijs. In een kouder, droger deel bevriezen kleine druppels direct bij aanraking, met lucht ertussen, en dat geeft wit, troebel ijs.",
+          "Wordt een hagelsteen te zwaar voor de stijgstroom, dan valt hij. Komt hij daarbij weer in een sterke opwaartse stroom, dan gaat hij opnieuw omhoog. Zo pendelt hij soms meerdere keren tussen verschillende zones heen en weer, en bij elke passage komt er een laag bij. Snijd je een grote hagelsteen doormidden, dan zie je afwisselend heldere en melkwitte ringen, als de lagen van een ui. Elke ring is een stukje van zijn reis door de bui. Hoe sterker de stijgstroom, hoe langer een steen in de wolk kan blijven en hoe groter hij wordt: stenen als tennisballen vragen stijgsnelheden in de orde van veertig meter per seconde."
+        ],
+        "foto": 1,
+        "citaat": "Elke ring is een stukje van zijn reis door de bui."
+      },
+      {
+        "tussenkop": "Bliksem in trapjes",
+        "alineas": [
+          "Botsingen tussen hagelkorrels en ijskristallen in aanwezigheid van onderkoeld water laden de deeltjes elektrisch op. Doordat lichte en zware deeltjes door de stijgstroom van elkaar worden gescheiden, wordt de wolk meestal bovenin positief en lager negatief geladen. Het spanningsverschil met de grond loopt op tot honderden miljoenen volt. Als de lucht het niet meer houdt, begint een ontlading, maar niet in één streep. Uit de wolk tast een zwak lichtgevend kanaal van geïoniseerde lucht in sprongetjes van tientallen meters naar beneden, telkens even pauzerend en een nieuwe richting kiezend. Dat is de stepped leader, de getrapte voorontlading, en die verklaart de grillige, vertakte vorm van een bliksem.",
+          "Als de leader de grond nadert, schieten uit hoge punten, zoals bomen, masten en bliksemafleiders, opwaartse ontladingen omhoog. Raken die elkaar, dan is het circuit gesloten. Op dat moment ontlaadt de opgebouwde lading zich in een retourslag die van de grond omhoog door het kanaal raast, met een snelheid van zo'n derde van de lichtsnelheid. Die retourslag voert de grootste stroom en geeft het felle licht. De flits die je ziet, gaat dus eigenlijk van beneden naar boven, alleen veel te snel voor het oog. Vaak volgen er via hetzelfde kanaal nog een paar retourslagen, wat de bliksem laat flikkeren."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Waarom donder rommelt",
+        "alineas": [
+          "De retourslag verhit het kanaal in een fractie van een milliseconde tot tienduizenden graden. De lucht zet explosief uit en veroorzaakt een schokgolf, die verderop een geluidsgolf wordt: de donder. Dat gebeurt langs het hele kanaal tegelijk, en zo'n kanaal is kilometers lang en grillig. Het geluid van het stuk dat het dichtst bij je is, hoor je het eerst; het geluid van stukken die verder weg liggen, komt later aan. Ligt de inslag vlakbij, dan liggen alle delen op ongeveer dezelfde korte afstand en hoor je één harde knal.",
+          "Ligt de bliksem kilometers ver weg, dan verschillen de afstanden tot de verschillende delen van het kanaal onderling sterk, en lopen de aankomsttijden uiteen tot een lang gerommel. Onderweg dempt de lucht bovendien de hoge tonen sterker dan de lage, waardoor verre donder dof klinkt. Wie de seconden telt tussen flits en donder en deelt door drie, heeft de afstand in kilometers tot het dichtstbijzijnde stuk van het kanaal."
+        ]
+      },
+      {
+        "tussenkop": "De microburst",
+        "alineas": [
+          "Voor piloten is de bliksem minder gevaarlijk dan wat er onder de bui gebeurt. Een valwind, en de kleine, extra hevige variant die een microburst heet, is een kolom koude lucht die met grote snelheid uit de wolk naar beneden stort. De lucht wordt koud en zwaar doordat neerslag erin verdampt of smelt, wat warmte onttrekt. Bij de grond kan de kolom niet verder en spat hij als een waterstraal op een tafel in alle richtingen uiteen. Een microburst heeft een doorsnee van minder dan vier kilometer en duurt meestal maar enkele minuten.",
+          "Een vliegtuig in de eindnadering dat zo'n microburst doorvliegt, beleeft drie fases. Eerst komt het in de uitstroom die het tegemoet waait: de tegenwind neemt toe, de luchtsnelheid stijgt en het vliegtuig gaat boven het glijpad zweven. De natuurlijke reactie is gas terugnemen. Daarna komt het in de neerwaartse kolom, en vervolgens in de uitstroom aan de andere kant, die nu meewind is. De luchtsnelheid zakt in korte tijd met tientallen knopen, de lift valt weg, terwijl de motoren net zijn teruggenomen en op een straalmotor even moeten opspoelen."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Om te onthouden",
+          "punten": [
+            "Onderkoeld water is de grondstof van hagel en van lading",
+            "Heldere hagellagen: langzaam bevroren; witte lagen: direct bevroren",
+            "De zichtbare flits is de retourslag van grond naar wolk",
+            "Donder rommelt door verschillende afstanden langs het kanaal",
+            "Microburst: eerst meer, dan veel minder luchtsnelheid"
+          ]
+        }
+      },
+      {
+        "tussenkop": "De les van Dallas",
+        "alineas": [
+          "Zo verongelukte in 1985 Delta-vlucht 191, een Lockheed TriStar, vlak voor de baan van Dallas/Fort Worth. Dat ongeluk gaf een grote impuls aan de ontwikkeling van windscheringsdetectie: Doppler-weerradars op vliegvelden en voorspellende windscheringswaarschuwing in de weerradar van het vliegtuig. Piloten trainen in de simulator een vaste ontsnappingsprocedure: vol vermogen, neus omhoog tot vlak onder de stall-waarschuwing, en configuratie niet veranderen tot het vliegtuig weer klimt. Het belangrijkste wapen blijft echter vermijden: wie op de radar een bui met hevige neerslag boven de baan ziet hangen, wacht of wijkt uit.",
+          "Waarom de neus zo hoog, tot tegen de stall-waarschuwing aan? Omdat in een microburst elke meter hoogte telt en de grond dichtbij is. Een vliegtuig dat op een gunstige invalshoek blijft vliegen, ruilt hoogte in voor snelheid en zakt door. Door de invalshoek bewust op te voeren, haal je de laatste lift uit de vleugel, ook al daalt de snelheid verder. Het is een tegennatuurlijke manoeuvre, en precies daarom wordt hij zo vaak geoefend: als het zover is, is er geen tijd om na te denken."
+        ],
+        "foto": 4
+      }
+    ]
+  },
+  {
+    "id": "weetjes-10",
+    "kop": "De perfecte lens bestaat niet, en f/8 is waarom",
+    "intro": "Elke lens is een verzameling compromissen tussen fouten die de natuurkunde oplegt. Bolle oppervlakken focussen niet in één punt, glas breekt elke kleur anders en licht buigt om de randen van het diafragma. Wie snapt waar die fouten vandaan komen, snapt ook waarom fotografen zo vaak op f/8 uitkomen.",
+    "hoofdstuk": "Optiek",
+    "basis": [
+      "111",
+      "112",
+      "113",
+      "121",
+      "114"
+    ],
+    "fotos": [
+      {
+        "wiki": "Camera lens",
+        "taal": "en",
+        "bijschrift": "Fotolenzen: achter elk frontelement zit een stapel lenzen die elkaars fouten corrigeren"
+      },
+      {
+        "wiki": "Spherical aberration",
+        "taal": "en",
+        "bijschrift": "Sferische aberratie: randstralen snijden de as eerder dan stralen door het midden"
+      },
+      {
+        "wiki": "Chromatic aberration",
+        "taal": "en",
+        "bijschrift": "Chromatische aberratie: blauw licht wordt sterker gebroken dan rood"
+      },
+      {
+        "wiki": "Fluorite",
+        "taal": "en",
+        "bijschrift": "Fluoriet, calciumfluoride, verstrooit kleuren veel minder dan gewoon glas"
+      },
+      {
+        "wiki": "Airy disk",
+        "taal": "en",
+        "bijschrift": "Een Airy-schijfje: zelfs een perfecte lens maakt van een punt een vlekje met ringen"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Op een schoolbord ziet een lens er simpel uit: evenwijdige lichtstralen vallen op een bolle lens en komen samen in één brandpunt. In werkelijkheid gebeurt dat nooit precies. Dat schoolbordplaatje is een benadering die alleen klopt voor stralen die dicht bij het midden en bijna evenwijdig aan de as door de lens gaan. Alle afwijkingen daarvan heten aberraties, en het hele vak van lensontwerp bestaat uit het tegen elkaar wegstrepen ervan. Een modern zoomobjectief bevat vaak vijftien tot twintig lenselementen, niet om sterker te vergroten, maar om fouten te corrigeren.",
+          "De fouten komen in twee families. Monochromatische aberraties ontstaan zelfs bij licht van één kleur, door de geometrie van gebogen oppervlakken. Chromatische aberraties ontstaan doordat glas licht van verschillende kleuren verschillend breekt. En los van alle lensfouten is er een grens die geen lensontwerper kan verleggen: het golfkarakter van licht zelf. Lensontwerp is daarom niet het zoeken naar de perfecte lens, maar het kiezen welke fout je waar laat zitten, en hoeveel glas, gewicht en geld je bereid bent te betalen om de rest weg te werken."
+        ]
+      },
+      {
+        "tussenkop": "Sferische aberratie",
+        "alineas": [
+          "Lenzen worden van oudsher bolvormig geslepen, omdat een bol het enige oppervlak is dat je met een eenvoudige draaiende beweging nauwkeurig kunt maken. Maar een bolvormig oppervlak is niet de ideale vorm om licht te focussen. Stralen die door de rand van de lens vallen, worden te sterk gebroken en snijden de as eerder dan stralen door het midden. Er is dus geen scherp brandpunt, maar een uitgesmeerd gebied. Een helder lichtpuntje krijgt een zachte waas eromheen, en het hele beeld oogt bij volle opening wat dromerig. Dat is sferische aberratie.",
+          "Diafragmeren helpt, omdat je dan juist de randstralen wegsnijdt. Maar er zit een addertje onder het gras. Bij volle opening ligt het punt van beste scherpte ergens tussen het brandpunt van de randstralen en dat van de middenstralen. Stop je af, dan vallen de randstralen weg en verschuift het beste scherptevlak naar het brandpunt van de middenstralen. Dat heet focus shift. Wie op volle opening scherpstelt en dan afstopt, zoals een spiegelreflexcamera met fasedetectie doet, kan een licht verschoven scherpte krijgen. De moderne oplossing zijn asferische elementen: lenzen met een vorm die naar de rand toe geleidelijk afwijkt van een bol, tegenwoordig nauwkeurig te persen of te slijpen."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Kleuren die uit elkaar vallen",
+        "alineas": [
+          "Glas breekt blauw licht sterker dan rood. Die eigenschap heet dispersie, en het is dezelfde die een prisma een regenboog laat maken. In een lens betekent het dat elke kleur een iets ander brandpunt heeft. Langs de as liggen de brandpunten achter elkaar: stel je scherp op groen, dan zijn rood en blauw licht onscherp, wat je ziet als paarse of groene randjes rond onscherpe hooglichten. Daarnaast verschilt de vergroting per kleur, waardoor aan de beeldranden rood en blauw iets naast elkaar terechtkomen. Dat geeft de bekende gekleurde randjes langs contrastrijke lijnen, zoals takken tegen een witte lucht.",
+          "De maat voor dispersie is het Abbe-getal: hoe hoger, hoe minder het glas de kleuren uit elkaar trekt. Kroonglas heeft een hoog Abbe-getal, flintglas, met lood of tegenwoordig titaan of niobium, een laag. In de achttiende eeuw ontdekte men dat je een positieve lens van kroonglas kunt combineren met een zwakkere negatieve lens van flintglas. Omdat het flintglas relatief veel dispersie heeft, heft het de kleurfout van het kroonglas op, terwijl er toch netto een bundelende lens overblijft. Zo'n achromatisch doublet brengt twee kleuren, meestal rood en blauw, in hetzelfde brandpunt."
+        ],
+        "foto": 2
+      },
+      {
+        "tussenkop": "Het secundaire spectrum",
+        "alineas": [
+          "Twee kleuren samenbrengen is niet hetzelfde als alle kleuren samenbrengen. Bij een achromaat valt rood en blauw samen, maar groen heeft nog steeds een iets ander brandpunt. Die restfout heet het secundaire spectrum. Hij ontstaat doordat de dispersie van verschillende glassoorten niet gelijk over het spectrum verloopt: het ene glas trekt vooral het blauwe deel uit elkaar, het andere meer het rode deel. Bij een gewone combinatie van kroon en flint passen die verlopen niet precies op elkaar.",
+          "Een apochromaat brengt drie golflengtes in hetzelfde brandpunt en drukt het secundaire spectrum sterk terug. Daar zijn glassoorten voor nodig met een afwijkend dispersieverloop, zogenoemde anomale deeldispersie. Het bekendste materiaal is fluoriet, kristallijn calciumfluoride, dat een zeer hoog Abbe-getal heeft en een ongewoon dispersieverloop. Fluoriet is duur, gevoelig voor temperatuurschokken en zacht. Daarom zijn speciale glazen ontwikkeld met vergelijkbare eigenschappen, die fabrikanten aanduiden met termen als ED, UD of SD. Je vindt ze vooral in telelenzen en telescopen, waar kleurfouten met de brandpuntsafstand meegroeien."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Lensfouten in het kort",
+          "punten": [
+            "Sferische aberratie: randstralen focussen eerder; waas bij volle opening",
+            "Focus shift: scherptevlak verschuift bij afstoppen",
+            "Chromatische aberratie: elke kleur een ander brandpunt",
+            "Achromaat: twee kleuren gecorrigeerd; apochromaat: drie",
+            "Diffractie: vlekje groeit bij kleiner diafragma, voor elke lens"
+          ]
+        }
+      },
+      {
+        "tussenkop": "Donkere hoeken",
+        "alineas": [
+          "Niet elke lensfout is een fout van het glas. Ook een theoretisch perfecte lens maakt de hoeken van het beeld donkerder dan het midden. Licht dat schuin op de sensor valt, wordt over een groter oppervlak uitgesmeerd, legt een langere weg af en ziet de lensopening vanuit een hoek, dus kleiner. Samen leveren die effecten een afname met de vierde macht van de cosinus van de invalshoek op, de cos⁴-wet. Bij groothoeklenzen kost dat in de hoeken al snel een of twee stops licht. Daar komt mechanische vignettering bij, doordat de lensvatting schuine bundels deels afsnijdt. Afstoppen helpt tegen dat laatste, niet tegen de cos⁴-wet; daarvoor corrigeert de camerasoftware tegenwoordig achteraf."
+        ]
+      },
+      {
+        "tussenkop": "De muur van de diffractie",
+        "alineas": [
+          "Als afstoppen sferische aberratie en veel andere fouten verkleint, waarom dan niet altijd f/22? Omdat er dan een ander verschijnsel gaat overheersen: diffractie. Licht is een golf, en een golf die door een opening gaat, buigt een beetje om de randen. Een perfecte lens zonder enige aberratie maakt van een lichtpunt daarom geen punt, maar een klein vlekje met concentrische ringen eromheen: het Airy-schijfje. De grootte daarvan hangt alleen af van de golflengte en het diafragmagetal. Hoe kleiner de opening, hoe groter het vlekje.",
+          "Een vuistregel: de diameter van het centrale vlekje is in micrometers ongeveer gelijk aan het diafragmagetal maal 1,3 voor groen licht. Bij f/4 is het ruim vijf micrometer, bij f/16 meer dan twintig. Moderne sensoren hebben pixels van ongeveer vier micrometer. Zodra het Airy-schijfje meerdere pixels beslaat, wordt fijn detail uitgesmeerd, hoe goed de lens ook is. Bij een camera met kleine pixels begint dat al zichtbaar te worden rond f/8 tot f/11.",
+          "Dat verklaart waarom de meeste lenzen hun scherpste beeld geven twee tot drie stops onder volle opening. Daar zijn de aberraties al flink verkleind door het afstoppen, terwijl de diffractie nog niet de overhand heeft. Het oude fotografenadvies, f/8 and be there, heeft dus een stevig natuurkundig fundament. Wie met een macrolens of een landschap toch meer scherptediepte nodig heeft, maakt een bewuste ruil: liever iets zachter detail over de hele diepte dan haarscherp in één vlak."
+        ],
+        "foto": 4,
+        "citaat": "Hoe kleiner de opening, hoe groter het vlekje."
+      }
+    ]
+  },
+  {
+    "id": "weetjes-11",
+    "kop": "De reis van een pil: waarom de lever eerst mag proeven",
+    "intro": "Wat er op de verpakking staat, is zelden wat er in je bloed belandt. Tussen slikken en werken zit een tocht langs darm en lever, een enzym dat door een glas grapefruitsap wordt uitgeschakeld en een wiskundige wet die bepaalt waarom een medicijn pas na dagen op sterkte is.",
+    "hoofdstuk": "Farmacologie",
+    "basis": [
+      "200",
+      "202",
+      "203",
+      "204"
+    ],
+    "fotos": [
+      {
+        "wiki": "Tablet (pharmacy)",
+        "taal": "en",
+        "bijschrift": "Tabletten: de dosis op de verpakking is niet wat in het bloed belandt"
+      },
+      {
+        "wiki": "Hepatic portal system",
+        "taal": "en",
+        "bijschrift": "De poortader voert bloed uit de darmen eerst naar de lever"
+      },
+      {
+        "wiki": "Grapefruit",
+        "taal": "en",
+        "bijschrift": "Grapefruit bevat stoffen die een belangrijk darmenzym blijvend uitschakelen"
+      },
+      {
+        "wiki": "Biological half-life",
+        "taal": "en",
+        "bijschrift": "Een concentratieverloop in de tijd: elke halfwaardetijd halveert de spiegel"
+      },
+      {
+        "wiki": "Intravenous therapy",
+        "taal": "en",
+        "bijschrift": "Een oplaaddosis gaat vaak via een infuus, buiten darm en lever om"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Van sommige medicijnen bestaat een injectie van vijf milligram en een tablet van vijftig. Dat is geen vergissing van de fabrikant en ook geen veiligheidsmarge. Het verschil zegt iets over de route die een geneesmiddel aflegt. Een injectie in een ader komt direct in de bloedsomloop. Een tablet moet eerst oplossen, door de darmwand worden opgenomen en dan een weg afleggen die door de anatomie wordt bepaald: via de poortader rechtstreeks naar de lever, en pas daarna naar de rest van het lichaam.",
+          "Die omweg is geen toeval. De darm neemt behalve voedingsstoffen ook allerlei vreemde stoffen op, en de lever is het filter dat ze eerst mag keuren en zo nodig afbreken. Voor gifstoffen uit voedsel is dat een uitstekend idee. Voor een medicijn betekent het dat een deel van de dosis al onschadelijk wordt gemaakt voordat het ooit zijn doel kan bereiken."
+        ]
+      },
+      {
+        "tussenkop": "Het first-pass-effect",
+        "alineas": [
+          "Die afbraak bij de eerste doorgang heet het first-pass-effect, of presystemisch metabolisme. De lever, en in veel gevallen ook de darmwand zelf, bevat enzymen die stoffen omzetten tot vormen die het lichaam makkelijker kan uitscheiden. De belangrijkste daarvan behoren tot de cytochroom-P450-familie. Het deel van een ingenomen dosis dat onveranderd de grote bloedsomloop bereikt, heet de biologische beschikbaarheid. Bij een injectie in een ader is die per definitie honderd procent. Bij een tablet kan ze variëren van bijna honderd tot een paar procent.",
+          "Een bekend voorbeeld is nitroglycerine tegen pijn op de borst. Als je het inslikt, wordt het grootste deel in de lever afgebroken voordat het werkt. Daarom wordt het als tabletje of spray onder de tong gegeven. Het slijmvlies daar loopt niet af naar de poortader, maar rechtstreeks naar de grote bloedsomloop, zodat de lever wordt omzeild. Om dezelfde reden bestaan er zetpillen, pleisters en neussprays: het zijn manieren om de lever bij de eerste ronde over te slaan."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "Het grapefruiteffect",
+        "alineas": [
+          "Hoe groot het first-pass-effect is, hangt af van hoeveel enzym er actief is. En dat kan veranderen, soms door iets onschuldigs als ontbijt. Grapefruit bevat furanocoumarines, zoals bergamottine, die een van de belangrijkste afbraakenzymen remmen: CYP3A4. Dat enzym zit in de lever, maar ook in grote hoeveelheden in de cellen van de dunne darmwand. Juist dat darmdeel wordt door grapefruit geraakt. De furanocoumarines worden door CYP3A4 zelf omgezet tot een reactieve stof die het enzym permanent beschadigt. Farmacologen noemen dat mechanism-based inactivation; het enzym saboteert zichzelf.",
+          "Het gevolg: een medicijn dat normaal voor een groot deel in de darmwand werd afgebroken, komt nu ineens grotendeels onveranderd in het bloed. De bloedspiegel kan daardoor meerdere keren hoger uitkomen dan bedoeld. Bij middelen met een kleine marge tussen werkzaam en giftig, zoals sommige cholesterolverlagers, bepaalde bloeddrukverlagers en middelen die afstoting na een transplantatie tegengaan, kan dat ernstige bijwerkingen geven. Omdat het enzym echt kapot is, houdt het effect aan totdat de darmcellen nieuw enzym hebben aangemaakt, wat ongeveer een dag tot enkele dagen duurt. Grapefruit 's ochtends en de pil 's avonds helpt dus niet.",
+          "Interessant genoeg werkt het alleen bij medicijnen die via de mond worden ingenomen en een flink first-pass-effect via CYP3A4 hebben. Hetzelfde middel als injectie wordt nauwelijks beïnvloed, omdat het de darmwand niet passeert. Ook pomelo en Sevilla-sinaasappels, bekend van bittere marmelade, bevatten furanocoumarines, terwijl gewone zoete sinaasappels dat niet of nauwelijks doen. Daarom staat op bijsluiters van gevoelige middelen expliciet dat je geen grapefruit of grapefruitsap moet gebruiken. Het effect verschilt bovendien sterk per persoon, omdat de hoeveelheid CYP3A4 in de darmwand van mens tot mens uiteenloopt."
+        ],
+        "foto": 2,
+        "citaat": "Grapefruit 's ochtends en de pil 's avonds helpt dus niet."
+      },
+      {
+        "tussenkop": "De wet van de halfwaardetijd",
+        "alineas": [
+          "Is een medicijn eenmaal in het bloed, dan begint het lichaam het weer kwijt te raken, via afbraak in de lever en uitscheiding door de nieren. Bij de meeste geneesmiddelen gaat dat proportioneel: per uur verdwijnt een vast percentage van wat er is, niet een vaste hoeveelheid. De tijd waarin de concentratie halveert, is de halfwaardetijd. Bij paracetamol is die een paar uur, bij sommige middelen tegen epilepsie of hartritmestoornissen dagen tot weken.",
+          "Geef je een medicijn steeds opnieuw, met een interval dat ongeveer gelijk is aan de halfwaardetijd, dan stapelt het op. Na de eerste dosis is er nog niets in het lichaam; daarna blijft er bij elke volgende dosis wat over van de vorige. De spiegel stijgt, tot de hoeveelheid die per interval verdwijnt precies gelijk is aan wat je toevoegt. Dat evenwicht heet de steady state. Het wordt exponentieel benaderd: na één halfwaardetijd zit je op de helft, na twee op driekwart, na drie op 87,5 procent, na vier op ongeveer 94 en na vijf op ongeveer 97 procent. Vandaar de vuistregel: na vier tot vijf halfwaardetijden is de stabiele spiegel bereikt, hoe groot de dosis ook is.",
+          "Dezelfde rekensom geldt bij stoppen. Na vijf halfwaardetijden is er nog ongeveer drie procent over, en geldt een middel als praktisch uitgewassen. Dat is de reden dat artsen bij het wisselen van medicatie soms een paar dagen wachten, en dat het effect van een dosisverhoging pas na een tijdje echt te beoordelen is. Het verklaart ook waarom bijwerkingen na het stoppen niet meteen verdwijnen: de stof is nog vier tot vijf halfwaardetijden lang aanwezig, alleen in steeds kleinere hoeveelheden."
+        ],
+        "foto": 3,
+        "kader": {
+          "titel": "Rekenregels uit de farmacokinetiek",
+          "punten": [
+            "Biologische beschikbaarheid: deel van de dosis dat onveranderd in het bloed komt",
+            "Steady state na 4–5 halfwaardetijden, onafhankelijk van de dosis",
+            "Oplaaddosis = gewenste concentratie × verdelingsvolume ÷ beschikbaarheid",
+            "Onderhoudsdosis compenseert alleen wat er per interval verdwijnt"
+          ]
+        }
+      },
+      {
+        "tussenkop": "De oplaaddosis",
+        "alineas": [
+          "Voor een middel met een halfwaardetijd van een paar uur is vier tot vijf halfwaardetijden wachten geen probleem. Maar amiodaron, een middel tegen hartritmestoornissen, heeft een halfwaardetijd van weken. Dan zou je maanden moeten wachten voordat het goed werkt. De oplossing is een oplaaddosis: een of meer grotere doses aan het begin, die in één keer de spiegel op het gewenste niveau brengen.",
+          "Hoe groot die moet zijn, hangt niet af van hoe snel het lichaam het middel opruimt, maar van hoeveel ruimte er te vullen is. Die ruimte heet het verdelingsvolume. Het is geen echt volume, maar een rekengrootheid: de hoeveelheid medicijn in het lichaam gedeeld door de concentratie in het bloed. Een middel dat in het bloed blijft, heeft een klein verdelingsvolume. Een middel dat zich massaal in vet of weefsel ophoopt, kan een verdelingsvolume hebben van honderden of zelfs duizenden liters, veel meer dan een mens groot is. Dan moet je eerst al die weefsels vullen voordat de bloedspiegel op peil komt.",
+          "Na de oplaaddosis neemt een kleinere onderhoudsdosis het over. Die hoeft alleen te compenseren wat er per interval verdwijnt, en wordt dus bepaald door de klaring. Zo komen de verschillende stukjes samen: de route bepaalt hoeveel er binnenkomt, de enzymen bepalen hoeveel er onderweg sneuvelt, het verdelingsvolume bepaalt hoeveel er nodig is om te vullen, en de halfwaardetijd bepaalt hoe lang je moet wachten."
+        ],
+        "foto": 4
+      }
+    ]
+  },
+  {
+    "id": "weetjes-12",
+    "kop": "Het goud in je ring kwam uit een botsing van dode sterren",
+    "intro": "Sterren leven van kernfusie, maar fusie stopt bij ijzer. Wat daarna gebeurt, wordt bepaald door kwantummechanica: elektronen en neutronen die weigeren nog dichter op elkaar te kruipen. Over witte dwergen, een grens van 1,4 zonsmassa en de kosmische smeltovens waar zware elementen vandaan komen.",
+    "hoofdstuk": "Astrofysica",
+    "basis": [
+      "243",
+      "238",
+      "239",
+      "233",
+      "244"
+    ],
+    "fotos": [
+      {
+        "wiki": "Crab Nebula",
+        "taal": "en",
+        "bijschrift": "De Krabnevel, overblijfsel van een supernova die in 1054 werd waargenomen"
+      },
+      {
+        "wiki": "White dwarf",
+        "taal": "en",
+        "bijschrift": "Sirius A met zijn kleine begeleider Sirius B, een witte dwerg"
+      },
+      {
+        "wiki": "Subrahmanyan Chandrasekhar",
+        "taal": "en",
+        "bijschrift": "Subrahmanyan Chandrasekhar berekende de maximale massa van een witte dwerg"
+      },
+      {
+        "wiki": "Kilonova",
+        "taal": "en",
+        "bijschrift": "Impressie van twee samensmeltende neutronensterren"
+      },
+      {
+        "wiki": "Gold",
+        "taal": "en",
+        "bijschrift": "Goudkristallen: elk atoom werd ooit in een kosmische catastrofe gesmeed"
+      }
+    ],
+    "secties": [
+      {
+        "alineas": [
+          "Een ster is een evenwicht tussen twee krachten. De zwaartekracht wil alle massa naar het midden trekken. De hitte en straling uit de kernfusie in het centrum duwen terug. Zolang er brandstof is, houden die twee elkaar in balans. Eerst fuseert waterstof tot helium, dan, bij zwaardere sterren, helium tot koolstof en zuurstof, en bij de zwaarste sterren verder via neon, magnesium en silicium. Elke stap levert energie op, omdat de nieuwe kern steviger gebonden is dan de kernen waaruit hij ontstond. Het massaverschil komt vrij als energie.",
+          "Die reeks heeft een eindpunt. De bindingsenergie per kerndeeltje, de maat voor hoe stevig een kern in elkaar zit, stijgt van waterstof tot rond ijzer en nikkel, bij massagetal ongeveer 56, en daalt daarna weer. Fusie voorbij ijzer levert geen energie meer op, maar kost energie. Een zware ster die een ijzeren kern heeft opgebouwd, heeft dus geen brandstof meer om de zwaartekracht tegen te houden. Wat er dan gebeurt, hangt af van hoeveel massa er overblijft, en van een merkwaardige kwantumregel."
+        ]
+      },
+      {
+        "tussenkop": "Elektronen die geen ruimte geven",
+        "alineas": [
+          "Die regel is het uitsluitingsprincipe van Pauli: twee elektronen kunnen niet in precies dezelfde kwantumtoestand zitten. Pers je elektronen steeds dichter op elkaar, dan moeten ze steeds hogere energieën en impulsen aannemen, omdat de lagere toestanden al bezet zijn. Dat levert een druk op die niets met temperatuur te maken heeft: de ontaardingsdruk. Ook bij het absolute nulpunt blijft hij bestaan.",
+          "Een ster zoals de zon eindigt op die manier. Als de fusie stopt, krimpt de kern tot een witte dwerg: ongeveer de massa van de zon, samengeperst tot een bol ter grootte van de aarde. Een theelepel van dat materiaal weegt tonnen. Er vindt geen fusie meer plaats; de witte dwerg wordt alleen door de ontaardingsdruk van zijn elektronen overeind gehouden en koelt over miljarden jaren langzaam af. De dichtstbijzijnde bekende witte dwerg, Sirius B, draait om de heldere ster Sirius en is op foto's bijna verdwenen in de gloed van zijn begeleider."
+        ],
+        "foto": 1
+      },
+      {
+        "tussenkop": "De grens van Chandrasekhar",
+        "alineas": [
+          "Rond 1930 rekende de jonge Indiase astrofysicus Subrahmanyan Chandrasekhar door wat er gebeurt bij zwaardere witte dwergen. Hoe zwaarder de dwerg, hoe harder de elektronen worden samengeperst en hoe sneller ze bewegen. Bij een bepaalde massa komen hun snelheden in de buurt van de lichtsnelheid, en dan gelden de regels van de relativiteitstheorie. De ontaardingsdruk groeit dan minder snel mee met de compressie dan de zwaartekracht. Er is een massa waarboven geen evenwicht meer mogelijk is: ongeveer 1,4 zonsmassa. Voor dat werk kreeg Chandrasekhar in 1983 de Nobelprijs voor natuurkunde.",
+          "Wat gebeurt er als een witte dwerg die grens nadert, bijvoorbeeld doordat hij materie opslokt van een begeleidende ster? De dwerg krimpt verder, dichtheid en temperatuur in het centrum schieten omhoog, en in een witte dwerg van koolstof en zuurstof slaat dan de koolstoffusie op hol. Omdat ontaarde materie niet uitzet als hij heter wordt, is er geen veiligheidsventiel. De fusie verspreidt zich razendsnel door de hele ster en verscheurt hem volledig. Dat is een supernova van type Ia. Omdat ze ontstaan bij een vrijwel vaste massa, hebben ze een vergelijkbare helderheid, en daardoor zijn ze een van de belangrijkste meetlatten voor afstanden in het heelal."
+        ],
+        "foto": 2,
+        "citaat": "Omdat ontaarde materie niet uitzet als hij heter wordt, is er geen veiligheidsventiel."
+      },
+      {
+        "tussenkop": "Een berg in een theelepel",
+        "alineas": [
+          "Bij een veel zwaardere ster loopt het anders. Als de ijzeren kern boven de Chandrasekhar-grens groeit, stort hij in een fractie van een seconde in. De elektronen worden in de protonen geperst en vormen samen neutronen, waarbij een enorme vloed neutrino's vrijkomt. De ineenstorting stopt pas als de neutronen zelf tegen elkaar aanliggen en hun eigen ontaardingsdruk, samen met de kernkracht, verdere compressie tegenhoudt. De buitenlagen van de ster worden in een kerninstortingssupernova weggeslingerd. Wat overblijft, is een neutronenster.",
+          "Een neutronenster is ongeveer twintig kilometer groot, maar weegt meer dan de zon. Gewone materie bestaat vooral uit lege ruimte: de kern van een atoom is honderdduizend keer kleiner dan het atoom zelf. In een neutronenster is die lege ruimte weg, en is de dichtheid vergelijkbaar met die van een atoomkern, rond de 10 tot de macht 17 kilogram per kubieke meter. Een theelepel van dat materiaal heeft de massa van een flinke berg. De Krabnevel, het restant van een supernova die Chinese astronomen in 1054 beschreven, heeft zo'n neutronenster in zijn hart, die ongeveer dertig keer per seconde ronddraait.",
+          "Ook neutronen hebben hun grens. Net als bij witte dwergen bestaat er een maximale massa waarboven de neutronenontaardingsdruk en de kernkrachten de zwaartekracht niet meer kunnen weerstaan. Die grens is minder nauwkeurig bekend dan die van Chandrasekhar, omdat de natuurkunde van materie bij zulke dichtheden nog niet goed begrepen is; schattingen liggen rond twee tot tweeënhalve zonsmassa. Daarboven is er geen bekende kracht meer die de ineenstorting kan stoppen, en ontstaat een zwart gat. Zo vormen witte dwergen, neutronensterren en zwarte gaten een trap van steeds extremere eindstadia."
+        ]
+      },
+      {
+        "tussenkop": "Waar goud vandaan komt",
+        "alineas": [
+          "Dan blijft de vraag waar elementen zwaarder dan ijzer vandaan komen, zoals goud, platina en uranium. Fusie kan ze niet maken. Ze ontstaan door neutronenvangst: een kern vangt neutronen in, wordt instabiel en vervalt, waarbij een neutron in een proton verandert en de kern dus een plaatsje opschuift in het periodiek systeem. In gewone sterren gebeurt dat langzaam, het s-proces, en dat levert onder meer lood en barium op. Maar voor de zwaarste elementen is een veel snellere variant nodig, het r-proces, waarbij een kern in een fractie van een seconde tientallen neutronen invangt voordat hij de kans heeft te vervallen.",
+          "Daarvoor is een omgeving nodig die extreem rijk is aan neutronen. Lange tijd werd aangenomen dat kerninstortingssupernova's die leverden. In augustus 2017 detecteerden de zwaartekrachtgolfdetectoren LIGO en Virgo het signaal van twee samensmeltende neutronensterren, GW170817. Telescopen over de hele wereld zagen daarna op dezelfde plek een kilonova oplichten, met een spectrum dat wees op de vorming van grote hoeveelheden zware elementen. Het was het eerste directe bewijs dat botsende neutronensterren r-procesfabrieken zijn."
+        ],
+        "foto": 3
+      },
+      {
+        "tussenkop": "Sterrenstof aan je vinger",
+        "alineas": [
+          "Hoeveel van het goud in het heelal precies uit zulke botsingen komt en hoeveel uit zeldzame soorten supernova's, is nog onderwerp van onderzoek. Maar dat een groot deel van het goud in een trouwring ooit is gesmeed in de botsing van twee uitgebrande sterkernen, ergens in de Melkweg, lang voordat de zon bestond, is inmiddels de gangbare opvatting. Het zijn dezelfde kwantumregels die een witte dwerg overeind houden, die ook bepalen waar en hoe de zwaarste atomen konden ontstaan."
+        ],
+        "foto": 4,
+        "kader": {
+          "titel": "Het lot van een ster",
+          "punten": [
+            "Fusie levert energie tot ijzer en nikkel (massagetal ±56)",
+            "Kleine en middelgrote sterren: witte dwerg, gedragen door elektronen-ontaardingsdruk",
+            "Witte dwerg boven ±1,4 zonsmassa: type-Ia-supernova",
+            "Zware sterren: kerninstorting, neutronenster of zwart gat",
+            "Zwaarste elementen: r-proces, onder meer bij botsende neutronensterren"
+          ]
+        }
+      }
+    ]
+  }
+]

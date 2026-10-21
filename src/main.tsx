@@ -21,6 +21,7 @@ const WeetjesApp = lazy(() => import('./weetjes/App.tsx'))
 const GeldApp = lazy(() => import('./geld/App.tsx'))
 const Vandaag = lazy(() => import('./dag/Vandaag.tsx'))
 const Les = lazy(() => import('./dag/Les.tsx'))
+const Lezen = lazy(() => import('./dag/Lezen.tsx'))
 const ElektronicaApp = lazy(() => import('./elektronica/App.tsx'))
 const PlantenApp = lazy(() => import('./planten/App.tsx'))
 const VervoerApp = lazy(() => import('./vervoer/App.tsx'))
@@ -33,6 +34,7 @@ createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/vandaag" element={<Vandaag />} />
+          <Route path="/vandaag/lees/:nr" element={<Lezen />} />
           <Route path="/vandaag/:moduleId" element={<Les />} />
           <Route path="/elektronica/*" element={<ElektronicaApp />} />
           <Route path="/planten/*" element={<PlantenApp />} />

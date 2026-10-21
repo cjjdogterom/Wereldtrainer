@@ -1,0 +1,308 @@
+/* Leesweergave: één rustige kolom, foto's over de volle breedte. */
+
+.lz-nav,
+.lz-stuk,
+.lz-kort,
+.lz-einde,
+.lz-laden {
+  width: min(700px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.lz-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0 10px;
+  border-bottom: 1px solid var(--inkt);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--inkt-zacht);
+}
+
+.lz-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--inkt);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lz-laden {
+  padding: 60px 0;
+  text-align: center;
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--inkt-zacht);
+}
+
+.lz-kop {
+  padding: 26px 0 18px;
+}
+
+.lz-rubriek {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a3341f;
+}
+
+.lz-hoofdstuk {
+  color: var(--inkt-licht);
+}
+
+.lz-hoofdstuk::before {
+  content: '·';
+  margin-right: 10px;
+}
+
+.lz-kop h1 {
+  margin: 0 0 14px;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(32px, 7vw, 50px);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  font-variation-settings: 'opsz' 144;
+  color: var(--inkt);
+}
+
+.lz-intro {
+  margin: 0 0 12px;
+  font-family: var(--display);
+  font-size: clamp(19px, 3.6vw, 22px);
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--inkt);
+}
+
+.lz-meta {
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--lijn);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--inkt-licht);
+}
+
+/* Foto's: op de telefoon rand tot rand, op een groot scherm iets breder dan de tekst */
+.lz-fig {
+  margin: 22px 0 26px;
+}
+
+.lz-fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--papier-donker);
+}
+
+.lz-fig figcaption {
+  margin-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--lijn);
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--inkt-zacht);
+}
+
+.lz-fig figcaption small {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--inkt-licht);
+}
+
+@media (max-width: 760px) {
+  .lz-fig,
+  .lz .kr-fig,
+  .lz-tekening {
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+  }
+
+  .lz-fig figcaption,
+  .lz .kr-fig figcaption {
+    padding-inline: 16px;
+  }
+
+  .lz .kr-fig img {
+    max-height: none;
+    aspect-ratio: auto !important;
+    object-fit: contain;
+  }
+
+  .lz .kr-deel-foto {
+    float: none;
+    width: auto;
+  }
+}
+
+@media (min-width: 761px) {
+  .lz-fig {
+    margin-inline: -60px;
+  }
+
+  .lz-fig.lead {
+    margin-inline: -100px;
+  }
+}
+
+/* Lopende tekst */
+.lz-tekst {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 14;
+  font-size: 18.5px;
+  line-height: 1.7;
+  color: var(--inkt);
+  hyphens: auto;
+}
+
+.lz-tekst p {
+  margin: 0 0 1em;
+}
+
+.lz-eerste::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.82;
+  font-weight: 800;
+  margin: 0.06em 0.08em 0 0;
+}
+
+.lz-sectie h2 {
+  margin: 1.6em 0 0.5em;
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.lz-citaat {
+  margin: 1.2em 0 1.4em;
+  padding: 14px 0;
+  border-top: 3px solid var(--inkt);
+  border-bottom: 1px solid var(--inkt);
+  font-size: 23px;
+  line-height: 1.35;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.lz-kader {
+  margin: 1.4em 0;
+  padding: 16px 18px 8px;
+  background: #fffdf8;
+  border: 1.5px solid var(--inkt);
+  box-shadow: 4px 4px 0 var(--inkt);
+  font-family: var(--body);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.lz-kader h3 {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lz-kader ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.lz-kader li {
+  margin-bottom: 8px;
+}
+
+.lz-tekening {
+  margin: 22px 0 26px;
+  padding: 12px;
+  background: #fffdf8;
+  border: 1px solid var(--lijn);
+}
+
+/* Korte artikelen (op basis van leerstof) in de leesweergave */
+.lz-kort {
+  padding-top: 22px;
+}
+
+.lz-kort .kr-tekst {
+  columns: auto !important;
+  font-size: 18px;
+}
+
+.lz-kort .kr-lead img {
+  aspect-ratio: auto;
+  max-height: none;
+}
+
+/* Einde van het artikel */
+.lz-einde {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  margin-top: 30px;
+  padding: 22px 0 10px;
+  border-top: 4px double var(--inkt);
+}
+
+.lz-knop {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border: 1.5px solid var(--inkt);
+  background: var(--inkt);
+  color: var(--papier);
+  font-family: var(--body);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lz-knop.stil {
+  background: #fffdf8;
+  color: var(--inkt);
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+.lz-gelezen {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-weight: 700;
+  color: #2f6b3a;
+}
+
+.lz-terug {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--inkt-zacht);
+}
+
+@media (max-width: 560px) {
+  .lz-tekst {
+    font-size: 18px;
+  }
+
+  .lz-knop {
+    width: 100%;
+    justify-content: center;
+  }
+}
