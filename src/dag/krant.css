@@ -1,0 +1,902 @@
+/* De dagkrant: papier, inkt en kolommen. */
+
+.kr {
+  --papier: #f6f2e9;
+  --papier-donker: #ece5d6;
+  --inkt: #1c1a17;
+  --inkt-zacht: #4a453d;
+  --inkt-licht: #7d766a;
+  --lijn: #cfc6b4;
+  min-height: 100svh;
+  background: var(--papier);
+  color: var(--inkt);
+  padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+}
+
+.kr-masthead,
+.kr-stamp,
+.kr-blad {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* ── Kop van de krant ── */
+.kr-masthead {
+  padding: clamp(18px, 4vw, 34px) 0 0;
+  text-align: center;
+  border-bottom: 4px double var(--inkt);
+}
+
+.kr-mast-regel {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--inkt);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--inkt-zacht);
+}
+
+.kr-titel {
+  margin: 10px 0 0;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(40px, 9vw, 88px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 1;
+  color: var(--inkt);
+}
+
+.kr-motto {
+  margin: 6px 0 12px;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--inkt-zacht);
+}
+
+/* ── Sectiekoppen ── */
+.kr-sectiekop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  padding: 18px 0 10px;
+  border-bottom: 1px solid var(--inkt);
+  margin-bottom: 18px;
+}
+
+.kr-sectiekop h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kr-sectiekop p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--inkt-zacht);
+}
+
+/* ── Stampen ── */
+.kr-stamp-rij {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.kr-sk {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid var(--inkt);
+  background: #fffdf8;
+  color: var(--inkt);
+  text-decoration: none;
+  box-shadow: 4px 4px 0 var(--inkt);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.kr-sk:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--inkt);
+}
+
+.kr-sk.af {
+  box-shadow: 4px 4px 0 var(--mk);
+}
+
+.kr-sk-band {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  color: #fff;
+  background-color: var(--mk);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.kr-sk-band svg {
+  width: 18px;
+  height: 18px;
+}
+
+.kr-sk-vink,
+.kr-sk-score {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.kr-sk-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px 14px;
+  flex: 1;
+}
+
+.kr-sk-body strong {
+  font-family: var(--display);
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.kr-sk-sub {
+  font-size: 13px;
+  color: var(--inkt-zacht);
+}
+
+.kr-sk-balk {
+  height: 6px;
+  background: var(--papier-donker);
+  overflow: hidden;
+}
+
+.kr-sk-balk i {
+  display: block;
+  height: 100%;
+  background: var(--mk);
+}
+
+.kr-sk-meta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--inkt-zacht);
+}
+
+/* ── Het blad ── */
+.kr-blad {
+  margin-top: 26px;
+}
+
+.kr-sectiekop.krant {
+  border-top: 4px double var(--inkt);
+  border-bottom-width: 1px;
+}
+
+/* ── Artikel ── */
+.kr-art {
+  min-width: 0;
+}
+
+.kr-rubriek {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a3341f;
+}
+
+.kr-hoofdstuk {
+  color: var(--inkt-licht);
+  font-weight: 600;
+}
+
+.kr-hoofdstuk::before {
+  content: '·';
+  margin-right: 10px;
+}
+
+.kr-kop {
+  margin: 0 0 12px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(22px, 2.6vw, 28px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-variation-settings: 'opsz' 72;
+}
+
+.kr-kop button {
+  all: unset;
+  cursor: default;
+}
+
+.kr-art.gelezen .kr-kop button {
+  cursor: pointer;
+}
+
+.voorpagina .kr-kop {
+  font-size: clamp(30px, 5vw, 52px);
+  line-height: 1.05;
+  font-weight: 900;
+  font-variation-settings: 'opsz' 144;
+}
+
+.kr-intro {
+  margin: 0 0 16px;
+  font-family: var(--display);
+  font-size: 19px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--inkt);
+}
+
+.voorpagina .kr-intro {
+  font-size: clamp(19px, 2.2vw, 23px);
+  max-width: 60ch;
+}
+
+/* Foto's */
+.kr-fig {
+  margin: 0 0 16px;
+  break-inside: avoid;
+}
+
+.kr-fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  background: var(--papier-donker);
+  filter: saturate(0.92) contrast(1.02);
+}
+
+.kr-fig.object img {
+  object-fit: contain;
+  max-height: 200px;
+  background: transparent;
+}
+
+.kr-fig figcaption {
+  margin-top: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--lijn);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--inkt-zacht);
+}
+
+.kr-fig figcaption small {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--inkt-licht);
+}
+
+.kr-lead img {
+  max-height: 520px;
+  aspect-ratio: 16 / 9;
+}
+
+.kr-lead.klein img {
+  aspect-ratio: 3 / 2;
+  max-height: 300px;
+}
+
+.kr-fig-tekening {
+  padding: 10px;
+  background: #fffdf8;
+  border: 1px solid var(--lijn);
+}
+
+/* Lopende tekst */
+.kr-tekst {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 14;
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--inkt);
+  hyphens: auto;
+}
+
+.voorpagina .kr-tekst {
+  column-gap: 36px;
+  column-rule: 1px solid var(--lijn);
+}
+
+@media (min-width: 820px) {
+  .voorpagina .kr-tekst {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1080px) {
+  .voorpagina .kr-tekst {
+    columns: 3;
+  }
+}
+
+.kr-tekst .lk-tekst {
+  margin: 0 0 0.85em;
+  max-width: none;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-align: justify;
+}
+
+.kr-tekst > .lk-tekst:first-of-type::first-letter,
+.kr-tekst > .kr-dateline + .lk-tekst::first-letter {
+  float: left;
+  font-size: 3.3em;
+  line-height: 0.85;
+  font-weight: 800;
+  margin: 0.06em 0.08em 0 0;
+}
+
+.kr-tekst .lk-regel {
+  margin: 0.4em 0 1em;
+  padding: 10px 0;
+  border: 0;
+  border-top: 2px solid var(--inkt);
+  border-bottom: 1px solid var(--inkt);
+  font-size: 19px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--inkt);
+  break-inside: avoid;
+}
+
+.kr-tekst .lk-let {
+  margin: 0 0 1em;
+  border-radius: 0;
+  font-family: var(--body);
+  font-size: 14.5px;
+  line-height: 1.5;
+  break-inside: avoid;
+}
+
+.kr-tekst .lk-lijst {
+  margin: 0 0 1em;
+  border-radius: 0;
+  background: var(--papier-donker);
+  font-size: 15.5px;
+  line-height: 1.5;
+  break-inside: avoid;
+}
+
+.kr-tekst .lk-feiten {
+  margin: 0 0 1em;
+  font-size: 15px;
+  break-inside: avoid;
+}
+
+.kr-tekst .lk-feiten div {
+  grid-template-columns: 96px 1fr;
+  border-bottom-color: var(--lijn);
+}
+
+.kr-tekst .lk-feiten dt {
+  font-family: var(--body);
+  color: var(--inkt-licht);
+}
+
+.kr-tekst .lk-formule {
+  margin: 0 0 1em;
+  border-radius: 0;
+  background: var(--inkt);
+  color: var(--papier);
+  font-family: var(--body);
+  break-inside: avoid;
+}
+
+.kr-tekst .lk-tabel-wrap {
+  margin-bottom: 1em;
+  font-family: var(--body);
+  break-inside: avoid;
+}
+
+.kr-dateline {
+  display: inline-block;
+  margin: 0 8px 4px 0;
+  padding: 1px 7px;
+  background: var(--inkt);
+  color: var(--papier);
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  vertical-align: 3px;
+}
+
+.kr-geluid {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--inkt);
+  background: transparent;
+  color: var(--inkt);
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.kr-kader {
+  margin: 0 0 1em;
+  padding: 12px 14px 4px;
+  background: #fffdf8;
+  border: 1.5px solid var(--inkt);
+  break-inside: avoid;
+}
+
+.kr-kader h4 {
+  margin: 0 0 8px;
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Artikelen met meerdere delen */
+.kr-deel {
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--lijn);
+  display: flow-root;
+}
+
+.kr-deel:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.kr-deel h3 {
+  margin: 0 0 2px;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.kr-deel-sub {
+  margin: 0 0 8px;
+  font-family: var(--body);
+  font-size: 13px;
+  color: var(--inkt-licht);
+}
+
+.kr-deel-foto {
+  float: right;
+  width: min(44%, 210px);
+  margin: 4px 0 8px 14px;
+}
+
+.kr-deel-foto img {
+  aspect-ratio: 1;
+  max-height: none;
+}
+
+.kr-deel-foto figcaption {
+  font-size: 11.5px;
+}
+
+.kr-deel .lk-tekst {
+  text-align: left;
+}
+
+.kr-deel .lk-tekst::first-letter {
+  float: none !important;
+  font-size: inherit !important;
+  margin: 0 !important;
+  font-weight: inherit !important;
+}
+
+/* Afvinken */
+.kr-afvinken {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--inkt);
+}
+
+.kr-afvinken button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 10px 12px;
+  border: 1.5px solid var(--inkt);
+  background: #fffdf8;
+  color: var(--inkt);
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kr-afvinken button.aan {
+  background: var(--inkt);
+  color: var(--papier);
+}
+
+.kr-vinkje {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid currentColor;
+}
+
+.kr-afvinken .kr-terug {
+  border: 0;
+  background: none;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--inkt-zacht);
+  text-decoration: underline;
+}
+
+.kr-art.gelezen .kr-kop {
+  color: var(--inkt-zacht);
+}
+
+.kr-gelezen-regel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2f6b3a;
+}
+
+.kr-gelezen-regel button {
+  all: unset;
+  cursor: pointer;
+  color: var(--inkt-zacht);
+  text-decoration: underline;
+}
+
+/* Voorpagina en de kolommen eronder */
+.kr-art.voorpagina {
+  padding-bottom: 26px;
+  margin-bottom: 26px;
+  border-bottom: 4px double var(--inkt);
+}
+
+.kr-kolommen {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 760px) {
+  .kr-kolommen {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .kr-kolommen > .kr-art {
+    padding: 0 22px 26px;
+    border-left: 1px solid var(--lijn);
+  }
+
+  .kr-kolommen > .kr-art:nth-child(2n + 1) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .kr-kolommen > .kr-art:nth-child(2n) {
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1080px) {
+  .kr-kolommen {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .kr-kolommen > .kr-art:nth-child(2n + 1),
+  .kr-kolommen > .kr-art:nth-child(2n) {
+    padding: 0 22px 26px;
+    border-left: 1px solid var(--lijn);
+  }
+
+  .kr-kolommen > .kr-art:nth-child(3n + 1) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .kr-kolommen > .kr-art:nth-child(3n) {
+    padding-right: 0;
+  }
+}
+
+.kr-kolommen .kr-tekst {
+  font-size: 16px;
+}
+
+.kr-skelet {
+  min-height: 300px;
+  background: linear-gradient(90deg, var(--papier-donker), var(--papier), var(--papier-donker));
+  background-size: 200% 100%;
+  animation: kr-laden 1.4s linear infinite;
+}
+
+@keyframes kr-laden {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* Meer lezen / extra stampen */
+.kr-meer {
+  margin-top: 34px;
+  padding-top: 14px;
+  border-top: 4px double var(--inkt);
+}
+
+.kr-meer h2,
+.kr-week h2 {
+  margin: 0 0 4px;
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kr-meer > p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--inkt-zacht);
+}
+
+.kr-meer-lijst {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.kr-meer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--lijn);
+  background: #fffdf8;
+  color: var(--inkt);
+  text-decoration: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.kr-meer-item:hover {
+  border-color: var(--inkt);
+}
+
+.kr-meer-icoon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  background: var(--mk);
+  color: #fff;
+}
+
+.kr-meer-icoon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.kr-meer-naam {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-weight: 700;
+  font-size: 14.5px;
+  line-height: 1.25;
+}
+
+.kr-meer-naam small {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--inkt-licht);
+}
+
+/* Weekoverzicht */
+.kr-week {
+  margin-top: 34px;
+  padding-top: 14px;
+  border-top: 4px double var(--inkt);
+}
+
+.kr-week ol {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  border: 1px solid var(--inkt);
+}
+
+.kr-week li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 4px 10px;
+  border-left: 1px solid var(--lijn);
+  text-align: center;
+}
+
+.kr-week li:first-child {
+  border-left: 0;
+}
+
+.kr-week li.nu {
+  background: #fffdf8;
+  box-shadow: inset 0 -3px 0 var(--inkt);
+}
+
+.kr-week li.voorbij:not(.vol) {
+  opacity: 0.55;
+}
+
+.kr-week-dag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.kr-week li.vol .kr-week-dag {
+  color: #2f6b3a;
+}
+
+.kr-week-stamp {
+  display: flex;
+  gap: 3px;
+}
+
+.kr-week-stamp span {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  background: var(--mk);
+  color: #fff;
+}
+
+.kr-week-stamp svg {
+  width: 13px;
+  height: 13px;
+}
+
+.kr-week-krant {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--inkt-zacht);
+}
+
+@media (max-width: 560px) {
+  .kr-week-krant {
+    display: none;
+  }
+
+  .kr-week-stamp {
+    flex-direction: column;
+  }
+
+  .kr-tekst .lk-tekst {
+    text-align: left;
+  }
+}
+
+/* Extra artikelen: over de volle breedte, onder de vaste krant */
+.kr-art.extra {
+  margin-bottom: 0;
+  border-bottom: 0;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 4px double var(--inkt);
+}
+
+.kr-art.extra .kr-kop {
+  font-size: clamp(26px, 3.6vw, 38px);
+}
+
+.kr-extra-label {
+  padding: 0 6px;
+  background: #a3341f;
+  color: #fff;
+}
+
+.voorpagina .kr-lead.klein img {
+  aspect-ratio: 21 / 9;
+  max-height: 420px;
+}
+
+@media (max-width: 560px) {
+  .kr-stamp-rij {
+    gap: 10px;
+  }
+
+  .kr-sk {
+    flex-direction: row;
+    box-shadow: 3px 3px 0 var(--inkt);
+  }
+
+  .kr-sk-band {
+    flex-direction: column;
+    justify-content: center;
+    width: 82px;
+    flex: none;
+    padding: 8px 4px;
+    font-size: 11.5px;
+    text-align: center;
+  }
+
+  .kr-sk-vink,
+  .kr-sk-score {
+    margin: 0;
+  }
+
+  .kr-sk-body {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+
+  .kr-sk-body strong {
+    font-size: 17px;
+  }
+
+  .kr-hoofdstuk {
+    display: none;
+  }
+
+  .kr-sectiekop h2 {
+    font-size: 18px;
+  }
+}

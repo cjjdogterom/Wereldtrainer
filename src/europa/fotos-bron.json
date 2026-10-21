@@ -1,0 +1,506 @@
+{
+  "minoers": [
+    {
+      "wiki": "Minoan civilization",
+      "taal": "en",
+      "bijschrift": "Kaart van Minoïsch Kreta met paleizen en vindplaatsen"
+    },
+    {
+      "wiki": "Bull-Leaping Fresco",
+      "taal": "en",
+      "bijschrift": "Fresco van stierenspringers uit het paleis van Knossos"
+    }
+  ],
+  "myceners": [
+    {
+      "wiki": "Lion Gate",
+      "taal": "en",
+      "bijschrift": "De Leeuwenpoort, de hoofdingang van de burcht van Mycene"
+    },
+    {
+      "wiki": "Mask of Agamemnon",
+      "taal": "en",
+      "bijschrift": "Gouden dodenmasker van 'Agamemnon' uit een koningsgraf in Mycene"
+    }
+  ],
+  "feniciers": [
+    {
+      "wiki": "Phoenicia",
+      "taal": "en",
+      "bijschrift": "Kaart van Fenicië met zijn belangrijkste havensteden"
+    },
+    {
+      "wiki": "Sarcophagus of Ahiram",
+      "taal": "en",
+      "bijschrift": "Sarcofaag van koning Ahiram uit Byblos, met vroeg Fenicisch schrift"
+    }
+  ],
+  "kelten": [
+    {
+      "wiki": "Celts",
+      "taal": "en",
+      "bijschrift": "Kaart van de verspreiding van de Kelten over Europa"
+    },
+    {
+      "wiki": "Gundestrup cauldron",
+      "taal": "en",
+      "bijschrift": "De zilveren ketel van Gundestrup met Keltische godenfiguren"
+    }
+  ],
+  "stadstaten": [
+    {
+      "wiki": "Greek colonisation",
+      "taal": "en",
+      "bijschrift": "Kaart van Griekse steden en kolonies rond Middellandse en Zwarte Zee"
+    },
+    {
+      "wiki": "Parthenon",
+      "taal": "en",
+      "bijschrift": "Het Parthenon op de Akropolis van Athene"
+    }
+  ],
+  "perzen": [
+    {
+      "wiki": "Achaemenid Empire",
+      "taal": "en",
+      "bijschrift": "Het Perzische Rijk rond 500 v.Chr., op zijn grootst"
+    },
+    {
+      "wiki": "Persepolis",
+      "taal": "en",
+      "bijschrift": "Ruïnes van het paleis van Darius in Persepolis"
+    }
+  ],
+  "carthago": [
+    {
+      "wiki": "Ancient Carthage",
+      "taal": "en",
+      "bijschrift": "Het gebied van Carthago in 264 v.Chr., vóór de Punische Oorlogen"
+    },
+    {
+      "wiki": "Hannibal",
+      "taal": "en",
+      "bijschrift": "Borstbeeld van Hannibal, de Carthaagse veldheer"
+    }
+  ],
+  "alexander": [
+    {
+      "wiki": "Alexander Mosaic",
+      "taal": "en",
+      "bijschrift": "Alexandermozaïek uit Pompeji: Alexander strijdt tegen Darius III"
+    },
+    {
+      "wiki": "Battle of Gaugamela",
+      "taal": "en",
+      "bijschrift": "De slag bij Gaugamela (331 v.Chr.), geschilderd door Pietro da Cortona"
+    }
+  ],
+  "republiek": [
+    {
+      "wiki": "Roman Republic",
+      "taal": "en",
+      "bijschrift": "Gebied van de Romeinse Republiek in 44 v.Chr."
+    },
+    {
+      "wiki": "Roman Senate",
+      "taal": "en",
+      "bijschrift": "Cicero spreekt de Romeinse Senaat toe (fresco van Cesare Maccari)"
+    }
+  ],
+  "keizerrijk": [
+    {
+      "wiki": "Roman Empire",
+      "taal": "en",
+      "bijschrift": "Het Romeinse Rijk op zijn grootst onder Trajanus (117 n.Chr.)"
+    },
+    {
+      "wiki": "Colosseum",
+      "taal": "en",
+      "bijschrift": "Het Colosseum in Rome"
+    }
+  ],
+  "splitsing": [
+    {
+      "wiki": "Theodosius I",
+      "taal": "en",
+      "bijschrift": "Borstbeeld van Theodosius I, die het rijk in 395 onder zijn zonen verdeelde"
+    },
+    {
+      "wiki": "Portrait of the Four Tetrarchs",
+      "taal": "en",
+      "bijschrift": "De Tetrarchen in Venetië: vier keizers die samen het rijk bestuurden"
+    }
+  ],
+  "val-rome": [
+    {
+      "wiki": "Fall of the Western Roman Empire",
+      "taal": "en",
+      "bijschrift": "Geanimeerde kaart van de opkomst en val van het Romeinse Rijk"
+    },
+    {
+      "wiki": "Romulus Augustulus",
+      "taal": "en",
+      "bijschrift": "Gouden munt van Romulus Augustulus, de laatste West-Romeinse keizer"
+    }
+  ],
+  "byzantium": [
+    {
+      "wiki": "Byzantine Empire",
+      "taal": "en",
+      "bijschrift": "Het Byzantijnse Rijk op zijn grootst onder Justinianus (565)"
+    },
+    {
+      "wiki": "Hagia Sophia",
+      "taal": "en",
+      "bijschrift": "De Hagia Sophia in Istanbul, het vroegere Constantinopel"
+    }
+  ],
+  "clovis": [
+    {
+      "wiki": "Clovis I",
+      "taal": "en",
+      "bijschrift": "Bisschop Remigius doopt Clovis (detail van een schilderij)"
+    },
+    {
+      "wiki": "Francia",
+      "taal": "en",
+      "bijschrift": "Geanimeerde kaart van de uitbreiding van het Frankische rijk"
+    }
+  ],
+  "moren": [
+    {
+      "wiki": "Al-Andalus",
+      "taal": "en",
+      "bijschrift": "Al-Andalus rond 732: islamitisch gebied op het Iberisch schiereiland"
+    },
+    {
+      "wiki": "Mosque–Cathedral of Córdoba",
+      "taal": "en",
+      "bijschrift": "De Mezquita van Córdoba van bovenaf gezien"
+    }
+  ],
+  "karel": [
+    {
+      "wiki": "Carolingian Empire",
+      "taal": "en",
+      "bijschrift": "Het rijk van Karel de Grote bij zijn dood in 814"
+    },
+    {
+      "wiki": "Bust of Charlemagne",
+      "taal": "en",
+      "bijschrift": "Gouden borstbeeld (reliekhouder) van Karel de Grote in Aken"
+    }
+  ],
+  "vikingen": [
+    {
+      "wiki": "Oseberg ship",
+      "taal": "en",
+      "bijschrift": "Het Osebergschip, een Vikingschip uit de 9e eeuw"
+    },
+    {
+      "wiki": "Vikings",
+      "taal": "en",
+      "bijschrift": "Vikingen vallen Guérande aan (middeleeuwse miniatuur)"
+    }
+  ],
+  "hrr": [
+    {
+      "wiki": "States of the Holy Roman Empire",
+      "taal": "en",
+      "bijschrift": "Geanimeerde kaart van de grenzen van het Heilige Roomse Rijk door de eeuwen heen"
+    },
+    {
+      "wiki": "Imperial Crown of the Holy Roman Empire",
+      "taal": "en",
+      "bijschrift": "De Rijkskroon van het Heilige Roomse Rijk (Schatkamer, Wenen)"
+    }
+  ],
+  "willem-veroveraar": [
+    {
+      "wiki": "Norman conquest of England",
+      "taal": "en",
+      "bijschrift": "Kaart van de Normandische invasie van Engeland in 1066"
+    },
+    {
+      "wiki": "Bayeux Tapestry",
+      "taal": "en",
+      "bijschrift": "Tapijt van Bayeux: bisschop Odo spoort de Normandische ruiters aan"
+    }
+  ],
+  "kruistochten": [
+    {
+      "wiki": "Siege of Jerusalem (1099)",
+      "taal": "en",
+      "bijschrift": "Kruisvaarders veroveren Jeruzalem in 1099 (schilderij)"
+    },
+    {
+      "wiki": "Krak des Chevaliers",
+      "taal": "en",
+      "bijschrift": "Krak des Chevaliers, een kruisvaardersburcht in Syrië"
+    }
+  ],
+  "mongolen": [
+    {
+      "wiki": "Golden Horde",
+      "taal": "en",
+      "bijschrift": "Kaart van het rijk van de Gouden Horde"
+    },
+    {
+      "wiki": "Batu Khan",
+      "taal": "en",
+      "bijschrift": "Batu Khan, stichter van de Gouden Horde, op zijn troon (miniatuur)"
+    }
+  ],
+  "honderdjarige": [
+    {
+      "wiki": "Battle of Agincourt",
+      "taal": "en",
+      "bijschrift": "De slag bij Azincourt (1415) op een middeleeuwse miniatuur"
+    },
+    {
+      "wiki": "Joan of Arc",
+      "taal": "en",
+      "bijschrift": "Jeanne d'Arc op een 15e-eeuwse miniatuur"
+    }
+  ],
+  "bourgondie": [
+    {
+      "wiki": "Philip the Good",
+      "taal": "en",
+      "bijschrift": "Portret van Filips de Goede, hertog van Bourgondië"
+    },
+    {
+      "wiki": "Ghent Altarpiece",
+      "taal": "en",
+      "bijschrift": "Het Lam Gods van de gebroeders Van Eyck in Gent"
+    }
+  ],
+  "ottomanen": [
+    {
+      "wiki": "Suleiman the Magnificent",
+      "taal": "en",
+      "bijschrift": "Sultan Süleyman de Prachtlievende, onder wie het rijk op zijn top was"
+    },
+    {
+      "wiki": "Süleymaniye Mosque",
+      "taal": "en",
+      "bijschrift": "De Süleymaniye-moskee in Istanbul"
+    }
+  ],
+  "habsburg-spanje": [
+    {
+      "wiki": "Charles V, Holy Roman Emperor",
+      "taal": "en",
+      "bijschrift": "Portret van keizer Karel V, gezeten"
+    },
+    {
+      "wiki": "El Escorial",
+      "taal": "en",
+      "bijschrift": "El Escorial bij Madrid, klooster-paleis van Filips II"
+    }
+  ],
+  "reformatie": [
+    {
+      "wiki": "Martin Luther",
+      "taal": "en",
+      "bijschrift": "Maarten Luther, geschilderd door Lucas Cranach (1528)"
+    },
+    {
+      "wiki": "Beeldenstorm",
+      "taal": "en",
+      "bijschrift": "De Beeldenstorm in Antwerpen in 1566 (prent van Frans Hogenberg)"
+    }
+  ],
+  "habsburg-oostenrijk": [
+    {
+      "wiki": "Schönbrunn Palace",
+      "taal": "en",
+      "bijschrift": "Slot Schönbrunn in Wenen, zomerpaleis van de Habsburgers"
+    },
+    {
+      "wiki": "Franz Joseph I of Austria",
+      "taal": "en",
+      "bijschrift": "Keizer Frans Jozef I van Oostenrijk-Hongarije (1910)"
+    }
+  ],
+  "westfalen": [
+    {
+      "wiki": "Peace of Münster",
+      "taal": "en",
+      "bijschrift": "Bezegeling van de Vrede van Münster, 1648 (Gerard ter Borch)"
+    },
+    {
+      "wiki": "Defenestrations of Prague",
+      "taal": "en",
+      "bijschrift": "De Praagse defenestratie van 1618 (prent)"
+    }
+  ],
+  "republiek-nl": [
+    {
+      "wiki": "Dutch Golden Age",
+      "taal": "en",
+      "bijschrift": "Leo Belgicus: kaart van de Nederlanden in de vorm van een leeuw"
+    },
+    {
+      "wiki": "Michiel de Ruyter",
+      "taal": "en",
+      "bijschrift": "Admiraal Michiel de Ruyter, geschilderd door Ferdinand Bol"
+    }
+  ],
+  "lodewijk14": [
+    {
+      "wiki": "Louis XIV",
+      "taal": "en",
+      "bijschrift": "Lodewijk XIV in kroningsmantel (Hyacinthe Rigaud)"
+    },
+    {
+      "wiki": "Palace of Versailles",
+      "taal": "en",
+      "bijschrift": "Luchtfoto van het paleis en de tuinen van Versailles"
+    }
+  ],
+  "peter": [
+    {
+      "wiki": "Territorial evolution of Russia",
+      "taal": "en",
+      "bijschrift": "Kaart van de groei van Rusland tussen 1547 en 1725"
+    },
+    {
+      "wiki": "Peter the Great",
+      "taal": "en",
+      "bijschrift": "Portret van tsaar Peter de Grote"
+    }
+  ],
+  "pruisen": [
+    {
+      "wiki": "Frederick the Great",
+      "taal": "en",
+      "bijschrift": "Frederik de Grote, koning van Pruisen"
+    },
+    {
+      "wiki": "Sanssouci",
+      "taal": "en",
+      "bijschrift": "Slot Sanssouci in Potsdam, zomerpaleis van Frederik de Grote"
+    }
+  ],
+  "brits-rijk": [
+    {
+      "wiki": "Territorial evolution of the British Empire",
+      "taal": "en",
+      "bijschrift": "Wereldkaart met alle gebieden die ooit Brits waren"
+    },
+    {
+      "wiki": "HMS Victory",
+      "taal": "en",
+      "bijschrift": "HMS Victory, Nelsons vlaggenschip bij Trafalgar, in Portsmouth"
+    }
+  ],
+  "revolutie": [
+    {
+      "wiki": "Storming of the Bastille",
+      "taal": "en",
+      "bijschrift": "De bestorming van de Bastille op 14 juli 1789"
+    },
+    {
+      "wiki": "Declaration of the Rights of Man and of the Citizen",
+      "taal": "en",
+      "bijschrift": "De Verklaring van de Rechten van de Mens en de Burger (1789)"
+    }
+  ],
+  "napoleon": [
+    {
+      "wiki": "Continental System",
+      "taal": "en",
+      "bijschrift": "Europa in 1812: het Franse keizerrijk, vazalstaten en bondgenoten"
+    },
+    {
+      "wiki": "Napoleon",
+      "taal": "en",
+      "bijschrift": "Napoleon in zijn werkkamer in de Tuilerieën (Jacques-Louis David)"
+    }
+  ],
+  "wenen": [
+    {
+      "wiki": "Congress of Vienna",
+      "taal": "en",
+      "bijschrift": "Kaart van Europa na het Congres van Wenen (1815)"
+    },
+    {
+      "wiki": "Klemens von Metternich",
+      "taal": "en",
+      "bijschrift": "Vorst Metternich, gastheer van het congres (Thomas Lawrence)"
+    }
+  ],
+  "bismarck": [
+    {
+      "wiki": "Otto von Bismarck",
+      "taal": "en",
+      "bijschrift": "Otto von Bismarck in 1885"
+    },
+    {
+      "wiki": "Proclamation of the German Empire",
+      "taal": "en",
+      "bijschrift": "Uitroeping van het Duitse Keizerrijk in Versailles, 1871 (Anton von Werner)"
+    }
+  ],
+  "wo1": [
+    {
+      "wiki": "Battle of the Somme",
+      "taal": "en",
+      "bijschrift": "Britse soldaten komen uit de loopgraaf aan de Somme (1916)"
+    },
+    {
+      "wiki": "World War I",
+      "taal": "en",
+      "bijschrift": "Franse soldaten in de slag bij Verdun (1916)"
+    }
+  ],
+  "sovjet": [
+    {
+      "wiki": "Republics of the Soviet Union",
+      "taal": "en",
+      "bijschrift": "Kaart van de vijftien republieken van de Sovjet-Unie (1989)"
+    },
+    {
+      "wiki": "Moscow Kremlin",
+      "taal": "en",
+      "bijschrift": "Het Kremlin in Moskou, machtscentrum van de Sovjet-Unie"
+    }
+  ],
+  "nazi": [
+    {
+      "wiki": "Greater Germanic Reich",
+      "taal": "en",
+      "bijschrift": "Kaart van het Groot-Duitse Rijk en zijn bestuursgebieden"
+    },
+    {
+      "wiki": "Nuremberg rallies",
+      "taal": "en",
+      "bijschrift": "Partijdag van de NSDAP in Neurenberg, 1934"
+    }
+  ],
+  "koude-oorlog": [
+    {
+      "wiki": "Iron Curtain",
+      "taal": "en",
+      "bijschrift": "Kaart van het IJzeren Gordijn tussen Oost- en West-Europa"
+    },
+    {
+      "wiki": "Berlin Wall",
+      "taal": "en",
+      "bijschrift": "De Berlijnse Muur, gezien vanuit West-Berlijn"
+    }
+  ],
+  "eu": [
+    {
+      "wiki": "Member state of the European Union",
+      "taal": "en",
+      "bijschrift": "Kaart van de lidstaten van de Europese Unie (2020)"
+    },
+    {
+      "wiki": "Berlaymont building",
+      "taal": "en",
+      "bijschrift": "Het Berlaymont-gebouw in Brussel, zetel van de Europese Commissie"
+    }
+  ]
+}

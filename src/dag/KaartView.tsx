@@ -49,7 +49,7 @@ export function BeeldView({ beeld }: { beeld: Beeld }) {
   }
 }
 
-function BlokView({ blok }: { blok: Blok }) {
+export function BlokView({ blok }: { blok: Blok }) {
   switch (blok.soort) {
     case 'tekst':
       return <p className="lk-tekst">{blok.tekst}</p>

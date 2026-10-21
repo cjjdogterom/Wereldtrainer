@@ -1,0 +1,410 @@
+{
+  "mechanische-horloges-precisietijd": [
+    {
+      "wiki": "Tourbillon",
+      "taal": "nl",
+      "bijschrift": "Tourbillon: draaiende kooi met onrust en echappement in een horloge"
+    },
+    {
+      "wiki": "Hairspring",
+      "taal": "en",
+      "bijschrift": "Balanswiel met spiraalveer, het tijdgevende hart van een uurwerk"
+    },
+    {
+      "wiki": "Marine chronometer",
+      "taal": "en",
+      "bijschrift": "Mechaniek van een Frodsham-marinechronometer"
+    }
+  ],
+  "luchtvaart-motoren-systemen": [
+    {
+      "wiki": "Jet engine",
+      "taal": "en",
+      "bijschrift": "Een Pratt & Whitney F100-straalmotor van een F-15 op een testbank"
+    },
+    {
+      "wiki": "Thrust reversal",
+      "taal": "en",
+      "bijschrift": "Close-up van een motor van een Airbus A380"
+    },
+    {
+      "wiki": "Auxiliary power unit",
+      "taal": "en",
+      "bijschrift": "Een hulpturbine (APU), die stroom en lucht levert aan de grond"
+    }
+  ],
+  "luchtvaart-aerodynamica-vlieggedrag": [
+    {
+      "wiki": "Wake turbulence",
+      "taal": "en",
+      "bijschrift": "Gekleurde rook maakt de tipwervel achter een vliegtuigvleugel zichtbaar"
+    },
+    {
+      "wiki": "Winglet",
+      "taal": "en",
+      "bijschrift": "Gebogen winglet aan de vleugeltip van een Airbus A350"
+    },
+    {
+      "wiki": "Flap (aeronautics)",
+      "taal": "en",
+      "bijschrift": "Uitgeschoven slat aan de voorrand van een vliegtuigvleugel"
+    }
+  ],
+  "trein-spoor": [
+    {
+      "wiki": "Railroad switch",
+      "taal": "en",
+      "bijschrift": "Een spoorwissel met zijn beweegbare tongen"
+    },
+    {
+      "wiki": "Pantograph (transport)",
+      "taal": "en",
+      "bijschrift": "Stroomafnemer (pantograaf) tegen de bovenleiding"
+    },
+    {
+      "wiki": "Steam locomotive",
+      "taal": "en",
+      "bijschrift": "De Mallard, recordhouder als snelste stoomlocomotief"
+    }
+  ],
+  "scheepvaart-maritiem": [
+    {
+      "wiki": "Container ship",
+      "taal": "en",
+      "bijschrift": "Twee grote containerschepen van Maersk"
+    },
+    {
+      "wiki": "Bulbous bow",
+      "taal": "en",
+      "bijschrift": "Bulbsteven onder de waterlijn van een cruiseschip in het droogdok"
+    },
+    {
+      "wiki": "Sextant",
+      "taal": "en",
+      "bijschrift": "Een sextant voor hoekmeting van zon en sterren"
+    }
+  ],
+  "auto-motoren-aandrijving": [
+    {
+      "wiki": "V8 engine",
+      "taal": "en",
+      "bijschrift": "Een Chevrolet small-block V8-motor"
+    },
+    {
+      "wiki": "Turbocharger",
+      "taal": "en",
+      "bijschrift": "Animatie van een turbo: uitlaatgas drijft de compressor aan"
+    },
+    {
+      "wiki": "Differential (mechanical device)",
+      "taal": "en",
+      "bijschrift": "Opengewerkt differentieel van ZF met zijn tandwielen"
+    }
+  ],
+  "elektronica-halfgeleiders": [
+    {
+      "wiki": "Integrated circuit",
+      "taal": "en",
+      "bijschrift": "Macro-opname van een chip met zijn fijne structuren"
+    },
+    {
+      "wiki": "Wafer (electronics)",
+      "taal": "en",
+      "bijschrift": "Een siliciumwafer vol chips"
+    },
+    {
+      "wiki": "Transistor",
+      "taal": "en",
+      "bijschrift": "Transistors in verschillende behuizingen"
+    }
+  ],
+  "rf-antennes-signalen": [
+    {
+      "wiki": "Yagi–Uda antenna",
+      "taal": "en",
+      "bijschrift": "Een Yagi-antenne voor tv-ontvangst"
+    },
+    {
+      "wiki": "Parabolic antenna",
+      "taal": "en",
+      "bijschrift": "Grote schotelantenne van grondstation Raisting"
+    },
+    {
+      "wiki": "Waveguide (radio frequency)",
+      "taal": "en",
+      "bijschrift": "Verzameling golfpijpen (waveguides) voor microgolven"
+    }
+  ],
+  "optiek-fotografie": [
+    {
+      "wiki": "Camera lens",
+      "taal": "en",
+      "bijschrift": "Fotografische objectieven van voren gezien"
+    },
+    {
+      "wiki": "Fresnel lens",
+      "taal": "en",
+      "bijschrift": "Een fresnellens uit een vuurtoren"
+    },
+    {
+      "wiki": "Prism (optics)",
+      "taal": "en",
+      "bijschrift": "Een prisma splitst wit licht in kleuren"
+    }
+  ],
+  "audio-engineering": [
+    {
+      "wiki": "Mixing console",
+      "taal": "en",
+      "bijschrift": "Een groot SSL-mengpaneel in een opnamestudio"
+    },
+    {
+      "wiki": "Anechoic chamber",
+      "taal": "en",
+      "bijschrift": "Een echovrije kamer met akoestische wiggen"
+    },
+    {
+      "wiki": "Microphone",
+      "taal": "en",
+      "bijschrift": "De klassieke Shure 55S-microfoon"
+    }
+  ],
+  "metallurgie-materialen": [
+    {
+      "wiki": "Blast furnace",
+      "taal": "en",
+      "bijschrift": "Een hoogoven in Sagunto, Spanje"
+    },
+    {
+      "wiki": "Damascus steel",
+      "taal": "en",
+      "bijschrift": "Golvend damastpatroon op een zwaardkling"
+    },
+    {
+      "wiki": "Bessemer process",
+      "taal": "en",
+      "bijschrift": "Een Bessemer-converter om ruwijzer tot staal te blazen"
+    }
+  ],
+  "bouwkunde-constructie": [
+    {
+      "wiki": "Golden Gate Bridge",
+      "taal": "en",
+      "bijschrift": "De Golden Gate Bridge, een hangbrug in San Francisco"
+    },
+    {
+      "wiki": "Tuned mass damper",
+      "taal": "en",
+      "bijschrift": "De enorme slingerdemper in wolkenkrabber Taipei 101"
+    },
+    {
+      "wiki": "Truss",
+      "taal": "en",
+      "bijschrift": "Een spoorbrug met vakwerkconstructie"
+    }
+  ],
+  "scheikunde-toegepast": [
+    {
+      "wiki": "Fractionating column",
+      "taal": "en",
+      "bijschrift": "Een grote destillatietoren in een raffinaderij"
+    },
+    {
+      "wiki": "Laboratory glassware",
+      "taal": "en",
+      "bijschrift": "Laboratoriumglaswerk met gekleurde vloeistoffen"
+    },
+    {
+      "wiki": "Catalytic converter",
+      "taal": "en",
+      "bijschrift": "Opengewerkte katalysator van een auto"
+    }
+  ],
+  "fysiologie-interne-geneeskunde": [
+    {
+      "wiki": "Heart",
+      "taal": "en",
+      "bijschrift": "Het menselijk hart van voren, met de grote bloedvaten"
+    },
+    {
+      "wiki": "Electrocardiography",
+      "taal": "en",
+      "bijschrift": "Normaal ECG-ritme met P-golf, QRS-complex en T-golf"
+    },
+    {
+      "wiki": "Kidney",
+      "taal": "en",
+      "bijschrift": "Doorsnede van een nier"
+    }
+  ],
+  "farmacologie-anesthesie": [
+    {
+      "wiki": "Anaesthetic machine",
+      "taal": "en",
+      "bijschrift": "Een moderne anesthesiemachine op de operatiekamer"
+    },
+    {
+      "wiki": "Laryngoscopy",
+      "taal": "en",
+      "bijschrift": "Zicht op stembanden en strottenhoofd bij laryngoscopie"
+    },
+    {
+      "wiki": "Tablet (pharmacy)",
+      "taal": "en",
+      "bijschrift": "Ronde tabletten"
+    }
+  ],
+  "neurowetenschap-zintuigen": [
+    {
+      "wiki": "Neuron",
+      "taal": "en",
+      "bijschrift": "Een neuron met dendrieten, cellichaam en axon"
+    },
+    {
+      "wiki": "Human brain",
+      "taal": "en",
+      "bijschrift": "Menselijke hersenen van opzij gezien"
+    },
+    {
+      "wiki": "Human eye",
+      "taal": "en",
+      "bijschrift": "Close-up van een menselijk oog met bloedvaatjes"
+    }
+  ],
+  "ruimtevaart-baanmechanica": [
+    {
+      "wiki": "International Space Station",
+      "taal": "en",
+      "bijschrift": "Het ISS gefotografeerd vanuit een Crew Dragon"
+    },
+    {
+      "wiki": "Saturn V",
+      "taal": "en",
+      "bijschrift": "Lancering van de Saturnus V-raket met Apollo 11"
+    },
+    {
+      "wiki": "Hohmann transfer orbit",
+      "taal": "en",
+      "bijschrift": "Een Hohmann-overgangsbaan tussen twee cirkelbanen"
+    }
+  ],
+  "astronomie-astrofysica": [
+    {
+      "wiki": "Pillars of Creation",
+      "taal": "en",
+      "bijschrift": "De Pillars of Creation in de Adelaarsnevel"
+    },
+    {
+      "wiki": "Andromeda Galaxy",
+      "taal": "en",
+      "bijschrift": "Het Andromedastelsel, onze grote buurgalaxie"
+    },
+    {
+      "wiki": "Crab Nebula",
+      "taal": "en",
+      "bijschrift": "De Krabnevel, restant van een supernova uit 1054"
+    }
+  ],
+  "kernfysica-energie": [
+    {
+      "wiki": "Nuclear power plant",
+      "taal": "en",
+      "bijschrift": "Kerncentrale Saint-Alban aan de Rhône"
+    },
+    {
+      "wiki": "Cherenkov radiation",
+      "taal": "en",
+      "bijschrift": "Blauw tsjerenkovlicht in het water van een kernreactor"
+    },
+    {
+      "wiki": "Trinity (nuclear test)",
+      "taal": "en",
+      "bijschrift": "Vuurbal van de Trinity-test, de eerste kernexplosie (1945)"
+    }
+  ],
+  "stromingsleer-aerodynamica": [
+    {
+      "wiki": "Wind tunnel",
+      "taal": "en",
+      "bijschrift": "Een transsone windtunnel van NASA"
+    },
+    {
+      "wiki": "Schlieren photography",
+      "taal": "en",
+      "bijschrift": "Schlierenfoto van schokgolven rond een vleugelprofiel bij Mach 1,2"
+    },
+    {
+      "wiki": "Vapor cone",
+      "taal": "en",
+      "bijschrift": "Condensatiewolk rond een F/A-18 bij transsone snelheid"
+    }
+  ],
+  "aarde-geologie-oceaan": [
+    {
+      "wiki": "Plate tectonics",
+      "taal": "en",
+      "bijschrift": "Kaart van de tektonische platen van de aarde"
+    },
+    {
+      "wiki": "Volcano",
+      "taal": "en",
+      "bijschrift": "Uitbarsting van de Augustine-vulkaan in Alaska"
+    },
+    {
+      "wiki": "Mid-Atlantic Ridge",
+      "taal": "en",
+      "bijschrift": "Bodemkaart van de Atlantische Oceaan met de Mid-Atlantische Rug"
+    }
+  ],
+  "meteorologie": [
+    {
+      "wiki": "Cumulonimbus cloud",
+      "taal": "en",
+      "bijschrift": "Een cumulonimbus met aambeeld boven Warschau"
+    },
+    {
+      "wiki": "Tornado",
+      "taal": "en",
+      "bijschrift": "Een F5-tornado bij Elie, Canada (2007)"
+    },
+    {
+      "wiki": "Tropical cyclone",
+      "taal": "en",
+      "bijschrift": "Orkaan Florence gezien vanuit het ISS"
+    }
+  ],
+  "informatica-rekenen": [
+    {
+      "wiki": "ENIAC",
+      "taal": "en",
+      "bijschrift": "De ENIAC, een van de eerste elektronische computers"
+    },
+    {
+      "wiki": "Central processing unit",
+      "taal": "en",
+      "bijschrift": "Een moderne Intel-processor"
+    },
+    {
+      "wiki": "Difference engine",
+      "taal": "en",
+      "bijschrift": "De rekenmachine (difference engine) van Charles Babbage"
+    }
+  ],
+  "cryptografie-beveiliging": [
+    {
+      "wiki": "Enigma machine",
+      "taal": "en",
+      "bijschrift": "Een Duitse Enigma-codeermachine"
+    },
+    {
+      "wiki": "Bombe",
+      "taal": "en",
+      "bijschrift": "Een Bombe in Bletchley Park, gebouwd om Enigma te kraken"
+    },
+    {
+      "wiki": "Lorenz cipher",
+      "taal": "en",
+      "bijschrift": "De Lorenz SZ42, codeermachine van het Duitse opperbevel"
+    }
+  ]
+}

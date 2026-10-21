@@ -1,11 +1,12 @@
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, Check, Newspaper } from 'lucide-react'
 import './home.css'
 import TopBalk from './ui/TopBalk'
 import { GROEPEN, MODULES, MODULE_BY_ID } from './modules'
 import { dagSleutel } from './dag/geheugen'
-import { roosterVoor } from './dag/rooster'
+import { KRANT, krantVoor, stampVoor } from './dag/rooster'
+import { RUBRIEK } from './dag/krant'
 import { useGeheugen, usePoco } from './dag/useLeer'
 
 function begroeting(): string {
@@ -19,11 +20,13 @@ function begroeting(): string {
 export default function Home() {
   const { g, vandaag, reeks } = useGeheugen()
   const poco = usePoco(vandaag)
-  const gepland = roosterVoor()
+  const stamp = stampVoor()
+  const krant = krantVoor()
+  const gepland = [...stamp, ...krant]
   const klaar = g.dagen[dagSleutel(vandaag)]?.klaar ?? []
   const pocoKlaar = poco.totaal > 0 && poco.klaar >= poco.totaal
-  const onderdelen = ['spaans', ...gepland]
-  const isKlaar = (id: string) => (id === 'spaans' ? pocoKlaar : klaar.includes(id))
+  const onderdelen = ['spaans', ...stamp, KRANT]
+  const isKlaar = (id: string) => (id === 'spaans' ? pocoKlaar : klaar.includes(krant.includes(id) ? KRANT : id))
   const af = onderdelen.filter(isKlaar).length
   const pct = Math.round((af / onderdelen.length) * 100)
   const alles = af >= onderdelen.length
@@ -39,7 +42,7 @@ export default function Home() {
             {alles ? 'Je lessen van vandaag zijn af.' : af === 0 ? 'Vandaag leer je:' : `Nog ${onderdelen.length - af} te gaan vandaag.`}
           </h1>
           <p className="hub-dag-uitleg">
-            Volgens je weekrooster: Spaans plus {gepland.map((id) => MODULE_BY_ID[id]?.title).join(', ')}. Eerst leerkaarten, dan een korte overhoring — ongeveer een kwartier.
+            Eerst stampen: Spaans, {stamp.map((id) => MODULE_BY_ID[id]?.title.toLowerCase()).join(' en ')}. Daarna de krant, met vandaag op de voorpagina: {RUBRIEK[krant[0]]?.naam.toLowerCase()}.
           </p>
           <Link to="/vandaag" className="hub-start">
             {alles ? 'Bekijk je week' : af === 0 ? 'Begin aan vandaag' : 'Ga verder'} <ArrowRight size={18} />
@@ -55,7 +58,7 @@ export default function Home() {
 
         <ul className="hub-dag-chips" aria-label="Lessen van vandaag">
           {onderdelen.map((id) => {
-            const m = MODULE_BY_ID[id]
+            const m = id === KRANT ? { title: 'De krant', accent: '#1c1a17', icon: <Newspaper size={16} /> } : MODULE_BY_ID[id]
             if (!m) return null
             return (
               <li key={id} className={`hub-chip${isKlaar(id) ? ' goed' : ''}`} style={{ '--hub-accent': m.accent } as CSSProperties}>

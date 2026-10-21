@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { LEERSTOF, laadLeerlijn } from './leerstof'
-import { bewaar, dagNummer, dagSleutel, laadGesynchroniseerd, laadLokaal, planLes, pocoVandaag, reeks, voortgang, type DagLes, type Geheugen, type ModuleStand } from './geheugen'
-import { roosterVoor } from './rooster'
+import { bewaar, dagNummer, dagSleutel, laadGesynchroniseerd, laadLokaal, planLes, pocoVandaag, reeks, voortgang, type DagLes, type Geheugen, type KrantStand, type ModuleStand } from './geheugen'
+import { dagTaken } from './rooster'
 import type { Eenheid } from './types'
 
 export function useGeheugen() {
@@ -27,7 +27,7 @@ export function useGeheugen() {
     (moduleId: string, nieuw: ModuleStand, klaarVandaag?: boolean) => {
       setG((oud) => {
         const sleutel = dagSleutel(vandaag)
-        const dag = oud.dagen[sleutel] ?? { gepland: roosterVoor(), klaar: [] }
+        const dag = oud.dagen[sleutel] ?? { gepland: dagTaken(), klaar: [] }
         const dagen = klaarVandaag ? { ...oud.dagen, [sleutel]: { gepland: dag.gepland, klaar: [...new Set([...dag.klaar, moduleId])] } } : oud.dagen
         const volgende: Geheugen = { ...oud, modules: { ...oud.modules, [moduleId]: nieuw }, dagen, updatedAt: Date.now() }
         bewaar(volgende)
@@ -37,7 +37,27 @@ export function useGeheugen() {
     [vandaag],
   )
 
-  return { g, vandaag, wijzig, reeks: reeks(g, vandaag) }
+  // De krant: lijst van vandaag en wat er gelezen is.
+  const wijzigKrant = useCallback(
+    (nieuw: (oud: KrantStand) => KrantStand, klaarVandaag?: boolean) => {
+      setG((oud) => {
+        const sleutel = dagSleutel(vandaag)
+        const dag = oud.dagen[sleutel] ?? { gepland: dagTaken(), klaar: [] }
+        const klaar = klaarVandaag ? [...new Set([...dag.klaar, 'krant'])] : dag.klaar.filter((x) => klaarVandaag !== false || x !== 'krant')
+        const volgende: Geheugen = {
+          ...oud,
+          krant: nieuw(oud.krant ?? { gelezen: {} }),
+          dagen: { ...oud.dagen, [sleutel]: { gepland: dag.gepland, klaar } },
+          updatedAt: Date.now(),
+        }
+        bewaar(volgende)
+        return volgende
+      })
+    },
+    [vandaag],
+  )
+
+  return { g, vandaag, wijzig, wijzigKrant, reeks: reeks(g, vandaag) }
 }
 
 // Leerlijn plus de les van vandaag voor één onderwerp.

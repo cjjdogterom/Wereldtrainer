@@ -1,4 +1,5 @@
 import type { Blok, Eenheid, Kaart, Leerstof, Toets } from './types'
+import type { Foto } from '../ui/Fotos'
 
 // ─── hulpjes ───
 
@@ -33,6 +34,18 @@ function verberg(tekst: string, naam: string): string {
 }
 
 const fmt = new Intl.NumberFormat('nl-NL')
+
+// Zelfde sleutel als in de fotos-bron.json-bestanden.
+const slug = (t: string) =>
+  t
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 60)
+
+const fotoBlok = (fotos: Foto[] | undefined): Blok[] => (fotos?.length ? [{ soort: 'beeld', beeld: { soort: 'fotos', fotos } }] : [])
 
 // ─── Topografie ───
 
@@ -164,7 +177,7 @@ const geschiedenis: Leerstof = {
   enkelvoud: 'gebeurtenis',
   meervoud: 'gebeurtenissen en personen',
   laad: async () => {
-    const { GESORTEERD, jaarLabel } = await import('../geschiedenis/data')
+    const [{ GESORTEERD, jaarLabel }, { FOTOS }] = await Promise.all([import('../geschiedenis/data'), import('../geschiedenis/fotos')])
     return GESORTEERD.map((h, i) => ({
       id: `${h.jaar}-${h.titel}`,
       hoofdstuk: h.periode,
@@ -174,7 +187,7 @@ const geschiedenis: Leerstof = {
           kop: h.titel,
           ondertitel: `${jaarLabel(h)} · ${h.periode}`,
           beeld: { soort: 'groot', tekst: jaarLabel(h) },
-          blokken: [{ soort: 'tekst', tekst: h.uitleg }],
+          blokken: [...fotoBlok(FOTOS[slug(h.titel)]), { soort: 'tekst', tekst: h.uitleg }],
         },
       ],
       toetsen: () => [
@@ -203,7 +216,7 @@ const europa: Leerstof = {
   enkelvoud: 'macht',
   meervoud: 'machten',
   laad: async () => {
-    const { MACHTEN } = await import('../europa/data')
+    const [{ MACHTEN }, { FOTOS }] = await Promise.all([import('../europa/data'), import('../europa/fotos')])
     const lijst = [...MACHTEN].sort((a, b) => a.start - b.start)
     return lijst.map((m, i) => ({
       id: m.id,
@@ -215,6 +228,7 @@ const europa: Leerstof = {
           ondertitel: `${m.periode} · ${m.gebied}`,
           blokken: [
             { soort: 'regel', tekst: `${m.periode}: ${m.macht} heerst over ${m.gebied}.` },
+            ...fotoBlok(FOTOS[m.id]),
             { soort: 'tekst', tekst: m.uitleg },
           ],
         },
@@ -522,7 +536,7 @@ const weetjes: Leerstof = {
   enkelvoud: 'weetje',
   meervoud: 'weetjes',
   laad: async () => {
-    const { WEETJES } = await import('../weetjes/data')
+    const [{ WEETJES }, { FOTOS }] = await Promise.all([import('../weetjes/data'), import('../weetjes/fotos')])
     return WEETJES.map((w) => {
       const [kern] = eersteZin(w.uitleg)
       return {
@@ -534,6 +548,10 @@ const weetjes: Leerstof = {
             kop: w.categorie,
             blokken: [
               { soort: 'regel', tekst: w.vraag },
+              ...(() => {
+                const f = FOTOS[slug(w.categorie)] ?? []
+                return fotoBlok(f.length ? [f[w.id % f.length]] : [])
+              })(),
               ...w.uitleg.split(/(?<=[.!?])\s+(?=[A-Z])/).reduce<Blok[]>((acc, zin, i) => {
                 // twee zinnen per alinea
                 if (i % 2 === 0) acc.push({ soort: 'tekst', tekst: zin })

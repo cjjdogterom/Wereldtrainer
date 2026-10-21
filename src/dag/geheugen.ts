@@ -16,9 +16,20 @@ export type DagLes = {
 
 export type ModuleStand = { items: Record<string, ItemStand>; les?: DagLes }
 
+// Een krantenartikel: een of meer eenheden uit één onderwerp.
+export type Artikel = { m: string; ids: string[]; gelezen?: boolean }
+
+export type KrantStand = {
+  // `${module}|${eenheid}` → tijdstip waarop het gelezen is
+  gelezen: Record<string, number>
+  dag?: number
+  artikelen?: Artikel[]
+}
+
 export type Geheugen = {
   v: 2
   modules: Record<string, ModuleStand>
+  krant?: KrantStand
   // datum → modules die die dag klaar waren, en wat er gepland stond
   dagen: Record<string, { gepland: string[]; klaar: string[] }>
   updatedAt: number
@@ -79,7 +90,24 @@ export function samenvoegen(a: Geheugen, b: Geheugen): Geheugen {
     const y = dagen[d]
     dagen[d] = y ? { gepland: y.gepland.length ? y.gepland : x.gepland, klaar: [...new Set([...y.klaar, ...x.klaar])] } : x
   }
-  return { v: 2, modules, dagen, updatedAt: Math.max(a.updatedAt, b.updatedAt ?? 0) }
+  return { v: 2, modules, krant: krantSamen(a.krant, b.krant), dagen, updatedAt: Math.max(a.updatedAt, b.updatedAt ?? 0) }
+}
+
+function krantSamen(a: KrantStand | undefined, b: KrantStand | undefined): KrantStand | undefined {
+  if (!a || !b) return a ?? b
+  const gelezen = { ...a.gelezen }
+  for (const [k, t] of Object.entries(b.gelezen ?? {})) gelezen[k] = Math.max(gelezen[k] ?? 0, t)
+  if ((a.dag ?? 0) !== (b.dag ?? 0)) {
+    const nieuwst = (a.dag ?? 0) > (b.dag ?? 0) ? a : b
+    return { gelezen, dag: nieuwst.dag, artikelen: nieuwst.artikelen }
+  }
+  // zelfde dag: de langste lijst, en gelezen als het op één van beide apparaten gelezen is
+  const [lang, kort] = (a.artikelen?.length ?? 0) >= (b.artikelen?.length ?? 0) ? [a, b] : [b, a]
+  const artikelen = (lang.artikelen ?? []).map((x, i) => {
+    const y = kort.artikelen?.[i]
+    return y && y.m === x.m && y.ids.join() === x.ids.join() ? { ...x, gelezen: x.gelezen || y.gelezen } : x
+  })
+  return { gelezen, dag: a.dag, artikelen }
 }
 
 export async function laadGesynchroniseerd(): Promise<Geheugen | null> {
