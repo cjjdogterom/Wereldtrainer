@@ -370,11 +370,19 @@ E.extraTasks = (data, today, existing, seconds) => {
 // (3× als het eerder fout was) en minstens één keer getypt. Daarna een eindronde met alle woorden. Klaar → in de herhaling van morgen.
 E.wordOrder = () => E.words.slice().sort((a,b) => a.lvl-b.lvl || S.categories.findIndex(c=>c[0]===a.cat) - S.categories.findIndex(c=>c[0]===b.cat));
 // keuze: "random" = willekeurig uit alle nog niet geleerde woorden (standaard), "order" = op volgorde van niveau en categorie
+// Woorden die je een eerdere dag niet hebt afgerond komen eerst terug, zodat je uiteindelijk alles leert.
+E.leftover = (data, today) => {
+  const d = data.daily;
+  if(!d) return [];
+  const open = d.day===today ? (d.carry||[]) : d.ids.filter(id => !(d.prog[id] && d.prog[id].done));
+  return open.filter(id => !data.items[id] && E.item(id));
+};
 E.buildDaily = (data, today) => {
   const n = data.settings.dailyWords ?? 30;
-  const unseen = ((data.settings.dailyPick||"random")==="order" ? E.wordOrder() : shuffle(E.words)).filter(w => !data.items[w.id]);
-  const ids = unseen.slice(0, n).map(w => w.id);
-  return { day: today, ids, prog:{}, tasks:[], idx:0, chunk:0, chunkSize:6, elapsed:0, answered:0, correct:0, wrong:0, done: ids.length===0, final:false };
+  const carry = E.leftover(data, today);
+  const unseen = ((data.settings.dailyPick||"random")==="order" ? E.wordOrder() : shuffle(E.words)).filter(w => !data.items[w.id] && !carry.includes(w.id));
+  const ids = [...carry, ...unseen.slice(0, Math.max(0, n - carry.length)).map(w => w.id)];
+  return { day: today, ids, carry, prog:{}, tasks:[], idx:0, chunk:0, chunkSize:6, elapsed:0, answered:0, correct:0, wrong:0, done: ids.length===0, final:false };
 };
 E.dailyNextChunk = (d, settings) => {
   const start = d.chunk * d.chunkSize, ids = d.ids.slice(start, start + d.chunkSize);
