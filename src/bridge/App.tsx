@@ -159,7 +159,7 @@ export default function BridgeApp() {
     <div className="km-app br-app" style={{ '--km-accent': ACCENT } as CSSProperties}>
       <header className="br-tafel">
         <div className="br-tafel-binnen">
-          <Link to="/" className="br-terug">
+          <Link to="/vakken" className="br-terug">
             <ArrowLeft size={16} /> Wereldtrainer
           </Link>
           <div className="br-titel">

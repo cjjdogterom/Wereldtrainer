@@ -2,7 +2,8 @@ import { StrictMode, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import './index.css'
-import Home from './Home.tsx'
+import Dag from './dag/Dag.tsx'
+import Navigatie from './ui/Navigatie.tsx'
 
 // Elke leermodule is een eigen chunk: de home laadt licht en snel.
 const TopografieApp = lazy(() => import('./App.tsx'))
@@ -19,7 +20,12 @@ const KlaverjasApp = lazy(() => import('./klaverjas/App.tsx'))
 const BridgeApp = lazy(() => import('./bridge/App.tsx'))
 const WeetjesApp = lazy(() => import('./weetjes/App.tsx'))
 const GeldApp = lazy(() => import('./geld/App.tsx'))
-const Vandaag = lazy(() => import('./dag/Vandaag.tsx'))
+const Sessie = lazy(() => import('./dag/Sessie.tsx'))
+const Krant = lazy(() => import('./dag/Krant.tsx'))
+const LeesStuk = lazy(() => import('./dag/Lezen.tsx').then((m) => ({ default: m.LeesStuk })))
+const Vakken = lazy(() => import('./vakken/Vakken.tsx'))
+const Vak = lazy(() => import('./vakken/Vak.tsx'))
+const Voortgang = lazy(() => import('./vakken/Voortgang.tsx'))
 const Les = lazy(() => import('./dag/Les.tsx'))
 const Lezen = lazy(() => import('./dag/Lezen.tsx'))
 const ElektronicaApp = lazy(() => import('./elektronica/App.tsx'))
@@ -30,10 +36,18 @@ const KlussenApp = lazy(() => import('./klussen/App.tsx'))
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+      <Navigatie />
       <Suspense fallback={<div className="module-loading">Laden…</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/vandaag" element={<Vandaag />} />
+          <Route path="/" element={<Dag />} />
+          <Route path="/sessie" element={<Sessie />} />
+          <Route path="/krant" element={<Krant />} />
+          <Route path="/krant/:nr" element={<Lezen />} />
+          <Route path="/lezen/:m/:id" element={<LeesStuk />} />
+          <Route path="/vakken" element={<Vakken />} />
+          <Route path="/vakken/:id" element={<Vak />} />
+          <Route path="/voortgang" element={<Voortgang />} />
+          <Route path="/vandaag" element={<Navigate to="/" replace />} />
           <Route path="/vandaag/lees/:nr" element={<Lezen />} />
           <Route path="/vandaag/:moduleId" element={<Les />} />
           <Route path="/elektronica/*" element={<ElektronicaApp />} />

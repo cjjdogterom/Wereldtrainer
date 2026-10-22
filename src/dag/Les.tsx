@@ -22,6 +22,12 @@ function schud<T>(xs: T[]): T[] {
 
 export default function Les() {
   const { moduleId = '' } = useParams()
+  return <LesFlow moduleId={moduleId} />
+}
+
+// In de dagsessie (`sessie`) alleen de nieuwe stof: herhalen gebeurt daar
+// gemengd over alle vakken. `onKlaar` brengt je naar de volgende stap.
+export function LesFlow({ moduleId, sessie, onKlaar }: { moduleId: string; sessie?: boolean; onKlaar?: () => void }) {
   const m = MODULE_BY_ID[moduleId]
   const { g, vandaag, wijzig } = useGeheugen()
   const { leerstof, eenheden, les, voortgang } = useLesPlan(moduleId, g, vandaag, wijzig)
@@ -40,13 +46,13 @@ export default function Les() {
     return (
       <div className="ls2">
         <p>Dit onderwerp heeft (nog) geen dagles.</p>
-        <Link to="/vandaag">Terug</Link>
+        <Link to="/">Terug</Link>
       </div>
     )
   }
 
   const nieuwE = (les?.nieuw ?? []).map((id) => perId.get(id)).filter(Boolean) as Eenheid[]
-  const herhaalE = (les?.herhaal ?? []).map((id) => perId.get(id)).filter(Boolean) as Eenheid[]
+  const herhaalE = sessie ? [] : ((les?.herhaal ?? []).map((id) => perId.get(id)).filter(Boolean) as Eenheid[])
   // Kaarten tonen voor nieuwe stof en voor wat je de vorige keer niet kende.
   const teLeren = [...nieuwE, ...herhaalE.filter((e) => (stand?.items[e.id]?.box ?? 0) === 0)]
   const kaarten: { e: Eenheid; k: Kaart }[] = teLeren.flatMap((e) => e.kaarten.map((k) => ({ e, k })))
@@ -72,7 +78,7 @@ export default function Les() {
 
   function rondAf(goedPer: Record<number, boolean>) {
     if (!les) return
-    const ids = [...les.nieuw, ...les.herhaal]
+    const ids = [...les.nieuw, ...(sessie ? [] : les.herhaal)]
     const gehaald: string[] = []
     const gemist: string[] = []
     for (const id of ids) {
@@ -101,9 +107,11 @@ export default function Les() {
     <div className="ls2" style={stijl}>
       <header className={`ls2-kop lade-${m.id}`}>
         <div className="ls2-kop-binnen">
-          <Link to="/vandaag" className="ls2-terug">
-            <ArrowLeft size={16} /> Vandaag
-          </Link>
+          {!sessie && (
+            <Link to={`/vakken/${moduleId}`} className="ls2-terug">
+              <ArrowLeft size={16} /> {m.title}
+            </Link>
+          )}
           <h1>
             {m.icon} {m.title}
           </h1>
@@ -150,9 +158,14 @@ export default function Les() {
                 <h2>{eenheden && voortgang && voortgang.gekend + voortgang.bezig >= eenheden.length ? 'Alles gehad!' : 'Morgen gaat het verder'}</h2>
                 <p>
                   {leerstof.stapsgewijs
-                    ? 'De vorige les komt morgen terug. Pas als je die haalt, ga je door naar de volgende.'
-                    : 'Er is vandaag niets nieuws of te herhalen.'}
+                    ? 'De vorige les komt eerst terug in het herhalen. Pas als je die haalt, ga je door naar de volgende.'
+                    : 'Er is vandaag niets nieuws.'}
                 </p>
+                {onKlaar && (
+                  <button type="button" className="ls2-knop groot" onClick={onKlaar}>
+                    Verder <ArrowRight size={18} />
+                  </button>
+                )}
               </>
             ) : (
               <>
@@ -278,6 +291,7 @@ export default function Les() {
             antwoorden={antwoorden}
             eenheden={[...nieuwE, ...herhaalE]}
             oefenen={oefenen}
+            onKlaar={onKlaar}
             onOpnieuw={(ids) => {
               const terug = kaarten.findIndex((x) => ids.includes(x.e.id))
               setKaartIdx(Math.max(terug, 0))
@@ -297,12 +311,14 @@ function Uitslag({
   eenheden,
   oefenen,
   onOpnieuw,
+  onKlaar,
 }: {
   vragen: Vraag[]
   antwoorden: Record<number, boolean>
   eenheden: Eenheid[]
   oefenen: boolean
   onOpnieuw: (ids: string[]) => void
+  onKlaar?: () => void
 }) {
   const goed = Object.values(antwoorden).filter(Boolean).length
   const perE = eenheden.map((e) => {
@@ -332,9 +348,15 @@ function Uitslag({
             <RotateCcw size={16} /> Bekijk wat je miste nog eens
           </button>
         )}
-        <Link to="/vandaag" className="ls2-knop">
-          Terug naar vandaag <ArrowRight size={16} />
-        </Link>
+        {onKlaar ? (
+          <button type="button" className="ls2-knop" onClick={onKlaar}>
+            Verder <ArrowRight size={16} />
+          </button>
+        ) : (
+          <Link to="/" className="ls2-knop">
+            Terug naar vandaag <ArrowRight size={16} />
+          </Link>
+        )}
       </div>
     </section>
   )

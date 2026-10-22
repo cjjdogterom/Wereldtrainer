@@ -832,7 +832,7 @@ function App() {
       <aside className="sidebar" aria-label="Instellingen">
         {/* sidebar-head: always visible; on mobile = compact top bar */}
         <div className="sidebar-head">
-          <Link to="/" className="brand" title="Terug naar de leerapp">
+          <Link to="/vakken" className="brand" title="Terug naar de leerapp">
             <Globe2 size={28} aria-hidden="true" />
             <div>
               <h1>Wereldtrainer</h1>

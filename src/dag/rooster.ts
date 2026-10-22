@@ -29,6 +29,8 @@ export const KRANT_ROOSTER: Record<number, string[]> = {
 }
 
 export const KRANT = 'krant'
+export const HERHALEN = 'herhalen'
+export const SPAANS = 'spaans'
 
 export const DAGNAMEN = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag']
 
@@ -45,5 +47,5 @@ export function krantVoor(datum = new Date()): string[] {
 
 // Wat er vandaag af moet voor de reeks (Spaans telt apart via Poco a Poco).
 export function dagTaken(datum = new Date()): string[] {
-  return [...stampVoor(datum), KRANT]
+  return [HERHALEN, ...stampVoor(datum), KRANT]
 }

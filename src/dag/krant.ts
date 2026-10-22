@@ -29,8 +29,8 @@ export const RUBRIEKEN = Object.keys(RUBRIEK)
 // wordt dan opnieuw samengesteld (wat gelezen is blijft bewaard).
 const VERSIE = 3
 
-const sleutel = (m: string, id: string) => `${m}|${id}`
-const stukSleutel = (m: string, id: string) => `${m}|stuk:${id}`
+export const sleutel = (m: string, id: string) => `${m}|${id}`
+export const stukSleutel = (m: string, id: string) => `${m}|stuk:${id}`
 
 export type Bron = { eenheden: Eenheid[]; stukken: Stuk[] }
 
@@ -141,9 +141,26 @@ export function useKrant(g: Geheugen, vandaag: number, wijzigKrant: (f: (k: Kran
     return { units: a.ids.map((id) => bron.eenheden.find((e) => e.id === id)!).filter(Boolean) }
   }
 
+  // Een lang artikel lezen buiten de krant om (vanuit het leerpad van een vak).
+  function zetStuk(m: string, id: string, aan: boolean) {
+    const lijst = artikelen.map((a) => (a.m === m && a.stuk === id ? { ...a, gelezen: aan } : a))
+    const raakt = lijst.some((a, j) => a !== artikelen[j])
+    wijzigKrant(
+      (oud) => {
+        const gelezen = { ...oud.gelezen }
+        if (aan) gelezen[stukSleutel(m, id)] = Date.now()
+        else delete gelezen[stukSleutel(m, id)]
+        const arts = (oud.artikelen ?? []).map((a) => (a.m === m && a.stuk === id ? { ...a, gelezen: aan } : a))
+        return { ...oud, gelezen, artikelen: arts }
+      },
+      raakt ? basis > 0 && lijst.slice(0, basis).every((a) => a.gelezen) : undefined,
+    )
+  }
+
   return {
     artikelen,
     basis,
+    zetStuk,
     bronnen,
     zetGelezen,
     extra,

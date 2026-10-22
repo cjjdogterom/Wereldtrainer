@@ -63,7 +63,7 @@ export default function Layout({ children }: LayoutProps) {
             <Link to={VOETBAL_BASE} className="nav-link nav-link-quiet">
               Alle competities
             </Link>
-            <Link to="/" className="nav-link nav-link-quiet">
+            <Link to="/vakken" className="nav-link nav-link-quiet">
               Leerapp
             </Link>
           </nav>

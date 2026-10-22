@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Check, RotateCcw } from 'lucide-react'
-import TopBalk from '../ui/TopBalk'
 import StukView from '../krant/StukView'
+import { laadStukken, type Stuk } from '../krant/stukken'
 import KrantArtikel from './KrantArtikel'
-import { RUBRIEK, useKrant } from './krant'
+import { RUBRIEK, stukSleutel, useKrant } from './krant'
 import { useGeheugen } from './useLeer'
 import './krant.css'
 import './lezen.css'
@@ -13,7 +13,7 @@ export default function Lezen() {
   const { nr } = useParams()
   const i = Number(nr)
   const navigate = useNavigate()
-  const { g, vandaag, wijzigKrant, reeks } = useGeheugen()
+  const { g, vandaag, wijzigKrant } = useGeheugen()
   const krant = useKrant(g, vandaag, wijzigKrant)
   const a = krant.artikelen[i]
   const inhoud = a ? krant.inhoud(a) : null
@@ -27,9 +27,8 @@ export default function Lezen() {
 
   return (
     <div className="kr lz">
-      <TopBalk reeks={reeks} />
       <nav className="lz-nav">
-        <Link to="/vandaag">
+        <Link to="/krant">
           <ArrowLeft size={16} /> De krant
         </Link>
         {krant.artikelen.length > 0 && (
@@ -66,21 +65,70 @@ export default function Lezen() {
               className="lz-knop"
               onClick={() => {
                 krant.zetGelezen(i, true)
-                navigate(volgendeNr >= 0 ? `/vandaag/lees/${volgendeNr}` : '/vandaag')
+                navigate(volgendeNr >= 0 ? `/krant/${volgendeNr}` : '/krant')
               }}
             >
               <Check size={18} strokeWidth={3} /> Gelezen{volgendeNr >= 0 ? ', volgend artikel' : ', terug naar de krant'}
             </button>
           )}
           {a.gelezen && volgendeNr >= 0 && (
-            <Link to={`/vandaag/lees/${volgendeNr}`} className="lz-knop stil">
+            <Link to={`/krant/${volgendeNr}`} className="lz-knop stil">
               Volgend artikel <ArrowRight size={15} />
             </Link>
           )}
-          <Link to="/vandaag" className="lz-terug">
+          <Link to="/krant" className="lz-terug">
             Terug naar de krant
           </Link>
         </footer>
+      )}
+    </div>
+  )
+}
+
+// Een lang artikel direct uit het leerpad van een vak lezen.
+export function LeesStuk() {
+  const { m = '', id = '' } = useParams()
+  const { g, vandaag, wijzigKrant } = useGeheugen()
+  const krant = useKrant(g, vandaag, wijzigKrant)
+  const [stuk, setStuk] = useState<Stuk | null | undefined>(undefined)
+  const gelezen = !!g.krant?.gelezen[stukSleutel(m, id)]
+
+  useEffect(() => {
+    laadStukken(m).then((l) => setStuk(l.find((s) => s.id === id) ?? null))
+    window.scrollTo(0, 0)
+  }, [m, id])
+
+  return (
+    <div className="kr lz">
+      <nav className="lz-nav">
+        <Link to={`/vakken/${m}`}>
+          <ArrowLeft size={16} /> {RUBRIEK[m]?.naam ?? m}
+        </Link>
+      </nav>
+      {stuk === undefined ? (
+        <div className="lz-laden">Artikel wordt geladen…</div>
+      ) : stuk === null ? (
+        <div className="lz-laden">Dit artikel bestaat niet (meer).</div>
+      ) : (
+        <>
+          <StukView stuk={stuk} rubriek={m} rubriekNaam={RUBRIEK[m]?.naam ?? m} />
+          <footer className="lz-einde">
+            {gelezen ? (
+              <>
+                <p className="lz-gelezen">
+                  <Check size={18} strokeWidth={3} /> Gelezen
+                </p>
+                <button type="button" className="lz-knop stil" onClick={() => krant.zetStuk(m, id, false)}>
+                  <RotateCcw size={15} /> Toch nog niet
+                </button>
+              </>
+            ) : (
+              <Link to={`/vakken/${m}`} className="lz-knop" onClick={() => krant.zetStuk(m, id, true)}>
+                <Check size={18} strokeWidth={3} /> Gelezen, terug naar het leerpad
+              </Link>
+            )}
+          </footer>
+        </>
       )}
     </div>
   )

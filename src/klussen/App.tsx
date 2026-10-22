@@ -41,7 +41,7 @@ export default function KlussenApp() {
     <div className="km-app kl-app">
       <header className="kl-bord">
         <div className="kl-bord-binnen">
-          <Link to="/" className="kl-terug">
+          <Link to="/vakken" className="kl-terug">
             <ArrowLeft size={16} /> Wereldtrainer
           </Link>
           <div className="kl-titel">

@@ -220,3 +220,34 @@ export function pocoVandaag(vandaag: number): { klaar: number; totaal: number } 
     return { klaar: 0, totaal: 30 }
   }
 }
+
+// Eén item herhalen (gemengde herhaalronde): goed → bakje verder, fout →
+// terug naar bakje 0 en morgen opnieuw. De les van vandaag blijft staan.
+export function herhaal(stand: ModuleStand | undefined, id: string, goed: boolean, vandaag: number): ModuleStand {
+  const items = { ...(stand?.items ?? {}) }
+  const oud = items[id]
+  const nu = Date.now()
+  if (goed) {
+    const box = Math.min((oud?.box ?? 0) + 1, MAX_BOX)
+    items[id] = { box, due: vandaag + INTERVAL[box], laatst: nu, goed: (oud?.goed ?? 0) + 1, fout: oud?.fout ?? 0 }
+  } else {
+    items[id] = { box: 0, due: vandaag + 1, laatst: nu, goed: oud?.goed ?? 0, fout: (oud?.fout ?? 0) + 1 }
+  }
+  return { items, les: stand?.les }
+}
+
+// Wat er vandaag in de gemengde herhaalronde komt: per vak de items die aan
+// de beurt zijn, om en om, het langst achterstallige eerst.
+export function herhaalLijst(g: Geheugen, modules: string[], vandaag: number, max = 20): { m: string; id: string }[] {
+  const perVak = modules.map((m) =>
+    Object.entries(g.modules[m]?.items ?? {})
+      .filter(([, s]) => s.due <= vandaag)
+      .sort((a, b) => a[1].due - b[1].due || a[1].box - b[1].box)
+      .map(([id]) => ({ m, id })),
+  )
+  const uit: { m: string; id: string }[] = []
+  for (let i = 0; uit.length < max && perVak.some((l) => l.length > i); i += 1) {
+    for (const l of perVak) if (l[i] && uit.length < max) uit.push(l[i])
+  }
+  return uit
+}

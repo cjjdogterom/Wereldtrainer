@@ -1,7 +1,7 @@
 @import '../ui/laden.css';
 
 .sp-schil {
-  height: 100svh;
+  height: calc(100svh - var(--nav-h, 0px));
   display: flex;
   flex-direction: column;
   background: #fbfaf7;

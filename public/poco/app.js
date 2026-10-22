@@ -802,4 +802,6 @@ document.addEventListener("visibilitychange", () => { if(document.visibilityStat
 setSync("local");
 render();
 initSync();
+// Vanuit de dagsessie van de Wereldtrainer meteen naar de woorden van de dag.
+if(location.hash==="#woorden") startDailyWords();
 })();

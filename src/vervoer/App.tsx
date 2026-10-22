@@ -111,7 +111,7 @@ export default function VervoerApp() {
     <div className="km-app vt-app">
       <header className="vt-paneel">
         <div className="vt-paneel-binnen">
-          <Link to="/" className="vt-terug">
+          <Link to="/vakken" className="vt-terug">
             <ArrowLeft size={16} /> Wereldtrainer
           </Link>
           <div className="vt-titel">

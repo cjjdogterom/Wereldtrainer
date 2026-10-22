@@ -9,7 +9,7 @@ export default function TrainerPicker() {
   return (
     <div className="trainers-page">
       <header className="trainers-hero">
-        <Link to="/" className="trainers-back">← Leerapp</Link>
+        <Link to="/vakken" className="trainers-back">← Leerapp</Link>
         <p className="trainers-eyebrow">Voetbalwinnaars</p>
         <h1>Kies je competitie</h1>
         <p className="trainers-intro">

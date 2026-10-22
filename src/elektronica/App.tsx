@@ -60,7 +60,7 @@ export default function ElektronicaApp() {
     <div className="km-app ek-app">
       <header className="ek-kop lade-elektronica">
         <div className="ek-kop-binnen">
-          <Link to="/" className="ek-terug">
+          <Link to="/vakken" className="ek-terug">
             <ArrowLeft size={16} /> Wereldtrainer
           </Link>
           <h1>Elektronica</h1>

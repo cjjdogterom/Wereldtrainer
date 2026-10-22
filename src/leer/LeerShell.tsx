@@ -52,7 +52,7 @@ export default function LeerShell({
         <>
           <header className={`km-wereld lade-${wereld}`}>
             <div className="km-wereld-binnen">
-              <Link to="/" className="km-terug">
+              <Link to="/vakken" className="km-terug">
                 <ArrowLeft size={16} /> Wereldtrainer
               </Link>
               <h1 className="km-wereld-titel">{title}</h1>
@@ -76,7 +76,7 @@ export default function LeerShell({
             <div className="km-nav-rij">
               {nav}
               <span className="km-nav-sep" aria-hidden="true" />
-              <Link to="/" className="km-tab km-tab-quiet">Wereldtrainer</Link>
+              <Link to="/vakken" className="km-tab km-tab-quiet">Wereldtrainer</Link>
             </div>
           </div>
         </header>

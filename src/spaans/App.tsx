@@ -8,11 +8,11 @@ export default function SpaansApp() {
   return (
     <div className="sp-schil">
       <nav className="sp-balk lade-spaans" aria-label="Wereldtrainer">
-        <Link to="/" className="sp-terug">
-          <ArrowLeft size={17} /> Wereldtrainer
+        <Link to="/vakken" className="sp-terug">
+          <ArrowLeft size={17} /> Vakken
         </Link>
-        <Link to="/vandaag" className="sp-terug">
-          <CalendarCheck size={17} /> Vandaag
+        <Link to="/" className="sp-terug">
+          <CalendarCheck size={17} /> Je dag
         </Link>
       </nav>
       <iframe className="sp-frame" src="/poco/index.html" title="Poco a Poco — Spaans leren" />
